@@ -67,6 +67,34 @@ for pg in pages:
 
 print("검사한 내부 링크:", len(checked))
 
+# ---------------------------------------------------------------- 404 페이지
+# Cloudflare Pages 는 없는 주소에 dist/404.html 을 돌려주고 주소창 경로는 그대로 둔다.
+# 따라서 이 파일의 링크·에셋은 상대경로가 아니라 사이트 절대경로(/...)여야 한다.
+p404 = DIST / "404.html"
+if not p404.exists():
+    fails.append("dist/404.html 없음 (build_site.py 재실행 필요)")
+else:
+    h404 = p404.read_text()
+    if "noindex" not in h404:
+        fails.append("404.html: robots noindex 아님")
+    if "<link rel=\"canonical\"" in h404:
+        fails.append("404.html: canonical 태그가 있음(색인 대상 아님)")
+    for name in ("수원시 주차장 목록", "홈으로"):
+        if name not in h404:
+            fails.append(f"404.html: '{name}' 링크 없음")
+    for href in re.findall(r'(?:href|src)="([^"#]+)"', h404):
+        if href.startswith(("http", "mailto:", "tel:", "data:")):
+            continue
+        if not href.startswith("/"):
+            fails.append(f"404.html: 절대경로 아님 {href}")
+            continue
+        target = DIST / href.lstrip("/")
+        if target.is_dir():
+            target = target / "index.html"
+        if not target.exists():
+            fails.append(f"404.html → 깨진 링크 {href}")
+    print("404.html 검사 완료 (절대경로 링크·noindex)")
+
 # ---------------------------------------------------------------- 슬러그(전국 확장)
 sys.path.insert(0, str(BASE / "scripts"))
 from build_site import (DONG_SLUG, GU_SLUG, base_slug, dong_slug,  # noqa: E402

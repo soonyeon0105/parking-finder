@@ -273,6 +273,20 @@ def is_free_lot(lot) -> bool:
     return lot["fee"]["type"] == "무료" or lot["free_days"]["sat"] or lot["free_days"]["sun"]
 
 
+def capa_note(lot) -> str:
+    """구획수(표준데이터 등록면수)와 실시간 스냅샷 총면수가 다를 때의 짧은 설명.
+
+    두 값은 기준이 다르다. 예: 매탄4지구는 구획 60면으로 등록됐지만
+    스냅샷 합계는 58면이다. 두 숫자가 한 카드에 같이 나오면 모순처럼 보이므로
+    차이를 숫자로 밝힌다.
+    """
+    rt = lot.get("realtime") or {}
+    spaces, total = lot.get("spaces") or 0, rt.get("total") or 0
+    if not (spaces and total) or spaces == total:
+        return ""
+    return f"등록 구획 {spaces:,}면과 {abs(total - spaces):,}면 차이"
+
+
 def stats_for(lots):
     paid = [l["fee"]["base_fee"] for l in lots
             if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
@@ -287,6 +301,7 @@ def stats_for(lots):
         "closed_sat": len([l for l in lots if not l["oper"]["sat"]]),
         "closed_sun": len([l for l in lots if not l["oper"]["sun"]]),
         "live": len([l for l in lots if l.get("realtime")]),
+        "capa_gap": len([l for l in lots if capa_note(l)]),
     }
 
 
@@ -339,17 +354,27 @@ def script_jsonld(objs):
 
 
 # ------------------------------------------------------------------ layout
-def layout(*, title, description, path, body, crumbs, jsonld, nav_active, extra_head=""):
-    canonical = SITE_BASE + path
+def layout(*, title, description, path, body, crumbs, jsonld, nav_active, extra_head="",
+           absolute_links=False, robots="index,follow,max-image-preview:large", canonical=None):
+    """공통 껍데기.
+
+    absolute_links=True 이면 링크를 사이트 절대경로(/parking/...)로 쓴다. 404.html 처럼
+    요청 주소가 그대로 유지되는 페이지는 상대경로가 어긋나므로 반드시 절대경로여야 한다.
+    """
+    canonical = SITE_BASE + path if canonical is None else canonical
+    url = (lambda t: "/" + t.lstrip("/")) if absolute_links else (lambda t: rel(path, t))
+    # canonical·og:url 은 색인하지 않는 페이지(404)에서는 비운다
+    canonical_tag = f'<link rel="canonical" href="{canonical}">\n' if canonical else ""
+    og_url_tag = f'<meta property="og:url" content="{canonical}">\n' if canonical else ""
     nav = "".join(
-        f'<a href="{rel(path, f"/parking/gyeonggi/{gu_slug(g)}/")}"'
+        f'<a href="{url(f"/parking/gyeonggi/{gu_slug(g)}/")}"'
         f'{" class=on" if nav_active == g else ""}>{g}</a>'
         for g in GU_ORDER
     )
-    nav = f'<a href="{rel(path, "/parking/gyeonggi/suwon/")}"' + \
+    nav = f'<a href="{url("/parking/gyeonggi/suwon/")}"' + \
           (' class="on"' if nav_active == "수원시" else '') + '>수원시 전체</a>' + nav
     crumb_html = '<nav aria-label="현재 위치"><ol class="crumbs">' + "".join(
-        f'<li><a href="{rel(path, p)}">{esc(n)}</a></li>' if p else f"<li>{esc(n)}</li>"
+        f'<li><a href="{url(p)}">{esc(n)}</a></li>' if p else f"<li>{esc(n)}</li>"
         for n, p in crumbs) + "</ol></nav>"
 
     return f"""<!DOCTYPE html>
@@ -359,21 +384,19 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, extra_
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="canonical" href="{canonical}">
-<meta property="og:type" content="website">
+{canonical_tag}<meta property="og:type" content="website">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
-<meta property="og:url" content="{canonical}">
-<meta name="robots" content="index,follow,max-image-preview:large">
+{og_url_tag}<meta name="robots" content="{robots}">
 <meta name="generator" content="parking-finder static builder">
 {extra_head}
-<link rel="stylesheet" href="{rel(path, '/assets/style.css')}">
+<link rel="stylesheet" href="{url('/assets/style.css')}">
 {script_jsonld(jsonld)}
 </head>
 <body>
 <header class="site-head">
   <div class="inner">
-    <a class="brand" href="{rel(path, '/')}">
+    <a class="brand" href="{url('/')}">
       <span class="dot">P</span>
       <span>{SITE_NAME}<small>공영주차장 요금·무료 개방 계산</small></span>
     </a>
@@ -388,10 +411,10 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, extra_
     <p><strong>{SITE_NAME}</strong>는 공공데이터포털 <a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">전국주차장정보표준데이터</a>(기준일 2026-04-16)와 <a href="https://parking.suwonudc.co.kr/parking/parkingMap" rel="nofollow noopener" target="_blank">수원도시공사 공영주차장 안내</a>,
     <a href="https://www.data.go.kr/data/15157772/fileData.do" rel="nofollow noopener" target="_blank">경기도 수원시 공영노외주차장현황</a>(기준일 2026-08-01)을 결합해 만든 참고용 정보입니다. 실제 요금·운영시간은 현장에서 확인하세요.</p>
     <p>생성 시각 {esc(BUILD_TS)} · 페이지 내 잔여면수는 조회 시점 스냅샷입니다.</p>
-    <p><a href="{rel(path, '/parking/gyeonggi/suwon/')}">수원시 전체 보기</a> · <a href="{rel(path, '/sitemap.xml')}">사이트맵</a></p>
+    <p><a href="{url('/parking/gyeonggi/suwon/')}">수원시 전체 보기</a> · <a href="{url('/sitemap.xml')}">사이트맵</a></p>
   </div>
 </footer>
-<script src="{rel(path, '/assets/app.js')}" defer></script>
+<script src="{url('/assets/app.js')}" defer></script>
 </body>
 </html>
 """
@@ -513,8 +536,10 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     if lot["fee"].get("pay"):
         lines.append(f'<p class="fee-line">결제: {esc(lot["fee"]["pay"])}</p>')
     if lot.get("realtime"):
-        lines.append(f'<p class="fee-line">실시간 잔여 {lot["realtime"]["free"]}면 / '
-                     f'{lot["realtime"]["total"]}면 · {esc(SNAPSHOT_TS)} 조회</p>')
+        rt = lot["realtime"]
+        gap = capa_note(lot)
+        lines.append(f'<p class="fee-line">실시간 잔여 {rt["free"]}면 / {rt["total"]}면 · '
+                     f'{esc(SNAPSHOT_TS)} 조회' + (f' · {esc(gap)}' if gap else '') + '</p>')
     fn = free_note(lot)
     if fn:
         lines.append(f'<p class="note-line">무료: {esc(fn)}</p>')
@@ -591,6 +616,11 @@ def build_district(d, lots, data):
         f'<td class="num">{sum(1 for x in v if is_free_lot(x))}</td></tr>'
         for k, v in sorted(dongs.items(), key=lambda kv: -len(kv[1])))
 
+    # 구획수(등록면수) vs 스냅샷 총면수 차이 — 이 구에서 실제로 다른 곳만 예시로 든다
+    gap = [l for l in lots if capa_note(l)]
+    gap_line = (f"기준이 달라 {len(gap)}곳에서 숫자가 다르며(예: {esc(gap[0]['name'])} 구획 "
+                f"{gap[0]['spaces']:,}면 ↔ 스냅샷 {gap[0]['realtime']['total']:,}면), 카드에 차이를 함께 적었습니다."
+                if gap else "이 구 주차장은 두 값이 모두 일치합니다.")
     qa = [
         (f"{gu} 공영주차장은 모두 몇 곳인가요?",
          f"공공데이터포털 전국주차장정보표준데이터와 수원도시공사 안내 목록을 합쳐 {s['n']}곳이 등록되어 있습니다. "
@@ -656,6 +686,7 @@ def build_district(d, lots, data):
   <ul>
     <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(수원시 {data['quality']['원자료_수원시행수']}행, 기준일 2026-04-16)</li>
     <li><b>실시간 잔여면수·구획 구성</b>: 수원도시공사 공영주차장 안내 지도({esc(SNAPSHOT_TS)} 조회 스냅샷)</li>
+    <li><b>구획수와 스냅샷 총면수</b>: 구획수는 표준데이터 <b>등록면수</b>, 잔여면수 옆 총면수는 안내 지도 <b>스냅샷 합계</b>입니다. {gap_line}</li>
     <li><b>주소·면수 보강</b>: 경기도 수원시 공영노외주차장현황(기준일 2026-08-01)</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>동 위치가 지번주소에 없는 주차장은 이름이나 좌표 최근접으로 추정했고, 카드에 ‘동 위치 추정’으로 표시했습니다.</li>
@@ -886,13 +917,14 @@ def build_landing(data, lots):
     <li><b>요일별 무료 개방</b>: 평일·토요일·일요일·공휴일 중 언제 무료인지, 언제 문을 닫는지</li>
     <li><b>내 조건 요금</b>: 30분~24시간 슬라이더로 계산, 1일권 상한 자동 적용</li>
     <li><b>차량 감면</b>: 경차·저공해·다자녀 50%, 국가유공자·장애인 80% 가정 계산</li>
-    <li><b>실시간 잔여면수</b>: 수원도시공사 안내 지도 기준(조회 시점 스냅샷)</li>
+    <li><b>실시간 잔여면수</b>: 수원도시공사 안내 지도 기준(조회 시점 스냅샷) · 등록 구획수와 스냅샷 총면수가 다른 곳은 차이를 함께 표시</li>
     <li><b>지도 연결</b>: 카카오맵·네이버지도로 바로 이동</li>
   </ul>
 </div>
 <h2>데이터</h2>
 <p class="lede">공공데이터포털 전국주차장정보표준데이터(수원시 {data['quality']['원자료_수원시행수']}행, 기준일 2026-04-16),
 수원도시공사 공영주차장 안내 지도({esc(SNAPSHOT_TS)} 조회), 경기도 수원시 공영노외주차장현황(기준일 2026-08-01)을 결합했습니다.
+구획수(표준데이터 등록면수)와 잔여면수 옆의 스냅샷 총면수는 기준이 달라 {s['capa_gap']}곳에서 차이가 있으며, 해당 카드에 차이를 함께 표시했습니다.
 요금과 운영시간은 현장과 다를 수 있으니 방문 전에 확인하세요.</p>
 <p><a class="btn solid" href="parking/gyeonggi/suwon/">수원시 전체 주차장 보기 →</a></p>
 """
@@ -901,6 +933,46 @@ def build_landing(data, lots):
         description="수원시 공영주차장 요금을 요일·시간·감면 조건으로 바로 계산하고, "
                     "주말·공휴일 무료 개방 주차장과 실시간 잔여면수를 확인하세요.",
         path=path, body=body, crumbs=[("홈", "")], nav_active="", jsonld=[])
+
+
+# ------------------------------------------------------------------ 404
+def build_404(data, lots):
+    """없는 주소로 들어왔을 때 보여 줄 404 페이지 (dist/404.html).
+
+    Cloudflare Pages 는 매칭되는 파일이 없으면 dist/404.html 을 그대로 돌려주고
+    주소창의 경로는 바꾸지 않는다. 따라서 깊이를 알 수 없어 상대경로(../)를 쓸 수 없고,
+    이 페이지 안의 링크·에셋은 모두 사이트 절대경로(/...)로 만든다.
+    검색 결과에 남지 않도록 noindex 로 둔다.
+    """
+    s = stats_for(lots)
+    cards = "".join(
+        f'<a class="link-card" href="/parking/gyeonggi/{gu_slug(g)}/">\n'
+        f'  <span class="t">{g}<span class="go">{stats_for([l for l in lots if l["gu"] == g])["n"]}곳 →</span></span>\n'
+        f'  <span class="d">주차요금 계산 · 주말 무료 개방 · 동별 목록</span>\n</a>' for g in GU_ORDER)
+    body = f"""
+<h1>페이지를 찾을 수 없습니다 (404)</h1>
+<p class="lede">주소가 바뀌었거나 없는 경로입니다. 아래에서 원하는 주차장을 다시 찾아보세요.</p>
+<p>
+  <a class="btn solid" href="/">홈으로</a>
+  <a class="btn" href="/parking/gyeonggi/suwon/">수원시 주차장 목록</a>
+</p>
+<h2>구별로 찾기</h2>
+<div class="grid-2">{cards}</div>
+<h2>이런 걸 확인할 수 있어요</h2>
+<div class="note-box">
+  <ul>
+    <li><b>내 조건 요금</b>: 요일·시간·감면을 고르면 30분~24시간 예상요금을 바로 계산</li>
+    <li><b>주말·공휴일 무료 개방</b>: 언제 무료로 열리는지, 언제 문을 닫는지</li>
+    <li><b>실시간 잔여면수</b>: {esc(SNAPSHOT_TS)} 조회 스냅샷 기준</li>
+  </ul>
+</div>
+<p class="updated">수원시 공영주차장 {s['n']}곳 · 구획 {s['spaces']:,}면</p>
+"""
+    return layout(
+        title=f"페이지를 찾을 수 없습니다 (404) | {SITE_NAME}",
+        description="요청한 주소의 페이지가 없습니다. 공영주차장 파인더에서 수원시 공영주차장 요금과 무료 개방 정보를 확인하세요.",
+        path="/404.html", body=body, crumbs=[("홈", "/")], nav_active="", jsonld=[],
+        absolute_links=True, robots="noindex,follow", canonical="")
 
 
 # ------------------------------------------------------------------ main
@@ -944,6 +1016,9 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html_text, encoding="utf-8")
 
+    # 없는 주소용 404 (사이트맵에는 넣지 않는다)
+    (DIST / "404.html").write_text(build_404(data, lots), encoding="utf-8")
+
     urls = "\n".join(
         f"  <url><loc>{SITE_BASE}{p}</loc><changefreq>weekly</changefreq>"
         f"<priority>{'1.0' if p == '/' else ('0.9' if p.count('/') <= 4 else '0.7')}</priority></url>"
@@ -952,7 +1027,7 @@ def main():
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\n")
 
-    print(f"생성 완료: {len(pages)}페이지 · dist/")
+    print(f"생성 완료: {len(pages)}페이지 + 404.html · dist/")
     for p, _ in pages:
         print("  ", p)
 

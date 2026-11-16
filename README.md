@@ -1,7 +1,7 @@
 # 공영주차장 파인더 — 수원시
 
 공공데이터로 만든 **공영주차장 요금 계산 + 무료 개방 파인더**입니다.
-수원시 4개 구 72곳을 정적 HTML 39페이지 + 인터랙티브 JavaScript 계산기로 제공하며,
+수원시 4개 구 72곳을 정적 HTML 39페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며,
 서버·DB·외부 API 없이 동작합니다. 페이지 경로는 시·도 / 시·군 / 구 / 동 단위로 나뉘어 있어
 다른 지자체를 같은 파이프라인에 그대로 추가할 수 있습니다.
 
@@ -10,6 +10,7 @@
 - 구 허브(계산기): `dist/parking/gyeonggi/suwon-yeongtong/index.html` (권선·팔달·장안 동일 구조)
 - 주말·공휴일 무료 개방: `dist/parking/gyeonggi/suwon-yeongtong/weekend-free/index.html`
 - 행정동 상세: `dist/parking/gyeonggi/suwon-yeongtong/maetan-dong/index.html`
+- 없는 주소(소프트 404 방지): `dist/404.html`
 
 ## 데이터 (모두 실제 공개 데이터)
 
@@ -33,7 +34,7 @@
 
 ```bash
 python3 scripts/prepare_data.py     # 원자료 정제·병합 → data/suwon_parking.json, scripts/summary.md
-python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 39페이지 + sitemap.xml, robots.txt
+python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 39페이지 + 404.html + sitemap.xml, robots.txt
 python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ```
 
@@ -41,11 +42,14 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 모두 이 값 기준으로 생성되므로, 다른 도메인에 배포할 때는 `--base https://내도메인`만 바꿔 다시 빌드하면 됩니다.
 
 `dist/`는 상대경로로 만들어져 **파일을 그대로 열어도**(file://) 스타일과 계산기가 동작합니다.
+유일한 예외가 `dist/404.html`입니다. 이 페이지는 주소창의 경로가 그대로 유지된 채 표시되므로
+(Cloudflare Pages가 없는 주소에 이 파일을 돌려줌) 상대경로를 쓸 수 없어 링크·에셋을 사이트
+절대경로(`/assets/...`, `/parking/...`)로 생성하고 `noindex`로 둡니다. 빌드할 때마다 자동 생성됩니다.
 
 ## 검증 스크립트
 
 ```bash
-python3 scripts/qa_check.py        # JSON-LD 파싱·내부 링크 345건·계산 규칙 표본·슬러그/canonical 검사
+python3 scripts/qa_check.py        # JSON-LD 파싱·내부 링크 345건·404.html 절대링크/noindex·계산 규칙 표본·슬러그/canonical 검사
 python3 scripts/verify_site.py     # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py # JS 계산 결과 vs Python 규칙 전수 교차검증(3,240건)
 ```
@@ -89,16 +93,17 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 
 ```
 .
+├── LICENSE                       # MIT (코드) · 데이터는 원자료 라이선스를 따름
 ├── assets/style.css, app.js      # 모바일 퍼스트 CSS · 계산기
 ├── data/raw/                     # 원본 3종(가공 없음)
 ├── data/suwon_parking.json       # 정제 결과(메타·72곳·품질 리포트)
 ├── scripts/prepare_data.py       # 정제·병합·품질 점검
 ├── scripts/build_site.py         # 정적 페이지 생성기(--base 로 도메인 지정, 슬러그 자동 생성)
 ├── scripts/summary.md|json       # 정제 요약(구·동·무료·정합성)
-├── scripts/qa_check.py           # JSON-LD·링크·계산·슬러그 검사
+├── scripts/qa_check.py           # JSON-LD·링크·404·계산·슬러그 검사
 ├── scripts/verify_site.py        # 브라우저 검증(+스크린샷)
 ├── scripts/crosscheck_calc.py    # JS↔Python 계산 교차검증
-└── dist/                         # 배포 산출물 39페이지
+└── dist/                         # 배포 산출물 39페이지 + 404.html
 ```
 
 ## 배포 (Cloudflare Pages)
@@ -107,11 +112,22 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 - Output directory: `dist`
 - 빌드 산출물을 저장소에 함께 커밋해 두었으므로 별도 빌드 단계 없이 바로 배포됩니다.
   데이터를 갱신할 때만 로컬에서 `build_site.py --base https://parking.9welfare.com`을 다시 돌려 `dist/`를 커밋합니다.
+- `dist/404.html`이 있으므로 없는 주소는 상태코드 404와 함께 이 페이지가 표시됩니다(소프트 404 방지).
+
+## 라이선스
+
+- 코드·생성 스크립트: [MIT](LICENSE) — Copyright (c) 2026 soonyeon0105 (공영주차장 파인더)
+- 데이터: 원자료별 라이선스를 그대로 따릅니다. 표준데이터·공영노외주차장현황은 공공데이터포털 이용조건,
+  수원도시공사 안내 지도는 공개 웹페이지 참고용입니다(`data/suwon_parking.json`의 `meta.sources[].license`).
 
 ## 알려진 한계
 
 - 표준데이터 요금 필드는 기관 입력값이라 '최초 N분 무료' 같은 현장 정책이 빠져 있을 수 있습니다(원자료 기준일 표시).
 - 실시간 잔여면수는 **조회 시점 스냅샷**입니다. 실시간 서비스로 만들려면 수원도시공사/경기도교통정보센터 API 연동과 주기적 재빌드가 필요합니다.
+- **구획수와 스냅샷 총면수는 기준이 다릅니다.** 구획수는 표준데이터의 등록면수, 실시간 잔여면수 옆의 총면수는
+  수원도시공사 안내 지도의 스냅샷 합계입니다. 17곳에서 두 값이 다르며(예: 매탄4지구 구획 60면 ↔ 스냅샷 58면,
+  광교 1동 공영 구획 35면 ↔ 스냅샷 50면), 카드에 차이를 숫자로 함께 적고 구 페이지의 ‘데이터 출처와 한계’에도
+  설명을 두었습니다(`scripts/qa_check.py`·`crosscheck_calc.py`는 이 표기와 무관하게 통과).
 - 표준데이터의 주차장관리번호가 7쌍 중복되어 내부 식별자는 순번으로 대체했습니다(`scripts/summary.md` 참고).
 - 실시간 목록에만 있는 13곳은 요금·운영시간이 없어 '요금 정보 미상'으로 표시하고, 주소가 없으면 '동 인근(좌표 기준)'으로 안내합니다.
 - 로마자 자동 생성은 음운 변화(경음화·구개음화 등)를 모두 반영하지 않는 간략 규칙입니다. 특정 지역의 공식 표기가
