@@ -68,7 +68,7 @@
 
   <div class="field">
     <span class="label">차량 감면(가정)</span>
-    <div class="seg cols-3" id="discount-group" role="group" aria-label="차량 감면"><button type="button" class="seg-btn" data-rate="0.0" data-exempt="0" aria-pressed="true">일반 차량</button><button type="button" class="seg-btn" data-rate="0.5" data-exempt="0" aria-pressed="false">경차·저공해·다자녀 50%</button><button type="button" class="seg-btn" data-rate="0.8" data-exempt="0" aria-pressed="false">국가유공자·장애인 80%</button></div>
+    <div class="seg cols-2" id="discount-group" role="group" aria-label="차량 감면"><button type="button" class="seg-btn" data-rate="0.0" data-exempt="0" aria-pressed="true">일반 차량</button><button type="button" class="seg-btn" data-rate="0.5" data-exempt="0" aria-pressed="false">경차·저공해·다자녀·임산부 50%<small>경차(1,000cc 미만)·저공해 2·3종·다자녀·임산부·병역명문가 등</small></button><button type="button" class="seg-btn" data-rate="0.5" data-exempt="120" aria-pressed="false">경증장애인·저공해1종 2시간 면제 후 50%<small>경증장애인(4~6급)·저공해 1종, 2시간까지 면제</small></button><button type="button" class="seg-btn" data-rate="0.5" data-exempt="1440" aria-pressed="false">중증장애인·국가유공자 24시간 면제 후 50%<small>중증장애인(1~3급)·국가유공자, 24시간까지 면제</small></button><button type="button" class="seg-btn" data-rate="1.0" data-exempt="0" aria-pressed="false">모범·유공납세자 100%<small>모범·유공·성실납세자 인증서 소지 차량(1년)</small></button></div>
   </div>
 
   <div class="calc-result" id="calc-summary">계산 중…</div>
@@ -78,7 +78,7 @@
   <ul>
     <li>기본시간 이내는 기본요금, 초과분은 <b>추가단위시간마다 올림</b>해서 더합니다.</li>
     <li>1일 주차권 요금이 있으면 그 금액을 상한으로 적용합니다(예: 24시간 7,000원).</li>
-    <li>차량 감면은 50%·80%를 <b>가정값</b>으로 계산합니다. 수원시 조례의 실제 감면(국가유공자·중증장애인 24시간 전액면제, 임산부·소상공인 50% 등)은 현장 확인이 필요합니다.</li>
+    <li>차량 감면은 <b>수원시 조례(2025-01-01 시행)</b> 기준입니다. 경차·저공해 2·3종·다자녀·임산부 50%, 경증장애인·저공해 1종 2시간 면제 후 50%, 중증장애인·국가유공자 24시간 면제 후 50%, 모범·유공납세자 100%이고 감면은 한 가지만 적용됩니다(현장 확인).</li>
     <li>요금 필드가 비어 있는 주차장은 0원으로 표시하지 않고 <b>‘요금 정보 미상(현장 확인)’</b>으로 구분합니다.</li>
   </ul>
 </section>
@@ -422,6 +422,7 @@
     <li><b>실시간 잔여면수·구획 구성</b>: 수원도시공사 공영주차장 안내 지도(2026-11-16 19:11 조회 스냅샷)</li>
     <li><b>구획수와 스냅샷 총면수</b>: 구획수는 표준데이터 <b>등록면수</b>, 잔여면수 옆 총면수는 안내 지도 <b>스냅샷 합계</b>입니다. 기준이 달라 7곳에서 숫자가 다르며(예: 화성박물관,팔달구청 구획 340면 ↔ 스냅샷 368면), 카드에 차이를 함께 적었습니다.</li>
     <li><b>주소·면수 보강</b>: 경기도 수원시 공영노외주차장현황(기준일 2026-08-01)</li>
+    <li><b>요금 감면</b>: <a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1985187" rel="nofollow noopener" target="_blank">수원시 주차장 조례</a>(2024-11-14 개정, 2025-01-01 시행)와 수원도시공사 요금 감면 안내(2026-11-16 확인)</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>동 위치가 지번주소에 없는 주차장은 이름이나 좌표 최근접으로 추정했고, 카드에 ‘동 위치 추정’으로 표시했습니다.</li>
   </ul>
@@ -432,7 +433,7 @@
   <div class="inner">
     <p><strong>공영주차장 파인더</strong>는 공공데이터포털 <a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">전국주차장정보표준데이터</a>(기준일 2026-04-16)와 <a href="https://parking.suwonudc.co.kr/parking/parkingMap" rel="nofollow noopener" target="_blank">수원도시공사 공영주차장 안내</a>,
     <a href="https://www.data.go.kr/data/15157772/fileData.do" rel="nofollow noopener" target="_blank">경기도 수원시 공영노외주차장현황</a>(기준일 2026-08-01)을 결합해 만든 참고용 정보입니다. 실제 요금·운영시간은 현장에서 확인하세요.</p>
-    <p>생성 시각 2026-11-16 22:37 · 페이지 내 잔여면수는 조회 시점 스냅샷입니다.</p>
+    <p>생성 시각 2026-11-16 22:55 · 페이지 내 잔여면수는 조회 시점 스냅샷입니다.</p>
     <p><a href="../../../parking/gyeonggi/suwon/">수원시 전체 보기</a> · <a href="../../../sitemap.xml">사이트맵</a></p>
   </div>
 </footer>
