@@ -409,25 +409,34 @@ for city in CITIES:
 # 3) 도시 간 자료 혼입 금지: 도시 페이지에 다른 도시의 자료/문구가 없어야 한다.
 MIX = {
     "seongnam": ("수원", "수원도시공사", "영통구", "권선구", "용인", "용인도시공사",
-                 "안양", "안양도시공사", "만안구", "동안구", "평택", "평택도시공사"),
+                 "안양", "안양도시공사", "만안구", "동안구", "평택", "평택도시공사",
+                 "부천", "부천도시공사", "원미구", "소사구", "오정구"),
     "yongin": ("수원", "수원도시공사", "성남", "성남도시개발공사", "영통구", "권선구", "수정구", "중원구", "분당구",
-               "안양", "안양도시공사", "만안구", "동안구", "평택", "평택도시공사"),
+               "안양", "안양도시공사", "만안구", "동안구", "평택", "평택도시공사",
+               "부천", "부천도시공사", "원미구", "소사구", "오정구"),
     # 화성시는 2026-03-01 4개 구(만세·효행·병점·동탄) 체제 — 다른 도시의 구·자료·문구가 섞이면 실패
     "hwaseong": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
                  "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
                  "처인구", "기흥구", "수지구", "안양", "안양도시공사", "만안구", "동안구",
-                 "평택", "평택도시공사"),
+                 "평택", "평택도시공사", "부천", "부천도시공사", "원미구", "소사구", "오정구"),
     # 안양시는 만안·동안 2개 구 — 다른 도시의 구·자료·문구가 섞이면 실패
     "anyang": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
                "화성", "화성도시공사", "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구",
                "분당구", "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
-               "평택", "평택도시공사"),
+               "평택", "평택도시공사", "부천", "부천도시공사", "원미구", "소사구", "오정구"),
     # 평택시는 자치구가 없다 — 다른 도시의 구·자료·문구가 섞이면 실패
     "pyeongtaek": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
                    "화성", "화성도시공사", "안양", "안양도시공사",
                    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
                    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
-                   "만안구", "동안구"),
+                   "만안구", "동안구",
+                   "부천", "부천도시공사", "원미구", "소사구", "오정구"),
+    # 부천시는 2024-01-01 원미·소사·오정 3개 구로 다시 나뉘었다 — 다른 도시의 구·자료·문구가 섞이면 실패
+    "bucheon": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+                "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+                "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+                "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+                "만안구", "동안구"),
 }
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -562,6 +571,31 @@ cases = [
     ("매봉공영주차장", 300, "weekday", 0.5, 240, "paid", 3000),          # 6,000의 50%
     ("매봉공영주차장", 120, "weekday", 0.2, 0, "paid", 1920),            # 승용차부제 20%
     ("서정충혼탑 공영주차장", 120, "weekday", 0, 0, "free", None),       # 요금 구분 무료
+    # 부천시(조례 별표1 급지별 고정 요금): 1급지 30분 900원+10분 400원 / 2급지 700+300 /
+    #   3급지 300+200, 1일 주차권 9,500·7,000·4,000원, 부설(공공시설) 30분 400원+10분 200원
+    ("미관광장", 30, "weekday", 0, 0, "paid", 900),                  # 1급지 기본
+    ("미관광장", 120, "weekday", 0, 0, "paid", 4500),                # 900 + 400×9
+    ("미관광장", 1440, "weekday", 0, 0, "paid", 9500),               # 45,900 → 1일 주차권
+    ("소사종합시장", 120, "weekday", 0, 0, "paid", 3400),            # 2급지 700 + 300×9
+    ("소사종합시장", 1440, "weekday", 0, 0, "paid", 7000),
+    ("소사역환승", 120, "weekday", 0, 0, "paid", 2100),              # 3급지 300 + 200×9
+    ("소사역환승", 1440, "weekday", 0, 0, "paid", 4000),
+    ("부천체육관", 120, "weekday", 0, 0, "paid", 2200),              # 부설 400 + 200×9
+    ("부천체육관", 1440, "weekday", 0, 0, "paid", 6000),
+    ("시청부설", 60, "weekday", 0, 0, "free", None),                 # 최초 60분 무료
+    ("시청부설", 120, "weekday", 0, 0, "paid", 1200),                # 60분 초과분 200×6
+    ("시청부설", 120, "sat", 0, 0, "closed", None),                  # 토·일 휴무
+    ("중동먹거리", 120, "weekday", 0, 0, "paid", 4500),              # 노상 1급지(평일 09~18시)
+    ("중동먹거리", 120, "sun", 0, 0, "closed", None),
+    ("복사초앞", 120, "weekday", 0, 0, "free", None),                # 요금 구분 무료
+    ("교통정보센터", 120, "weekday", 0, 0, "unknown", None),          # 월정기 전용 → 0원 아님
+    ("송내파인", 120, "weekday", 0, 0, "unknown", None),
+    # 부천시 조례 감면: 경차·저공해 등 50%, 65세·명예시민·장기기증 2시간 면제 후 50%,
+    #   장애인·국가유공자 면제, 모범·유공납세자 100%
+    ("미관광장", 120, "weekday", 0.5, 0, "paid", 2250),
+    ("미관광장", 240, "weekday", 0.5, 120, "paid", 4650),            # 2시간 면제 대상이 2시간을 넘겨 50%
+    ("미관광장", 120, "weekday", 0.5, 120, "free", None),
+    ("미관광장", 120, "weekday", 1.0, 0, "paid", 0),                 # 장애인·국가유공자 면제
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -706,6 +740,86 @@ else:
             fails.append(f"평택시 시 페이지에 {label} 없음")
     if hub_html.count('class="card lot') != len(pt_cards):
         fails.append(f"평택시 시 페이지 카드 수 불일치({hub_html.count('class=\"card lot')} vs {len(pt_cards)})")
+
+# 부천시 카드: 표준데이터에 요금 칸이 비어 있어 포털 등록요금으로 채웠다.
+#  · ‘요금 미상’은 월정기(정기권) 전용으로 시간 요금을 받지 않는 주차장만 있어야 한다.
+#  · 유료 카드는 모두 1일 상한(포털 1일 최대요금·현황표 1일 요금·조례 1일 주차권)을 갖는다.
+bc_cards = [l for l in LOTS if l.get("city") == "부천시" and l.get("list_mode") == "card"]
+if not bc_cards:
+    fails.append("부천시 카드 데이터가 없음")
+bc_ticket_only = sorted(l["name"] for l in bc_cards if l["fee"]["type"] == "미상")
+bc_expect = sorted(["송내IC 화물", "교통정보센터", "무지개고가", "구소새울어울마당", "구소사경찰서별관",
+                    "송내파인", "삼정1호", "도당교1호", "오정동1호", "오정동2호"])
+if bc_ticket_only != bc_expect:
+    fails.append(f"부천시 요금 미상 대상이 예상과 다름: {bc_ticket_only}")
+for l in bc_cards:
+    if l["fee"]["type"] == "미상" and not l["fee"].get("ticket_only"):
+        fails.append(f"부천시 요금 미상 카드가 정기권 전용 표시가 아님: {l['name']}")
+bc_paid = [l for l in bc_cards if l["fee"]["type"] == "유료"]
+bc_no_cap = [l["name"] for l in bc_paid if not l["fee"].get("cap_fee")]
+if bc_no_cap:
+    fails.append(f"부천시 유료 카드에 1일 상한이 없음 {len(bc_no_cap)}곳 {bc_no_cap[:3]}")
+bc_bad = [l["name"] for l in bc_paid if price_for(l, 120, "weekday")["state"] != "paid"]
+if bc_bad:
+    fails.append(f"부천시 유료 카드 중 평일 2시간 계산 불가 {len(bc_bad)}곳 {bc_bad[:3]}")
+bc_free_bad = [l["name"] for l in bc_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if bc_free_bad:
+    fails.append(f"부천시 무료 카드가 무료로 계산되지 않음 {len(bc_free_bad)}곳 {bc_free_bad[:3]}")
+bc_null_cap = [l["name"] for l in bc_paid if l["fee"]["cap_fee"] == 0]
+if bc_null_cap:
+    fails.append(f"부천시 유료 카드 1일 상한이 0원: {bc_null_cap[:3]}")
+# 급지·부설이 카드에 모두 있는지(1·2·3급지 노외 + 부설)
+for g in (1, 2, 3):
+    if not any(l["fee"].get("grade") == g for l in bc_paid):
+        fails.append(f"부천시 {g}급지 유료 카드가 없음")
+if not any(l["ptype"] == "부설" for l in bc_cards):
+    fails.append("부천시 부설(공공시설) 카드가 없음")
+# 조례 별표1 급지 요금과 카드 등록요금이 같은지(포털 값이 조례와 어긋난 주차장은 제외 목록으로 확인)
+bc_tab = {1: (900, 400, 9500), 2: (700, 300, 7000), 3: (300, 200, 4000)}
+bc_mismatch = [f"{l['name']}({l['fee']['grade']}급지 {l['fee']['base_fee']}/{l['fee']['unit_fee']})"
+               for l in bc_paid
+               if l["ptype"] != "부설" and l["fee"].get("grade") in bc_tab
+               and l["fee"].get("portal_name") is None
+               and (l["fee"]["base_fee"], l["fee"]["unit_fee"], l["fee"]["cap_fee"]) != bc_tab[l["fee"]["grade"]]]
+if bc_mismatch:
+    fails.append(f"부천시 조례 급지 요금과 다른 카드 {len(bc_mismatch)}곳 {bc_mismatch[:3]}")
+
+# 부천시 페이지: 시 허브 + 구 3개 + 동 페이지 + 노상 페이지, 시 허브에 급지 요금표·계산기·목록
+bc_root = DIST / "parking" / "gyeonggi" / "bucheon"
+bc_hub = bc_root / "index.html"
+if not bc_hub.exists():
+    fails.append("부천시 시 페이지 없음")
+else:
+    hub_html = bc_hub.read_text()
+    for need, label in (("/bucheon-wonmi/", "원미구 링크"), ("/bucheon-sosa/", "소사구 링크"),
+                        ("/bucheon-ojeong/", "오정구 링크"),
+                        ("급지별 주차요금표", "급지 요금표"), ("구별 현황", "구별 현황")):
+        if need not in hub_html:
+            fails.append(f"부천시 시 페이지에 {label} 없음")
+    for gu in ("원미구", "소사구", "오정구"):
+        if gu not in hub_html:
+            fails.append(f"부천시 시 페이지에 {gu} 없음")
+for slug, gu in (("bucheon-wonmi", "원미구"), ("bucheon-sosa", "소사구"), ("bucheon-ojeong", "오정구")):
+    page = DIST / "parking" / "gyeonggi" / slug / "index.html"
+    if not page.exists():
+        fails.append(f"부천시 {gu} 페이지 없음")
+        continue
+    html = page.read_text()
+    if f"{gu} 공영주차장" not in html:
+        fails.append(f"부천시 {gu} 페이지 제목에 구 이름 없음")
+    if 'class="calc' not in html:
+        fails.append(f"부천시 {gu} 페이지에 요금 계산기 없음")
+bc_dongs = [l for l in bc_cards if l.get("dong")]
+for (gu, dong) in {(l["gu"], l["dong"]) for l in bc_dongs}:
+    n = len([l for l in bc_dongs if l["gu"] == gu and l["dong"] == dong])
+    gu_slug_d = "bucheon-" + {"원미구": "wonmi", "소사구": "sosa", "오정구": "ojeong"}[gu]
+    page_d = (DIST / "parking" / "gyeonggi" / gu_slug_d
+              / f"{__import__('build_site').dong_slug(dong)}" / "index.html")
+    if n >= 3 and not page_d.exists():
+        fails.append(f"부천시 동 페이지 없음: {gu} {dong}({n}곳)")
+    if n < 3 and page_d.exists():
+        fails.append(f"부천시 3곳 미만 동 페이지가 만들어짐: {gu} {dong}({n}곳)")
 
 print()
 if warns:

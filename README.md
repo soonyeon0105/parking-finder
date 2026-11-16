@@ -1,10 +1,11 @@
-# 공영주차장 파인더 — 수원시 · 성남시 · 용인시 · 화성시 · 안양시 · 평택시
+# 공영주차장 파인더 — 수원시 · 성남시 · 용인시 · 화성시 · 안양시 · 평택시 · 부천시
 
 공공데이터로 만든 **공영주차장 요금 계산 + 무료 개방 파인더**입니다.
 수원시(4개 구 72곳), 성남시(3개 구 노외 98곳 + 노상 66구간), 용인시(3개 구 노외·부설 159곳 + 노상 54구간),
 화성시(4개 구 노외 78곳 + 노상 49구간), 안양시(2개 구 노외 78곳 + 노상 29구간),
-평택시(구 없이 노외 75곳 + 노상 86구간, 2026-11-16 시행 1~3급지 요금제)를
-정적 HTML 129페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
+평택시(구 없이 노외 75곳 + 노상 86구간, 2026-11-16 시행 1~3급지 요금제),
+부천시(2024-01-01 다시 설치된 원미·소사·오정 3개 구, 노외·부설 101곳 + 노상 8구간)를
+정적 HTML 146페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
 페이지 경로는 시·도 / 시·군 / 구 / 동 단위로 나뉘어 있어 다른 지자체를 같은 파이프라인에 추가할 수 있습니다.
 
 - 랜딩(도시 선택): `dist/index.html`
@@ -26,6 +27,10 @@
 - 평택시 허브(계산기·목록 겸용): `dist/parking/gyeonggi/pyeongtaek/index.html` (자치구 없음, 읍·면·동 10개 페이지)
 - 평택시 읍 상세: `dist/parking/gyeonggi/pyeongtaek/anjung-eup/index.html`
 - 평택시 노상주차장: `dist/parking/gyeonggi/pyeongtaek/street-parking/index.html`
+- 부천시 허브: `dist/parking/gyeonggi/bucheon/index.html` (원미·소사·오정 3개 구, 급지별 요금표)
+- 부천시 구 허브(계산기): `dist/parking/gyeonggi/bucheon-wonmi/index.html` (소사·오정 동일 구조)
+- 부천시 동 상세: `dist/parking/gyeonggi/bucheon-wonmi/sang-dong/index.html` (법정동 12개)
+- 부천시 노상주차장: `dist/parking/gyeonggi/bucheon/street-parking/index.html`
 - 없는 주소(소프트 404 방지): `dist/404.html`
 
 ## 데이터 (모두 실제 공개 데이터)
@@ -48,6 +53,10 @@
 | 평택시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 평택시`) | `scripts/prepare_data.py --city pyeongtaek` | 평택시 **161행**(노외 75 + 노상 86) | 2026-04-17 |
 | 평택시 급지·요금·월정기·법정동 | [평택도시공사 공영주차장 포털 주차장 목록](https://parking.puc.or.kr/parking/list.do) `POST /parking/searchParkingList.json` | 공개 JSON 스냅샷(`data/raw/parking.puc.or.kr_searchParkingList_20261117.json`) | **56곳**(표준데이터 52 유료행 중 49곳 매칭, 카드·노상 포함 61행) | 2026-11-17 07:58 조회 |
 | 평택시 요금표·감면 | [「평택시 주차장 설치 및 관리 조례」](https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2076351) 별표1(급지별 요금)·별표2(감면) · 2026-11-12 시 보도자료(2026-11-16 시행 개정) · 평택도시공사 ‘즉시감면 안내’ | 자치법규·보도자료·공개 웹페이지 확인 | 1~3급지(1급지 90분 무료·10분 400원, 2급지 30분 800원·10분 300원, 3급지 30분 600원·10분 200원), 1일 최대 10,000원, 감면 4단계(20%·50%·2시간 면제 후 50%·4시간 면제 후 50%) | 2026-11-17 확인 |
+| 부천시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 부천시`) | `scripts/prepare_data.py --city bucheon` | 부천시 **109행**(노외 72 + 부설 29 + 노상 8) | 2026-04-16 |
+| 부천시 급지·요금·1일 최대·정기권·장애인 구획 | [부천주차포털 공영주차장 목록](https://parking.bcits.go.kr/publicparking/select_publicparking_list.do) `POST /publicparking/ajax_select_publicparking_list.do` | 공개 JSON 스냅샷(`data/raw/parking.bcits.go.kr_searchParkingList_20261117.json`) | **118행**(노외 101·부설 9·노상 8) | 2026-11-17 08:10 갱신분 |
+| 부천시 현황(급지·면수·위치·운영방식·요금·정기권) | [부천도시공사 공영주차장 일반현황](https://www.best.or.kr/fmcs/1152) 엑셀 | 공개 자료(`data/raw/best.or.kr_parkingStatus_20261117.xlsx`) | **102개소**(노상 8·노외 72·부설 22, 12,480면) | 2026-11-17 내려받음 |
+| 부천시 요금표·감면 | [「부천시 주차장 설치 및 관리 조례」](https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2130259) 별표1(시행 2026-05-18, 경기도부천시조례 제4326호) · 부천도시공사 요금 안내 | 자치법규·공개 웹페이지 확인 | 급지 1~3급지(30분 900·700·300원 + 10분당 400·300·200원, 1일 9,500·7,000·4,000원, 월 정기권 노외/노상), 부설 400·200원, 감면 5단계(50% · 2시간 면제 후 50% · 면제 · 100%) | 2026-11-17 확인 |
 
 원본은 `data/raw/`에 그대로 보관했고, `data/suwon_parking.json`의 `meta.sources`에 파일명·sha256·수령 시각·라이선스를 기록했습니다.
 
@@ -74,18 +83,26 @@
   - 요금 구분: 유료 80(카드 58 + 노상 22) / 무료 45(카드 18 + 노상 27) / **미상 2곳**(캠핑카 전용 임시주차장 — 0원이 아니라 '현장 확인')
   - 1일 주차권 요금이 원자료에 없어 상한 없이 시간 요금으로만 계산(페이지에 명시)
   - 노상 49구간은 무료 27·유료 22가 섞여 있고 이름이 위치 설명이라 카드 대신 전용 표 페이지로 분리
+- 부천시: 원자료 109행 → **노외·부설 101곳(15,114면) + 노상 8구간(690면) → 17페이지**(시 1·구 3·동 12·노상 1)
+  - 2024-01-01 다시 설치된 3개 구(원미 56·소사 24·오정 21)로 묶고, 동은 **법정동** 기준(행정동 심곡1~3동·중1~4동·상1~3동은 심곡동·중동·상동)
+  - 표준데이터에 요금 칸이 비어 있어 **부천주차포털 등록요금**을 기준으로 하고, 포털에 없는 2곳은 도시공사 현황표, 나머지는 조례 별표1 급지 요금을 씀(포털 106곳·현황표 85곳 매칭)
+  - 요금 구분: 유료 97 / 무료 1(복사초앞) / **미상 11곳**(월정기·야간 정기권 전용으로 시간 요금을 받지 않는 주차장 — 0원이 아니라 '현장 확인')
+  - 평균 기본요금 481원, 1급지 21곳·2급지 4곳·3급지 70곳, 부설(공공시설)은 30분 400원·10분당 200원·1일 4,000~6,000원
+  - 표준데이터에 지번주소가 없던 12곳은 도로명주소의 지번을 확인해 동을 확정(동 미상 0곳)
+  - 동 페이지 12개(카드 3곳 이상: 상동 18·중동 15·오정동 10·소사본동 9·송내동 9·원미동 7·도당동 6·심곡동 5·고강동 4·심곡본동 3·삼정동 3·춘의동 3), 3곳 미만 7개 동은 구 페이지 표에만 실음
+  - 노상 8구간은 무료 0·유료 7·요금 미상 1(샛말길 월정기 전용)이라 카드 대신 전용 표 페이지로 분리
 
 ## 빌드
 
 ```bash
-python3 scripts/prepare_data.py                 # 다섯 도시 정제 → data/site.json·suwon/ seongnam/ yongin/ hwaseong/ anyang_parking.json
-python3 scripts/prepare_data.py --city anyang   # 한 도시만 (suwon|seongnam|yongin|hwaseong|anyang|all, 기본 all)
-python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 116페이지 + 404.html + sitemap.xml, robots.txt
+python3 scripts/prepare_data.py                 # 일곱 도시 정제 → data/site.json·도시별 *_parking.json
+python3 scripts/prepare_data.py --city anyang   # 한 도시만 (suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|all, 기본 all)
+python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 146페이지 + 404.html + sitemap.xml, robots.txt
 python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ```
 
 `data/site.json`이 사이트 생성기의 입력입니다(`cities[]` + `lots[]`, 각 주차장에 `city`·`list_mode`).
-`suwon_parking.json`·`seongnam_parking.json`·`yongin_parking.json`·`hwaseong_parking.json`·`anyang_parking.json`은 도시 단독 결과로, 검토·디버깅용으로 함께 커밋합니다.
+`suwon_parking.json`·`seongnam_parking.json`·`yongin_parking.json`·`hwaseong_parking.json`·`anyang_parking.json`·`pyeongtaek_parking.json`·`bucheon_parking.json`은 도시 단독 결과로, 검토·디버깅용으로 함께 커밋합니다.
 수원도시공사 스냅샷의 수집 시각은 `data/raw/*_fetched_at.txt`에 적어 두어(파일 mtime 대신 사용)
 다시 clone 해도 `snapshot_at`이 바뀌지 않습니다.
 
@@ -103,20 +120,20 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·개인정보처리방침·GA4 조건·슬러그/canonical·도시별 확장 규칙·계산 표본
 python3 scripts/verify_site.py              # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py          # Chromium으로 JS 계산 vs Python 규칙 전수 교차검증
-python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(40,530건)
+python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(48,105건)
 ```
 
 `qa_check.py`는 도시별 확장 안전 규칙도 검사합니다: 수원시 38페이지(허브1·구4·주말4·동29) 유지,
 구 페이지 카드 수 = 데이터 수, 동 페이지 최소 기준 미달 시 페이지 미생성, 노상 구간이 카드로 렌더링되지 않음,
-도시별 페이지 본문에 다른 도시 자료 혼입 없음(성남·용인·화성·안양·평택), 사이트맵 = 실제 페이지 집합,
+도시별 페이지 본문에 다른 도시 자료 혼입 없음(성남·용인·화성·안양·평택·부천), 사이트맵 = 실제 페이지 집합,
 안양시 누진 요금표·최초 15분 무료·일일 최대요금 상한 적용 여부, 평택시 급지별 요금(1급지 90분 무료)과
-시 페이지의 계산기·목록·요금표 동시 존재.
+시 페이지의 계산기·목록·요금표 동시 존재, 부천시 급지별 고정 요금표와 1일 상한·정기권 전용 표시, 구 3개·동 페이지 생성 기준.
 
 `verify_site.py`·`crosscheck_calc.py`는 Playwright(Chromium)가 필요합니다. 스크린샷은 기본으로
 `screenshots/`에 저장되고 `PARKING_SHOTS_DIR=/원하는/경로`로 바꿀 수 있습니다.
 검증 결과 요약은 `scripts/verify_result.json`에 남습니다.
 
-현재 상태: qa_check 통과(129페이지), JS↔Python 교차검증 40,530건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
+현재 상태: qa_check 통과(146페이지), JS↔Python 교차검증 48,105건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
 
 ## 개인정보처리방침 · 통계 (GA4)
 
@@ -341,6 +358,12 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 - 안양시 ‘선불 일일주차’는 운영시간 전에 미리 내는 별도 상품이라 계산기의 상한(일일 최대요금)과 다릅니다.
   카드에 선불 요금을 함께 적었으니 종일 주차는 현장에서 선불 결제가 더 저렴한지 확인하세요.
 - 안양시 5곳(관악역3·4환승, 군용지, 안양테크노벨리, 스마트스퀘어지하)은 주소로 법정동을 확인하지 못해 ‘동 미상’으로 구 페이지 표에만 실었습니다.
+- **부천시는 실시간 잔여면수를 연동하지 않았습니다.** 카드의 구획수는 표준데이터 등록면수입니다.
+- 부천시 요금은 표준데이터에 금액 칸이 비어 있어 부천주차포털(2026-11-17 08:10 갱신분)의 주차장별 등록값을 썼습니다.
+  조례 별표1(시행 2026-05-18)의 급지별 요금(30분 900·700·300원 + 10분당 400·300·200원)과 같고, 포털에만 없는 2곳은
+  도시공사 현황표 값을 씁니다. 표준데이터 급지와 포털 급지가 다른 2곳(송내IC 화물·부천역 남부 제2호)은 포털 급지를 따랐습니다.
+- 부천시 조례는 **일요일·공휴일 무료 운영을 원칙**으로 하면서 시장이 필요하면 유료 운영을 허용합니다. 표준데이터에
+  주말 무료 개방 표기가 없어 요일별 요금은 등록값대로 계산했고 페이지에 단서를 적었습니다(현장 확인).
 - **평택시는 실시간 잔여면수를 연동하지 않았습니다.** 카드의 구획수는 표준데이터 등록면수입니다.
 - 평택시 요금은 2026-11-16 시행 조례(1~3급지)를 평택도시공사 포털 등록값으로 반영했습니다. 요금이 또 바뀌면
   `prepare_data.py`의 `PYEONGTAEK_FEES`와 포털 스냅샷을 함께 갱신해야 합니다.
@@ -359,4 +382,4 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 1. Cloudflare Pages(또는 GitHub Pages) 연결 후 `parking.9welfare.com` 도메인 연결
 2. 애드센스 승인 후 플레이스홀더(광고 영역 2곳, 24px 여백 확보)에 실제 슬롯 삽입
 3. 경기도교통정보센터·수원도시공사 API로 잔여면수 실시간화(스케줄러가 주기적으로 JSON 갱신 후 재빌드)
-4. 다른 시·군으로 확장 — 다음 대상은 **부천시**(T-03 Phase 6, 표준데이터 시·군 필터만 추가하면 동일 파이프라인 재사용, 슬러그는 자동)
+4. 다른 시·군으로 확장 — 다음 대상은 **고양시**(T-03 Phase 7, 덕양·일산동·일산서 3개 구. 표준데이터 시·군 필터와 구 목록만 추가하면 동일 파이프라인 재사용, 슬러그는 자동)

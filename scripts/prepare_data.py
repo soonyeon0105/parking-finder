@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -11,6 +11,7 @@
      - 화성시 127행: 요금·운영시간·좌표 (노외 78 + 노상 49, 만세·효행·병점·동탄 4개 구)
      - 안양시 107행: 요금·운영시간·좌표 (노외 78 + 노상 29, 만안·동안 2개 구)
      - 평택시 161행: 요금·운영시간·좌표 (노외 75 + 노상 86, 구 없이 3읍 5면·동)
+     - 부천시 109행: 요금·운영시간·좌표 (노외 72 + 부설 29 + 노상 8, 원미·소사·오정 3개 구)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
@@ -18,6 +19,8 @@
      -> 법정동이 적힌 주소, 일일 최대요금, 1일 선불요금, 월정기권, 장애인·전기차 구획 (안양시만)
   5) 평택도시공사 공영주차장 포털(parking.puc.or.kr) 주차장 목록 JSON 스냅샷
      -> 급지(1~3급지)·기본시간·기본요금·간격요금·1일 최대요금·월정기권, 법정동 주소 (평택시만)
+  6) 부천주차포털(parking.bcits.go.kr) 공영주차장 목록 JSON 스냅샷 + 부천도시공사 공영주차장 일반현황(엑셀)
+     -> 주차장별 급지·기본 30분·10분당·1일 최대요금·정기권(주간·야간·전일)·장애인 구획 (부천시만)
 
 출력:
   data/site.json             도시 통합 결과(사이트 생성기 입력: cities[] + lots[])
@@ -27,11 +30,12 @@
   data/hwaseong_parking.json 화성시 단독 결과
   data/anyang_parking.json   안양시 단독 결과
   data/pyeongtaek_parking.json 평택시 단독 결과
+  data/bucheon_parking.json  부천시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|all]
 """
 from __future__ import annotations
 
@@ -312,6 +316,8 @@ CITY_META = {
     "안양시": {"slug": "anyang", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "평택시": {"slug": "pyeongtaek", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "부천시": {"slug": "bucheon", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -2517,6 +2523,619 @@ def check_quality_pyeongtaek(std_all, rows, lots, excluded, portal):
     }
 
 
+# ---------------------------------------------------------------- 부천시 (T-03 Phase 6)
+BUCHEON_PROVIDER = "경기도 부천시"
+BUCHEON_BBOX = (37.44, 37.58, 126.70, 126.88)   # 부천시 대략 경계(좌표 점검용)
+# 부천시는 2016-07 일반구를 폐지했다가 2024-01-01 원미구·소사구·오정구 3개 구를 다시 설치했다
+# (법정동 24개는 그대로, 2024-01-01 법정동코드 부여 내역 41192/41194/41196).
+BUCHEON_DISTRICTS = [("원미구", "bucheon-wonmi"), ("소사구", "bucheon-sosa"),
+                     ("오정구", "bucheon-ojeong")]
+BUCHEON_DONGS = {
+    "원미구": ("원미동", "심곡동", "춘의동", "도당동", "약대동", "소사동", "역곡동", "중동", "상동"),
+    "소사구": ("소사본동", "심곡본동", "범박동", "괴안동", "송내동", "옥길동", "계수동"),
+    "오정구": ("오정동", "여월동", "작동", "원종동", "고강동", "대장동", "삼정동", "내동"),
+}
+BUCHEON_ALL_DONGS = tuple(d for v in BUCHEON_DONGS.values() for d in v)
+# 부천주차포털(parking.bcits.go.kr) 공영주차장 목록 스냅샷 — POST /publicparking/ajax_select_publicparking_list.do
+# (검색조건 없이 전체 조회). 급지·기본요금·10분당·1일 최대·정기권·장애인 구획이 주차장별로 들어 있다.
+BUCHEON_PORTAL_JSON = RAW / "parking.bcits.go.kr_searchParkingList_20261117.json"
+# 부천도시공사 ‘공영주차장 일반현황’(102개소) 엑셀 — 급지·주차면·위치(지번)·구조·운영시간·운영방식·
+# 기본요금·10분당·1일 요금·정기권(주간/야간/전일). 포털에 없는 주차장의 요금·지번을 보강한다.
+BUCHEON_STATUS_XLSX = RAW / "best.or.kr_parkingStatus_20261117.xlsx"
+
+# 부천시 공영주차장 요금 — 「부천시 주차장 설치 및 관리 조례」 별표1 ‘공영주차장 주차요금 부과 기준’
+# (현행 조례: 시행 2026-05-18, 경기도부천시조례 제4326호). 2026-11-17 부천도시공사 요금 안내와
+# 부천주차포털 주차장별 등록요금(같은 날 08:10 갱신분)으로 교차 확인했다.
+#   · 1회 주차요금 = 최초 30분 기본요금 + 30분 초과분 10분 단위 가산(10분 미만은 10분으로 봄)
+#   · 노상·노외가 같은 1회 요금을 쓰고, 급지별로 1일 주차권·월정기 주차권이 다르다
+#   · 일요일·공휴일은 무료 운영이 원칙이지만 시장이 필요하다고 인정하면 유료로 운영할 수 있다(비고 1 라)
+#   · 부설(공공시설 부설주차장)은 「부천시 공공시설 부설주차장 운영조례」에 따라 최초 30분 400원·
+#     10분당 200원, 1일 4,000~6,000원을 쓴다(도시공사 안내).
+BUCHEON_FEES = {
+    1: {"base_min": 30, "base_fee": 900, "unit_fee": 400, "day": 9_500,
+        "street_monthly": 80_000, "off_day": 70_000, "off_night": 50_000, "off_all": 100_000},
+    2: {"base_min": 30, "base_fee": 700, "unit_fee": 300, "day": 7_000,
+        "street_monthly": 60_000, "off_day": 50_000, "off_night": 40_000, "off_all": 70_000},
+    3: {"base_min": 30, "base_fee": 300, "unit_fee": 200, "day": 4_000,
+        "street_monthly": 50_000, "off_day": 40_000, "off_night": 30_000, "off_all": 50_000},
+}
+BUCHEON_UNIT_MIN = 10
+BUCHEON_FACILITY_FEE = {"base_min": 30, "base_fee": 400, "unit_fee": 200, "day": 6_000}
+
+# 부천시 공영주차장 요금 감면 — 「부천시 주차장 설치 및 관리 조례」 별표1 비고 3과
+# 부천도시공사 ‘주차요금 감면제도’ 안내(2026-11-17 확인).
+#   · 면제            : 장애인(24시간 초과 시 1일 50%·월정기 90% 감경), 국가유공자등(같은 조건),
+#                       모범·유공납세증 부착차량(1년), 기부자(1년), 시 인정 행사, 자율방범대 차량(동별 1대)
+#   · 80% 감경        : 전통시장·상점가 상인·상인회가 월정기 주차권을 신청한 경우
+#   · 50% 감경        : 경형(1,000cc 미만)·저공해자동차, 주거·녹지지역 노외주차장 인접 주민,
+#                       65세 이상 운전자(최초 2시간 전액 면제), 명예시민(최초 2시간 전액 면제),
+#                       장기·인체조직 기증자(최초 2시간 전액 면제), 다자녀(두 자녀 이상, 세 자녀 이상은 전액 면제),
+#                       환경친화적 자동차 충전 차량(최초 1시간 전액 면제), 병역명문가, 우수자원봉사자,
+#                       승용차공동이용자동차(50% 범위), 임산부
+#   · 감면이 겹치면 비율이 높은 하나만 적용
+BUCHEON_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·임산부·다자녀 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형(1,000cc 미만)·저공해·임산부·다자녀(세 자녀 이상은 전액 면제)·병역명문가·자원봉사자"},
+    {"label": "65세·명예시민·장기기증 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "65세 이상 운전자·명예시민·장기 및 인체조직 기증자, 최초 2시간 면제"},
+    {"label": "장애인·국가유공자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "장애인등록증·국가유공자 증서 제시(24시간 초과분은 50%)"},
+    {"label": "모범·유공납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "표지(스티커) 부착 차량, 발급일부터 1년"},
+]
+# 이름 비교에서 빼는 꾸밈말 — ‘제1’과 ‘1’을 같게 보기 위해 ‘제’도 뺀다
+# (예: 심곡시민의강1 ↔ 심곡 시민의 강 제1공영주차장).
+BUCHEON_KEY_STRIP = ("주차장", "공영", "노외", "노상", "지하", "임시", "제")
+# 포털 이름이 표준데이터와 달라 이름만으로 짝을 찾지 못하는 주차장(좌표 대조로 확인).
+BUCHEON_PORTAL_ALIAS = {
+    "부천역 남부": "부천남부역",              # 심곡본동 550-10 ↔ 자유로 66
+    "소원지하": "소원",                       # 소사동 32 ↔ 소사로300번길 41
+    "수주": "수주 공영(운산)",                 # 고강동 250-20 ↔ 고강로161번길 5
+    "중동사랑시장": "중동시장",                # 중동 737 ↔ 중동로161번길 37
+    "원미지하(별빛공원)": "별빛공원(구 원미지하)",   # 원미동 127-5 ↔ 부천로90번길 51
+    "삼정1호": "삼정동 제1호",
+    "삼정2호": "삼정동 제2호",
+    "삼정3호": "삼정동 제3호",
+    "송내IC 화물": "송내IC북측대형",           # 상동 21(북측) 화물 전용
+    "무지개고가": "무지개고가1",               # 64면 = 무지개고가1(38) + 무지개고가2(26), 요금 같음
+    "고강차고지진입로": "고강차고지진입로(화물)",   # 고강동 1-12 화물 전용 노상 구간
+}
+# 포털·현황표에 없는 주차장은 아래 값(현황표 기준)을 쓴다 — 도당공원2는 포털에 형제 주차장만 있다.
+BUCHEON_PORTAL_SKIP = {"도당공원2", "부천아트센터"}
+
+# 표준데이터에 지번주소가 없어 동을 확인하지 못한 주차장 — 도로명주소의 지번을 2026-11-17 확인했다.
+# (도로명주소 안내·부천도시공사 시설 안내·현황표 지번 대조)
+BUCHEON_DONG_VERIFIED = {
+    "부천체육관": ("중동", "도로명주소 확인"),        # 석천로 293 = 중동 1024
+    "종합운동장": ("춘의동", "도로명주소 확인"),       # 소사로 482 = 춘의동(부천도시공사 주소)
+    "도당어울마당": ("도당동", "도로명주소 확인"),      # 부천로 360 = 도당동 32-4
+    "송내국민체육센터": ("송내동", "도로명주소 확인"),   # 경인로120번길 45 = 송내동 457
+    "버들공원": ("옥길동", "도로명주소 확인"),        # 옥길로56번길 140 = 옥길동 752-1
+    "구소사경찰서": ("송내동", "도로명주소 확인"),      # 경인로160번길 70 = 송내동 601
+    "구소사구청": ("송내동", "도로명주소 확인"),       # 경인로160번길 52 = 송내동 594-5
+    "심곡시민의강1": ("심곡동", "도로명주소 확인"),     # 부흥로 399 = 심곡동 121-5
+    "심곡시민의강2": ("원미동", "도로명주소 확인"),     # 부흥로 441 = 원미동 204-22
+    "심곡본동어울림복합센터": ("심곡본동", "시설명·주소 확인"),   # 경인로224번길 54
+    "상동시장": ("상동", "도로명주소 확인"),          # 석천로38번길 53 = 상동 244-5
+    "다산(중동역)": ("송내동", "도로명주소 확인"),      # 경인로101번길 45 = 송내동 371-2
+}
+
+
+def bucheon_name_key(s: str) -> str:
+    """주차장 이름 비교용 키 — 공백·괄호와 꾸밈말(공영/주차장/노외/노상/지하/임시/제)을 뺀다.
+
+    예: ‘심곡 시민의 강 제1공영주차장’ ↔ ‘심곡시민의강1’, ‘오정동 제1호’ ↔ ‘오정동1호’
+    """
+    t = re.sub(r"[\s()\[\]·,.ㆍ\-]", "", s or "")
+    for w in BUCHEON_KEY_STRIP:
+        t = t.replace(w, "")
+    return t
+
+
+def bucheon_dong_of(text: str, gu: str = None):
+    """주소에서 부천시 법정동을 뽑는다(법정동 목록 대조, 행정동 접미사 번호는 떼지 않는다)."""
+    t = text or ""
+    legal = set(BUCHEON_DONGS.get(gu, BUCHEON_ALL_DONGS))
+    m = re.search(r"([가-힣]{1,6}동)\s*\d", t)
+    if m and m.group(1) in legal:
+        return m.group(1)
+    for d in sorted(legal, key=len, reverse=True):
+        if re.search(re.escape(d) + r"(?=\s|$|[^가-힣])", t):
+            return d
+    return None
+
+
+def load_bucheon_portal() -> dict:
+    """부천주차포털 공영주차장 목록 스냅샷 → 주차장 이름별 정보.
+
+    급지(GRADE)·기본시간·기본요금·간격요금·1일 최대요금·정기권·장애인 구획·운영시간이 들어 있다.
+    같은 이름이 여러 행(구획·요금제)으로 오면 빈 칸만 채워 합친다.
+    """
+    if not BUCHEON_PORTAL_JSON.exists():
+        return {}
+    rows = json.loads(BUCHEON_PORTAL_JSON.read_text()).get("result", [])
+    out: dict[str, dict] = {}
+    for r in rows:
+        nm = (r.get("PARKING_NM") or "").strip()
+        if not nm:
+            continue
+        row = {
+            "name": nm,
+            "div": (r.get("PARKING_DIV_CD") or "").strip(),
+            "grade": to_int(r.get("GRADE")),
+            "addr": (r.get("CELL_ADDR_JIBUN") or "").strip(),
+            "spaces": to_int(r.get("CELL_CNT")),
+            "disabled": to_int(r.get("HNDCAP_CELL_CNT")),
+            "base_min": to_int(r.get("DFLT_TM")),
+            "base_fee": to_int(r.get("DFLT_AMT")),
+            "unit_min": to_int(r.get("INTVL_TM")),
+            "unit_fee": to_int(r.get("INTVL_AMT")),
+            "cap": to_int(r.get("DAY_PARKING_AMT")),
+            "monthly": to_int(r.get("PERIOD_TICKET_AMT")),
+            "monthly_day": to_int(r.get("PERIOD_DAYTM_AMT")),
+            "monthly_night": to_int(r.get("PERIOD_NIGHT_AMT")),
+            "anyhour": (r.get("ANYHOUR_RUN_YN") or "").strip() == "24시간운영함",
+            "tel": (r.get("TEL_NO") or "").strip(),
+            "lat": float(r["LAT"]) if r.get("LAT") else None,
+            "lng": float(r["LNG"]) if r.get("LNG") else None,
+        }
+        cur = out.get(nm)
+        if cur is None:
+            out[nm] = row
+            continue
+        for k, v in row.items():
+            if cur.get(k) in (None, "", 0) and v not in (None, "", 0):
+                cur[k] = v
+    return out
+
+
+def _xlsx_rows(path: Path):
+    """엑셀(.xlsx) 한 시트를 ‘행 번호 → {열 문자: 값}’으로 읽는다(openpyxl 없이 zipfile 파싱)."""
+    import zipfile
+    z = zipfile.ZipFile(path)
+    ss = []
+    if "xl/sharedStrings.xml" in z.namelist():
+        sx = z.read("xl/sharedStrings.xml").decode("utf-8")
+        ss = ["".join(re.findall(r"<t[^>]*>(.*?)</t>", si, re.S))
+              for si in re.findall(r"<si>(.*?)</si>", sx, re.S)]
+    x = z.read("xl/worksheets/sheet1.xml").decode("utf-8")
+    out = []
+    for rn, body in re.findall(r'<row[^>]*r="(\d+)"[^>]*>(.*?)</row>', x, re.S):
+        cells = {}
+        for col, attrs, c in re.findall(r'<c r="([A-Z]+)\d+"([^>]*)>(.*?)</c>', body, re.S):
+            v = re.search(r"<v>(.*?)</v>", c, re.S)
+            if not v:
+                continue
+            val = v.group(1)
+            if 't="s"' in attrs:
+                val = ss[int(val)]
+            cells[col] = re.sub(r"\s+", " ", val).strip()
+        out.append((int(rn), cells))
+    return out
+
+
+def load_bucheon_status() -> dict:
+    """부천도시공사 공영주차장 일반현황 엑셀 → 주차장 이름별 정보(급지·면수·위치·요금·정기권).
+
+    포털에 없는 주차장의 요금·지번 보강과, 포털과 현황표가 어긋날 때의 교차 확인에 쓴다.
+    """
+    if not BUCHEON_STATUS_XLSX.exists():
+        return {}
+    out: dict[str, dict] = {}
+    for rn, c in _xlsx_rows(BUCHEON_STATUS_XLSX):
+        name = c.get("A", "")
+        if rn < 8 or not name or name.startswith("("):
+            continue
+        def num(v):
+            v = (v or "").replace(",", "")
+            m = re.match(r"^\d+$", v)
+            return int(v) if m else None
+        out[bucheon_name_key(name)] = {
+            "name": name,
+            "grade": num(c.get("B")),
+            "spaces": num(c.get("C")),
+            "addr": c.get("D", ""),
+            "structure": c.get("E", ""),
+            "hours": c.get("F", ""),
+            "way": c.get("G", ""),
+            "base_fee": num(c.get("I")),
+            "unit_fee": num(c.get("J")),
+            "day": num(c.get("K")),
+            "monthly_day": num(c.get("N")),
+            "monthly_night": num(c.get("O")),
+            "monthly_all": num(c.get("P")),
+        }
+    return out
+
+
+def bucheon_candidates(name: str, portal: dict, lat=None, lng=None):
+    """표준데이터 한 행에 대응할 만한 포털 주차장 후보들.
+
+    이름이 꾸밈말을 뺐을 때 같은 것 → 별칭표 → 서로 포함하는 것(좌표 150m 안) 순서로 찾는다.
+    ‘부천역 남부’와 ‘부천역 남부 제2호’, ‘구소사경찰서’와 ‘구소사경찰서별관’처럼 이름이 겹치는
+    주차장이 있어, 정확히 같은 이름을 먼저 찾고 포함 관계는 좌표를 함께 본다.
+    """
+    if not portal:
+        return []
+    key = bucheon_name_key(name)
+    exact = [r for nm, r in portal.items() if bucheon_name_key(nm) == key]
+    if exact:
+        return exact
+    alias = BUCHEON_PORTAL_ALIAS.get(name)
+    if alias and alias in portal:
+        return [portal[alias]]
+    if lat is not None and lng is not None:
+        cont = [r for nm, r in portal.items()
+                if (k2 := bucheon_name_key(nm)) and len(k2) >= 2
+                and (k2.startswith(key) or key.startswith(k2))
+                and r["lat"] is not None and km(lat, lng, r["lat"], r["lng"]) <= 150]
+        if cont:
+            return sorted(cont, key=lambda r: km(lat, lng, r["lat"], r["lng"]))
+    return []
+
+
+def bucheon_pick(cands, field):
+    """후보들이 한 값으로 모이는 항목만 돌려준다(값이 엇갈리면 비워 둔다)."""
+    vals = {c.get(field) for c in cands if c.get(field) not in (None, "", 0)}
+    return vals.pop() if len(vals) == 1 else None
+
+
+def build_bucheon():
+    """부천시 공영주차장을 표준데이터 + 부천주차포털 + 부천도시공사 현황표로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 부천시 범위를 벗어난 행은 제외(껍데기 행).
+      · 노상(거리) 구간은 이름이 구간 설명이라 카드 대신 전용 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    부천시 표준데이터는 기본요금·추가요금·일일권·정기권 칸이 모두 비어 있고 급지구분만 등록되어 있다.
+    그래서 주차장별 요금은 부천주차포털의 최신 등록값(급지·기본 30분·10분당·1일 최대·정기권)을 쓰고,
+    포털에 없는 주차장은 부천도시공사 현황표, 그것도 없으면 조례 별표1의 급지 요금을 쓴다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows = [r for r in rows_all if (r.get("제공기관명") or "").strip() == BUCHEON_PROVIDER]
+    portal = load_bucheon_portal()
+    status = load_bucheon_status()
+    lots, excluded = [], []
+    card_no = street_no = 0
+
+    for r in rows:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (BUCHEON_BBOX[0] <= lat <= BUCHEON_BBOX[1]
+                                      and BUCHEON_BBOX[2] <= lng <= BUCHEON_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        gu = gu_in(addr, BUCHEON_DISTRICTS)
+        if not gu:
+            excluded.append({"name": name, "reason": "구 판정 불가"})
+            continue
+
+        cands = [] if name in BUCHEON_PORTAL_SKIP else bucheon_candidates(name, portal, lat, lng)
+        hit = cands[0] if len(cands) == 1 else None
+        st = status.get(bucheon_name_key(name))
+
+        # 동 — 지번주소 → 포털·현황표 주소 → 확인표 → 같은 구에서 좌표가 가장 가까운 주차장
+        dong = bucheon_dong_of(jibun, gu)
+        dong_src = "지번주소"
+        if not dong:
+            for src, text in (("포털주소", hit["addr"] if hit else ""),
+                              ("현황표주소", st["addr"] if st else "")):
+                dong = bucheon_dong_of(text, gu)
+                if dong:
+                    dong_src = src
+                    break
+        if not dong:
+            fix = BUCHEON_DONG_VERIFIED.get(name)
+            if fix and fix[0] in BUCHEON_DONGS[gu]:
+                dong, dong_src = fix
+        if not dong and lat is not None:
+            near = [(bucheon_dong_of(x["addr"], gu), x) for x in portal.values()
+                    if x["lat"] is not None and km(lat, lng, x["lat"], x["lng"]) <= 100]
+            dongs = {d for d, _ in near if d}
+            if len(dongs) == 1:
+                dong, dong_src = dongs.pop(), "포털좌표"
+        if not dong:
+            dong_src = "없음"
+
+        note = (r.get("특기사항") or "").strip()
+        fee_raw = (r.get("요금정보") or "").strip()
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        # 급지 — 포털에 등록된 급지가 가장 최신이라 우선하고, 없으면 표준데이터 급지구분을 쓴다.
+        # (부천역 남부 제2호처럼 표준데이터는 1급지·포털은 2급지로 등록된 주차장이 있다)
+        std_grade = to_int(r.get("급지구분"))
+        grade = (hit["grade"] if hit and hit["grade"] in BUCHEON_FEES
+                 else (std_grade if std_grade in BUCHEON_FEES else None))
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"bc-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"bc-{card_no:03d}"
+
+        fee = {
+            "type": "무료" if fee_raw == "무료" else ("유료" if fee_raw in ("유료", "혼합") else "미상"),
+            "raw_type": fee_raw,
+            "mixed": fee_raw == "혼합",
+            "grade": grade,
+            "std_grade": std_grade,
+            "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None,
+            "free_min": 0, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None,
+            "pay": (r.get("결제방법") or "").strip(),
+            "basis": None,
+            "ticket_only": False,
+        }
+        if fee["type"] == "유료":
+            free_days = {"sat": False, "sun": False}
+            src = None
+            base_min = base_fee = unit_min = unit_fee = cap = None
+            # 시간(회차) 주차요금이 있는 자료만 쓴다 — 기본요금·10분당이 모두 0인 등록값은
+            # 정기권만 파는 주차장이라 0원 요금으로 계산하면 안 된다.
+            # 1) 포털 등록값
+            if hit and hit["base_min"] and ((hit["base_fee"] or 0) > 0 or (hit["unit_fee"] or 0) > 0):
+                base_min, base_fee = hit["base_min"], hit["base_fee"] or 0
+                unit_min, unit_fee = hit["unit_min"] or BUCHEON_UNIT_MIN, hit["unit_fee"] or 0
+                cap = hit["cap"] or None
+                src = "부천주차포털 등록요금"
+            # 2) 현황표(엑셀) — 포털에 없거나 시간 요금이 비어 있는 주차장
+            #    (현황표의 무인월정 주차장 기본요금 ‘31’은 자리표시 값이라 쓰지 않는다)
+            if src is None and st and (st["unit_fee"] or 0) > 0:
+                base_min, base_fee = 30, st["base_fee"] or 0
+                unit_min, unit_fee = BUCHEON_UNIT_MIN, st["unit_fee"]
+                cap = st["day"] or None
+                src = "부천도시공사 공영주차장 일반현황"
+            # 3) 월정기(정기권) 전용 — 시간 주차요금을 받지 않는 주차장은 0원으로 계산하지 않는다
+            if src is None and ("월정기 전용" in note or "정기권 전용" in note):
+                fee["type"] = "미상"
+                fee["ticket_only"] = True
+                fee["basis"] = "정기권(월정기) 전용 — 시간 주차요금 미등록"
+            # 4) 조례 별표1 급지 요금 — 위 두 자료에 요금이 없는 주차장
+            if src is None and fee["type"] == "유료" and grade in BUCHEON_FEES:
+                t = BUCHEON_FEES[grade]
+                base_min, base_fee = t["base_min"], t["base_fee"]
+                unit_min, unit_fee = BUCHEON_UNIT_MIN, t["unit_fee"]
+                cap = t["day"]
+                src = f"「부천시 주차장 설치 및 관리 조례」 별표1 {grade}급지"
+            if src is None:
+                if fee["type"] != "미상":
+                    # 어느 자료에도 시간 요금이 없는 주차장 — 0원으로 계산하지 않고 ‘요금 미상’으로 둔다.
+                    fee["type"] = "미상"
+                    fee["basis"] = "시간 주차요금 미등록 — 현장 확인"
+            else:
+                fee.update({
+                    "base_min": base_min,
+                    "base_fee": base_fee,
+                    "unit_min": unit_min or BUCHEON_UNIT_MIN,
+                    "unit_fee": unit_fee,
+                    "free_min": base_min if not base_fee else 0,
+                    "cap_fee": cap,
+                    "cap_src": ("포털 일일최대요금" if (hit and hit["cap"])
+                                else "현황표 1일 요금" if (st and st["day"] and src.startswith("부천도시공사"))
+                                else "조례 1일 주차권"),
+                    "basis": src,
+                })
+            monthly = None
+            if hit:
+                monthly = hit["monthly"] or hit["monthly_day"] or hit["monthly_night"]
+            if not monthly and st:
+                monthly = st["monthly_all"] or st["monthly_day"] or st["monthly_night"]
+            fee["monthly"] = monthly
+            if "월정기" in note and fee["type"] == "유료":
+                fee["basis"] = (fee["basis"] or "") + " · 특기사항: " + note
+        if fee["type"] == "무료":
+            free_days = {"sat": True, "sun": True}
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            # 현황표의 ‘위치’는 지번을 괄호로 덧붙인 도로명주소라 그대로 지번주소로 쓰지 않는다.
+            "addr_jibun": jibun,
+            "addr_status": st["addr"] if st else "",
+            "addr_road": road,
+            "road": road_name(road) if street else None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip() or (hit["tel"] if hit else ""),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": ({"disabled": hit["disabled"]} if (hit and hit["disabled"]) else None),
+            "portal_name": hit["name"] if hit else None,
+            "status_name": st["name"] if st else None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["base_fee"] if fee["base_fee"] else (fee["unit_fee"] or None),
+            "city": "부천시",
+            "city_slug": "bucheon",
+        })
+
+    order = {g: i for i, (g, _) in enumerate(BUCHEON_DISTRICTS)}
+    lots.sort(key=lambda l: (order[l["gu"]], l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+
+    quality = check_quality_bucheon(rows_all, rows, lots, excluded, portal, status)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(BUCHEON_PORTAL_JSON).strftime("%Y-%m-%d %H:%M")
+                            if BUCHEON_PORTAL_JSON.exists() else None,
+            "region": {"province": "경기도", "city": "부천시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-16", "rows_total": len(rows_all),
+                    "rows_city": len(rows),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("부천시가 등록한 행만(제공기관명 '경기도 부천시') 추출. 기본요금·추가요금·"
+                             "일일권·정기권 칸이 비어 있고 급지구분(1~3급지·기타)만 등록되어 있다."),
+                },
+                {
+                    "id": "bcits", "name": "부천주차포털 공영주차장 목록",
+                    "org": "부천도시공사",
+                    "url": "https://parking.bcits.go.kr/publicparking/select_publicparking_list.do",
+                    "file": BUCHEON_PORTAL_JSON.name,
+                    "sha256": sha256(BUCHEON_PORTAL_JSON) if BUCHEON_PORTAL_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": len(portal),
+                    "fetched_at": _snapshot_time(BUCHEON_PORTAL_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if BUCHEON_PORTAL_JSON.exists() else None,
+                    "note": ("주차장별 급지·기본 30분 요금·10분당 요금·1일 최대요금·정기권(주간·야간·전일)·"
+                             "장애인 구획 확인용. 2026-11-17 08:10 갱신분."),
+                },
+                {
+                    "id": "bcuc", "name": "부천도시공사 공영주차장 일반현황",
+                    "org": "부천도시공사",
+                    "url": "https://www.best.or.kr/fmcs/1152",
+                    "file": BUCHEON_STATUS_XLSX.name,
+                    "sha256": sha256(BUCHEON_STATUS_XLSX) if BUCHEON_STATUS_XLSX.exists() else None,
+                    "license": "공공기관 공개 자료(참고용)",
+                    "base_date": None, "rows_total": len(status),
+                    "fetched_at": _snapshot_time(BUCHEON_STATUS_XLSX).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if BUCHEON_STATUS_XLSX.exists() else None,
+                    "note": ("102개소(노상 8·노외 72·부설 22)의 급지·주차면·위치(지번)·구조·운영시간·"
+                             "요금·정기권 현황. 포털에 없는 주차장의 요금·지번 보강에 썼다."),
+                },
+                {
+                    "id": "ordinance", "name": "부천시 주차장 설치 및 관리 조례 (별표1)",
+                    "org": "부천시",
+                    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2130259",
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "시행 2026-05-18 (경기도부천시조례 제4326호)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("공영주차장 주차요금 부과 기준(별표1)과 요금 감면·급지 구분 근거. "
+                             "2026-11-17 부천도시공사 요금 안내·부천주차포털 등록요금으로 교차 확인."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in BUCHEON_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "grade_base",
+            "unit_min": BUCHEON_UNIT_MIN,
+            "rows": [
+                {"grade": g, "base_min": t["base_min"], "base_fee": t["base_fee"],
+                 "unit_fee": t["unit_fee"], "day": t["day"],
+                 "street_monthly": t["street_monthly"], "off_day": t["off_day"],
+                 "off_night": t["off_night"], "off_all": t["off_all"]}
+                for g, t in sorted(BUCHEON_FEES.items())
+            ],
+            "facility": BUCHEON_FACILITY_FEE,
+            "basis": ("「부천시 주차장 설치 및 관리 조례」 별표1(시행 2026-05-18) · "
+                      "부천도시공사 공영주차장 요금 안내·부천주차포털 등록요금(2026-11-17 확인)"),
+        },
+    }
+    payload.update(CITY_META["부천시"] | {
+        "city": "부천시",
+        "weekend_free_pages": False,     # 무료 개방 '표기'가 없어 주말 무료 페이지를 만들지 않는다
+        "discounts": BUCHEON_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "bucheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_bucheon(std_all, rows, lots, excluded, portal, status):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(f'{l["gu"]} {l["dong"] or "동 미상"}' for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["base_fee"] for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_부천시행수": len(rows),
+        "포털_주차장수": len(portal),
+        "포털_매칭": len([l for l in lots if l.get("portal_name")]),
+        "현황표_주차장수": len(status),
+        "현황표_매칭": len([l for l in lots if l.get("status_name")]),
+        "포털_미매칭_유료": [l["name"] for l in lots
+                            if l["fee"]["type"] == "유료" and not l.get("portal_name")],
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(Counter(l["gu"] for l in card)),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({(l["gu"], l["dong"]) for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "정기권전용": [l["name"] for l in lots if l["fee"].get("ticket_only")],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in lots if l["fee"]["type"] == "유료")),
+        "요금근거": dict(Counter(l["fee"]["basis"] for l in lots if l["fee"]["type"] == "유료")),
+        "급지_불일치": [f'{l["name"]}(표준 {l["fee"]["std_grade"]}급지·포털 {l["fee"]["grade"]}급지)'
+                       for l in lots
+                       if l.get("portal_name") and l["fee"]["std_grade"] in BUCHEON_FEES
+                       and l["fee"]["grade"] and l["fee"]["std_grade"] != l["fee"]["grade"]],
+        "일일상한_포털값": len([l for l in lots if l["fee"].get("cap_src") == "포털 일일최대요금"]),
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
 
 def build_summary_city(payload):
     q = payload["quality"]
@@ -2592,12 +3211,13 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "all"], default="all")
     args = ap.parse_args()
 
-    want = ["수원시", "성남시", "용인시", "화성시", "안양시", "평택시"] if args.city == "all" else \
-           {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
-            "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"]}[args.city]
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시"] if args.city == "all" else \
+            {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
+             "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
+             "bucheon": ["부천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -2611,6 +3231,8 @@ def main():
         cities.append(build_anyang())
     if "평택시" in want:
         cities.append(build_pyeongtaek())
+    if "부천시" in want:
+        cities.append(build_bucheon())
 
     if args.city == "all":
         site = build_site_payload(cities)
