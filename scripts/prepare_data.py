@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -10,11 +10,14 @@
      - 용인시 214행: 요금·운영시간·좌표 (노외 71 + 부설 89 + 노상 54)
      - 화성시 127행: 요금·운영시간·좌표 (노외 78 + 노상 49, 만세·효행·병점·동탄 4개 구)
      - 안양시 107행: 요금·운영시간·좌표 (노외 78 + 노상 29, 만안·동안 2개 구)
+     - 평택시 161행: 요금·운영시간·좌표 (노외 75 + 노상 86, 구 없이 3읍 5면·동)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
   4) 안양도시공사 통합주차포털(parking.auc.or.kr) 주차장 목록 JSON 스냅샷
      -> 법정동이 적힌 주소, 일일 최대요금, 1일 선불요금, 월정기권, 장애인·전기차 구획 (안양시만)
+  5) 평택도시공사 공영주차장 포털(parking.puc.or.kr) 주차장 목록 JSON 스냅샷
+     -> 급지(1~3급지)·기본시간·기본요금·간격요금·1일 최대요금·월정기권, 법정동 주소 (평택시만)
 
 출력:
   data/site.json             도시 통합 결과(사이트 생성기 입력: cities[] + lots[])
@@ -23,11 +26,12 @@
   data/yongin_parking.json   용인시 단독 결과
   data/hwaseong_parking.json 화성시 단독 결과
   data/anyang_parking.json   안양시 단독 결과
+  data/pyeongtaek_parking.json 평택시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|all]
 """
 from __future__ import annotations
 
@@ -306,6 +310,8 @@ CITY_META = {
     "화성시": {"slug": "hwaseong", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "안양시": {"slug": "anyang", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "평택시": {"slug": "pyeongtaek", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -2074,6 +2080,444 @@ def check_quality_anyang(std_all, rows, lots, excluded, auc):
     }
 
 
+# ---------------------------------------------------------------- 평택시 (T-03 Phase 5)
+PYEONGTAEK_PROVIDER = "경기도 평택시"
+PYEONGTAEK_BBOX = (36.85, 37.15, 126.75, 127.20)   # 평택시 대략 경계(좌표 점검용)
+# 평택도시공사 공영주차장 포털 목록 스냅샷 — POST /parking/searchParkingList.json
+# (searchParking=, parkingDong= 빈 값으로 전체 조회). 급지(GRADE)와 주차장별 최신 요금이 들어 있다.
+PYEONGTAEK_PORTAL_JSON = RAW / "parking.puc.or.kr_searchParkingList_20261117.json"
+# 평택시는 자치구가 없다(3읍 5면 + 동). 다른 도시의 '구' 자리에 시 이름 하나만 두고,
+# 시 페이지가 계산기·목록 페이지를 겸하며 그 아래에 읍·면·동 페이지를 만든다.
+PYEONGTAEK_DISTRICTS = [("평택시", "pyeongtaek")]
+PYEONGTAEK_EUP_MYEON = ("안중읍", "팽성읍", "포승읍", "청북읍", "진위면", "서탄면",
+                        "고덕면", "오성면", "현덕면")
+
+# 평택시 공영주차장 요금 — 「평택시 주차장 설치 및 관리 조례」 별표1
+# (2026-11-16 시행 개정: 1~3급지 차등 요금제. 평택시 보도자료 2026-11-12·평택도시공사
+#  포털 주차장별 요금 안내 2026-11-17 확인).
+#   · 1급지 : 전통시장·상점가 인근 — 당일 최초 90분 무료, 이후 10분당 400원
+#   · 2급지 : 상업·준주거지역      — 최초 30분 800원, 이후 10분당 300원
+#   · 3급지 : 그 밖의 지역        — 최초 30분 600원, 이후 10분당 200원
+#   · 1일 최대요금 10,000원(모든 급지), 월 정기권은 주차장별 70,000~80,000원
+# 노상 구간은 같은 급지라도 포털에 등록된 기본시간·기본요금이 다를 수 있어(예: 서정전통
+# 120분 800원) 주차장별 등록값을 그대로 쓴다.
+PYEONGTAEK_FEES = {
+    1: {"base_min": 90, "base_fee": 0, "free_min": 90, "unit_min": 10, "unit_fee": 400},
+    2: {"base_min": 30, "base_fee": 800, "free_min": 0, "unit_min": 10, "unit_fee": 300},
+    3: {"base_min": 30, "base_fee": 600, "free_min": 0, "unit_min": 10, "unit_fee": 200},
+}
+PYEONGTAEK_UNIT_MIN = 10
+PYEONGTAEK_DAY_CAP = 10_000          # 1일 최대요금(모든 급지)
+
+# 평택시 공영주차장 요금 감면 — 「평택시 주차장 설치 및 관리 조례」 별표2와
+# 평택도시공사 ‘즉시감면 안내’(2026-11-17 확인), 표준데이터 특기사항(평택시 등록값)으로 교차 확인.
+#   · 4시간 면제 후 50% : 국가유공자·고엽제후유증환자·참전유공자·국가보훈대상자·성실납세자·
+#                        우수자원봉사증 소지자
+#   · 2시간 면제 후 50% : 장애인자동차·전기자동차
+#   · 50%              : 장기기증자·저공해자동차·경형자동차·병역명문가·다자녀가정(두 자녀 이상,
+#                        2026-11-16부터 경기도 거주 가정까지)
+#   · 20%              : 승용차부제·함께타기 표지부착 차량
+#   · 감면이 겹치면 비율이 높은 하나만 적용
+PYEONGTAEK_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·다자녀 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형(1,000cc 미만)·저공해·장기기증·병역명문가·다자녀(두 자녀 이상)"},
+    {"label": "승용차부제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "승용차부제 및 함께타기 표지부착 차량"},
+    {"label": "장애인·전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "장애인자동차·전기자동차, 2시간까지 면제"},
+    {"label": "국가유공자·성실납세자 4시간 면제 후 50%", "rate": 0.5, "exempt_min": 240,
+     "note": "국가유공자·고엽제·참전유공자·국가보훈대상자·성실납세자·우수자원봉사자"},
+]
+# 포털 이름이 표준데이터와 달라 이름으로 찾지 못하는 주차장(좌표 60m 밖).
+PYEONGTAEK_PORTAL_ALIAS = {
+    "신장쇼핑제2공영주차장": "신장쇼핑몰 제2",
+    # 표준데이터 ‘안정리 39-12’(60면) ↔ 포털 ‘안정리쇼핑몰’(58면, 안정순환로 107). 40m 옆의
+    # ‘안정커뮤니티광장주차장’(388면)은 다른 주차장이라 이름으로 짝을 정한다.
+    "팽성안정리쇼핑몰 공영주차장": "안정리쇼핑몰",
+}
+PY_KEY_STRIP = ("주차장", "공영", "노외", "노상", "지하", "임시")
+
+
+def pyeongtaek_name_key(s: str, strip=PY_KEY_STRIP) -> str:
+    """주차장 이름 비교용 키 — 공백·괄호와 꾸밈말(공영/주차장/노외/노상/지하/임시)을 뺀다.
+
+    예: ‘신장쇼핑제3공영주차장’ ↔ ‘신장쇼핑몰 제3’, ‘서정제1공영’ ↔ ‘서정-제1’
+    """
+    t = re.sub(r"[\s()\[\]·,.ㆍ\-]", "", s or "")
+    for w in strip:
+        t = t.replace(w, "")
+    return t
+
+
+def pyeongtaek_unit_of(text: str):
+    """주소에서 평택시 읍·면·동을 뽑는다(읍·면 → 동 순, ‘… (평택동)’ 괄호도 읽는다)."""
+    t = text or ""
+    for u in PYEONGTAEK_EUP_MYEON:
+        if re.search(re.escape(u) + r"(\s|$|[^가-힣])", t):
+            return u
+    m = re.search(r"\(([가-힣]{1,6}(?:동|읍|면))", t)
+    if m:
+        return m.group(1)
+    return dong_from_jibun(t)
+
+
+def load_pyeongtaek_portal() -> dict:
+    """평택도시공사 포털 주차장 목록 스냅샷 → 주차장 이름별 정보.
+
+    급지(GRADE)·기본시간·기본요금·간격요금·1일 최대요금·월정기권과 법정동이 적힌 주소,
+    좌표, 24시간 운영 여부를 담는다. 2026-11-16 조례 개정 뒤 요금이 표준데이터보다 최신이다.
+    """
+    if not PYEONGTAEK_PORTAL_JSON.exists():
+        return {}
+    rows = json.loads(PYEONGTAEK_PORTAL_JSON.read_text()).get("parkingList", [])
+    out: dict[str, dict] = {}
+    for r in rows:
+        nm = (r.get("PARKING_NM") or "").strip()
+        if not nm:
+            continue
+        out[nm] = {
+            "name": nm,
+            "grade": to_int(r.get("GRADE")),
+            "ptype": (r.get("PARKING_DIV_NM") or "").strip(),
+            "addr": (r.get("CELL_ADDR_JIBUN") or "").strip(),
+            "spaces": to_int(r.get("CELL_CNT")),
+            "base_min": to_int(r.get("DFLT_TM")),
+            "base_fee": to_int(r.get("DFLT_AMT")),
+            "unit_min": to_int(r.get("INTVL_TM")),
+            "unit_fee": to_int(r.get("INTVL_AMT")),
+            "cap": to_int(r.get("DAY_PARKING_AMT")),
+            "monthly": to_int(r.get("PERIOD_TICKET_AMT")),
+            "anyhour": (r.get("ANYHOUR_RUN_YN") or "").strip() == "24시간운영함",
+            "tel": (r.get("TEL_NO") or "").strip(),
+            "lat": float(r["LAT"]) if r.get("LAT") else None,
+            "lng": float(r["LNG"]) if r.get("LNG") else None,
+        }
+    return out
+
+
+def pyeongtaek_portal_match(name: str, portal: dict, lat=None, lng=None):
+    """표준데이터 한 행에 대응하는 포털 주차장을 정한다.
+
+    이름이 꾸밈말을 뺐을 때 같은 것 → 이름이 서로 포함되고 120m 안에 있는 것 →
+    같은 자리(40m 이내)에 있는 것 → 별칭표 순으로 찾는다. 통복장터·통복공영처럼 이름이
+    비슷한 주차장이 한 동네에 몰려 있어, 이름만으로 정하지 않고 좌표를 함께 본다.
+    """
+    if not portal:
+        return None
+    key = pyeongtaek_name_key(name)
+    exact = [r for nm, r in portal.items() if pyeongtaek_name_key(nm) == key]
+    if exact:
+        if len(exact) == 1 or lat is None:
+            return exact[0]
+        return min(exact, key=lambda r: km(lat, lng, r["lat"], r["lng"])
+                   if r["lat"] is not None else 9e9)
+    if lat is not None and lng is not None:
+        cont = [r for nm, r in portal.items()
+                if (k2 := pyeongtaek_name_key(nm)) and len(k2) >= 2 and (k2 in key or key in k2)
+                and r["lat"] is not None and km(lat, lng, r["lat"], r["lng"]) <= 120]
+        if cont:
+            return min(cont, key=lambda r: km(lat, lng, r["lat"], r["lng"]))
+        near = [r for r in portal.values()
+                if r["lat"] is not None and km(lat, lng, r["lat"], r["lng"]) <= 40]
+        if near:
+            return min(near, key=lambda r: km(lat, lng, r["lat"], r["lng"]))
+    alias = PYEONGTAEK_PORTAL_ALIAS.get(name)
+    if alias and alias in portal:
+        return portal[alias]
+    return None
+
+
+def build_pyeongtaek():
+    """평택시 공영주차장을 표준데이터 + 평택도시공사 포털 스냅샷으로 추출한다.
+
+    성남·용인·화성·안양시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 평택시 범위를 벗어난 행은 제외(껍데기 행).
+      · 노상(거리) 구간은 이름이 구간 설명이라 카드 대신 전용 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 노외 카드가 3곳 이상인 읍·면·동만 만든다.
+    평택시는 2026-11-16부터 1~3급지 차등 요금제를 시행해, 표준데이터(기준일 2026-04-17)의
+    일괄 30분 800원·10분 300원이 이미 지난 요금이다. 그래서 주차장별 급지·기본시간·요금은
+    평택도시공사 포털의 최신 등록값을 쓰고, 포털에서 찾지 못한 주차장만 표준데이터 값을 쓴다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows = [r for r in rows_all if (r.get("제공기관명") or "").strip() == PYEONGTAEK_PROVIDER]
+    portal = load_pyeongtaek_portal()
+    lots, excluded = [], []
+    card_no = street_no = 0
+
+    for r in rows:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (PYEONGTAEK_BBOX[0] <= lat <= PYEONGTAEK_BBOX[1]
+                                      and PYEONGTAEK_BBOX[2] <= lng <= PYEONGTAEK_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        hit = pyeongtaek_portal_match(name, portal, lat, lng)
+        dong = pyeongtaek_unit_of(jibun)
+        dong_src = "지번주소"
+        if not dong:
+            dong = pyeongtaek_unit_of(road)
+            dong_src = "도로명주소"
+        if not dong and hit:
+            dong = pyeongtaek_unit_of(hit["addr"])
+            dong_src = "포털주소"
+        if not dong and lat is not None:
+            near = [(pyeongtaek_unit_of(x["addr"]), x) for x in portal.values()
+                    if x["lat"] is not None and km(lat, lng, x["lat"], x["lng"]) <= 120]
+            near = [d for d in (u for u, _ in near) if d]
+            if len(set(near)) == 1:
+                dong, dong_src = near[0], "포털좌표"
+        if not dong:
+            dong_src = "없음"
+
+        note = (r.get("특기사항") or "").strip()
+        fee_raw = (r.get("요금정보") or "").strip()
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"pt-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"pt-{card_no:03d}"
+
+        fee = {
+            "type": "무료" if fee_raw == "무료" else ("유료" if fee_raw in ("유료", "혼합") else "미상"),
+            "raw_type": fee_raw,
+            "mixed": fee_raw == "혼합",
+            "grade": None, "base_min": None, "base_fee": None,
+            "unit_min": None, "unit_fee": None, "steps": None,
+            "free_min": 0, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": to_int(r.get("월정기권요금")),
+            "pay": (r.get("결제방법") or "").strip(),
+            "basis": None,
+        }
+        if fee["type"] == "유료":
+            free_days = {"sat": False, "sun": False}
+            if hit and hit["base_min"] and hit["base_fee"] is not None:
+                fee.update({
+                    "grade": hit["grade"],
+                    "base_min": hit["base_min"],
+                    "base_fee": hit["base_fee"],
+                    "unit_min": hit["unit_min"] or PYEONGTAEK_UNIT_MIN,
+                    "unit_fee": hit["unit_fee"],
+                    "free_min": hit["base_min"] if not hit["base_fee"] else 0,
+                    "cap_fee": hit["cap"] or PYEONGTAEK_DAY_CAP,
+                    "cap_src": "포털 일일최대요금" if hit["cap"] else "조례 일일 최대",
+                    "monthly": hit["monthly"] or fee["monthly"],
+                    "basis": ("「평택시 주차장 설치 및 관리 조례」 별표1 급지별 요금"
+                              + (f"({hit['grade']}급지)" if hit["grade"] else "")
+                              + " · 평택도시공사 포털 요금 안내(2026-11-17 확인)"),
+                })
+            else:
+                base_min = to_int(r.get("주차기본시간"))
+                base_fee = to_int(r.get("주차기본요금"))
+                unit_min = to_int(r.get("추가단위시간"))
+                unit_fee = to_int(r.get("추가단위요금"))
+                if base_min and base_fee is not None:
+                    fee.update({
+                        "base_min": base_min, "base_fee": base_fee,
+                        "unit_min": unit_min or PYEONGTAEK_UNIT_MIN,
+                        "unit_fee": unit_fee,
+                        "cap_fee": PYEONGTAEK_DAY_CAP,
+                        "cap_src": "조례 일일 최대",
+                        "basis": "표준데이터 등록요금(급지 미확인 · 포털 미등록)",
+                    })
+                else:
+                    fee["type"] = "미상"
+        if fee["type"] == "무료":
+            free_days = {"sat": True, "sun": True}
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "평택시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": road_name(road) if street else None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip() or (hit["tel"] if hit else ""),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": hit["name"] if hit else None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["base_fee"] if fee["base_fee"] else (fee["unit_fee"] or None),
+            "city": "평택시",
+            "city_slug": "pyeongtaek",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+
+    quality = check_quality_pyeongtaek(rows_all, rows, lots, excluded, portal)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(PYEONGTAEK_PORTAL_JSON).strftime("%Y-%m-%d %H:%M")
+                            if PYEONGTAEK_PORTAL_JSON.exists() else None,
+            "region": {"province": "경기도", "city": "평택시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-17", "rows_total": len(rows_all),
+                    "rows_city": len(rows),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("평택시가 등록한 행만(제공기관명 '경기도 평택시') 추출. 요금은 급지 없이 "
+                             "30분 800원·10분 300원으로 일괄 등록되어 있다."),
+                },
+                {
+                    "id": "puc", "name": "평택도시공사 공영주차장 포털 주차장 목록",
+                    "org": "평택도시공사",
+                    "url": "https://parking.puc.or.kr/parking/list.do",
+                    "file": PYEONGTAEK_PORTAL_JSON.name,
+                    "sha256": sha256(PYEONGTAEK_PORTAL_JSON) if PYEONGTAEK_PORTAL_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": len(portal),
+                    "fetched_at": _snapshot_time(PYEONGTAEK_PORTAL_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if PYEONGTAEK_PORTAL_JSON.exists() else None,
+                    "note": ("주차장별 급지(1~3급지)·기본시간·기본요금·간격요금·1일 최대요금·월정기권과 "
+                             "법정동 주소 확인용. 2026-11-16 조례 개정 요금이 반영되어 있다."),
+                },
+                {
+                    "id": "ordinance", "name": "평택시 주차장 설치 및 관리 조례 (별표1·별표2)",
+                    "org": "평택시",
+                    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2076351",
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "2026-11-16 시행(급지별 차등 요금제)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("1~3급지 주차요금표(별표1)·요금 감면(별표2) 근거. 2026-11-12 시 보도자료와 "
+                             "평택도시공사 포털 요금 안내로 교차 확인."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in PYEONGTAEK_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "grade_flat",
+            "unit_min": PYEONGTAEK_UNIT_MIN,
+            "cap_fee": PYEONGTAEK_DAY_CAP,
+            "rows": [
+                {"grade": g, "base_min": t["base_min"], "base_fee": t["base_fee"],
+                 "free_min": t["free_min"], "unit_fee": t["unit_fee"],
+                 "note": note}
+                for g, t, note in (
+                    (1, PYEONGTAEK_FEES[1], "전통시장·상점가 인근 — 90분 무료"),
+                    (2, PYEONGTAEK_FEES[2], "상업·준주거지역"),
+                    (3, PYEONGTAEK_FEES[3], "그 밖의 지역"),
+                )
+            ],
+            "basis": ("「평택시 주차장 설치 및 관리 조례」 별표1(2026-11-16 시행) · "
+                      "평택도시공사 포털 요금 안내(2026-11-17 확인)"),
+        },
+    }
+    payload.update(CITY_META["평택시"] | {
+        "city": "평택시",
+        "weekend_free_pages": False,     # 무료 개방 '표기'가 없어 주말 무료 페이지를 만들지 않는다
+        "discounts": PYEONGTAEK_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "pyeongtaek_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_pyeongtaek(std_all, rows, lots, excluded, portal):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["base_fee"] for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_평택시행수": len(rows),
+        "포털_주차장수": len(portal),
+        "포털_매칭": len([l for l in lots if l.get("portal_name")]),
+        "포털_미매칭_유료": [l["name"] for l in lots
+                            if l["fee"]["type"] == "유료" and not l.get("portal_name")],
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": {"평택시": len(card)},
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in lots if l["fee"]["type"] == "유료")),
+        "일일상한_포털값": len([l for l in lots if l["fee"].get("cap_src") == "포털 일일최대요금"]),
+        "일일상한_조례값": len([l for l in lots if l["fee"].get("cap_src") == "조례 일일 최대"]),
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -2089,7 +2533,10 @@ def build_summary_city(payload):
         lines.append(f"- 노외·부설 주차장 **{q['총_주차장']}곳** · 총 구획 {q['총_구획수']:,}면 "
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외")
-        lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
+        if city == "평택시":
+            lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
+        else:
+            lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
         if q.get("노외_부설"):
             lines.append(f"- 유형: {q['노외_부설']}")
         lines.append(f"- 요금 구분: {q['요금구분']} · 무료 개방 표기 {len(q['무료개방_표기'])}곳 · 평균 기본요금 {q['평균_기본요금']:,}원"
@@ -2145,12 +2592,12 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "all"], default="all")
     args = ap.parse_args()
 
-    want = ["수원시", "성남시", "용인시", "화성시", "안양시"] if args.city == "all" else \
+    want = ["수원시", "성남시", "용인시", "화성시", "안양시", "평택시"] if args.city == "all" else \
            {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
-            "hwaseong": ["화성시"], "anyang": ["안양시"]}[args.city]
+            "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"]}[args.city]
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -2162,6 +2609,8 @@ def main():
         cities.append(build_hwaseong())
     if "안양시" in want:
         cities.append(build_anyang())
+    if "평택시" in want:
+        cities.append(build_pyeongtaek())
 
     if args.city == "all":
         site = build_site_payload(cities)

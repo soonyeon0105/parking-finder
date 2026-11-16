@@ -409,17 +409,25 @@ for city in CITIES:
 # 3) 도시 간 자료 혼입 금지: 도시 페이지에 다른 도시의 자료/문구가 없어야 한다.
 MIX = {
     "seongnam": ("수원", "수원도시공사", "영통구", "권선구", "용인", "용인도시공사",
-                 "안양", "안양도시공사", "만안구", "동안구"),
+                 "안양", "안양도시공사", "만안구", "동안구", "평택", "평택도시공사"),
     "yongin": ("수원", "수원도시공사", "성남", "성남도시개발공사", "영통구", "권선구", "수정구", "중원구", "분당구",
-               "안양", "안양도시공사", "만안구", "동안구"),
+               "안양", "안양도시공사", "만안구", "동안구", "평택", "평택도시공사"),
     # 화성시는 2026-03-01 4개 구(만세·효행·병점·동탄) 체제 — 다른 도시의 구·자료·문구가 섞이면 실패
     "hwaseong": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
                  "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
-                 "처인구", "기흥구", "수지구", "안양", "안양도시공사", "만안구", "동안구"),
+                 "처인구", "기흥구", "수지구", "안양", "안양도시공사", "만안구", "동안구",
+                 "평택", "평택도시공사"),
     # 안양시는 만안·동안 2개 구 — 다른 도시의 구·자료·문구가 섞이면 실패
     "anyang": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
                "화성", "화성도시공사", "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구",
-               "분당구", "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구"),
+               "분당구", "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+               "평택", "평택도시공사"),
+    # 평택시는 자치구가 없다 — 다른 도시의 구·자료·문구가 섞이면 실패
+    "pyeongtaek": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+                   "화성", "화성도시공사", "안양", "안양도시공사",
+                   "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+                   "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+                   "만안구", "동안구"),
 }
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -534,6 +542,26 @@ cases = [
     ("먹거리촌노외 주차장", 120, "weekday", 0, 0, "paid", 3400),         # 2급지
     ("호현마을1 공영주차장", 1440, "weekday", 0, 0, "paid", 1500),       # 5급지 일일 최대 1,500
     ("운동장파출소 뒤 주차장", 120, "weekday", 0, 0, "free", None),      # 요금 구분 무료
+    # 평택시(2026-11-16 시행 1~3급지): 1급지 90분 무료 뒤 10분 400원 / 2급지 30분 800원+10분 300원 /
+    #   3급지 30분 600원+10분 200원, 1일 최대 10,000원
+    ("평택동공영주차장", 60, "weekday", 0, 0, "free", None),             # 1급지 90분 무료
+    ("평택동공영주차장", 90, "weekday", 0, 0, "free", None),
+    ("평택동공영주차장", 120, "weekday", 0, 0, "paid", 1200),            # 90분 뒤 30분 = 400×3
+    ("평택동공영주차장", 240, "weekday", 0, 0, "paid", 6000),            # 150분 = 400×15
+    ("평택동공영주차장", 1440, "weekday", 0, 0, "paid", 10000),          # 54,000 → 1일 최대
+    ("원평제1공영주차장", 30, "weekday", 0, 0, "paid", 800),             # 2급지
+    ("원평제1공영주차장", 120, "weekday", 0, 0, "paid", 3500),
+    ("매봉공영주차장", 120, "weekday", 0, 0, "paid", 2400),              # 3급지
+    ("매봉공영주차장", 240, "weekday", 0, 0, "paid", 4800),
+    ("매봉공영주차장", 600, "weekday", 0, 0, "paid", 10000),             # 12,000 → 1일 최대
+    # 평택시 조례: 경차·저공해 등 50%, 장애인·전기차 2시간 면제 후 50%, 국가유공자·성실납세자 4시간 면제 후 50%
+    ("매봉공영주차장", 120, "weekday", 0.5, 0, "paid", 1200),
+    ("매봉공영주차장", 120, "weekday", 0.5, 120, "free", None),
+    ("매봉공영주차장", 240, "weekday", 0.5, 120, "paid", 2400),
+    ("매봉공영주차장", 240, "weekday", 0.5, 240, "free", None),
+    ("매봉공영주차장", 300, "weekday", 0.5, 240, "paid", 3000),          # 6,000의 50%
+    ("매봉공영주차장", 120, "weekday", 0.2, 0, "paid", 1920),            # 승용차부제 20%
+    ("서정충혼탑 공영주차장", 120, "weekday", 0, 0, "free", None),       # 요금 구분 무료
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -636,6 +664,48 @@ if ay_paid:
     if not (r_free["state"] == "free" and r_free.get("free_min") == 15
             and r_base["state"] == "paid" and r_base["amount"] == ay_paid[0]["fee"]["base_fee"]):
         fails.append(f"안양시 최초 15분 무료 규칙 불일치: {ay_paid[0]['name']} {r_free} / {r_base}")
+
+# 평택시 카드: 2026-11-16 조례 개정 요금(1~3급지)이 포털 값으로 들어가야 한다.
+#  · 카드(노외)에 요금 미상이 없고, 유료는 모두 1일 최대요금(상한)을 갖는다.
+#  · 1급지는 90분 무료(기본요금 0), 2급지는 30분 800원, 3급지는 30분 600원 — 조례 별표1과 같다.
+pt_cards = [l for l in LOTS if l.get("city") == "평택시" and l.get("list_mode") == "card"]
+if not pt_cards:
+    fails.append("평택시 카드 데이터가 없음")
+if any(l["fee"]["type"] == "미상" for l in pt_cards):
+    fails.append("평택시 카드에 요금 미상 주차장이 있음(자료 확인 필요)")
+pt_paid = [l for l in pt_cards if l["fee"]["type"] == "유료"]
+pt_no_cap = [l["name"] for l in pt_paid if not l["fee"].get("cap_fee")]
+if pt_no_cap:
+    fails.append(f"평택시 유료 카드에 1일 최대요금이 없음 {len(pt_no_cap)}곳 {pt_no_cap[:3]}")
+pt_bad = [l["name"] for l in pt_paid if price_for(l, 120, "weekday")["state"] != "paid"]
+if pt_bad:
+    fails.append(f"평택시 유료 카드 중 평일 2시간 계산 불가 {len(pt_bad)}곳 {pt_bad[:3]}")
+pt_free_bad = [l["name"] for l in pt_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if pt_free_bad:
+    fails.append(f"평택시 무료 카드가 무료로 계산되지 않음 {len(pt_free_bad)}곳 {pt_free_bad[:3]}")
+pt_grade_expect = {1: (0, 90, 400), 2: (800, 0, 300), 3: (600, 0, 200)}
+pt_grade_bad = [f"{l['name']}({l['fee']['grade']}급지 {l['fee']['base_fee']}/{l['fee']['unit_fee']})"
+                for l in pt_paid
+                if l["fee"].get("grade") in pt_grade_expect
+                and (l["fee"]["base_fee"], l["fee"].get("free_min") or 0, l["fee"]["unit_fee"])
+                != pt_grade_expect[l["fee"]["grade"]]]
+if pt_grade_bad:
+    fails.append(f"평택시 급지별 요금이 조례 표와 다름 {len(pt_grade_bad)}곳 {pt_grade_bad[:3]}")
+if not any(l["fee"].get("grade") == 1 and l["fee"].get("free_min") == 90 for l in pt_paid):
+    fails.append("평택시 1급지 90분 무료 카드가 없음")
+# 시 페이지가 계산기·목록·급지 요금표를 모두 갖는지(구가 없는 시는 시 페이지가 목록 페이지를 겸한다)
+pt_hub = DIST / "parking" / "gyeonggi" / "pyeongtaek" / "index.html"
+if not pt_hub.exists():
+    fails.append("평택시 시 페이지 없음")
+else:
+    hub_html = pt_hub.read_text()
+    for need, label in (('id="lot-list"', "주차장 목록"), ('class="calc', "요금 계산기"),
+                        ("급지별 주차요금표", "급지 요금표")):
+        if need not in hub_html:
+            fails.append(f"평택시 시 페이지에 {label} 없음")
+    if hub_html.count('class="card lot') != len(pt_cards):
+        fails.append(f"평택시 시 페이지 카드 수 불일치({hub_html.count('class=\"card lot')} vs {len(pt_cards)})")
 
 print()
 if warns:

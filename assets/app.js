@@ -185,6 +185,9 @@
         var bits = [];
         if (res.capped) bits.push((lot && lot.fee.cap_fee) ? '일일 최대요금 적용' : '1일권 상한 적용');
         if (res.discounted) bits.push('정상 ' + won(res.before) + '에서 감면');
+        if (!bits.length && lot && !lot.fee.base_fee && lot.fee.free_min) {
+          bits.push('최초 ' + lot.fee.free_min + '분 무료 기준');
+        }
         noteEl.textContent = bits.join(' · ') || '기본요금·추가요금 기준';
       }
     } else if (res.state === 'unknown') {
