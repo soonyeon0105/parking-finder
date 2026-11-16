@@ -441,8 +441,18 @@ MIX = {
 # 고양시는 덕양구·일산동구·일산서구 3개 구다 — 다른 도시 페이지에 고양 자료가 들어가거나
 # 고양 페이지에 다른 도시 자료가 섞이면 실패한다(도시를 추가할 때마다 이 목록에 이름을 더한다).
 GOYANG_TOKENS = ("고양", "고양도시관리공사", "덕양구", "일산동구", "일산서구")
+# 남양주시는 자치구가 없다(6읍 3면 + 동) — 다른 도시 페이지에 남양주 자료가 섞이면 실패.
+NAMYANGJU_TOKENS = ("남양주", "남양주도시공사", "원패스파킹")
 for _k in list(MIX):
-    MIX[_k] = MIX[_k] + GOYANG_TOKENS
+    MIX[_k] = MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS
+MIX["namyangju"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사", "고양", "고양도시관리공사",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
+)
 MIX["goyang"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
@@ -638,6 +648,27 @@ cases = [
     ("장항 제1", 600, "weekday", 0.5, 720, "free", None),           # 12시간 면제
     ("장항 제1", 120, "weekday", 1.0, 0, "paid", 0),
     ("노상 5권역", 120, "weekday", 0.5, 0, "paid", 2280),
+    # 남양주시(조례 별표1, 2026-02-26 시행): 노상·노외 1급지 30분 600원 + 10분당 300원,
+    #   1일 주차요금 7,000원이 상한, 최초 10분 무료
+    ("다산 제1공영", 10, "weekday", 0, 0, "free", None),              # 최초 10분 무료
+    ("다산 제1공영", 30, "weekday", 0, 0, "paid", 600),              # 기본 30분
+    ("다산 제1공영", 60, "weekday", 0, 0, "paid", 1500),             # 600 + 300×3
+    ("다산 제1공영", 120, "weekday", 0, 0, "paid", 3300),            # 600 + 300×9
+    ("다산 제1공영", 1440, "weekday", 0, 0, "paid", 7000),           # 42,900 → 1일 주차요금
+    ("다산 제1공영", 120, "sat", 0, 0, "paid", 3300),               # 토요일도 유료
+    ("다산 제1공영", 120, "sun", 0, 0, "closed", None),             # 공휴일 미운영 등록
+    ("별내동 노상제1", 120, "weekday", 0, 0, "paid", 3300),         # 노상 1급지 유료
+    ("별내동 노상제1", 120, "sun", 0, 0, "paid", 3300),             # 유일하게 일·공휴일 운영
+    ("금곡 노상제1", 120, "weekday", 0, 0, "free", None),           # 노상 무료 구간
+    ("물의정원제1공영", 120, "weekday", 0, 0, "free", None),        # 노외 무료
+    # 남양주시 감면: 경차·저공해·다자녀(2명)·65세 50%, 환경친화적 차 1시간 면제 후 50%,
+    #   장애인·국가유공자·임산부·다자녀(3명) 24시간 면제 후 50%, 모범·유공·성실납세자 100%
+    ("다산 제1공영", 120, "weekday", 0.5, 0, "paid", 1650),
+    ("다산 제1공영", 120, "weekday", 0.5, 60, "paid", 1650),        # 1시간 면제 대상이 2시간
+    ("다산 제1공영", 60, "weekday", 0.5, 60, "free", None),
+    ("다산 제1공영", 600, "weekday", 0.5, 1440, "free", None),      # 24시간 면제
+    ("별내동 노상제1", 120, "weekday", 0.5, 0, "paid", 1650),       # 노상 유료 구간 50%
+    ("다산 제1공영", 120, "weekday", 1.0, 0, "paid", 0),
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -928,6 +959,89 @@ else:
     rows = len(re.findall(r"<tr><td>", gy_street_page.read_text()))
     if rows < len(gy_street):
         fails.append(f"고양시 노상 페이지 행 {rows} < 구간 {len(gy_street)}")
+
+# 남양주시: 「남양주시 주차장 조례」 별표1(2026-02-26 시행) — 노상·노외 1급지 30분 600원·10분당 300원·
+# 1일 7,000원, 최초 10분 무료. 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸한다.
+NJ_FEE = (600, 10, 300, 7000, 10)
+nj_cards = [l for l in LOTS if l.get("city") == "남양주시" and l.get("list_mode") == "card"]
+nj_street = [l for l in LOTS if l.get("city") == "남양주시" and l.get("list_mode") == "street"]
+if not nj_cards:
+    fails.append("남양주시 카드 데이터가 없음")
+if any(l["fee"]["type"] == "미상" for l in nj_cards + nj_street):
+    fails.append("남양주시 주차장에 요금 미상이 있음(자료 확인 필요)")
+nj_paid = [l for l in nj_cards + nj_street if l["fee"]["type"] == "유료"]
+nj_bad_fee = [f"{l['name']}({l['fee']['grade']}급지 {l['fee']['base_fee']}/{l['fee']['unit_fee']}/{l['fee']['daily_fee']})"
+              for l in nj_paid
+              if (l["fee"]["base_fee"], l["fee"]["unit_min"], l["fee"]["unit_fee"],
+                  l["fee"]["daily_fee"], l["fee"]["free_min"]) != NJ_FEE]
+if nj_bad_fee:
+    fails.append(f"남양주시 유료 주차장 요금이 조례 별표1과 다름 {len(nj_bad_fee)}곳 {nj_bad_fee[:3]}")
+if sorted({l["fee"]["grade"] for l in nj_paid}) != [1]:
+    fails.append(f"남양주시 유료 주차장 급지가 1급지가 아님: {sorted({l['fee']['grade'] for l in nj_paid})}")
+if not all(l["fee"].get("monthly") for l in nj_paid):
+    fails.append("남양주시 유료 주차장에 월 정기권(주간) 금액이 없음")
+nj_card_bad = [l["name"] for l in nj_cards if l["fee"]["type"] == "유료"
+               and price_for(l, 120, "weekday")["state"] != "paid"]
+if nj_card_bad:
+    fails.append(f"남양주시 유료 카드 중 평일 2시간 계산 불가 {len(nj_card_bad)}곳 {nj_card_bad[:3]}")
+nj_free_bad = [l["name"] for l in nj_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if nj_free_bad:
+    fails.append(f"남양주시 무료 카드가 무료로 계산되지 않음 {len(nj_free_bad)}곳 {nj_free_bad[:3]}")
+# 최초 10분 무료가 카드에 실제로 적용되는지 (10분 0원 · 30분 기본요금)
+nj_sample = next((l for l in nj_cards if l["fee"]["type"] == "유료"), None)
+if nj_sample:
+    r10, r30 = price_for(nj_sample, 10, "weekday"), price_for(nj_sample, 30, "weekday")
+    if not (r10["state"] == "free" and r10.get("free_min") == 10
+            and r30["state"] == "paid" and r30["amount"] == nj_sample["fee"]["base_fee"]):
+        fails.append(f"남양주시 최초 10분 무료 규칙 불일치: {nj_sample['name']} {r10} / {r30}")
+# 노상은 무료·유료가 섞여 있고, 무료 구간은 요일과 관계없이 무료로 계산돼야 한다
+nj_st_free = [l for l in nj_street if l["fee"]["type"] == "무료"]
+nj_st_paid = [l for l in nj_street if l["fee"]["type"] == "유료"]
+if not (nj_st_free and nj_st_paid):
+    fails.append(f"남양주시 노상 구간의 무료·유료 구성이 예상과 다름(무료 {len(nj_st_free)}·유료 {len(nj_st_paid)})")
+if len(nj_st_free) != 28 or len(nj_st_paid) != 7:
+    fails.append(f"남양주시 노상 무료/유료 수가 자료와 다름(무료 {len(nj_st_free)}·유료 {len(nj_st_paid)})")
+# 도시공사가 공지한 임시 폐쇄(태양광 공사) 안내가 카드에 실려야 한다
+nj_closed = {l["name"]: l.get("notice") for l in nj_cards if l.get("notice")}
+if sorted(nj_closed) != ["별내동 제2공영", "오남 제1공영"]:
+    fails.append(f"남양주시 임시 폐쇄 안내 대상이 예상과 다름: {sorted(nj_closed)}")
+nj_hub_html = (DIST / "parking" / "gyeonggi" / "namyangju" / "index.html").read_text() \
+    if (DIST / "parking" / "gyeonggi" / "namyangju" / "index.html").exists() else ""
+if "임시 폐쇄 2026-11-02" not in nj_hub_html:
+    fails.append("남양주시 시 페이지에 별내동 제2공영 임시 폐쇄 안내가 없음")
+# 같은 84행이 제공기관명만 바꿔 한 번 더 들어 있어도 카드가 중복되지 않아야 한다
+nj_dup = [k for k, v in Counter(l["name"] for l in nj_cards).items() if v > 1]
+if nj_dup:
+    fails.append(f"남양주시 카드 이름 중복(도시공사 중복 행 혼입 의심): {nj_dup[:3]}")
+# 시 페이지가 계산기·목록·급지 요금표를 모두 갖고, 급지 요금표에 노상·노외 표가 있어야 한다
+nj_hub = DIST / "parking" / "gyeonggi" / "namyangju" / "index.html"
+if not nj_hub.exists():
+    fails.append("남양주시 시 페이지 없음")
+else:
+    hub_html = nj_hub.read_text()
+    for need, label in (('id="lot-list"', "주차장 목록"), ('class="calc', "요금 계산기"),
+                        ("급지별 주차요금표", "급지 요금표"), ("노외주차장", "노외 요금표"),
+                        ("노상주차장", "노상 요금표"), ("최초 10분은 무료", "최초 10분 무료 안내")):
+        if need not in hub_html:
+            fails.append(f"남양주시 시 페이지에 {label} 없음")
+    if hub_html.count('class="card lot') != len(nj_cards):
+        fails.append(f"남양주시 시 페이지 카드 수 불일치({hub_html.count('class=\"card lot')} vs {len(nj_cards)})")
+# 읍·면·동 페이지: 카드 3곳 이상인 곳만 9개(다산동·화도읍·진접읍·와부읍·진건읍·퇴계원읍·호평동·조안면·오남읍)
+nj_root = DIST / "parking" / "gyeonggi" / "namyangju"
+nj_dong_pages = sorted(q.parent.name for q in nj_root.rglob("index.html")
+                       if q.parent != nj_root and q.parent.name != "street-parking")
+nj_by_dong = Counter(l.get("dong") for l in nj_cards if l.get("dong"))
+nj_expect = sorted(__import__("build_site").dong_slug(d) for d, n in nj_by_dong.items() if n >= 3)
+if nj_dong_pages != nj_expect:
+    fails.append(f"남양주시 동 페이지 구성이 다름: {nj_dong_pages} ≠ {nj_expect}")
+nj_street_page = nj_root / "street-parking" / "index.html"
+if not nj_street_page.exists():
+    fails.append("남양주시 노상주차장 페이지 없음(street-parking)")
+else:
+    nj_rows = len(re.findall(r"<tr><td>", nj_street_page.read_text()))
+    if nj_rows < len(nj_street):
+        fails.append(f"남양주시 노상 페이지 행 {nj_rows} < 구간 {len(nj_street)}")
 
 print()
 if warns:

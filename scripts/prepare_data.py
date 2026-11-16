@@ -13,6 +13,7 @@
      - 평택시 161행: 요금·운영시간·좌표 (노외 75 + 노상 86, 구 없이 3읍 5면·동)
      - 부천시 109행: 요금·운영시간·좌표 (노외 72 + 부설 29 + 노상 8, 원미·소사·오정 3개 구)
      - 고양시 88행: 요금·운영시간·좌표 (노외 63 + 부설 17 + 노상 8, 덕양·일산동·일산서 3개 구)
+     - 남양주시 84행: 요금·운영시간·좌표 (노외 49 + 노상 35, 구 없이 6읍 3면·동)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
@@ -22,6 +23,8 @@
      -> 급지(1~3급지)·기본시간·기본요금·간격요금·1일 최대요금·월정기권, 법정동 주소 (평택시만)
   6) 부천주차포털(parking.bcits.go.kr) 공영주차장 목록 JSON 스냅샷 + 부천도시공사 공영주차장 일반현황(엑셀)
      -> 주차장별 급지·기본 30분·10분당·1일 최대요금·정기권(주간·야간·전일)·장애인 구획 (부천시만)
+  7) 남양주도시공사 원패스파킹(parking.ncuc.or.kr) 주차장 목록 JSON 스냅샷
+     -> 주차장별 급지(1~2급지)·기본시간·기본요금·간격요금·1일 주차요금·월 정기권·구획 구성 (남양주시만)
 
 출력:
   data/site.json             도시 통합 결과(사이트 생성기 입력: cities[] + lots[])
@@ -33,11 +36,12 @@
   data/pyeongtaek_parking.json 평택시 단독 결과
   data/bucheon_parking.json  부천시 단독 결과
   data/goyang_parking.json   고양시 단독 결과
+  data/namyangju_parking.json 남양주시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|all]
 """
 from __future__ import annotations
 
@@ -323,6 +327,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "고양시": {"slug": "goyang", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "남양주시": {"slug": "namyangju", "province": "경기도", "province_slug": "gyeonggi",
+              "dong_page_min_lots": 3},
 }
 
 
@@ -3580,6 +3586,523 @@ def check_quality_goyang(std_all, rows, lots, excluded):
     }
 
 
+# ---------------------------------------------------------------- 남양주시
+NAMYANGJU_PROVIDER = "경기도 남양주시"
+# 표준데이터에는 같은 84행이 제공기관명만 바꿔 두 번(경기도 남양주시·남양주도시공사) 들어 있다.
+# 시 행만 쓰고, 도시공사 행은 품질 리포트에 중복 등록으로 적는다(같은 주차장이 두 번 생기지 않게).
+NAMYANGJU_CORP_PROVIDER = "남양주도시공사"
+NAMYANGJU_BBOX = (37.48, 37.78, 127.05, 127.36)   # 남양주시 대략 경계(좌표 점검용)
+# 남양주도시공사 원패스파킹(parking.ncuc.or.kr) 주차장 목록 스냅샷
+#   GET /api/parking/searchParkingList.json?parkingDong=  (주차장 안내 > 주소 검색과 같은 목록)
+#   주차장별 급지(GRADE)·기본시간·기본요금·간격요금·1일 주차요금·월 정기권·법정동 주소·구획 구성이 들어 있다.
+NAMYANGJU_PORTAL_JSON = RAW / "parking.ncuc.or.kr_searchParkingList_20261117.json"
+# 남양주시는 자치구가 없다(6읍 3면 + 동). 평택시와 같이 시 페이지가 계산기·목록 페이지를 겸하고
+# 그 아래에 읍·면·동 페이지를 둔다.
+NAMYANGJU_DISTRICTS = [("남양주시", "namyangju")]
+NAMYANGJU_EUP_MYEON = ("화도읍", "진접읍", "진건읍", "오남읍", "와부읍", "퇴계원읍",
+                       "별내면", "조안면", "수동면")
+
+# 남양주시 공영주차장 요금 — 「남양주시 주차장 조례」 제5조 별표1(2026-02-26 개정·시행)과
+# 남양주도시공사 원패스파킹 ‘공영주차장 요금안내(2026-02-26 ~ )’(2026-11-17 확인).
+#   · 노상 1급지: 최초 30분 600원 · 30분 초과 10분마다 300원 · 1일 7,000원 · 월 정기(주간) 70,000원
+#     노상 2급지: 최초 30분 500원 · 30분 초과 10분마다 150원 · 1일 5,000원 · 월 정기(주간) 50,000원
+#   · 노외 1급지: 최초 30분 600원 · 30분 초과 10분마다 300원 · 1일 7,000원
+#                월 정기 주간 70,000 · 야간 70,000 · 주야간 100,000원
+#     노외 2급지: 최초 30분 500원 · 30분 초과 10분마다 200원 · 1일 5,000원
+#                월 정기 주간 50,000 · 야간 50,000 · 주야간 80,000원
+#   · 급지: 1급지 = 「국토의 계획 및 이용에 관한 법률」상 용도지역 중 도시지역, 2급지 = 그 밖의 지역
+#   · 기본 10분 주차는 요금을 받지 않는다(요금안내 ‘기본 10분 주차시 요금면제’·감면표 ‘이용시간 10분 이내’).
+#   · 유료운영시간은 공휴일을 제외한 평일과 토요일의 주간(08:00~20:00)이고, 1일 단위시간당
+#     주차요금 합계는 1일 주차요금을 넘을 수 없다.
+NAMYANGJU_FREE_MIN = 10
+NAMYANGJU_UNIT_MIN = 10
+NAMYANGJU_FEES = {
+    "off": {
+        1: {"base_min": 30, "base_fee": 600, "unit_min": 10, "unit_fee": 300,
+            "day": 7_000, "month_day": 70_000, "month_night": 70_000, "month_all": 100_000},
+        2: {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200,
+            "day": 5_000, "month_day": 50_000, "month_night": 50_000, "month_all": 80_000},
+    },
+    "street": {
+        1: {"base_min": 30, "base_fee": 600, "unit_min": 10, "unit_fee": 300,
+            "day": 7_000, "month_day": 70_000},
+        2: {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 150,
+            "day": 5_000, "month_day": 50_000},
+    },
+}
+# 남양주시 공영주차장 요금 감면 — 조례 별표1 제6호(2026-02-26 시행)와 남양주도시공사
+# 원패스파킹 요금안내의 감면표(2026-11-17 확인)를 그대로 옮겼다.
+#   · 전액면제 : 공무 관련 자동차, 이용시간 10분 이내, 긴급자동차
+#   · 최초 24시간 면제 이후 50% : 국가유공자(유족·가족)·고엽제후유증·5·18민주유공자·장애인·
+#                               다자녀(3명 이상)·임산부
+#   · 50% : 다자녀(2명)·인체조직 및 장기 기증자·병역명문가·장기복무제대군인·저공해자동차·
+#           경형자동차·남양주사랑상품권 결제·승용차부제·함께타기·65세 이상 경로우대·철도 환승·전통시장 이용
+#           (승용차부제·함께타기는 2016~2019년 입찰공고에는 20%로 적혀 있었으나,
+#            2026-11-17 공사 요금안내 감면표는 50%감면 묶음에 두고 있어 50%로 적는다)
+#   · 환경친화적 자동차 : 최초 1시간 면제 이후 50%
+#   · 모범·유공납세자, 성실납세자 : 1년 전액면제 / 우수자원봉사자 : 1년 50%
+#   · 감면이 겹치면 비율이 높은 하나만 적용하고, 10원 미만은 부과하지 않는다.
+NAMYANGJU_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·다자녀(2명)·65세 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형(1,000cc 이하)·저공해·다자녀 2명·병역명문가·장기복무제대군인·65세 이상·철도 환승·전통시장·남양주사랑상품권·승용차부제·함께타기"},
+    {"label": "환경친화적 자동차 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": "전기·수소·태양광·하이브리드차, 최초 1시간 면제"},
+    {"label": "장애인·국가유공자·임산부 24시간 면제 후 50%", "rate": 0.5, "exempt_min": 1440,
+     "note": "장애인·국가유공자(유족·가족)·고엽제·5·18·임산부·다자녀(3명 이상), 최초 24시간 면제"},
+    {"label": "모범·유공·성실납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "모범·유공납세자 및 성실납세자 인증서(스티커) 부착 차량(1년)"},
+]
+# 포털 이름이 표준데이터와 달라 이름으로 찾지 못하는 주차장(좌표로도 60m 밖).
+NAMYANGJU_PORTAL_ALIAS = {
+    "정약용생가 다목적광장": "정약용 다목적광장",
+}
+# 남양주도시공사가 2026-11-17 원패스파킹 공지로 알린 임시 폐쇄 — 태양광 발전설비 설치공사.
+#   · 별내 제2공영: 2026-11-02 ~ 2026-11-30
+#   · 오남 제1공영 : 2026-10-01 ~ 2026-12-31
+# 공사 기간에는 그 구역을 쓸 수 없어 카드와 페이지에 안내를 함께 적는다(요금·면수는 원자료 그대로).
+NAMYANGJU_TEMP_CLOSED = {
+    "별내동 제2공영": "임시 폐쇄 2026-11-02~11-30(태양광 발전설비 공사) — 공사 기간에는 이용할 수 없습니다",
+    "오남 제1공영": "임시 폐쇄 2026-10-01~12-31(태양광 발전설비 공사) — 공사 기간에는 이용할 수 없습니다",
+}
+NJ_KEY_STRIP = ("주차장", "공영", "노외", "지하", "임시")
+
+
+def namyangju_is_street_name(s: str) -> bool:
+    """이름이 노상(거리) 구간을 가리키는지 — 노상·노외는 같은 번호로 이름이 겹져 구분에 쓴다."""
+    return "노상" in re.sub(r"\s", "", s or "")
+
+
+def namyangju_name_key(s: str, strip=NJ_KEY_STRIP) -> str:
+    """주차장 이름 비교용 키 — 괄호 설명과 꾸밈말(공영/주차장/노외/지하/임시), 0으로 시작하는 번호를 뺀다.
+
+    ‘노상’은 빼지 않는다. ‘다산 노상제1’과 ‘다산 제1공영’은 다른 주차장인데, 노상까지 빼면
+    둘 다 ‘다산제1’이 되어 섞인다.
+    예: ‘화도 제01공영’ ↔ ‘화도 제1공영’, ‘별내동노상 제9공영’ ↔ ‘별내동 노상제9’
+    """
+    t = re.sub(r"\([^)]*\)", "", s or "")
+    t = re.sub(r"[\s()\[\]·,.ㆍ\-]", "", t)
+    for w in strip:
+        t = t.replace(w, "")
+    return re.sub(r"제0+(\d)", r"제\1", t)
+
+
+def namyangju_unit_of(text: str):
+    """주소에서 남양주시 읍·면·동을 뽑는다(읍·면 → 동 순, ‘… (다산동)’ 괄호도 읽는다)."""
+    t = text or ""
+    for u in NAMYANGJU_EUP_MYEON:
+        if re.search(re.escape(u) + r"(\s|$|[^가-힣])", t):
+            return u
+    m = re.search(r"\(([가-힣]{1,6}(?:동|읍|면))", t)
+    if m:
+        return m.group(1)
+    return dong_from_jibun(t)
+
+
+def load_namyangju_portal() -> dict:
+    """남양주도시공사 원패스파킹 주차장 목록 스냅샷 → 주차장 이름별 정보.
+
+    급지(GRADE)와 기본시간·기본요금·간격요금·1일 주차요금·월 정기권, 법정동 주소, 좌표,
+    요일별 운영시간, 구획 구성(일반·장애인·전기·캠핑카·화물차)을 담는다.
+    표준데이터에 없는 공공 부설(시청·공원·체육문화센터·한강공원) 주차장도 함께 들어 있어,
+    표준데이터 84행과 매칭해 요금·급지 확인에만 쓴다.
+    """
+    if not NAMYANGJU_PORTAL_JSON.exists():
+        return {}
+    rows = json.loads(NAMYANGJU_PORTAL_JSON.read_text()).get("parkingList", [])
+    out: dict[str, dict] = {}
+    for r in rows:
+        nm = (r.get("PARKING_NM") or "").strip()
+        if not nm:
+            continue
+        addr = (r.get("CELL_ADDR_JIBUN") or "").strip()
+        out[nm] = {
+            "name": nm,
+            "grade": to_int(r.get("GRADE")),
+            "div": (r.get("PARKING_DIV_NM") or "").strip(),
+            "addr": addr,
+            "spaces": to_int(r.get("CELL_CNT")),
+            "base_min": to_int(r.get("DFLT_TM")),
+            "base_fee": to_int(r.get("DFLT_AMT")),
+            "unit_min": to_int(r.get("INTVL_TM")),
+            "unit_fee": to_int(r.get("INTVL_AMT")),
+            "cap": to_int(r.get("DAY_PARKING_AMT")),
+            "monthly": to_int(r.get("PERIOD_TICKET_AMT")),
+            "anyhour": (r.get("ANYHOUR_RUN_YN") or "").strip() == "24시간운영함",
+            "free_now": "무료운영중" in addr,
+            "disabled": to_int(r.get("HNDCAP_CELL_CNT")),
+            "elec": to_int(r.get("ELEC_CELL_CNT")),
+            "camping": to_int(r.get("CAMPING_CAR_CELL_CNT")),
+            "truck": to_int(r.get("TRUCK_CELL_CNT")),
+            "tel": (r.get("TEL_NO") or "").strip(),
+            "lat": float(r["LAT"]) if r.get("LAT") else None,
+            "lng": float(r["LNG"]) if r.get("LNG") else None,
+        }
+    return out
+
+
+def namyangju_portal_match(name: str, portal: dict, lat=None, lng=None):
+    """표준데이터 한 행에 대응하는 포털 주차장을 정한다.
+
+    이름이 꾸밈말을 뺐을 때 같은 것 → 이름이 서로 포함되고 120m 안에 있는 것 →
+    같은 자리(40m 이내)에 있는 것 → 별칭표 순으로 찾는다.
+    포털의 다른 갈래(공원·청사·체육문화센터·한강공원 부설)는 이름이 비슷해도 짝짓지 않고,
+    노상 이름은 노상끼리만 짝짓는다(‘다산 노상제1’ ↔ ‘다산 제1공영’은 다른 주차장).
+    """
+    if not portal:
+        return None
+    key = namyangju_name_key(name)
+    street = namyangju_is_street_name(name)
+    pool = [r for r in portal.values()
+            if r.get("div") == "공영" and namyangju_is_street_name(r["name"]) == street]
+    if not pool:
+        return None
+    exact = [r for r in pool if namyangju_name_key(r["name"]) == key]
+    if exact:
+        if len(exact) == 1 or lat is None:
+            return exact[0]
+        return min(exact, key=lambda r: km(lat, lng, r["lat"], r["lng"])
+                   if r["lat"] is not None else 9e9)
+    if lat is not None and lng is not None:
+        cont = [r for r in pool
+                if (k2 := namyangju_name_key(r["name"])) and len(k2) >= 2 and (k2 in key or key in k2)
+                and r["lat"] is not None and km(lat, lng, r["lat"], r["lng"]) <= 120]
+        if cont:
+            return min(cont, key=lambda r: km(lat, lng, r["lat"], r["lng"]))
+        near = [r for r in pool
+                if r["lat"] is not None and km(lat, lng, r["lat"], r["lng"]) <= 40]
+        if near:
+            return min(near, key=lambda r: km(lat, lng, r["lat"], r["lng"]))
+    alias = NAMYANGJU_PORTAL_ALIAS.get(name)
+    if alias and alias in portal:
+        return portal[alias]
+    return None
+
+
+def build_namyangju():
+    """남양주시 공영주차장을 표준데이터 + 조례 별표1(2026-02-26 요금표)로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 남양주시 범위를 벗어난 행은 제외(껍데기 행).
+      · 노상(거리) 구간은 이름이 구간 설명이라 카드 대신 전용 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 카드가 3곳 이상인 읍·면·동만 만든다.
+    요금은 조례 별표1의 급지별 요금표를 쓴다. 표준데이터(기준일 2026-09-15)의 주차장별 금액은
+    유료 48곳 가운데 46곳이 급지 요금(30분 600원·10분당 300원·1일 7,000원·월 70,000원)과 같고,
+    별내동 노상제1·제3 두 곳만 60분 1,000원·30분당 500원으로 등록되어 있어 조례 요금을 적용하고
+    등록값 차이를 품질 리포트에 남긴다(포털에는 이 두 곳이 ‘무료운영중’으로 올라와 있어 카드에 함께 적는다).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows = [r for r in rows_all if (r.get("제공기관명") or "").strip() == NAMYANGJU_PROVIDER]
+    rows_dup = [r for r in rows_all if (r.get("제공기관명") or "").strip() == NAMYANGJU_CORP_PROVIDER]
+    portal = load_namyangju_portal()
+    lots, excluded = [], []
+    card_no = street_no = 0
+
+    for r in rows:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        fee_raw = (r.get("요금정보") or "").strip()
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (NAMYANGJU_BBOX[0] <= lat <= NAMYANGJU_BBOX[1]
+                                      and NAMYANGJU_BBOX[2] <= lng <= NAMYANGJU_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        hit = namyangju_portal_match(name, portal, lat, lng)
+        dong = namyangju_unit_of(jibun)
+        dong_src = "지번주소"
+        if not dong:
+            dong = namyangju_unit_of(road)
+            dong_src = "도로명주소"
+        if not dong and hit:
+            dong = namyangju_unit_of(hit["addr"])
+            dong_src = "포털주소"
+        if not dong:
+            dong_src = "없음"
+
+        note = (r.get("특기사항") or "").strip()
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        std_grade = to_int(r.get("급지구분"))
+        std_fee = {
+            "base_min": to_int(r.get("주차기본시간")),
+            "base_fee": to_int(r.get("주차기본요금")),
+            "unit_min": to_int(r.get("추가단위시간")),
+            "unit_fee": to_int(r.get("추가단위요금")),
+            "day": to_int(r.get("1일주차권요금")),
+            "monthly": to_int(r.get("월정기권요금")),
+        }
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"nj-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"nj-{card_no:03d}"
+
+        # 급지는 포털 등록값 → 표준데이터 급지구분 → 1급지 순으로 정한다(이 도시 유료 주차장은 모두 1급지).
+        grade = (hit["grade"] if hit and hit.get("grade") in (1, 2) else None) or \
+                (std_grade if std_grade in (1, 2) else 1)
+
+        fee = {
+            "type": "무료" if fee_raw == "무료" else ("유료" if fee_raw in ("유료", "혼합") else "미상"),
+            "raw_type": fee_raw,
+            "mixed": fee_raw == "혼합",
+            "grade": grade,
+            "std_grade": std_grade,
+            "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None,
+            "free_min": 0, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None, "monthly_night": None, "monthly_all": None,
+            "pay": (r.get("결제방법") or "").strip(),
+            "basis": None,
+            "category": None,
+            "std": std_fee,
+            "portal_free_now": bool(hit and hit.get("free_now")),
+        }
+
+        if fee["type"] == "유료":
+            free_days = {"sat": False, "sun": False}
+            table = NAMYANGJU_FEES["street" if street else "off"][grade]
+            fee.update({
+                "base_min": table["base_min"], "base_fee": table["base_fee"],
+                "unit_min": table["unit_min"], "unit_fee": table["unit_fee"],
+                "free_min": NAMYANGJU_FREE_MIN,
+                "daily_hours": 24, "daily_fee": table["day"],
+                "cap_src": "조례 1일 주차권",
+                "monthly": table["month_day"],
+                "monthly_night": table.get("month_night"),
+                "monthly_all": table.get("month_all"),
+                "category": f"{'street' if street else 'off'}{grade}",
+            })
+            fee["basis"] = (f"「남양주시 주차장 조례」 별표1 {'노상' if street else '노외'} {grade}급지"
+                            f" · 남양주도시공사 요금안내(2026-11-17 확인)")
+            # 등록값이 조례 급지표와 다른 주차장 — 품질 리포트에 남기고 급지 요금표를 따른다.
+            reg = fee["std"]
+            if any(reg[k] for k in ("base_min", "base_fee", "unit_min", "unit_fee")):
+                if (reg["base_min"], reg["base_fee"], reg["unit_min"], reg["unit_fee"]) != \
+                        (table["base_min"], table["base_fee"], table["unit_min"], table["unit_fee"]):
+                    fee["std_diff"] = (f"등록값 {reg['base_min'] or 0}분 {reg['base_fee'] or 0}원·"
+                                       f"{reg['unit_min'] or 0}분당 {reg['unit_fee'] or 0}원"
+                                       f" → 적용 {table['base_min']}분 {table['base_fee']}원·"
+                                       f"{table['unit_min']}분당 {table['unit_fee']}원"
+                                       + (" (포털에 무료운영중으로 등록)" if fee["portal_free_now"] else ""))
+        if fee["type"] == "무료":
+            free_days = {"sat": True, "sun": True}
+            # 무료로 등록된 주차장은 평일·토요일 00:00~24:00에 공휴일 칸이 비어 있다. 요금을 받지 않는
+            # 주차장이라 다른 도시와 같이 ‘요일과 관계없이 24시간’으로 둔다.
+            for k in ("weekday", "sat", "sun"):
+                win[k] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                          "listed": True, "raw": ["00:00", "24:00"]}
+                oper[k] = True
+
+        capa = None
+        if hit and (hit.get("disabled") or hit.get("elec") or hit.get("camping") or hit.get("truck")):
+            capa = {k: v for k, v in (("disabled", hit.get("disabled")), ("elec", hit.get("elec")),
+                                      ("camping", hit.get("camping")), ("truck", hit.get("truck"))) if v}
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "남양주시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip() or (hit["tel"] if hit else ""),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "notice": NAMYANGJU_TEMP_CLOSED.get(name),
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": capa,
+            "portal_name": hit["name"] if hit else None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["base_fee"] if fee["base_fee"] else (fee["unit_fee"] or None),
+            "city": "남양주시",
+            "city_slug": "namyangju",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+
+    quality = check_quality_namyangju(rows_all, rows, rows_dup, lots, excluded, portal)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(NAMYANGJU_PORTAL_JSON).strftime("%Y-%m-%d %H:%M")
+                            if NAMYANGJU_PORTAL_JSON.exists() else None,
+            "region": {"province": "경기도", "city": "남양주시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-09-15", "rows_total": len(rows_all),
+                    "rows_city": len(rows),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("남양주시가 등록한 행만(제공기관명 '경기도 남양주시') 추출. 같은 84행이 "
+                             "'남양주도시공사' 이름으로 한 번 더 들어 있어 도시공사 행은 쓰지 않았다."),
+                },
+                {
+                    "id": "ncuc", "name": "남양주도시공사 원패스파킹 주차장 목록",
+                    "org": "남양주도시공사",
+                    "url": "https://parking.ncuc.or.kr/list",
+                    "file": NAMYANGJU_PORTAL_JSON.name,
+                    "sha256": sha256(NAMYANGJU_PORTAL_JSON) if NAMYANGJU_PORTAL_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": len(portal),
+                    "fetched_at": _snapshot_time(NAMYANGJU_PORTAL_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if NAMYANGJU_PORTAL_JSON.exists() else None,
+                    "note": ("주차장별 급지·기본시간·기본요금·간격요금·1일 주차요금·월 정기권·구획 구성과 "
+                             "법정동 주소 확인용. 공영 49곳과 공공 부설(시청·공원·체육문화센터·한강공원) "
+                             "26곳이 들어 있다."),
+                },
+                {
+                    "id": "ordinance", "name": "남양주시 주차장 조례 (별표1 주차요금표)",
+                    "org": "남양주시",
+                    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2112523",
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "2026-02-26 개정·시행", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("노상·노외 급지(1~2급지)별 요금표와 감면(별표1 제6호) 근거. 노상 1급지 "
+                             "30분 600원·10분당 300원·1일 7,000원, 노외 1급지 같은 요금에 월 정기권 "
+                             "주간·야간·주야간 구분. 2026-11-17 원패스파킹 요금안내와 교차 확인."),
+                },
+                {
+                    "id": "nyj", "name": "남양주시 주차장정보(공영주차장 현황)",
+                    "org": "남양주시청",
+                    "url": "https://www.nyj.go.kr/www/contents.do?key=3113",
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-01-09", "rows_total": 84,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("노상 35개소(무료 28·유료 7)와 노외 49개소(무료 8·유료 41)의 위치·면수·"
+                             "설치년도 확인용. 표준데이터 84행과 같은 목록이다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in NAMYANGJU_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "namyangju_dual",
+            "unit_min": NAMYANGJU_UNIT_MIN,
+            "free_min": NAMYANGJU_FREE_MIN,
+            "applies": "2026-02-26 개정 조례",
+            "off": [{"grade": g, **t} for g, t in sorted(NAMYANGJU_FEES["off"].items())],
+            "street": [{"grade": g, **t} for g, t in sorted(NAMYANGJU_FEES["street"].items())],
+            "facility": {"free_min": 60, "unit_min": 10, "unit_fee": 200,
+                         "day_office": 5_000, "day_park": 7_000, "monthly": 30_000},
+            "basis": ("「남양주시 주차장 조례」 별표1(2026-02-26 개정·시행) · "
+                      "남양주도시공사 원패스파킹 공영주차장 요금안내(2026-11-17 확인)"),
+        },
+    }
+    payload.update(CITY_META["남양주시"] | {
+        "city": "남양주시",
+        "weekend_free_pages": False,     # 무료 개방 '표기'가 없어 주말 무료 페이지를 만들지 않는다
+        "discounts": NAMYANGJU_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "namyangju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_namyangju(std_all, rows, rows_dup, lots, excluded, portal):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(f'{l["gu"]} {l["dong"] or "동 미상"}' for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["base_fee"] for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    matched = [l for l in lots if l.get("portal_name")]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_남양주시행수": len(rows),
+        "중복제공기관_행수": len(rows_dup),
+        "중복제공기관_이름": NAMYANGJU_CORP_PROVIDER,
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(Counter(l["gu"] for l in card)),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({(l["gu"], l["dong"]) for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "요금갈래": dict(Counter(l["fee"]["category"] for l in lots if l["fee"]["category"])),
+        "급지별": dict(Counter(l["fee"]["grade"] for l in lots if l["fee"]["type"] == "유료")),
+        "등록값_차이": [f'{l["name"]}: {l["fee"]["std_diff"]}' for l in lots if l["fee"].get("std_diff")],
+        "포털_목록수": len(portal),
+        "포털_매칭": len(matched),
+        "포털_미매칭": [l["name"] for l in lots if not l.get("portal_name")],
+        "포털_무료운영중": [l["name"] for l in lots if l["fee"].get("portal_free_now")],
+        "임시폐쇄_안내": [f'{l["name"]}: {l["notice"]}' for l in lots if l.get("notice")],
+        "구획수_차이": [f'{l["name"]}: 등록 {l["spaces"]}면 ↔ 포털 {portal[l["portal_name"]]["spaces"]}면'
+                       for l in matched
+                       if portal.get(l["portal_name"], {}).get("spaces") and
+                       portal[l["portal_name"]]["spaces"] != l["spaces"]],
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -3595,7 +4118,7 @@ def build_summary_city(payload):
         lines.append(f"- 노외·부설 주차장 **{q['총_주차장']}곳** · 총 구획 {q['총_구획수']:,}면 "
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외")
-        if city == "평택시":
+        if city in ("평택시", "남양주시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -3654,13 +4177,13 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
-             "bucheon": ["부천시"], "goyang": ["고양시"]}[args.city])
+             "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -3678,6 +4201,8 @@ def main():
         cities.append(build_bucheon())
     if "고양시" in want:
         cities.append(build_goyang())
+    if "남양주시" in want:
+        cities.append(build_namyangju())
 
     if args.city == "all":
         site = build_site_payload(cities)

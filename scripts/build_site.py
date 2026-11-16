@@ -250,8 +250,7 @@ CITY_UI = {
         ],
     },
     "고양시": {
-        "manager": "고양도시관리공사 교통사업처(031-929-4800) · 통합콜센터 1522-1142",
-        "manager_inquiry": "고양도시관리공사 교통사업처(031-929-4800)",
+        "manager": "고양도시관리공사 교통사업처(031-929-4800) · 통합콜센터 1522-1142",        "manager_inquiry": "고양도시관리공사 교통사업처(031-929-4800)",
         "merged_list": False,
         "district_short": False,
         "std_base_date": "2026-04-15",
@@ -284,6 +283,52 @@ CITY_UI = {
             "부설주차장은 시·구청·차량등록과·행정복지센터·일산사회복지관이 <b>최초 1시간 무료 뒤 5분당 190원</b>, "
             "행주산성은 입차 때 1구획 2,000원, 그 밖의 부설은 시청부설 기준입니다.",
         ],
+    },
+    "남양주시": {
+        "manager": "남양주도시공사 주차운영부(031-560-1217~8) · 남양주시청 주차계획팀(031-590-8763)",
+        "manager_inquiry": "남양주도시공사 주차운영부(031-560-1217~8)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-09-15",
+        "realtime": False,
+        "dong_unit_label": "동·읍·면",
+        # 남양주시는 자치구가 없다 — ‘이 구’ 대신 ‘이 시’로 적고, 시 페이지가 목록·계산기 페이지를 겸한다.
+        "area_label": "시",
+        "discount_note": ("남양주시 조례(별표1, 2026-02-26 시행) 기준입니다. 국가유공자·고엽제·5·18민주유공자·"
+                          "장애인·임산부·다자녀(3명 이상)는 최초 24시간 면제 후 50%, 환경친화적 자동차는 1시간 면제 후 50%, "
+                          "경차·저공해·다자녀(2명)·병역명문가·65세 이상·철도 환승·전통시장 이용·승용차부제·"
+                          "함께타기는 50%, 모범·유공·성실납세자는 100%이고, 감면은 한 가지만 적용됩니다(현장 확인)."),
+        "free_example": "",
+        "calc_note": ("차량 감면은 <b>남양주시 조례(별표1, 2026-02-26 시행)</b> 기준입니다. "
+                      "장애인·국가유공자·임산부·다자녀(3명 이상) 24시간 면제 후 50%, 환경친화적 자동차 1시간 면제 후 50%, "
+                      "경차·저공해·다자녀(2명)·65세 이상·승용차부제·함께타기 50%, 모범·유공·성실납세자 100%이고 "
+                      "감면은 한 가지만 적용됩니다(현장 확인)."),
+        "daily_example": "1일 주차권 7,000원",
+        "street_examples": "‘별내동 노상제1’·‘진접 노상제5’",
+        "street_fee_caveat": ("<li><b>노상 요금</b>: 남양주시 노상 공영주차장은 1급지 30분 600원·10분당 300원, "
+                              "2급지 30분 500원·10분당 150원입니다(노외 2급지는 10분당 200원). 1일 주차요금은 "
+                              "1급지 7,000원·2급지 5,000원이고, 최초 10분은 무료입니다.</li>"
+                              "<li><b>무료 구간</b>: 노상 35구간 가운데 28곳은 요금을 받지 않습니다. 무료 구간은 "
+                              "요일과 관계없이 무료로 적었습니다.</li>"
+                              "<li><b>운영시간</b>: 유료 구간도 공통 유료운영시간(평일·토요일 주간) 밖에는 요금을 받지 않습니다."
+                              " 표의 ‘평일 2시간’은 08:00~20:00 안에서 이용한 경우입니다(현장 확인).</li>"),
+        "rate_bullets": [
+            "남양주시 공영주차장은 <b>노상·노외 모두 1~2급지</b>로 나뉩니다. 최초 30분 기본요금(1급지 600원·2급지 500원) "
+            "뒤 30분을 넘기면 <b>10분 단위</b>로 요금이 붙습니다(1급지 10분당 300원).",
+            "<b>최초 10분은 무료</b>입니다. 10분을 넘기면 기본요금부터 받으므로, 2시간은 1급지 기준 3,300원입니다.",
+            "<b>1일 주차요금(1급지 7,000원)이 상한</b>입니다. 시간 요금 합계가 1일 주차요금을 넘지 않습니다.",
+            "<b>월 정기권</b>은 노외 1급지 주간 70,000원·야간 70,000원·주야간 100,000원, 노상 1급지 주간 70,000원이고, "
+            "2급지는 노외 50,000원·주야간 80,000원, 노상 주간 50,000원입니다(카드에 주간 요금 표시).",
+            "<b>유료운영시간은 공휴일을 제외한 평일과 토요일의 주간(08:00~20:00)</b>입니다. 표준데이터에 운영시간이 "
+            "비어 있는 날은 ‘미운영’으로 표시했으니, 야간·일요일·공휴일 무료 개방 여부는 현장 표지로 확인하세요.",
+        ],
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 노상·노외 1~2급지 요금표 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 급지별 주차요금(1급지 30분 600원·10분당 300원, "
+                                "2급지 30분 500원)과 운영시간·구획수를 공공데이터로 정리했습니다. "
+                                "노상·노외 요금표와 최초 10분 무료를 반영해 2시간·하루 주차비를 바로 계산해 보세요."),
+        "cheap_lede": ("남양주시 유료 공영주차장은 모두 1급지(도시지역)이고 <b>최초 10분이 무료</b>라, "
+                       "10분까지는 0원·1시간 2,100원·2시간 3,300원이며 1일 주차권 7,000원이 상한입니다. "
+                       "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
     },
 }
 
@@ -871,6 +916,23 @@ def footer_sources(city, url) -> str:
                 f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
                 f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+    if city["city"] == "남양주시":
+        std_rows = city_rows_total(city)
+        return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
+                f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
+                f'전국주차장정보표준데이터</a>(남양주시 {std_rows}행, 기준일 '
+                f'{esc(city_ui(city)["std_base_date"])})와 '
+                f'<a href="https://parking.ncuc.or.kr/list" rel="nofollow noopener" target="_blank">'
+                f'남양주도시공사 원패스파킹 주차장 목록</a>(급지·요금·월 정기권), '
+                f'<a href="https://www.ncuc.or.kr/main/113" rel="nofollow noopener" target="_blank">'
+                f'공영주차장 요금안내</a>, '
+                f'<a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2112523" rel="nofollow noopener" target="_blank">'
+                f'남양주시 주차장 조례</a>(별표1 요금표·감면)를 기준으로 만든 참고용 정보입니다. '
+                f'남양주시는 자치구가 없어 동·읍·면 단위로 정리했습니다. '
+                f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
+                f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
+                f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
     if city["city"] == "화성시":
         std_rows = city_rows_total(city)
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
@@ -1043,9 +1105,9 @@ def free_first_stat(city, lots):
     """최초 N분 무료(기본요금 0) 요금제 도시의 통계 카드 — 평균 기본요금 대신 무료 시간을 적는다.
 
     평택시 1급지는 기본요금이 0원이고 당일 최초 90분이 무료라, 기본요금 평균만 보여 주면
-    실제보다 비싸 보인다.
+    실제보다 비싸 보인다. 남양주시도 기본요금은 있지만 최초 10분을 받지 않아 같이 적는다.
     """
-    if (city.get("fee_table") or {}).get("style") != "grade_flat":
+    if (city.get("fee_table") or {}).get("style") not in ("grade_flat", "namyangju_dual"):
         return None
     paid = [l for l in lots if l["fee"]["type"] == "유료" and l["fee"].get("free_min")]
     if not paid:
@@ -1193,6 +1255,9 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     note = lot["note"]
     if note and not (fn and "무료개방" in note.replace(" ", "")):
         lines.append(f'<p class="note-line">특기사항: {esc(note)}</p>')
+    if lot.get("notice"):
+        # 운영기관이 공지한 임시 폐쇄·이용 제한 (예: 남양주 별내 제2공영 태양광 공사)
+        lines.append(f'<p class="note-line"><b>안내</b>: {esc(lot["notice"])}</p>')
     if lot.get("capa_detail"):
         cd = lot["capa_detail"]
         bits = [f'{k} {v}면' for k, v in (("장애인", cd.get("disabled")), ("경차", cd.get("compact")),
@@ -1386,6 +1451,18 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
+    if city["city"] == "남양주시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(남양주시 {city_rows_total(city)}행 중 노외 {q['총_주차장']}곳과 노상 {q['노상_구간']}구간, 기준일 {esc(ui['std_base_date'])})</li>
+    <li><b>요금표</b>: 「남양주시 주차장 조례」 제5조 별표1(2026-02-26 개정·시행) · <a href="https://www.ncuc.or.kr/main/113" rel="nofollow noopener" target="_blank">남양주도시공사 원패스파킹 요금안내</a>(2026-11-17 확인) — 노상 1급지 최초 30분 600원·10분당 300원·1일 7,000원, 2급지 500·5,000원(10분당 150원), 노외 1급지 600·10분당 300·1일 7,000원, 2급지 500·200·5,000원, <b>최초 10분 무료</b></li>
+    <li><b>주차장별 급지·구획 구성</b>: <a href="https://parking.ncuc.or.kr/list" rel="nofollow noopener" target="_blank">원패스파킹 주차장 목록</a>(2026-11-17 08:53 조회 스냅샷 · <code>data/raw/parking.ncuc.or.kr_searchParkingList_20261117.json</code>) — 표준데이터 84행 가운데 45행이 포털과 짝지어졌고(유료 노외 41·노상 4), 나머지는 포털에 없는 무료 주차장·노상 구간입니다.</li>
+    <li>표준데이터의 급지·금액은 유료 48곳 가운데 46곳이 조례 1급지 요금(30분 600원·10분당 300원·1일 7,000원·월 70,000원)과 같습니다. 별내동 노상제1·제3 두 곳만 60분 1,000원·30분당 500원으로 등록되어 있어 조례 요금으로 계산했습니다(포털에는 이 두 곳이 ‘무료운영중’으로 올라와 있습니다 — 현장 확인).</li>
+    <li>같은 84행이 표준데이터에 제공기관명만 바꿔(<b>남양주도시공사</b>) 한 번 더 들어 있어, 시 행만 쓰고 도시공사 행은 쓰지 않았습니다(같은 주차장이 두 번 생기지 않게).</li>
+    <li>남양주시는 <b>자치구가 없어</b> 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래에 읍·면·동 페이지를 두었습니다. 동 이름은 <b>법정동</b> 기준이고 6읍·3면은 리를 묶어 읍·면 이름으로 적었습니다.</li>
+    <li>요금을 받지 않는 주차장은 요금 구분이 ‘무료’라 요일과 관계없이 24시간 이용하는 것으로 표시했습니다(등록된 평일·토요일 운영시간은 00:00~24:00이고 공휴일 칸이 비어 있었습니다).</li>
+    <li>시청·공원·체육문화센터·한강시민공원 같은 <b>공공 부설주차장</b>은 최초 60분 무료·이후 10분당 200원으로 공영주차장과 요금이 달라, 표준데이터에 없어 이 목록에는 넣지 않았습니다.</li>
+    <li>표준데이터에 유료운영시간이 비어 있는 날(대부분 일요일·공휴일)은 ‘미운영’으로 표시했습니다. 조례·공사 안내상 유료운영시간은 공휴일을 제외한 평일·토요일 주간(08:00~20:00)이니, 야간·휴일 무료 개방 여부는 현장 표지로 확인하세요.</li>
+    <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다(포털과 다른 곳은 화도 제3공영 1곳, 등록 16면 ↔ 포털 18면).</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동·읍·면은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지)."""
     if city["city"] == "화성시":
         return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(화성시 {city_rows_total(city)}행 중 노외 {q['총_주차장']}곳, 기준일 {esc(ui['std_base_date'])})</li>
     <li><b>요금 감면</b>: 「화성시 주차장 설치 및 관리 조례」 별표 4와 화성시 통합주차포털·화성도시공사 안내(2026-11-16 확인)</li>
@@ -1541,7 +1618,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
                            f'<td class="num">{l["spaces"] or "—"}</td></tr>')
         n_free90 = len([l for l in lots if l["fee"].get("free_min")])
         free90_line = ""
-        if n_free90:
+        if ui.get("cheap_lede"):
+            free90_line = ui["cheap_lede"]
+        elif n_free90:
             free_min = max(l["fee"]["free_min"] for l in lots if l["fee"].get("free_min"))
             rate = next((l["fee"]["unit_fee"] for l in lots
                          if l["fee"].get("free_min") and l["fee"].get("unit_fee")), None)
@@ -1550,9 +1629,10 @@ def build_district(city, d, lots, site, path=None, hub=False):
             free90_line = (f"노외 1급지 {n_free90}곳은 당일 최초 {free_min}분이 무료라 "
                            f"{free_min}분까지는 0원, 2시간은 {won(two_h)}입니다. " if rate else
                            f"1급지 {n_free90}곳은 당일 최초 {free_min}분이 무료입니다. ")
+        lede_tail = "" if ui.get("cheap_lede") else "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."
         hub_block = f"""{fee_table_block(city)}
 <h2>평일 2시간 기준 가장 저렴한 곳</h2>
-<p class="lede">{free90_line}요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다.</p>
+<p class="lede">{free90_line}{lede_tail}</p>
 <table class="data">
   <thead><tr><th>주차장</th><th>동·읍·면</th><th class="num">급지</th><th class="num">평일 2시간</th><th class="num">구획</th></tr></thead>
   <tbody>{cheap_rows}</tbody>
@@ -1609,6 +1689,11 @@ def build_district(city, d, lots, site, path=None, hub=False):
                    if hub else
                    f"{gu} 공영주차장 {s['n']}곳의 주차요금, 운영시간, 구획수, 주말·공휴일 무료 개방 정보를 "
                    f"공공데이터로 정리했습니다. 2시간 주차 예상요금과 무료 개방 여부를 바로 계산해 보세요.")
+    # 자치구가 없는 시는 시 이름·문구가 도시별로 다르다(평택시·남양주시) — 화면 문구가 있으면 그것을 쓴다.
+    if hub and ui.get("hub_title_tpl"):
+        title = ui["hub_title_tpl"].format(gu=gu, n=s["n"], site=SITE_NAME)
+    if hub and ui.get("hub_description_tpl"):
+        description = ui["hub_description_tpl"].format(gu=gu, n=s["n"], site=SITE_NAME)
     return path, layout(
         title=title,
         description=description,
@@ -1752,6 +1837,7 @@ def fee_table_block(city) -> str:
 
     네 가지 모양을 그린다.
       · style=grade_flat : 급지별 기본시간·기본요금 + 10분 요율(평택시 2026-11-16 개정)
+      · style=namyangju_dual : 노상·노외 급지별 요금(남양주시 — 2급지의 10분 요율이 노상·노외가 다름)
       · style=grade_base : 급지별 고정 요금(부천시 — 1회 요금 + 1일 주차권 + 월 정기권)
       · style=goyang_grade_year : 노외·노상·부설 요금표(고양시 — 2026-07-01~2027-06-30 구간)
       · 그 밖(기본)       : 급지별 누진 요금표(안양시 — 1시간/2시간/3시간/이후 요율)
@@ -1803,6 +1889,51 @@ def fee_table_block(city) -> str:
   <li><b>행주산성</b>: 입차 때 1구획 {won(fac.get("haengju_day"))} · <b>그 밖의 부설</b>: 시청부설 기준</li>
 </ul>
 <p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·부설 갈래로 계산하며, 월 정기권은 카드에 표시했습니다.</p>
+"""
+    if ft.get("style") == "namyangju_dual":
+        # 남양주시(조례 별표1): 노상·노외 모두 1~2급지. 2급지의 10분 요율이 노상 150원·노외 200원으로 달라
+        # 표를 노상·노외로 나누고, 월 정기권은 노외만 주간·야간·주야간을 적는다.
+        free_min = ft.get("free_min") or 10
+        target = {1: "용도지역 중 도시지역", 2: "도시지역 외 지역"}
+        off_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_day"])} / {won(r["month_night"])} / {won(r["month_all"])}</td>'
+            f'<td>{esc(target.get(r["grade"], ""))}</td></tr>'
+            for r in ft["off"])
+        st_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_day"])}</td>'
+            f'<td>{esc(target.get(r["grade"], ""))}</td></tr>'
+            for r in ft["street"])
+        fac = ft.get("facility") or {}
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">남양주시 공영주차장은 <b>노상·노외 모두 1~2급지</b>로 나뉩니다. 최초 30분 기본요금 뒤
+30분을 넘기면 <b>{ft['unit_min']}분 단위</b>로 요금이 붙고, <b>최초 {free_min}분은 무료</b>입니다.
+시간 요금을 아무리 오래 합쳐도 1일 주차요금을 넘지 않습니다.</p>
+<h3 style="margin-top:20px">노외주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권<br>주간 / 야간 / 주야간</th><th>대상</th></tr></thead>
+  <tbody>{off_rows}</tbody>
+</table>
+<h3 style="margin-top:22px">노상주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권(주간)</th><th>대상</th></tr></thead>
+  <tbody>{st_rows}</tbody>
+</table>
+<p class="updated">노상 2급지의 {ft['unit_min']}분당 요금(150원)은 노외 2급지(200원)와 다릅니다.
+1급지(도시지역)가 이 사이트에 실린 유료 공영주차장의 급지이고, 2급지 요금은 조례 표를 참고용으로 함께 적었습니다.</p>
+<h3 style="margin-top:22px">공공 부설주차장(참고)</h3>
+<ul>
+  <li><b>시청·공원·체육문화센터·한강시민공원</b>: 최초 {fac.get("free_min", 60)}분 무료, 이후 {fac.get("unit_min", 10)}분당
+  {won(fac.get("unit_fee"))}, 1일 {won(fac.get("day_office"))}~{won(fac.get("day_park"))}, 월 정기권 {won(fac.get("monthly"))}.</li>
+  <li>이 부설주차장들은 표준데이터에 없어 아래 목록에는 넣지 않았습니다. 「남양주시 주차장 조례」 별표1의2를 따릅니다.</li>
+</ul>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·노상·노외 구분으로 계산하며, 월 정기권은 주간 요금을 카드에 적었습니다.</p>
 """
     if ft.get("style") == "grade_base":
         # 급지별 고정 요금표(부천시) — 1회 요금은 노상·노외가 같고, 1일 주차권·월 정기권이 급지별로 다르다.
@@ -2465,12 +2596,23 @@ def build_404(site):
     for city in site["cities"]:
         lots = city["_card_lots"]
         s = stats_for(lots)
+        if is_city_wide(city):
+            # 자치구가 없는 시는 구 목록이 비어 ‘빈 제목’만 남으므로 시 링크 카드 하나를 대신 둔다.
+            card = (f'<a class="link-card" href="{city_path(city)}">\n'
+                    f'  <span class="t">{esc(city["city"])}<span class="go">{s["n"]}곳 →</span></span>\n'
+                    f'  <span class="d">주차요금 계산 · 동·읍·면 목록</span>\n</a>')
+            body_parts.append(f"""
+<h2>{esc(city['city'])}에서 찾기</h2>
+<div class="grid-2">{card}</div>
+<p class="updated">{esc(city['city'])} 공영주차장 {s['n']}곳 · 구획 {s['spaces']:,}면 · <a href="{city_path(city)}">{esc(city['city'])} 전체 보기</a></p>
+""")
+            continue
         cards = "".join(
             f'<a class="link-card" href="{district_path(city, d)}">\n'
             f'  <span class="t">{d["name"]}<span class="go">'
             f'{stats_for([l for l in lots if l["gu"] == d["name"]])["n"]}곳 →</span></span>\n'
             f'  <span class="d">주차요금 계산 · 동별 목록</span>\n</a>'
-            for d in ([] if is_city_wide(city) else city["districts"]))
+            for d in city["districts"])
         body_parts.append(f"""
 <h2>{esc(city['city'])} 구별로 찾기</h2>
 <div class="grid-2">{cards}</div>
