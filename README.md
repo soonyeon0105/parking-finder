@@ -1,8 +1,8 @@
-# 공영주차장 파인더 — 수원시 · 성남시
+# 공영주차장 파인더 — 수원시 · 성남시 · 용인시
 
 공공데이터로 만든 **공영주차장 요금 계산 + 무료 개방 파인더**입니다.
-수원시(4개 구 72곳)와 성남시(3개 구 노외 98곳 + 노상 66구간)를 정적 HTML 60페이지 +
-404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
+수원시(4개 구 72곳), 성남시(3개 구 노외 98곳 + 노상 66구간), 용인시(3개 구 노외·부설 159곳 + 노상 54구간)를
+정적 HTML 88페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
 페이지 경로는 시·도 / 시·군 / 구 / 동 단위로 나뉘어 있어 다른 지자체를 같은 파이프라인에 추가할 수 있습니다.
 
 - 랜딩(도시 선택): `dist/index.html`
@@ -12,6 +12,9 @@
 - 행정동 상세: `dist/parking/gyeonggi/suwon-yeongtong/maetan-dong/index.html`
 - 성남시 허브: `dist/parking/gyeonggi/seongnam/index.html` (수정·중원·분당 3개 구)
 - 성남시 노상주차장: `dist/parking/gyeonggi/seongnam/street-parking/index.html`
+- 용인시 허브: `dist/parking/gyeonggi/yongin/index.html` (처인·기흥·수지 3개 구)
+- 용인시 동·읍·면 상세: `dist/parking/gyeonggi/yongin-cheoin/pogok-eup/index.html` (23개 동·읍·면)
+- 용인시 노상주차장: `dist/parking/gyeonggi/yongin/street-parking/index.html`
 - 없는 주소(소프트 404 방지): `dist/404.html`
 
 ## 데이터 (모두 실제 공개 데이터)
@@ -23,6 +26,8 @@
 | 주소·면수 보강 | [경기도 수원시_공영노외주차장현황](https://www.data.go.kr/data/15157772/fileData.do) | 포털 파일데이터 다운로드 (로그인 불필요) | 112행 | 2026-08-01 |
 | 성남시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 성남시`) | `scripts/prepare_data.py --city seongnam` | 성남시 **164행**(노외 98 + 노상 66) | 2026-10-12 |
 | 성남시 요금 감면율 | [성남도시개발공사 노외주차장 요금감면](https://park.isdc.co.kr/roadout/useinfo_fee3.do) · 「성남시 주차장 설치 및 관리 운영에 관한 조례」 별표2 | 공개 웹페이지 확인 | 감면 4단계(면제 0·1·12시간 + 50%, 납세자 100%) | 2026-11-16 확인 |
+| 용인시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 용인시`) | `scripts/prepare_data.py --city yongin` | 용인시 **214행**(노외 71 + 부설 89 + 노상 54) | 2026-04-24 |
+| 용인시 요금 감면율 | [용인시 공영주차장 주차장 요금 안내](https://park.yuc.co.kr/views/parkinglot/fee/fee.html) · 「용인시 주차장 설치 및 관리 조례」 별표2 | 공개 웹페이지 확인 | 감면 5단계(50%·2시간 무료 후 50%·6시간 면제 후 50%·100%) | 2026-11-16 확인 |
 
 원본은 `data/raw/`에 그대로 보관했고, `data/suwon_parking.json`의 `meta.sources`에 파일명·sha256·수령 시각·라이선스를 기록했습니다.
 
@@ -38,18 +43,23 @@
   - 노상 66구간은 요금 구분이 `혼합`(평일 09:00~18:00 유료, 토·일·공휴일 운영시간 미등록)이라 카드 대신 전용 표로 정리
   - 전화번호는 원자료에 없어(164행 모두 공백) 카드에 표시하지 않고 관리기관 안내로 대체
   - 무료 개방 표기가 없어 '주말·공휴일 무료 개방' 페이지를 만들지 않음(빈 페이지 방지)
+- 용인시: 원자료 214행 → **노외·부설 159곳(13,608면) + 노상 54구간(2,720면) → 28페이지**
+  - 노외 71 + **부설 88**(청사·도서관·공원·레스피아 등) — 부설 1건은 구획 0면이라 제외
+  - 카드 목록은 무료 116곳(요금 구분 `무료`)·유료 43곳, 평균 기본요금 619원, '요금 미상' 0곳
+  - 동·읍·면 페이지 23개(카드 3곳 이상), 3곳 미만 동과 좌표로도 확인되지 않은 부설 26곳은 구 페이지 표에만 실음
+  - 노상 54구간은 **무료 48곳·유료 6곳**이 섞여 있어 카드 대신 전용 표 페이지로 분리
 
 ## 빌드
 
 ```bash
-python3 scripts/prepare_data.py                 # 두 도시 정제 → data/site.json·suwon_parking.json·seongnam_parking.json
-python3 scripts/prepare_data.py --city seongnam # 한 도시만 (suwon|seongnam|all, 기본 all)
-python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 60페이지 + 404.html + sitemap.xml, robots.txt
+python3 scripts/prepare_data.py                 # 세 도시 정제 → data/site.json·suwon/ seongnam/ yongin_parking.json
+python3 scripts/prepare_data.py --city yongin   # 한 도시만 (suwon|seongnam|yongin|all, 기본 all)
+python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 88페이지 + 404.html + sitemap.xml, robots.txt
 python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ```
 
 `data/site.json`이 사이트 생성기의 입력입니다(`cities[]` + `lots[]`, 각 주차장에 `city`·`list_mode`).
-`suvon_parking.json`·`seongnam_parking.json`은 도시 단독 결과로, 검토·디버깅용으로 함께 커밋합니다.
+`suvon_parking.json`·`seongnam_parking.json`·`yongin_parking.json`은 도시 단독 결과로, 검토·디버깅용으로 함께 커밋합니다.
 수원도시공사 스냅샷의 수집 시각은 `data/raw/*_fetched_at.txt`에 적어 두어(파일 mtime 대신 사용)
 다시 clone 해도 `snapshot_at`이 바뀌지 않습니다.
 
@@ -67,18 +77,18 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·슬러그/canonical·도시별 확장 규칙·계산 표본
 python3 scripts/verify_site.py              # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py          # Chromium으로 JS 계산 vs Python 규칙 전수 교차검증
-python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(9,120건)
+python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(21,045건)
 ```
 
 `qa_check.py`는 도시별 확장 안전 규칙도 검사합니다: 수원시 38페이지(허브1·구4·주말4·동29) 유지,
 구 페이지 카드 수 = 데이터 수, 동 페이지 최소 기준 미달 시 페이지 미생성, 노상 구간이 카드로 렌더링되지 않음,
-성남시 페이지 본문에 수원 자료 혼입 없음, 사이트맵 = 실제 페이지 집합.
+도시별 페이지 본문에 다른 도시 자료 혼입 없음(성남·용인), 사이트맵 = 실제 페이지 집합.
 
 `verify_site.py`·`crosscheck_calc.py`는 Playwright(Chromium)가 필요합니다. 스크린샷은 기본으로
 `screenshots/`에 저장되고 `PARKING_SHOTS_DIR=/원하는/경로`로 바꿀 수 있습니다.
 검증 결과 요약은 `scripts/verify_result.json`에 남습니다.
 
-현재 상태: qa_check 통과(60페이지), JS↔Python 교차검증 9,120건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
+현재 상태: qa_check 통과(88페이지), JS↔Python 교차검증 21,045건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
 
 ## 구현 규칙
 
@@ -112,11 +122,13 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 
 검색 품질을 지키기 위해 한 번에 **1~2개 시·군 단위**로만 확장하고, 아래를 지킵니다.
 
-1. **빈 페이지·껍데기 페이지 금지**: 이름·주소·좌표·구획수 중 하나라도 없는 행은 페이지를 만들지 않고,
-   동별 페이지는 `dong_page_min_lots`(성남시 3곳, 수원시 1곳 — 기존 색인 URL 보존) 이상인 동만 생성합니다.
-   기준 미달 동의 주차장은 구 페이지 목록·표에만 싣습니다.
+1. **빈 페이지·껍데기 페이지 금지**: 이름·주소·구획수가 없는 행은 페이지를 만들지 않고,
+   동별 페이지는 `dong_page_min_lots`(성남·용인 3곳, 수원시 1곳 — 기존 색인 URL 보존) 이상인 동만 생성합니다.
+   기준 미달 동의 주차장은 구 페이지 목록·표에만 싣습니다. 주소에 동이 없고 좌표로도 확인되지 않는 주차장(용인 부설 등)은
+   `동 미상` 묶음으로 구 페이지 표에만 두고 절대 페이지를 만들지 않습니다(`UNKNOWN_DONG`).
 2. **형식이 다른 자료는 별도 페이지**: 성남시 노상 66구간은 이름이 `중상32-75` 같은 구간 번호라
    카드로 그리면 반복·빈약한 페이지가 되므로 `list_mode: "street"`로 분리해 전용 표 페이지 하나로 정리했습니다.
+   용인시 노상 54구간도 같은 기준으로 분리했고, 무료·유료가 섞여 있어 `street_is_all_mixed()`로 문구·표 구성을 나눕니다.
 3. **시·군 단위 묶음 커밋**: 도시 하나(정제·빌드·dist·문서)를 한 커밋으로 올려 되돌리기 쉽게 합니다.
 4. **도시별 감면 규칙**: `cities[].discounts`에 조례 기준 감면(감면율 + 면제 시간)을 두면 계산기 버튼이
    그 도시 기준으로 생성됩니다. 성남시는 `장애인 1시간 면제 후 50%`, `국가유공자 12시간 면제 후 50%`를 반영했고,
@@ -130,9 +142,10 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 ├── LICENSE                       # MIT (코드) · 데이터는 원자료 라이선스를 따름
 ├── assets/style.css, app.js      # 모바일 퍼스트 CSS · 계산기
 ├── data/raw/                     # 원본 3종(가공 없음)
-├── data/site.json                # 사이트 입력(도시 2곳 + 주차장 236건)
+├── data/site.json                # 사이트 입력(도시 3곳 + 주차장 515건)
 ├── data/suwon_parking.json       # 수원시 정제 결과(메타·72곳·품질 리포트)
 ├── data/seongnam_parking.json    # 성남시 정제 결과(노외 98 + 노상 66)
+├── data/yongin_parking.json      # 용인시 정제 결과(노외·부설 159 + 노상 54)
 ├── scripts/prepare_data.py       # 정제·병합·품질 점검(--city)
 ├── scripts/build_site.py         # 정적 페이지 생성기(--base 로 도메인 지정, 슬러그 자동 생성)
 ├── scripts/summary.md|json       # 정제 요약(도시·구·동·무료·정합성)
@@ -140,7 +153,7 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 ├── scripts/verify_site.py        # 브라우저 검증(+스크린샷)
 ├── scripts/crosscheck_calc.py    # JS↔Python 계산 교차검증(Chromium)
 ├── scripts/crosscheck_calc_nobrowser.py # 같은 검증(quickjs, 브라우저 불필요)
-└── dist/                         # 배포 산출물 60페이지 + 404.html
+└── dist/                         # 배포 산출물 88페이지 + 404.html
 ```
 
 ## 배포 (Cloudflare Pages)
@@ -169,6 +182,12 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 - 실시간 목록에만 있는 13곳은 요금·운영시간이 없어 '요금 정보 미상'으로 표시하고, 주소가 없으면 '동 인근(좌표 기준)'으로 안내합니다.
 - **성남시는 실시간 잔여면수를 연동하지 않았습니다.** 성남도시개발공사 실시간 목록을 수집하지 않아 카드에는 등록 구획수만 표시합니다.
 - 성남시 노상 구간의 `요금정보=혼합`은 "평일 운영시간에만 요금 부과"로 해석해 표로만 정리하고, 주말 무료 여부는 단정하지 않습니다(현장 확인).
+- **용인시는 실시간 잔여면수를 연동하지 않았습니다.** 노외·부설 159곳은 표준데이터 등록면수만 표시합니다.
+- 용인시 요금표는 최초 10분(청사·공원 부설은 최초 30분) 무료를 두지만, 표준데이터 기본요금에는 이 무료 시간이 없어
+  짧은 이용(10분 이내 등)은 실제보다 높게 계산될 수 있습니다(페이지에 명시).
+- 용인시 부설주차장 중 6곳은 특기사항에 `지하: 평일 06:00~20:00 운영`처럼 별도 운영시간이 적혀 있습니다.
+  운영요일·시간 칸이 24시간으로 등록되어 있어 카드는 등록값을 그대로 표시하고 특기사항을 함께 적었습니다.
+- 용인시 부설주차장 26곳은 주소에 동이 없고 좌표로도 400m 안에 확인된 동이 없어 `동 미상`으로 묶어 구 페이지 표에만 실었습니다.
 - 로마자 자동 생성은 음운 변화(경음화·구개음화 등)를 모두 반영하지 않는 간략 규칙입니다. 특정 지역의 공식 표기가
   다르면 `DONG_SLUG` / `GU_SLUG`에 한 줄만 추가하면 그 이름부터 매핑이 우선 적용됩니다.
 
@@ -177,4 +196,4 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 1. Cloudflare Pages(또는 GitHub Pages) 연결 후 `parking.9welfare.com` 도메인 연결
 2. 애드센스 승인 후 플레이스홀더(광고 영역 2곳, 24px 여백 확보)에 실제 슬롯 삽입
 3. 경기도교통정보센터·수원도시공사 API로 잔여면수 실시간화(스케줄러가 주기적으로 JSON 갱신 후 재빌드)
-4. 다른 시·군으로 확장(표준데이터 시·군 필터만 추가하면 동일 파이프라인 재사용, 슬러그는 자동)
+4. 다른 시·군으로 확장 — 다음 대상은 **화성시**(표준데이터 시·군 필터만 추가하면 동일 파이프라인 재사용, 슬러그는 자동)

@@ -55,7 +55,7 @@
     return [3, 0];
   }
 
-  function paintCard(card, res) {
+  function paintCard(card, res, lot) {
     var priceEl = card.querySelector('.price');
     var noteEl = card.querySelector('.price-note');
     var freeBadge = card.querySelector('.badge.free');
@@ -68,7 +68,7 @@
       if (noteEl) {
         noteEl.textContent = res.exempt
           ? '면제 시간 이내 (' + fmtTime(res.exempt_min) + ' 면제)'
-          : '무료 개방 (선택한 요일)';
+          : (lot && lot.fee.type === '무료' ? '요금 구분 ‘무료’' : '무료 개방 (선택한 요일)');
       }
     } else if (res.state === 'paid') {
       priceEl.textContent = won(res.amount);
@@ -120,7 +120,7 @@
       return { card: card, lot: lot, res: priceFor(lot, state.minutes, state.day, state.discount, state.exempt) };
     }).filter(Boolean);
 
-    results.forEach(function (r) { paintCard(r.card, r.res); });
+    results.forEach(function (r) { paintCard(r.card, r.res, r.lot); });
 
     // 저렴한 순 정렬 (무료 → 요금 오름차순 → 미상 → 휴무)
     var sorted = results.slice().sort(function (a, b) {

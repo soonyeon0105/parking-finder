@@ -124,8 +124,8 @@ else:
     print("404.html 검사 완료 (절대경로 링크·noindex)")
 
 # ---------------------------------------------------------------- 슬러그(전국 확장)
-from build_site import (DONG_SLUG, GU_SLUG, base_slug, dong_slug,  # noqa: E402
-                        dong_slug_map, gu_slug)
+from build_site import (DONG_SLUG, GU_SLUG, UNKNOWN_DONG, base_slug,  # noqa: E402
+                        dong_slug, dong_slug_map, gu_slug)
 
 # 1) 수원시 29개 동·4개 구는 수동 매핑 그대로 (기존 색인 URL 불변)
 for name, slug in DONG_SLUG.items():
@@ -205,12 +205,14 @@ for city in CITIES:
         if bool(city.get("weekend_free_pages")) != weekend.exists():
             fails.append(f"{d['name']}: 주말 페이지 존재 여부 불일치")
         # 동 페이지: 기준 미만 동은 페이지가 없어야 한다(빈 페이지 방지)
-        by_dong = Counter(l["dong"] or "기타" for l in d_lots)
+        by_dong = Counter(l["dong"] or UNKNOWN_DONG for l in d_lots)
         minimum = city.get("dong_page_min_lots", 3)
         slugs_map = dong_slug_map(by_dong)
         dong_dirs = {q.parent.name: q for q in p.parent.rglob("index.html")
                      if q.parent.parent == p.parent and q.parent.name not in ("weekend-free", "street-parking")}
         for dong, n in by_dong.items():
+            if dong == UNKNOWN_DONG:
+                continue      # 주소·좌표로 동을 정하지 못한 묶음은 페이지를 만들지 않는다(의도된 동작)
             slug_d = slugs_map[dong]
             hit = dong_dirs.get(slug_d)
             if n >= minimum and not hit:
@@ -229,22 +231,33 @@ for city in CITIES:
         if rows < len(street_lots):
             fails.append(f"{city['city']}: 노상 페이지 행 {rows} < 구간 {len(street_lots)}")
 
-# 3) 도시 간 자료 혼입 금지: 성남시 페이지에 수원 자료/문구가 없어야 한다.
+# 3) 도시 간 자료 혼입 금지: 도시 페이지에 다른 도시의 자료/문구가 없어야 한다.
+MIX = {
+    "seongnam": ("수원", "수원도시공사", "영통구", "권선구", "용인", "용인도시공사"),
+    "yongin": ("수원", "수원도시공사", "성남", "성남도시개발공사", "영통구", "권선구", "수정구", "중원구", "분당구"),
+}
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
-    if "/seongnam" not in rel:
+    city_key = next((k for k in MIX if f"/{k}" in rel), None)
+    if not city_key:
         continue
     html = p.read_text()
     main = html.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
-    for bad in ("수원", "수원도시공사", "영통구", "권선구"):
-        if bad in main:
-            fails.append(f"{rel}: 성남시 페이지 본문에 '{bad}' 혼입")
+    # 주차장 이름 자체가 다른 도시 이름을 담은 경우(예: 용인 영덕동의 노상 구간 '수원교회 인근')는
+    # 자료 혼입이 아니므로, 이름을 지운 나머지 본문에서만 다른 도시 이름을 찾는다.
+    probe = main
+    for n in sorted({l["name"] for l in LOTS
+                     if any(b in l["name"] for b in MIX[city_key])}, key=len, reverse=True):
+        probe = probe.replace(n, "")
+    for bad in MIX[city_key]:
+        if bad in probe:
+            fails.append(f"{rel}: 본문에 다른 도시 자료 '{bad}' 혼입")
     # 껍데기 방지: 카드·표·계산기 중 하나는 있어야 한다(시 허브는 표, 노상 페이지는 표)
     if not re.search(r'class="card lot|class="data"|class="calc"', main):
         fails.append(f"{rel}: 본문에 카드·표·계산기가 없는 페이지(껍데기)")
     # 노상 구간이 카드로 그려지지 않았는지
     for lot in LOTS:
-        if lot.get("city") == "성남시" and lot.get("list_mode") == "street" and f'data-lot="{lot["id"]}"' in html:
+        if lot.get("list_mode") == "street" and f'data-lot="{lot["id"]}"' in html:
             fails.append(f"{rel}: 노상 구간이 카드로 렌더링됨({lot['name']})")
             break
 
@@ -291,6 +304,20 @@ cases = [
     ("수진역환승공영주차장", 120, "weekday", 0.5, 60, "paid", 1100),
     ("수진역환승공영주차장", 600, "weekday", 0.5, 720, "free", None),
     ("수진역환승공영주차장", 1440, "weekday", 0.5, 720, "paid", 3000),
+    # 용인시: 유료 10분 600원 + 10분 300원, 1일권 9,000원 / 부설 30분 600원 + 10분 300원
+    ("금학공영", 30, "weekday", 0, 0, "paid", 1200),
+    ("금학공영", 120, "weekday", 0, 0, "paid", 3900),
+    ("금학공영", 1440, "weekday", 0, 0, "paid", 9000),
+    ("마북동", 30, "weekday", 0, 0, "paid", 600),
+    ("마북동", 120, "weekday", 0, 0, "paid", 3300),
+    ("유방동1공영", 120, "weekday", 0, 0, "paid", 1500),
+    ("상갈공영", 120, "weekday", 0.5, 0, "paid", 750),
+    # 용인시 조례: 장애인 6시간 면제 후 50%
+    ("금학공영", 120, "weekday", 0.5, 360, "free", None),
+    ("금학공영", 600, "weekday", 0.5, 360, "paid", 4500),
+    # 용인시는 요금 구분 '무료'인 주차장이 다수
+    ("미르스타디움", 120, "weekday", 0, 0, "free", None),
+    ("미르스타디움", 1440, "sun", 0, 0, "free", None),
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -324,6 +351,19 @@ if any(l["fee"]["type"] == "미상" for l in sn_cards):
 paid_sn = [l for l in sn_cards if price_for(l, 120, "weekday")["state"] == "paid"]
 if len(paid_sn) != len(sn_cards):
     fails.append(f"성남시 카드 중 평일 2시간 계산 불가 {len(sn_cards) - len(paid_sn)}곳")
+
+# 용인시 카드: 요금 미상이 없어야 하고, 무료·유료가 각각 그 상태로 계산되어야 한다.
+yn_cards = [l for l in LOTS if l.get("city") == "용인시" and l.get("list_mode") == "card"]
+if any(l["fee"]["type"] == "미상" for l in yn_cards):
+    fails.append("용인시 카드에 요금 미상 주차장이 있음(자료 확인 필요)")
+yn_paid = [l for l in yn_cards if l["fee"]["type"] == "유료"]
+yn_bad = [l["name"] for l in yn_paid if price_for(l, 120, "weekday")["state"] != "paid"]
+if yn_bad:
+    fails.append(f"용인시 유료 카드 중 평일 2시간 계산 불가 {len(yn_bad)}곳 {yn_bad[:3]}")
+yn_free_bad = [l["name"] for l in yn_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if yn_free_bad:
+    fails.append(f"용인시 무료 카드가 무료로 계산되지 않음 {len(yn_free_bad)}곳 {yn_free_bad[:3]}")
 
 print()
 if warns:

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
      - 수원시 59행 : 요금·운영시간·좌표
      - 성남시 164행: 요금·운영시간·좌표 (노외 98행 + 노상 66행)
+     - 용인시 214행: 요금·운영시간·좌표 (노외 71 + 부설 89 + 노상 54)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
@@ -15,11 +16,12 @@
   data/site.json             도시 통합 결과(사이트 생성기 입력: cities[] + lots[])
   data/suwon_parking.json    수원시 단독 결과(기존 경로 호환)
   data/seongnam_parking.json 성남시 단독 결과
+  data/yongin_parking.json   용인시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|all]
 """
 from __future__ import annotations
 
@@ -292,6 +294,8 @@ CITY_META = {
     "수원시": {"slug": "suwon", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 1},
     "성남시": {"slug": "seongnam", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "용인시": {"slug": "yongin", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -882,6 +886,7 @@ def check_quality_seongnam(std_all, rows, lots, excluded):
     return {
         "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
         "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
         "원자료_성남시행수": len(rows),
         "제외_행수": len(excluded),
         "제외_행": excluded,
@@ -899,12 +904,347 @@ def check_quality_seongnam(std_all, rows, lots, excluded):
         "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
         "무료_요금구분": [l["name"] for l in lots if l["fee"]["type"] == "무료"],
         "혼합_요금구분": [l["name"] for l in lots if l["fee"].get("mixed")],
-        "무료개방_표기": [l["name"] for l in lots if l["free_days"]["sat"] or l["free_days"]["sun"]],
+        "무료개방_표기": [l["name"] for l in lots if l["fee"]["type"] != "무료"
+                      and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
         "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
         "동_미상": [l["name"] for l in card if not l["dong"]],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
+
+# ---------------------------------------------------------------- 용인시 (T-03 Phase 2)
+YONGIN_PROVIDER = "경기도 용인시"
+YONGIN_DISTRICTS = [("처인구", "yongin-cheoin"),
+                    ("기흥구", "yongin-giheung"),
+                    ("수지구", "yongin-suji")]
+YONGIN_BBOX = (37.05, 37.40, 127.00, 127.45)     # 용인시 대략 경계(좌표 점검용)
+YONGIN_UNIT_RE = re.compile(r"([가-힣]{1,6}(?:동|읍|면))")
+# 동·읍·면 위치를 좌표로 추정할 때 허용하는 거리. 용인시는 구 면적이 넓어
+# 넓게 잡으면 옆 동으로 잘못 붙는다. 400m 안에서만 인정하고 나머지는 '동 미상'으로 둔다.
+YONGIN_ESTIMATE_M = 400
+
+# 용인시 공영주차장 요금 감면 — 용인도시공사 '주차장 요금 안내'(park.yuc.co.kr) 감면할인 안내
+# 및 「용인시 주차장 설치 및 관리 조례」 별표2 (2026-11-16 확인).
+#   · 100%    : 국가유공자(본인 탑승)·고엽제환자·유공납세자·제1종 저공해(2시간 이내)·공무수행 차량 등
+#   · 50%     : 경형차(1,000cc 미만)·2·3종 저공해·임산부·병역명문가·우수자원봉사자·환승 등
+#   · 다자녀  : 최소 2시간 무료 후 50%
+#   · 장애인  : 6시간 면제 및 이후 50%
+#   · 감면이 겹치면 비율이 높은 하나만 적용
+YONGIN_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·임산부 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형(1,000cc 미만)·2·3종 저공해·임산부·병역명문가 등"},
+    {"label": "다자녀 2시간 무료 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "경기 I-Plus·경기똑D카드 등"},
+    {"label": "장애인 6시간 면제 후 50%", "rate": 0.5, "exempt_min": 360,
+     "note": "등록 장애인 운전·동승 차량"},
+    {"label": "국가유공자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "국가유공자 본인 탑승 차량(유족증 포함)"},
+]
+
+
+def gu_in(addr, districts):
+    for g, _ in districts:
+        if g in (addr or ""):
+            return g
+    return None
+
+
+def unit_from_jibun(addr):
+    """지번주소에서 행정동·읍·면을 뽑는다(예: '… 처인구 포곡읍 둔전리 139-6' → 포곡읍)."""
+    a = addr or ""
+    m = re.search(r"([가-힣]{1,6}(?:읍|면))\s+[가-힣]{1,6}리", a)
+    if m:
+        return m.group(1)
+    m = re.search(r"([가-힣]{1,6}동)\s*\d", a)
+    if m:
+        return m.group(1)
+    m = re.search(r"([가-힣]{1,6}(?:읍|면))\s*\d", a)
+    return m.group(1) if m else None
+
+
+def unit_from_road(addr):
+    """도로명주소에서 읍·면만 뽑는다(도로명주소에는 동이 들어가지 않는다)."""
+    m = re.search(r"(?:구|읍|면)\s+([가-힣]{1,6}(?:읍|면))\s", (addr or "") + " ")
+    return m.group(1) if m else None
+
+
+def yongin_known_units(rows):
+    """구별로 존재하는 행정동·읍·면 이름 집합(지번주소·읍면 도로명·동 이름인 주차장명)."""
+    known = defaultdict(set)
+    for r in rows:
+        addr = (r.get("소재지지번주소") or "") + (r.get("소재지도로명주소") or "")
+        gu = gu_in(addr, YONGIN_DISTRICTS)
+        if not gu:
+            continue
+        unit = unit_from_jibun(r.get("소재지지번주소")) or unit_from_road(r.get("소재지도로명주소"))
+        if unit:
+            known[gu].add(unit)
+        name = (r.get("주차장명") or "").strip()
+        if YONGIN_UNIT_RE.fullmatch(name):
+            known[gu].add(name)
+    return known
+
+
+def yongin_unit(row, gu, known):
+    """한 행의 행정동·읍·면과 그 근거를 정한다(주소 → 이름 → 좌표는 뒤에서)."""
+    jibun = (row.get("소재지지번주소") or "").strip()
+    road = (row.get("소재지도로명주소") or "").strip()
+    name = (row.get("주차장명") or "").strip()
+    unit = unit_from_jibun(jibun)
+    if unit:
+        return unit, "지번주소"
+    if YONGIN_UNIT_RE.fullmatch(name):          # '유림동', '양지면'처럼 주차장명이 곧 동·읍·면
+        return name, "주차장명"
+    for cand in sorted(known.get(gu, ()), key=len, reverse=True):
+        if cand in name:                        # '서농동 서농도서관' → 서농동
+            return cand, "주차장명"
+    unit = unit_from_road(road)
+    if unit:
+        return unit, "도로명주소"
+    return None, "없음"
+
+
+def build_yongin():
+    """용인시 공영주차장을 표준데이터에서 추출한다(도시공사 실시간 목록은 미수집).
+
+    성남시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 용인시 범위를 벗어난 행은 제외.
+      · 노상(거리) 구간은 이름이 '전대리'·'용인성당 주변'처럼 구간 설명이라 카드 대신
+        전용 표 페이지로 분리(list_mode='street').
+      · 동·읍·면 페이지는 노외·부설 카드가 3곳 이상인 곳만 만든다.
+    성남시와 다른 점은 용인시에 **부설(청사·도서관·공원) 주차장 89곳**이 포함된다는 것이고,
+    이들은 주차구획·주소·운영시간이 모두 등록되어 있어 카드로 그린다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows = [r for r in rows_all if (r.get("제공기관명") or "").strip() == YONGIN_PROVIDER]
+    known = yongin_known_units(rows)
+    lots, excluded = [], []
+    card_no = street_no = 0
+
+    for r in rows:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (YONGIN_BBOX[0] <= lat <= YONGIN_BBOX[1]
+                                      and YONGIN_BBOX[2] <= lng <= YONGIN_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        gu = gu_in(addr, YONGIN_DISTRICTS)
+        if not gu:
+            excluded.append({"name": name, "reason": "구 판정 불가"})
+            continue
+        unit, unit_src = yongin_unit(r, gu, known)
+
+        note = (r.get("특기사항") or "").strip()
+        fee_raw = (r.get("요금정보") or "").strip()
+        base_min = to_int(r.get("주차기본시간"))
+        base_fee = to_int(r.get("주차기본요금"))
+        unit_min = to_int(r.get("추가단위시간"))
+        unit_fee = to_int(r.get("추가단위요금"))
+        daily_h = to_int(r.get("1일주차권요금적용시간"))
+        daily_fee = to_int(r.get("1일주차권요금"))
+        monthly = to_int(r.get("월정기권요금"))
+
+        if fee_raw == "무료":
+            ftype = "무료"
+        elif fee_raw in ("유료", "혼합"):
+            ftype = "유료" if (base_min and base_fee is not None and unit_min
+                               and unit_fee is not None) else "미상"
+        else:
+            ftype = "미상"
+
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        if ftype == "무료":
+            free_days = {"sat": True, "sun": True}
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"yn-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"yn-{card_no:03d}"
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": unit,
+            "dong_src": unit_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": road_name(road) if street else None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "fee": {
+                "type": ftype,
+                "raw_type": fee_raw,
+                "mixed": fee_raw == "혼합",
+                "grade": (r.get("급지구분") or "").strip(),
+                "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_hours": daily_h, "daily_fee": daily_fee,
+                "monthly": monthly if monthly else None,
+                "pay": (r.get("결제방법") or "").strip(),
+            },
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "realtime": None,
+            "udc_id": None,
+            "price_key": base_fee if ftype == "유료" else None,
+            "city": "용인시",
+            "city_slug": "yongin",
+        })
+
+    # --- 동·읍·면 좌표 추정: 지번이 없어 이름으로도 못 정한 주차장만,
+    #     같은 구의 확인된 동·읍·면 중심에서 400m 안일 때만 인정한다.
+    centroid = defaultdict(list)
+    for lot in lots:
+        if lot["dong"] and lot["dong_src"] == "지번주소" and lot["lat"] is not None:
+            centroid[(lot["gu"], lot["dong"])].append((lot["lat"], lot["lng"]))
+    centroid = {k: (sum(x for x, _ in v) / len(v), sum(y for _, y in v) / len(v))
+                for k, v in centroid.items()}
+    for lot in lots:
+        if lot["dong"] or lot["lat"] is None:
+            continue
+        cand = {k: v for k, v in centroid.items() if k[0] == lot["gu"]}
+        if not cand:
+            continue
+        key = min(cand, key=lambda k: km(lot["lat"], lot["lng"], cand[k][0], cand[k][1]))
+        if km(lot["lat"], lot["lng"], cand[key][0], cand[key][1]) <= YONGIN_ESTIMATE_M:
+            lot["dong"], lot["dong_src"] = key[1], "좌표근접(추정)"
+
+    order = {g: i for i, (g, _) in enumerate(YONGIN_DISTRICTS)}
+    lots.sort(key=lambda l: (order[l["gu"]], l["list_mode"] != "card", l["name"]))
+
+    quality = check_quality_yongin(rows_all, rows, lots, excluded)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": None,
+            "region": {"province": "경기도", "city": "용인시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-24", "rows_total": len(rows_all),
+                    "rows_city": len(rows),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": "용인시가 등록한 행만(제공기관명 '경기도 용인시') 추출. 요금·운영시간·좌표·특기사항 사용.",
+                },
+                {
+                    "id": "yuc", "name": "용인시 공영주차장 주차장 요금 안내",
+                    "org": "용인도시공사",
+                    "url": "https://park.yuc.co.kr/views/parkinglot/fee/fee.html",
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": None,
+                    "fetched_at": "2026-11-16 (KST)",
+                    "note": "요금 감면율(50%·2시간 무료 후 50%·6시간 면제 후 50%·100%)과 급지별 요금표 확인용 — 계산기 감면 버튼 근거.",
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in YONGIN_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+    }
+    payload.update(CITY_META["용인시"] | {
+        "city": "용인시",
+        "weekend_free_pages": False,     # 무료 개방 '표기'가 없어 주말 무료 페이지를 만들지 않는다
+        "discounts": YONGIN_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "yongin_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_yongin(std_all, rows, lots, excluded):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_gu = Counter(l["gu"] for l in card)
+    by_dong = Counter((l["gu"], l["dong"]) for l in card if l["dong"])
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    fee_broken = [l["name"] for l in lots
+                  if l["fee"]["type"] == "유료"
+                  and not (l["fee"]["base_min"] and l["fee"]["base_fee"] is not None
+                           and l["fee"]["unit_min"] and l["fee"]["unit_fee"] is not None)]
+    paid = [l["fee"]["base_fee"] for l in lots
+            if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_용인시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(by_gu),
+        "동별": {f"{g} {d}": c for (g, d), c in sorted(by_dong.items(),
+                                                   key=lambda kv: (str(kv[0][0]), str(kv[0][1])))},
+        "동수": len({(l["gu"], l["dong"]) for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_추정": [l["name"] for l in card if (l["dong_src"] or "").startswith("좌표")],
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "요금_필드불완전": fee_broken,
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots if l["fee"]["type"] != "무료"
+                      and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
         "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
         "관리번호중복": [k for k, v in mgmt.items() if v > 1],
         "전화번호_없음": len([l for l in lots if not l["tel"]]),
@@ -924,14 +1264,18 @@ def build_summary_city(payload):
         lines.append(f"- 주차장 **{q['총_주차장']}곳**(표준데이터 {q['원자료_수원시행수']} + 도시공사 추가 {q['도시공사_추가행수']}) "
                      f"· 총 구획 {q['총_구획수']:,}면 · 실시간 연계 {q['실시간_연계_전체']}곳")
     else:
-        lines.append(f"- 노외 주차장 **{q['총_주차장']}곳** · 총 구획 {q['총_구획수']:,}면 "
+        lines.append(f"- 노외·부설 주차장 **{q['총_주차장']}곳** · 총 구획 {q['총_구획수']:,}면 "
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
-        lines.append(f"- 원자료 성남시 {q['원자료_성남시행수']}행 중 껍데기 행 {q['제외_행수']}행 제외")
-        lines.append(f"- 구별: {q['구별']} · 동 {q['동수']}개")
+        lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외")
+        lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
+        if q.get("노외_부설"):
+            lines.append(f"- 유형: {q['노외_부설']}")
         lines.append(f"- 요금 구분: {q['요금구분']} · 무료 개방 표기 {len(q['무료개방_표기'])}곳 · 평균 기본요금 {q['평균_기본요금']:,}원"
                      if q["평균_기본요금"] else f"- 요금 구분: {q['요금구분']}")
         lines.append(f"- 토·일 공휴일 미운영: 토 {q['토요일_미운영']} / 일·공휴일 {q['일공휴일_미운영']}")
         lines.append(f"- 전화번호 미등록 {q['전화번호_없음']}곳(원자료에 없음)")
+        if q.get("동_추정"):
+            lines.append(f"- 동 위치 좌표 추정 {len(q['동_추정'])}곳 · 동 미상 {len(q['동_미상'])}곳(구 페이지 표에만 표시)")
     return "\n".join(lines) + "\n"
 
 
@@ -967,16 +1311,18 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "all"], default="all")
     args = ap.parse_args()
 
-    want = ["수원시", "성남시"] if args.city == "all" else \
-           ["수원시" if args.city == "suwon" else "성남시"]
+    want = ["수원시", "성남시", "용인시"] if args.city == "all" else \
+           {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"]}[args.city]
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
     if "성남시" in want:
         cities.append(build_seongnam())
+    if "용인시" in want:
+        cities.append(build_yongin())
 
     if args.city == "all":
         site = build_site_payload(cities)

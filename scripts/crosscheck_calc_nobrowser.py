@@ -6,7 +6,7 @@ crosscheck_calc.py 는 headless Chromium 의 DOM .price 텍스트를 읽는다. 
 없는 환경(플레이그라운드 다운로드 차단)에서는 이 스크립트로 같은 JS 함수를 JS 엔진(quickjs)에서
 직접 호출해 동일한 조합을 대조한다.
 
-  · 대상: site.json 의 카드 목록에 그리는 모든 주차장(수원 72 + 성남 98)
+  · 대상: site.json 의 카드 목록에 그리는 모든 주차장(수원 72 + 성남 98 + 용인 159)
   · 조합: 요일 3 × 감면 버튼(도시별) × 시간 5
   · 추가: 서버가 그린 카드 가격(기본 상태)과 JS 계산도 대조
 
@@ -86,15 +86,23 @@ for pg in sorted((BASE / "dist").rglob("index.html")):
         if price.strip() != want:
             mismatch.append((str(pg.relative_to(BASE / "dist")), lot["name"], "static", price, want))
 
-# 노상 페이지의 계산 표도 확인(혼합 요금 구간은 카드가 아니므로 price_for 로만 확인)
+# 노상 페이지의 계산 표도 확인(카드가 아닌 구간이므로 price_for 로만 확인).
+# 무료 구간은 감면 계산 대상이 아니므로 유료 구간만 본다.
 street = [l for l in DATA["lots"] if l.get("list_mode") == "street"]
-street_bad = [l["name"] for l in street
+street_free = [l for l in street if l["fee"]["type"] == "무료"]
+street_paid = [l for l in street if l["fee"]["type"] == "유료"]
+street_bad = [l["name"] for l in street_paid
               if price_for(l, 120, "weekday", 0.5)["state"] != "paid"]
+street_free_bad = [l["name"] for l in street_free
+                   if price_for(l, 120, "weekday", 0.5)["state"] != "free"]
 
 print(f"JS↔Python 비교 {total:,}건 · 서버카드 대조 {html_pages}페이지/{cards_checked:,}장 · "
-      f"노상 구간 {len(street)}곳 · 불일치 {len(mismatch) + len(street_bad)}건")
+      f"노상 구간 {len(street)}곳(무료 {len(street_free)}·유료 {len(street_paid)}) · "
+      f"불일치 {len(mismatch) + len(street_bad) + len(street_free_bad)}건")
 for x in mismatch[:10]:
     print("  ", x)
 for x in street_bad[:5]:
     print("  노상 계산 불가:", x)
-sys.exit(1 if (mismatch or street_bad) else 0)
+for x in street_free_bad[:5]:
+    print("  노상 무료 계산 오류:", x)
+sys.exit(1 if (mismatch or street_bad or street_free_bad) else 0)
