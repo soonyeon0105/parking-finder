@@ -38,6 +38,7 @@ SITE_BASE = "https://parking.9welfare.com"   # 배포 시 실제 도메인으로
 BUILD_TS = ""
 SNAPSHOT_TS = ""
 SITE_CITIES: list[dict] = []                  # site.json 의 cities (nav 순서)
+GA_MEASUREMENT_ID = ""                        # data/site.json 의 ga_measurement_id — 비어 있으면 GA4 태그를 넣지 않는다
 
 DONG_SLUG = {
     "고색동": "goseak-dong", "곡반정동": "gokbanjeong-dong", "권선동": "gwonseon-dong",
@@ -637,9 +638,28 @@ def footer_sources(city, url) -> str:
             f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
 
 
+def ga_head() -> str:
+    """GA4 삽입 조각.
+
+    data/site.json 의 ga_measurement_id 가 비어 있으면 빈 문자열을 돌려주고, gtag.js 스크립트도
+    gtag('config') 도 HTML 에 넣지 않는다(통계 훅은 app.js 에서 window.gtag 유무를 보고 무동작).
+    값이 들어오면 표준 GA4 스니펫을 <head> 에 넣는다.
+    """
+    if not GA_MEASUREMENT_ID:
+        return ""
+    gid = esc(GA_MEASUREMENT_ID)
+    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
+            '<script>\n'
+            'window.dataLayer = window.dataLayer || [];\n'
+            'function gtag(){dataLayer.push(arguments);}\n'
+            "gtag('js', new Date());\n"
+            f"gtag('config', '{gid}');\n"
+            '</script>\n')
+
+
 def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=None,
            extra_head="", absolute_links=False, robots="index,follow,max-image-preview:large",
-           canonical=None):
+           canonical=None, body_attrs=""):
     """공통 껍데기.
 
     absolute_links=True 이면 링크를 사이트 절대경로(/parking/...)로 쓴다. 404.html 처럼
@@ -667,11 +687,11 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 <meta property="og:description" content="{esc(description)}">
 {og_url_tag}<meta name="robots" content="{robots}">
 <meta name="generator" content="parking-finder static builder">
-{extra_head}
+{ga_head()}{extra_head}
 <link rel="stylesheet" href="{url('/assets/style.css')}">
 {script_jsonld(jsonld)}
 </head>
-<body>
+<body{body_attrs}>
 <header class="site-head">
   <div class="inner">
     <a class="brand" href="{url('/')}">
@@ -686,7 +706,8 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 </main>
 <footer class="site-foot">
   <div class="inner">
-{footer_sources(city, url)}  </div>
+{footer_sources(city, url)}    <p class="foot-legal"><a href="{url('/privacy/')}">개인정보처리방침</a></p>
+  </div>
 </footer>
 <script src="{url('/assets/app.js')}" defer></script>
 </body>
@@ -1700,6 +1721,108 @@ def build_landing(site):
         path=path, body=body, crumbs=[("홈", "")], nav_active="", city=None, jsonld=[])
 
 
+# ------------------------------------------------------------------ 개인정보처리방침
+def build_privacy(site):
+    """개인정보처리방침 (/privacy/).
+
+    비회원·개인정보 미수집 안내, 쿠키·접속 로그, 통계 도구(GA4·Cloudflare Web Analytics),
+    오류 제보 안내를 적는다. GA4 측정 ID(ga_measurement_id)가 비어 있으면 ‘아직 연결하지
+    않았고, 연결하면 먼저 고지한다’로 적고, 값이 들어오면 실제 기록 항목을 그대로 적는다.
+    """
+    path = "/privacy/"
+    if GA_MEASUREMENT_ID:
+        ga_state = "사용"
+        ga_lead = (f"이 사이트는 <b>Google Analytics 4</b>(측정 ID <code>{esc(GA_MEASUREMENT_ID)}</code>)를 "
+                   "사용합니다. Google LLC(미국)가 운영하는 도구이며, 아래 항목을 처리합니다.")
+        ga_when = ""
+    else:
+        ga_state = "미사용(연결 시 사전 고지)"
+        ga_lead = "현재 이 사이트에는 <b>Google Analytics 4(GA4)</b>를 연결하지 않았습니다."
+        ga_when = ("<p>연결하게 되면 어떤 항목을 기록하는지 이 방침에 먼저 적고 시행합니다. "
+                   "연결 후 기록할 항목은 아래와 같습니다.</p>")
+    body = f"""
+<div class="prose">
+<h1>개인정보처리방침</h1>
+<p class="lede">{SITE_NAME}(parking.9welfare.com)는 <b>회원가입 없이 누구나 이용하는 정보 제공 사이트</b>이며,
+이용자의 개인정보를 직접 수집하지 않습니다. 아래에서 어떤 정보가 어떤 도구를 통해 처리되는지 안내합니다.</p>
+<p class="updated">시행일 2026-11-17 · 최종 개정 2026-11-17</p>
+
+<h2>1. 수집하는 개인정보</h2>
+<ul>
+  <li>회원가입·로그인 기능이 없고, 이름·전화번호·이메일·주소 등을 입력받는 칸이 없습니다.</li>
+  <li>요금 계산기는 브라우저 안에서만 계산하며, 고른 요일·시간·감면 조건을 서버로 보내지 않습니다.</li>
+  <li>예약·결제 기능이 없어 카드번호 같은 결제 정보를 받지 않습니다. 주차 요금은 현장에서 지자체·도시공사에 냅니다.</li>
+  <li>만 14세 미만 아동의 개인정보도 수집하지 않습니다.</li>
+</ul>
+
+<h2>2. 서비스 운영 중 자동으로 처리되는 정보(접속 기록)</h2>
+<p>정적 페이지를 <b>Cloudflare, Inc.</b>의 호스팅(Cloudflare Pages)으로 제공하므로, 접속 시각·요청한 주소·브라우저 종류·IP 주소 같은
+접속 기록이 보안·장애 대응 목적으로 호스팅 사업자 쪽에 자동으로 생성될 수 있습니다. 운영자는 이 기록으로 개인을 식별하지 않고,
+보안과 통계 목적 밖에 쓰지 않습니다. 보관 기간과 처리 방법은 호스팅 사업자의 정책을 따릅니다.</p>
+
+<h2>3. 쿠키와 유사 기술</h2>
+<p>이 사이트는 로그인 상태·장바구니처럼 이용자를 기억하는 쿠키를 사용하지 않습니다. 아래 통계 도구만 쿠키 또는 이와 유사한 식별자를 쓸 수 있습니다.</p>
+<table class="data">
+  <thead><tr><th>도구</th><th>상태</th><th>쿠키</th><th>목적</th></tr></thead>
+  <tbody>
+    <tr><td>Cloudflare Web Analytics</td><td>사용</td><td>사용하지 않음</td><td>페이지 조회수·유입 경로·속도 익명 집계</td></tr>
+    <tr><td>Google Analytics 4</td><td>{ga_state}</td><td>사용(<code>_ga</code> 등)</td><td>페이지·이용 행동 통계</td></tr>
+    <tr><td>Google AdSense</td><td>미사용</td><td>도입 시 사용</td><td>광고 게재(도입 전에 이 방침으로 먼저 고지)</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Google Analytics 4(GA4)</h2>
+<p>{ga_lead}</p>
+{ga_when}
+<ul>
+  <li><b>페이지 조회</b>: 방문한 지역·행정동 페이지 주소와 그 시각</li>
+  <li><code>calc_use</code>: 요금 계산기에서 요일·시간·감면 조건을 바꾼 조작(어떤 조건이 많이 쓰이는지 파악)</li>
+  <li><code>map_outbound_click</code>: 카카오맵·네이버지도 이동 버튼 클릭(주차장 이름과 어떤 지도로 나갔는지)</li>
+  <li><code>free_filter_click</code>: 주말·공휴일 무료 개방 목록으로 이동한 클릭</li>
+  <li><code>404_hit</code>: 없는 주소로 접속한 경우(많이 찾는 주소를 보강하기 위해)</li>
+  <li>이 밖에 기기·브라우저 종류, 화면 크기, 대략적인 접속 지역(도시 수준)이 자동으로 함께 기록됩니다.</li>
+</ul>
+<p>계산 조건·주차장 이름·페이지 주소만 보내며, 이름·전화번호 같은 개인정보는 보내지 않습니다.
+자료는 <b>Google LLC(미국)</b> 서버에서 처리됩니다(국외 이전). 보관 기간은 Google의 정책과 운영자의
+Google Analytics 데이터 보관 설정(2개월·14개월 중 선택)을 따릅니다.</p>
+<p><b>거부 방법</b>: 브라우저 설정에서 쿠키를 차단하거나 삭제하면 GA4 기록이 만들어지지 않습니다.
+<a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google Analytics 차단 브라우저 부가기능</a>을
+설치해도 됩니다. 쿠키를 막아도 이 사이트의 계산기·목록 기능은 그대로 쓸 수 있습니다.</p>
+
+<h2>5. Cloudflare Web Analytics</h2>
+<p>Cloudflare Web Analytics는 쿠키를 쓰지 않는 경량 통계로, 페이지 조회수·유입 경로·로딩 속도를 익명으로 집계합니다.
+개인을 식별하는 정보를 저장하지 않으므로 브라우저 설정으로 따로 막을 대상이 없습니다.</p>
+
+<h2>6. 통계 정보의 이용 목적</h2>
+<p>어느 지역·주차장 페이지가 많이 읽히는지, 요금 계산기와 지도 버튼이 실제로 쓰이는지 확인해
+자료와 화면을 개선하는 데만 씁니다. 개인을 식별하거나 광고·판매 목적으로 다른 곳에 넘기지 않습니다.</p>
+
+<h2>7. 광고</h2>
+<p>현재 이 사이트에는 광고를 게재하지 않습니다. Google AdSense 같은 쿠키 기반 광고를 붙이게 되면
+그 전에 이 방침을 고쳐 광고 사업자·쿠키 사용·거부 방법을 안내합니다.
+(Google의 광고 맞춤설정은 <a href="https://myadcenter.google.com" rel="nofollow noopener" target="_blank">My Ad Center</a>에서 끌 수 있습니다.)</p>
+
+<h2>8. 오류 제보와 문의</h2>
+<ul>
+  <li><b>요금·운영시간·무료 개방 정보가 실제와 다른 경우</b>: 각 주차장 카드에 적힌 관리기관(지자체·도시공사)에 문의하세요.
+  이 사이트는 공공데이터를 정리해 보여 줄 뿐, 요금을 받거나 운영을 대신하지 않습니다.</li>
+  <li><b>사이트 자체의 오류</b>(깨진 링크, 계산이 이상한 경우, 잘못된 위치): 온라인 제보 창구를 준비하고 있습니다.
+  창구가 열리면 이 페이지와 각 페이지 하단에 안내드립니다.</li>
+</ul>
+
+<h2>9. 방침의 변경</h2>
+<p>내용이 바뀌면 이 페이지에 개정일과 시행일을 적어 공개합니다. 쿠키·통계·광고 도구가 늘어나는 변경은
+시행 전에 먼저 알립니다. 변경 내역은 이 페이지의 최종 개정일로 확인할 수 있습니다.</p>
+</div>
+"""
+    crumbs = [("홈", "/"), ("개인정보처리방침", "")]
+    return path, layout(
+        title=f"개인정보처리방침 | {SITE_NAME}",
+        description="공영주차장 파인더의 개인정보처리방침입니다. 회원가입 없이 개인정보를 수집하지 않으며, "
+                    "접속 로그·쿠키, Cloudflare Web Analytics와 GA4 통계 사용 범위, 거부 방법을 안내합니다.",
+        path=path, body=body, crumbs=crumbs, nav_active="", city=None, jsonld=[])
+
+
 # ------------------------------------------------------------------ 404
 def build_404(site):
     """없는 주소로 들어왔을 때 보여 줄 404 페이지 (dist/404.html).
@@ -1744,7 +1867,7 @@ def build_404(site):
         title=f"페이지를 찾을 수 없습니다 (404) | {SITE_NAME}",
         description="요청한 주소의 페이지가 없습니다. 공영주차장 파인더에서 공영주차장 요금과 무료 개방 정보를 확인하세요.",
         path="/404.html", body=body, crumbs=[("홈", "/")], nav_active="", city=None, jsonld=[],
-        absolute_links=True, robots="noindex,follow", canonical="")
+        absolute_links=True, robots="noindex,follow", canonical="", body_attrs=' data-page="404"')
 
 
 # ------------------------------------------------------------------ main
@@ -1766,7 +1889,7 @@ def load_site() -> dict:
 
 
 def main():
-    global BUILD_TS, SITE_BASE, SNAPSHOT_TS, SITE_CITIES
+    global BUILD_TS, SITE_BASE, SNAPSHOT_TS, SITE_CITIES, GA_MEASUREMENT_ID
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default=SITE_BASE)
     args = ap.parse_args()
@@ -1776,6 +1899,7 @@ def main():
     BUILD_TS = site["meta"]["generated_at"]
     SNAPSHOT_TS = site["meta"].get("snapshot_at") or BUILD_TS
     SITE_CITIES = site["cities"]
+    GA_MEASUREMENT_ID = (site.get("ga_measurement_id") or "").strip()
     for c in site["cities"]:
         city_lots = [l for l in site["lots"] if l.get("city") == c["city"]]
         for l in city_lots:
@@ -1793,7 +1917,7 @@ def main():
     for f in ("style.css", "app.js"):
         shutil.copy(ASSETS / f, DIST / "assets" / f)
 
-    pages = [build_landing(site)]
+    pages = [build_landing(site), build_privacy(site)]
     for city in site["cities"]:
         card_lots = city["_card_lots"]
         pages.append(build_city(city, card_lots, site))
@@ -1825,10 +1949,17 @@ def main():
     # 없는 주소용 404 (사이트맵에는 넣지 않는다)
     (DIST / "404.html").write_text(build_404(site), encoding="utf-8")
 
-    urls = "\n".join(
-        f"  <url><loc>{SITE_BASE}{p}</loc><changefreq>weekly</changefreq>"
-        f"<priority>{'1.0' if p == '/' else ('0.9' if p.count('/') <= 4 else '0.7')}</priority></url>"
-        for p, _ in pages)
+    # 사이트맵 — /privacy/ 는 색인은 되지만 자주 바뀌지 않아 우선순위를 낮게 둔다
+    urls = []
+    for p, _ in pages:
+        if p == "/privacy/":
+            urls.append(f"  <url><loc>{SITE_BASE}{p}</loc><changefreq>yearly</changefreq>"
+                        f"<priority>0.3</priority></url>")
+            continue
+        prio = "1.0" if p == "/" else ("0.9" if p.count("/") <= 4 else "0.7")
+        urls.append(f"  <url><loc>{SITE_BASE}{p}</loc><changefreq>weekly</changefreq>"
+                    f"<priority>{prio}</priority></url>")
+    urls = "\n".join(urls)
     (DIST / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\n")

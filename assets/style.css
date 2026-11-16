@@ -212,6 +212,16 @@ details.faq p { margin: 8px 0 0; font-size: 13.5px; color: var(--ink-soft); }
 footer.site-foot { border-top: 1px solid var(--line); background: #fff; margin-top: 32px; }
 footer.site-foot .inner { max-width: 780px; margin: 0 auto; padding: 18px 16px 28px; font-size: 12px; color: var(--muted); }
 footer.site-foot a { color: var(--ink-soft); }
+footer.site-foot .foot-legal { margin-top: 10px; }
+footer.site-foot .foot-legal a { font-weight: 700; color: var(--ink-soft); }
+
+/* ---------- 긴 글(개인정보처리방침) ---------- */
+.prose ul { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-soft); }
+.prose li { margin-bottom: 6px; }
+.prose p { font-size: 13.5px; color: var(--ink-soft); }
+.prose h2 { margin: 26px 0 8px; }
+.prose code { background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; font-size: 12px; }
+.prose table.data { margin-top: 10px; }
 
 @media (min-width: 720px) {
   body { font-size: 15.5px; }

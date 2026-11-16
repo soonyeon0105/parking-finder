@@ -87,7 +87,7 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ## 검증 스크립트
 
 ```bash
-python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·슬러그/canonical·도시별 확장 규칙·계산 표본
+python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·개인정보처리방침·GA4 조건·슬러그/canonical·도시별 확장 규칙·계산 표본
 python3 scripts/verify_site.py              # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py          # Chromium으로 JS 계산 vs Python 규칙 전수 교차검증
 python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(29,055건)
@@ -101,7 +101,22 @@ python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은
 `screenshots/`에 저장되고 `PARKING_SHOTS_DIR=/원하는/경로`로 바꿀 수 있습니다.
 검증 결과 요약은 `scripts/verify_result.json`에 남습니다.
 
-현재 상태: qa_check 통과(106페이지), JS↔Python 교차검증 29,055건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
+현재 상태: qa_check 통과(107페이지), JS↔Python 교차검증 29,055건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
+
+## 개인정보처리방침 · 통계 (GA4)
+
+- `/privacy/`는 `build_site.py`의 `build_privacy()`가 매 빌드마다 생성하고, 모든 페이지 푸터에
+  `개인정보처리방침` 링크가 들어갑니다(`layout()`의 `foot-legal`). 사이트맵에는 `changefreq=yearly`,
+  `priority=0.3`으로 들어갑니다.
+- GA4는 **조건부**입니다. `data/site.json`의 `ga_measurement_id`(기본 `""`)가 비어 있으면
+  `gtag.js`·`gtag('config')`를 **HTML에 넣지 않습니다**. 값을 채우고 다시 빌드하면 모든 페이지
+  `<head>`에 표준 GA4 스니펫이 들어가고, `/privacy/` 4항 문구도 실제 수집 항목으로 바뀝니다.
+- `assets/app.js`의 통계 훅은 `window.gtag`가 함수일 때만 이벤트를 보냅니다(없으면 무동작).
+  - `calc_use`: 요일·감면 버튼, 빠른 시간 칩, 시간 슬라이더(`change` = 손 뗈 때 한 번)
+  - `map_outbound_click`: 카드·노상 표의 카카오맵·네이버지도 링크 클릭(주차장 이름 함께)
+  - `free_filter_click`: 주말·공휴일 무료 개방 목록(`weekend-free/`) 링크 클릭
+  - `404_hit`: `<body data-page="404">`인 404 페이지 로드
+- Cloudflare Web Analytics는 사이트 코드가 아니라 Cloudflare 대시보드에서 켜는 설정입니다(쿠키 미사용).
 
 ## 구현 규칙
 
@@ -211,11 +226,11 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 ├── scripts/prepare_data.py       # 정제·병합·품질 점검(--city)
 ├── scripts/build_site.py         # 정적 페이지 생성기(--base 로 도메인 지정, 슬러그 자동 생성)
 ├── scripts/summary.md|json       # 정제 요약(도시·구·동·무료·정합성)
-├── scripts/qa_check.py           # JSON-LD·링크·404·계산·슬러그·확장 규칙 검사
+├── scripts/qa_check.py           # JSON-LD·링크·404·개인정보처리방침·GA4 조건·계산·슬러그·확장 규칙 검사
 ├── scripts/verify_site.py        # 브라우저 검증(+스크린샷)
 ├── scripts/crosscheck_calc.py    # JS↔Python 계산 교차검증(Chromium)
 ├── scripts/crosscheck_calc_nobrowser.py # 같은 검증(quickjs, 브라우저 불필요)
-└── dist/                         # 배포 산출물 106페이지 + 404.html
+└── dist/                         # 배포 산출물 107페이지(개인정보처리방침 포함) + 404.html
 ```
 
 ## 배포 (Cloudflare Pages)

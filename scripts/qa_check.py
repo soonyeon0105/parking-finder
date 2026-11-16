@@ -191,6 +191,71 @@ else:
             fails.append(f"404.html → 깨진 링크 {href}")
     print("404.html 검사 완료 (절대경로 링크·noindex)")
 
+# ---------------------------------------------------------------- 개인정보처리방침 · GA4 훅 (T-05)
+# ① /privacy/ 페이지가 있고 푸터에서 어느 페이지로든 들어갈 수 있는지,
+# ② ga_measurement_id 가 비어 있을 때 GA4 스크립트가 한 장에도 들어가지 않았는지
+#    (값을 채우면 모든 페이지에 들어가는지)를 본다.
+priv = DIST / "privacy" / "index.html"
+if not priv.exists():
+    fails.append("dist/privacy/index.html 없음 (/privacy/ 페이지)")
+else:
+    h_priv = priv.read_text()
+    if h_priv.count("<h1>") != 1:
+        fails.append(f"privacy: h1 {h_priv.count('<h1>')}개")
+    for word in ("개인정보처리방침", "개인정보를 직접 수집하지 않", "쿠키", "접속 기록",
+                 "Google Analytics 4", "Cloudflare Web Analytics", "오류 제보", "거부 방법"):
+        if word not in h_priv:
+            fails.append(f"privacy: '{word}' 안내 없음")
+    if '<link rel="canonical" href="https://parking.9welfare.com/privacy/">' not in h_priv:
+        fails.append("privacy: canonical 이 https://parking.9welfare.com/privacy/ 아님")
+    if "noindex" in h_priv:
+        fails.append("privacy: robots noindex (색인되어야 하는 페이지)")
+if "https://parking.9welfare.com/privacy/" not in (DIST / "sitemap.xml").read_text():
+    fails.append("사이트맵에 /privacy/ 없음")
+
+foot_re = re.compile(r'<footer class="site-foot">.*?</footer>', re.S)
+foot_pages = list(pages) + ([p404] if p404.exists() else [])
+for pg in foot_pages:
+    m = foot_re.search(pg.read_text())
+    rel = pg.relative_to(DIST).as_posix()
+    if not m:
+        fails.append(f"{rel}: 푸터(site-foot) 없음")
+    elif "개인정보처리방침" not in m.group(0):
+        fails.append(f"{rel}: 푸터에 개인정보처리방침 링크 없음")
+    else:
+        href = re.search(r'href="([^"]*privacy/[^"]*)"', m.group(0))
+        if not href:
+            fails.append(f"{rel}: 푸터 개인정보처리방침 링크 주소 이상")
+print(f"개인정보처리방침 검사 완료 (푸터 링크 {len(foot_pages)}페이지)")
+
+GA_ID = (DATA.get("ga_measurement_id") or "").strip()
+all_pages_html = {pg.relative_to(DIST).as_posix(): pg.read_text() for pg in foot_pages}
+if GA_ID:
+    missing = [rel for rel, h in all_pages_html.items()
+               if f"googletagmanager.com/gtag/js?id={GA_ID}" not in h
+               or f"gtag('config', '{GA_ID}')" not in h]
+    if missing:
+        fails.append(f"GA4 측정 ID({GA_ID})가 설정됐는데 태그 없는 페이지: {missing[:5]}")
+    print(f"GA4 삽입 확인: {GA_ID} · {len(all_pages_html)}페이지")
+else:
+    leaked = [rel for rel, h in all_pages_html.items()
+              if "googletagmanager" in h or "gtag(" in h or "dataLayer" in h]
+    if leaked:
+        fails.append(f"ga_measurement_id 가 비었는데 GA4 코드가 들어간 페이지: {leaked[:5]}")
+    print(f"GA4 미삽입 확인 (ga_measurement_id 비어 있음 · {len(all_pages_html)}페이지)")
+
+app_js = (DIST / "assets" / "app.js").read_text()
+for ev in ("calc_use", "map_outbound_click", "free_filter_click", "404_hit"):
+    if ev not in app_js:
+        fails.append(f"app.js: '{ev}' 이벤트 훅 없음")
+if "typeof window.gtag" not in app_js:
+    fails.append("app.js: gtag 존재를 확인하지 않고 이벤트를 보냄(무동작 안전 처리 없음)")
+if "weekend-free" not in app_js:
+    fails.append("app.js: free_filter_click 을 걸 대상(주말·공휴일 무료 개방 링크) 선택자 없음")
+if "data-page" not in app_js or 'data-page="404"' not in (p404.read_text() if p404.exists() else ""):
+    fails.append("404.html 이 404_hit 를 알릴 body 표시(data-page)를 갖추지 않음")
+print("통계 훅 검사 완료 (calc_use·map_outbound_click·free_filter_click·404_hit)")
+
 # ---------------------------------------------------------------- 슬러그(전국 확장)
 from build_site import (DONG_SLUG, GU_SLUG, UNKNOWN_DONG, base_slug,  # noqa: E402
                         dong_slug, dong_slug_map, gu_slug)

@@ -1,6 +1,71 @@
 /* 공영주차장 파인더 — 조건 즉시 계산기
  * 정적 페이지에 server-render 된 카드의 값만 다시 계산/재배치한다.
  */
+
+/* ---------------------------------------------------------------- 통계 훅 (T-05)
+ * data/site.json 의 ga_measurement_id 가 비어 있으면 gtag.js 를 넣지 않으므로 window.gtag 가
+ * 없다. 아래 훅은 gtag 가 함수일 때만 이벤트를 보내고, 없으면 아무 것도 하지 않는다(무동작).
+ * 이벤트 4종: calc_use · map_outbound_click · free_filter_click · 404_hit
+ * 계산기 코드와 분리해 두어 #lot-data 가 없는 404·개인정보처리방침 페이지에서도 돈다.
+ */
+(function () {
+  'use strict';
+
+  function track(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    try {
+      window.gtag('event', name, params || {});
+    } catch (err) {
+      /* 통계 전송 실패가 화면 동작을 막지 않도록 무시한다. */
+    }
+  }
+  window.pfTrack = track;   // 계산기 쪽에서도 같은 가드를 쓰도록 노출
+
+  function clean(s, max) {
+    return String(s || '').replace(/\s+/g, ' ').trim().slice(0, max || 60);
+  }
+
+  function anchorName(el) {
+    var card = el.closest ? el.closest('.lot') : null;
+    if (card) {
+      var h = card.querySelector('h3');
+      if (h) return clean(h.textContent);
+    }
+    var row = el.closest ? el.closest('tr') : null;
+    if (row) {
+      var cell = row.querySelector('td');
+      if (cell) return clean(cell.textContent);
+    }
+    return '';
+  }
+
+  // 404_hit — 404.html 은 <body data-page="404"> 로 표시된다.
+  if (document.body && document.body.getAttribute('data-page') === '404') {
+    track('404_hit', { page_path: location.pathname });
+  }
+
+  // map_outbound_click · free_filter_click — 링크 클릭을 문서 단위로 받는다.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var isKakao = href.indexOf('map.kakao.com') > -1;
+    var isNaver = href.indexOf('map.naver.com') > -1;
+    if (isKakao || isNaver) {
+      track('map_outbound_click', {
+        map: isKakao ? 'kakao' : 'naver',
+        lot_name: anchorName(a),
+        page_path: location.pathname
+      });
+    } else if (href.indexOf('weekend-free') > -1) {
+      track('free_filter_click', {
+        link_text: clean(a.textContent),
+        page_path: location.pathname
+      });
+    }
+  });
+})();
+
 (function () {
   'use strict';
 
@@ -21,6 +86,24 @@
   };
 
   var won = function (n) { return n.toLocaleString('ko-KR') + '원'; };
+
+  function discountLabel() {
+    var g = document.getElementById('discount-group');
+    var b = g ? g.querySelector('button[aria-pressed="true"]') : null;
+    return b ? (b.textContent || '').replace(/\s+/g, ' ').trim() : '';
+  }
+
+  // calc_use — 계산기 조작. 슬라이더는 input(움직일 때마다)이 아니라 change(손 뗄 때)에 한 번만 보낸다.
+  function fireCalc(action) {
+    if (typeof window.pfTrack !== 'function') return;
+    window.pfTrack('calc_use', {
+      calculator_action: action,
+      day: state.day,
+      minutes: state.minutes,
+      discount: discountLabel(),
+      page_path: location.pathname
+    });
+  }
 
   function priceFor(lot, minutes, day, rate, exempt) {
     if (!lot.oper[day]) return { state: 'closed' };
@@ -157,6 +240,7 @@
       state.day = btn.getAttribute('data-day');
       setPressed(dayGroup, state.day, 'data-day');
       refresh();
+      fireCalc('day');
     });
   }
 
@@ -173,6 +257,7 @@
         b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
       });
       refresh();
+      fireCalc('discount');
     });
   }
 
@@ -195,6 +280,8 @@
       paintTime();
       refresh();
     });
+    // change 는 손을 뗄 때 한 번만 발생한다 — 키 입력·드래그마다 이벤트를 보내지 않기 위해 여기서 기록한다.
+    slider.addEventListener('change', function () { fireCalc('time_slider'); });
   }
   // 빠른 선택 칩
   document.querySelectorAll('[data-minutes]').forEach(function (chip) {
@@ -204,6 +291,7 @@
       state.minutes = m;
       paintTime();
       refresh();
+      fireCalc('quick_time');
     });
   });
 
