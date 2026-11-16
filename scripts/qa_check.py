@@ -80,7 +80,6 @@ for pg in pages:
             fails.append(f"{pg.relative_to(DIST)} → 깨진 링크 {href}")
 
 print("검사한 내부 링크:", len(checked))
-
 # ---------------------------------------------------------------- 페이지 기본 구조
 for pg in pages:
     html = pg.read_text()
@@ -107,7 +106,7 @@ else:
         fails.append("404.html: robots noindex 아님")
     if "<link rel=\"canonical\"" in h404:
         fails.append("404.html: canonical 태그가 있음(색인 대상 아님)")
-    for name in ("홈으로", "수원시 주차장 목록", "성남시 주차장 목록"):
+    for name in ("홈으로", "수원시 주차장 목록", "성남시 주차장 목록", "화성시 주차장 목록"):
         if name not in h404:
             fails.append(f"404.html: '{name}' 링크 없음")
     for href in re.findall(r'(?:href|src)="([^"#]+)"', h404):
@@ -235,6 +234,10 @@ for city in CITIES:
 MIX = {
     "seongnam": ("수원", "수원도시공사", "영통구", "권선구", "용인", "용인도시공사"),
     "yongin": ("수원", "수원도시공사", "성남", "성남도시개발공사", "영통구", "권선구", "수정구", "중원구", "분당구"),
+    # 화성시는 2026-03-01 4개 구(만세·효행·병점·동탄) 체제 — 다른 도시의 구·자료·문구가 섞이면 실패
+    "hwaseong": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+                 "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+                 "처인구", "기흥구", "수지구"),
 }
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -318,6 +321,22 @@ cases = [
     # 용인시는 요금 구분 '무료'인 주차장이 다수
     ("미르스타디움", 120, "weekday", 0, 0, "free", None),
     ("미르스타디움", 1440, "sun", 0, 0, "free", None),
+    # 화성시(2026-10-20 기준): 30분 기본 400원 + 10분 600원, 1일권 없음 / 재래시장은 120분 300원 + 10분 400원
+    ("동탄2지구 주63", 120, "weekday", 0, 0, "paid", 2200),
+    ("동탄2지구 주63", 240, "weekday", 0, 0, "paid", 9400),
+    ("동탄2지구 주63", 120, "sun", 0, 0, "free", None),          # 특기사항 '주말 및 공휴일 무료'
+    ("남양재래시장", 120, "weekday", 0, 0, "paid", 300),
+    ("남양재래시장", 240, "weekday", 0, 0, "paid", 5100),
+    ("제부도임시", 120, "weekday", 0, 0, "paid", 3000),         # 시간당 3,000원
+    ("제부도임시", 240, "weekday", 0, 0, "paid", 9000),
+    ("영천1", 120, "weekday", 0, 0, "paid", 2200),              # 노상 구간도 같은 요금표
+    ("영천1", 120, "sun", 0, 0, "free", None),
+    # 화성시 조례: 국가유공자·심한 장애 100% / 심하지 않은 장애 2시간 면제 후 50%
+    ("남양재래시장", 240, "weekday", 1.0, 0, "paid", 0),
+    ("남양재래시장", 120, "weekday", 0.5, 120, "free", None),
+    ("남양재래시장", 240, "weekday", 0.5, 120, "paid", 2550),
+    ("신리천 카페거리", 120, "weekday", 0, 0, "free", None),
+    ("동탄 캠핑카(임시)", 120, "weekday", 0, 0, "unknown", None),  # 요금 필드 비어 있음 → 0원 아님
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -340,7 +359,8 @@ if unknown:
         fails.append("요금 미상 주차장이 0원으로 계산됨")
 
 # 화면 문구 표본
-for name in ("영통구청", "시청정문", "곡반정동제7공영", "수진역환승공영주차장"):
+for name in ("영통구청", "시청정문", "곡반정동제7공영", "수진역환승공영주차장",
+             "남양재래시장", "제부도임시", "동탄 캠핑카(임시)"):
     if name in by_name:
         print(f"문구 · {name}: {fee_text(by_name[name])} / {hours_text(by_name[name])}")
 
@@ -364,6 +384,25 @@ yn_free_bad = [l["name"] for l in yn_cards
                if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
 if yn_free_bad:
     fails.append(f"용인시 무료 카드가 무료로 계산되지 않음 {len(yn_free_bad)}곳 {yn_free_bad[:3]}")
+
+# 화성시 카드: 요금 필드가 빈 캠핑카 전용 2곳만 '요금 미상'이고, 나머지는 등록값대로 계산되어야 한다.
+hs_cards = [l for l in LOTS if l.get("city") == "화성시" and l.get("list_mode") == "card"]
+if not hs_cards:
+    fails.append("화성시 카드 데이터가 없음")
+hs_unknown = [l["name"] for l in hs_cards if l["fee"]["type"] == "미상"]
+if sorted(hs_unknown) != sorted(["동탄 캠핑카(임시)", "하길리 캠핑카(임시)"]):
+    fails.append(f"화성시 카드 요금 미상 대상이 예상과 다름: {hs_unknown}")
+hs_bad = [l["name"] for l in hs_cards if l["fee"]["type"] == "유료"
+          and price_for(l, 120, "weekday")["state"] != "paid"]
+if hs_bad:
+    fails.append(f"화성시 유료 카드 중 평일 2시간 계산 불가 {len(hs_bad)}곳 {hs_bad[:3]}")
+hs_free_bad = [l["name"] for l in hs_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if hs_free_bad:
+    fails.append(f"화성시 무료 카드가 무료로 계산되지 않음 {len(hs_free_bad)}곳 {hs_free_bad[:3]}")
+for l in hs_cards:
+    if l["fee"]["type"] == "미상" and price_for(l, 120, "weekday").get("amount") == 0:
+        fails.append(f"화성시 요금 미상 카드가 0원으로 계산됨: {l['name']}")
 
 print()
 if warns:
