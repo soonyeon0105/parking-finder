@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -12,6 +12,7 @@
      - 안양시 107행: 요금·운영시간·좌표 (노외 78 + 노상 29, 만안·동안 2개 구)
      - 평택시 161행: 요금·운영시간·좌표 (노외 75 + 노상 86, 구 없이 3읍 5면·동)
      - 부천시 109행: 요금·운영시간·좌표 (노외 72 + 부설 29 + 노상 8, 원미·소사·오정 3개 구)
+     - 고양시 88행: 요금·운영시간·좌표 (노외 63 + 부설 17 + 노상 8, 덕양·일산동·일산서 3개 구)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
@@ -31,11 +32,12 @@
   data/anyang_parking.json   안양시 단독 결과
   data/pyeongtaek_parking.json 평택시 단독 결과
   data/bucheon_parking.json  부천시 단독 결과
+  data/goyang_parking.json   고양시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|all]
 """
 from __future__ import annotations
 
@@ -318,6 +320,8 @@ CITY_META = {
     "평택시": {"slug": "pyeongtaek", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "부천시": {"slug": "bucheon", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "고양시": {"slug": "goyang", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -3137,6 +3141,445 @@ def check_quality_bucheon(std_all, rows, lots, excluded, portal, status):
     }
 
 
+# ---------------------------------------------------------------- 고양시 (T-03 Phase 7)
+GOYANG_PROVIDER = "경기도 고양시"
+GOYANG_BBOX = (37.55, 37.72, 126.70, 126.96)      # 고양시 대략 경계(좌표 점검용)
+# 고양시는 덕양구·일산동구·일산서구 3개 일반구 체제다(1992년 일산구 설치, 2005년 일산동구·일산서구 분구).
+GOYANG_DISTRICTS = [("덕양구", "goyang-deogyang"), ("일산동구", "goyang-ilsandong"),
+                    ("일산서구", "goyang-ilsanseo")]
+
+# 고양시 공영주차장 요금 — 「고양시 주차장 설치 및 관리 조례」 별표1
+# (시행 2026-07-10, 경기도고양시조례 제3013호)과 고양도시관리공사 요금안내(2026-11-17 확인).
+# 2008년 이후 17년 동결했던 공영주차장 요금을 2025-08-01·2026-07-01·2027-07-01 세 차례에 걸쳐
+# 단계적으로 현실화하는 연도별 요금표를 두고 있어, 지금(2026-11-17) 적용 구간은 2026년
+# (2026-07-01~2027-06-30)이다. 2027-07-01부터는 다시 오른다.
+#   · 노외: 최초 30분 기본요금 + 30분 초과분 5분 단위 가산, 1일 주차권·월 정기권
+#   · 노상: 1구획 5분 단위 요금, 2시간을 넘기면 2시간 초과분부터 2배(할증)
+#   · 4급지는 폐지되어 환승주차장과 도시공원(호수공원 등) 부설주차장은 노상 3급지 요금을 적용
+GOYANG_APPLIES = "2026-07-01 ~ 2027-06-30 (2026년 구간)"
+GOYANG_FEES = {
+    1: {"base_min": 30, "base_fee": 720, "unit_min": 5, "unit_fee": 120,
+        "day": 9_500, "monthly": 100_000},
+    2: {"base_min": 30, "base_fee": 600, "unit_min": 5, "unit_fee": 120,
+        "day": 7_200, "monthly": 90_000},
+    3: {"base_min": 30, "base_fee": 240, "unit_min": 5, "unit_fee": 70,
+        "day": 3_600, "monthly": 70_000},
+}
+GOYANG_STREET = {
+    1: {"unit_fee": 190, "over_fee": 380, "day": None, "monthly": None},
+    2: {"unit_fee": 120, "over_fee": 240, "day": None, "monthly": None},
+    3: {"unit_fee": 100, "over_fee": 180, "day": 5_500, "monthly": 60_000},
+}
+GOYANG_STREET_UNIT_MIN = 5
+# 2025-08-01 인상 전(17년 동결) 급지 요금 — 표준데이터 등록값과 대조해 ‘주차장 자체 등록요금’을 가려낸다.
+# (등록값이 이 표와 다르면 그 주차장만의 요금이거나 등록 오류라 품질 리포트에 따로 적는다)
+GOYANG_OLD_FEES = {1: (600, 5, 100, 8_000), 2: (500, 5, 100, 6_000), 3: (200, 5, 50, 3_000)}
+GOYANG_OLD_STREET = {1: 150, 2: 100, 3: 80}
+# 부설주차장 — 고양도시관리공사 부설주차장 요금 안내(2026-11-17 확인)
+#   · 시·구청, 차량등록과, 행정복지센터, 일산사회복지관: 최초 1시간 무료 이후 5분당 190원
+#   · 고양시 도시공원(호수공원, 행주산성역사공원 등): 노상 3급지 요금(평상시) · 행사 시 1구획 2,200원
+#   · 행주산성: 1구획당 2,000원
+#   · 그 밖의 부설주차장: 시청부설주차장 요금
+GOYANG_OFFICE_FEE = {"free_min": 60, "base_min": 60, "unit_min": 5, "unit_fee": 190}
+GOYANG_HAENGJU_DAY = 2_000
+GOYANG_EVENT_FEE = 2_200
+
+# 고양시 공영주차장 요금 감면 — 고양도시관리공사 ‘주차요금 할인’ 안내(2026-11-17 확인)와
+# 「고양시 주차장 설치 및 관리 조례」 별표1 비고.
+#   · 100%     : 국가유공자, 고엽제후유의증환자·2세환자, 5·18민주화운동 부상자,
+#                장애의 정도가 심한 장애인, 자원봉사 실적 상위 100명(이상 12시간 이내 주차에 한함.
+#                12시간을 넘기면 50% 감경), 모범·유공납세자 표지 부착 차량, 전기차 충전 2시간 이내
+#   · 50%      : 장애의 정도가 심하지 않은 장애인, 임산부, 장기복무 제대군인, 경형자동차,
+#                저공해자동차, 다자녀(두 자녀 이상) 카드 제시 차량, 병역명문가, 환경친화적자동차,
+#                65세 이상 자가운전 차량
+#   · 감면이 겹치면 비율이 높은 하나만 적용
+GOYANG_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·임산부·다자녀 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형(1,000cc 미만)·저공해·임산부·다자녀·병역명문가·장기복무 제대군인·65세 이상"},
+    {"label": "심하지 않은 장애인 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "장애의 정도가 심하지 않은 장애인 등록 차량"},
+    {"label": "국가유공자·심한 장애인 12시간 면제 후 50%", "rate": 0.5, "exempt_min": 720,
+     "note": "국가유공자·고엽제·5·18부상자·심한 장애인, 12시간까지 면제"},
+    {"label": "모범·유공납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "모범납세자 스티커·유공납세자 차량"},
+]
+# 표준데이터(기준일 2026-04-15)의 주차장별 금액은 2025-08-01 인상 전(2008년 이후 동결 요금) 값이라
+# 현재 조례 요금과 다르다. 그래서 요금은 급지·부설 갈래별 최신 요금표로 계산하고,
+# 등록값과 크게 다른 주차장은 품질 리포트(등록값_차이)와 페이지 안내에 함께 적는다.
+GOYANG_CATEGORY_LABEL = {
+    "off1": "노외 1급지", "off2": "노외 2급지", "off3": "노외 3급지",
+    "street1": "노상 1급지", "street2": "노상 2급지", "street3": "노상 3급지",
+    "transfer": "환승주차장(노상 3급지)", "park": "도시공원 부설(노상 3급지)",
+    "office": "시·구청·행정복지센터 부설(1시간 무료)", "haengju": "행주산성 부설(1구획 2,000원)",
+}
+
+
+def goyang_dong_of(text: str):
+    """지번주소에서 고양시 법정동을 뽑는다(‘일산동구’처럼 구 이름이 붙은 토큰은 동이 아니다)."""
+    t = (text or "").strip()
+    m = re.search(r"([가-힣]{1,6}동)\s*\d", t) or re.search(r"([가-힣]{1,6}동)\s*$", t)
+    if not m:
+        return None
+    d = m.group(1)
+    return None if d.endswith("구") or d in ("고양시",) else d
+
+
+def goyang_facility_kind(name: str, ptype: str):
+    """부설주차장의 요금 갈래 — 고양도시관리공사 부설주차장 요금 안내의 구분을 따른다."""
+    if ptype != "부설":
+        return None
+    if "역사공원" in name or "공원" in name:
+        return "park"        # 도시공원(호수공원·행주산성역사공원 등) → 노상 3급지
+    if "행주산성" in name:
+        return "haengju"     # 행주산성 부설 → 1구획당 2,000원
+    return "office"          # 시·구청·차량등록과·행정복지센터·사회복지관, 그 밖의 부설
+
+
+def goyang_street_fee(grade: int = 3):
+    """노상 요금 — 5분 단위로 매기고 2시간을 넘기면 2시간 초과분부터 2배(할증)."""
+    t = GOYANG_STREET[grade]
+    return {
+        "base_min": GOYANG_STREET_UNIT_MIN, "base_fee": t["unit_fee"],
+        "unit_min": GOYANG_STREET_UNIT_MIN, "unit_fee": t["unit_fee"],
+        "steps": [{"until": 120, "unit_fee": t["unit_fee"]},
+                  {"until": None, "unit_fee": t["over_fee"]}],
+        "steps_label": "2시간 초과 할증",
+        "free_min": 0,
+        "daily_hours": 24 if t["day"] else None, "daily_fee": t["day"],
+        "monthly": t["monthly"],
+    }
+
+
+def build_goyang():
+    """고양시 공영주차장을 표준데이터 + 조례 별표1(2026년 요금표)로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 고양시 범위를 벗어난 행은 제외(껍데기 행).
+      · 노상(거리) 구간은 이름이 권역 설명이라 카드 대신 전용 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    요금은 표준데이터의 주차장별 금액이 2025-08-01 인상 전 값이라, 조례 별표1의 2026년(2026-07-01~
+    2027-06-30) 요금표를 급지·부설 갈래별로 적용한다. 환승주차장은 노상 3급지, 도시공원 부설은
+    노상 3급지, 시·구청 부설은 최초 1시간 무료 뒤 5분당 190원, 행주산성 부설은 1구획 2,000원이다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GOYANG_PROVIDER]
+    lots, excluded = [], []
+    card_no = street_no = 0
+
+    for r in rows:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        fee_raw = (r.get("요금정보") or "").strip()
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (GOYANG_BBOX[0] <= lat <= GOYANG_BBOX[1]
+                                      and GOYANG_BBOX[2] <= lng <= GOYANG_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        gu = gu_in(addr, GOYANG_DISTRICTS)
+        if not gu:
+            excluded.append({"name": name, "reason": "구 판정 불가"})
+            continue
+
+        dong = goyang_dong_of(jibun)
+        dong_src = "지번주소" if dong else "없음"
+
+        note = (r.get("특기사항") or "").strip()
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        std_grade = to_int(r.get("급지구분"))
+        std_fee = {
+            "base_min": to_int(r.get("주차기본시간")),
+            "base_fee": to_int(r.get("주차기본요금")),
+            "unit_min": to_int(r.get("추가단위시간")),
+            "unit_fee": to_int(r.get("추가단위요금")),
+            "day": to_int(r.get("1일주차권요금")),
+            "monthly": to_int(r.get("월정기권요금")),
+        }
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"gy-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"gy-{card_no:03d}"
+
+        fee = {
+            "type": "무료" if fee_raw == "무료" else ("유료" if fee_raw in ("유료", "혼합") else "미상"),
+            "raw_type": fee_raw,
+            "mixed": fee_raw == "혼합",
+            "grade": std_grade,
+            "std_grade": std_grade,
+            "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None,
+            "free_min": 0, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None,
+            "pay": (r.get("결제방법") or "").strip(),
+            "basis": None,
+            "category": None,
+            "std": std_fee,
+        }
+
+        if fee["type"] == "유료":
+            free_days = {"sat": False, "sun": False}
+            category = None
+            if street:
+                category = f"street{std_grade if std_grade in GOYANG_STREET else 3}"
+                fee.update(goyang_street_fee(std_grade if std_grade in GOYANG_STREET else 3))
+                fee["cap_src"] = "노상 3급지 1일 주차권" if fee["daily_fee"] else None
+            elif ptype == "부설":
+                category = goyang_facility_kind(name, ptype)
+                if category == "haengju":
+                    # 행주산성 부설 — 1구획당 2,000원(입차 기준). 시간 요금은 두지 않는다.
+                    fee.update({"base_min": 1_440, "base_fee": GOYANG_HAENGJU_DAY,
+                                "unit_min": 1_440, "unit_fee": GOYANG_HAENGJU_DAY,
+                                "daily_hours": 24, "daily_fee": GOYANG_HAENGJU_DAY})
+                    fee["cap_src"] = "행주산성 1구획당 요금"
+                elif category == "park":
+                    fee.update(goyang_street_fee(3))
+                    fee["cap_src"] = "노상 3급지 1일 주차권"
+                else:
+                    fee.update({
+                        "free_min": GOYANG_OFFICE_FEE["free_min"],
+                        "base_min": GOYANG_OFFICE_FEE["base_min"], "base_fee": 0,
+                        "unit_min": GOYANG_OFFICE_FEE["unit_min"],
+                        "unit_fee": GOYANG_OFFICE_FEE["unit_fee"],
+                        "monthly": std_fee["monthly"],
+                    })
+                    fee["cap_src"] = None
+            elif "환승" in name and std_grade == 4:
+                # 4급지가 폐지되면서 4급지 환승주차장은 노상 3급지 요금을 적용한다(공사 요금안내 비고).
+                # 삼송역 환승처럼 노외 1급지로 등록된 환승주차장은 급지 요금을 그대로 쓴다.
+                category = "transfer"
+                fee.update(goyang_street_fee(3))
+                fee["cap_src"] = "노상 3급지 1일 주차권"
+            else:
+                grade = std_grade if std_grade in GOYANG_FEES else 3
+                category = f"off{grade}"
+                t = GOYANG_FEES[grade]
+                fee.update({
+                    "base_min": t["base_min"], "base_fee": t["base_fee"],
+                    "unit_min": t["unit_min"], "unit_fee": t["unit_fee"],
+                    "daily_hours": 24, "daily_fee": t["day"],
+                    "cap_src": "조례 1일 주차권",
+                })
+                fee["monthly"] = t["monthly"]
+            fee["category"] = category
+            fee["basis"] = (f"「고양시 주차장 설치 및 관리 조례」 별표1 {GOYANG_CATEGORY_LABEL[category]}"
+                            f" · {GOYANG_APPLIES}")
+            # 등록값이 급지 요금표와 다른 주차장 — 조례 개정과 무관한 ‘자체 등록요금·등록 오류’라
+            # 품질 리포트에 따로 적는다(예: 고양일산의 60분 무료·1일 4,000원).
+            reg = fee["std"]
+            if not street and ptype == "노외" and std_grade in GOYANG_OLD_FEES:
+                old_base, old_unit_min, old_unit, old_day = GOYANG_OLD_FEES[std_grade]
+                if (reg["base_fee"], reg["unit_min"], reg["unit_fee"], reg["day"]) != \
+                        (old_base, old_unit_min, old_unit, old_day):
+                    fee["std_diff"] = (f"등록값 {reg['base_min'] or 0}분 {reg['base_fee'] or 0}원·"
+                                       f"5분당 {reg['unit_fee'] or 0}원·1일 {reg['day'] or 0}원"
+                                       f" → 적용 {fee['base_min']}분 {fee['base_fee']}원·"
+                                       f"5분당 {fee['unit_fee']}원·1일 {fee['daily_fee'] or 0}원")
+            elif street and std_grade in GOYANG_OLD_STREET and reg["base_fee"] != GOYANG_OLD_STREET[std_grade]:
+                fee["std_diff"] = (f"등록값 5분 {reg['base_fee'] or 0}원(급지 {std_grade}급지 표와 다름)"
+                                   f" → 적용 5분 {fee['unit_fee']}원")
+        if fee["type"] == "무료":
+            free_days = {"sat": True, "sun": True}
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": road_name(road) if street else None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["base_fee"] if fee["base_fee"] else (fee["unit_fee"] or None),
+            "city": "고양시",
+            "city_slug": "goyang",
+        })
+
+    order = {g: i for i, (g, _) in enumerate(GOYANG_DISTRICTS)}
+    lots.sort(key=lambda l: (order[l["gu"]], l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+
+    quality = check_quality_goyang(rows_all, rows, lots, excluded)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": None,
+            "region": {"province": "경기도", "city": "고양시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-15", "rows_total": len(rows_all),
+                    "rows_city": len(rows),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("고양시가 등록한 행만(제공기관명 '경기도 고양시') 추출. 주차장별 요금 칸에는 "
+                             "2025-08-01 인상 전(17년 동결) 금액이 남아 있어, 요금은 조례 별표1의 2026년 "
+                             "요금표로 계산하고 등록값은 카드에 함께 적었다."),
+                },
+                {
+                    "id": "gys", "name": "고양도시관리공사 주차장 현황·요금안내",
+                    "org": "고양도시관리공사",
+                    "url": "https://m.gys.or.kr/page/facilities/traffic/parking.php",
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": GOYANG_APPLIES, "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("연도별 주차요금표(2025년 2025-08-01~2026-06-30 · 2026년 2026-07-01~"
+                             "2027-06-30 · 2027년 2027-07-01~), 부설주차장 요금, 감면·차종 할증, "
+                             "급지 구분. 시설현황은 노외 64·노상 11·부설 20개소(10,275면)."),
+                },
+                {
+                    "id": "ordinance", "name": "고양시 주차장 설치 및 관리 조례 (별표1)",
+                    "org": "고양시",
+                    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2148065",
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "시행 2026-07-10 (경기도고양시조례 제3013호)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("공영주차장 주차요금(별표1)과 급지 구분 근거. 노상·노외 급지별 요금, "
+                             "2시간 초과 할증, 4급지 폐지에 따른 환승주차장·도시공원 부설의 노상 3급지 "
+                             "적용. 2026-11-17 고양도시관리공사 요금안내와 교차 확인."),
+                },
+                {
+                    "id": "its", "name": "고양특례시 교통정보시스템 주차정보",
+                    "org": "고양시",
+                    "url": "https://its.goyang.go.kr/parking-info",
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": 105,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("주차장 105곳의 면수·주소·이용시간 확인용(예: 고양일산 129면 08:00~22:00). "
+                             "요금은 등록되어 있지 않아 요금 근거로 쓰지 않았다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GOYANG_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "goyang_grade_year",
+            "applies": GOYANG_APPLIES,
+            "off": [{"grade": g, "base_min": t["base_min"], "base_fee": t["base_fee"],
+                     "unit_min": t["unit_min"], "unit_fee": t["unit_fee"],
+                     "day": t["day"], "monthly": t["monthly"]}
+                    for g, t in sorted(GOYANG_FEES.items())],
+            "street": [{"grade": g, "unit_min": GOYANG_STREET_UNIT_MIN, "unit_fee": t["unit_fee"],
+                        "over_fee": t["over_fee"], "day": t["day"], "monthly": t["monthly"]}
+                       for g, t in sorted(GOYANG_STREET.items())],
+            "facility": {
+                "office_free_min": GOYANG_OFFICE_FEE["free_min"],
+                "office_unit_min": GOYANG_OFFICE_FEE["unit_min"],
+                "office_unit_fee": GOYANG_OFFICE_FEE["unit_fee"],
+                "haengju_day": GOYANG_HAENGJU_DAY,
+                "event_fee": GOYANG_EVENT_FEE,
+            },
+            "basis": ("「고양시 주차장 설치 및 관리 조례」 별표1(시행 2026-07-10) · "
+                      "고양도시관리공사 요금안내(2026-11-17 확인) — 2026-07-01~2027-06-30 적용"),
+        },
+    }
+    payload.update(CITY_META["고양시"] | {
+        "city": "고양시",
+        "weekend_free_pages": False,     # 무료 개방 '표기'가 없어 주말 무료 페이지를 만들지 않는다
+        "discounts": GOYANG_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "goyang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_goyang(std_all, rows, lots, excluded):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(f'{l["gu"]} {l["dong"] or "동 미상"}' for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["base_fee"] for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_고양시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(Counter(l["gu"] for l in card)),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({(l["gu"], l["dong"]) for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "요금갈래": dict(Counter(l["fee"]["category"] for l in lots if l["fee"]["category"])),
+        "급지별": dict(Counter(l["fee"]["std_grade"] for l in lots if l["fee"]["type"] == "유료")),
+        "등록값_차이": [f'{l["name"]}: {l["fee"]["std_diff"]}' for l in lots if l["fee"].get("std_diff")],
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -3211,13 +3654,13 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
-             "bucheon": ["부천시"]}[args.city])
+             "bucheon": ["부천시"], "goyang": ["고양시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -3233,6 +3676,8 @@ def main():
         cities.append(build_pyeongtaek())
     if "부천시" in want:
         cities.append(build_bucheon())
+    if "고양시" in want:
+        cities.append(build_goyang())
 
     if args.city == "all":
         site = build_site_payload(cities)

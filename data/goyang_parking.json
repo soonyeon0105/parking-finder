@@ -1,0 +1,9791 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 08:42",
+  "generated_at_iso": "2026-11-17T08:42:42+09:00",
+  "snapshot_at": null,
+  "region": {
+   "province": "경기도",
+   "city": "고양시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-15",
+    "rows_total": 18994,
+    "rows_city": 88,
+    "fetched_at": "2026-11-16 19:07 (KST)",
+    "note": "고양시가 등록한 행만(제공기관명 '경기도 고양시') 추출. 주차장별 요금 칸에는 2025-08-01 인상 전(17년 동결) 금액이 남아 있어, 요금은 조례 별표1의 2026년 요금표로 계산하고 등록값은 카드에 함께 적었다."
+   },
+   {
+    "id": "gys",
+    "name": "고양도시관리공사 주차장 현황·요금안내",
+    "org": "고양도시관리공사",
+    "url": "https://m.gys.or.kr/page/facilities/traffic/parking.php",
+    "file": null,
+    "sha256": null,
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 (KST)",
+    "note": "연도별 주차요금표(2025년 2025-08-01~2026-06-30 · 2026년 2026-07-01~2027-06-30 · 2027년 2027-07-01~), 부설주차장 요금, 감면·차종 할증, 급지 구분. 시설현황은 노외 64·노상 11·부설 20개소(10,275면)."
+   },
+   {
+    "id": "ordinance",
+    "name": "고양시 주차장 설치 및 관리 조례 (별표1)",
+    "org": "고양시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2148065",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-07-10 (경기도고양시조례 제3013호)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 (KST)",
+    "note": "공영주차장 주차요금(별표1)과 급지 구분 근거. 노상·노외 급지별 요금, 2시간 초과 할증, 4급지 폐지에 따른 환승주차장·도시공원 부설의 노상 3급지 적용. 2026-11-17 고양도시관리공사 요금안내와 교차 확인."
+   },
+   {
+    "id": "its",
+    "name": "고양특례시 교통정보시스템 주차정보",
+    "org": "고양시",
+    "url": "https://its.goyang.go.kr/parking-info",
+    "file": null,
+    "sha256": null,
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": null,
+    "rows_total": 105,
+    "fetched_at": "2026-11-17 (KST)",
+    "note": "주차장 105곳의 면수·주소·이용시간 확인용(예: 고양일산 129면 08:00~22:00). 요금은 등록되어 있지 않아 요금 근거로 쓰지 않았다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "덕양구",
+   "slug": "goyang-deogyang"
+  },
+  {
+   "name": "일산동구",
+   "slug": "goyang-ilsandong"
+  },
+  {
+   "name": "일산서구",
+   "slug": "goyang-ilsanseo"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gy-003",
+   "mgmt_no": "218-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고양 제1",
+   "gu": "덕양구",
+   "dong": "고양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 고양동 444",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-929-4843",
+   "lat": 37.70393834,
+   "lng": 126.903762,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-071",
+   "mgmt_no": "218-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼송동 자투리",
+   "gu": "덕양구",
+   "dong": "삼송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 삼송동 62",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-929-4843",
+   "lat": 37.65624657,
+   "lng": 126.8971897,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-020",
+   "mgmt_no": "218-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼송역 환승",
+   "gu": "덕양구",
+   "dong": "삼송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 삼송동 290",
+   "addr_road": "",
+   "road": null,
+   "spaces": 195,
+   "tel": "031-929-4843",
+   "lat": 37.65291187,
+   "lng": 126.8972142,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 90000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-030",
+   "mgmt_no": "218-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성사 제1",
+   "gu": "덕양구",
+   "dong": "성사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 성사동 720",
+   "addr_road": "경기도 고양시 덕양구 고양대로1384번길 7-17",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-929-4843",
+   "lat": 37.65355843,
+   "lng": 126.8385705,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-028",
+   "mgmt_no": "218-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성사 제2",
+   "gu": "덕양구",
+   "dong": "성사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 성사동 721",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-929-4843",
+   "lat": 37.65319829,
+   "lng": 126.8386118,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-027",
+   "mgmt_no": "218-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성사혁신지구 임시",
+   "gu": "덕양구",
+   "dong": "성사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 성사동 331-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 163,
+   "tel": "031-929-4843",
+   "lat": 37.65332437,
+   "lng": 126.8453192,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 4,
+    "std_grade": 4,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-019",
+   "mgmt_no": "218-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고양시청 부설",
+   "gu": "덕양구",
+   "dong": "주교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 덕양구 주교동 600",
+   "addr_road": "경기도 고양시 덕양구 고양시청로 10",
+   "road": null,
+   "spaces": 143,
+   "tel": "031-929-4847",
+   "lat": 37.6584145,
+   "lng": 126.8319597,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": null,
+     "monthly": 30000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-012",
+   "mgmt_no": "218-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주교 제1",
+   "gu": "덕양구",
+   "dong": "주교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 주교동 206-1",
+   "addr_road": "경기도 고양시 덕양구 고양대로 1330",
+   "road": null,
+   "spaces": 267,
+   "tel": "031-929-4843",
+   "lat": 37.65559958,
+   "lng": 126.8317801,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "std_diff": "등록값 30분 200원·5분당 100원·1일 3000원 → 적용 30분 240원·5분당 70원·1일 3600원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-011",
+   "mgmt_no": "218-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주교 제2",
+   "gu": "덕양구",
+   "dong": "주교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 주교동 148-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-929-4843",
+   "lat": 37.65651908,
+   "lng": 126.8330735,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 3000,
+     "monthly": 60000
+    },
+    "std_diff": "등록값 30분 200원·5분당 150원·1일 3000원 → 적용 30분 240원·5분당 70원·1일 3600원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-076",
+   "mgmt_no": "218-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼송1통 임시",
+   "gu": "덕양구",
+   "dong": "지축동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 지축동 765-159",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "031-929-4843",
+   "lat": 37.6547146,
+   "lng": 126.902453,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-024",
+   "mgmt_no": "218-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신도",
+   "gu": "덕양구",
+   "dong": "지축동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 지축동 766-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-929-4843",
+   "lat": 37.65611202,
+   "lng": 126.8997967,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-070",
+   "mgmt_no": "218-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지축역 임시",
+   "gu": "덕양구",
+   "dong": "지축동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 지축동 1010",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-929-4843",
+   "lat": 37.648357,
+   "lng": 126.914561,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-072",
+   "mgmt_no": "218-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "능곡 제1",
+   "gu": "덕양구",
+   "dong": "토당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 토당동 335-90",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-929-4843",
+   "lat": 37.62323998,
+   "lng": 126.818029,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-023",
+   "mgmt_no": "218-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서정 제1",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 1080-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-929-4843",
+   "lat": 37.61901424,
+   "lng": 126.8452659,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-022",
+   "mgmt_no": "218-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서정 제2",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 1079",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-929-4843",
+   "lat": 37.61848028,
+   "lng": 126.8465674,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-009",
+   "mgmt_no": "218-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제1",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 728",
+   "addr_road": "경기도 고양시 덕양구 무원로54번길 14",
+   "road": null,
+   "spaces": 46,
+   "tel": "031-929-4843",
+   "lat": 37.61751878,
+   "lng": 126.8331889,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 3000,
+     "monthly": 60000
+    },
+    "std_diff": "등록값 30분 200원·5분당 150원·1일 3000원 → 적용 30분 240원·5분당 70원·1일 3600원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-008",
+   "mgmt_no": "218-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제2",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 748",
+   "addr_road": "경기도 고양시 덕양구 용현로 49-13",
+   "road": null,
+   "spaces": 37,
+   "tel": "031-929-4843",
+   "lat": 37.61712126,
+   "lng": 126.834984,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-007",
+   "mgmt_no": "218-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제3",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 711",
+   "addr_road": "경기도 고양시 덕양구 무원로 16",
+   "road": null,
+   "spaces": 46,
+   "tel": "031-929-4843",
+   "lat": 37.61427789,
+   "lng": 126.8325302,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-006",
+   "mgmt_no": "218-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제4",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 710",
+   "addr_road": "경기도 고양시 덕양구 무원로 14",
+   "road": null,
+   "spaces": 44,
+   "tel": "031-929-4843",
+   "lat": 37.6140941,
+   "lng": 126.8325397,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-005",
+   "mgmt_no": "218-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제5",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 759",
+   "addr_road": "경기도 고양시 덕양구 용현로 15-1",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-929-4843",
+   "lat": 37.61427834,
+   "lng": 126.8354071,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-004",
+   "mgmt_no": "218-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제6",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 764",
+   "addr_road": "경기도 고양시 덕양구 용현로 15",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-929-4843",
+   "lat": 37.61410536,
+   "lng": 126.8354165,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-026",
+   "mgmt_no": "218-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제7",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 633-101",
+   "addr_road": "경기도 고양시 덕양구 행당로33번길 73-6",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-929-4843",
+   "lat": 37.62125438,
+   "lng": 126.8309471,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-021",
+   "mgmt_no": "218-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제8",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 1007-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 114,
+   "tel": "031-929-4843",
+   "lat": 37.62254445,
+   "lng": 126.8327375,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-025",
+   "mgmt_no": "218-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신 제9",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 805",
+   "addr_road": "경기도 고양시 덕양구 소원로181번길 38",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-929-4843",
+   "lat": 37.61461343,
+   "lng": 126.8432985,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-074",
+   "mgmt_no": "218-3-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행신2동행정복지센터 부설",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 717",
+   "addr_road": "경기도 고양시 덕양구 충경로 30",
+   "road": null,
+   "spaces": 46,
+   "tel": "031-929-4847",
+   "lat": 37.61516244,
+   "lng": 126.8330211,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-017",
+   "mgmt_no": "218-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행주산성 부설 상",
+   "gu": "덕양구",
+   "dong": "행주외동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 덕양구 행주외동 62-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "031-929-4847",
+   "lat": 37.60017081,
+   "lng": 126.8247814,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "행주산성 1구획당 요금",
+    "daily_hours": 24,
+    "daily_fee": 2000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 행주산성 부설(1구획 2,000원) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "haengju",
+    "std": {
+     "base_min": 10,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-016",
+   "mgmt_no": "218-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행주산성 부설 하",
+   "gu": "덕양구",
+   "dong": "행주외동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 덕양구 행주외동 60",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "031-929-4847",
+   "lat": 37.60150257,
+   "lng": 126.8231066,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "행주산성 1구획당 요금",
+    "daily_hours": 24,
+    "daily_fee": 2000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 행주산성 부설(1구획 2,000원) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "haengju",
+    "std": {
+     "base_min": 10,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-069",
+   "mgmt_no": "218-3-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행주산성역사공원",
+   "gu": "덕양구",
+   "dong": "행주외동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 덕양구 행주외동 145",
+   "addr_road": "",
+   "road": null,
+   "spaces": 179,
+   "tel": "031-929-4847",
+   "lat": 37.5980239,
+   "lng": 126.8193231,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 10,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-079",
+   "mgmt_no": "218-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향동 제1",
+   "gu": "덕양구",
+   "dong": "향동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 향동동 476",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "031-929-4843",
+   "lat": 37.5997794,
+   "lng": 126.8913682,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 90000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-018",
+   "mgmt_no": "218-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕양구청 부설",
+   "gu": "덕양구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 덕양구 화정동 955",
+   "addr_road": "경기도 고양시 덕양구 화중로104번길 13",
+   "road": null,
+   "spaces": 312,
+   "tel": "031-929-4847",
+   "lat": 37.63746533,
+   "lng": 126.8322924,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": null,
+     "monthly": 30000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-010",
+   "mgmt_no": "218-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정역 환승",
+   "gu": "덕양구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 덕양구 화정동 963",
+   "addr_road": "경기도 고양시 덕양구 화정로 63",
+   "road": null,
+   "spaces": 241,
+   "tel": "031-929-4843",
+   "lat": 37.63515499,
+   "lng": 126.832842,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 4,
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 환승주차장(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "transfer",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-001",
+   "mgmt_no": "218-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "성사 제3",
+   "gu": "덕양구",
+   "dong": "성사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 덕양구 성사동 708",
+   "addr_road": "",
+   "road": null,
+   "spaces": 128,
+   "tel": "031-929-4846",
+   "lat": 37.65550775,
+   "lng": 126.8350934,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 120,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 120
+     },
+     {
+      "until": null,
+      "unit_fee": 240
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street2",
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-004",
+   "mgmt_no": "218-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상 1권역",
+   "gu": "덕양구",
+   "dong": "주교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 덕양구 주교동 600",
+   "addr_road": "경기도 고양시 덕양구 고양시청로 10",
+   "road": "고양시청로",
+   "spaces": 63,
+   "tel": "031-929-4846",
+   "lat": 37.6584145,
+   "lng": 126.8319597,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "2시간 초과시 요금 2배 할증",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드+현금",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street3",
+    "std": {
+     "base_min": 5,
+     "base_fee": 80,
+     "unit_min": 5,
+     "unit_fee": 80,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-007",
+   "mgmt_no": "218-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상 4권역",
+   "gu": "덕양구",
+   "dong": "행신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 덕양구 행신동 995",
+   "addr_road": "경기도 고양시 덕양구 중앙로 555",
+   "road": "중앙로",
+   "spaces": 11,
+   "tel": "031-929-4846",
+   "lat": 37.62318493,
+   "lng": 126.8353249,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "2시간 초과시 요금 2배 할증",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 190,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 190
+     },
+     {
+      "until": null,
+      "unit_fee": 380
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드+현금",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street1",
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-003",
+   "mgmt_no": "218-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상 3권역",
+   "gu": "덕양구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 덕양구 화정동 909",
+   "addr_road": "경기도 고양시 덕양구 은빛로 39",
+   "road": "은빛로",
+   "spaces": 111,
+   "tel": "031-929-4846",
+   "lat": 37.63819323,
+   "lng": 126.8322273,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "2시간 초과시 요금 2배 할증",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 190,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 190
+     },
+     {
+      "until": null,
+      "unit_fee": 380
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드+현금",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street1",
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-045",
+   "mgmt_no": "241-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마두",
+   "gu": "일산동구",
+   "dong": "마두동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 마두동 921",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-929-4858",
+   "lat": 37.66034152,
+   "lng": 126.7862052,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-048",
+   "mgmt_no": "241-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백마역",
+   "gu": "일산동구",
+   "dong": "마두동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 마두동 747",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-929-4858",
+   "lat": 37.65986391,
+   "lng": 126.7930691,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-044",
+   "mgmt_no": "241-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일산동구청 부설",
+   "gu": "일산동구",
+   "dong": "마두동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 마두동 815",
+   "addr_road": "경기도 고양시 일산동구 중앙로 1256",
+   "road": null,
+   "spaces": 463,
+   "tel": "031-929-4847",
+   "lat": 37.65888174,
+   "lng": 126.7749581,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": null,
+     "monthly": 30000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-068",
+   "mgmt_no": "241-3-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정발산공원",
+   "gu": "일산동구",
+   "dong": "마두동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 마두동 1112",
+   "addr_road": "",
+   "road": null,
+   "spaces": 102,
+   "tel": "031-929-4847",
+   "lat": 37.66671484,
+   "lng": 126.782033,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-058",
+   "mgmt_no": "241-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석 제1",
+   "gu": "일산동구",
+   "dong": "백석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 백석동 1311",
+   "addr_road": "경기도 고양시 일산동구 장백로 31-12",
+   "road": null,
+   "spaces": 235,
+   "tel": "031-929-4858",
+   "lat": 37.64058987,
+   "lng": 126.7875174,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-057",
+   "mgmt_no": "241-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석 제2",
+   "gu": "일산동구",
+   "dong": "백석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 백석동 1315",
+   "addr_road": "경기도 고양시 일산동구 장백로 15-7",
+   "road": null,
+   "spaces": 167,
+   "tel": "031-929-4858",
+   "lat": 37.63962374,
+   "lng": 126.7893737,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-046",
+   "mgmt_no": "241-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석 제3",
+   "gu": "일산동구",
+   "dong": "백석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 백석동 1148",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-929-4858",
+   "lat": 37.64994856,
+   "lng": 126.7923329,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-067",
+   "mgmt_no": "241-3-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석공원",
+   "gu": "일산동구",
+   "dong": "백석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 백석동 1233",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "031-929-4847",
+   "lat": 37.64247799,
+   "lng": 126.7953746,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 10,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-050",
+   "mgmt_no": "241-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석역 환승",
+   "gu": "일산동구",
+   "dong": "백석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 백석동 1242",
+   "addr_road": "경기도 고양시 일산동구 중앙로 1036",
+   "road": null,
+   "spaces": 297,
+   "tel": "031-929-4858",
+   "lat": 37.64317774,
+   "lng": 126.7896628,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 4,
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 환승주차장(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "transfer",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-063",
+   "mgmt_no": "241-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항 제1",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 777",
+   "addr_road": "경기도 고양시 일산동구 무궁화로 32-19",
+   "road": null,
+   "spaces": 177,
+   "tel": "031-929-4858",
+   "lat": 37.66203396,
+   "lng": 126.7687424,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-062",
+   "mgmt_no": "241-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항 제2",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 732",
+   "addr_road": "경기도 고양시 일산동구 고봉로 32-35",
+   "road": null,
+   "spaces": 175,
+   "tel": "031-929-4858",
+   "lat": 37.6637749,
+   "lng": 126.7670369,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-061",
+   "mgmt_no": "241-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항 제3",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 743",
+   "addr_road": "경기도 고양시 일산동구 무궁화로 19-19",
+   "road": null,
+   "spaces": 216,
+   "tel": "031-929-4858",
+   "lat": 37.66280348,
+   "lng": 126.7660472,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-060",
+   "mgmt_no": "241-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항 제4",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 758",
+   "addr_road": "경기도 고양시 일산동구 무궁화로 20-28",
+   "road": null,
+   "spaces": 192,
+   "tel": "031-929-4858",
+   "lat": 37.66100858,
+   "lng": 126.7677936,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-059",
+   "mgmt_no": "241-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항 제5",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 772",
+   "addr_road": "경기도 고양시 일산동구 중앙로1275번길 14-27",
+   "road": null,
+   "spaces": 129,
+   "tel": "031-8075-2924",
+   "lat": 37.66070141,
+   "lng": 126.771054,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양시",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-064",
+   "mgmt_no": "241-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한류월드 제1",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 1777",
+   "addr_road": "",
+   "road": null,
+   "spaces": 107,
+   "tel": "031-929-4858",
+   "lat": 37.66305598,
+   "lng": 126.7564824,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-065",
+   "mgmt_no": "241-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한류월드 제2",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 1801",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "031-929-4858",
+   "lat": 37.65987517,
+   "lng": 126.7559495,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 8000,
+     "monthly": 90000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-078",
+   "mgmt_no": "241-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한류월드 제3",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 1827",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-929-4858",
+   "lat": 37.65620404,
+   "lng": 126.7566056,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-077",
+   "mgmt_no": "241-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한류월드 제4",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 1848",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-929-4858",
+   "lat": 37.6556539,
+   "lng": 126.7595151,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-043",
+   "mgmt_no": "241-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호수공원 부설 1",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 906",
+   "addr_road": "경기도 고양시 일산동구 호수로 595",
+   "road": null,
+   "spaces": 240,
+   "tel": "031-929-4847",
+   "lat": 37.65384593,
+   "lng": 126.7687814,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-042",
+   "mgmt_no": "241-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호수공원 부설 2",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 906",
+   "addr_road": "경기도 고양시 일산동구 호수로 595",
+   "road": null,
+   "spaces": 507,
+   "tel": "031-929-4847",
+   "lat": 37.65384593,
+   "lng": 126.7687814,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-041",
+   "mgmt_no": "241-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호수공원 부설 3",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 906",
+   "addr_road": "경기도 고양시 일산동구 호수로 595",
+   "road": null,
+   "spaces": 181,
+   "tel": "031-929-4847",
+   "lat": 37.65384593,
+   "lng": 126.7687814,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-040",
+   "mgmt_no": "241-3-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호수공원 부설 4",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 905",
+   "addr_road": "",
+   "road": null,
+   "spaces": 125,
+   "tel": "031-929-4847",
+   "lat": 37.65089818,
+   "lng": 126.7712748,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-047",
+   "mgmt_no": "241-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정발산",
+   "gu": "일산동구",
+   "dong": "정발산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 정발산동 815",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-929-4858",
+   "lat": 37.66669553,
+   "lng": 126.7744189,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 3600,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 3급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off3",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 240,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-080",
+   "mgmt_no": "241-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정발산 상생",
+   "gu": "일산동구",
+   "dong": "정발산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 정발산동 1276-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "031-929-4858",
+   "lat": 37.6699173,
+   "lng": 126.784563,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-056",
+   "mgmt_no": "241-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중산 제1",
+   "gu": "일산동구",
+   "dong": "중산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 중산동 1667",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-929-4858",
+   "lat": 37.68360395,
+   "lng": 126.7781062,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-055",
+   "mgmt_no": "241-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중산 제2",
+   "gu": "일산동구",
+   "dong": "중산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 중산동 1659",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-929-4858",
+   "lat": 37.68524019,
+   "lng": 126.7801017,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-049",
+   "mgmt_no": "241-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중산 제3",
+   "gu": "일산동구",
+   "dong": "중산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 중산동 1726",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-929-4858",
+   "lat": 37.68364376,
+   "lng": 126.7887336,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-066",
+   "mgmt_no": "241-3-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중산공원 부설",
+   "gu": "일산동구",
+   "dong": "중산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 중산동 1565",
+   "addr_road": "경기도 고양시 일산동구 중산로 217",
+   "road": null,
+   "spaces": 103,
+   "tel": "031-929-4847",
+   "lat": 37.69150284,
+   "lng": 126.7798982,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 도시공원 부설(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "park",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": null,
+     "monthly": 60000
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-075",
+   "mgmt_no": "241-3-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도로관리사업소 차량등록과 부설",
+   "gu": "일산동구",
+   "dong": "풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산동구 풍동 162-2",
+   "addr_road": "경기도 고양시 일산동구 백마로 539",
+   "road": null,
+   "spaces": 106,
+   "tel": "031-929-4847",
+   "lat": 37.66586075,
+   "lng": 126.8077365,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-054",
+   "mgmt_no": "241-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍동 제1",
+   "gu": "일산동구",
+   "dong": "풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 풍동 1244",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-929-4858",
+   "lat": 37.67315657,
+   "lng": 126.7996206,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-053",
+   "mgmt_no": "241-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍동 제2",
+   "gu": "일산동구",
+   "dong": "풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 풍동 1272",
+   "addr_road": "경기도 고양시 일산동구 숲속마을로 50-88",
+   "road": null,
+   "spaces": 80,
+   "tel": "031-929-4858",
+   "lat": 37.66772432,
+   "lng": 126.7980626,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-052",
+   "mgmt_no": "241-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍동 제3",
+   "gu": "일산동구",
+   "dong": "풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산동구 풍동 1276",
+   "addr_road": "경기도 고양시 일산동구 숲속마을로 14-7",
+   "road": null,
+   "spaces": 56,
+   "tel": "031-929-4858",
+   "lat": 37.66756619,
+   "lng": 126.8009699,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-006",
+   "mgmt_no": "241-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상 5권역",
+   "gu": "일산동구",
+   "dong": "백석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 일산동구 백석동 1283-2",
+   "addr_road": "경기도 고양시 일산동구 강석로 2",
+   "road": "강석로",
+   "spaces": 90,
+   "tel": "031-929-4846",
+   "lat": 37.64410964,
+   "lng": 126.7888172,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "2시간 초과시 요금 2배 할증",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 190,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 190
+     },
+     {
+      "until": null,
+      "unit_fee": 380
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드+현금",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street1",
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-005",
+   "mgmt_no": "241-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상 6권역",
+   "gu": "일산동구",
+   "dong": "장항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 일산동구 장항동 864",
+   "addr_road": "경기도 고양시 일산동구 중앙로1261번길 61",
+   "road": "중앙로",
+   "spaces": 76,
+   "tel": "031-929-4846",
+   "lat": 37.65740585,
+   "lng": 126.7702436,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "2시간 초과시 요금 2배 할증",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 190,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 190
+     },
+     {
+      "until": null,
+      "unit_fee": 380
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드+현금",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street1",
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-008",
+   "mgmt_no": "241-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "약산공영",
+   "gu": "일산동구",
+   "dong": "중산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 일산동구 중산동 13-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-929-4846",
+   "lat": 37.68260624,
+   "lng": 126.7922128,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 4,
+    "std_grade": 4,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-033",
+   "mgmt_no": "219-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대화",
+   "gu": "일산서구",
+   "dong": "대화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 대화동 2037",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "031-929-4850",
+   "lat": 37.68268306,
+   "lng": 126.7543114,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-029",
+   "mgmt_no": "219-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일산서구청 부설",
+   "gu": "일산서구",
+   "dong": "대화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산서구 대화동 2321",
+   "addr_road": "경기도 고양시 일산서구 중앙로 1600",
+   "road": null,
+   "spaces": 366,
+   "tel": "031-929-4847",
+   "lat": 37.6779725,
+   "lng": 126.7452458,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": null,
+     "monthly": 30000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-036",
+   "mgmt_no": "219-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전시장",
+   "gu": "일산서구",
+   "dong": "대화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 대화동 2307-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 255,
+   "tel": "031-929-4850",
+   "lat": 37.66770028,
+   "lng": 126.7475836,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-002",
+   "mgmt_no": "219-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "종합운동장",
+   "gu": "일산서구",
+   "dong": "대화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 대화동 2321-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 500,
+   "tel": "031-8075-2924",
+   "lat": 37.67817408,
+   "lng": 126.7439597,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양시",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-051",
+   "mgmt_no": "219-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕이동 상생",
+   "gu": "일산서구",
+   "dong": "덕이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 덕이동 362-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-929-4850",
+   "lat": 37.6988153,
+   "lng": 126.7544964,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-073",
+   "mgmt_no": "219-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고양일산",
+   "gu": "일산서구",
+   "dong": "일산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 일산동 618",
+   "addr_road": "경기도 고양시 일산서구 원일로 86",
+   "road": null,
+   "spaces": 132,
+   "tel": "031-929-4850",
+   "lat": 37.6856602,
+   "lng": 126.7713962,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 9500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off1",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 4000,
+     "monthly": null
+    },
+    "std_diff": "등록값 60분 0원·5분당 50원·1일 4000원 → 적용 30분 720원·5분당 120원·1일 9500원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 720,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-038",
+   "mgmt_no": "219-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일산 제1",
+   "gu": "일산서구",
+   "dong": "일산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 일산동 1673-5",
+   "addr_road": "경기도 고양시 일산서구 고양대로 730",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-929-4850",
+   "lat": 37.68279399,
+   "lng": 126.7770081,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-037",
+   "mgmt_no": "219-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일산 제2",
+   "gu": "일산서구",
+   "dong": "일산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 일산동 1681-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "031-929-4850",
+   "lat": 37.68374427,
+   "lng": 126.7756281,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-034",
+   "mgmt_no": "219-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일산역",
+   "gu": "일산서구",
+   "dong": "일산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 일산동 1681-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-929-4850",
+   "lat": 37.68374427,
+   "lng": 126.7756281,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-031",
+   "mgmt_no": "219-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일산종합사회복지관 부설",
+   "gu": "일산서구",
+   "dong": "일산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 고양시 일산서구 일산동 620-3",
+   "addr_road": "경기도 고양시 일산서구 고양대로 654",
+   "road": null,
+   "spaces": 98,
+   "tel": "031-929-4847",
+   "lat": 37.68451108,
+   "lng": 126.7685049,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 시·구청·행정복지센터 부설(1시간 무료) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "office",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 30000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-014",
+   "mgmt_no": "219-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현 제1",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1561",
+   "addr_road": "경기도 고양시 일산서구 일현로41번길 11",
+   "road": null,
+   "spaces": 49,
+   "tel": "031-929-4850",
+   "lat": 37.69092365,
+   "lng": 126.7618817,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-013",
+   "mgmt_no": "219-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현 제2",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1573-9",
+   "addr_road": "경기도 고양시 일산서구 산현로17번길 35",
+   "road": null,
+   "spaces": 36,
+   "tel": "031-929-4850",
+   "lat": 37.69112506,
+   "lng": 126.7634684,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-001",
+   "mgmt_no": "219-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현 제3",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1589",
+   "addr_road": "경기도 고양시 일산서구 탄중로 244-2",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-929-4850",
+   "lat": 37.69276803,
+   "lng": 126.7724158,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-039",
+   "mgmt_no": "219-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현 제4",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1596",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-929-4850",
+   "lat": 37.69242729,
+   "lng": 126.7744598,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-015",
+   "mgmt_no": "219-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현 제5",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1489",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "031-929-4850",
+   "lat": 37.69431786,
+   "lng": 126.7690174,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 7200,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "off2",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-032",
+   "mgmt_no": "219-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현 제6",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1651",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "031-929-4850",
+   "lat": 37.70586019,
+   "lng": 126.7673726,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-035",
+   "mgmt_no": "219-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄현역 환승",
+   "gu": "일산서구",
+   "dong": "탄현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 고양시 일산서구 탄현동 1636",
+   "addr_road": "경기도 고양시 일산서구 일현로 97-27",
+   "road": null,
+   "spaces": 232,
+   "tel": "031-929-4850",
+   "lat": 37.69535181,
+   "lng": 126.7613687,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "경차·저공해차량 차량 50퍼센트 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 4,
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_fee": 180
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": "노상 3급지 1일 주차권",
+    "daily_hours": 24,
+    "daily_fee": 5500,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "pay": "신용카드",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 환승주차장(노상 3급지) · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "transfer",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "고양시",
+   "city_slug": "goyang"
+  },
+  {
+   "id": "gy-street-002",
+   "mgmt_no": "219-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상 7권역",
+   "gu": "일산서구",
+   "dong": "주엽동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 고양시 일산서구 주엽동 65",
+   "addr_road": "경기도 고양시 일산서구 강선로 67",
+   "road": "강선로",
+   "spaces": 118,
+   "tel": "031-929-4846",
+   "lat": 37.67017485,
+   "lng": 126.7649178,
+   "base_date": "2026-04-15",
+   "manager": "경기도 고양도시관리공사",
+   "note": "2시간 초과시 요금 2배 할증",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 190,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "steps": [
+     {
+      "until": 120,
+      "unit_fee": 190
+     },
+     {
+      "until": null,
+      "unit_fee": 380
+     }
+    ],
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "pay": "신용카드+현금",
+    "basis": "「고양시 주차장 설치 및 관리 조례」 별표1 노상 1급지 · 2026-07-01 ~ 2027-06-30 (2026년 구간)",
+    "category": "street1",
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "steps_label": "2시간 초과 할증"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 190,
+   "city": "고양시",
+   "city_slug": "goyang"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 08:42",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 88,
+  "원자료_고양시행수": 88,
+  "제외_행수": 0,
+  "제외_행": [],
+  "총_주차장": 80,
+  "노외_부설": {
+   "노외": 63,
+   "부설": 17
+  },
+  "노상_구간": 8,
+  "총_구획수": 8699,
+  "노상_구획수": 613,
+  "구별": {
+   "덕양구": 31,
+   "일산동구": 32,
+   "일산서구": 17
+  },
+  "동별": {
+   "일산동구 장항동": 13,
+   "덕양구 행신동": 12,
+   "일산서구 탄현동": 7,
+   "일산동구 백석동": 5,
+   "일산서구 일산동": 5,
+   "일산동구 마두동": 4,
+   "일산동구 중산동": 4,
+   "일산동구 풍동": 4,
+   "일산서구 대화동": 4,
+   "덕양구 성사동": 3,
+   "덕양구 주교동": 3,
+   "덕양구 지축동": 3,
+   "덕양구 행주외동": 3,
+   "덕양구 삼송동": 2,
+   "덕양구 화정동": 2,
+   "일산동구 정발산동": 2,
+   "덕양구 고양동": 1,
+   "덕양구 토당동": 1,
+   "덕양구 향동동": 1,
+   "일산서구 덕이동": 1
+  },
+  "동수": 20,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 80
+  },
+  "요금구분": {
+   "무료": 23,
+   "유료": 65
+  },
+  "요금_미상": [],
+  "요금갈래": {
+   "off1": 11,
+   "off3": 14,
+   "office": 7,
+   "off2": 13,
+   "haengju": 2,
+   "park": 8,
+   "transfer": 3,
+   "street2": 1,
+   "street3": 1,
+   "street1": 5
+  },
+  "급지별": {
+   "1": 16,
+   "3": 22,
+   "null": 9,
+   "2": 15,
+   "4": 3
+  },
+  "등록값_차이": [
+   "주교 제1: 등록값 30분 200원·5분당 100원·1일 3000원 → 적용 30분 240원·5분당 70원·1일 3600원",
+   "주교 제2: 등록값 30분 200원·5분당 150원·1일 3000원 → 적용 30분 240원·5분당 70원·1일 3600원",
+   "행신 제1: 등록값 30분 200원·5분당 150원·1일 3000원 → 적용 30분 240원·5분당 70원·1일 3600원",
+   "고양일산: 등록값 60분 0원·5분당 50원·1일 4000원 → 적용 30분 720원·5분당 120원·1일 9500원"
+  ],
+  "평균_기본요금": 437,
+  "무료_요금구분": 23,
+  "무료개방_표기": [],
+  "토요일_미운영": 35,
+  "일공휴일_미운영": 35,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-15"
+  ]
+ },
+ "fee_table": {
+  "style": "goyang_grade_year",
+  "applies": "2026-07-01 ~ 2027-06-30 (2026년 구간)",
+  "off": [
+   {
+    "grade": 1,
+    "base_min": 30,
+    "base_fee": 720,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "day": 9500,
+    "monthly": 100000
+   },
+   {
+    "grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "day": 7200,
+    "monthly": 90000
+   },
+   {
+    "grade": 3,
+    "base_min": 30,
+    "base_fee": 240,
+    "unit_min": 5,
+    "unit_fee": 70,
+    "day": 3600,
+    "monthly": 70000
+   }
+  ],
+  "street": [
+   {
+    "grade": 1,
+    "unit_min": 5,
+    "unit_fee": 190,
+    "over_fee": 380,
+    "day": null,
+    "monthly": null
+   },
+   {
+    "grade": 2,
+    "unit_min": 5,
+    "unit_fee": 120,
+    "over_fee": 240,
+    "day": null,
+    "monthly": null
+   },
+   {
+    "grade": 3,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "over_fee": 180,
+    "day": 5500,
+    "monthly": 60000
+   }
+  ],
+  "facility": {
+   "office_free_min": 60,
+   "office_unit_min": 5,
+   "office_unit_fee": 190,
+   "haengju_day": 2000,
+   "event_fee": 2200
+  },
+  "basis": "「고양시 주차장 설치 및 관리 조례」 별표1(시행 2026-07-10) · 고양도시관리공사 요금안내(2026-11-17 확인) — 2026-07-01~2027-06-30 적용"
+ },
+ "slug": "goyang",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "고양시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "경차·저공해·임산부·다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형(1,000cc 미만)·저공해·임산부·다자녀·병역명문가·장기복무 제대군인·65세 이상"
+  },
+  {
+   "label": "심하지 않은 장애인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "장애의 정도가 심하지 않은 장애인 등록 차량"
+  },
+  {
+   "label": "국가유공자·심한 장애인 12시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 720,
+   "note": "국가유공자·고엽제·5·18부상자·심한 장애인, 12시간까지 면제"
+  },
+  {
+   "label": "모범·유공납세자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세자 스티커·유공납세자 차량"
+  }
+ ],
+ "realtime": false
+}

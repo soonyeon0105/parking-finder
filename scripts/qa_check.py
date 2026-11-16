@@ -438,6 +438,19 @@ MIX = {
                 "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
                 "만안구", "동안구"),
 }
+# 고양시는 덕양구·일산동구·일산서구 3개 구다 — 다른 도시 페이지에 고양 자료가 들어가거나
+# 고양 페이지에 다른 도시 자료가 섞이면 실패한다(도시를 추가할 때마다 이 목록에 이름을 더한다).
+GOYANG_TOKENS = ("고양", "고양도시관리공사", "덕양구", "일산동구", "일산서구")
+for _k in list(MIX):
+    MIX[_k] = MIX[_k] + GOYANG_TOKENS
+MIX["goyang"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구",
+)
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -596,6 +609,35 @@ cases = [
     ("미관광장", 240, "weekday", 0.5, 120, "paid", 4650),            # 2시간 면제 대상이 2시간을 넘겨 50%
     ("미관광장", 120, "weekday", 0.5, 120, "free", None),
     ("미관광장", 120, "weekday", 1.0, 0, "paid", 0),                 # 장애인·국가유공자 면제
+    # 고양시(조례 별표1 2026년 구간 2026-07-01~2027-06-30): 노외 1급지 30분 720원 + 5분당 120원·1일 9,500원 /
+    #   2급지 600+120·7,200 / 3급지 240+70·3,600, 노상은 5분당 190·120·100(2시간 초과분은 2배)
+    ("장항 제1", 30, "weekday", 0, 0, "paid", 720),                 # 노외 1급지 기본
+    ("장항 제1", 120, "weekday", 0, 0, "paid", 2880),               # 720 + 120×18
+    ("장항 제1", 1440, "weekday", 0, 0, "paid", 9500),              # 34,560 → 1일 주차권
+    ("탄현 제1", 120, "weekday", 0, 0, "paid", 2760),               # 노외 2급지 600 + 120×18
+    ("행신 제1", 120, "weekday", 0, 0, "paid", 1500),               # 노외 3급지 240 + 70×18
+    ("행신 제1", 1440, "weekday", 0, 0, "paid", 3600),
+    ("탄현 제1", 120, "sat", 0, 0, "closed", None),                 # 운영요일 평일
+    ("노상 5권역", 60, "weekday", 0, 0, "paid", 2280),              # 노상 1급지 5분당 190
+    ("노상 5권역", 240, "weekday", 0, 0, "paid", 13680),            # 4,560 + 380×24 (2시간 초과 할증)
+    ("노상 1권역", 120, "weekday", 0, 0, "paid", 2400),             # 노상 3급지 5분당 100
+    ("노상 1권역", 1440, "weekday", 0, 0, "paid", 5500),            # 49,920 → 1일 주차권
+    ("화정역 환승", 120, "weekday", 0, 0, "paid", 2400),            # 4급지 폐지 → 노상 3급지
+    ("화정역 환승", 1440, "weekday", 0, 0, "paid", 5500),
+    ("호수공원 부설 3", 60, "weekday", 0, 0, "paid", 1200),         # 도시공원 부설 → 노상 3급지
+    ("호수공원 부설 3", 1440, "weekday", 0, 0, "paid", 5500),
+    ("고양시청 부설", 60, "weekday", 0, 0, "free", None),           # 최초 1시간 무료
+    ("고양시청 부설", 120, "weekday", 0, 0, "paid", 2280),          # 190×12
+    ("행주산성 부설 하", 120, "weekday", 0, 0, "paid", 2000),       # 입차 때 1구획 2,000원
+    ("고양일산", 120, "weekday", 0, 0, "paid", 2880),               # 노외 1급지
+    ("고양 제1", 120, "weekday", 0, 0, "free", None),               # 요금 구분 무료
+    ("약산공영", 120, "weekday", 0, 0, "free", None),               # 노상·무료
+    # 고양시 감면: 경차·저공해·임산부·다자녀 등 50%, 국가유공자·심한 장애인 12시간 면제 후 50%,
+    #   모범·유공납세자 100%
+    ("장항 제1", 120, "weekday", 0.5, 0, "paid", 1440),
+    ("장항 제1", 600, "weekday", 0.5, 720, "free", None),           # 12시간 면제
+    ("장항 제1", 120, "weekday", 1.0, 0, "paid", 0),
+    ("노상 5권역", 120, "weekday", 0.5, 0, "paid", 2280),
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -820,6 +862,72 @@ for (gu, dong) in {(l["gu"], l["dong"]) for l in bc_dongs}:
         fails.append(f"부천시 동 페이지 없음: {gu} {dong}({n}곳)")
     if n < 3 and page_d.exists():
         fails.append(f"부천시 3곳 미만 동 페이지가 만들어짐: {gu} {dong}({n}곳)")
+
+# 고양시: 요금은 표준데이터 등록값(2025-08-01 인상 전)이 아니라 조례 별표1의 2026년
+# (2026-07-01~2027-06-30) 요금표를 쓴다. 급지표·부설 갈래와 카드의 등록값이 일치해야 한다.
+GY_FEES = {1: (720, 5, 120, 9500), 2: (600, 5, 120, 7200), 3: (240, 5, 70, 3600)}
+GY_STREET = {1: (190, 380), 2: (120, 240), 3: (100, 180)}
+gy_cards = [l for l in LOTS if l.get("city") == "고양시" and l.get("list_mode") == "card"]
+gy_street = [l for l in LOTS if l.get("city") == "고양시" and l.get("list_mode") == "street"]
+if not gy_cards:
+    fails.append("고양시 카드 데이터가 없음")
+if any(l["fee"]["type"] == "미상" for l in gy_cards):
+    fails.append("고양시 카드에 요금 미상 주차장이 있음(자료 확인 필요)")
+gy_paid = [l for l in gy_cards if l["fee"]["type"] == "유료"]
+gy_off = [l for l in gy_paid if l["fee"].get("category") in ("off1", "off2", "off3")]
+gy_bad_grade = [f"{l['name']}({l['fee']['category']} {l['fee']['base_fee']}/{l['fee']['unit_fee']}/{l['fee']['daily_fee']})"
+                for l in gy_off
+                if (l["fee"]["base_fee"], l["fee"]["unit_min"], l["fee"]["unit_fee"], l["fee"]["daily_fee"])
+                != GY_FEES[int(l["fee"]["category"][3:])]]
+if gy_bad_grade:
+    fails.append(f"고양시 노외 급지별 요금이 조례 표와 다름 {len(gy_bad_grade)}곳 {gy_bad_grade[:3]}")
+if not all(any(f"off{g}" == l["fee"].get("category") for l in gy_off) for g in (1, 2, 3)):
+    fails.append("고양시 노외 1·2·3급지 카드가 모두 있지 않음")
+gy_no_day = [l["name"] for l in gy_paid
+             if l["fee"].get("category") != "office" and not l["fee"].get("daily_fee")]
+if gy_no_day:
+    fails.append(f"고양시 유료 카드에 1일 주차권(상한)이 없음 {len(gy_no_day)}곳 {gy_no_day[:3]}")
+if not any(l["fee"].get("category") == "office" and l["fee"].get("free_min") == 60 for l in gy_paid):
+    fails.append("고양시 시·구청 부설(최초 60분 무료) 카드가 없음")
+if len([l for l in gy_paid if l["fee"].get("category") == "transfer"]) != 3:
+    fails.append("고양시 환승주차장(노상 3급지 적용) 카드가 3곳이 아님")
+gy_st_bad = [l["name"] for l in gy_street
+             if l["fee"]["type"] == "유료"
+             and (l["fee"]["unit_fee"], l["fee"]["steps"][1]["unit_fee"])
+             != GY_STREET.get(l["fee"]["std_grade"], GY_STREET[3])]
+if gy_st_bad:
+    fails.append(f"고양시 노상 요금이 조례 표와 다름: {gy_st_bad[:3]}")
+gy_st_calc = [l["name"] for l in gy_street if l["fee"]["type"] == "유료"
+              and price_for(l, 120, "weekday").get("amount") != 24 * l["fee"]["unit_fee"]]
+if gy_st_calc:
+    fails.append(f"고양시 노상 2시간 요금이 24×5분요금과 다름: {gy_st_calc[:3]}")
+# 구 3개·동 13개·노상 8구간·시 허브의 급지 요금표·구 페이지 계산기
+gy_hub = DIST / "parking" / "gyeonggi" / "goyang" / "index.html"
+if not gy_hub.exists():
+    fails.append("고양시 시 페이지 없음")
+else:
+    hub_html = gy_hub.read_text()
+    for need, label in (("급지별 주차요금표", "급지 요금표"), ("goyang-deogyang/", "덕양구 링크"),
+                        ("goyang-ilsandong/", "일산동구 링크"), ("goyang-ilsanseo/", "일산서구 링크")):
+        if need not in hub_html:
+            fails.append(f"고양시 시 페이지에 {label} 없음")
+for slug, gu in (("goyang-deogyang", "덕양구"), ("goyang-ilsandong", "일산동구"), ("goyang-ilsanseo", "일산서구")):
+    page = DIST / "parking" / "gyeonggi" / slug / "index.html"
+    if not page.exists():
+        fails.append(f"고양시 {gu} 페이지 없음")
+        continue
+    html = page.read_text()
+    if f"{gu} 공영주차장" not in html:
+        fails.append(f"고양시 {gu} 페이지 제목에 구 이름 없음")
+    if 'class="calc' not in html:
+        fails.append(f"고양시 {gu} 페이지에 요금 계산기 없음")
+gy_street_page = DIST / "parking" / "gyeonggi" / "goyang" / "street-parking" / "index.html"
+if not gy_street_page.exists():
+    fails.append("고양시 노상주차장 페이지 없음(street-parking)")
+else:
+    rows = len(re.findall(r"<tr><td>", gy_street_page.read_text()))
+    if rows < len(gy_street):
+        fails.append(f"고양시 노상 페이지 행 {rows} < 구간 {len(gy_street)}")
 
 print()
 if warns:

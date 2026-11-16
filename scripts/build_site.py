@@ -64,7 +64,10 @@ DONG_SLUG = {
     "화서동": "hwaseo-dong",
 }
 GU_SLUG = {"영통구": "suwon-yeongtong", "권선구": "suwon-gwonseon",
-           "팔달구": "suwon-paldal", "장안구": "suwon-jangan"}
+           "팔달구": "suwon-paldal", "장안구": "suwon-jangan",
+           # 고양시 — ‘덕양’은 표준 로마자 표기(Deogyang)를 쓴다(자동 변환은 deokyang).
+           "덕양구": "goyang-deogyang", "일산동구": "goyang-ilsandong",
+           "일산서구": "goyang-ilsanseo"}
 GU_ORDER = ["영통구", "권선구", "팔달구", "장안구"]
 CITY_SLUG = {"수원시": "suwon"}   # 시·군 슬러그 색인 (없으면 이름으로 자동 생성)
 DAY_LABEL = {"weekday": "평일", "sat": "토요일", "sun": "일요일·공휴일"}
@@ -244,6 +247,42 @@ CITY_UI = {
             "1일 4,000~6,000원이고 일부는 최초 60분이 무료입니다.",
             "부천시는 2016년 일반구를 폐지했다가 <b>2024-01-01 원미구·소사구·오정구</b> 3개 구를 다시 설치했습니다. "
             "구별로 정리했고, 동 이름은 법정동 기준입니다.",
+        ],
+    },
+    "고양시": {
+        "manager": "고양도시관리공사 교통사업처(031-929-4800) · 통합콜센터 1522-1142",
+        "manager_inquiry": "고양도시관리공사 교통사업처(031-929-4800)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-04-15",
+        "realtime": False,
+        "discount_note": ("고양시 조례·고양도시관리공사 요금 할인 안내(2026-11-17 확인) 기준입니다. "
+                          "국가유공자·고엽제·5·18부상자·심한 장애인·자원봉사 실적 상위 100명은 12시간까지 면제하고 "
+                          "12시간이 지나면 50%, 모범·유공납세자는 100%입니다. 경차·저공해·임산부·다자녀·병역명문가·"
+                          "65세 이상·심하지 않은 장애인은 50%이고, 감면은 한 가지만 적용됩니다(현장 확인)."),
+        "free_example": "",
+        "calc_note": ("차량 감면은 <b>고양시 조례·고양도시관리공사 요금 할인 안내</b> 기준입니다. "
+                      "국가유공자·심한 장애인 등 12시간 면제 후 50%, 경차·저공해·임산부·다자녀·65세 이상 50%, "
+                      "모범·유공납세자 100%이고 감면은 한 가지만 적용됩니다(현장 확인)."),
+        "daily_example": "1일 주차권 9,500원",
+        "street_examples": "'노상 1권역'·'노상 6권역'",
+        "street_fee_caveat": ("<li><b>2시간 초과 할증</b>: 노상은 1구획 5분 단위 요금이 2시간까지는 190·120·100원,"
+                              " 2시간을 넘기면 2시간 초과분부터 380·240·180원으로 2배가 됩니다."
+                              " 표의 ‘평일 2시간’은 2시간까지만 계산한 값입니다.</li>"
+                              "<li><b>1일 주차권</b>: 노상은 3급지에만 1일 주차권 5,500원이 있습니다(1·2급지 없음).</li>"
+                              "<li><b>환승주차장</b>: 4급지가 폐지되어 환승주차장은 노상 3급지 요금을 적용합니다."
+                              " 표준데이터의 등록요금(30분 200원·1일 3,000원)과 크게 다르니 현장 표지를 확인하세요.</li>"),
+        "rate_bullets": [
+            "2008년 이후 17년 동결했던 공영주차장 요금을 2025-08-01·2026-07-01·2027-07-01 세 차례에 걸쳐 "
+            "단계적으로 올리고 있습니다. 지금은 <b>2026년 구간(2026-07-01~2027-06-30)</b> 요금입니다.",
+            "노외는 <b>최초 30분 기본요금 + 5분 단위 가산</b>입니다. 1급지 720원·5분당 120원·1일 9,500원, "
+            "2급지 600원·120원·7,200원, 3급지 240원·70원·3,600원이고 월 정기권은 100,000·90,000·70,000원입니다.",
+            "노상은 <b>1구획 5분 단위</b>로 1급지 190원·2급지 120원·3급지 100원이고, 2시간을 넘기면 2시간 초과분부터 "
+            "2배(380·240·180원)가 됩니다. 3급지에만 1일 주차권 5,500원이 있습니다.",
+            "<b>4급지는 폐지</b>되어 4급지 환승주차장(화정역·탄현역·백석역)과 도시공원 부설주차장(호수공원 등)은 "
+            "노상 3급지 요금(5분당 100원)을 적용합니다.",
+            "부설주차장은 시·구청·차량등록과·행정복지센터·일산사회복지관이 <b>최초 1시간 무료 뒤 5분당 190원</b>, "
+            "행주산성은 입차 때 1구획 2,000원, 그 밖의 부설은 시청부설 기준입니다.",
         ],
     },
 }
@@ -500,7 +539,7 @@ def rate_text(fee) -> str:
                 rates.append(st["unit_fee"])
         return (f"기본 {fee['base_min']}분 {won(fee['base_fee'])} · 이후 "
                 f"{fee.get('unit_min') or 10}분마다 " + "→".join(won(r) for r in rates)
-                + " (시간대별 누진)")
+                + f" ({fee.get('steps_label') or '시간대별 누진'})")
     if not fee["base_fee"] and fee.get("free_min"):
         # 기본요금 없이 최초 N분 무료 뒤 바로 요율이 붙는 요금(평택시 1급지 90분 무료)
         return (f"최초 {fee['free_min']}분 무료 · 이후 "
@@ -524,7 +563,8 @@ def fee_text(lot) -> str:
         for st in f["steps"]:
             if st["unit_fee"] not in rates:
                 rates.append(st["unit_fee"])
-        bits.append(f"이후 {f.get('unit_min') or 10}분당 " + "→".join(won(r) for r in rates) + " (누진)")
+        bits.append(f"이후 {f.get('unit_min') or 10}분당 " + "→".join(won(r) for r in rates)
+                    + f" ({f.get('steps_label') or '누진'})")
     elif f["unit_min"] and f["unit_fee"] is not None:
         bits.append(f"추가 {f['unit_min']}분 {won(f['unit_fee'])}")
     if f.get("free_min") and not free_first:
@@ -817,6 +857,20 @@ def footer_sources(city, url) -> str:
                 f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
                 f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+    if city["city"] == "고양시":
+        std_rows = city_rows_total(city)
+        return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
+                f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
+                f'전국주차장정보표준데이터</a>(고양시 {std_rows}행, 기준일 '
+                f'{esc(city_ui(city)["std_base_date"])})와 '
+                f'<a href="https://m.gys.or.kr/page/facilities/traffic/parking.php" rel="nofollow noopener" target="_blank">'
+                f'고양도시관리공사 주차요금 안내</a>(2026년 구간 요금표·부설 요금·감면), '
+                f'<a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2148065" rel="nofollow noopener" target="_blank">'
+                f'고양시 주차장 설치 및 관리 조례</a>(별표1)를 기준으로 만든 참고용 정보입니다. '
+                f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
+                f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
+                f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
     if city["city"] == "화성시":
         std_rows = city_rows_total(city)
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
@@ -1093,7 +1147,9 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
         extra = []
         if res["capped"]:
             extra.append("일일 최대요금 적용" if lot["fee"].get("cap_fee") else "1일권 상한 적용")
-        base_note = ("누진 요금표 기준" if lot["fee"].get("steps")
+        base_note = ("누진 요금표 기준" if (lot["fee"].get("steps") and not lot["fee"].get("category"))
+                     else "노상 3급지 요금 기준(2시간 초과 할증)" if lot["fee"].get("category") in ("transfer", "park")
+                     else "입차 때 1구획 요금" if lot["fee"].get("category") == "haengju"
                      else (f"최초 {lot['fee']['free_min']}분 무료 기준"
                            if (not lot["fee"]["base_fee"] and lot["fee"].get("free_min"))
                            else "기본요금·추가요금 기준"))
@@ -1317,6 +1373,17 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>구청·도서관·공원 같은 부설주차장 가운데 특기사항에 ‘토+일+공휴일 개방’으로 적혀 있으나 운영요일은 평일로 등록된 곳이 있습니다. 카드는 등록된 운영요일을 그대로 표시하고 특기사항을 함께 적었습니다(현장 확인).</li>
     <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다.</li>
     <li>포털에만 있고 표준데이터에 없는 주차장(테크노파크3·BIG센터·한국만화영상진흥원·옥길문화체육센터 등)은 카드로 만들지 않았습니다.</li>
+    <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
+    if city["city"] == "고양시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(고양시 {city_rows_total(city)}행 중 노외·부설 {q['총_주차장']}곳과 노상 {q['노상_구간']}구간, 기준일 {esc(ui['std_base_date'])})</li>
+    <li><b>요금표</b>: 「고양시 주차장 설치 및 관리 조례」 별표1(시행 2026-07-10, 경기도고양시조례 제3013호) · 고양도시관리공사 연도별 요금안내(2026-11-17 확인) — 2026년 구간(2026-07-01~2027-06-30): 노외 1급지 최초 30분 720원·5분당 120원·1일 9,500원, 2급지 600·120·7,200원, 3급지 240·70·3,600원, 노상 1·2·3급지 5분당 190·120·100원(2시간 초과분은 2배)</li>
+    <li><b>부설주차장</b>: 시·구청·차량등록과·행정복지센터·일산사회복지관은 최초 1시간 무료 뒤 5분당 190원, 도시공원(호수공원·행주산성역사공원 등)은 노상 3급지, 행주산성은 입차 때 1구획 2,000원입니다.</li>
+    <li>표준데이터(기준일 {esc(ui['std_base_date'])})의 주차장별 금액은 2025-08-01 인상 전(2008년 이후 동결) 값이라, 요금은 <b>조례 별표1의 2026년 요금표</b>로 급지·부설 갈래별로 계산했습니다. 등록금액이 표와 다른 주차장(주교 제1·행신 제1 등)은 급지 요금표를 따랐습니다(현장 확인).</li>
+    <li><b>4급지는 폐지</b>되어 4급지 환승주차장(화정역·탄현역·백석역)과 도시공원 부설은 노상 3급지 요금을 적용합니다. 표준데이터의 등록요금(30분 200원·1일 3,000원)과 크게 다르니 현장 표지를 확인하세요.</li>
+    <li><b>호수공원 부설 1~4</b>는 표준데이터에 30분 300원·5분당 50원으로 남아 있으나, 2026-07-01부터 5분당 100원(1시간 1,200원)·2시간 초과 5분당 180원으로 올랐습니다(공사 안내로 확인).</li>
+    <li>고양일산(노외 1급지)은 표준데이터에 최초 60분 무료·1일 4,000원으로 등록되어 있으나, 공영주차장은 별표1 요금을 적용하므로 1급지 요금으로 계산했습니다(현장 확인).</li>
+    <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
     if city["city"] == "화성시":
@@ -1683,13 +1750,60 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
 def fee_table_block(city) -> str:
     """도시별 급지 요금표(데이터에 fee_table 이 있을 때만).
 
-    두 가지 모양을 그린다.
+    네 가지 모양을 그린다.
       · style=grade_flat : 급지별 기본시간·기본요금 + 10분 요율(평택시 2026-11-16 개정)
-      · 그 밖(기본)      : 급지별 누진 요금표(안양시 — 1시간/2시간/3시간/이후 요율)
+      · style=grade_base : 급지별 고정 요금(부천시 — 1회 요금 + 1일 주차권 + 월 정기권)
+      · style=goyang_grade_year : 노외·노상·부설 요금표(고양시 — 2026-07-01~2027-06-30 구간)
+      · 그 밖(기본)       : 급지별 누진 요금표(안양시 — 1시간/2시간/3시간/이후 요율)
     """
     ft = city.get("fee_table")
     if not ft:
         return ""
+    if ft.get("style") == "goyang_grade_year":
+        off_target = {1: "상업지역(3급지 제외)", 2: "1·3급지 이외의 주차장",
+                      3: "주택가 소규모 주차장"}
+        off_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["monthly"])}</td><td>{esc(off_target.get(r["grade"], ""))}</td></tr>'
+            for r in ft["off"])
+        st_target = {1: "상업·준주거지역", 2: "중로(12m 이상) 중 1·3급지 제외",
+                     3: "1·2급지 이외의 노상"}
+        st_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["unit_fee"])}</td>'
+            f'<td class="num">{won(r["over_fee"])}</td>'
+            f'<td class="num">{won(r["day"]) if r["day"] else "—"}</td>'
+            f'<td class="num">{won(r["monthly"]) if r["monthly"] else "—"}</td>'
+            f'<td>{esc(st_target.get(r["grade"], ""))}</td></tr>'
+            for r in ft["street"])
+        fac = ft.get("facility") or {}
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">2008년 이후 17년 동결했던 공영주차장 요금을 세 차례에 걸쳐 단계적으로 올리고 있습니다.
+지금 적용되는 구간은 <b>{esc(ft["applies"])}</b>입니다(2027-07-01부터 다시 오릅니다).</p>
+<h3 style="margin-top:20px">노외주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">5분당</th>
+  <th class="num">1일 주차권</th><th class="num">월 정기권</th><th>대상</th></tr></thead>
+  <tbody>{off_rows}</tbody>
+</table>
+<h3 style="margin-top:22px">노상주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">5분당<br>(2시간까지)</th><th class="num">5분당<br>(2시간 초과)</th>
+  <th class="num">1일 주차권</th><th class="num">월 정기권</th><th>대상</th></tr></thead>
+  <tbody>{st_rows}</tbody>
+</table>
+<p class="updated">4급지는 폐지되어 <b>4급지 환승주차장과 도시공원(호수공원·행주산성역사공원 등) 부설주차장</b>은
+노상 3급지 요금을 적용합니다. 노상은 2시간을 넘기면 2시간 초과분부터 2배(할증)입니다.</p>
+<h3 style="margin-top:22px">부설주차장</h3>
+<ul>
+  <li><b>시·구청, 차량등록과, 행정복지센터, 일산사회복지관</b>: 최초 {fac.get("office_free_min", 60)}분 무료,
+  이후 {fac.get("office_unit_min", 5)}분당 {won(fac.get("office_unit_fee"))}</li>
+  <li><b>도시공원</b>(호수공원, 행주산성역사공원 등): 노상 3급지 요금(행사 시 1구획 {won(fac.get("event_fee"))})</li>
+  <li><b>행주산성</b>: 입차 때 1구획 {won(fac.get("haengju_day"))} · <b>그 밖의 부설</b>: 시청부설 기준</li>
+</ul>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·부설 갈래로 계산하며, 월 정기권은 카드에 표시했습니다.</p>
+"""
     if ft.get("style") == "grade_base":
         # 급지별 고정 요금표(부천시) — 1회 요금은 노상·노외가 같고, 1일 주차권·월 정기권이 급지별로 다르다.
         target = {1: "상업지역", 2: "1·3급지 외 지역, 중로 15m 이상 노상",
@@ -2067,9 +2181,11 @@ def _build_street_mixed(city, street, site):
         fee_line = rate_text(sample["fee"]) + (f" · 1일권 {won(dfee)}" if dfee else "")
         unknown = [l for l in street if l["fee"]["type"] == "미상"]
         extra_bits = ""
+        diff_sentence = ("급지가 달라(1·2·3급지) 구간별 목록에 급지 요금표로 계산한 값을 적었습니다."
+                         if (city.get("fee_table") or {}).get("style") == "goyang_grade_year"
+                         else "등록 요금이 달라 구간별 목록의 값을 그대로 적었습니다.")
         if fee_n < len(paid):
-            extra_bits += (f'<li><b>구간별 차이</b>: 나머지 {len(paid) - fee_n}개 구간은 등록 요금이 달라 '
-                           f'구간별 목록의 값을 그대로 적었습니다.</li>')
+            extra_bits += (f'<li><b>구간별 차이</b>: 나머지 {len(paid) - fee_n}개 구간은 {diff_sentence}</li>')
         if free:
             extra_bits += (f'<li><b>무료 구간</b>: {len(free)}곳은 요금 구분이 ‘무료’로 등록되어 있어 '
                            f'요일과 관계없이 무료입니다.</li>')
