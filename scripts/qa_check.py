@@ -80,6 +80,53 @@ for pg in pages:
             fails.append(f"{pg.relative_to(DIST)} → 깨진 링크 {href}")
 
 print("검사한 내부 링크:", len(checked))
+
+# ---------------------------------------------------------------- 지\uB3C4 링크 (T-04)
+# 2026-11-16 버그: ① 네이버 링크가 c=lng,lat,16(3칸)이라 모바일에서 좌표가 버려지고
+# 서울 기본 화면으로 떴다. ② 카카오 핀 이름이 '원천호수'처럼 주차장이 아닌 이름이라
+# 호수·공원에 찍힌 것처럼 보였다. ③ 만석공원 제1~5·원천호수·신대호수 좌표가 실제
+# 주차장이 아닌 곳을 가리켰다.
+from urllib.parse import unquote  # noqa: E402
+from build_site import map_links, map_coords, map_label  # noqa: E402
+
+all_html = "\n".join(pg.read_text() for pg in pages)
+naver_urls = set(re.findall(r'https://map\.naver\.com/p\?c=[^"&<>]+', all_html))
+kakao_urls = set(re.findall(r'https://map\.kakao\.com/link/map/[^"<>]+', all_html))
+print(f"지도 링크: 네이버 {len(naver_urls)}종 · 카카오 {len(kakao_urls)}종")
+if not naver_urls or not kakao_urls:
+    fails.append("지도 링크가 생성물에 없음")
+for u in naver_urls:
+    c = u.split("c=", 1)[1]
+    if len(c.split(",")) != 7 or not c.endswith(",dh"):
+        fails.append(f"네이버 링크 c 파라미터가 7칸 형식이 아님(모바일에서 좌표 유실): {u}")
+for u in kakao_urls:
+    parts = u.split("/link/map/", 1)[1].split(",")
+    if len(parts) != 3:
+        fails.append(f"카카오 링크가 이름,위도,경도 3조각이 아님(이름에 쉼표?): {u}")
+        continue
+    if not re.fullmatch(r"3[0-9.]+|1[0-9.]+", parts[1]) or not re.fullmatch(r"1[0-9.]+", parts[2]):
+        fails.append(f"카카오 링크 좌표 형식 오류: {u}")
+    if "주차" not in unquote(parts[0]) and "차고지" not in unquote(parts[0]):
+        fails.append(f"카카오 핀 이름에 '주차장' 표기 없음: {unquote(parts[0])}")
+for lot in LOTS:
+    kakao, naver = map_links(lot)
+    if lot.get("list_mode") == "street":
+        continue      # 노상은 카드 대신 표(주소 링크)로 나간다
+    for u in (kakao, naver):
+        if u not in all_html:
+            fails.append(f"{lot['name']} 카드에 지도 링크 누락: {u}")
+    if lot.get("lat") and lot.get("lng"):
+        lat, lng = map_coords(lot)
+        if str(lat) not in kakao or str(lng) not in kakao:
+            fails.append(f"{lot['name']} 카카오 링크 좌표가 보정값과 다름: {kakao}")
+        if f"c={lng},{lat},16,0,0,0,dh" not in naver:
+            fails.append(f"{lot['name']} 네이버 링크 좌표가 보정값과 다름: {naver}")
+    if not map_label(lot).strip():
+        fails.append(f"{lot['name']} 지도 라벨 비었음")
+street_links = set(re.findall(r'https://map\.kakao\.com/link/search/[^"<>]+', all_html))
+print(f"노상 구간 지도 링크(주소 검색): {len(street_links)}종")
+if any("map.kakao.com/?q=" in h for h in (all_html,)):
+    fails.append("구형 카카오 지도 링크(map.kakao.com/?q=)가 남아 있음")
 # ---------------------------------------------------------------- 페이지 기본 구조
 for pg in pages:
     html = pg.read_text()

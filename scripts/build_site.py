@@ -379,16 +379,65 @@ def addr_text(lot) -> str:
     return f"상세 주소 미제공 · {dong} 인근(지도 좌표 기준)"
 
 
+# ---------------------------------------------------------------- 지도 링크 (T-04)
+# 공공데이터 좌표가 실제 주차장이 아닌 곳(호수·공원 안, 같은 단지의 다른 주차장 자리)을
+# 가리키는 곳이 있어, 카카오맵·구글맵 장소로 확인한 좌표로 지도 링크만 덮어쓴다.
+# (site.json 좌표는 원자료 그대로 두어 계산·동 추정 로직에는 영향이 없게 한다)
+MAP_COORD_FIX = {
+    # 수원시 장안구 만석공원: 다섯 곳이 모두 송죽동 417-23(공원) 좌표를 공유해
+    # 제1~5가 같은 지점에 찍혔다. 아래는 카카오맵·구글맵 장소 좌표.
+    "std-057": (37.3018787, 126.9988270),   # 만석공원 제1 → 만석 제1공영주차장(송죽동 286-1)
+    "std-055": (37.3024157, 127.0022592),   # 만석공원 제2 → 만석공원 제2공영주차장(송죽동 228)
+    "std-053": (37.3013984, 127.0036826),   # 만석공원 제3 → 만석 제3공영주차장(송죽동 318)
+    "std-051": (37.2997684, 127.0047202),   # 만석공원 제4 → 만석공원 제4공영주차장(송죽동 346-6)
+    # 수원시 영통구 광교호수공원: 원자료 좌표가 호수 물가(전기차충전소) 자리라
+    # 핀이 호수에 찍혔다. 아래는 카카오맵·구글맵 주차장 장소 좌표.
+    "std-007": (37.2767068, 127.0663223),   # 원천호수 → 광교호수공원 원천호수주차장(하동 1024)
+    "std-009": (37.2848344, 127.0777866),   # 신대호수 → 광교호수공원 신대호수주차장(하동 1008)
+}
+
+# 이름에 이미 들어 있으면 덧붙이지 않는 말
+PARKING_WORDS = ("주차장", "주차타워", "주차빌딩", "차고지")
+
+
+def map_label(lot) -> str:
+    """지도에 표시할 이름. '원천호수'처럼 주차장이라는 말이 없는 이름은
+    지도 핀에 호수·공원 이름만 뜨므로 '공영주차장'을 붙인다.
+    카카오 /link/map/ 은 쉼표로 이름·위도를 나누므로 이름 안의 쉼표는 '·'로 바꾼다."""
+    name = lot["name"].strip().replace(",", "·")
+    if any(w in name for w in PARKING_WORDS):
+        return name
+    if name.endswith(("공영", ")")):   # 곡반2공영 → 곡반2공영주차장, 마평동 공영(1) → …(1) 주차장
+        return name + "주차장"
+    if lot.get("ptype") == "부설":     # 시청정문 → 시청정문 주차장
+        return name + " 주차장"
+    return name + " 공영주차장"
+
+
+def map_coords(lot):
+    fix = MAP_COORD_FIX.get(lot["id"])
+    if fix:
+        return fix
+    return lot["lat"], lot["lng"]
+
+
 def map_links(lot):
-    name = lot["name"]
-    lat, lng = lot["lat"], lot["lng"]
+    """카카오·네이버 지도 링크.
+
+    카카오: /link/map/{이름},{위도},{경도} — 지정한 좌표에 이름표가 달린 핀을 찍는다.
+    네이버: /p?c={경도},{위도},16,0,0,0,dh — c 파라미터를 7칸 형식으로 채워야
+      모바일에서 좌표가 유지된다. 3칸(c=lng,lat,16)이면 모바일이 좌표를 버리고
+      기본 화면(서울시청)으로 떨어져 주차장으로 이동하지 않는다(2026-11-16 확인).
+    """
+    label = map_label(lot)
+    lat, lng = map_coords(lot)
     city = lot.get("city", "")
     if lat and lng:
-        kakao = f"https://map.kakao.com/link/map/{quote(name)},{lat},{lng}"
-        naver = f"https://map.naver.com/p?c={lng},{lat},16"
+        kakao = f"https://map.kakao.com/link/map/{quote(label)},{lat},{lng}"
+        naver = f"https://map.naver.com/p?c={lng},{lat},16,0,0,0,dh"
     else:
-        kakao = f"https://map.kakao.com/?q={quote(name + ' ' + city)}"
-        naver = f"https://map.naver.com/p/search/{quote(name + ' ' + city)}"
+        kakao = f"https://map.kakao.com/link/search/{quote(label + ' ' + city)}"
+        naver = f"https://map.naver.com/p/search/{quote(label + ' ' + city)}"
     return kakao, naver
 
 
@@ -869,7 +918,8 @@ def street_rows(street_lots, *, with_price=True, with_daily=None):
         p2 = price_for(l, 120, "weekday")
         amount = won(p2["amount"]) if p2["state"] == "paid" else ("무료" if p2["state"] == "free" else "현장 확인")
         addr = l["addr_jibun"] or l["addr_road"] or f'{l["name"]} {l.get("city", "")}'
-        kurl = f"https://map.kakao.com/?q={quote(addr)}"
+        # 노상 구간은 고유 이름 대신 도로명·지번 주소로 찾는다(모바일에서는 앱 검색으로 이어진다)
+        kurl = f"https://map.kakao.com/link/search/{quote(addr)}"
         rows.append(
             f'<tr><td><a href="{esc(kurl)}" target="_blank" rel="nofollow noopener">{esc(l["name"])}</a></td>'
             f'<td>{esc(l["gu"] or "-")}</td>'
