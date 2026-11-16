@@ -16,16 +16,21 @@
   var state = {
     day: (list && list.getAttribute('data-day')) || 'weekday',
     minutes: 120,
-    discount: 0
+    discount: 0,
+    exempt: 0
   };
 
   var won = function (n) { return n.toLocaleString('ko-KR') + '원'; };
 
-  function priceFor(lot, minutes, day, rate) {
+  function priceFor(lot, minutes, day, rate, exempt) {
     if (!lot.oper[day]) return { state: 'closed' };
     var f = lot.fee;
     if (f.type === '무료' || (day !== 'weekday' && lot.free_days[day])) {
       return { state: 'free' };
+    }
+    // 조례상 면제 시간(분): 이 시간 이내 이용은 0원, 넘으면 감면율 적용 (예: 성남 장애인 1시간 면제 후 50%)
+    if (exempt && minutes <= exempt) {
+      return { state: 'free', exempt: true, exempt_min: exempt };
     }
     if (f.type !== '유료') return { state: 'unknown' };
     if (!f.base_min || f.base_fee === null || !f.unit_min || f.unit_fee === null) {
@@ -60,7 +65,11 @@
     priceEl.className = 'price ' + res.state;
     if (res.state === 'free') {
       priceEl.textContent = '0원';
-      if (noteEl) noteEl.textContent = '무료 개방 (선택한 요일)';
+      if (noteEl) {
+        noteEl.textContent = res.exempt
+          ? '면제 시간 이내 (' + fmtTime(res.exempt_min) + ' 면제)'
+          : '무료 개방 (선택한 요일)';
+      }
     } else if (res.state === 'paid') {
       priceEl.textContent = won(res.amount);
       if (noteEl) {
@@ -108,7 +117,7 @@
     var results = cards.map(function (card) {
       var lot = byId[card.getAttribute('data-lot')];
       if (!lot) return null;
-      return { card: card, lot: lot, res: priceFor(lot, state.minutes, state.day, state.discount) };
+      return { card: card, lot: lot, res: priceFor(lot, state.minutes, state.day, state.discount, state.exempt) };
     }).filter(Boolean);
 
     results.forEach(function (r) { paintCard(r.card, r.res); });
@@ -158,7 +167,11 @@
       var btn = e.target.closest('button.seg-btn');
       if (!btn) return;
       state.discount = parseFloat(btn.getAttribute('data-rate'));
-      setPressed(discGroup, btn.getAttribute('data-rate'), 'data-rate');
+      state.exempt = parseInt(btn.getAttribute('data-exempt') || '0', 10) || 0;
+      // 감면율이 같은 버튼이 둘 이상일 수 있으므로(예: 성남 50% / 1시간 면제 후 50%) 누른 버튼 자체로 표시한다.
+      Array.prototype.forEach.call(discGroup.querySelectorAll('button'), function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
       refresh();
     });
   }

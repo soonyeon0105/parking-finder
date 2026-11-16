@@ -139,6 +139,45 @@ with sync_playwright() as p:
     page.screenshot(path=str(OUT / "07-mobile-maetan-dong.png"))
     results["screenshots"].append("07-mobile-maetan-dong.png")
 
+    # ---------------- 성남시 구 페이지 (T-03 확장 확인)
+    page.goto(base + "/parking/gyeonggi/seongnam-sujeong/", wait_until="load")
+    page.wait_for_function("document.getElementById('calc-summary') && "
+                           "!document.getElementById('calc-summary').textContent.includes('계산 중')")
+    check("성남 수정구 페이지 로드", page.title().startswith("수정구"), page.title())
+    check("성남 수정구 h1", "수정구 공영주차장" in page.inner_text("h1"), page.inner_text("h1"))
+    page.eval_on_selector("#time-slider", """el => { el.value = 120;
+        el.dispatchEvent(new Event('input', {bubbles: true})); }""")
+    pg2 = page.query_selector("#lot-list .lot[data-lot='sn-001'] .price")
+    check("성남 2시간 요금(수진역환승 2,200원)", pg2 is not None and pg2.text_content().strip() == "2,200원",
+          pg2.text_content().strip() if pg2 else "카드 없음")
+    # 장애인 1시간 면제 후 50%: 30분은 0원(면제), 2시간은 1,100원
+    page.click("#discount-group button[data-rate='0.5'][data-exempt='60']")
+    page.eval_on_selector("#time-slider", """el => { el.value = 30;
+        el.dispatchEvent(new Event('input', {bubbles: true})); }""")
+    page.wait_for_timeout(150)
+    p30 = page.query_selector("#lot-list .lot[data-lot='sn-001'] .price")
+    check("성남 장애인 30분 면제(0원)", p30 is not None and p30.text_content().strip() == "0원",
+          p30.text_content().strip() if p30 else "카드 없음")
+    page.eval_on_selector("#time-slider", """el => { el.value = 120;
+        el.dispatchEvent(new Event('input', {bubbles: true})); }""")
+    page.wait_for_timeout(150)
+    p120 = page.query_selector("#lot-list .lot[data-lot='sn-001'] .price")
+    check("성남 장애인 2시간 50%(1,100원)", p120 is not None and p120.text_content().strip() == "1,100원",
+          p120.text_content().strip() if p120 else "카드 없음")
+    ov3 = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+    check("성남 구 페이지 가로 스크롤 없음", ov3 <= 1, f"overflow={ov3}px")
+    page.screenshot(path=str(OUT / "10-mobile-seongnam-sujeong.png"))
+    results["screenshots"].append("10-mobile-seongnam-sujeong.png")
+
+    # ---------------- 성남시 노상주차장 페이지
+    page.goto(base + "/parking/gyeonggi/seongnam/street-parking/", wait_until="load")
+    page.wait_for_timeout(200)
+    body2 = page.inner_text("body")
+    check("노상 페이지: 구간 표", "중상32-75" in body2 or "수상4" in body2)
+    check("노상 페이지: 요금표", "7,200원" in body2, "1일권 7,200원")
+    page.screenshot(path=str(OUT / "11-mobile-seongnam-street.png"))
+    results["screenshots"].append("11-mobile-seongnam-street.png")
+
     # ---------------- file:// 로 열어도 스타일·계산기가 동작하는지 (폰/PC에서 파일로 열 때)
     page.goto("file://" + str(DIST / "parking" / "gyeonggi" / "suwon-yeongtong" / "index.html"),
               wait_until="load")

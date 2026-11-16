@@ -1,18 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""생성물 정적 검사: JSON-LD 유효성, 내부 링크, 계산 규칙 표본 검증."""
+"""생성물 정적 검사: JSON-LD 유효성, 내부 링크, 계산 규칙 표본, 도시별 확장 안전 규칙."""
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 BASE = Path(__file__).resolve().parent.parent
 DIST = BASE / "dist"
-DATA = json.loads((BASE / "data" / "suwon_parking.json").read_text())
+DATA = json.loads((BASE / "data" / "site.json").read_text())
+CITIES = DATA["cities"]
+LOTS = DATA["lots"]
 
 fails, warns = [], []
+
+
+def page_text(rel):
+    return (DIST / rel).read_text()
+
+
+def pages_under(prefix):
+    return sorted(p for p in DIST.rglob("index.html") if p.relative_to(DIST).as_posix().startswith(prefix))
+
 
 # ---------------------------------------------------------------- JSON-LD
 pages = sorted(DIST.rglob("index.html"))
@@ -21,6 +33,8 @@ for pg in pages:
     html = pg.read_text()
     blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
     for b in blocks:
+        if b.strip() == "":
+            continue
         try:
             obj = json.loads(b)
         except Exception as e:
@@ -67,6 +81,20 @@ for pg in pages:
 
 print("검사한 내부 링크:", len(checked))
 
+# ---------------------------------------------------------------- 페이지 기본 구조
+for pg in pages:
+    html = pg.read_text()
+    if html.count("<h1>") != 1:
+        fails.append(f"{pg.relative_to(DIST)}: h1 {html.count('<h1>')}개")
+    if "<title>" not in html or "<meta name=\"description\"" not in html:
+        fails.append(f"{pg.relative_to(DIST)}: title/description 누락")
+    if 'class="site-nav"' not in html:
+        fails.append(f"{pg.relative_to(DIST)}: 지역 메뉴 누락")
+    for c in CITIES:
+        hub = f"parking/{c['province_slug']}/{c['slug']}/"
+        if hub not in html:
+            fails.append(f"{pg.relative_to(DIST)}: {c['city']} 허브 링크 없음({hub})")
+
 # ---------------------------------------------------------------- 404 페이지
 # Cloudflare Pages 는 없는 주소에 dist/404.html 을 돌려주고 주소창 경로는 그대로 둔다.
 # 따라서 이 파일의 링크·에셋은 상대경로가 아니라 사이트 절대경로(/...)여야 한다.
@@ -79,7 +107,7 @@ else:
         fails.append("404.html: robots noindex 아님")
     if "<link rel=\"canonical\"" in h404:
         fails.append("404.html: canonical 태그가 있음(색인 대상 아님)")
-    for name in ("수원시 주차장 목록", "홈으로"):
+    for name in ("홈으로", "수원시 주차장 목록", "성남시 주차장 목록"):
         if name not in h404:
             fails.append(f"404.html: '{name}' 링크 없음")
     for href in re.findall(r'(?:href|src)="([^"#]+)"', h404):
@@ -96,7 +124,6 @@ else:
     print("404.html 검사 완료 (절대경로 링크·noindex)")
 
 # ---------------------------------------------------------------- 슬러그(전국 확장)
-sys.path.insert(0, str(BASE / "scripts"))
 from build_site import (DONG_SLUG, GU_SLUG, base_slug, dong_slug,  # noqa: E402
                         dong_slug_map, gu_slug)
 
@@ -149,38 +176,135 @@ for pg in pages:
             fails.append(f"{pg.relative_to(DIST)}: JSON-LD URL 이 배포 도메인 아님")
 print("슬러그·canonical 검사 완료")
 
+# ---------------------------------------------------------------- 도시별 확장 규칙
+# 1) 수원시 39페이지(랜딩·시·구·주말·동) 는 그대로 남아 있어야 한다.
+suwon_pages = [p for p in pages if "/suwon" in p.as_posix()]
+if len(suwon_pages) != 38:
+    fails.append(f"수원시 페이지 수 변경: {len(suwon_pages)} (기대 38 = 허브 1 + 구 4 + 주말 4 + 동 29)")
+
+# 2) 도시별 페이지 구성: 허브 1 + 구 1 + (주말 페이지) + 동 페이지(기준 이상) + (노상 페이지)
+for city in CITIES:
+    slug = city["slug"]
+    hub = DIST / "parking" / "gyeonggi" / slug / "index.html"
+    if not hub.exists():
+        fails.append(f"{city['city']}: 시 허브 없음")
+        continue
+    card_lots = [l for l in LOTS if l.get("city") == city["city"] and l.get("list_mode", "card") != "street"]
+    street_lots = [l for l in LOTS if l.get("city") == city["city"] and l.get("list_mode") == "street"]
+    for d in city["districts"]:
+        p = DIST / "parking" / "gyeonggi" / d["slug"] / "index.html"
+        if not p.exists():
+            fails.append(f"{city['city']} {d['name']}: 구 페이지 없음")
+            continue
+        d_lots = [l for l in card_lots if l["gu"] == d["name"]]
+        # 카드 수 = 목록에 그린 주차장 수
+        cards = len(re.findall(r'class="card lot', p.read_text()))
+        if cards != len(d_lots):
+            fails.append(f"{d['name']}: 카드 {cards}장 vs 데이터 {len(d_lots)}곳")
+        weekend = p.parent / "weekend-free" / "index.html"
+        if bool(city.get("weekend_free_pages")) != weekend.exists():
+            fails.append(f"{d['name']}: 주말 페이지 존재 여부 불일치")
+        # 동 페이지: 기준 미만 동은 페이지가 없어야 한다(빈 페이지 방지)
+        by_dong = Counter(l["dong"] or "기타" for l in d_lots)
+        minimum = city.get("dong_page_min_lots", 3)
+        slugs_map = dong_slug_map(by_dong)
+        dong_dirs = {q.parent.name: q for q in p.parent.rglob("index.html")
+                     if q.parent.parent == p.parent and q.parent.name not in ("weekend-free", "street-parking")}
+        for dong, n in by_dong.items():
+            slug_d = slugs_map[dong]
+            hit = dong_dirs.get(slug_d)
+            if n >= minimum and not hit:
+                warns.append(f"{d['name']} {dong}: {n}곳인데 동 페이지 없음")
+            if n < minimum and hit:
+                fails.append(f"{d['name']} {dong}: {n}곳인데 동 페이지가 생성됨(기준 {minimum}곳)")
+            if hit:
+                cards_d = len(re.findall(r'class="card lot', hit.read_text()))
+                if cards_d != n:
+                    fails.append(f"{slug_d}: 카드 {cards_d}장 vs {dong} {n}곳")
+    street_page = DIST / "parking" / "gyeonggi" / slug / "street-parking" / "index.html"
+    if bool(street_lots) != street_page.exists():
+        fails.append(f"{city['city']}: 노상 페이지 존재 여부 불일치")
+    if street_page.exists():
+        rows = len(re.findall(r"<tr><td>", street_page.read_text()))
+        if rows < len(street_lots):
+            fails.append(f"{city['city']}: 노상 페이지 행 {rows} < 구간 {len(street_lots)}")
+
+# 3) 도시 간 자료 혼입 금지: 성남시 페이지에 수원 자료/문구가 없어야 한다.
+for p in pages:
+    rel = p.relative_to(DIST).as_posix()
+    if "/seongnam" not in rel:
+        continue
+    html = p.read_text()
+    main = html.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    for bad in ("수원", "수원도시공사", "영통구", "권선구"):
+        if bad in main:
+            fails.append(f"{rel}: 성남시 페이지 본문에 '{bad}' 혼입")
+    # 껍데기 방지: 카드·표·계산기 중 하나는 있어야 한다(시 허브는 표, 노상 페이지는 표)
+    if not re.search(r'class="card lot|class="data"|class="calc"', main):
+        fails.append(f"{rel}: 본문에 카드·표·계산기가 없는 페이지(껍데기)")
+    # 노상 구간이 카드로 그려지지 않았는지
+    for lot in LOTS:
+        if lot.get("city") == "성남시" and lot.get("list_mode") == "street" and f'data-lot="{lot["id"]}"' in html:
+            fails.append(f"{rel}: 노상 구간이 카드로 렌더링됨({lot['name']})")
+            break
+
+# 4) 사이트맵 = 실제 페이지 집합 (404 제외, 중복 없음)
+sm = (DIST / "sitemap.xml").read_text()
+locs = re.findall(r"<loc>([^<]+)</loc>", sm)
+want_urls = set()
+for p in pages:
+    rel = p.relative_to(DIST).as_posix().replace("/index.html", "/")
+    if rel == "index.html":
+        rel = ""
+    want_urls.add(SITE_BASE + "/" + rel)
+if set(locs) != want_urls:
+    fails.append(f"사이트맵 불일치: 누락 {sorted(want_urls - set(locs))[:5]} / 초과 {sorted(set(locs) - want_urls)[:5]}")
+if len(locs) != len(set(locs)):
+    fails.append("사이트맵 URL 중복")
+if any("404" in u for u in locs):
+    fails.append("사이트맵에 404 포함")
+print(f"도시별 확장 규칙 검사 완료 (페이지 {len(pages)} · 사이트맵 {len(locs)})")
+
 # ---------------------------------------------------------------- 계산 규칙
-sys.path.insert(0, str(BASE / "scripts"))
 from build_site import price_for, hours_text, fee_text  # noqa: E402
 
 by_name = {}
-for l in DATA["lots"]:
+for l in LOTS:
     by_name.setdefault(l["name"], l)
 
 cases = [
-    # (주차장, 시간, 요일, 감면, 기대 상태, 기대 금액)
-    ("영통구청", 60, "weekday", 0, "paid", 1500),
-    ("영통구청", 120, "weekday", 0, "paid", 3300),
-    ("영통구청", 120, "sun", 0, "free", None),
-    ("신대호수", 120, "weekday", 0, "paid", 700),
-    ("신대호수", 120, "weekday", 0.5, "paid", 350),
-    ("농수산시장", 1440, "weekday", 0, "paid", 6000),          # 1일권 상한
-    ("화성박물관,팔달구청", 120, "sat", 0, "closed", None),     # 토요일 미운영
-    ("시청정문", 120, "sat", 0, "closed", None),
+    # (주차장, 시간, 요일, 감면, 면제분, 기대 상태, 기대 금액)
+    ("영통구청", 60, "weekday", 0, 0, "paid", 1500),
+    ("영통구청", 120, "weekday", 0, 0, "paid", 3300),
+    ("영통구청", 120, "sun", 0, 0, "free", None),
+    ("신대호수", 120, "weekday", 0, 0, "paid", 700),
+    ("신대호수", 120, "weekday", 0.5, 0, "paid", 350),
+    ("농수산시장", 1440, "weekday", 0, 0, "paid", 6000),          # 1일권 상한
+    ("화성박물관,팔달구청", 120, "sat", 0, 0, "closed", None),     # 토요일 미운영
+    ("시청정문", 120, "sat", 0, 0, "closed", None),
+    # 성남시: 유료 30분 400원 + 10분 200원, 1일권 6,000원(24시간)
+    ("수진역환승공영주차장", 30, "weekday", 0, 0, "paid", 400),
+    ("수진역환승공영주차장", 120, "weekday", 0, 0, "paid", 2200),
+    ("수진역환승공영주차장", 1440, "weekday", 0, 0, "paid", 6000),
+    # 성남시 조례: 장애인 1시간 면제 후 50% / 국가유공자 12시간 면제 후 50%
+    ("수진역환승공영주차장", 30, "weekday", 0.5, 60, "free", None),
+    ("수진역환승공영주차장", 120, "weekday", 0.5, 60, "paid", 1100),
+    ("수진역환승공영주차장", 600, "weekday", 0.5, 720, "free", None),
+    ("수진역환승공영주차장", 1440, "weekday", 0.5, 720, "paid", 3000),
 ]
-for name, minutes, day, rate, want_state, want_amt in cases:
+for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
     if not lot:
         fails.append(f"표본 계산: '{name}' 데이터 없음")
         continue
-    r = price_for(lot, minutes, day, rate)
+    r = price_for(lot, minutes, day, rate, exempt)
     ok = r["state"] == want_state and (want_amt is None or r.get("amount") == want_amt)
-    print(f"{'OK ' if ok else 'FAIL'} {name} {minutes}분 {day} 감면{rate:.0%} → {r}")
+    print(f"{'OK ' if ok else 'FAIL'} {name} {minutes}분 {day} 감면{rate:.0%} 면제{exempt}분 → {r}")
     if not ok:
         fails.append(f"계산 규칙 불일치: {name} {minutes}분 {day} → {r} (기대 {want_state}/{want_amt})")
 
 # 요금 미상 표시 확인
-unknown = [l for l in DATA["lots"] if l["fee"]["type"] == "미상"]
+unknown = [l for l in LOTS if l["fee"]["type"] == "미상"]
 if unknown:
     r = price_for(unknown[0], 120, "weekday", 0)
     ok = r["state"] == "unknown"
@@ -189,14 +313,26 @@ if unknown:
         fails.append("요금 미상 주차장이 0원으로 계산됨")
 
 # 화면 문구 표본
-for name in ("영통구청", "시청정문", "곡반정동제7공영"):
+for name in ("영통구청", "시청정문", "곡반정동제7공영", "수진역환승공영주차장"):
     if name in by_name:
         print(f"문구 · {name}: {fee_text(by_name[name])} / {hours_text(by_name[name])}")
 
+# 성남시 카드에 '요금 미상' 이 없어야 하고, 무료로 계산되는 곳이 없어야 한다(자료 기준).
+sn_cards = [l for l in LOTS if l.get("city") == "성남시" and l.get("list_mode") == "card"]
+if any(l["fee"]["type"] == "미상" for l in sn_cards):
+    fails.append("성남시 카드에 요금 미상 주차장이 있음(자료 확인 필요)")
+paid_sn = [l for l in sn_cards if price_for(l, 120, "weekday")["state"] == "paid"]
+if len(paid_sn) != len(sn_cards):
+    fails.append(f"성남시 카드 중 평일 2시간 계산 불가 {len(sn_cards) - len(paid_sn)}곳")
+
 print()
+if warns:
+    print(f"주의 {len(warns)}건")
+    for w in warns[:10]:
+        print(" -", w)
 if fails:
     print(f"실패 {len(fails)}건")
     for f in fails[:20]:
         print(" -", f)
     sys.exit(1)
-print("모두 통과: JSON-LD, 내부 링크, 계산 규칙")
+print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙")

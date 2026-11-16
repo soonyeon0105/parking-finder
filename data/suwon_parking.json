@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-16 19:29",
-  "generated_at_iso": "2026-11-16T19:29:40+09:00",
+  "generated_at": "2026-11-16 22:22",
+  "generated_at_iso": "2026-11-16T22:22:24+09:00",
   "snapshot_at": "2026-11-16 19:11",
   "region": {
    "province": "경기도",
@@ -154,7 +154,10 @@
     "src_name": "광교홍재도서관"
    },
    "udc_id": 70041,
-   "price_key": 600
+   "price_key": 600,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-002",
@@ -240,7 +243,10 @@
     "src_name": "영통구청 부설"
    },
    "udc_id": 31400,
-   "price_key": 600
+   "price_key": 600,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-003",
@@ -326,7 +332,10 @@
     "src_name": "신동 제3"
    },
    "udc_id": 70461,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-004",
@@ -412,7 +421,10 @@
     "src_name": "광교 외식타운"
    },
    "udc_id": 70422,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-005",
@@ -498,7 +510,10 @@
     "src_name": "광교 행복한들"
    },
    "udc_id": 25400,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-006",
@@ -584,7 +599,10 @@
     "src_name": "광교 카페거리1 공영"
    },
    "udc_id": 25800,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-007",
@@ -670,7 +688,10 @@
     "src_name": "광교 원천호수"
    },
    "udc_id": 25000,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-008",
@@ -756,7 +777,10 @@
     "src_name": "영통 공영"
    },
    "udc_id": 20600,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-009",
@@ -842,7 +866,10 @@
     "src_name": "신대호수"
    },
    "udc_id": 25600,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-010",
@@ -928,7 +955,10 @@
     "src_name": "매탄공원 공영"
    },
    "udc_id": 24600,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-011",
@@ -1014,7 +1044,10 @@
     "src_name": "매봉 공영"
    },
    "udc_id": 24200,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-012",
@@ -1100,7 +1133,10 @@
     "src_name": "광교대학로 제2공영"
    },
    "udc_id": 26200,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-013",
@@ -1186,7 +1222,10 @@
     "src_name": "신동 제1"
    },
    "udc_id": 70000,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-014",
@@ -1272,7 +1311,10 @@
     "src_name": "광교중앙마을"
    },
    "udc_id": 26000,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-015",
@@ -1358,7 +1400,10 @@
     "src_name": "광교대학로 제1공영"
    },
    "udc_id": 26400,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-016",
@@ -1444,7 +1489,10 @@
     "src_name": "화성박물관(팔달구청)"
    },
    "udc_id": 32200,
-   "price_key": 600
+   "price_key": 600,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-017",
@@ -1530,7 +1578,10 @@
     "src_name": "수원시청 본관"
    },
    "udc_id": 30800,
-   "price_key": 900
+   "price_key": 900,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-018",
@@ -1616,7 +1667,10 @@
     "src_name": "수원시청 별관(지하)"
    },
    "udc_id": 31600,
-   "price_key": 900
+   "price_key": 900,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-019",
@@ -1697,7 +1751,10 @@
    "disabled_area": "Y",
    "realtime": null,
    "udc_id": null,
-   "price_key": 900
+   "price_key": 900,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-020",
@@ -1783,7 +1840,10 @@
     "src_name": "선경도서관"
    },
    "udc_id": 31000,
-   "price_key": 600
+   "price_key": 600,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-021",
@@ -1869,7 +1929,10 @@
     "src_name": "화서동 먹거리촌"
    },
    "udc_id": 70321,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-022",
@@ -1955,7 +2018,10 @@
     "src_name": "고등동"
    },
    "udc_id": 70361,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-023",
@@ -2041,7 +2107,10 @@
     "src_name": "화서시장"
    },
    "udc_id": 70241,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-024",
@@ -2127,7 +2196,10 @@
     "src_name": "우만2동"
    },
    "udc_id": 70161,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-025",
@@ -2213,7 +2285,10 @@
     "src_name": "장안동 공영"
    },
    "udc_id": 26600,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-026",
@@ -2299,7 +2374,10 @@
     "src_name": "창룡 공영"
    },
    "udc_id": 25200,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-027",
@@ -2385,7 +2463,10 @@
     "src_name": "인계동주택가 공영"
    },
    "udc_id": 22400,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-028",
@@ -2471,7 +2552,10 @@
     "src_name": "인계 공영"
    },
    "udc_id": 20400,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-029",
@@ -2557,7 +2641,10 @@
     "src_name": "우만공원 공영"
    },
    "udc_id": 24400,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-030",
@@ -2643,7 +2730,10 @@
     "src_name": "남수동 공영"
    },
    "udc_id": 31800,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-031",
@@ -2729,7 +2819,10 @@
     "src_name": "꽃뫼환승"
    },
    "udc_id": 10600,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-032",
@@ -2815,7 +2908,10 @@
     "src_name": "교동 공영"
    },
    "udc_id": 20200,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-033",
@@ -2896,7 +2992,10 @@
    "disabled_area": "Y",
    "realtime": null,
    "udc_id": null,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-034",
@@ -2982,7 +3081,10 @@
     "src_name": "권선구청 부설"
    },
    "udc_id": 32400,
-   "price_key": 600
+   "price_key": 600,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-035",
@@ -3068,7 +3170,10 @@
     "src_name": "구운공원"
    },
    "udc_id": 70261,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-036",
@@ -3154,7 +3259,10 @@
     "src_name": "곡반정동 제8공영"
    },
    "udc_id": 70221,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-037",
@@ -3240,7 +3348,10 @@
     "src_name": "곡반정동 제7공영"
    },
    "udc_id": 70121,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-038",
@@ -3326,7 +3437,10 @@
     "src_name": "역세권1지구"
    },
    "udc_id": 70061,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-039",
@@ -3412,7 +3526,10 @@
     "src_name": "터미널 공영"
    },
    "udc_id": 22000,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-040",
@@ -3493,7 +3610,10 @@
    "disabled_area": "Y",
    "realtime": null,
    "udc_id": null,
-   "price_key": 600
+   "price_key": 600,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-041",
@@ -3579,7 +3699,10 @@
     "src_name": "세류역환승"
    },
    "udc_id": 10800,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-042",
@@ -3665,7 +3788,10 @@
     "src_name": "대황교화물"
    },
    "udc_id": 21000,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-043",
@@ -3751,7 +3877,10 @@
     "src_name": "수원화물차고지"
    },
    "udc_id": 70024,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-044",
@@ -3837,7 +3966,10 @@
     "src_name": "권선동지하 공영"
    },
    "udc_id": 24000,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-045",
@@ -3923,7 +4055,10 @@
     "src_name": "곡반정동 제2공영"
    },
    "udc_id": 23200,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-046",
@@ -4009,7 +4144,10 @@
     "src_name": "율전 제3"
    },
    "udc_id": 70401,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-047",
@@ -4095,7 +4233,10 @@
     "src_name": "파장동 맛고을거리"
    },
    "udc_id": 70081,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-048",
@@ -4181,7 +4322,10 @@
     "src_name": "화홍문 공영"
    },
    "udc_id": 24800,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-049",
@@ -4267,7 +4411,10 @@
     "src_name": "성균관대역 환승"
    },
    "udc_id": 11100,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-050",
@@ -4348,7 +4495,10 @@
    "disabled_area": "Y",
    "realtime": null,
    "udc_id": null,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-051",
@@ -4434,7 +4584,10 @@
     "src_name": "만석 4주차장"
    },
    "udc_id": 26803,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-052",
@@ -4520,7 +4673,10 @@
     "src_name": "영화동 지하"
    },
    "udc_id": 22200,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-053",
@@ -4606,7 +4762,10 @@
     "src_name": "만석 3주차장"
    },
    "udc_id": 26802,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-054",
@@ -4692,7 +4851,10 @@
     "src_name": "성대 환승(구)"
    },
    "udc_id": 10400,
-   "price_key": 500
+   "price_key": 500,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-055",
@@ -4778,7 +4940,10 @@
     "src_name": "만석 2주차장"
    },
    "udc_id": 26801,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-056",
@@ -4864,7 +5029,10 @@
     "src_name": "백설 공영"
    },
    "udc_id": 23800,
-   "price_key": 300
+   "price_key": 300,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-057",
@@ -4950,7 +5118,10 @@
     "src_name": "만석 1주차장"
    },
    "udc_id": 26800,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-058",
@@ -5036,7 +5207,10 @@
     "src_name": "만석 5주차장"
    },
    "udc_id": 22800,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "std-059",
@@ -5122,7 +5296,10 @@
     "src_name": "광교 공영"
    },
    "udc_id": 21600,
-   "price_key": 100
+   "price_key": 100,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-21401",
@@ -5214,7 +5391,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-22201",
@@ -5306,7 +5486,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-27000",
@@ -5398,7 +5581,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-30400",
@@ -5490,7 +5676,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-31200",
@@ -5582,7 +5771,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-40400",
@@ -5674,7 +5866,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-40600",
@@ -5766,7 +5961,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-40800",
@@ -5858,7 +6056,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-41200",
@@ -5950,7 +6151,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-70141",
@@ -6042,7 +6246,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-70481",
@@ -6134,7 +6341,10 @@
     "woman": null,
     "pregnant": null
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-70526",
@@ -6226,7 +6436,10 @@
     "woman": 0,
     "pregnant": 3
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   },
   {
    "id": "udc-70545",
@@ -6318,11 +6531,14 @@
     "woman": 0,
     "pregnant": 0
    },
-   "price_key": null
+   "price_key": null,
+   "city": "수원시",
+   "city_slug": "suwon",
+   "list_mode": "card"
   }
  ],
  "quality": {
-  "generated_at": "2026-11-16 19:29",
+  "generated_at": "2026-11-16 22:22",
   "총_주차장": 72,
   "원자료_전국행수": 18994,
   "원자료_수원시행수": 59,
@@ -6491,5 +6707,13 @@
    "2026-04-16",
    "2026-11-16"
   ]
- }
+ },
+ "slug": "suwon",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 1,
+ "city": "수원시",
+ "weekend_free_pages": true,
+ "discounts": null,
+ "realtime": true
 }

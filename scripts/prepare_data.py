@@ -1,22 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 수원 MVP - 데이터 정제 스크립트
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
+     - 수원시 59행 : 요금·운영시간·좌표
+     - 성남시 164행: 요금·운영시간·좌표 (노외 98행 + 노상 66행)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
-     -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수
-  3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강
+     -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
+  3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
 
 출력:
-  data/suwon_parking.json    정제·병합 결과(사이트 생성기 입력)
-  data/data_quality.json     정합성 점검 결과
-  scripts/summary.md         사람이 읽는 정제 요약
-  scripts/summary.json       기계가 읽는 정제 요약
+  data/site.json             도시 통합 결과(사이트 생성기 입력: cities[] + lots[])
+  data/suwon_parking.json    수원시 단독 결과(기존 경로 호환)
+  data/seongnam_parking.json 성남시 단독 결과
+  data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
+  scripts/summary.md         사람이 읽는 정제 요약 (도시별)
+  scripts/summary.json       기계가 읽는 정제 요약 (도시별)
+
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|all]
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -36,7 +43,21 @@ NOOE_CSV = RAW / "경기도수원시_공영노외주차장현황_data.go.kr_1515
 
 KST = timezone(timedelta(hours=9))
 NOW = datetime.now(KST)
-UDC_FETCHED = datetime.fromtimestamp(UDC_JSON.stat().st_mtime, KST)
+
+
+def _snapshot_time(path: Path) -> datetime:
+    """원자료 스냅샷의 수집 시각.
+
+    파일 mtime 은 저장소를 새로 clone 할 때마다 바뀌므로, 수집 시각을 적어 둔
+    sidecar(*_fetched_at.txt)가 있으면 그 값을 쓴다. 없을 때만 mtime 으로 대체한다.
+    """
+    sidecar = path.with_name(path.stem + "_fetched_at.txt")
+    if sidecar.exists():
+        return datetime.strptime(sidecar.read_text().strip(), "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+    return datetime.fromtimestamp(path.stat().st_mtime, KST)
+
+
+UDC_FETCHED = _snapshot_time(UDC_JSON)
 
 GU_SLUG = {"영통구": "suwon-yeongtong", "권선구": "suwon-gwonseon",
            "팔달구": "suwon-paldal", "장안구": "suwon-jangan"}
@@ -183,6 +204,40 @@ def gu_from_addr(addr: str):
     return m.group(1) if m else None
 
 
+def parse_schedule(row, note):
+    """\uc6b4\uc601\uc694\uc77c\u00b7\uc694\uc77c\ubcc4 \uc6b4\uc601\uc2dc\uac04 \uce78\uc744 \uc77d\uc5b4 (hours, oper, closed_from_note) \ub97c \ub9cc\ub4e0\ub2e4.
+
+    hours[key] = {open, start, end, 24h, listed, raw[, note_closed]}
+    \ud2b9\uae30\uc0ac\ud56d\uc5d0 \uc801\ud78c \uc694\uc77c \ud734\ubb34(\uc608: '\uc6d4\uc694\uc77c+\uacf5\ud734\uc77c \ud3d0\uc1c4')\ub294 \uc6b4\uc601\uc2dc\uac04 \uce78\ubcf4\ub2e4 \uc6b0\uc120\ud55c\ub2e4.
+    """
+    raw_oper = (row.get("\uc6b4\uc601\uc694\uc77c") or "").replace(" ", "")
+    oper = {key for key, token in (("weekday", "\ud3c9\uc77c"), ("sat", "\ud1a0\uc694\uc77c"), ("sun", "\uacf5\ud734\uc77c"))
+            if token in raw_oper}
+    win = {}
+    for key, (cs, ce) in {
+        "weekday": ("\ud3c9\uc77c\uc6b4\uc601\uc2dc\uc791\uc2dc\uac01", "\ud3c9\uc77c\uc6b4\uc601\uc885\ub8cc\uc2dc\uac01"),
+        "sat": ("\ud1a0\uc694\uc77c\uc6b4\uc601\uc2dc\uc791\uc2dc\uac01", "\ud1a0\uc694\uc77c\uc6b4\uc601\uc885\ub8cc\uc2dc\uac01"),
+        "sun": ("\uacf5\ud734\uc77c\uc6b4\uc601\uc2dc\uc791\uc2dc\uac01", "\uacf5\ud734\uc77c\uc6b4\uc601\uc885\ub8cc\uc2dc\uac01"),
+    }.items():
+        opened, s, e, full = day_window(row.get(cs), row.get(ce))
+        win[key] = {"open": opened and key in oper, "start": s, "end": e,
+                    "24h": full, "listed": key in oper,
+                    "raw": [fmt_time(row.get(cs)), fmt_time(row.get(ce))]}
+
+    # \ud2b9\uae30\uc0ac\ud56d\uc5d0 \uba85\uc2dc\ub41c \uc694\uc77c \ud734\ubb34\ub294 \uc6b4\uc601\uc2dc\uac04 \uce78\ubcf4\ub2e4 \uc6b0\uc120\ud55c\ub2e4.
+    closed_note = False
+    partial = re.search(r"\d\s*[,\u00b7]\s*\d\s*\uc8fc", note) or re.search(r"(\uccab\uc9f8|\ub458\uc9f8|\uc14b\uc9f8|\ub137\uc9f8)\s*\uc8fc", note)
+    for key, pat in ([] if partial else (("sun", r"\uacf5\ud734\uc77c[^)]{0,6}(\ud3d0\uc1c4|\ud734\ubb34)"),
+                                      ("sun", r"\uc77c\uc694\uc77c[^)]{0,6}(\ud3d0\uc1c4|\ud734\ubb34)"),
+                                      ("sat", r"\ud1a0\uc694\uc77c[^)]{0,6}(\ud3d0\uc1c4|\ud734\ubb34)"))):
+        if re.search(pat, note):
+            if win[key]["open"]:
+                closed_note = True
+            win[key]["open"] = False
+            win[key]["note_closed"] = True
+    return win, {k: v["open"] for k, v in win.items()}, closed_note
+
+
 # ---------------------------------------------------------------- 2) 도시공사 실시간
 def load_udc():
     raw = json.loads(UDC_JSON.read_text())
@@ -229,8 +284,19 @@ def load_nooe():
     return out
 
 
-# ---------------------------------------------------------------- main
-def main():
+# ---------------------------------------------------------------- 수원시
+CITY_META = {
+    # dong_page_min_lots: 동별 페이지를 만드는 최소 노외 주차장 수.
+    #   수원시는 이미 색인된 동 페이지(29개)를 그대로 유지해야 하므로 1곳부터 만든다.
+    #   새로 확장하는 성남시는 3곳 미만 동을 구 페이지 표에만 두어 빈 페이지를 만들지 않는다.
+    "수원시": {"slug": "suwon", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 1},
+    "성남시": {"slug": "seongnam", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+}
+
+
+def build_suwon():
     std_all, std_suwon = load_standard()
     udc = load_udc()
     nooe = load_nooe()
@@ -266,34 +332,7 @@ def main():
         daily_fee = to_int(r.get("1일주차권요금"))
         note = (r.get("특기사항") or "").strip()
 
-        oper = set()
-        raw_oper = (r.get("운영요일") or "").replace(" ", "")
-        for key, token in (("weekday", "평일"), ("sat", "토요일"), ("sun", "공휴일")):
-            if token in raw_oper:
-                oper.add(key)
-
-        win = {}
-        for key, (cs, ce) in {
-            "weekday": ("평일운영시작시각", "평일운영종료시각"),
-            "sat": ("토요일운영시작시각", "토요일운영종료시각"),
-            "sun": ("공휴일운영시작시각", "공휴일운영종료시각"),
-        }.items():
-            opened, s, e, full = day_window(r.get(cs), r.get(ce))
-            win[key] = {"open": opened and key in oper, "start": s, "end": e,
-                        "24h": full, "listed": key in oper,
-                        "raw": [fmt_time(r.get(cs)), fmt_time(r.get(ce))]}
-
-        # 특기사항에 명시된 요일 휴무는 운영시간 칸보다 우선한다(예: '월요일+공휴일 폐쇄')
-        closed_note = False
-        partial = re.search(r"\d\s*[,·]\s*\d\s*주", note) or re.search(r"(첫째|둘째|셋째|넷째)\s*주", note)
-        for key, pat in ([] if partial else (("sun", r"공휴일[^)]{0,6}(폐쇄|휴무)"), ("sun", r"일요일[^)]{0,6}(폐쇄|휴무)"),
-                         ("sat", r"토요일[^)]{0,6}(폐쇄|휴무)"))):
-            if re.search(pat, note):
-                if win[key]["open"]:
-                    closed_note = True
-                win[key]["open"] = False
-                win[key]["note_closed"] = True
-        oper = {k: v["open"] for k, v in win.items()}
+        win, oper, closed_note = parse_schedule(r, note)
 
         free_days = parse_free_days(note)
         if fee_type == "무료":
@@ -523,13 +562,20 @@ def main():
         "lots": lots,
         "quality": quality,
     }
+    payload.update(CITY_META["수원시"] | {
+        "city": "수원시",
+        "weekend_free_pages": True,
+        "discounts": None,      # 공통 50%/80% 버튼 유지(T-02 결정 대기) → 빌더 기본값 사용
+        "realtime": True,
+    })
+    for lot in lots:
+        lot["city"] = "수원시"
+        lot["city_slug"] = "suwon"
+        lot.setdefault("list_mode", "card")      # 카드 목록에 그리는 주차장
+
     (DATA / "suwon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     (DATA / "data_quality.json").write_text(json.dumps(quality, ensure_ascii=False, indent=1))
-
-    summary = build_summary(payload)
-    (BASE / "scripts" / "summary.md").write_text(summary)
-    (BASE / "scripts" / "summary.json").write_text(json.dumps(payload["quality"], ensure_ascii=False, indent=1))
-    print(summary)
+    return payload
 
 
 # ---------------------------------------------------------------- quality
@@ -608,57 +654,340 @@ def check_quality(std_all, std_suwon, udc, lots, added):
     return summary
 
 
-def build_summary(payload):
+# ---------------------------------------------------------------- 성남시 (T-03 Phase 1)
+SEONGNAM_PROVIDER = "경기도 성남시"
+SEONGNAM_DISTRICTS = [("수정구", "seongnam-sujeong"),
+                      ("중원구", "seongnam-jungwon"),
+                      ("분당구", "seongnam-bundang")]
+SEONGNAM_BBOX = (37.33, 37.48, 127.05, 127.20)      # 성남시 대략 경계(좌표 점검용)
+
+# 성남시 공영주차장 요금 감면 — 성남도시개발공사(park.isdc.co.kr) '노외주차장 > 요금감면' 및
+# 「성남시 주차장 설치 및 관리 운영에 관한 조례」 별표2 (2026-11-16 확인).
+#   · 50%     : 경차, 저공해차, 만 65세 이상, 임산부, 다자녀, 병역명문가, 환승
+#   · 1시간 면제 후 50% : 장애인, 자원봉사활동 차량
+#   · 12시간 면제 후 50%: 국가유공자·유족, 5·18 부상자, 고엽제환자, 참전유공자
+#   · 100%    : 모범·유공·성실납세자 (월정기 감면 안내)
+SEONGNAM_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·다자녀 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경차·저공해차·만 65세 이상·임산부·다자녀·병역명문가·환승"},
+    {"label": "장애인 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": "장애인 복지카드·장애인 자동차표지"},
+    {"label": "국가유공자 12시간 면제 후 50%", "rate": 0.5, "exempt_min": 720,
+     "note": "국가유공자·유족, 5·18부상자, 고엽제환자, 참전유공자"},
+]
+
+
+def seongnam_gu(addr: str):
+    for g, _ in SEONGNAM_DISTRICTS:
+        if g in (addr or ""):
+            return g
+    return None
+
+
+def road_name(addr: str):
+    """도로명주소에서 도로 이름만 뽑다(예: '경기도 성남시 중원구 산성대로 415' → '산성대로')."""
+    body = re.sub(r"^\S+\s+\S+\s+\S+구\s+", "", (addr or "").strip())
+    m = re.match(r"([가-힣A-Za-z0-9]+?(?:대로|로|길))", body)
+    return m.group(1) if m else None
+
+
+def build_seongnam():
+    """성남시 공영주차장을 표준데이터에서 추출한다(도시공사 실시간 목록은 미수집).
+
+    노외(건물식) 주차장은 카드 목록(list_mode='card')으로, 노상(거리) 구간은
+    이름이 '중상32-75'처럼 구간 번호라 카드로 빚으면 정보가 반복되는 껍데기 페이지가 된다.
+    따라서 노상 66구간은 list_mode='street'으로 분리해 별도 표·전용 페이지에서 다룬다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows = [r for r in rows_all if (r.get("제공기관명") or "").strip() == SEONGNAM_PROVIDER]
+    lots, excluded = [], []
+    seq = card_no = street_no = 0
+
+    for r in rows:
+        seq += 1
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 기준 — 이름·주소·좌표·구획수 중 하나라도 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (SEONGNAM_BBOX[0] <= lat <= SEONGNAM_BBOX[1]
+                  and SEONGNAM_BBOX[2] <= lng <= SEONGNAM_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        gu = seongnam_gu(addr)
+        dong = dong_from_jibun(jibun)
+        dong_src = "지번주소"
+        if not dong:
+            m = re.search(r"([가-힣]{1,5}\d?동)", name)
+            if m:
+                dong, dong_src = m.group(1), "주차장명"
+            else:
+                dong_src = "없음"
+
+        note = (r.get("특기사항") or "").strip()
+        fee_raw = (r.get("요금정보") or "").strip()
+        base_min = to_int(r.get("주차기본시간"))
+        base_fee = to_int(r.get("주차기본요금"))
+        unit_min = to_int(r.get("추가단위시간"))
+        unit_fee = to_int(r.get("추가단위요금"))
+        daily_h = to_int(r.get("1일주차권요금적용시간"))
+        daily_fee = to_int(r.get("1일주차권요금"))
+        monthly = to_int(r.get("월정기권요금"))
+
+        # 요금정보: 무료 / 유료 / 혼합 (혼합 = 운영시간만 유료, 그 외 시간 미운영으로 등록된 노상 구간)
+        if fee_raw == "무료":
+            ftype = "무료"
+        elif fee_raw in ("유료", "혼합"):
+            ftype = "유료" if (base_min and base_fee is not None and base_min and unit_fee is not None) else "미상"
+        else:
+            ftype = "미상"
+
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        if ftype == "무료":
+            free_days = {"sat": True, "sun": True}
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"sn-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"sn-{card_no:03d}"
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": road_name(road) if street else None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "fee": {
+                "type": ftype,
+                "raw_type": fee_raw,          # 원자료 표기(유료/무료/혼합)
+                "mixed": fee_raw == "혼합",
+                "grade": (r.get("급지구분") or "").strip(),
+                "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_hours": daily_h, "daily_fee": daily_fee,
+                "monthly": monthly if monthly else None,
+                "pay": (r.get("결제방법") or "").strip(),
+            },
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "realtime": None,
+            "udc_id": None,
+            "price_key": base_fee if ftype == "유료" else None,
+            "city": "성남시",
+            "city_slug": "seongnam",
+        })
+
+    quality = check_quality_seongnam(rows_all, rows, lots, excluded)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": None,
+            "region": {"province": "경기도", "city": "성남시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-12", "rows_total": len(rows_all),
+                    "rows_city": len(rows),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": "성남시가 등록한 행만(제공기관명 '경기도 성남시') 추출. 요금·운영시간·좌표·특기사항 사용.",
+                },
+                {
+                    "id": "isdc", "name": "성남도시개발공사 공영주차장 요금·감면 안내",
+                    "org": "성남도시개발공사",
+                    "url": "https://park.isdc.co.kr/roadout/useinfo_fee3.do",
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": None,
+                    "fetched_at": "2026-11-16 (KST)",
+                    "note": "요금 감면율(50%·1시간 면제 후 50%·12시간 면제 후 50%) 확인용 — 계산기 감면 버튼 근거.",
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in SEONGNAM_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+    }
+    payload.update(CITY_META["성남시"] | {
+        "city": "성남시",
+        "weekend_free_pages": False,     # 무료 개방 표기가 없어 '주말 무료' 페이지를 만들지 않는다
+        "discounts": SEONGNAM_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "seongnam_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_seongnam(std_all, rows, lots, excluded):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_gu = Counter(l["gu"] for l in card)
+    by_dong = Counter((l["gu"], l["dong"]) for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    fee_missing = [l["name"] for l in lots if l["fee"]["type"] == "미상"]
+    fee_broken = [l["name"] for l in lots
+                  if l["fee"]["type"] == "유료"
+                  and not (l["fee"]["base_min"] and l["fee"]["base_fee"] is not None
+                           and l["fee"]["unit_min"] and l["fee"]["unit_fee"] is not None)]
+    paid = [l["fee"]["base_fee"] for l in lots
+            if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_성남시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(by_gu),
+        "동별": {f"{g} {d}": c for (g, d), c in sorted(by_dong.items(),
+                                                   key=lambda kv: (str(kv[0][0]), str(kv[0][1])))},
+        "동수": len({(l["gu"], l["dong"]) for l in card if l["dong"]}),
+        "요금구분": dict(fee_types),
+        "요금_미상": fee_missing,
+        "요금_필드불완전": fee_broken,
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": [l["name"] for l in lots if l["fee"]["type"] == "무료"],
+        "혼합_요금구분": [l["name"] for l in lots if l["fee"].get("mixed")],
+        "무료개방_표기": [l["name"] for l in lots if l["free_days"]["sat"] or l["free_days"]["sun"]],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
+
+def build_summary_city(payload):
     q = payload["quality"]
-    lots = payload["lots"]
-    lines = []
-    lines.append("# 공영주차장 파인더 수원 — 정제 결과 요약\n")
-    lines.append(f"생성 시각: {q['generated_at']} (KST)\n")
-    lines.append("## 입력 원자료\n")
+    city = payload["city"]
+    lines = [f"## {city} — 정제 결과 요약\n",
+             f"생성 시각: {q['generated_at']} (KST)\n"]
     for s in payload["meta"]["sources"]:
-        lines.append(f"- **{s['name']}** · {s['org']} · {s['url']}\n"
-                     f"  - 파일 `{s['file']}` · sha256 `{s['sha256'][:16]}…` · 수령 {s['fetched_at']} · 기준일 {s['base_date']}\n"
-                     f"  - 행 수: 전체 {s.get('rows_total')}"
-                     + (f" / 수원시 {s.get('rows_suwon')}" if s.get("rows_suwon") else "")
-                     + f" · {s['note']}")
-    lines.append(f"\n## 병합 결과\n")
-    lines.append(f"- 전국 표준데이터 {q['원자료_전국행수']:,}행 중 수원시 {q['원자료_수원시행수']}행을 1차 모집단으로 사용")
-    lines.append(f"- 수원도시공사 실시간 목록 {q['도시공사_목록행수']}곳 중 {q['실시간_연계_표준데이터']}곳을 좌표·구획수 기준으로 표준데이터에 연결")
-    lines.append(f"- 표준데이터에 없는 도시공사 주차장 {q['도시공사_추가행수']}곳을 추가(요금 정보 미상으로 표시)")
-    lines.append(f"- **최종 주차장 {q['총_주차장']}곳 · 총 구획 {q['총_구획수']:,}면**")
-    lines.append("\n### 구별 / 동별\n")
-    for g, c in q["구별"].items():
-        lines.append(f"- {g}: {c}곳")
-    for k, c in q["동별"].items():
-        lines.append(f"  - {k}: {c}곳")
-    lines.append("\n### 요금·무료 개방\n")
-    lines.append(f"- 요금 구분: {q['요금구분']}")
-    lines.append(f"- 무료 요금구분: {q['무료_요금구분'] or '없음'}")
-    lines.append(f"- 일요일·공휴일 무료 개방 표기: {q['일공휴일무료'] or '없음'}")
-    lines.append(f"- 토요일 무료 개방 표기: {q['토요일무료'] or '없음'}")
-    lines.append(f"- 특기사항의 '폐쇄/휴무' 표기로 운영시간 칸을 덮어쓴 곳: {q['특기사항_기준_휴무'] or '없음'}")
-    lines.append(f"- 토요일 미운영 {q['토요일_미운영']}곳 / 일요일·공휴일 미운영 {q['일공휴일_미운영']}곳")
-    lines.append(f"- 유료 주차장 평균 기본요금: {q['평균_기본요금']:,}원" if q["평균_기본요금"] else "")
-    lines.append("\n### 정합성 점검\n")
-    lines.append(f"- 좌표 없음: {len(q['좌표_없음'])}곳 {q['좌표_없음']}")
-    lines.append(f"- 주소 없음: {len(q['주소_없음'])}곳 {q['주소_없음']}")
-    lines.append(f"- 요금 정보 미상: {len(q['요금_미상'])}곳")
-    lines.append(f"- 요금 필드 불완전: {len(q['요금_필드불완전'])}곳 {q['요금_필드불완전']}")
-    lines.append(f"- 이름 중복: {q['이름중복'] or '없음'}")
-    lines.append(f"- 주차장관리번호 중복: {len(q['관리번호중복'])}쌍 → 내부 식별자는 순번으로 대체")
-    for d in q["관리번호중복"]:
-        lines.append(f"  - {d['번호']}: {', '.join(d['주차장'])}")
-    lines.append(f"- 좌표가 수원시 범위를 벗어난 행: {q['좌표_범위이탈'] or '없음'}")
-    lines.append(f"- 표준데이터 면수와 도시공사 면수가 10면 이상 차이: {len(q['면수_차이_10면이상'])}곳")
-    for n, a, b in q["면수_차이_10면이상"]:
-        lines.append(f"  - {n}: 표준 {a}면 vs 도시공사 {b}면")
-    lines.append(f"- 데이터 기준일: {', '.join(q['데이터기준일'])}")
-    lines.append("\n### 해석상 주의\n")
-    lines.append("- 표준데이터에는 **일요일 전용 운영시간 칸이 없다**. 일요일은 공휴일 칸을 준용했다(수원시 조례상 일요일은 공휴일과 같이 처리).")
-    lines.append("- 표준데이터 요금 필드는 기관 입력값이라 '최초 N분 무료' 같은 현장 정책이 빠져 있을 수 있다. 페이지에 기준일과 함께 표시하고 현장 확인을 안내한다.")
-    lines.append("- 도시공사 목록의 잔여면수는 **조회 시점 스냅샷**이며 정적 페이지에는 그 시각을 함께 표기한다.")
-    lines.append("- 동 정보가 지번주소에 없는 6곳은 주차장명 또는 같은 구 동 중심좌표 최근접으로 추정했다(추정 표시).")
-    return "\n".join(l for l in lines if l != "") + "\n"
+        rows = s.get("rows_city") or s.get("rows_suwon") or s.get("rows_total")
+        lines.append(f"- **{s['name']}** · {s['org']} · {s['url']} · 행 {rows} · 기준일 {s['base_date']}\n")
+    if city == "수원시":
+        lines.append(f"- 주차장 **{q['총_주차장']}곳**(표준데이터 {q['원자료_수원시행수']} + 도시공사 추가 {q['도시공사_추가행수']}) "
+                     f"· 총 구획 {q['총_구획수']:,}면 · 실시간 연계 {q['실시간_연계_전체']}곳")
+    else:
+        lines.append(f"- 노외 주차장 **{q['총_주차장']}곳** · 총 구획 {q['총_구획수']:,}면 "
+                     f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
+        lines.append(f"- 원자료 성남시 {q['원자료_성남시행수']}행 중 껍데기 행 {q['제외_행수']}행 제외")
+        lines.append(f"- 구별: {q['구별']} · 동 {q['동수']}개")
+        lines.append(f"- 요금 구분: {q['요금구분']} · 무료 개방 표기 {len(q['무료개방_표기'])}곳 · 평균 기본요금 {q['평균_기본요금']:,}원"
+                     if q["평균_기본요금"] else f"- 요금 구분: {q['요금구분']}")
+        lines.append(f"- 토·일 공휴일 미운영: 토 {q['토요일_미운영']} / 일·공휴일 {q['일공휴일_미운영']}")
+        lines.append(f"- 전화번호 미등록 {q['전화번호_없음']}곳(원자료에 없음)")
+    return "\n".join(lines) + "\n"
+
+
+def build_site_payload(cities):
+    """도시 결과를 사이트 생성기용 단일 파일(data/site.json)로 합친다."""
+    lots = []
+    for c in cities:
+        lots.extend(c["lots"])
+    sources, seen = [], set()
+    for c in cities:
+        for s in c["meta"]["sources"]:
+            key = (s["id"], s["url"])
+            if key in seen:
+                continue
+            seen.add(key)
+            sources.append(dict(s, city=c["city"]))
+    return {
+        "meta": {
+            "generated_at": max(c["meta"]["generated_at"] for c in cities),
+            "snapshot_at": next((c["meta"]["snapshot_at"] for c in cities if c["meta"].get("snapshot_at")), None),
+            "provinces": [{"name": "경기도", "slug": "gyeonggi"}],
+            "cities": [{k: c[k] for k in ("city", "slug", "province", "province_slug")} for c in cities],
+            "sources": sources,
+        },
+        "cities": [{k: c.get(k) for k in ("city", "slug", "province", "province_slug", "districts",
+                                          "quality", "weekend_free_pages", "discounts", "realtime",
+                                          "dong_page_min_lots")}
+                   for c in cities],
+        "lots": lots,
+    }
+
+
+# ---------------------------------------------------------------- main
+def main():
+    ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "all"], default="all")
+    args = ap.parse_args()
+
+    want = ["수원시", "성남시"] if args.city == "all" else \
+           ["수원시" if args.city == "suwon" else "성남시"]
+    cities = []
+    if "수원시" in want:
+        cities.append(build_suwon())
+    if "성남시" in want:
+        cities.append(build_seongnam())
+
+    if args.city == "all":
+        site = build_site_payload(cities)
+        (DATA / "site.json").write_text(json.dumps(site, ensure_ascii=False, indent=1))
+
+    summary = "\n".join(build_summary_city(c) for c in cities)
+    (BASE / "scripts" / "summary.md").write_text(
+        "# 공영주차장 파인더 — 도시별 정제 결과\n\n" + summary)
+    (BASE / "scripts" / "summary.json").write_text(
+        json.dumps({c["city"]: c["quality"] for c in cities}, ensure_ascii=False, indent=1))
+    print(summary)
 
 
 if __name__ == "__main__":
