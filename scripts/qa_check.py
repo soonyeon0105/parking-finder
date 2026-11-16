@@ -275,6 +275,29 @@ if "data-page" not in app_js or 'data-page="404"' not in (p404.read_text() if p4
     fails.append("404.html 이 404_hit 를 알릴 body 표시(data-page)를 갖추지 않음")
 print("통계 훅 검사 완료 (calc_use·map_outbound_click·free_filter_click·404_hit)")
 
+# ---------------------------------------------------------------- 검색엔진 소유확인 (T-02)
+# 네이버 서치어드바이저 소유확인은 두 방식으로 둔다 — ① 모든 페이지 <head> 의 meta 태그,
+# ② 사이트 루트의 확인용 HTML 파일(한 줄). 둘 중 하나만 빠져도 서치어드바이저 확인이 안 되므로
+# 여기서 둘 다 본다. 확인 파일은 index.html 이 아니라 pages 목록에 들어가지 않으므로
+# JSON-LD·링크 검사 대상이 아니다(별도 파일로 존재만 검사).
+from build_site import (NAVER_VERIFICATION_CONTENT, NAVER_VERIFICATION_FILE,  # noqa: E402
+                        NAVER_VERIFICATION_FILE_BODY)
+
+naver_meta = f'<meta name="naver-site-verification" content="{NAVER_VERIFICATION_CONTENT}">'
+missing_meta = [rel for rel, h in all_pages_html.items() if naver_meta not in h]
+if missing_meta:
+    fails.append(f"네이버 소유확인 meta 태그 없는 페이지: {missing_meta[:5]}")
+nv_file = DIST / NAVER_VERIFICATION_FILE
+if not nv_file.exists():
+    fails.append(f"네이버 소유확인 파일 없음: dist/{NAVER_VERIFICATION_FILE}")
+else:
+    body = nv_file.read_text()
+    if body.strip() != NAVER_VERIFICATION_FILE_BODY:
+        fails.append(f"네이버 소유확인 파일 내용 이상: {body!r}")
+    if "<" in body or "\n" in body.strip():
+        fails.append("네이버 소유확인 파일이 한 줄 텍스트가 아님(HTML 태그·여러 줄)")
+print(f"네이버 소유확인 검사 완료 (meta {len(all_pages_html)}페이지 · {NAVER_VERIFICATION_FILE})")
+
 # ---------------------------------------------------------------- 슬러그(전국 확장)
 from build_site import (DONG_SLUG, GU_SLUG, UNKNOWN_DONG, base_slug,  # noqa: E402
                         dong_slug, dong_slug_map, gu_slug)

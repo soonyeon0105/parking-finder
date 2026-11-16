@@ -43,6 +43,12 @@ ERROR_REPORT_FORM_URL = (                     # 오류 제보 구글 폼 (이메
     "https://docs.google.com/forms/d/e/"
     "1FAIpQLSfRQ0lo_FnZ9PqQ25CU6e43cfrc5_QHDEITMn8lUG9VNgirCw/viewform"
 )
+# 네이버 서치어드바이저 소유확인 (T-02). 두 가지 방식을 함께 둔다.
+#   · meta 태그: 모든 페이지 <head> — 서치어드바이저가 사이트 루트 HTML만 읽어도 확인된다.
+#   · HTML 파일: dist/naver8ce4f3d84ea179bf4051229da800ea43.html — 내용은 아래 NAVER_VERIFICATION_FILE_BODY 한 줄.
+NAVER_VERIFICATION_CONTENT = "55f55775d3fbb62b4da5fba92a704878ccd592fe"
+NAVER_VERIFICATION_FILE = "naver8ce4f3d84ea179bf4051229da800ea43.html"
+NAVER_VERIFICATION_FILE_BODY = f"naver-site-verification: {NAVER_VERIFICATION_FILE}"
 
 DONG_SLUG = {
     "고색동": "goseak-dong", "곡반정동": "gokbanjeong-dong", "권선동": "gwonseon-dong",
@@ -642,6 +648,15 @@ def footer_sources(city, url) -> str:
             f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
 
 
+def verification_head() -> str:
+    """검색엔진 소유확인 meta 태그 조각(네이버 서치어드바이저).
+
+    구글 서치콘솔은 도메인 속성(sc-domain:9welfare.com)을 DNS TXT 로 확인했으므로
+    google-site-verification meta 는 넣지 않는다(중복 확인 수단을 늘리지 않는다).
+    """
+    return (f'<meta name="naver-site-verification" content="{NAVER_VERIFICATION_CONTENT}">\n')
+
+
 def ga_head() -> str:
     """GA4 삽입 조각.
 
@@ -691,7 +706,7 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 <meta property="og:description" content="{esc(description)}">
 {og_url_tag}<meta name="robots" content="{robots}">
 <meta name="generator" content="parking-finder static builder">
-{ga_head()}{extra_head}
+{verification_head()}{ga_head()}{extra_head}
 <link rel="stylesheet" href="{url('/assets/style.css')}">
 {script_jsonld(jsonld)}
 </head>
@@ -1956,6 +1971,15 @@ def main():
     # 없는 주소용 404 (사이트맵에는 넣지 않는다)
     (DIST / "404.html").write_text(build_404(site), encoding="utf-8")
 
+    # 네이버 서치어드바이저 소유확인 파일 — 매 빌드마다 다시 만든다(DIST 를 지우고 시작하므로).
+    # 내용은 지정된 한 줄 그대로. 끝에 개행·공백을 붙이지 않아 바이트 단위로도 같은 값이 된다.
+    (DIST / NAVER_VERIFICATION_FILE).write_text(NAVER_VERIFICATION_FILE_BODY, encoding="utf-8")
+    # Cloudflare Pages 는 .html 요청을 확장자 없는 주소로 308 리다이렉트한다(HTML URL 정규화).
+    # 네이버는 HTTP 리다이렉트 중 301 만 소유확인을 보장하므로, 확인 파일 경로에 한해 명시적 301 을 둔다.
+    # (규칙이 정규화보다 먼저 적용되지 않으면 서비스가 주는 308 그대로 남는다 — 동작은 배포 후 확인)
+    (DIST / "_redirects").write_text(
+        f"/{NAVER_VERIFICATION_FILE} /{NAVER_VERIFICATION_FILE.rsplit('.', 1)[0]} 301\n", encoding="utf-8")
+
     # 사이트맵 — /privacy/ 는 색인은 되지만 자주 바뀌지 않아 우선순위를 낮게 둔다
     urls = []
     for p, _ in pages:
@@ -1971,7 +1995,7 @@ def main():
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\n")
 
-    print(f"생성 완료: {len(pages)}페이지 + 404.html · dist/")
+    print(f"생성 완료: {len(pages)}페이지 + 404.html + {NAVER_VERIFICATION_FILE} · dist/")
     for p, _ in pages:
         print("  ", p)
 

@@ -243,6 +243,7 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 - 빌드 산출물을 저장소에 함께 커밋해 두었으므로 별도 빌드 단계 없이 바로 배포됩니다.
   데이터를 갱신할 때만 로컬에서 `build_site.py --base https://parking.9welfare.com`을 다시 돌려 `dist/`를 커밋합니다.
 - `dist/404.html`이 있으므로 없는 주소는 상태코드 404와 함께 이 페이지가 표시됩니다(소프트 404 방지).
+- 검색엔진 소유확인은 빌드가 함께 만듭니다. 네이버 서치어드바이저는 모든 페이지 `<head>`의 `<meta name="naver-site-verification">` 와 사이트 루트의 `naver8ce4f3d84ea179bf4051229da800ea43.html`(내용 `naver-site-verification: naver8ce4f3d84ea179bf4051229da800ea43.html` 한 줄) 두 방식으로 두었고, 구글 서치콘솔은 도메인 속성(`sc-domain:9welfare.com`)을 DNS TXT 로 확인합니다.
 
 ## 라이선스
 
