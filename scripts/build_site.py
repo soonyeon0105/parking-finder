@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 — 정적 사이트 생성기 (수원시 + 성남시 + 용인시 + 화성시)
+공영주차장 파인더 — 정적 사이트 생성기 (수원시 + 성남시 + 용인시 + 화성시 + 안양시)
 
 data/site.json 을 읽어 dist/ 아래에 도시별로
   · 랜딩(도시 선택)
@@ -155,6 +155,33 @@ CITY_UI = {
                               "<li><b>거주자우선주차</b>: 이름에 ‘거주자우선주차’가 든 구간은 거주자 계약·공유 이용 요금이 "
                               "등록되어 있어 일반 이용 요금과 다를 수 있습니다(현장 확인).</li>"),
     },
+    "안양시": {
+        "manager": "안양도시공사 주차사업부(031-389-5326) · 안양시 철도교통과 주차정책팀(031-8045-5255)",
+        "manager_inquiry": "안양도시공사 주차사업부(031-389-5326)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-09-15",
+        "realtime": False,
+        "discount_note": ("안양시 조례(별표2) 기준입니다. 경차·저공해·65세 이상·다자녀·임산부·심하지 않은 장애인은 50%, "
+                          "국가유공자·심한 장애인·의사상자·병역명문가·5·18부상자는 최초 2시간 면제 후 50%, "
+                          "유공·모범납세자는 100%이고, 감면은 한 가지만 적용됩니다(현장 확인)."),
+        "free_example": "",
+        "calc_note": "차량 감면은 <b>안양시 조례(별표2)</b> 기준입니다. 경차·저공해·65세 이상·다자녀·임산부·"
+                     "심하지 않은 장애인 50%, 국가유공자·심한 장애인 등 2시간 면제 후 50%, "
+                     "유공·모범납세자 100%이고 감면은 한 가지만 적용됩니다(현장 확인).",
+        "daily_example": "일일 최대요금",
+        "street_examples": "‘관악노상1’·‘먹거리촌노상’",
+        "street_fee_caveat": ("<li><b>요금표와 차이</b>: 안양시는 10분 단위 <b>누진 할증</b>이라 오래 주차할수록 "
+                              "10분당 요율이 올라갑니다. 표의 ‘평일 2시간’은 누진표로 계산한 값이고, 실제 요금은 "
+                              "현장 표지와 함께 확인하세요.</li>"),
+        "rate_bullets": [
+            "기본 30분 <b>600원</b>(1급지)이고 이후는 <b>10분 단위 누진 할증</b>입니다. 1급지는 1시간까지 10분당 300원, "
+            "2시간까지 600원, 3시간까지 900원, 3시간 이후 1,200원이며 2·3급지는 급지별로 더 낮습니다.",
+            "<b>최초 15분은 무료</b>로 회차할 수 있습니다.",
+            "<b>일일 최대요금 25,000원</b>이 상한입니다. 운영시간 전에 미리 내는 ‘선불 일일주차’는 주차장별로 "
+            "1,500~15,000원으로 더 저렴할 수 있습니다(카드에 표시).",
+        ],
+    },
 }
 
 
@@ -164,7 +191,8 @@ def city_ui(city) -> dict:
                "std_base_date": "", "realtime": False,
                "discount_note": "지자체 조례에 따라 감면율이 다릅니다. 현장 확인이 필요합니다.",
                "free_example": "", "calc_note": "차량 감면은 지자체 조례에 따라 다릅니다(현장 확인).",
-               "daily_example": "1일 주차권 요금", "street_examples": "", "street_fee_caveat": ""}
+               "daily_example": "1일 주차권 요금", "street_examples": "", "street_fee_caveat": "",
+               "rate_bullets": None}
     return {**default, **CITY_UI.get(city["city"] if city else "", {})}
 
 
@@ -326,6 +354,8 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
 
     exempt 는 조례상 '면제 시간'(분). exempt 이내 이용이면 0원(면제),
     넘으면 rate 만큼 감면한 금액을 낸다. 예: 성남 장애인 1시간 면제 후 50%.
+    fee['steps'] 가 있으면 시간대별 누진 할증(안양시), fee['free_min'] 은 최초 무료 시간,
+    fee['cap_fee'] 는 일일 최대요금(상한)이다.
     """
     if not lot["oper"].get(day):
         return {"state": "closed"}
@@ -334,15 +364,33 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
         return {"state": "free"}
     if exempt and minutes <= exempt:
         return {"state": "free", "exempt": True, "exempt_min": exempt}
-    if fee["type"] != "유료" or not fee["base_min"] or fee["base_fee"] is None \
-            or not fee["unit_min"] or fee["unit_fee"] is None:
+    if fee["type"] != "유료" or not fee["base_min"] or fee["base_fee"] is None:
         return {"state": "unknown"}
-    if minutes <= fee["base_min"]:
-        raw = fee["base_fee"]
+    free_min = fee.get("free_min") or 0
+    if free_min and minutes <= free_min:
+        return {"state": "free", "free_min": free_min}
+    if fee.get("steps"):
+        unit = fee.get("unit_min") or 10
+        raw, t = fee["base_fee"], fee["base_min"]
+        while t < minutes:
+            step_fee = next((st["unit_fee"] for st in fee["steps"]
+                             if st.get("until") is None or t < st["until"]),
+                            fee["steps"][-1]["unit_fee"])
+            raw += step_fee
+            t += unit
     else:
-        raw = fee["base_fee"] + math.ceil((minutes - fee["base_min"]) / fee["unit_min"]) * fee["unit_fee"]
+        if not fee["unit_min"] or fee["unit_fee"] is None:
+            return {"state": "unknown"}
+        if minutes <= fee["base_min"]:
+            raw = fee["base_fee"]
+        else:
+            raw = fee["base_fee"] + math.ceil((minutes - fee["base_min"]) / fee["unit_min"]) * fee["unit_fee"]
     capped = False
-    if fee["daily_fee"] and raw > fee["daily_fee"]:
+    cap = fee.get("cap_fee")
+    if cap and raw > cap:
+        raw = cap
+        capped = True
+    elif fee["daily_fee"] and raw > fee["daily_fee"]:
         raw = fee["daily_fee"]
         capped = True
     return {"state": "paid", "amount": round(raw * (1 - rate)), "before": round(raw),
@@ -366,6 +414,23 @@ def hours_text(lot) -> str:
     return " · ".join(parts)
 
 
+def rate_text(fee) -> str:
+    """‘기본 30분 600원 · 이후 10분마다 300원’ 같은 요율 문장.
+
+    누진 요금표(안양시)는 시간대별 요율을 화살표로 모두 적는다.
+    """
+    if fee.get("steps"):
+        rates = []
+        for st in fee["steps"]:
+            if st["unit_fee"] not in rates:
+                rates.append(st["unit_fee"])
+        return (f"기본 {fee['base_min']}분 {won(fee['base_fee'])} · 이후 "
+                f"{fee.get('unit_min') or 10}분마다 " + "→".join(won(r) for r in rates)
+                + " (시간대별 누진)")
+    return (f"기본 {fee['base_min']}분 {won(fee['base_fee'])} · 이후 "
+            f"{fee['unit_min']}분마다 {won(fee['unit_fee'])}")
+
+
 def fee_text(lot) -> str:
     f = lot["fee"]
     if f["type"] == "미상":
@@ -373,10 +438,23 @@ def fee_text(lot) -> str:
     if f["type"] == "무료":
         return "무료"
     bits = [f"기본 {f['base_min']}분 {won(f['base_fee'])}"]
-    if f["unit_min"] and f["unit_fee"] is not None:
+    if f.get("steps"):
+        rates = []
+        for st in f["steps"]:
+            if st["unit_fee"] not in rates:
+                rates.append(st["unit_fee"])
+        bits.append(f"이후 {f.get('unit_min') or 10}분당 " + "→".join(won(r) for r in rates) + " (누진)")
+    elif f["unit_min"] and f["unit_fee"] is not None:
         bits.append(f"추가 {f['unit_min']}분 {won(f['unit_fee'])}")
+    if f.get("free_min"):
+        bits.append(f"최초 {f['free_min']}분 무료")
+    if f.get("cap_fee"):
+        cap_label = "(조례 상한)" if f.get("cap_src") == "조례 상한" else ""
+        bits.append(f"일일 최대 {won(f['cap_fee'])}{cap_label}")
     if f["daily_fee"]:
         bits.append(f"1일권 {won(f['daily_fee'])}" + (f"({f['daily_hours']}시간)" if f["daily_hours"] else ""))
+    if f.get("prepaid_day"):
+        bits.append(f"선불 1일 {won(f['prepaid_day'])}")
     if f["monthly"]:
         bits.append(f"월 {won(f['monthly'])}")
     return " · ".join(bits)
@@ -607,6 +685,20 @@ def footer_sources(city, url) -> str:
                 f'{esc(city_ui(city)["std_base_date"])})와 '
                 f'<a href="https://park.yuc.co.kr/views/parkinglot/fee/fee.html" rel="nofollow noopener" target="_blank">'
                 f'용인시 공영주차장 주차장 요금 안내</a>(용인도시공사)를 기준으로 만든 참고용 정보입니다. '
+                f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
+                f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
+                f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+    if city["city"] == "안양시":
+        std_rows = city_rows_total(city)
+        return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
+                f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
+                f'전국주차장정보표준데이터</a>(안양시 {std_rows}행, 기준일 '
+                f'{esc(city_ui(city)["std_base_date"])})와 '
+                f'<a href="https://parking.auc.or.kr/parkinglist" rel="nofollow noopener" target="_blank">'
+                f'안양도시공사 통합주차포털</a>(주차장 목록·요금 안내), '
+                f'<a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1908307" rel="nofollow noopener" target="_blank">'
+                f'안양시 주차장 설치 및 관리 조례</a>(별표1 요금표·별표2 감면)를 기준으로 만든 참고용 정보입니다. '
                 f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
                 f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
@@ -854,15 +946,17 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     if res["state"] == "free":
         # 요금 구분이 '무료'인 주차장은 요일과 관계없이 무료라 ‘선택한 요일’이라고 쓰지 않는다.
         free_note_text = ("요금 구분 ‘무료’" if lot["fee"]["type"] == "무료"
+                          else f"최초 {res['free_min']}분 무료" if res.get("free_min")
                           else "무료 개방 (선택한 요일)")
         price_html = (f'<span class="price free">0원</span>'
                       f'<span class="price-note">{esc(free_note_text)}</span>')
     elif res["state"] == "paid":
         extra = []
         if res["capped"]:
-            extra.append("1일권 상한 적용")
+            extra.append("일일 최대요금 적용" if lot["fee"].get("cap_fee") else "1일권 상한 적용")
+        base_note = "누진 요금표 기준" if lot["fee"].get("steps") else "기본요금·추가요금 기준"
         price_html = (f'<span class="price paid">{won(res["amount"])}</span>'
-                      f'<span class="price-note">{esc(" · ".join(extra) or "기본요금·추가요금 기준")}</span>')
+                      f'<span class="price-note">{esc(" · ".join(extra) or base_note)}</span>')
     elif res["state"] == "unknown":
         price_html = '<span class="price unknown">요금 정보 미상</span><span class="price-note">현장 확인 필요</span>'
     else:
@@ -936,8 +1030,10 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
     data = json.dumps([{
         "id": l["id"], "name": l["name"],
         "oper": l["oper"], "free_days": l["free_days"],
-        "fee": {k: l["fee"][k] for k in ("type", "base_min", "base_fee", "unit_min", "unit_fee",
-                                         "daily_hours", "daily_fee")},
+        # 누진(steps)·최초 무료(free_min)·일일 상한(cap_fee)은 값이 있는 도시만 싣는다(다른 도시 출력 불변)
+        "fee": {**{k: l["fee"][k] for k in ("type", "base_min", "base_fee", "unit_min", "unit_fee",
+                                            "daily_hours", "daily_fee")},
+                **{k: l["fee"][k] for k in ("steps", "free_min", "cap_fee") if l["fee"].get(k)}},
     } for l in lots], ensure_ascii=False)
     return (f'<div class="list" id="lot-list" data-day="{default_day}" data-minutes="{default_minutes}">{"".join(cards)}</div>'
             f'<script type="application/json" id="lot-data">{data.replace("</", "<\\/")}</script>')
@@ -954,6 +1050,18 @@ def two_h_price(lots, day="weekday"):
     """요일 기준 2시간 예상요금 목록(유료 계산 가능한 곳)."""
     return [price_for(l, 120, day)["amount"] for l in lots
             if price_for(l, 120, day)["state"] == "paid"]
+
+
+def price_cell(lot, minutes: int, day="weekday") -> str:
+    """표에 넣을 예상요금 한 칸 — 무료(최초 무료시간 포함)·미상·휴무도 글자로 적는다."""
+    r = price_for(lot, minutes, day)
+    if r["state"] == "paid":
+        return won(r["amount"])
+    if r["state"] == "free":
+        return "무료"
+    if r["state"] == "unknown":
+        return "현장 확인"
+    return "휴무"
 
 
 def street_rows(street_lots, *, with_price=True, with_daily=None):
@@ -1020,6 +1128,15 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>노상(거리) 주차 구간은 무료·유료가 섞여 있어 카드가 아닌 표로 따로 정리했습니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동·읍·면은 이 페이지의 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지). 주소에 동이 없고 좌표로도 확인되지 않은 부설주차장은 ‘{UNKNOWN_DONG}’으로 묶었습니다.</li>"""
+    if city["city"] == "안양시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(안양시 {city_rows_total(city)}행 중 노외 {q['총_주차장']}곳, 기준일 {esc(ui['std_base_date'])})</li>
+    <li><b>요금표</b>: 「안양시 주차장 설치 및 관리 조례」 제10조 별표1 급지별 주차요금표(최초 30분 + 10분 단위 누진 할증, 최초 15분 무료, 일일 최대 25,000원)와 안양도시공사 통합주차포털 요금 안내(2026-11-17 확인)</li>
+    <li><b>일일 최대요금·선불 일일주차·월정기·장애인 구획</b>: 안양도시공사 통합주차포털 주차장 목록(2026-11-17 조회 스냅샷). 포털에 없는 주차장은 조례 상한 25,000원을 적용했습니다.</li>
+    <li>표준데이터에는 최초 30분 기본요금과 급지만 등록되어 있어, 추가요금·일일권은 조례의 급지별 누진표로 계산합니다. 2시간·4시간처럼 오래 주차할수록 10분당 요율이 올라갑니다.</li>
+    <li>동 이름은 <b>법정동</b> 기준입니다(행정동 안양1~9동·석수3동·호계3동·관양1·2동은 안양동·석수동·호계동·관양동으로 묶었습니다).</li>
+    <li>요금 구분이 ‘무료’인 주차장은 요일과 관계없이 무료입니다. 실시간 잔여면수는 연동하지 않았습니다.</li>
+    <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지). 주소로 동을 확인하지 못한 주차장은 ‘{UNKNOWN_DONG}’으로 묶었습니다.</li>"""
     if city["city"] == "화성시":
         return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(화성시 {city_rows_total(city)}행 중 노외 {q['총_주차장']}곳, 기준일 {esc(ui['std_base_date'])})</li>
     <li><b>요금 감면</b>: 「화성시 주차장 설치 및 관리 조례」 별표 4와 화성시 통합주차포털·화성도시공사 안내(2026-11-16 확인)</li>
@@ -1109,6 +1226,11 @@ def build_district(city, d, lots, site):
     daily_bullet = (f"1일 주차권 요금이 있으면 그 금액을 상한으로 적용합니다(예: {esc(ui['daily_example'])})."
                     if any(l["fee"]["daily_fee"] for l in lots) else
                     "이 구 주차장은 1일 주차권 요금이 등록되어 있지 않아, 상한 없이 기본요금·추가요금으로만 계산합니다.")
+    rate_bullets = ui.get("rate_bullets") or [
+        "기본시간 이내는 기본요금, 초과분은 <b>추가단위시간마다 올림</b>해서 더합니다.",
+        daily_bullet,
+    ]
+    rate_li = "".join(f"    <li>{b}</li>\n" for b in rate_bullets)
 
     qa = [
         (f"{gu} 공영주차장은 모두 몇 곳인가요?",
@@ -1130,7 +1252,9 @@ def build_district(city, d, lots, site):
                          f"중간값 {won(statistics.median(prices))}, 최고 {won(max(prices))}입니다. "
                          f"기본요금·추가단위요금을 그대로 계산한 값"
                          + ("이며 1일권 요금이 더 싸면 그 값으로 제한했습니다."
-                            if any(l["fee"]["daily_fee"] for l in lots) else "입니다.")
+                            if any(l["fee"]["daily_fee"] for l in lots) else
+                            "이며, 일일 최대요금(상한)을 넘으면 상한을 적용했습니다."
+                            if any(l["fee"].get("cap_fee") for l in lots) else "입니다.")
           if prices else "요금 정보가 있는 주차장이 없어 계산할 수 없습니다.")(
              two_h_price(lots, "weekday"))),
         ("이 페이지의 요금·운영시간은 최신인가요?",
@@ -1151,9 +1275,7 @@ def build_district(city, d, lots, site):
 <section class="note-box" style="margin-top:16px">
   <h2>요금 계산 방식</h2>
   <ul>
-    <li>기본시간 이내는 기본요금, 초과분은 <b>추가단위시간마다 올림</b>해서 더합니다.</li>
-    <li>{daily_bullet}</li>
-    <li>{ui['calc_note']}</li>
+{rate_li}    <li>{ui['calc_note']}</li>
     <li>요금 필드가 비어 있는 주차장은 0원으로 표시하지 않고 <b>‘요금 정보 미상(현장 확인)’</b>으로 구분합니다.</li>
   </ul>
 </section>
@@ -1318,6 +1440,32 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
         jsonld=[jsonld_breadcrumb(crumbs), jsonld_itemlist(lots_sorted, path), jsonld_faq(qa, path)])
 
 
+def fee_table_block(city) -> str:
+    """도시별 급지 요금표(데이터에 fee_table 이 있을 때만). 안양시처럼 누진 요금표를 쓰는 도시용."""
+    ft = city.get("fee_table")
+    if not ft:
+        return ""
+    rows = "".join(
+        f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+        + "".join(f'<td class="num">{won(t)}</td>' for t in r["tiers"])
+        + f'<td>{esc(r.get("note") or "")}</td></tr>'
+        for r in ft["rows"])
+    return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">최초 30분 기본요금 뒤에는 <b>{ft['unit_min']}분 단위 누진 할증</b>이 붙습니다
+(1시간까지 → 2시간까지 → 3시간까지 → 3시간 이후 순). 최초 {ft['free_min']}분은 무료이고,
+일일 최대요금은 {won(ft['cap_fee'])}입니다.</p>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">1시간까지<br>{ft['unit_min']}분당</th>
+  <th class="num">2시간까지<br>{ft['unit_min']}분당</th><th class="num">3시간까지<br>{ft['unit_min']}분당</th>
+  <th class="num">3시간 이후<br>{ft['unit_min']}분당</th><th>비고</th></tr></thead>
+  <tbody>{rows}</tbody>
+</table>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 이 표로 계산하며, 주차장별 일일 최대요금·선불 일일주차 요금은
+안양도시공사 통합주차포털 값을 썼습니다.</p>
+"""
+
+
 def build_city(city, lots, site):
     path = city_path(city)
     ui = city_ui(city)
@@ -1397,6 +1545,7 @@ def build_city(city, lots, site):
          (f"{cheap[0]['name']}({cheap[0]['gu']})이 {won(price_for(cheap[0], 120)['amount'])}으로 가장 낮습니다."
           if cheap else "요금 정보가 없습니다.")),
     ]
+    fee_block = fee_table_block(city)
     body = f"""
 <h1>{city['city']} 공영주차장 {s['n']}곳 · 요금과 무료 개방 한눈에</h1>
 <p class="lede">{city['city']} {len(city['districts'])}개 구({'·'.join(d['name'][:-1] if ui['district_short'] and d['name'].endswith('구') else d['name'] for d in city['districts'])})의 공영주차장을 공공데이터로 정리했습니다.
@@ -1410,6 +1559,7 @@ def build_city(city, lots, site):
   <tbody>{''.join(rows)}</tbody>
 </table>
 
+{fee_block}
 <h2>구별로 찾기</h2>
 <div class="grid-2">
 {''.join(f'''<a class="link-card" href="../{d["slug"]}/">
@@ -1466,7 +1616,7 @@ def _build_street_all_mixed(city, street, site):
                   if (l["fee"]["base_min"], l["fee"]["base_fee"], l["fee"]["unit_min"],
                       l["fee"]["unit_fee"], l["fee"]["daily_fee"]) == (bmin, bfee, umin, ufee, dfee))
     example_rows = "".join(
-        f'<tr><td>{label}</td><td class="num">{won(price_for(sample, m, "weekday")["amount"])}</td></tr>'
+        f'<tr><td>{label}</td><td class="num">{price_cell(sample, m)}</td></tr>'
         for label, m in (("30분", 30), ("1시간", 60), ("2시간", 120), ("4시간", 240), ("9시간(1일권 기준)", 540)))
     gu_rows = "".join(
         f'<tr><td>{esc(g)}</td><td class="num">{len(v)}</td>'
@@ -1570,14 +1720,18 @@ def _build_street_mixed(city, street, site):
         key = l.get("road") or (f'{l["dong"]} 일대' if l.get("dong") else "지번 주소만 등록")
         by_road.setdefault(key, []).append(l)
 
+    def street_fee_key(l):
+        f = l["fee"]
+        return (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f["daily_fee"],
+                f.get("cap_fee"), tuple(st["unit_fee"] for st in (f.get("steps") or ())))
+
     sample, fee_n = None, 0
     if paid:
-        fee_key = Counter((l["fee"]["base_min"], l["fee"]["base_fee"], l["fee"]["unit_min"],
-                           l["fee"]["unit_fee"], l["fee"]["daily_fee"]) for l in paid)
-        (bmin, bfee, umin, ufee, dfee), fee_n = fee_key.most_common(1)[0]
-        sample = next(l for l in paid
-                      if (l["fee"]["base_min"], l["fee"]["base_fee"], l["fee"]["unit_min"],
-                          l["fee"]["unit_fee"], l["fee"]["daily_fee"]) == (bmin, bfee, umin, ufee, dfee))
+        fee_key = Counter(street_fee_key(l) for l in paid)
+        _, fee_n = fee_key.most_common(1)[0]
+        top = fee_key.most_common(1)[0][0]
+        sample = next(l for l in paid if street_fee_key(l) == top)
+        bmin, bfee, umin, ufee, dfee = top[0], top[1], top[2], top[3], top[4]
 
     gu_rows = "".join(
         f'<tr><td>{esc(g)}</td><td class="num">{len(v)}</td>'
@@ -1590,13 +1744,23 @@ def _build_street_mixed(city, street, site):
         f'<td class="num">{len([x for x in v if x["fee"]["type"] == "무료"])}</td></tr>'
         for r, v in sorted(by_road.items(), key=lambda kv: -len(kv[1])))
 
+    calc_line = ""
     if sample:
+        if sample["fee"].get("steps"):
+            rates = []
+            for st in sample["fee"]["steps"]:
+                if not rates or rates[-1] != st["unit_fee"]:
+                    rates.append(st["unit_fee"])
+            calc_line = (f"기본 {bmin}분 {won(bfee)}이고, 이후 10분마다 시간대에 따라 "
+                         + "→".join(won(r) for r in rates) + "으로 올라가는 누진 요금입니다. ")
+        else:
+            calc_line = f"기본 {bmin}분 {won(bfee)}이고, 초과분은 {umin}분마다 {won(ufee)}씩 올림해서 더합니다. "
         example_rows = "".join(
-            f'<tr><td>{label}</td><td class="num">{won(price_for(sample, m, "weekday")["amount"])}</td></tr>'
+            f'<tr><td>{label}</td><td class="num">{price_cell(sample, m)}</td></tr>'
             for label, m in (("10분", 10), ("30분", 30), ("1시간", 60), ("2시간", 120), ("4시간", 240)))
         daily_txt = (f"1일권({sample['fee']['daily_hours'] or ''}시간) {won(dfee)}" if dfee else "")
-        fee_line = (f"기본 {bmin}분 {won(bfee)} · 이후 {umin}분마다 {won(ufee)}"
-                    + (f" · 1일권 {won(dfee)}" if dfee else ""))
+        cap_fee = sample["fee"].get("cap_fee")
+        fee_line = rate_text(sample["fee"]) + (f" · 1일권 {won(dfee)}" if dfee else "")
         fee_box = f"""
     <li><b>유료 구간 요금</b>: {fee_line} ({fee_n}개 구간이 같은 요금)</li>
     <li><b>무료 구간</b>: {len(free)}곳은 요금 구분이 ‘무료’로 등록되어 있어 요일과 관계없이 무료입니다.</li>
@@ -1606,7 +1770,7 @@ def _build_street_mixed(city, street, site):
   <thead><tr><th>이용 시간</th><th class="num">평일 예상요금</th></tr></thead>
   <tbody>{example_rows}</tbody>
 </table>
-<p class="updated">{fee_n}개 구간이 위 요금표와 같습니다.{" 1일권 요금이 더 싸면 그 금액을 상한으로 적용합니다." if dfee else ""}</p>"""
+<p class="updated">{fee_n}개 구간이 위 요금표와 같습니다.{" 1일권 요금이 더 싸면 그 금액을 상한으로 적용합니다." if dfee else (f" 일일 최대요금 {won(cap_fee)}이 상한입니다." if cap_fee else "")}</p>"""
     else:
         fee_box = """
     <li><b>요금</b>: 모든 구간이 요금 구분 ‘무료’로 등록되어 있습니다.</li>"""
@@ -1624,8 +1788,9 @@ def _build_street_mixed(city, street, site):
          + (f"유료 구간 {len(paid)}곳은 기본 {bmin}분 {won(bfee)}부터 요금이 붙습니다. " if sample else "")
          + "구간별 등록값은 아래 표에 그대로 적었으니 현장 표지와 함께 확인하세요."),
         ("유료 노상주차장 요금은 어떻게 계산하나요?",
-         (f"기본 {bmin}분 {won(bfee)}이고, 초과분은 {umin}분마다 {won(ufee)}씩 올림해서 더합니다. "
-          + (f"{daily_txt}이 상한입니다. " if daily_txt else "")
+         (calc_line
+          + (f"{daily_txt}이 상한입니다. " if daily_txt else
+             (f"일일 최대요금 {won(cap_fee)}이 상한입니다. " if cap_fee else ""))
           + f"예를 들어 2시간은 {won(price_for(sample, 120, 'weekday')['amount'])}, 4시간은 "
           f"{won(price_for(sample, 240, 'weekday')['amount'])}입니다.")
          if sample else "이 도시 노상 구간은 모두 무료로 등록되어 있어 계산할 유료 요금이 없습니다."),
@@ -1723,7 +1888,7 @@ def build_landing(site):
   <ul>
     <li><b>요일별 무료 개방</b>: 평일·토요일·일요일·공휴일 중 언제 무료인지, 언제 문을 닫는지</li>
     <li><b>내 조건 요금</b>: 30분~24시간 슬라이더로 계산, 1일권 상한 자동 적용</li>
-    <li><b>차량 감면</b>: 지자체 조례에 따른 감면 조건(수원·성남·용인·화성시 조례별 버튼, 면제 시간 포함)으로 계산</li>
+    <li><b>차량 감면</b>: 지자체 조례에 따른 감면 조건(수원·성남·용인·화성·안양시 조례별 버튼, 면제 시간 포함)으로 계산</li>
     <li><b>실시간 잔여면수</b>: 수원도시공사 안내 지도 기준(조회 시점 스냅샷) · 등록 구획수와 스냅샷 총면수가 다른 곳은 차이를 함께 표시</li>
     <li><b>지도 연결</b>: 카카오맵·네이버지도로 바로 이동</li>
   </ul>

@@ -1,9 +1,9 @@
-# 공영주차장 파인더 — 수원시 · 성남시 · 용인시 · 화성시
+# 공영주차장 파인더 — 수원시 · 성남시 · 용인시 · 화성시 · 안양시
 
 공공데이터로 만든 **공영주차장 요금 계산 + 무료 개방 파인더**입니다.
 수원시(4개 구 72곳), 성남시(3개 구 노외 98곳 + 노상 66구간), 용인시(3개 구 노외·부설 159곳 + 노상 54구간),
-화성시(4개 구 노외 78곳 + 노상 49구간)를
-정적 HTML 106페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
+화성시(4개 구 노외 78곳 + 노상 49구간), 안양시(2개 구 노외 78곳 + 노상 29구간)를
+정적 HTML 116페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
 페이지 경로는 시·도 / 시·군 / 구 / 동 단위로 나뉘어 있어 다른 지자체를 같은 파이프라인에 추가할 수 있습니다.
 
 - 랜딩(도시 선택): `dist/index.html`
@@ -19,6 +19,9 @@
 - 화성시 허브: `dist/parking/gyeonggi/hwaseong/index.html` (만세·효행·병점·동탄 4개 구)
 - 화성시 동·읍·면 상세: `dist/parking/gyeonggi/hwaseong-dongtan/bansong-dong/index.html` (12개 동·읍·면)
 - 화성시 노상주차장: `dist/parking/gyeonggi/hwaseong/street-parking/index.html`
+- 안양시 허브: `dist/parking/gyeonggi/anyang/index.html` (만안·동안 2개 구, 급지별 누진 요금표)
+- 안양시 동 상세: `dist/parking/gyeonggi/anyang-manan/anyang-dong/index.html` (법정동 6개)
+- 안양시 노상주차장: `dist/parking/gyeonggi/anyang/street-parking/index.html`
 - 없는 주소(소프트 404 방지): `dist/404.html`
 
 ## 데이터 (모두 실제 공개 데이터)
@@ -35,6 +38,9 @@
 | 용인시 요금 감면율 | [용인시 공영주차장 주차장 요금 안내](https://park.yuc.co.kr/views/parkinglot/fee/fee.html) · 「용인시 주차장 설치 및 관리 조례」 별표2 | 공개 웹페이지 확인 | 감면 5단계(50%·2시간 무료 후 50%·6시간 면제 후 50%·100%) | 2026-11-16 확인 |
 | 화성시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 화성시`) | `scripts/prepare_data.py --city hwaseong` | 화성시 **127행**(노외 78 + 노상 49) | 2026-10-20 |
 | 화성시 요금 감면율 | 「화성시 주차장 설치 및 관리 조례」 제8조·별표4 · [화성시 통합주차포털](https://smartparking.hscity.go.kr/Main) | 공개 웹페이지·자치법규 확인 | 감면 5단계(50% · 2시간 면제 후 50% · 100%) | 2026-11-16 확인 |
+| 안양시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 안양시`) | `scripts/prepare_data.py --city anyang` | 안양시 **107행**(노외 78 + 노상 29) | 2026-09-15 |
+| 안양시 요금표·감면 | [「안양시 주차장 설치 및 관리 조례」](https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1908307) 제10조 별표1(급지별 누진)·별표2(감면) · [안양도시공사 통합주차포털](https://parking.auc.or.kr/parkinglist) | 자치법규·공개 웹페이지 확인 | 급지 1~5급지, 최초 30분 + 10분 단위 누진(1급지 300→1,200원), 최초 15분 무료, 일일 최대 25,000원 | 2026-11-17 확인 |
+| 안양시 일일 최대요금·선불 일일주차·월정기·구획 | 안양도시공사 통합주차포털 주차장 목록 JSON(`/api/parking/searchParkingList`) | 공개 API 스냅샷 | **90곳**(표준데이터 78카드 중 69곳 매칭) | 2026-11-17 04:14 조회 |
 
 원본은 `data/raw/`에 그대로 보관했고, `data/suwon_parking.json`의 `meta.sources`에 파일명·sha256·수령 시각·라이선스를 기록했습니다.
 
@@ -65,14 +71,14 @@
 ## 빌드
 
 ```bash
-python3 scripts/prepare_data.py                 # 네 도시 정제 → data/site.json·suwon/ seongnam/ yongin/ hwaseong_parking.json
-python3 scripts/prepare_data.py --city hwaseong  # 한 도시만 (suwon|seongnam|yongin|hwaseong|all, 기본 all)
-python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 106페이지 + 404.html + sitemap.xml, robots.txt
+python3 scripts/prepare_data.py                 # 다섯 도시 정제 → data/site.json·suwon/ seongnam/ yongin/ hwaseong/ anyang_parking.json
+python3 scripts/prepare_data.py --city anyang   # 한 도시만 (suwon|seongnam|yongin|hwaseong|anyang|all, 기본 all)
+python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 116페이지 + 404.html + sitemap.xml, robots.txt
 python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ```
 
 `data/site.json`이 사이트 생성기의 입력입니다(`cities[]` + `lots[]`, 각 주차장에 `city`·`list_mode`).
-`suvon_parking.json`·`seongnam_parking.json`·`yongin_parking.json`·`hwaseong_parking.json`은 도시 단독 결과로, 검토·디버깅용으로 함께 커밋합니다.
+`suwon_parking.json`·`seongnam_parking.json`·`yongin_parking.json`·`hwaseong_parking.json`·`anyang_parking.json`은 도시 단독 결과로, 검토·디버깅용으로 함께 커밋합니다.
 수원도시공사 스냅샷의 수집 시각은 `data/raw/*_fetched_at.txt`에 적어 두어(파일 mtime 대신 사용)
 다시 clone 해도 `snapshot_at`이 바뀌지 않습니다.
 
@@ -90,18 +96,19 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·개인정보처리방침·GA4 조건·슬러그/canonical·도시별 확장 규칙·계산 표본
 python3 scripts/verify_site.py              # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py          # Chromium으로 JS 계산 vs Python 규칙 전수 교차검증
-python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(29,055건)
+python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(34,905건)
 ```
 
 `qa_check.py`는 도시별 확장 안전 규칙도 검사합니다: 수원시 38페이지(허브1·구4·주말4·동29) 유지,
 구 페이지 카드 수 = 데이터 수, 동 페이지 최소 기준 미달 시 페이지 미생성, 노상 구간이 카드로 렌더링되지 않음,
-도시별 페이지 본문에 다른 도시 자료 혼입 없음(성남·용인·화성), 사이트맵 = 실제 페이지 집합.
+도시별 페이지 본문에 다른 도시 자료 혼입 없음(성남·용인·화성·안양), 사이트맵 = 실제 페이지 집합,
+안양시 누진 요금표·최초 15분 무료·일일 최대요금 상한 적용 여부.
 
 `verify_site.py`·`crosscheck_calc.py`는 Playwright(Chromium)가 필요합니다. 스크린샷은 기본으로
 `screenshots/`에 저장되고 `PARKING_SHOTS_DIR=/원하는/경로`로 바꿀 수 있습니다.
 검증 결과 요약은 `scripts/verify_result.json`에 남습니다.
 
-현재 상태: qa_check 통과(107페이지), JS↔Python 교차검증 29,055건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
+현재 상태: qa_check 통과(117페이지), JS↔Python 교차검증 34,905건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
 
 ## 개인정보처리방침 · 통계 (GA4)
 
@@ -212,6 +219,10 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
    `중증장애인·국가유공자 24시간 면제 후 50%`, `모범·유공납세자 100%`의 5단계로 80% 가정값 버튼을 대체했습니다(`T-02` B안).
    화성시는 조례 별표4 기준 5단계(`경차·저공해·다자녀 50%`, `경증장애인 2시간 면제 후 50%`,
    `국가유공자·중증장애인 100%`, `모범·유공납세자 100%`)로 버튼을 만듭니다.
+- 안양시는 **급지별 누진 요금표**를 쓰므로 계산기가 한 가지 추가 요율만으로는 맞지 않습니다.
+  `cities[].fee_table`(급지·기본요금·시간대별 요율)이 있으면 시 허브에 요금표를 그리고,
+  카드의 `fee.steps`(시간대별 계단)·`fee.free_min`(최초 15분 무료)·`fee.cap_fee`(일일 최대요금)를
+  `price_for()`(Python)·`priceFor()`(app.js)가 같은 규칙으로 계산합니다. 이 세 키가 없는 도시는 기존 계산 그대로입니다.
 - `qa_check.py`가 기존 슬러그 불변·fallback 결과·충돌 해소·canonical 도메인을 함께 검사합니다.
 
 ## 구조
@@ -226,6 +237,7 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 ├── data/seongnam_parking.json    # 성남시 정제 결과(노외 98 + 노상 66)
 ├── data/yongin_parking.json      # 용인시 정제 결과(노외·부설 159 + 노상 54)
 ├── data/hwaseong_parking.json    # 화성시 정제 결과(노외 78 + 노상 49)
+├── data/anyang_parking.json      # 안양시 정제 결과(노외 78 + 노상 29)
 ├── scripts/prepare_data.py       # 정제·병합·품질 점검(--city)
 ├── scripts/build_site.py         # 정적 페이지 생성기(--base 로 도메인 지정, 슬러그 자동 생성)
 ├── scripts/summary.md|json       # 정제 요약(도시·구·동·무료·정합성)
@@ -233,7 +245,7 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 ├── scripts/verify_site.py        # 브라우저 검증(+스크린샷)
 ├── scripts/crosscheck_calc.py    # JS↔Python 계산 교차검증(Chromium)
 ├── scripts/crosscheck_calc_nobrowser.py # 같은 검증(quickjs, 브라우저 불필요)
-└── dist/                         # 배포 산출물 107페이지(개인정보처리방침 포함) + 404.html
+└── dist/                         # 배포 산출물 117페이지(개인정보처리방침 포함) + 404.html
 ```
 
 ## 배포 (Cloudflare Pages)
@@ -274,8 +286,28 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 - 화성시 캠핑카 전용 임시주차장 2곳(하길리·동탄)은 요금 필드가 비어 있어 '요금 정보 미상(현장 확인)'으로 표시합니다.
 - 화성시 노상 중 이름에 ‘거주자우선주차’가 든 2구간은 거주자 계약·공유 이용 요금이 등록되어 있어 일반 이용 요금과 다를 수 있습니다(페이지에 명시).
 - 화성시 동 이름은 지번주소의 법정동 기준입니다(예: 동탄구 장지동·여울동). 행정동(동탄1~9동)과 다를 수 있습니다.
+- 안양시: 원자료 107행 → **노외 78곳(5,795면) + 노상 29구간(1,915면) → 10페이지**
+  - 2개 구(만안 54 · 동안 24), 동은 **법정동** 기준(행정동 안양1~9동·석수3동·호계3동·관양1·2동은 안양동·석수동·호계동·관양동으로 묶음)
+  - 동 페이지 6개(안양동 32 · 호계동 10 · 박달동 9 · 석수동 9 · 관양동 9 · 비산동 3), 3곳 미만인 평촌동(1곳)과
+    주소로 동을 확인하지 못한 5곳(관악역3·4환승, 군용지, 안양테크노벨리, 스마트스퀘어지하)은 구 페이지 표에만 실음
+  - 지번주소가 없는 49행 가운데 44행은 포털 주소의 법정동·좌표로, 나머지 8행은 도로명주소 확인 결과를
+    `ANYANG_DONG_VERIFIED`에 한 곳씩 적어 동을 정했습니다(만안로·양화로·박달우회로·병목안로처럼 같은 도로가
+    여러 동에 걸친 곳이 있어 도로 이름만으로 추정하지 않습니다)
+  - **요금**: 표준데이터에 최초 30분 기본요금·급지만 있고 추가요금·1일권 칸이 비어 있어, 조례 별표1의
+    급지별 누진표(10분 단위)를 계산기에 넣었습니다(1급지 2시간 = 600 + 300×3 + 600×6 = 5,100원).
+    최초 15분 무료, 일일 최대요금은 포털의 주차장별 값(없으면 조례 상한 25,000원)을 상한으로 씁니다.
+  - 요금 구분: 유료 71 · 무료 36. 평균 기본요금 392원. 선불 일일주차(1,500~15,000원)·월정기권·장애인/전기차 구획은 포털 값
+  - 감면은 조례 별표2 5단계(경차·저공해·65세·다자녀 50%, 심하지 않은 장애 50%, 국가유공자·심한 장애 2시간 면제 후 50%, 유공·모범납세자 100%)
 - 로마자 자동 생성은 음운 변화(경음화·구개음화 등)를 모두 반영하지 않는 간략 규칙입니다. 특정 지역의 공식 표기가
   다르면 `DONG_SLUG` / `GU_SLUG`에 한 줄만 추가하면 그 이름부터 매핑이 우선 적용됩니다.
+- **안양시는 실시간 잔여면수를 연동하지 않았습니다.** 카드의 구획수는 표준데이터 등록면수입니다.
+- 안양시 표준데이터에는 추가요금·1일권 칸이 없어 시간 요금을 **조례 별표1 급지별 누진표**로 계산합니다.
+  요금 개정이 있으면 `prepare_data.py`의 `ANYANG_FEES`를 함께 고쳐야 합니다.
+- 안양시 3곳(청원노외·안양6동2·관양2동복개)은 포털에 일일 최대요금이 없어 **조례 상한 25,000원**을 상한으로 두었고,
+  카드에 ‘(조례 상한)’으로 표시했습니다. 이 주차장은 하루 종일 세울 때 실제보다 높게 계산될 수 있습니다.
+- 안양시 ‘선불 일일주차’는 운영시간 전에 미리 내는 별도 상품이라 계산기의 상한(일일 최대요금)과 다릅니다.
+  카드에 선불 요금을 함께 적었으니 종일 주차는 현장에서 선불 결제가 더 저렴한지 확인하세요.
+- 안양시 5곳(관악역3·4환승, 군용지, 안양테크노벨리, 스마트스퀘어지하)은 주소로 법정동을 확인하지 못해 ‘동 미상’으로 구 페이지 표에만 실었습니다.
 - 카카오맵·구글맵 장소와 대조해 우리 좌표와 100m 이상 차이가 난 주차장은 25곳이었습니다. 이 중 19곳은 이름이 비슷한
   다른 주차장을 찾은 오탑이거나 부지가 넓은 경우였고, 실제로 좌표가 어긋난 6곳(만석공원 제1~4·원천호수·신대호수)만
   `MAP_COORD_FIX`로 보정했습니다. 나머지는 원자료 좌표를 그대로 씁니다.
@@ -285,4 +317,4 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 1. Cloudflare Pages(또는 GitHub Pages) 연결 후 `parking.9welfare.com` 도메인 연결
 2. 애드센스 승인 후 플레이스홀더(광고 영역 2곳, 24px 여백 확보)에 실제 슬롯 삽입
 3. 경기도교통정보센터·수원도시공사 API로 잔여면수 실시간화(스케줄러가 주기적으로 JSON 갱신 후 재빌드)
-4. 다른 시·군으로 확장 — 다음 대상은 **안양시 또는 평택시**(표준데이터 시·군 필터만 추가하면 동일 파이프라인 재사용, 슬러그는 자동)
+4. 다른 시·군으로 확장 — 다음 대상은 **평택시 또는 부천시**(표준데이터 시·군 필터만 추가하면 동일 파이프라인 재사용, 슬러그는 자동)

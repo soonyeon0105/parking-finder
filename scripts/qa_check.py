@@ -408,12 +408,18 @@ for city in CITIES:
 
 # 3) 도시 간 자료 혼입 금지: 도시 페이지에 다른 도시의 자료/문구가 없어야 한다.
 MIX = {
-    "seongnam": ("수원", "수원도시공사", "영통구", "권선구", "용인", "용인도시공사"),
-    "yongin": ("수원", "수원도시공사", "성남", "성남도시개발공사", "영통구", "권선구", "수정구", "중원구", "분당구"),
+    "seongnam": ("수원", "수원도시공사", "영통구", "권선구", "용인", "용인도시공사",
+                 "안양", "안양도시공사", "만안구", "동안구"),
+    "yongin": ("수원", "수원도시공사", "성남", "성남도시개발공사", "영통구", "권선구", "수정구", "중원구", "분당구",
+               "안양", "안양도시공사", "만안구", "동안구"),
     # 화성시는 2026-03-01 4개 구(만세·효행·병점·동탄) 체제 — 다른 도시의 구·자료·문구가 섞이면 실패
     "hwaseong": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
                  "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
-                 "처인구", "기흥구", "수지구"),
+                 "처인구", "기흥구", "수지구", "안양", "안양도시공사", "만안구", "동안구"),
+    # 안양시는 만안·동안 2개 구 — 다른 도시의 구·자료·문구가 섞이면 실패
+    "anyang": ("수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+               "화성", "화성도시공사", "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구",
+               "분당구", "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구"),
 }
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -513,6 +519,21 @@ cases = [
     ("남양재래시장", 240, "weekday", 0.5, 120, "paid", 2550),
     ("신리천 카페거리", 120, "weekday", 0, 0, "free", None),
     ("동탄 캠핑카(임시)", 120, "weekday", 0, 0, "unknown", None),  # 요금 필드 비어 있음 → 0원 아님
+    # 안양시(조례 별표1 급지별 누진): 1급지 최초 30분 600원 + 10분당 300→600→900→1,200원, 최초 15분 무료
+    ("일번가노외 주차장", 15, "weekday", 0, 0, "free", None),              # 최초 15분 무료
+    ("일번가노외 주차장", 30, "weekday", 0, 0, "paid", 600),
+    ("일번가노외 주차장", 60, "weekday", 0, 0, "paid", 1500),             # 600 + 300×3
+    ("일번가노외 주차장", 120, "weekday", 0, 0, "paid", 5100),            # 600 + 300×3 + 600×6
+    ("일번가노외 주차장", 240, "weekday", 0, 0, "paid", 15000),           # 17,700 → 일일 최대 15,000
+    ("개나리놀이터 주차장", 120, "weekday", 0, 0, "paid", 1700),          # 4급지 200 + 100×3 + 200×6
+    ("개나리놀이터 주차장", 120, "weekday", 0.5, 0, "paid", 850),
+    ("개나리놀이터 주차장", 120, "weekday", 1.0, 0, "paid", 0),
+    ("개나리놀이터 주차장", 240, "weekday", 0.5, 120, "paid", 2000),      # 2시간 면제 후 50%
+    ("개나리놀이터 주차장", 120, "weekday", 0.5, 120, "free", None),
+    ("관악역1환승 주차장", 120, "weekday", 0, 0, "paid", 2300),           # 3급지
+    ("먹거리촌노외 주차장", 120, "weekday", 0, 0, "paid", 3400),         # 2급지
+    ("호현마을1 공영주차장", 1440, "weekday", 0, 0, "paid", 1500),       # 5급지 일일 최대 1,500
+    ("운동장파출소 뒤 주차장", 120, "weekday", 0, 0, "free", None),      # 요금 구분 무료
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -579,6 +600,42 @@ if hs_free_bad:
 for l in hs_cards:
     if l["fee"]["type"] == "미상" and price_for(l, 120, "weekday").get("amount") == 0:
         fails.append(f"화성시 요금 미상 카드가 0원으로 계산됨: {l['name']}")
+
+# 안양시 카드: 요금 미상이 없고, 유료·무료가 각각 그 상태로 계산되어야 한다.
+#  표준데이터에 추가요금 칸이 비어 있어 조례 별표1 급지별 누진표를 적용했으므로,
+#  유료 카드는 모두 누진표(steps)와 일일 상한(cap_fee)을 갖고 있어야 한다.
+ay_cards = [l for l in LOTS if l.get("city") == "안양시" and l.get("list_mode") == "card"]
+if not ay_cards:
+    fails.append("안양시 카드 데이터가 없음")
+if any(l["fee"]["type"] == "미상" for l in ay_cards):
+    fails.append("안양시 카드에 요금 미상 주차장이 있음(자료 확인 필요)")
+ay_paid = [l for l in ay_cards if l["fee"]["type"] == "유료"]
+ay_no_steps = [l["name"] for l in ay_paid if not l["fee"].get("steps")]
+if ay_no_steps:
+    fails.append(f"안양시 유료 카드에 누진 요금표가 없음 {len(ay_no_steps)}곳 {ay_no_steps[:3]}")
+ay_no_cap = [l["name"] for l in ay_paid if not l["fee"].get("cap_fee")]
+if ay_no_cap:
+    fails.append(f"안양시 유료 카드에 일일 최대요금(상한)이 없음 {len(ay_no_cap)}곳 {ay_no_cap[:3]}")
+ay_bad = [l["name"] for l in ay_paid if price_for(l, 120, "weekday")["state"] != "paid"]
+if ay_bad:
+    fails.append(f"안양시 유료 카드 중 평일 2시간 계산 불가 {len(ay_bad)}곳 {ay_bad[:3]}")
+ay_free_bad = [l["name"] for l in ay_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if ay_free_bad:
+    fails.append(f"안양시 무료 카드가 무료로 계산되지 않음 {len(ay_free_bad)}곳 {ay_free_bad[:3]}")
+# 누진 할증이 실제로 붙는지: 4시간 요금 > 2시간 요금 + (2시간/10분 × 1시간 구간요율)
+ay_sample = next((l for l in ay_paid if l["fee"]["grade"] == 1 and price_for(l, 240, "weekday").get("capped") is False), None)
+if ay_sample:
+    p2 = price_for(ay_sample, 120, "weekday")["amount"]
+    p4 = price_for(ay_sample, 240, "weekday")["amount"]
+    if p4 <= p2 + 12 * ay_sample["fee"]["steps"][1]["unit_fee"]:
+        fails.append(f"안양시 누진 할증 미적용 의심: {ay_sample['name']} 2시간 {p2}원·4시간 {p4}원")
+# 최초 15분 무료 표기: 15분 이내는 무료, 30분은 기본요금
+if ay_paid:
+    r_free, r_base = price_for(ay_paid[0], 15, "weekday"), price_for(ay_paid[0], 30, "weekday")
+    if not (r_free["state"] == "free" and r_free.get("free_min") == 15
+            and r_base["state"] == "paid" and r_base["amount"] == ay_paid[0]["fee"]["base_fee"]):
+        fails.append(f"안양시 최초 15분 무료 규칙 불일치: {ay_paid[0]['name']} {r_free} / {r_base}")
 
 print()
 if warns:

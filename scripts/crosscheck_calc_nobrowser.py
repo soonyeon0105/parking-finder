@@ -6,7 +6,7 @@ crosscheck_calc.py 는 headless Chromium 의 DOM .price 텍스트를 읽는다. 
 없는 환경(플레이그라운드 다운로드 차단)에서는 이 스크립트로 같은 JS 함수를 JS 엔진(quickjs)에서
 직접 호출해 동일한 조합을 대조한다.
 
-  · 대상: site.json 의 카드 목록에 그리는 모든 주차장(수원 72 + 성남 98 + 용인 159 + 화성 78)
+  · 대상: site.json 의 카드 목록에 그리는 모든 주차장(수원 72 + 성남 98 + 용인 159 + 화성 78 + 안양 78)
   · 조합: 요일 3 × 감면 버튼(도시별) × 시간 5
   · 추가: 서버가 그린 카드 가격(기본 상태)과 JS 계산도 대조
 
@@ -36,8 +36,9 @@ MINUTES = [30, 60, 120, 240, 1440]
 
 def js_price(lot, minutes, day, rate, exempt=0):
     payload = {"oper": lot["oper"], "free_days": lot["free_days"],
-               "fee": {k: lot["fee"][k] for k in ("type", "base_min", "base_fee", "unit_min",
-                                                 "unit_fee", "daily_hours", "daily_fee")}}
+               "fee": {k: lot["fee"].get(k) for k in ("type", "base_min", "base_fee", "unit_min",
+                                                      "unit_fee", "daily_hours", "daily_fee",
+                                                      "steps", "free_min", "cap_fee")}}
     ctx.eval(f"var LOT = {json.dumps(payload, ensure_ascii=False)};")
     r = ctx.eval(f"JSON.stringify(priceFor(LOT, {minutes}, {json.dumps(day)}, {rate}, {exempt}))")
     return json.loads(r)
