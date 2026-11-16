@@ -379,7 +379,7 @@ def addr_text(lot) -> str:
     return f"상세 주소 미제공 · {dong} 인근(지도 좌표 기준)"
 
 
-# ---------------------------------------------------------------- 지도 링크 (T-04)
+# ---------------------------------------------------------------- 지도 링크 (T-04, T-04b)
 # 공공데이터 좌표가 실제 주차장이 아닌 곳(호수·공원 안, 같은 단지의 다른 주차장 자리)을
 # 가리키는 곳이 있어, 카카오맵·구글맵 장소로 확인한 좌표로 지도 링크만 덮어쓴다.
 # (site.json 좌표는 원자료 그대로 두어 계산·동 추정 로직에는 영향이 없게 한다)
@@ -425,19 +425,27 @@ def map_links(lot):
     """카카오·네이버 지도 링크.
 
     카카오: /link/map/{이름},{위도},{경도} — 지정한 좌표에 이름표가 달린 핀을 찍는다.
-    네이버: /p?c={경도},{위도},16,0,0,0,dh — c 파라미터를 7칸 형식으로 채워야
-      모바일에서 좌표가 유지된다. 3칸(c=lng,lat,16)이면 모바일이 좌표를 버리고
-      기본 화면(서울시청)으로 떨어져 주차장으로 이동하지 않는다(2026-11-16 확인).
+
+    네이버: /?lat={위도}&lng={경도}&dlevel=12&title={이름} — 좌표에 이름표가 달린
+      핀과 주소 카드를 띄운다. 이전 형식(/p?c={경도},{위도},16,0,0,0,dh)은 모바일에서
+      앱 링크 페이지(m.map.naver.com/appLink.naver?…&appTargetPage=map&app=Y)로 넘어가
+      지도 앱이 '중심만 맞춘 화면'으로 열렸고 핀·이름이 없었다(T-04b, 2026-11-17 확인).
+      lat/lng/title 형식은 리다이렉트가 다르다(같은 날 curl로 확인):
+        · PC    → map.naver.com/p/?title=…&lng=…&lat=…&zoom=16 (핀+이름+주소 카드)
+        · 모바일 → m.map.naver.com/map?lat=…&lng=…&dlevel=12&title=… (핀+이름 카드)
+      dlevel=12는 앱·웹 공통으로 줌 16에 해당한다(dlevel+4).
+    좌표가 없는 주차장은 ?query=…&menu=location 검색 링크로 대체한다
+    (/p/search/… 는 모바일에서 appTargetPage=search 앱 링크로 넘어간다).
     """
     label = map_label(lot)
     lat, lng = map_coords(lot)
     city = lot.get("city", "")
     if lat and lng:
         kakao = f"https://map.kakao.com/link/map/{quote(label)},{lat},{lng}"
-        naver = f"https://map.naver.com/p?c={lng},{lat},16,0,0,0,dh"
+        naver = f"https://map.naver.com/?lat={lat}&lng={lng}&dlevel=12&title={quote(label)}"
     else:
         kakao = f"https://map.kakao.com/link/search/{quote(label + ' ' + city)}"
-        naver = f"https://map.naver.com/p/search/{quote(label + ' ' + city)}"
+        naver = f"https://map.naver.com/?query={quote(label + ' ' + city)}&menu=location"
     return kakao, naver
 
 
