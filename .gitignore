@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 검증 산출물 (로컬 실행 결과)
+scripts/verify_result.json
+screenshots/
+downloads/
+
+# OS / 편집기
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
