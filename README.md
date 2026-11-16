@@ -108,6 +108,9 @@ python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은
 - `/privacy/`는 `build_site.py`의 `build_privacy()`가 매 빌드마다 생성하고, 모든 페이지 푸터에
   `개인정보처리방침` 링크가 들어갑니다(`layout()`의 `foot-legal`). 사이트맵에는 `changefreq=yearly`,
   `priority=0.3`으로 들어갑니다.
+- **오류 제보**: `build_site.py`의 `ERROR_REPORT_FORM_URL`(구글 폼, 이메일 자동 수집 꺼짐 · 지역/주차장명·오류 유형·상세 내용 3항목)을
+  푸터의 `개인정보처리방침 · 오류 제보`와 `/privacy/` 8항에서 `target="_blank" rel="noopener noreferrer"`로 겁니다.
+  `qa_check.py`가 `/privacy/`와 108페이지 푸터 모두에 이 주소가 박혀 있는지 확인합니다.
 - GA4는 **조건부**입니다. `data/site.json`의 `ga_measurement_id`(기본 `""`)가 비어 있으면
   `gtag.js`·`gtag('config')`를 **HTML에 넣지 않습니다**. 값을 채우고 다시 빌드하면 모든 페이지
   `<head>`에 표준 GA4 스니펫이 들어가고, `/privacy/` 4항 문구도 실제 수집 항목으로 바뀝니다.

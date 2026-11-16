@@ -193,8 +193,14 @@ else:
 
 # ---------------------------------------------------------------- 개인정보처리방침 · GA4 훅 (T-05)
 # ① /privacy/ 페이지가 있고 푸터에서 어느 페이지로든 들어갈 수 있는지,
-# ② ga_measurement_id 가 비어 있을 때 GA4 스크립트가 한 장에도 들어가지 않았는지
+# ② 오류 제보 구글 폼 링크가 /privacy/ 와 모든 푸터에 들어갔는지,
+# ③ ga_measurement_id 가 비어 있을 때 GA4 스크립트가 한 장에도 들어가지 않았는지
 #    (값을 채우면 모든 페이지에 들어가는지)를 본다.
+ERROR_FORM_URL = ("https://docs.google.com/forms/d/e/"
+                  "1FAIpQLSfRQ0lo_FnZ9PqQ25CU6e43cfrc5_QHDEITMn8lUG9VNgirCw/viewform")
+form_link_re = re.compile(
+    r'<a href="' + re.escape(ERROR_FORM_URL) + r'" target="_blank" rel="noopener noreferrer">')
+
 priv = DIST / "privacy" / "index.html"
 if not priv.exists():
     fails.append("dist/privacy/index.html 없음 (/privacy/ 페이지)")
@@ -210,6 +216,13 @@ else:
         fails.append("privacy: canonical 이 https://parking.9welfare.com/privacy/ 아님")
     if "noindex" in h_priv:
         fails.append("privacy: robots noindex (색인되어야 하는 페이지)")
+    if not form_link_re.search(h_priv):
+        fails.append("privacy: 오류 제보 구글 폼 링크(href·target=_blank·noopener) 없음")
+    if "온라인 제보 창구를 준비" in h_priv:
+        fails.append("privacy: '온라인 제보 창구를 준비' 옛 안내가 남아 있음")
+    for word in ("지역·주차장명", "오류 유형", "자동으로 모으지 않습니다"):
+        if word not in h_priv:
+            fails.append(f"privacy: 폼 안내 '{word}' 없음")
 if "https://parking.9welfare.com/privacy/" not in (DIST / "sitemap.xml").read_text():
     fails.append("사이트맵에 /privacy/ 없음")
 
@@ -226,7 +239,13 @@ for pg in foot_pages:
         href = re.search(r'href="([^"]*privacy/[^"]*)"', m.group(0))
         if not href:
             fails.append(f"{rel}: 푸터 개인정보처리방침 링크 주소 이상")
-print(f"개인정보처리방침 검사 완료 (푸터 링크 {len(foot_pages)}페이지)")
+    if not m:
+        pass
+    elif "오류 제보" not in m.group(0):
+        fails.append(f"{rel}: 푸터에 오류 제보 링크 없음")
+    elif not form_link_re.search(m.group(0)):
+        fails.append(f"{rel}: 푸터 오류 제보 링크가 구글 폼 주소·target=_blank·noopener 아님")
+print(f"개인정보처리방침 검사 완료 (푸터 링크 {len(foot_pages)}페이지 · 오류 제보 폼 링크 포함)")
 
 GA_ID = (DATA.get("ga_measurement_id") or "").strip()
 all_pages_html = {pg.relative_to(DIST).as_posix(): pg.read_text() for pg in foot_pages}

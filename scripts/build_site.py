@@ -39,6 +39,10 @@ BUILD_TS = ""
 SNAPSHOT_TS = ""
 SITE_CITIES: list[dict] = []                  # site.json 의 cities (nav 순서)
 GA_MEASUREMENT_ID = ""                        # data/site.json 의 ga_measurement_id — 비어 있으면 GA4 태그를 넣지 않는다
+ERROR_REPORT_FORM_URL = (                     # 오류 제보 구글 폼 (이메일 자동 수집 꺼짐 · 지역/주차장명·오류 유형·상세 내용 3개 항목)
+    "https://docs.google.com/forms/d/e/"
+    "1FAIpQLSfRQ0lo_FnZ9PqQ25CU6e43cfrc5_QHDEITMn8lUG9VNgirCw/viewform"
+)
 
 DONG_SLUG = {
     "고색동": "goseak-dong", "곡반정동": "gokbanjeong-dong", "권선동": "gwonseon-dong",
@@ -706,7 +710,7 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 </main>
 <footer class="site-foot">
   <div class="inner">
-{footer_sources(city, url)}    <p class="foot-legal"><a href="{url('/privacy/')}">개인정보처리방침</a></p>
+{footer_sources(city, url)}    <p class="foot-legal"><a href="{url('/privacy/')}">개인정보처리방침</a> · <a href="{ERROR_REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer">오류 제보</a></p>
   </div>
 </footer>
 <script src="{url('/assets/app.js')}" defer></script>
@@ -1726,7 +1730,7 @@ def build_privacy(site):
     """개인정보처리방침 (/privacy/).
 
     비회원·개인정보 미수집 안내, 쿠키·접속 로그, 통계 도구(GA4·Cloudflare Web Analytics),
-    오류 제보 안내를 적는다. GA4 측정 ID(ga_measurement_id)가 비어 있으면 ‘아직 연결하지
+    오류 제보 안내(8항 · 구글 폼 링크 ERROR_REPORT_FORM_URL)를 적는다. GA4 측정 ID(ga_measurement_id)가 비어 있으면 ‘아직 연결하지
     않았고, 연결하면 먼저 고지한다’로 적고, 값이 들어오면 실제 기록 항목을 그대로 적는다.
     """
     path = "/privacy/"
@@ -1806,8 +1810,11 @@ Google Analytics 데이터 보관 설정(2개월·14개월 중 선택)을 따릅
 <ul>
   <li><b>요금·운영시간·무료 개방 정보가 실제와 다른 경우</b>: 각 주차장 카드에 적힌 관리기관(지자체·도시공사)에 문의하세요.
   이 사이트는 공공데이터를 정리해 보여 줄 뿐, 요금을 받거나 운영을 대신하지 않습니다.</li>
-  <li><b>사이트 자체의 오류</b>(깨진 링크, 계산이 이상한 경우, 잘못된 위치): 온라인 제보 창구를 준비하고 있습니다.
-  창구가 열리면 이 페이지와 각 페이지 하단에 안내드립니다.</li>
+  <li><b>사이트 자체의 오류</b>(깨진 링크, 계산이 이상한 경우, 잘못된 위치):
+  <a href="{ERROR_REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer">오류 제보 구글 폼</a>으로 알려 주세요.
+  폼에는 <b>지역·주차장명</b>, <b>오류 유형</b>, <b>상세 내용</b>만 적으면 되고,
+  이름·이메일 같은 개인정보를 자동으로 모으지 않습니다(Google 설문지의 이메일 자동 수집 기능을 꺼 두었습니다).
+  폼은 Google LLC(미국) 서버에서 처리되며, 답장이 필요하면 상세 내용에 연락처를 직접 적어 주세요.</li>
 </ul>
 
 <h2>9. 방침의 변경</h2>
@@ -1819,7 +1826,7 @@ Google Analytics 데이터 보관 설정(2개월·14개월 중 선택)을 따릅
     return path, layout(
         title=f"개인정보처리방침 | {SITE_NAME}",
         description="공영주차장 파인더의 개인정보처리방침입니다. 회원가입 없이 개인정보를 수집하지 않으며, "
-                    "접속 로그·쿠키, Cloudflare Web Analytics와 GA4 통계 사용 범위, 거부 방법을 안내합니다.",
+                    "접속 로그·쿠키, Cloudflare Web Analytics와 GA4 통계 사용 범위, 거부 방법, 오류 제보 방법을 안내합니다.",
         path=path, body=body, crumbs=crumbs, nav_active="", city=None, jsonld=[])
 
 
