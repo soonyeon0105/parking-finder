@@ -350,6 +350,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "하남시": {"slug": "hanam", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "군포시": {"slug": "gunpo", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7209,7 +7211,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -8312,19 +8314,769 @@ def check_quality_hanam(std_all, rows, lots, excluded, merged, hour_fixed, grade
     }
 
 
+# ---------------------------------------------------------------- 군포시 (T-03 Phase 16)
+GUNPO_PROVIDER = "경기도 군포시"
+# 군포시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 동 페이지를 둔다.
+GUNPO_DISTRICTS = [("군포시", "gunpo")]
+GUNPO_BBOX = (37.28, 37.42, 126.85, 127.00)   # 군포시 대략 경계(좌표 점검용)
+# 군포시 법정동 9개 — 표준데이터 지번주소의 세 번째 낱말이 법정동이다.
+#   (행정동 군포1·2동, 산본1·2동, 금정동, 재궁동, 오금동, 수리동, 궁내동, 광정동, 대야동, 송부동은
+#    여러 법정동을 묶은 이름이라 주소에는 법정동이 적힌다.)
+GUNPO_DONGS = ("금정동", "당동", "당정동", "대야미동", "도마교동", "둔대동", "부곡동", "산본동", "속달동")
+
+GUNPO_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1990477"
+GUNPO_CORP_OUT_URL = "http://www.gunpocs.or.kr/fmcs/32"
+GUNPO_CORP_ST_URL = "http://www.gunpocs.or.kr/fmcs/31"
+GUNPO_CORP_ATT_URL = "http://www.gunpocs.or.kr/fmcs/721"
+GUNPO_FAQ_URL = ("https://www.gunpouc.or.kr/fmcs/68?action=read"
+                 "&action-value=d9feeea8c6a38d8804ffbb4034f43f3c")
+GUNPO_CORP_TXT = RAW / "gunpocs.or.kr_노외주차장_20261117.txt"
+GUNPO_ST_TXT = RAW / "gunpocs.or.kr_노상주차장_20261117.txt"
+GUNPO_ATT_TXT = RAW / "gunpocs.or.kr_부설주차장_20261117.txt"
+GUNPO_ORD_TXT = RAW / "gunpo.law.go.kr_주차장조례_20261117.txt"
+GUNPO_ORD_A1 = RAW / "gunpo.law.go.kr_주차장조례_별표1_20261117.hwp"
+GUNPO_ORD_A2 = RAW / "gunpo.law.go.kr_주차장조례_별표2_20261117.hwp"
+GUNPO_ORDINANCE_NOTE = "시행 2025-01-01 (경기도군포시조례 제2236호, 2024-12-10 전부개정)"
+
+# 군포시 공영주차장 요금 — 「군포시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금(제10조제1항 관련)을
+#   rhwp 로 옮겨 읽고, 군포도시공사 공영주차장 안내(2026-11-17 확인)·‘2025년도 공영주차장 급지별 요금 변경
+#   현황’(2025-01-01 시행)·‘주차요금 현황’(2025-04-01 기준)과 대조했다.
+#   · 1~3급지 모두 <b>최초 15분 무료</b>, 최초 30분 기본요금 뒤 10분 단위로 붙는다.
+#   · 1급지 30분 800원·10분당 400원·1일 최대 9,000원, 월 정기권 100,000원.
+#   · 2급지 600·200·6,000원·월 70,000원, 3급지 300·200·4,000원·월 50,000원.
+GUNPO_FEES = {
+    1: {"base": 800, "unit": 400, "day": 9_000, "month": 100_000},
+    2: {"base": 600, "unit": 200, "day": 6_000, "month": 70_000},
+    3: {"base": 300, "unit": 200, "day": 4_000, "month": 50_000},
+}
+GUNPO_FREE_MIN = 15      # 최초 15분 무료(1~3급지 공통)
+GUNPO_BASE_MIN = 30
+GUNPO_UNIT_MIN = 10
+
+# 특수관리대상·별도 요금 주차장 — 급지 요금표 대신 조례 [별표1]의 별도 표를 쓴다(10분 단위 누진).
+#   · 중심1·2·3·중심지하: 최초 15분 무료, 30분 800원, 이후 10분당 400 → 1~2시간 600 → 2~3시간 1,000
+#     → 3시간 이후 1,500원. 1시간 2,000·2시간 5,600·3시간 11,600·5시간 40분부터 1일 최대 35,000원.
+#   · 산본로데오: 최초 1시간 무료, 이후 10분당 400원, 1일 최대 8,000원.
+#   · 산본시장(노상)·산본시장제2·금산로1: 최초 30분 무료, 이후 10분당 400 → 1~2시간 600 → 2~3시간 900
+#     → 3시간 이후 1,300원, 1일 최대 35,000원.
+#   · 군포역환승: 최초 30분 무료, 이후 10분당 400원, 1일 최대 8,000원.
+#   · 군포역1길(노상): 최초 30분 무료, 이후 10분당 400원, 1일 최대 없음.
+#   1일 최대는 조례 별표1이 중심 90,000원·산본시장 57,000원으로 적혀 있으나, 공사 안내의 누적 요금표
+#   (중심 5시간 40분부터 35,000원, 산본시장 6시간 20분부터 35,000원)를 운영 값으로 썼다.
+GUNPO_SPECIAL = {
+    "center": {"free_min": 15, "base_min": 30, "base": 800, "unit": 400,
+               "tiers": (400, 600, 1_000, 1_500), "day": 35_000,
+               "label": "중심 1·2·3·지하 누진"},
+    "rodeo": {"free_min": 60, "base_min": 60, "base": 0, "unit": 400,
+              "tiers": None, "day": 8_000, "label": "산본로데오 1시간 무료"},
+    "transit": {"free_min": 30, "base_min": 30, "base": 0, "unit": 400,
+                "tiers": None, "day": 8_000, "label": "군포역 환승"},
+    "market": {"free_min": 30, "base_min": 30, "base": 0, "unit": 400,
+               "tiers": (400, 600, 900, 1_300), "day": 35_000, "label": "산본시장 누진"},
+    "station": {"free_min": 30, "base_min": 30, "base": 0, "unit": 400,
+                "tiers": None, "day": None, "label": "군포역1길"},
+}
+GUNPO_SPECIAL_LOTS = {
+    "중심1공영주차장": "center", "중심2공영주차장": "center",
+    "중심3공영주차장": "center", "중심지하공영주차장": "center",
+    "산본로데오공영주차장": "rodeo",
+    "군포역환승공영주차장": "transit",
+    "산본시장공영주차장": "market", "산본시장제2공영주차장": "market",
+    "금산로1공영주차장": "market",
+    "군포역1길공영주차장": "station",
+}
+
+# 군포도시공사 공영주차장 현황(2026-11-17 조회) — 급지·면수·운영시간을 표준데이터와 대조하고,
+#   표준데이터가 80행 모두 00:00~23:59로만 등록해 둔 운영시간을 공사 안내 값으로 바로잡는 데 쓴다.
+#   표준데이터 이름 → (공사 이름, 급지(특수는 None), 면수, (평일, 토요일, 일요일) 운영시간)
+GUNPO_CORP = {
+    "중심지하공영주차장": ("중심지하", None, 179, ("24H", "24H", "24H")),
+    "중심1공영주차장": ("중심1", None, 39, ("24H", "24H", "24H")),
+    "중심2공영주차장": ("중심2", None, 39, ("24H", "24H", "24H")),
+    "중심3공영주차장": ("중심3", None, 18, ("24H", "24H", "24H")),
+    "행복공영주차장": ("행복1", 1, 59, ("24H", "24H", "24H")),
+    "산본천공영주차장": ("산본천", 1, 76, ("08:00~24:00", "08:00~24:00", "08:00~24:00")),
+    "바위백이공영주차장": ("바위백이(지하)", 1, 28, ("08:00~24:00", "08:00~24:00", "08:00~24:00")),
+    "철쭉공원공영주차장": ("철쭉공원", 2, 260,
+                          ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "송죽공영주차장": ("송죽", 2, 232, ("07:00~23:00", "07:00~23:00", "07:00~23:00")),
+    "당동2공영주차장": ("당동2", 2, 206, ("08:00~24:00", "08:00~24:00", "08:00~24:00")),
+    "당동4공영주차장": ("당동4", 2, 17, ("무료개방", "무료개방", "무료개방")),
+    "문화공영주차장": ("문화", 1, 74, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "안금정공영주차장": ("안금정", 2, 44, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "군포역환승공영주차장": ("군포역환승", None, 74,
+                            ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "청명1길공영주차장": ("청명1길", 2, 50, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "당동1공영주차장": ("당동1", 2, 82, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "당정역광장공영주차장": ("당정역광장", 1, 43,
+                            ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "당정1공영주차장": ("당정1", 2, 76, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "당정2공영주차장": ("당정2", 3, 237, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "대야6공영주차장": ("대야6", 2, 31, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "금정제일공영주차장": ("금정제일", 2, 115, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "군포고가교밑2공영주차장": ("군포고가교밑2", 2, 30,
+                               ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "당정12공영주차장": ("당정12", 2, 30, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "당동3공영주차장": ("당동3", 2, 80, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "고랑치기공영주차장": ("고랑치기", 2, 166, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "평화공영주차장": ("평화", 2, 17, ("월정기", "월정기", "월정기")),
+    "당정노외공영주차장": ("당정노외", 2, 44, ("월정기", "월정기", "월정기")),
+    "당정3공영주차장": ("당정3", 2, 40, ("월정기", "월정기", "월정기")),
+    "당정7공영주차장": ("당정7", 2, 17, ("월정기", "월정기", "월정기")),
+    "당정8공영주차장": ("당정8", 2, 34, ("월정기", "월정기", "월정기")),
+    "당정9공영주차장": ("당정9", 2, 28, ("월정기", "월정기", "월정기")),
+    "군포고가교밑3공영주차장": ("군포고가교밑3", 2, 33, ("월정기", "월정기", "월정기")),
+    "당정10공영주차장": ("당정10", 2, 69, ("월정기", "월정기", "월정기")),
+    "당정11공영주차장": ("당정11", 2, 28, ("월정기", "월정기", "월정기")),
+    "금정역제1공영주차장": ("금정역제1", 1, 202, ("24H", "24H", "24H")),
+    "산본시장제2공영주차장": ("산본시장제2", None, 23,
+                             ("08:00~20:00", "08:00~20:00", "08:00~20:00")),
+    "산본로데오공영주차장": ("산본로데오", None, 285, ("24H", "24H", "24H")),
+    "반월호수공영주차장": ("반월호수", 2, 120, ("무료개방", "무료개방", "무료개방")),
+    "당말공원공영주차장": ("당말공원", 1, 49, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    "산본시장제1공영주차장": ("산본시장제1", None, 40, ("월정기", "월정기", "월정기")),
+    "대야제5공영주차장": ("대야5", 2, 49, ("08:00~24:00", "08:00~24:00", "10:00~22:00")),
+    # 노상(거리) 구간 6곳 — 평일 09:00~18:00(토요일 10:00~18:00)에만 요금을 받는다.
+    "군포역1길공영주차장": ("군포역1길", None, 20,
+                           ("09:00~18:00", "10:00~18:00", "무료개방")),
+    "산본시장공영주차장": ("산본시장", None, 100,
+                          ("09:00~18:00", "10:00~18:00", "무료개방")),
+    "금산로1공영주차장": ("금산로1", None, 14,
+                         ("09:00~18:00", "10:00~18:00", "무료개방")),
+    "금산로2공영주차장": ("금산로2", 1, 48, ("무료개방", "무료개방", "무료개방")),
+    "동백길공영주차장": ("동백길", 2, 31, ("월정기", "월정기", "월정기")),
+    "군포고가교밑1공영주차장": ("군포고가교밑1", 2, 15,
+                               ("09:00~18:00", "무료개방", "무료개방")),
+}
+# 군포도시공사가 게시하지 않은(군포시청이 관리하는) 소규모 무료 주차장 — 표준데이터 등록값을 그대로 쓴다.
+GUNPO_CITY_ONLY = ("대야제1공영주차장", "대야제2공영주차장", "대야제3공영주차장",
+                   "대야제4공영주차장", "당정4공영주차장", "당정5공영주차장",
+                   "당정대영지구공영주차장", "번영공영주차장", "당말공영주차장")
+
+# 시간 주차요금 없이 월 정기권만 받는 주차장(공사 현황 ‘월정기 전용’) — 0원이 아니라 ‘요금 미상’으로 둔다.
+GUNPO_TICKET_ONLY = ("산본시장제1공영주차장", "군포고가교밑3공영주차장", "당정10공영주차장",
+                     "당정11공영주차장", "당정9공영주차장", "당정8공영주차장",
+                     "당정7공영주차장", "당정3공영주차장", "당정노외공영주차장",
+                     "평화공영주차장", "동백길공영주차장")
+
+# 주소로 법정동을 찾지 못한 행의 보정 — 도로명주소만 등록된 4행(공사 현황·도로명주소 기준).
+GUNPO_DONG_OVERRIDE = {
+    "농심로72번길 노상": ("당정동", "농심로는 당정동 도로(당정7·8 농심로 7·8)"),
+    "당말공원공영주차장": ("당동", "공사 현황 ‘당동 779’, 당말공영주차장 당동 869"),
+    "반월호수공영주차장": ("둔대동", "반월호수 공원 둔대동 354-3·호수로 92"),
+    "첨단산업단지 노상": ("부곡동", "군포첨단산업1로는 부곡동(부곡동 1234 일대)"),
+}
+# 표준데이터가 24시간으로 등록했지만 공사 안내는 다른 시간인 주차장(노상 4곳·실제 요금 부과 시간).
+GUNPO_PAID_WINDOW = ("군포역1길공영주차장", "산본시장공영주차장", "금산로1공영주차장",
+                     "군포고가교밑1공영주차장", "산본시장제2공영주차장")
+
+# 군포시 ‘공영주차장 주차요금 감면기준’(조례 [별표 2], 제10조제2항) — 시간주차는 1회 주차요금 기준,
+#   일일권·월 정기권은 별도 감면율(30%·50%)이다.
+#   · 전액면제: 긴급자동차, 공무수행차량, 외교사절, 군포2동 행정복지센터 민원(문화 30분),
+#     군포역 환승·군포역1길 민원 확인증 1시간.
+#   · 1회 주차요금 최초 2시간 면제 후 50%: 국가유공자·유족, 고엽제, 5·18, 중증장애인, 성실·모범납세자(1년),
+#     의사상자, 다자녀(경기I-plus), 한부모, 당일 헌혈자.
+#   · 1회 50%: 경형자동차, 환경친화적 자동차(전기차는 최초 2시간 전액면제), 도시철도 환승,
+#     경증장애인, 저공해자동차, 경로우대(65세 이상), 병역명문가, 우수기업, 우수자원봉사자.
+GUNPO_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·전기차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「자동차관리법 시행규칙」 별표1 경형자동차(1,000cc 미만), 환경친화적 자동차 — 전기차는 최초 2시간 전액 면제"},
+    {"label": "경로·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "만 65세 이상 경로우대 자가운전 차량, 병역명문가증 제시 차량, 도시철도 환승 차량, 경증장애인·저공해자동차"},
+    {"label": "유공자·장애인 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "국가유공자·유족, 고엽제후유의증, 5·18 부상자, 장애 정도가 심한 장애인, 성실·모범납세자(교부일부터 1년), "
+             "의사상자, 다자녀가정(경기I-plus), 한부모가족, 당일 헌혈자"},
+    {"label": "긴급·공무 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "긴급자동차, 국가·지방자치단체 공무수행차량, 외교사절 및 수행자"},
+]
+
+
+def gunpo_dong_of(text: str):
+    """주소에서 군포시 법정동을 뽑는다.
+
+    표준데이터 지번주소는 ‘경기도 군포시 {법정동} {번지}’ 꼴이라 세 번째 낱말이 법정동이다.
+    꼴이 다르면 법정동 목록에서 찾는다(이름이 서로 겹치지 않는다).
+    """
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "군포시" and parts[2] in GUNPO_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(GUNPO_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def gunpo_win(spec):
+    """공사 안내 운영시간 문자열 → 사이트 공통 hours 객체.
+
+    "24H"·"무료개방"은 24시간 운영으로, "월정기"는 시간 운영 없이 정기권만 받는 것으로 둔다.
+    """
+    win = {}
+    for key, txt in zip(("weekday", "sat", "sun"), spec):
+        if txt in ("24H", "무료개방", "월정기"):
+            win[key] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                        "listed": True, "raw": ["00:00", "24:00"]}
+        else:
+            m = re.match(r"(\d{1,2}):(\d{2})~(\d{1,2}):(\d{2})", txt)
+            s = int(m.group(1)) * 60 + int(m.group(2))
+            e = int(m.group(3)) * 60 + int(m.group(4))
+            win[key] = {"open": True, "start": s, "end": e, "24h": False,
+                        "listed": True, "raw": [f"{s // 60:02d}:{s % 60:02d}",
+                                                f"{e // 60:02d}:{e % 60:02d}"]}
+    return win
+
+
+def gunpo_fee(grade: int):
+    """군포시 급지 요금 → 사이트 공통 fee 객체(유료). 최초 15분 무료·30분 기본·10분 단위."""
+    t = GUNPO_FEES[grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False, "grade": grade, "std_grade": None,
+        "base_min": GUNPO_BASE_MIN, "base_fee": t["base"],
+        "unit_min": GUNPO_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "free_min": GUNPO_FREE_MIN, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": None, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "pay": "", "basis": f"「군포시 주차장 설치 및 관리 조례」 [별표1] {grade}급지",
+        "category": None, "portal_free_now": False, "flat_day": False, "ticket_only": False,
+    }
+
+
+def gunpo_special_fee(kind: str):
+    """특수관리대상·별도 요금 주차장(중심·산본로데오·산본시장·군포역환승·군포역1길)의 누진 요금."""
+    t = GUNPO_SPECIAL[kind]
+    steps = None
+    if t["tiers"]:
+        steps = [{"until": b, "unit_min": GUNPO_UNIT_MIN, "unit_fee": f}
+                 for b, f in zip((60, 120, 180, None), t["tiers"])]
+    fee = {
+        "type": "유료", "raw_type": "혼합", "mixed": True, "grade": None, "std_grade": None,
+        "base_min": t["base_min"], "base_fee": t["base"],
+        "unit_min": GUNPO_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": steps, "free_min": t["free_min"], "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": None, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "pay": "", "basis": f"「군포시 주차장 설치 및 관리 조례」 [별표1] 별도 요금({t['label']})",
+        "category": None, "portal_free_now": False, "flat_day": False, "ticket_only": False,
+    }
+    if steps:
+        fee["steps_label"] = t["label"]
+    return fee
+
+
+def gunpo_free_fee(**extra):
+    fee = {"type": "무료", "raw_type": "무료", "mixed": False, "grade": None, "std_grade": None,
+           "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "steps": None, "free_min": None, "deduct_min": None, "cap_fee": None, "cap_src": None,
+           "daily_hours": None, "daily_fee": None, "prepaid_day": None, "prepaid_weekend": None,
+           "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+           "pay": "", "basis": "요금 구분 ‘무료’", "category": None, "portal_free_now": False,
+           "flat_day": False, "ticket_only": False, "std": None}
+    fee.update(extra)
+    return fee
+
+
+def gunpo_ticket_fee(monthly=None, raw_type="유료"):
+    """월 정기권만 받는 주차장 → ‘요금 미상’(시간 주차요금 없음)."""
+    return {"type": "미상", "raw_type": raw_type, "mixed": False, "grade": None,
+            "std_grade": None, "base_min": None, "base_fee": None, "unit_min": None,
+            "unit_fee": None, "steps": None, "free_min": None, "deduct_min": None,
+            "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None, "monthly": monthly,
+            "monthly_day": None, "monthly_night": None, "monthly_all": None,
+            "pay": "", "basis": "월 정기권 전용(시간 주차요금 미게시)", "category": None,
+            "portal_free_now": False, "flat_day": False, "ticket_only": True, "std": None}
+
+
+GUNPO_WINDOW_DAYS = {"평일": "평일", "토": "토요일", "일": "일요일", "주말": "주말",
+                     "토·일": "토·일요일", "평일·토": "평일·토요일",
+                     "평일·주말": "평일·주말", "평일·토·일": "평일·토·일요일"}
+
+
+def gunpo_free_info(note: str):
+    """특기사항에서 무료 시간대·무료 개방 요일을 읽는다.
+
+    표준데이터 특기사항은 ‘평일·토(00:01~07:59 무료)+일(22:01~09:59 무료)’처럼 시간대 무료와
+    ‘일요일 무료개방’·‘토일 무료개방’ 같은 종일 무료를 함께 적는다. 종일 무료만 free_days 로 두고,
+    시간대 무료는 free_hour_note 문장으로 옮긴다(계산기는 입차 시각을 모르므로 입차~출차 길이로만 계산).
+    """
+    txt = (note or "").replace("09:60", "09:59")      # 표준데이터 오타(군산로1 ‘토 18:01~09:60’)
+    days = {"sat": False, "sun": False}
+    if re.search(r"(토일|토·일|주말)\s*무료개방", txt):
+        days["sat"] = days["sun"] = True
+    elif re.search(r"토요일\s*무료개방", txt):
+        days["sat"] = True
+    if re.search(r"(일요일|일)\s*무료개방", txt):
+        days["sun"] = True
+    windows = []
+    for dm, s, e in re.findall(r"([가-힣·]+)\((\d{1,2}:\d{2})~(\d{1,2}:\d{2})\s*무료\)", txt):
+        windows.append(f"{GUNPO_WINDOW_DAYS.get(dm, dm)} {s}~{e}")
+    return days, windows
+
+
+def build_gunpo():
+    """군포시 공영주차장을 표준데이터 + 군포도시공사 현황 + 조례 별표로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 군포시 범위를 벗어난 행은 제외(껍데기 행).
+      · 군포시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다.
+    요금은 조례 별표1(1~3급지 최초 15분 무료·30분 기본·10분 단위, 특수관리대상은 별도 누진표)을 적용하고,
+    운영시간은 표준데이터가 80행 모두 00:00~23:59로만 등록해 두어 군포도시공사 현황의 값으로 바로잡았다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GUNPO_PROVIDER]
+    lots, excluded, merged, hour_fixed, grade_fixed, fee_diff, space_diff = [], [], [], [], [], [], []
+    corp_missing, note_fixed, ticket_diff = [], [], []
+    seen = {}
+    card_no = street_no = 0
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        # 같은 주차장이 두 행으로 등록된 곳 — 이름·유형이 같으면 한 곳으로 묶는다.
+        jibun_key = re.sub(r"\s", "", jibun)
+        name_key = re.sub(r"\s+", "", name)
+        dup_key = None
+        if jibun_key and (("지번", jibun_key, ptype, spaces)) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif name_key and ("이름", name_key, ptype) in seen:
+            dup_key = ("이름", name_key, ptype)
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and name_key:
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", name_key, ptype)] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (GUNPO_BBOX[0] <= lat <= GUNPO_BBOX[1]
+                                     and GUNPO_BBOX[2] <= lng <= GUNPO_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = gunpo_dong_of(jibun) or gunpo_dong_of(road)
+        dong_src = "지번주소" if gunpo_dong_of(jibun) else ("도로명주소" if gunpo_dong_of(road) else "없음")
+        if not dong and name in GUNPO_DONG_OVERRIDE:
+            dong, why = GUNPO_DONG_OVERRIDE[name]
+            dong_src = f"보정({why})"
+        note = (r.get("특기사항") or "").strip()
+        pay = (r.get("요금정보") or "").strip()
+        std_grade = to_int(r.get("급지구분"))
+        street = ptype == "노상"
+
+        win, oper, closed_note = parse_schedule(r, note)
+        if street:
+            closed_note = False
+        # 표준데이터는 80행 모두 평일·토요일·공휴일 00:00~23:59라, 공사 현황의 운영시간으로 바로잡는다.
+        corp = GUNPO_CORP.get(name)
+        if corp:
+            want = gunpo_win(corp[3])
+            if any(win[k]["start"] != want[k]["start"] or win[k]["end"] != want[k]["end"]
+                   for k in ("weekday", "sat", "sun")):
+                hour_fixed.append(
+                    f"{name}: 표준데이터 00:00~23:59 → 공사 안내 "
+                    f"평일 {corp[3][0]}·토 {corp[3][1]}·일 {corp[3][2]}")
+            win = want
+            oper = {k: True for k in ("weekday", "sat", "sun")}
+        elif not all(win[k]["open"] and win[k]["24h"] for k in ("weekday", "sat", "sun")):
+            hour_fixed.append(f"{name}: 표준데이터 운영시간 {r.get('운영요일') or '—'} "
+                              f"{r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''}")
+
+        free_days, free_windows = gunpo_free_info(note)
+
+        base_fee_reg = to_int(r.get("주차기본요금"))
+        if name in GUNPO_SPECIAL_LOTS:
+            grade = None
+        elif std_grade in (1, 2, 3):
+            grade = std_grade
+        else:
+            # 급지 ‘기타’(특수관리대상·무료) — 공사 현황의 급지가 있으면 그것을 쓴다.
+            grade = corp[1] if corp else None
+            if grade and pay != "무료":
+                grade_fixed.append(f"{name}: 표준데이터 급지 ‘기타’ → 공사 현황 {grade}급지")
+        if corp and corp[1] is not None and grade is not None and corp[1] != grade:
+            grade_fixed.append(f"{name}: 표준데이터 {grade}급지 ↔ 공사 현황 {corp[1]}급지")
+        if corp is None:
+            corp_missing.append(name)
+        elif corp[2] != spaces:
+            space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 공사 현황 {corp[2]}면")
+
+        kind = "노상" if street else "노외"
+        if street:
+            street_no += 1
+            lot_id = f"gpo-s{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"gpo-{card_no:03d}"
+
+        monthly = to_int(r.get("월정기권요금"))
+        if name in GUNPO_TICKET_ONLY:
+            fee = gunpo_ticket_fee(monthly=monthly, raw_type=pay or "유료")
+        elif name in GUNPO_SPECIAL_LOTS:
+            fee = gunpo_special_fee(GUNPO_SPECIAL_LOTS[name])
+            fee["monthly"] = monthly or None
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")), "base_fee": base_fee_reg,
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": to_int(r.get("1일주차권요금")), "monthly": monthly}
+        elif pay == "무료":
+            fee = gunpo_free_fee()
+        elif grade in GUNPO_FEES:
+            fee = gunpo_fee(grade)
+            fee["monthly"] = monthly or None
+            fee["monthly_all"] = monthly or None
+            # 1일 주차권을 운영하지 않는 곳(산본천·바위백이)은 상한 없이 계산한다.
+            if name in ("산본천공영주차장", "바위백이공영주차장"):
+                fee["daily_fee"] = None
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")), "base_fee": base_fee_reg,
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": to_int(r.get("1일주차권요금")), "monthly": monthly}
+            reg_day = to_int(r.get("1일주차권요금"))
+            if reg_day and fee["daily_fee"] and reg_day != fee["daily_fee"]:
+                fee_diff.append(f"{name}: 등록 1일 주차권 {reg_day:,}원 ↔ 조례 {grade}급지 "
+                                f"{fee['daily_fee'] or 0:,}원")
+        else:
+            fee = gunpo_ticket_fee(monthly=monthly or None, raw_type=pay or "유료")
+        if name not in GUNPO_SPECIAL_LOTS:
+            fee["std_grade"] = std_grade
+        fee["pay"] = (r.get("결제방법") or "").strip()
+
+        notice = None
+        if name in ("산본천공영주차장", "바위백이공영주차장"):
+            notice = ("1일 주차권을 운영하지 않습니다(군포도시공사 안내) — 24시간을 세우면 시간 요금 "
+                      "합계가 그대로 청구됩니다")
+        if name in GUNPO_SPECIAL_LOTS:
+            special_note = {
+                "center": ("특수관리대상(중심상가) — 1시간 2,000원·2시간 5,600원·3시간 11,600원, "
+                           "3시간 뒤에는 10분당 1,500원이고 5시간 40분부터 1일 최대 35,000원입니다"),
+                "rodeo": ("특수관리대상 — 최초 1시간 무료, 이후 10분당 400원, 1일 최대 8,000원입니다"
+                          "(표준데이터에는 기본 60분 0원·10분당 400원으로 등록)"),
+                "transit": "특수관리대상 환승주차장 — 최초 30분 무료, 이후 10분당 400원, 1일 최대 8,000원입니다",
+                "market": ("특수관리대상 — 최초 30분 무료, 이후 10분당 400원(1~2시간 600원·2~3시간 900원·"
+                           "3시간 뒤 1,300원)이고 6시간 20분부터 1일 최대 35,000원입니다"),
+                "station": "특수관리대상 — 최초 30분 무료, 이후 10분당 400원이고 1일 최대 요금은 없습니다",
+            }[GUNPO_SPECIAL_LOTS[name]]
+            notice = special_note
+            if name == "산본시장제2공영주차장":
+                notice += (" · 표준데이터에는 10분당 1,300원·1일 요금 없음으로만 등록되어 있습니다"
+                           "(조례 별표1은 산본시장과 같은 별도 표로 1일 최대 57,000원)")
+            if name in ("산본시장공영주차장", "금산로1공영주차장", "군포역1길공영주차장"):
+                notice += " · 평일 09:00~18:00(토요일 10:00~18:00)에만 요금을 받고, 일요일은 무료 개방입니다"
+        if name == "산본시장제1공영주차장":
+            notice = ("월 정기권 전용 주차장입니다 — 시간 주차요금은 게시되어 있지 않고, "
+                      f"월 정기권은 {monthly:,}원입니다" if monthly else
+                      "월 정기권 전용 주차장입니다 — 시간 주차요금은 게시되어 있지 않습니다")
+        if name in GUNPO_TICKET_ONLY and name != "산본시장제1공영주차장":
+            notice = ("공사 현황에 ‘월정기 전용’으로 안내되는 주차장입니다 — 시간 주차요금은 게시되어 있지 않고, "
+                      f"월 정기권은 {monthly:,}원입니다" if monthly else
+                      "공사 현황에 ‘월정기 전용’으로 안내되는 주차장입니다 — 시간 주차요금은 게시되어 있지 않습니다")
+        if name in ("당동4공영주차장", "반월호수공영주차장"):
+            notice = ("군포도시공사가 ‘무료개방’으로 안내하는 주차장입니다(공사 현황 급지 2급지, "
+                      "요금 구분 ‘무료’)")
+        if name == "금산로2공영주차장":
+            notice = ("공사 현황은 1급지·‘무료개방’으로, 표준데이터는 급지 ‘기타’·‘무료’로 등록하고 "
+                      "있습니다 — 두 자료 모두 무료라 요금은 없습니다")
+        if name in GUNPO_PAID_WINDOW and notice is None:
+            notice = ("평일 09:00~18:00(토요일 10:00~18:00)에만 요금을 받고, 그 밖의 시간과 일요일은 "
+                      "무료입니다")
+        if corp is None and name in GUNPO_CITY_ONLY:
+            notice = ("군포시청이 관리하는 소규모 무료 주차장입니다 — 군포도시공사 공영주차장 현황(41곳)에는 "
+                      "없고 표준데이터에만 등록되어 있습니다")
+        if corp and corp[2] != spaces:
+            notice = ((notice + " · ") if notice else "") + \
+                f"군포도시공사 현황은 {corp[2]}면으로 안내합니다(표준데이터 {spaces}면)"
+        if "09:60" in (r.get("특기사항") or ""):
+            note_fixed.append(f"{name}: 특기사항 ‘토(18:01~09:60 무료)’ → 09:59로 읽음(표준데이터 오타)")
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": mgmt,
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "군포시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip() or "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": (re.match(r"^([가-힣0-9]+(?:대로|로|길))", name).group(1)
+                     if street and re.match(r"^([가-힣0-9]+(?:대로|로|길))", name) else None),
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip() or "군포시",
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": (free_windows[0].split(" ", 1)[1] if free_windows else None),
+            "free_hour_note": ((" · ".join(free_windows) + "에는 요금이 발생하지 않습니다(등록 특기사항 기준)")
+                               if free_windows else None),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": corp[0] if corp else None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "군포시",
+            "city_slug": "gunpo",
+        })
+
+    # 일부러 0원으로 두지 않는 값 — 월정기 전용 주차장의 ‘1일 주차권 없음’을 품질 리포트에 남긴다.
+    for l in lots:
+        if l["fee"].get("ticket_only") and not l["fee"].get("monthly"):
+            ticket_diff.append(l["name"])
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"gpo-{i:03d}" if l["list_mode"] == "card" else f"gpo-s{i:03d}"
+
+    quality = check_quality_gunpo(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                  grade_fixed, fee_diff, space_diff, corp_missing,
+                                  note_fixed, ticket_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(GUNPO_CORP_TXT).strftime("%Y-%m-%d %H:%M")
+                           if GUNPO_CORP_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "군포시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-16",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 군포시가 등록한 80행(노외 50·노상 30)을 읽었다. 이름·주소·구획수·"
+                             "급지·운영시간·좌표·전화·관리번호·특기사항(무료 시간대)과 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "ordinance", "name": "군포시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 주차요금·[별표 2] 감면기준",
+                    "org": "군포시(차량관리과)",
+                    "url": GUNPO_ORDINANCE_URL,
+                    "file": f"{GUNPO_ORD_A1.name} · {GUNPO_ORD_A2.name}",
+                    "sha256": sha256(GUNPO_ORD_A1) if GUNPO_ORD_A1.exists() else None,
+                    "license": "자치법규(공개)",
+                    "base_date": GUNPO_ORDINANCE_NOTE,
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GUNPO_ORD_A1),
+                    "note": ("1~3급지 최초 15분 무료·최초 30분 800·600·300원·10분당 400·200·200원·"
+                             "1일 최대 9,000·6,000·4,000원, 월 정기권 100,000·70,000·50,000원과 "
+                             "중심1·2·3·지하·산본로데오·산본시장·군포역환승·군포역1길의 별도(누진) 요금표를 "
+                             "별표 HWP로 받아 rhwp로 옮겨 읽었다. 감면은 [별표 2](전액면제·2시간 면제 후 "
+                             "50%·50%·기타 20%)를 썼다."),
+                },
+                {
+                    "id": "corp", "name": "군포도시공사 공영주차장 노외주차장 현황·주차요금",
+                    "org": "군포도시공사 교통관리부 주차관리팀(031-390-7684)",
+                    "url": GUNPO_CORP_OUT_URL,
+                    "file": GUNPO_CORP_TXT.name if GUNPO_CORP_TXT.exists() else None,
+                    "sha256": sha256(GUNPO_CORP_TXT) if GUNPO_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 41,
+                    "fetched_at": _sync_time(GUNPO_CORP_TXT),
+                    "note": ("노외 41곳 3,363면의 급지(1~3급지·특수관리대상)·면수·평일·토요일·일요일 "
+                             "운영시간과 요금표(1급지 800·400·9,000원, 2급지 600·200·6,000원, 3급지 "
+                             "300·200·4,000원, 중심·산본로데오·군포역환승 별도표) 확인용."),
+                },
+                {
+                    "id": "corp_st", "name": "군포도시공사 공영주차장 노상주차장 현황·주차요금",
+                    "org": "군포도시공사 교통관리부 주차관리팀(031-390-7684)",
+                    "url": GUNPO_CORP_ST_URL,
+                    "file": GUNPO_ST_TXT.name if GUNPO_ST_TXT.exists() else None,
+                    "sha256": sha256(GUNPO_ST_TXT) if GUNPO_ST_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 6,
+                    "fetched_at": _sync_time(GUNPO_ST_TXT),
+                    "note": ("노상 6곳 228면(군포역1길·산본시장·금산로1·금산로2·동백길·군포고가교밑1)의 "
+                             "급지·면수와 운영시간(평일 09:00~18:00·토요일 10:00~18:00·일요일 무료개방), "
+                             "산본시장·금산로1의 누진 요금표(1시간 1,200·2시간 4,800·3시간 10,200원, "
+                             "1일 최대 35,000원) 확인용."),
+                },
+                {
+                    "id": "corp_att", "name": "군포도시공사 부설주차장 현황(시청부설)",
+                    "org": "군포도시공사 교통관리부 주차관리팀(031-390-7684)",
+                    "url": GUNPO_CORP_ATT_URL,
+                    "file": GUNPO_ATT_TXT.name if GUNPO_ATT_TXT.exists() else None,
+                    "sha256": sha256(GUNPO_ATT_TXT) if GUNPO_ATT_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 1,
+                    "fetched_at": _sync_time(GUNPO_ATT_TXT),
+                    "note": ("시청부설주차장 1곳 159면(급지 없음, 24시간 무인화, 1시간 이내 출차 면제·"
+                             "1시간 초과 10분당 300원·1일(최대 4시간) 6,000원) — 공영주차장 목록과 요금 기준이 "
+                             "달라 카드로 만들지 않고 페이지에 안내했다."),
+                },
+                {
+                    "id": "faq", "name": "군포도시공사 ‘공영주차장 주차요금 현황’(2025-04-01 기준)",
+                    "org": "군포도시공사",
+                    "url": GUNPO_FAQ_URL,
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2025-04-01 기준",
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GUNPO_CORP_TXT),
+                    "note": ("1급지 800·400·9,000원 / 2급지 600·200·6,000원 / 3급지 300·200·4,000원과 "
+                             "중심 1일 최대 35,000원·산본로데오 8,000원을 확인했다(조례 별표1의 중심 "
+                             "90,000원·산본시장 57,000원은 2025년 개정 전 값으로 보아 운영 값을 따랐다)."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GUNPO_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "gunpo_special",
+            "unit_min": GUNPO_UNIT_MIN,
+            "base_min": GUNPO_BASE_MIN,
+            "free_min": GUNPO_FREE_MIN,
+            "applies": GUNPO_ORDINANCE_NOTE + " · 2025-01-01 요금 적용",
+            "off": [{"grade": g, **t, "lots": 0} for g, t in sorted(GUNPO_FEES.items())],
+            "special": [
+                {"key": "center", "name": "중심1·2·3·중심지하",
+                 "free_min": 15, "base": 800, "tiers": "400 → 600 → 1,000 → 1,500",
+                 "day": 35_000, "note": "1시간 2,000·2시간 5,600·3시간 11,600원 · 월 정기권 없음"},
+                {"key": "rodeo", "name": "산본로데오",
+                 "free_min": 60, "base": 0, "tiers": "1시간 무료 뒤 400",
+                 "day": 8_000, "note": "285면·24시간 · 월 정기권 90,000원"},
+                {"key": "market", "name": "산본시장(노상)·산본시장제2·금산로1",
+                 "free_min": 30, "base": 0, "tiers": "400 → 600 → 900 → 1,300",
+                 "day": 35_000, "note": "1시간 1,200·2시간 4,800·3시간 10,200원 · 산본시장제1 정기권 80,000원"},
+                {"key": "transit", "name": "군포역환승",
+                 "free_min": 30, "base": 0, "tiers": "400",
+                 "day": 8_000, "note": "74면 · 월 정기권 80,000원"},
+                {"key": "station", "name": "군포역1길(노상)",
+                 "free_min": 30, "base": 0, "tiers": "400",
+                 "day": None, "note": "1일 최대 없음(20면)"},
+            ],
+            "corp": {"out": 41, "out_spaces": 3363, "st": 6, "st_spaces": 228, "att": 1, "att_spaces": 159},
+            "basis": ("「군포시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금"
+                      f"({GUNPO_ORDINANCE_NOTE}) · 군포도시공사 공영주차장 요금 안내(2026-11-17 확인)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["군포시"] | {
+        "city": "군포시",
+        "weekend_free_pages": False,
+        "discounts": GUNPO_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "gunpo_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_gunpo(std_all, rows, lots, excluded, merged, hour_fixed, grade_fixed,
+                        fee_diff, space_diff, corp_missing, note_fixed, ticket_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_군포시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "특수관리대상": [l["name"] for l in lots if l["name"] in GUNPO_SPECIAL_LOTS],
+        "운영시간_보정": hour_fixed,
+        "급지_보정": grade_fixed,
+        "등록값_차이": fee_diff,
+        "면수_차이": space_diff,
+        "공사_현황_없음": corp_missing,
+        "특기사항_보정": note_fixed,
+        "정기권_금액없음": ticket_diff,
+        "야간무료_표기": [l["name"] for l in lots if l["free_hour_note"]],
+        "정기권전용": [l["name"] for l in lots if l["fee"].get("ticket_only")],
+        "포털추가": [l["name"] for l in lots if l["src"] != "표준데이터"],
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                 if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
-             "hanam": ["하남시"]}[args.city])
+             "hanam": ["하남시"], "gunpo": ["군포시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -8358,6 +9110,8 @@ def main():
         cities.append(build_gwangju())
     if "하남시" in want:
         cities.append(build_hanam())
+    if "군포시" in want:
+        cities.append(build_gunpo())
 
     if args.city == "all":
         site = build_site_payload(cities)

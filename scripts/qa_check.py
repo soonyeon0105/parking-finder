@@ -539,6 +539,15 @@ _others = set()
 for _k, _v in MIX.items():
     _others.update(t for t in _v if t not in HANAM_TOKENS)
 MIX["hanam"] = tuple(sorted(_others))
+# 군포시도 자치구가 없다 — 다른 도시 페이지에 군포 자료가 섞이면 실패.
+#   (‘산본로데오’처럼 군포에만 있는 이름으로 좁힌다.)
+GUNPO_TOKENS = ("군포시", "군포도시공사", "군포시청", "산본로데오")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + GUNPO_TOKENS
+_others2 = set()
+for _k, _v in MIX.items():
+    _others2.update(t for t in _v if t not in GUNPO_TOKENS)
+MIX["gunpo"] = tuple(sorted(_others2))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -1891,6 +1900,141 @@ else:
     hn_rows = len(re.findall(r"<tr><td>", hn_street_page.read_text()))
     if hn_rows < len(hn_street):
         fails.append(f"하남시 노상 페이지 행 {hn_rows} < 구간 {len(hn_street)}")
+
+# 군포시: 「군포시 주차장 설치 및 관리 조례」 [별표 1](시행 2025-01-01, 조례 제2236호)
+#   · 1~3급지 최초 15분 무료 + 30분 800·600·300원 + 10분당 400·200·200원 + 1일 최대 9,000·6,000·4,000원.
+#   · 특수관리대상(중심·산본로데오·산본시장·군포역환승·군포역1길)은 별도 누진표, 2급지 10곳은 월 정기권 전용.
+GPO_GRADE = {1: (800, 400, 9000), 2: (600, 200, 6000), 3: (300, 200, 4000)}
+gpo_cards = [l for l in LOTS if l.get("city") == "군포시" and l.get("list_mode") == "card"]
+gpo_street = [l for l in LOTS if l.get("city") == "군포시" and l.get("list_mode") == "street"]
+if not gpo_cards:
+    fails.append("군포시 카드 데이터가 없음")
+gpo_paid = [l for l in gpo_cards if l["fee"]["type"] == "유료"]
+gpo_free = [l for l in gpo_cards if l["fee"]["type"] == "무료"]
+gpo_ticket = [l for l in LOTS if l.get("city") == "군포시" and l["fee"].get("ticket_only")]
+gpo_special = [l for l in gpo_paid if l["fee"].get("grade") is None]   # 특수관리대상(급지 없음·별도 요금)
+gpo_bad = []
+for l in gpo_paid:
+    f = l["fee"]
+    if f.get("steps") or f.get("grade") is None:
+        continue
+    base, unit, day = GPO_GRADE.get(f["grade"], (None, None, None))
+    if base is None:
+        gpo_bad.append(f'{l["name"]}(급지 {f["grade"]})')
+        continue
+    if (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f.get("free_min")) != (30, base, 10, unit, 15):
+        gpo_bad.append(f'{l["name"]}(요금 {f["base_min"]}분 {f["base_fee"]}원·{f["unit_min"]}분 '
+                       f'{f["unit_fee"]}원·최초 {f.get("free_min")}분)')
+    if l["name"] not in ("산본천공영주차장", "바위백이공영주차장") and f.get("daily_fee") != day:
+        gpo_bad.append(f'{l["name"]}(1일 최대 {f.get("daily_fee")} ≠ {day})')
+if gpo_bad:
+    fails.append(f"군포시 유료 주차장 요금이 조례 별표1과 다름 {len(gpo_bad)}곳 {gpo_bad[:3]}")
+# 계산 결과: 최초 15분 0원, 30분 기본요금, 2시간 = 기본 + 9×10분 요율, 하루는 1일 최대 상한.
+gpo_price_bad = []
+for l in gpo_paid:
+    f = l["fee"]
+    if f.get("steps") or f.get("grade") is None:
+        continue
+    base, unit, day = GPO_GRADE[f["grade"]]
+    r15 = _pf(l, 15, "weekday")
+    if r15.get("state") != "free":
+        gpo_price_bad.append(f'{l["name"]} 15분 {r15}')
+    for mins, want in ((30, base), (120, min(base + 9 * unit, day or 10 ** 9))):
+        r = _pf(l, mins, "weekday")
+        if r.get("state") != "paid" or r.get("amount") != want:
+            gpo_price_bad.append(f'{l["name"]} {mins}분 {r} ≠ {want}')
+    if l["name"] not in ("산본천공영주차장", "바위백이공영주차장"):
+        r = _pf(l, 1440, "weekday")
+        if r.get("state") != "paid" or r.get("amount") != day:
+            gpo_price_bad.append(f'{l["name"]} 1440분 {r} ≠ {day}')
+if gpo_price_bad:
+    fails.append(f"군포시 요금 계산이 조례 값과 다름 {len(gpo_price_bad)}건 {gpo_price_bad[:3]}")
+# 특수관리대상 누진: 중심 1시간 2,000·2시간 5,600·3시간 11,600원, 산본로데오 최초 1시간 무료,
+#   산본시장 1시간 1,200·2시간 4,800원, 군포역환승 2시간 3,600원(모두 군포도시공사 안내 값).
+gpo_special_bad = []
+_expect = {"중심1공영주차장": [(60, 2000), (120, 5600), (180, 11600)],
+           "산본로데오공영주차장": [(60, 0), (120, 2400)],
+           "산본시장공영주차장": [(60, 1200), (120, 4800), (180, 10200)],
+           "산본시장제2공영주차장": [(120, 4800)],
+           "군포역환승공영주차장": [(120, 3600)],
+           "군포역1길공영주차장": [(30, 0), (120, 3600)]}
+for _name, _rows in _expect.items():
+    _lot = next((l for l in LOTS if l.get("city") == "군포시" and l["name"] == _name), None)
+    if not _lot:
+        gpo_special_bad.append(f"{_name} 없음")
+        continue
+    for _m, _want in _rows:
+        _r = _pf(_lot, _m, "weekday")
+        _got = 0 if _r.get("state") == "free" else _r.get("amount")
+        if _got != _want:
+            gpo_special_bad.append(f"{_name} {_m}분 {_got} ≠ {_want}")
+if gpo_special_bad:
+    fails.append(f"군포시 특수관리대상 누진 요금이 공사 안내와 다름 {len(gpo_special_bad)}건 {gpo_special_bad[:3]}")
+# 1일 주차권을 운영하지 않는 2곳은 상한 없이 계산한다(0원이 아니라 ‘요금 미상’도 아니다).
+for _n in ("산본천공영주차장", "바위백이공영주차장"):
+    _lot = next((l for l in LOTS if l.get("city") == "군포시" and l["name"] == _n), None)
+    if _lot and _lot["fee"].get("daily_fee"):
+        fails.append(f"군포시 {_n}에 1일 주차요금이 남아 있음")
+gpo_disc = {d["label"]: (d["rate"], d.get("exempt_min") or 0) for d in
+            next(c for c in CITIES if c["city"] == "군포시").get("discounts") or []}
+if (gpo_disc.get("경차·전기차 50%") or (None,))[0] != 0.5:
+    fails.append("군포시 감면표에 경차·전기차 50%가 없음")
+if (gpo_disc.get("유공자·장애인 2시간 면제 후 50%") or (None, None))[1] != 120:
+    fails.append("군포시 감면표의 유공자·장애인 면제 시간이 120분이 아님")
+if (gpo_disc.get("긴급·공무 차량 면제") or (None,))[0] != 1.0:
+    fails.append("군포시 감면표에 긴급·공무 차량 면제가 없음")
+if len(gpo_cards) != 50 or len(gpo_street) != 29:
+    fails.append(f"군포시 카드·노상 구성이 다름: 카드 {len(gpo_cards)} · 노상 {len(gpo_street)}")
+if len(gpo_paid) != 29 or len(gpo_free) != 11 or len([l for l in gpo_cards if l["fee"].get("ticket_only")]) != 10:
+    fails.append(f"군포시 카드 요금 구분이 다름: 유료 {len(gpo_paid)}·무료 {len(gpo_free)}·"
+                 f"정기권전용 {len([l for l in gpo_cards if l['fee'].get('ticket_only')])}")
+if dict(Counter(l["fee"]["grade"] for l in gpo_paid if l["fee"].get("grade"))) != {1: 7, 2: 14, 3: 1}:
+    fails.append("군포시 카드 유료 급지 구성이 {1: 7, 2: 14, 3: 1}이 아님")
+if len(gpo_special) != 7:
+    fails.append(f"군포시 특수관리대상(누진) 카드가 7곳이 아님: {len(gpo_special)}곳")
+if len(gpo_ticket) != 11:
+    fails.append(f"군포시 월 정기권 전용 주차장이 11곳이 아님: {len(gpo_ticket)}곳")
+if sum(l["spaces"] or 0 for l in gpo_cards) != 3536 or sum(l["spaces"] or 0 for l in gpo_street) != 974:
+    fails.append(f"군포시 구획 합계가 다름: 노외 {sum(l['spaces'] or 0 for l in gpo_cards)} · "
+                 f"노상 {sum(l['spaces'] or 0 for l in gpo_street)}")
+if len([l for l in gpo_cards if not l.get("dong")]):
+    fails.append("군포시 카드에 동이 없는 주차장이 있음")
+gpo_dup = [k for k, v in Counter(l["name"] for l in gpo_cards).items() if v > 1]
+if gpo_dup:
+    fails.append(f"군포시 카드 이름 중복: {gpo_dup[:3]}")
+# 야간(평일·토 00:01~07:59, 일 22:01~09:59) 무료 표기가 카드에 남아 있어야 한다.
+if len([l for l in gpo_cards if l.get("free_hour_note")]) < 20:
+    fails.append("군포시 카드의 무료 시간 안내가 20곳 미만임")
+gpo_root = DIST / "parking" / "gyeonggi" / "gunpo"
+gpo_hub = gpo_root / "index.html"
+if not gpo_hub.exists():
+    fails.append("군포시 시 페이지 없음")
+else:
+    gpo_html = gpo_hub.read_text()
+    for label in ("군포시 급지별 주차요금표", "1급지", "2급지", "3급지", "10분당", "최초 15분",
+                  "월 정기권", "특수관리대상·별도 요금 주차장", "산본로데오", "군포역환승",
+                  "평일 2시간 기준 가장 저렴한 곳", 'class="calc', "군포도시공사"):
+        if label not in gpo_html:
+            fails.append(f"군포시 시 페이지에 {label} 없음")
+    if gpo_html.count('class="card lot') != len(gpo_cards):
+        fails.append(f"군포시 시 페이지 카드 수 불일치({gpo_html.count(chr(34)+'card lot')} vs {len(gpo_cards)})")
+if "&lt;b&gt;" in gpo_hub.read_text() if gpo_hub.exists() else False:
+    fails.append("군포시 시 페이지에 이스케이프된 <b> 태그가 보임")
+gpo_dong_pages = sorted(q.parent.name for q in gpo_root.rglob("index.html")
+                        if q.parent.parent == gpo_root and q.parent.name != "street-parking")
+gpo_expect = sorted(__import__("build_site").dong_slug(d)
+                    for d, n in Counter(l.get("dong") for l in gpo_cards if l.get("dong")).items() if n >= 3)
+if gpo_dong_pages != gpo_expect:
+    fails.append(f"군포시 동 페이지 구성이 다름: {gpo_dong_pages} ≠ {gpo_expect}")
+if not gpo_dong_pages:
+    fails.append("군포시 동 페이지가 없음")
+gpo_street_page = gpo_root / "street-parking" / "index.html"
+if not gpo_street_page.exists():
+    fails.append("군포시 노상주차장 페이지 없음(street-parking)")
+else:
+    gpo_rows = len(re.findall(r"<tr><td>", gpo_street_page.read_text()))
+    if gpo_rows < len(gpo_street):
+        fails.append(f"군포시 노상 페이지 행 {gpo_rows} < 구간 {len(gpo_street)}")
 
 print()
 if warns:
