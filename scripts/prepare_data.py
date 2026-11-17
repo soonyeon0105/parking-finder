@@ -21625,6 +21625,9 @@ BUSAN_CITY_DISCOUNTS = [
 
 # T-03 Phase 38에서 더한 6개 구 — 공단 포털 내려받기·주소 확인 근거가 Phase 37과 달라 따로 표시한다.
 BUSAN2_DISTRICTS = {"동래구", "남구", "해운대구", "사하구", "금정구", "연제구"}
+# 동래구(별표1)·금정구(별표7)는 자체 요금표를 1~4급지로만 나눈다(시 조례의 1급지 가·나 구분 없음).
+#   동래구청 공영주차장 요금표(2025-05-01 현재): 1급지 10분 500원·1일 15,000원·월 주간 160,000·야간 80,000원.
+BUSAN_FLAT_GRADE = {"동래구", "금정구"}
 
 BUSAN_OPERATORS = {
     "부산광역시 중구청": "구영(중구청 직영)",
@@ -22103,6 +22106,8 @@ def busan_fee(row, conf, district, note_bits, note_fixed, grade_fixed):
     elif grade_raw in ("2", "3", "4"):
         grade = grade_raw
     label = BUSAN_GRADE_LABEL.get(grade) or (f"{grade_raw}급지" if grade_raw else None)
+    if grade in ("1가", "1나") and district in BUSAN_FLAT_GRADE:
+        label = "1급지"          # 구 자체 별표는 1급지 하나로만 나눈다
     _dong0 = busan_dong_of(busan_addr(row))
     if (district, _dong0) in BUSAN_GRADE_A_DONGS and (base_fee or 0) and base_fee < 700:
         # 조례는 부평동·광복동·남포동·부전동을 1급지(가)(10분 700원)로 고시했다.
@@ -22575,16 +22580,25 @@ def busan_fee_table(name, conf, lots):
             months = [l["fee"]["monthly_all"] for l in gl if l["fee"].get("monthly_all")]
             days = [l["fee"]["daily_fee"] for l in gl if l["fee"].get("daily_fee")]
             rows.append({
-                "grade": grade, "label": BUSAN_GRADE_LABEL[grade], "lots": len(gl),
+                "grade": grade,
+                "label": ("1급지" if grade in ("1가", "1나") and name in BUSAN_FLAT_GRADE
+                          else BUSAN_GRADE_LABEL[grade]),
+                "lots": len(gl),
                 "unit_label": unit_label, "hour": h1, "two_hour": h2,
                 "day": min(days) if days else ref[1],
                 "month": min(months) if months else BUSAN_MONTHLY_ALL[grade],
                 "charter": ref[0], "charter_day": ref[1],
             })
+        elif grade == "1가" and name in BUSAN_FLAT_GRADE:
+            # 자체 별표가 1~4급지인 구는 1급지(가) 행을 따로 두지 않는다.
+            continue
         else:
             # 이 구에 그 급지 주차장이 없어도 조례 요금은 보여 준다(1시간 = 10분 요금×6, 1일 상한 적용).
             rows.append({
-                "grade": grade, "label": BUSAN_GRADE_LABEL[grade], "lots": 0,
+                "grade": grade,
+                "label": ("1급지" if grade in ("1가", "1나") and name in BUSAN_FLAT_GRADE
+                          else BUSAN_GRADE_LABEL[grade]),
+                "lots": 0,
                 "unit_label": f"{ref[0]:,}원",
                 "hour": min(ref[0] * 6, ref[1]),
                 "two_hour": min(ref[0] * 12, ref[1]),

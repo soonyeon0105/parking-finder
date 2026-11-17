@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-18 08:10",
-  "generated_at_iso": "2026-11-18T08:10:34+09:00",
-  "snapshot_at": "2026-11-18 08:10",
+  "generated_at": "2026-11-18 08:16",
+  "generated_at_iso": "2026-11-18T08:16:25+09:00",
+  "snapshot_at": "2026-11-18 08:16",
   "region": {
    "province": "부산광역시",
    "city": "금정구"
@@ -3831,7 +3831,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-18 08:10",
+  "generated_at": "2026-11-18 08:16",
   "원자료_전국행수": 18994,
   "원자료_행수": 28,
   "원자료_금정구행수": 28,
@@ -3920,20 +3920,8 @@
   "applies": "2025-04-16",
   "rows": [
    {
-    "grade": "1가",
-    "label": "1급지(가)",
-    "lots": 0,
-    "unit_label": "700원",
-    "hour": 4200,
-    "two_hour": 8400,
-    "day": 21000,
-    "month": 310000,
-    "charter": 700,
-    "charter_day": 21000
-   },
-   {
     "grade": "1나",
-    "label": "1급지(나)",
+    "label": "1급지",
     "lots": 0,
     "unit_label": "500원",
     "hour": 3000,
