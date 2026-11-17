@@ -1,0 +1,6117 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 11:23",
+  "generated_at_iso": "2026-11-17T11:23:32+09:00",
+  "snapshot_at": "2026-11-17 10:40",
+  "region": {
+   "province": "경기도",
+   "city": "김포시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-07-15",
+    "rows_total": 18994,
+    "rows_city": 50,
+    "fetched_at": "2026-11-16 19:07 (KST)",
+    "note": "김포시가 등록한 50행(제공기관명 '경기도 김포시', 노외 40·노상 10)을 읽었다. 이름·주소·운전시간·좌표·전화·관리번호와 등록요금 출처로 썼다."
+   },
+   {
+    "id": "gimpo",
+    "name": "김포시 공영주차장 1시간 무료 대상 40개소·요금 감면 표",
+    "org": "김포시(교통정책과 주차시설팀)",
+    "url": "https://blog.naver.com/gimpo2010/224252112942",
+    "file": "gimpo.go.kr_공영주차장_1시간무료_대상_20261117.txt",
+    "sha256": "f0181db6fb078a141c8b90f0c9ecf3bd8467a6a78fb617aabc3103a09929be85",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-04-14 게시(2027-04-30까지 시행)",
+    "rows_total": 40,
+    "fetched_at": "2026-11-17 10:40 (KST)",
+    "note": "유료 노외 공영주차장 40개소 목록·도로명주소와 요금 감면표(경차·장애인·다자녀·우수자원봉사자·5일장 정기권 등) 확인용. '최초 1시간 무료' 적용 근거."
+   },
+   {
+    "id": "press",
+    "name": "김포시 보도자료(공영주차장 운영·개장)",
+    "org": "김포시 교통정책과 주차시설팀",
+    "url": "https://www.gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=970481",
+    "file": "gimpo.go.kr_보도자료_공영주차장_20261117.txt",
+    "sha256": "60c41077e68b198ffe98fb9bd3ecdade62808df380613313bd3b996e9673a0c8",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2023-02-02 ~ 2026-09-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 10:40 (KST)",
+    "note": "24시간 연중무휴 운영·00~09시 요금 없음·설·추석 연휴 무료 개방(2023-02-02), 고촌1(2025-11-14)·운양2(2026-01-16)·하성(2026-09-01) 개장, 1시간 감면 연장(2026-04-13) 확인용."
+   },
+   {
+    "id": "guc",
+    "name": "김포도시관리공사 공영주차장 상세 안내(공유누리)",
+    "org": "김포도시관리공사",
+    "url": "https://www.eshare.go.kr/UserPortal/Upv/UprResrcExpr/index.do?rsrc_no=EE03O5124780",
+    "file": "guc.or.kr_공영주차장_상세안내_20261117.txt",
+    "sha256": "c123808778f26fba51ba365c3f173cbcb91656cc46eeae87db488a7bc9ab2dac",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": null,
+    "rows_total": null,
+    "fetched_at": "2026-11-17 10:40 (KST)",
+    "note": "주차장별 주차면수(표준데이터와 일치)와 ‘연중무휴(단, 공휴일 및 00시~09시 주차요금 제외)’·감면 안내 확인용. 김포 스마트 주차포털(parking.guc.or.kr)은 웹방화벽 차단으로 목록을 읽지 못했다."
+   },
+   {
+    "id": "ordinance",
+    "name": "김포시 주차장 조례 (제5조제1항·별표1)",
+    "org": "김포시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2171011",
+    "file": "gimpo.go.kr_주차장조례_별표1_20261117.txt",
+    "sha256": "2c6133df16e8a88b0a3db53ef73c30b8195772a05ad0fb5bf57cc5b828b99381",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-09-28 (경기도김포시조례 제2322호, 일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 10:40 (KST)",
+    "note": "공영주차장 주차요금표(노상·노외 1~2급지: 기본 30분 600·300원, 이후 10분당 300·100원, 1일 7,000·3,500원, 월 정기권)와 요금 감면 특례 근거. 별표1 원문을 그대로 옮겨 두었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "김포시",
+   "slug": "gimpo"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gp-001",
+   "mgmt_no": "",
+   "src": "시 보도자료·명절 무료개방 목록",
+   "list_mode": "card",
+   "name": "고촌1 공영주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 1109",
+   "addr_road": "경기도 김포시 고촌읍 신기신동로 87",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-996-6584",
+   "lat": 37.6037916,
+   "lng": 126.7731965,
+   "base_date": "2026-11 (시 보도자료)",
+   "manager": "김포도시관리공사",
+   "note": "2025-11-15 무료 시범운영 뒤 2026-01-01부터 유료 정식운영(김포복지재단 인근)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-002",
+   "mgmt_no": "232-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고촌23 공영주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 1066",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-996-6584",
+   "lat": 37.60315577,
+   "lng": 126.7690194,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-003",
+   "mgmt_no": "232-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고촌공영주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 532-87",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "031-996-6584",
+   "lat": 37.60067559,
+   "lng": 126.7726398,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-004",
+   "mgmt_no": "232-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고촌노을 공영주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 1107",
+   "addr_road": "",
+   "road": null,
+   "spaces": 165,
+   "tel": "031-996-6584",
+   "lat": 37.60387998,
+   "lng": 126.7723072,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-005",
+   "mgmt_no": "232-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고촌보름 공영주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 953-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 108,
+   "tel": "031-996-6584",
+   "lat": 37.59268384,
+   "lng": 126.7653148,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-006",
+   "mgmt_no": "232-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고촌신곡 공영주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 1287",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-996-6584",
+   "lat": 37.60386113,
+   "lng": 126.7670516,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 전용 주차장(주간 정기권 이용료로 종일가능)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-007",
+   "mgmt_no": "232-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구래1 공영주차장",
+   "gu": "김포시",
+   "dong": "구래동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 구래동 6878-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "031-996-6584",
+   "lat": 37.64512147,
+   "lng": 126.6223749,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-008",
+   "mgmt_no": "232-2-000000",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구래상업지역 공영주차장",
+   "gu": "김포시",
+   "dong": "구래동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 구래동 6882-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 105,
+   "tel": "031-996-6584",
+   "lat": 37.64441577,
+   "lng": 126.6244463,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "주간 정기권만 가능",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-009",
+   "mgmt_no": "232-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대곶 공영주차장",
+   "gu": "김포시",
+   "dong": "대곶면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 대곶면 율생리 520",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "031-996-6584",
+   "lat": 37.64928071,
+   "lng": 126.5830375,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": "조례상 대곶면은 2급지이나 이 주차장의 등록요금은 1급지 요율(30분 600원·10분 300원)입니다 — 현장 요금표를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-010",
+   "mgmt_no": "232-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마산1 공영주차장",
+   "gu": "김포시",
+   "dong": "마산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 마산동 645-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "031-996-6584",
+   "lat": 37.63855822,
+   "lng": 126.6453578,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-011",
+   "mgmt_no": "232-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마산2 공영주차장",
+   "gu": "김포시",
+   "dong": "마산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 마산동 662-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-996-6584",
+   "lat": 37.63428142,
+   "lng": 126.645122,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-012",
+   "mgmt_no": "232-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "김포2 공영주차장",
+   "gu": "김포시",
+   "dong": "북변동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 북변동 887",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "031-996-6584",
+   "lat": 37.62349151,
+   "lng": 126.7129712,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-013",
+   "mgmt_no": "232-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북변 공영주차장",
+   "gu": "김포시",
+   "dong": "북변동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 북변동 278-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 157,
+   "tel": "031-996-6584",
+   "lat": 37.62744531,
+   "lng": 126.7117539,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "장날휴무(2일+7일)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-014",
+   "mgmt_no": "232-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북변자주식 공영주차장",
+   "gu": "김포시",
+   "dong": "북변동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 북변동 758, 759 (서초등학교 앞)",
+   "addr_road": "경기도 김포시 봉화로 182번길 18(북변동)",
+   "road": null,
+   "spaces": 70,
+   "tel": "031-996-6584",
+   "lat": 37.62834258,
+   "lng": 126.7027057,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-015",
+   "mgmt_no": "232-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외8 공영주차장",
+   "gu": "김포시",
+   "dong": "북변동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 북변동 818",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-996-6584",
+   "lat": 37.62287695,
+   "lng": 126.7209726,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-016",
+   "mgmt_no": "232-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우2 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 920",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "031-996-6584",
+   "lat": 37.61856089,
+   "lng": 126.7212102,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-017",
+   "mgmt_no": "232-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외1 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 1044 (명태어장앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-996-6584",
+   "lat": 37.62199859,
+   "lng": 126.714572,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-018",
+   "mgmt_no": "232-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외2 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 1003 (GS25앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-996-6584",
+   "lat": 37.62101615,
+   "lng": 126.7159507,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "주간 정기권만 가능",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-019",
+   "mgmt_no": "232-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외3 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 1019 (황금어장앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-996-6584",
+   "lat": 37.62123498,
+   "lng": 126.715419,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "주간 정기권만 가능",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-020",
+   "mgmt_no": "232-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외4 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 947 (사우동사무소앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-996-6584",
+   "lat": 37.61979952,
+   "lng": 126.7175512,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-021",
+   "mgmt_no": "232-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외5 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 939",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-996-6584",
+   "lat": 37.62001685,
+   "lng": 126.7185763,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-022",
+   "mgmt_no": "232-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우노외7 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 879 (동양·신명아파트 앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "031-996-6584",
+   "lat": 37.62141149,
+   "lng": 126.7213871,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-023",
+   "mgmt_no": "232-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우자주 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 1079-1",
+   "addr_road": "경기도 김포시 돌문로 32(사우동)",
+   "road": null,
+   "spaces": 163,
+   "tel": "031-996-6584",
+   "lat": 37.6202343,
+   "lng": 126.7161459,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-024",
+   "mgmt_no": "232-2-000000",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사우중앙 공영주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 사우동 883",
+   "addr_road": "",
+   "road": null,
+   "spaces": 177,
+   "tel": "031-996-6584",
+   "lat": 37.62259288,
+   "lng": 126.7221322,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-025",
+   "mgmt_no": "232-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양곡1 공영주차장",
+   "gu": "김포시",
+   "dong": "양촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 양촌읍 양곡리 1549",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "031-996-6584",
+   "lat": 37.65686268,
+   "lng": 126.6250032,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "장날휴무(1일+6일)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-026",
+   "mgmt_no": "232-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양곡근린공원 공영주차장",
+   "gu": "김포시",
+   "dong": "양촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 양곡리 1332",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-996-6585",
+   "lat": 37.65204796,
+   "lng": 126.6288768,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-027",
+   "mgmt_no": "232-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학운1 공영주차장",
+   "gu": "김포시",
+   "dong": "양촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 양촌읍 학운리3307",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "031-996-6584",
+   "lat": 37.60502496,
+   "lng": 126.592881,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-028",
+   "mgmt_no": "",
+   "src": "시 보도자료·1시간 무료 대상 목록",
+   "list_mode": "card",
+   "name": "운양2 공영주차장",
+   "gu": "김포시",
+   "dong": "운양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 운양동 1338-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-996-6584",
+   "lat": 37.6505303,
+   "lng": 126.6915699,
+   "base_date": "2026-11 (시 보도자료)",
+   "manager": "김포도시관리공사",
+   "note": "모담도서관 인근 · 2026-01-15 무료 시범운영 뒤 2026-02-01부터 유료 정식운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-029",
+   "mgmt_no": "232-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운양3 공영주차장",
+   "gu": "김포시",
+   "dong": "운양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 운양동 1317-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-996-6586",
+   "lat": 37.64892046,
+   "lng": 126.6950463,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-030",
+   "mgmt_no": "232-2-000000",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운양역환승센터 공영주차장",
+   "gu": "김포시",
+   "dong": "운양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 운양동 1307-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 424,
+   "tel": "031-996-6584",
+   "lat": 37.65333015,
+   "lng": 126.6842814,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-031",
+   "mgmt_no": "232-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장기1 공영주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 1861",
+   "addr_road": "",
+   "road": null,
+   "spaces": 76,
+   "tel": "031-996-6584",
+   "lat": 37.64550966,
+   "lng": 126.6690519,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-032",
+   "mgmt_no": "232-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장기2 공영주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 1847",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "031-996-6584",
+   "lat": 37.64528012,
+   "lng": 126.6680375,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-033",
+   "mgmt_no": "232-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장기3 공영주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 1514",
+   "addr_road": "",
+   "road": null,
+   "spaces": 82,
+   "tel": "031-996-6584",
+   "lat": 37.64376317,
+   "lng": 126.6725146,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-034",
+   "mgmt_no": "232-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장기5 자주식",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 2025-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 104,
+   "tel": "031-996-6584",
+   "lat": 37.63984166,
+   "lng": 126.6803695,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-035",
+   "mgmt_no": "232-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장기6 공영주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 2080-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "031-996-6584",
+   "lat": 37.6371215,
+   "lng": 126.6767441,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-036",
+   "mgmt_no": "232-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장기7 공영주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 1888-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 309,
+   "tel": "031-996-6584",
+   "lat": 37.64171447,
+   "lng": 126.6587441,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-037",
+   "mgmt_no": "232-2-000000",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한강중앙공원 공영주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 장기동 2001-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 205,
+   "tel": "031-996-6584",
+   "lat": 37.6417667,
+   "lng": 126.676615,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-038",
+   "mgmt_no": "232-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마송공영주차장",
+   "gu": "김포시",
+   "dong": "통진읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 통진읍 마송리 104-112",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "031-996-6584",
+   "lat": 37.68887488,
+   "lng": 126.6012219,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-039",
+   "mgmt_no": "232-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "통진공영주차장",
+   "gu": "김포시",
+   "dong": "통진읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 통진읍 서암리 756-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 196,
+   "tel": "031-996-6584",
+   "lat": 37.6936634,
+   "lng": 126.6003751,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "장날휴무(3일+8일)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-040",
+   "mgmt_no": "232-2-000000",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍무2지구 공영주차장",
+   "gu": "김포시",
+   "dong": "풍무동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 풍무동 210-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-996-6584",
+   "lat": 37.60808725,
+   "lng": 126.7253397,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "정기권 미운영",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": 60,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 60000,
+    "monthly_night": 50000,
+    "monthly_all": 80000,
+    "pay": "",
+    "basis": "「김포시 주차장 조례」 별표1 노외 1급지 · 최초 1시간 무료(김포시 정책, 2027-04-30까지)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": "00:00~09:00",
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-041",
+   "mgmt_no": "232-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍무역 노외 공영주차장",
+   "gu": "김포시",
+   "dong": "풍무동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 풍무동 333-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 99,
+   "tel": "031-996-6584",
+   "lat": 37.61000754,
+   "lng": 126.7334902,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · 00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-042",
+   "mgmt_no": "",
+   "src": "시 보도자료",
+   "list_mode": "card",
+   "name": "하성공영주차장",
+   "gu": "김포시",
+   "dong": "하성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 김포시 하성면 석탄리 530-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "031-996-6584",
+   "lat": 37.7202321,
+   "lng": 126.6343599,
+   "base_date": "2026-11 (시 보도자료)",
+   "manager": "김포도시관리공사",
+   "note": "하성면행정복지센터 인근 하성교차로 · 2026-09-01 무료 시범운영 뒤 2026년 11월부터 유료",
+   "notice": "2026년 11월부터 유료로 전환했으나 요금표가 아직 공개되지 않아 요금을 계산하지 못합니다 — 김포도시관리공사(031-996-6584)에 확인하세요",
+   "fee": {
+    "type": "미상",
+    "raw_type": "미상",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금표 미공개(2026년 11월 유료 전환)",
+    "category": null,
+    "portal_free_now": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "요금표가 공개되면 반영하겠습니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s043",
+   "mgmt_no": "232-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고촌노상 주차장",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 고촌읍 신곡리 578-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-996-6584",
+   "lat": 37.59903325,
+   "lng": 126.7716423,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s044",
+   "mgmt_no": "232-1-000040",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "김포물류단지 남측 노상",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 고촌읍 전호리 755",
+   "addr_road": "",
+   "road": null,
+   "spaces": 319,
+   "tel": "031-996-6584",
+   "lat": 37.59164146,
+   "lng": 126.7934664,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형버스 4면 주차가능",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s045",
+   "mgmt_no": "232-1-000043",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "김포물류단지 북측 노상",
+   "gu": "김포시",
+   "dong": "고촌읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 고촌읍 전호리 647",
+   "addr_road": "",
+   "road": null,
+   "spaces": 270,
+   "tel": "031-996-6584",
+   "lat": 37.60068067,
+   "lng": 126.7854127,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s046",
+   "mgmt_no": "232-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사우노상1구역 노상주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 사우동 1044",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "031-996-6584",
+   "lat": 37.62199859,
+   "lng": 126.714572,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s047",
+   "mgmt_no": "232-1-000034",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사우노상2구역 노상주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 사우동 971",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "031-996-6584",
+   "lat": 37.62093554,
+   "lng": 126.7162165,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s048",
+   "mgmt_no": "232-1-000035",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사우노상3구역 노상주차장",
+   "gu": "김포시",
+   "dong": "사우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 사우동 946",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "031-996-6584",
+   "lat": 37.62016481,
+   "lng": 126.7179937,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s049",
+   "mgmt_no": "232-1-000039",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장기노상 주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 장기동 1864",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "031-996-6584",
+   "lat": 37.64518933,
+   "lng": 126.6693993,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s050",
+   "mgmt_no": "232-1-000038",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장기먹자 노상주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 장기동 1783",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "031-996-6584",
+   "lat": 37.64328012,
+   "lng": 126.6732988,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  },
+  {
+   "id": "gp-s051",
+   "mgmt_no": "232-1-000037",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장기산타 노상주차장",
+   "gu": "김포시",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 김포시 장기동 1796",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-996-6584",
+   "lat": 37.64411536,
+   "lng": 126.667718,
+   "base_date": "2026-04-17",
+   "manager": "김포도시관리공사",
+   "note": "대형(버스, 화물) 주차 불가",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 60000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금+신용카드",
+    "basis": "「김포시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다(「김포시 주차장 조례」 별표1 5.)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "김포시",
+   "city_slug": "gimpo"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 11:23",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 50,
+  "원자료_김포시행수": 50,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 2,
+  "중복제거_행": [
+   "장기노상 주차장(232-1-000014) ↔ 장기상가 노상주차장(232-1-000014) — 같은 주차장으로 묶음",
+   "양곡근린공원 공영주차장(232-2-000000) ↔ 양곡근린공원 공영주차장(232-2-000000) — 같은 주차장으로 묶음"
+  ],
+  "총_주차장": 42,
+  "노외_부설": {
+   "노외": 42
+  },
+  "노상_구간": 9,
+  "총_구획수": 3592,
+  "노상_구획수": 1040,
+  "동별": {
+   "사우동": 9,
+   "장기동": 7,
+   "고촌읍": 6,
+   "북변동": 4,
+   "양촌읍": 3,
+   "운양동": 3,
+   "구래동": 2,
+   "마산동": 2,
+   "통진읍": 2,
+   "풍무동": 2,
+   "대곶면": 1,
+   "하성면": 1
+  },
+  "동수": 12,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 42
+  },
+  "요금구분": {
+   "유료": 48,
+   "무료": 2,
+   "미상": 1
+  },
+  "요금_미상": [
+   "하성공영주차장"
+  ],
+  "급지별": {
+   "1": 48
+  },
+  "표준데이터_급지": {
+   "1": 45,
+   "2": 1
+  },
+  "1시간무료_적용": 39,
+  "운영시간_보정": [
+   "운양3 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "양곡근린공원 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "한강중앙공원 공영주차장: 표준데이터 운영요일 평일 → 연중무휴 24시간",
+   "사우중앙 공영주차장: 표준데이터 운영요일 평일 → 연중무휴 24시간",
+   "구래상업지역 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "고촌보름 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "마산2 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "마산1 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "양곡1 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "학운1 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "장기7 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "구래1 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "장기6 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "장기5 자주식: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "고촌23 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "장기3 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외8 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외7 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외5 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외4 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외3 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외2 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우노외1 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "통진공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "장기2 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "장기1 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "김포2 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "고촌공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "북변 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "북변자주식 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우자주 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "사우2 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "고촌신곡 공영주차장: 표준데이터 운영요일 평일+토요일 → 연중무휴 24시간",
+   "고촌노을 공영주차장: 표준데이터 운영요일 평일 → 연중무휴 24시간"
+  ],
+  "급지_보정": [
+   "대곶 공영주차장: 표준데이터 2급지 ↔ 등록요금이 1급지 요율(30분 600원·1일 7000원)"
+  ],
+  "등록값_차이": [],
+  "평균_기본요금": 600,
+  "무료_요금구분": 2,
+  "무료개방_표기": [
+   "고촌노상 주차장",
+   "김포물류단지 남측 노상",
+   "김포물류단지 북측 노상",
+   "사우노상1구역 노상주차장",
+   "사우노상2구역 노상주차장",
+   "사우노상3구역 노상주차장",
+   "장기노상 주차장",
+   "장기먹자 노상주차장",
+   "장기산타 노상주차장"
+  ],
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "232-2-000000"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17",
+   "2026-11 (시 보도자료)"
+  ]
+ },
+ "fee_table": {
+  "style": "gimpo_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "day_hours": 24,
+  "free_hour_min": 60,
+  "applies": "2026-09-28 시행 조례 · 1시간 무료는 2026-04-21~2027-04-30",
+  "off": [
+   {
+    "grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "day": 7000,
+    "month_all": 80000,
+    "month_day": 60000,
+    "month_night": 50000,
+    "lots": 39
+   },
+   {
+    "grade": 2,
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "day": 3500,
+    "month_all": 50000,
+    "month_day": 35000,
+    "month_night": 25000,
+    "lots": 0
+   }
+  ],
+  "street": [
+   {
+    "grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "day": 7000,
+    "month_all": null,
+    "month_day": 60000,
+    "month_night": null
+   },
+   {
+    "grade": 2,
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "day": 3500,
+    "month_all": null,
+    "month_day": 35000,
+    "month_night": null
+   }
+  ],
+  "market": {
+   "month_all": 50000,
+   "month_day": 40000,
+   "month_night": 30000
+  },
+  "market_lots": [
+   "북변 공영주차장",
+   "통진공영주차장",
+   "양곡1 공영주차장"
+  ],
+  "grade_targets": {
+   "1": "통진읍·고촌읍·양촌읍·동지역",
+   "2": "1급지를 제외한 김포시 지역"
+  },
+  "basis": "「김포시 주차장 조례」 별표1(시행 2026-09-28) · 김포시 ‘공영주차장 1시간 무료’ 정책(2027-04-30까지) · 김포도시관리공사 공영주차장 안내(2026-11-17 확인)"
+ },
+ "slug": "gimpo",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "김포시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "경차·저공해·임산부 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경차(1,000cc 미만)·저공해·임산부·병역명문가(김포시민)·65세 이상 김포시민·장기기증자"
+  },
+  {
+   "label": "장애인·2자녀 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인 표지+등록증(본인 탑승), 2자녀(경기아이플러스·경기도민), 최초 2시간 면제"
+  },
+  {
+   "label": "우수자원봉사자 4시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 240,
+   "note": "경기도·김포시 우수자원봉사자증 소지자(본인 운전), 최초 4시간 면제"
+  },
+  {
+   "label": "국가보훈대상자 24시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 1440,
+   "note": "국가보훈대상자 증서 소지자(본인 소유 승용차), 최초 24시간 면제(2026-09-28 개정)"
+  },
+  {
+   "label": "3자녀·유공납세자·중소기업 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "3자녀 이상 경기도민·경기도 유공납세자(1년)·김포시 중소기업 차량(1년·2대)"
+  }
+ ],
+ "realtime": false
+}

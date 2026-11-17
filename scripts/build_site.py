@@ -467,6 +467,79 @@ CITY_UI = {
                        "공영주차장 {total}곳, 주차 구획 {spaces:,}면(노상 {street_spaces}면 포함)입니다. "
                        "이 가운데 도시공사 현황에 없는 표준데이터 등록 1곳(의정부동 제7공영)도 함께 실었습니다."),
     },
+    "김포시": {
+        "manager": "김포도시관리공사 주차사업실(031-996-6584) · 김포시청 교통정책과 주차시설팀(031-980-2330)",
+        "manager_inquiry": "김포도시관리공사 주차사업실(031-996-6584)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-07-15",
+        "realtime": False,
+        "dong_unit_label": "읍·면·동",
+        "free_label": "무료",
+        # 김포시 노상주차장의 일요일·공휴일 무료는 특기사항이 아니라 조례 별표1 5. 규정이다.
+        "free_weekend_phrase": "김포시 조례 별표1(노상 일요일·공휴일·야간 무료) 기준인",
+        # 김포시는 자치구가 없다 — ‘이 구’ 대신 ‘이 시’로 적고, 시 페이지가 목록·계산기 페이지를 겸한다.
+        "area_label": "시",
+        "discount_note": ("김포시 주차장 조례(별표1 4.~8.)와 김포도시관리공사 감면 안내(2026-11-17 확인)입니다. "
+                          "경차·저공해·임산부·병역명문가·65세 이상 김포시민·장기기증자는 50%, 장애인·2자녀는 최초 2시간 "
+                          "면제 후 50%, 우수자원봉사자는 최초 4시간 면제 후 50%, 국가보훈대상자는 최초 24시간 면제 후 "
+                          "50%, 3자녀(경기도민)·경기도 유공납세자·김포시 중소기업 차량은 100%이고, "
+                          "감면이 겹치면 감면액이 큰 하나만 적용됩니다(현장 확인)."),
+        "free_example": "",
+        "calc_note": ("차량 감면은 <b>김포시 주차장 조례(별표1 4.)·김포도시관리공사 안내</b> 기준입니다. "
+                      "경차·저공해·임산부 등 50%, 장애인·2자녀 2시간 면제 후 50%, 우수자원봉사자 4시간 면제 후 50%, "
+                      "국가보훈대상자 24시간 면제 후 50%, 3자녀·유공납세자·중소기업 100%이고, "
+                      "감면이 겹치면 감면액이 큰 하나만 적용됩니다(현장 확인)."),
+        "daily_example": "1일 주차요금 7,000원(1급지)",
+        "street_examples": "‘사우노상1구역’·‘김포물류단지 북측’",
+        "street_fee_caveat": ("<li><b>노상 요금</b>: 김포시 노상 공영주차장도 같은 급지 요금표를 씁니다 — "
+                              "1급지 30분 600원·10분당 300원·1일 7,000원, 월 정기권 주간 60,000원.</li>"
+                              "<li><b>무료 시간</b>: 조례 별표1 5.에 따라 노상주차장은 <b>일요일·공휴일과 야간(19:00~익일 09:00)이 "
+                              "무료</b>입니다. 표의 예상요금은 등록된 유료 운영시간(평일·토요일 주간) 기준입니다.</li>"
+                              "<li><b>구간 이름</b>: ‘사우노상2구역’·‘장기먹자’처럼 구역 이름으로 등록되어 있어 "
+                              "면수가 실제 주차면과 다를 수 있습니다(현장 확인).</li>"),
+        "rate_bullets": [
+            "김포시 공영주차장은 <b>1~2급지</b>로 나뉩니다(1급지 = 통진읍·고촌읍·양촌읍·동지역, 2급지 = 그 밖의 지역). "
+            "최초 30분 기본요금(1급지 600원) 뒤 30분을 넘기면 <b>10분 단위</b>로 300원이 붙습니다.",
+            "<b>최초 1시간은 무료</b>입니다 — 김포시가 2027-04-30까지 유료 노외 공영주차장 40개소에 적용하는 "
+            "‘주차요금 1시간 감면’입니다. 2시간은 <b>1,500원</b>, 4시간은 5,100원입니다(노상 제외).",
+            "<b>1일 주차요금(1급지 7,000원)이 상한</b>입니다. 시간 요금 합계가 이 금액을 넘지 않습니다.",
+            "노외 공영주차장은 <b>24시간 연중무휴</b>이고, <b>00:00~09:00에는 요금이 발생하지 않습니다</b>"
+            "(2023-02-01 24시간 운영 전환). 공휴일과 설·추석 연휴에는 모든 공영주차장을 무료로 개방합니다.",
+            "5일장이 서는 <b>북변공영·통진·양곡1</b>은 장날에 무료로 개방하고, 정기권은 일반 주·야간 50,000원·"
+            "주간 40,000원·야간 30,000원입니다(카드에 적었습니다).",
+            "<b>월 정기권</b>은 노외 1급지 주·야간 80,000원·주간 60,000원·야간 50,000원이고, 김포도시관리공사에서 "
+            "3개월 단위로 접수합니다(031-996-6584).",
+        ],
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 최초 1시간 무료·1~2급지 요금표 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳(노외)의 급지별 주차요금(1급지 30분 600원·10분당 300원, "
+                                "1일 7,000원)과 ‘최초 1시간 무료’ 정책, 00:00~09:00·공휴일 무료, 운영시간·구획수를 "
+                                "공공데이터로 정리했습니다. 2시간·하루 주차비를 바로 계산해 보세요."),
+        "cheap_lede": ("김포시 유료 노외 공영주차장은 모두 1급지(30분 600원)이고 <b>최초 1시간이 무료</b>라 "
+                       "1시간까지는 0원·2시간 1,500원·1일 7,000원이 상한입니다. 00:00~09:00과 공휴일은 "
+                       "요금이 발생하지 않습니다. 요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
+        "street_count_note": "김포시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 {spaces:,}면입니다. {where}에 있고, 일요일·공휴일·야간은 무료입니다. ",
+        "count_note": ("노외 {n}곳(무료 2곳 포함)과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, "
+                       "주차 구획 {spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 3곳"
+                       "(고촌1·운양2·하성공영주차장)은 표준데이터(기준일 2026-07-15)에 없어 김포시 보도자료로 채웠습니다."),
+        # 자주 묻는 질문에 도시별 항목을 더한다(김포시: 최초 1시간 무료·00~09시 무료·공휴일 개방).
+        "weekend_note": ("김포시는 공휴일과 설·추석 연휴에 모든 공영주차장을 무료로 개방합니다(김포시 보도자료) — "
+                         "일요일이라도 공휴일이 아니면 요금이 부과되고, 00:00~09:00은 요금이 발생하지 않습니다. "),
+        "sun_free_note": ("노외 공영주차장은 공휴일과 설·추석 연휴에 모든 곳을 무료로 개방하고"
+                          "(김포시 보도자료), 노상 9개소는 조례 별표1 5.에 따라 일요일·공휴일과 야간이 무료입니다. "
+                          "노외 주차장도 00:00~09:00에는 요금이 발생하지 않습니다. "),
+        "extra_faq": [
+            ("김포시 공영주차장은 왜 1시간이 무료인가요?",
+             "김포시가 2027-04-30까지 유료 노외 공영주차장 40개소에 ‘주차요금 1시간 감면’을 시행하고 있습니다"
+             "(조례 별표1 4.파 근거, 2026-04-21~2027-04-30). 그래서 노외 주차장은 최초 1시간이 0원이고 "
+             "2시간은 1,500원입니다. 노상주차장 9개소는 이 감면 대상이 아니어서 30분 600원부터 요금이 붙습니다. "
+             "차량 감면(경차·장애인·다자녀 등)과 겹치면 감면액이 큰 한 가지만 적용합니다."),
+            ("공휴일이나 밤에는 요금을 내나요?",
+             "노외 공영주차장은 24시간 연중무휴로 운영하지만 <b>00:00~09:00에는 요금이 발생하지 않습니다</b>. "
+             "공휴일과 설·추석 연휴에는 모든 공영주차장을 무료로 개방합니다(김포시 보도자료). "
+             "노상주차장은 조례 별표1 5.에 따라 일요일·공휴일과 야간(19:00~익일 09:00)이 무료입니다."),
+        ],
+    },
 }
 
 
@@ -651,6 +724,9 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
     넘으면 rate 만큼 감면한 금액을 낸다. 예: 성남 장애인 1시간 면제 후 50%.
     fee['steps'] 가 있으면 시간대별 누진 할증(안양시), fee['free_min'] 은 최초 무료 시간,
     fee['cap_fee'] 는 일일 최대요금(상한)이다.
+    fee['deduct_min'] 은 ‘최초 N분 무료’ 정책 시간(김포시 1시간 무료)으로, 조례가 ‘감면은
+    한 가지만’이라고 정한 도시에서는 그 시간을 뺀 요금과 감면율을 적용한 요금 가운데
+    싼 쪽을 쓴다.
     """
     if not lot["oper"].get(day):
         return {"state": "closed"}
@@ -664,32 +740,50 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
     free_min = fee.get("free_min") or 0
     if free_min and minutes <= free_min:
         return {"state": "free", "free_min": free_min}
-    if fee.get("steps"):
-        unit = fee.get("unit_min") or 10
-        raw, t = fee["base_fee"], fee["base_min"]
-        while t < minutes:
-            step_fee = next((st["unit_fee"] for st in fee["steps"]
-                             if st.get("until") is None or t < st["until"]),
-                            fee["steps"][-1]["unit_fee"])
-            raw += step_fee
-            t += unit
-    else:
-        if not fee["unit_min"] or fee["unit_fee"] is None:
-            return {"state": "unknown"}
-        if minutes <= fee["base_min"]:
-            raw = fee["base_fee"]
+    # 최초 N분 무료 정책(김포시 1시간 무료) — 그 시간 이내는 0원이다.
+    if (fee.get("deduct_min") or 0) and minutes <= fee["deduct_min"]:
+        return {"state": "free", "deducted": True, "deduct_min": fee["deduct_min"]}
+
+    def raw_charge(mins):
+        """그 시간만큼 주차했을 때의 요금과 1일 상한 적용 여부."""
+        if fee.get("steps"):
+            unit = fee.get("unit_min") or 10
+            raw, t = fee["base_fee"], fee["base_min"]
+            while t < mins:
+                step_fee = next((st["unit_fee"] for st in fee["steps"]
+                                 if st.get("until") is None or t < st["until"]),
+                                fee["steps"][-1]["unit_fee"])
+                raw += step_fee
+                t += unit
         else:
-            raw = fee["base_fee"] + math.ceil((minutes - fee["base_min"]) / fee["unit_min"]) * fee["unit_fee"]
-    capped = False
-    cap = fee.get("cap_fee")
-    if cap and raw > cap:
-        raw = cap
-        capped = True
-    elif fee["daily_fee"] and raw > fee["daily_fee"]:
-        raw = fee["daily_fee"]
-        capped = True
-    return {"state": "paid", "amount": round(raw * (1 - rate)), "before": round(raw),
-            "capped": capped, "discounted": rate > 0}
+            if mins <= fee["base_min"]:
+                raw = fee["base_fee"]
+            else:
+                raw = fee["base_fee"] + math.ceil((mins - fee["base_min"]) / fee["unit_min"]) * fee["unit_fee"]
+        capped = False
+        cap = fee.get("cap_fee")
+        if cap and raw > cap:
+            raw, capped = cap, True
+        elif fee["daily_fee"] and raw > fee["daily_fee"]:
+            raw, capped = fee["daily_fee"], True
+        return raw, capped
+
+    if not fee["unit_min"] or fee["unit_fee"] is None:
+        return {"state": "unknown"}
+    base_raw, base_capped = raw_charge(minutes)
+    best_raw, best_capped, deducted = base_raw, base_capped, False
+    deduct = fee.get("deduct_min") or 0
+    if deduct and minutes > deduct:
+        d_raw, d_capped = raw_charge(minutes - deduct)
+        if d_raw < best_raw:
+            best_raw, best_capped, deducted = d_raw, d_capped, True
+    discounted = False
+    if rate > 0:
+        r_raw = round(base_raw * (1 - rate))
+        if r_raw < best_raw:
+            best_raw, best_capped, deducted, discounted = r_raw, base_capped, False, True
+    return {"state": "paid", "amount": best_raw, "before": round(base_raw),
+            "capped": best_capped, "discounted": discounted, "deducted": deducted}
 
 
 def hours_text(lot) -> str:
@@ -854,7 +948,9 @@ def free_note(lot):
         out.append("토요일 무료 개방")
     if out:
         # 시흥시는 특기사항이 아니라 조례·공영주차 포털의 공휴일 무료 개방 규정으로 정한 값이다.
-        src = "시흥시 조례·공영주차 포털 기준" if lot.get("city") == "시흥시" else "원자료 특기사항 기준"
+        src = ("시흥시 조례·공영주차 포털 기준" if lot.get("city") == "시흥시"
+               else "김포시 조례 별표1 기준" if lot.get("city") == "김포시"
+               else "원자료 특기사항 기준")
         return " · ".join(out) + f" ({src})"
     return None
 
@@ -1086,6 +1182,21 @@ def footer_sources(city, url) -> str:
                 f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
                 f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+    if city["city"] == "김포시":
+        std_rows = city_rows_total(city)
+        return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
+                f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
+                f'전국주차장정보표준데이터</a>(김포시 {std_rows}행, 기준일 '
+                f'{esc(city_ui(city)["std_base_date"])})와 '
+                f'<a href="https://blog.naver.com/gimpo2010/224252112942" rel="nofollow noopener" target="_blank">'
+                f'김포시 공영주차장 1시간 무료 안내</a>(대상 40곳·감면표), '
+                f'<a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2171011" rel="nofollow noopener" target="_blank">'
+                f'김포시 주차장 조례</a>(별표1 요금표·감면)를 기준으로 만든 참고용 정보입니다. '
+                f'김포시는 자치구가 없어 읍·면·동 단위로 정리했습니다. '
+                f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
+                f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
+                f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
     if city["city"] == "남양주시":
         std_rows = city_rows_total(city)
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
@@ -1281,6 +1392,13 @@ def free_first_stat(city, lots):
     실제보다 비싸 보인다. 남양주시도 기본요금은 있지만 최초 10분을 받지 않아 같이 적는다.
     """
     style = (city.get("fee_table") or {}).get("style")
+    if style == "gimpo_grade":
+        # 김포시는 유료 노외 공영주차장에 ‘최초 1시간 무료’를 적용한다 — 평균 기본요금 대신 그 시간을 적는다.
+        paid = [l for l in lots if l["fee"]["type"] == "유료" and l["fee"].get("deduct_min")]
+        if not paid:
+            return None
+        mins = max(l["fee"]["deduct_min"] for l in paid)
+        return (f"최초 {mins // 60}시간 무료", f"{len(paid)}곳")
     if style == "uijeongbu_grade":
         # 의정부시는 기본시간 없이 10분 단위 요금이라 ‘평균 기본요금’ 대신 10분 평균요금을 적는다.
         paid = [l for l in lots if l["fee"]["type"] == "유료" and l["fee"].get("unit_fee")]
@@ -1380,13 +1498,19 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     res = price_for(lot, default_minutes, default_day)
     if res["state"] == "free":
         # 요금 구분이 '무료'인 주차장은 요일과 관계없이 무료라 ‘선택한 요일’이라고 쓰지 않는다.
+        _dm = res.get("deduct_min") or 0
         free_note_text = ("요금 구분 ‘무료’" if lot["fee"]["type"] == "무료"
+                          else (f"최초 {_dm // 60}시간 무료 적용" if _dm and _dm % 60 == 0
+                                else f"최초 {_dm}분 무료 적용") if _dm
                           else f"최초 {res['free_min']}분 무료" if res.get("free_min")
                           else "무료 개방 (선택한 요일)")
         price_html = (f'<span class="price free">0원</span>'
                       f'<span class="price-note">{esc(free_note_text)}</span>')
     elif res["state"] == "paid":
         extra = []
+        if res.get("deducted"):
+            dm = lot["fee"]["deduct_min"]
+            extra.append(f"최초 {dm // 60}시간 무료 적용" if dm and dm % 60 == 0 else f"최초 {dm}분 무료 적용")
         if res["capped"]:
             extra.append("일일 최대요금 적용" if lot["fee"].get("cap_fee") else "1일권 상한 적용")
         base_note = ("누진 요금표 기준" if (lot["fee"].get("steps") and not lot["fee"].get("category"))
@@ -1435,6 +1559,9 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     note = lot["note"]
     if note and not (fn and "무료개방" in note.replace(" ", "")):
         lines.append(f'<p class="note-line">특기사항: {esc(note)}</p>')
+    if lot.get("free_hour_note"):
+        # 도시 정책·조례가 정한 무료 시간(김포시 최초 1시간 무료·00~09시 무료 등)
+        lines.append(f'<p class="note-line"><b>무료 시간</b>: {esc(lot["free_hour_note"])}</p>')
     if lot.get("notice"):
         # 운영기관이 공지한 임시 폐쇄·이용 제한 (예: 남양주 별내 제2공영 태양광 공사)
         lines.append(f'<p class="note-line"><b>안내</b>: {esc(lot["notice"])}</p>')
@@ -1476,7 +1603,8 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
         # 누진(steps)·최초 무료(free_min)·일일 상한(cap_fee)은 값이 있는 도시만 싣는다(다른 도시 출력 불변)
         "fee": {**{k: l["fee"][k] for k in ("type", "base_min", "base_fee", "unit_min", "unit_fee",
                                             "daily_hours", "daily_fee")},
-                **{k: l["fee"][k] for k in ("steps", "free_min", "cap_fee") if l["fee"].get(k)}},
+                **{k: l["fee"][k] for k in ("steps", "free_min", "cap_fee", "deduct_min")
+                   if l["fee"].get(k)}},
     } for l in lots], ensure_ascii=False)
     return (f'<div class="list" id="lot-list" data-day="{default_day}" data-minutes="{default_minutes}">{"".join(cards)}</div>'
             f'<script type="application/json" id="lot-data">{data.replace("</", "<\\/")}</script>')
@@ -1686,6 +1814,19 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>노상(거리) 주차 구간은 이름이 구간·위치 설명이라 카드가 아닌 표로 따로 정리했습니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동·읍·면은 이 페이지의 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
+    if city["city"] == "김포시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(김포시가 등록한 {q.get('원자료_김포시행수', '')}행 중 노외 {q['총_주차장']}곳과 노상 {q['노상_구간']}구간, 기준일 {esc(ui['std_base_date'])})</li>
+    <li><b>요금표</b>: 「김포시 주차장 조례」 제5조제1항 별표1(시행 2026-09-28, 경기도김포시조례 제2322호) — 1급지 최초 30분 600원·10분당 300원·1일 주차요금 7,000원, 2급지 300·100·3,500원, 월 정기권(노외) 주·야간 80,000원·주간 60,000원·야간 50,000원</li>
+    <li><b>최초 1시간 무료</b>: <a href="https://blog.naver.com/gimpo2010/224252112942" rel="nofollow noopener" target="_blank">김포시 공영주차장 1시간 무료 안내</a>(2026-04-14 게시, 2026-04-21~2027-04-30) — 유료 노외 공영주차장 40개소가 대상이고 노상 9개소는 제외입니다. 정책이 끝나면(2027-04-30) 이 사이트도 1시간 무료 없이 계산해야 합니다.</li>
+    <li><b>운영시간</b>: 김포도시관리공사 공영주차장 안내대로 <b>24시간 연중무휴</b>이며 <b>00:00~09:00에는 요금이 발생하지 않습니다</b>(<a href="https://www.gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=716196" rel="nofollow noopener" target="_blank">2023-02-02 24시간 운영 전환 보도자료</a>). 공휴일·설·추석 연휴에는 모든 공영주차장을 무료 개방합니다. 표준데이터는 대부분 ‘평일+토요일’로만 등록되어 있어 공휴일·일요일이 휴무로 보였고, 이 {len(q.get('운영시간_보정') or [])}곳을 연중무휴로 바로잡았습니다(품질 리포트 ‘운영시간_보정’).</li>
+    <li><b>노상주차장</b>: 조례 별표1 5.에 따라 <b>일요일·공휴일과 야간(19:00~익일 09:00)이 무료</b>입니다. 표의 예상요금은 등록된 유료 운영시간(평일·토요일 주간) 기준입니다.</li>
+    <li><b>표준데이터에 없는 주차장</b>: 고촌1(31면·2026-01-01 유료), 운양2(20면·2026-02-01 유료), 하성(63면·2026년 11월 유료)은 김포시 보도자료로 채웠습니다. 하성은 요금표가 아직 공개되지 않아 <b>‘요금 정보 미상’</b>으로 두었습니다.</li>
+    <li><b>같은 주차장이 두 번 등록된 {q.get('중복제거_행수', 0)}행</b>(양곡근린공원 35면 2행, 장기노상·장기상가 노상 47면 2행)은 한 곳으로 묶었습니다(품질 리포트 ‘중복제거_행’). 운양역환승센터는 표준데이터가 A·B동을 1행(424면)으로 등록해 한 곳으로 실었습니다.</li>
+    <li><b>대곶공영주차장</b>은 조례상 2급지(대곶면)지만 등록된 요금표가 1급지 요율(30분 600원·1일 7,000원)이라 등록값을 따르고 카드에 그 사실을 적었습니다(품질 리포트 ‘급지_보정’).</li>
+    <li><b>김포 스마트 주차포털</b>(parking.guc.or.kr)은 2026-11-17 접속 시 웹방화벽 차단·화면 미표시로 목록을 읽지 못했습니다. 정기권·감면 신청은 김포도시관리공사 주차사업실(031-996-6584)로 문의하세요.</li>
+    <li>김포시는 <b>자치구가 없어</b> 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래에 읍·면·동 페이지를 두었습니다. 동 이름은 <b>법정동</b> 기준입니다.</li>
+    <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다.</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 읍·면·동(구래·마산·풍무·통진·대곶·하성 등)은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지)."""
     if city["city"] == "의정부시":
         return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(의정부시가 등록한 {q.get('원자료_의정부시행수', '')}행, 기준일 {esc(ui['std_base_date'])})</li>
     <li><b>요금표</b>: 「의정부시 주차장 설치 및 관리 조례」 제3조제1항 별표1(시행 2026-01-09, 경기도의정부시조례 제3674호) · <a href="https://www.uiuc.or.kr/businessInfo/trafficPage/public/list.do" rel="nofollow noopener" target="_blank">의정부도시공사 공영주차장 요금·감면 안내</a>(2026-11-17 확인) — 1~3급지 10분당 300·200·150원, 노외 1일 주차권(12시간) 9,000·5,000·3,000원, 노상 1일 8,000·6,000·4,000원, 월 정기권(노외 전일) 104,000·56,000·32,000원</li>
@@ -1781,12 +1922,12 @@ def build_district(city, d, lots, site, path=None, hub=False):
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
 <p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_in_gu}곳은 요일과 관계없이 무료입니다.
 {(f"이 밖에 유료로 등록됐지만 특기사항에 ‘주말 및 공휴일 무료’가 적힌 곳이 {free_weekend_in_gu}곳 있습니다. " if free_weekend_in_gu else "")}그 밖의 유료 주차장은 주말에도 요금이 부과되고, 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
-계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
+{ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
 """ if free_in_gu else f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
 <p class="lede">이 {area} 주차장은 공공데이터에 주말 무료 개방 표기가 없습니다.
 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳이며 나머지는 주말에도 요금이 부과됩니다.
-계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
+{ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
 """))
 
     dataset_lines = district_dataset_lines(city, ui, gap_line)
@@ -1819,6 +1960,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
            if (free_in_gu or free_weekend_in_gu) else
            f"자료에 무료 개방으로 표기된 곳은 {s['sun_free']}곳입니다. ")
           + (ui["free_example"] if s["sun_free"] else "")
+          + (ui.get("sun_free_note") or "")
           + f"표에 없는 주차장의 현장 무료 개방 여부는 관리기관({ui['manager']})에 확인하세요.")),
         (f"{gu} 공영주차장 2시간 요금은 얼마인가요?",
          (lambda prices: f"표준데이터 요금 기준 2시간 예상요금은 최저 {won(min(prices))}, "
@@ -1836,6 +1978,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
          + (f"실시간 잔여면수는 {SNAPSHOT_TS} 조회 값입니다. " if ui["realtime"] else "")
          + "요금 개편이나 현장 정책(최초 N분 무료 등)으로 실제와 다를 수 있으니 방문 전에 관리기관에 확인하시기 바랍니다."),
     ]
+
+    for _q, _a in (ui.get("extra_faq") or []):
+        qa.append((_q, _a))
 
     hub_block = ""
     if hub:
@@ -2130,6 +2275,52 @@ def fee_table_block(city) -> str:
   <li><b>행주산성</b>: 입차 때 1구획 {won(fac.get("haengju_day"))} · <b>그 밖의 부설</b>: 시청부설 기준</li>
 </ul>
 <p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·부설 갈래로 계산하며, 월 정기권은 카드에 표시했습니다.</p>
+"""
+    if ft.get("style") == "gimpo_grade":
+        # 김포시(조례 별표1): 기본 30분 뒤 10분 단위 요금. 노외·노상이 같은 요율을 쓰고,
+        #   1일 주차요금이 상한이며, 유료 노외에는 ‘최초 1시간 무료’ 정책이 더해진다.
+        targets = ft.get("grade_targets") or {}
+        off_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_all"])} / {won(r["month_day"])} / {won(r["month_night"])}</td>'
+            f'<td class="num">{r.get("lots", 0)}곳</td>'
+            f'<td>{esc(targets.get(str(r["grade"]), ""))}</td></tr>'
+            for r in ft["off"])
+        st_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_day"]) if r.get("month_day") else "—"}</td></tr>'
+            for r in ft["street"])
+        mk = ft.get("market") or {}
+        free_h = (ft.get("free_hour_min") or 60) // 60
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">김포시 공영주차장은 <b>1~2급지</b>로 나뉘고, 최초 <b>{ft.get('base_min', 30)}분 기본요금</b> 뒤
+<b>{ft['unit_min']}분 단위</b>로 요금이 붙습니다. <b>1일 주차요금</b>이 시간 요금의 상한이고,
+유료 노외 공영주차장에는 김포시가 2027-04-30까지 시행하는 <b>최초 {free_h}시간 무료</b>가 더해집니다
+(현재 적용: {esc(ft['applies'])}).</p>
+<h3 style="margin-top:20px">노외주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권<br>주·야간 / 주간 / 야간</th>
+  <th class="num">이 사이트 유료 주차장</th><th>해당 지역</th></tr></thead>
+  <tbody>{off_rows}</tbody>
+</table>
+<h3 style="margin-top:22px">노상주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권(주간)</th></tr></thead>
+  <tbody>{st_rows}</tbody>
+</table>
+<p class="updated">유료 노외 공영주차장 <b>{free_h}시간 무료</b>는 김포시 ‘주차요금 1시간 감면’ 정책으로,
+노상주차장은 대상이 아닙니다. 요금 감면(경차·장애인·다자녀 등)과 겹치면 <b>감면액이 큰 한 가지</b>만 적용합니다
+(조례 별표1 8.). 노상주차장은 <b>일요일·공휴일과 야간(19:00~익일 09:00)이 무료</b>이고,
+노외주차장도 <b>00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다</b>.
+5일장이 서는 <b>{esc(", ".join(ft.get("market_lots") or []))}</b>은 장날 무료 개방이며, 정기권은 일반
+주·야간 {won(mk.get('month_all'))}·주간 {won(mk.get('month_day'))}·야간 {won(mk.get('month_night'))}입니다.</p>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지 요금으로 계산하고,
+<span class="muted">1시간 무료</span>는 노외 카드에만 적용했습니다.</p>
 """
     if ft.get("style") == "uijeongbu_grade":
         # 의정부시(조례 별표1): 기본시간 없이 10분 단위 요금. 노외는 1일 주차권(12시간)이 상한이고,
@@ -2724,6 +2915,8 @@ def _build_street_mixed(city, street, site):
     <li><b>요금</b>: 모든 구간이 요금 구분 ‘무료’로 등록되어 있습니다.</li>"""
         price_block = ""
 
+    # 조례·등록값이 일요일·공휴일 무료라고 정한 노상 구간(김포시 등)
+    sun_free = [l for l in street if l["free_days"].get("sun") and l["fee"]["type"] != "무료"]
     pay_text = ((sample or (paid or street)[0])["fee"]["pay"] or "현장 확인")
 
     qa = [
@@ -2738,6 +2931,8 @@ def _build_street_mixed(city, street, site):
         (f"{city['city']} 노상주차장은 언제 무료인가요?",
          (f"요금 구분이 ‘무료’로 등록된 {len(free)}곳은 요일과 관계없이 요금이 없습니다. " if free
           else "요금 구분이 ‘무료’로 등록된 구간은 없습니다. ")
+         + (f"다만 {len(sun_free)}곳은 일요일·공휴일에 무료로 개방합니다(조례·등록값 기준). "
+            if sun_free else "")
          + (f"유료 구간 {len(paid)}곳은 기본 {bmin}분 {won(bfee)}부터 요금이 붙습니다. "
             if sample and bfee_min == bfee_max else
             f"유료 구간 {len(paid)}곳은 기본 {bmin}분 {won(bfee_min)}~{won(bfee_max)}입니다. "

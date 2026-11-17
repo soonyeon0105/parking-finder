@@ -123,37 +123,55 @@
     if (f.free_min && minutes <= f.free_min) {
       return { state: 'free', free_min: f.free_min };
     }
-    var raw;
-    if (f.steps && f.steps.length) {
-      // 시간대별 누진 할증 (예: 안양시 — 1시간까지 10분당 300원, 2시간까지 600원 …)
-      var unit = f.unit_min || 10, t = f.base_min;
-      raw = f.base_fee;
-      while (t < minutes) {
-        var stepFee = f.steps[f.steps.length - 1].unit_fee;
-        for (var i = 0; i < f.steps.length; i++) {
-          if (f.steps[i].until === null || f.steps[i].until === undefined || t < f.steps[i].until) {
-            stepFee = f.steps[i].unit_fee;
-            break;
+    // 최초 N분 무료 정책(김포시 1시간 무료) — 그 시간 이내는 0원이다.
+    if (f.deduct_min && minutes <= f.deduct_min) {
+      return { state: 'free', deducted: true, deduct_min: f.deduct_min };
+    }
+    if (!f.unit_min || f.unit_fee === null) {
+      return { state: 'unknown' };
+    }
+    // 그 시간만큼 주차했을 때의 요금과 1일 상한 적용 여부
+    function rawCharge(mins) {
+      var raw;
+      if (f.steps && f.steps.length) {
+        // 시간대별 누진 할증 (예: 안양시 — 1시간까지 10분당 300원, 2시간까지 600원 …)
+        var unit = f.unit_min || 10, t = f.base_min;
+        raw = f.base_fee;
+        while (t < mins) {
+          var stepFee = f.steps[f.steps.length - 1].unit_fee;
+          for (var i = 0; i < f.steps.length; i++) {
+            if (f.steps[i].until === null || f.steps[i].until === undefined || t < f.steps[i].until) {
+              stepFee = f.steps[i].unit_fee;
+              break;
+            }
           }
+          raw += stepFee;
+          t += unit;
         }
-        raw += stepFee;
-        t += unit;
-      }
-    } else {
-      if (!f.unit_min || f.unit_fee === null) {
-        return { state: 'unknown' };
-      }
-      if (minutes <= f.base_min) {
+      } else if (mins <= f.base_min) {
         raw = f.base_fee;
       } else {
-        raw = f.base_fee + Math.ceil((minutes - f.base_min) / f.unit_min) * f.unit_fee;
+        raw = f.base_fee + Math.ceil((mins - f.base_min) / f.unit_min) * f.unit_fee;
       }
+      var capped = false, daily = f.daily_fee, cap = f.cap_fee;
+      if (cap && cap > 0 && raw > cap) { raw = cap; capped = true; }
+      else if (daily && daily > 0 && raw > daily) { raw = daily; capped = true; }
+      return { raw: raw, capped: capped };
     }
-    var capped = false, daily = f.daily_fee, cap = f.cap_fee;
-    if (cap && cap > 0 && raw > cap) { raw = cap; capped = true; }
-    else if (daily && daily > 0 && raw > daily) { raw = daily; capped = true; }
-    var paid = Math.round(raw * (1 - rate));
-    return { state: 'paid', amount: paid, before: Math.round(raw), capped: capped, discounted: rate > 0 };
+    var baseCharge = rawCharge(minutes);
+    var best = baseCharge.raw, capped = baseCharge.capped, deducted = false, discounted = false;
+    // 최초 N분 무료 정책(김포시 1시간 무료) — 그 시간을 뺀 요금으로 계산한다.
+    if (f.deduct_min && minutes > f.deduct_min) {
+      var d = rawCharge(minutes - f.deduct_min);
+      if (d.raw < best) { best = d.raw; capped = d.capped; deducted = true; }
+    }
+    // 조례가 ‘감면은 한 가지만’이라고 정한 도시는 감면율을 적용한 요금과 비교해 싼 쪽을 쓴다.
+    if (rate > 0) {
+      var r = Math.round(baseCharge.raw * (1 - rate));
+      if (r < best) { best = r; capped = baseCharge.capped; deducted = false; discounted = true; }
+    }
+    return { state: 'paid', amount: best, before: Math.round(baseCharge.raw),
+             capped: capped, discounted: discounted, deducted: deducted };
   }
 
   function orderKey(r) {
@@ -174,15 +192,23 @@
     if (res.state === 'free') {
       priceEl.textContent = '0원';
       if (noteEl) {
+        var dmFree = res.deduct_min || (lot && lot.fee.deduct_min) || 0;
         noteEl.textContent = res.exempt
           ? '면제 시간 이내 (' + fmtTime(res.exempt_min) + ' 면제)'
           : (lot && lot.fee.type === '무료' ? '요금 구분 ‘무료’'
-            : (res.free_min ? '최초 ' + res.free_min + '분 무료' : '무료 개방 (선택한 요일)'));
+            : (res.deducted || dmFree
+              ? (dmFree && dmFree % 60 === 0 ? '최초 ' + (dmFree / 60) + '시간 무료 적용'
+                                             : '최초 ' + dmFree + '분 무료 적용')
+              : (res.free_min ? '최초 ' + res.free_min + '분 무료' : '무료 개방 (선택한 요일)')));
       }
     } else if (res.state === 'paid') {
       priceEl.textContent = won(res.amount);
       if (noteEl) {
         var bits = [];
+        if (res.deducted && lot && lot.fee.deduct_min) {
+          var dm = lot.fee.deduct_min;
+          bits.push(dm % 60 === 0 ? '최초 ' + (dm / 60) + '시간 무료 적용' : '최초 ' + dm + '분 무료 적용');
+        }
         if (res.capped) bits.push((lot && lot.fee.cap_fee) ? '일일 최대요금 적용' : '1일권 상한 적용');
         if (res.discounted) bits.push('정상 ' + won(res.before) + '에서 감면');
         if (!bits.length && lot && !lot.fee.base_fee && lot.fee.free_min) {

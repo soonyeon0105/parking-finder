@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -15,6 +15,7 @@
      - 고양시 88행: 요금·운영시간·좌표 (노외 63 + 부설 17 + 노상 8, 덕양·일산동·일산서 3개 구)
      - 남양주시 84행: 요금·운영시간·좌표 (노외 49 + 노상 35, 구 없이 6읍 3면·동)
      - 안산시 153행 + 안산도시공사 75행: 요금·운영시간·좌표 (노외 193 + 노상 28 + 부설 7, 상록·단원 2개 구)
+     - 김포시 50행: 요금·운영시간·좌표 (노외 40 + 노상 10, 구 없이 3읍 3면·동)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
@@ -339,6 +340,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "의정부시": {"slug": "uijeongbu", "province": "경기도", "province_slug": "gyeonggi",
               "dong_page_min_lots": 3},
+    "김포시": {"slug": "gimpo", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -5954,6 +5957,578 @@ def check_quality_uijeongbu(std_all, rows, lots, excluded, city_list,
     }
 
 
+# ---------------------------------------------------------------- 김포시 (T-03 Phase 12)
+GIMPO_PROVIDER = "경기도 김포시"
+# 김포시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고 그 아래 읍·면·동 페이지를 둔다.
+GIMPO_DISTRICTS = [("김포시", "gimpo")]
+GIMPO_BBOX = (37.55, 37.75, 126.55, 126.87)     # 김포시 대략 경계(좌표 점검용)
+# 김포시 법정동(동지역 9개 동)과 읍·면(3읍 3면) — 표준데이터 주소에서 지역을 뽑는 데 쓴다.
+GIMPO_DONGS = ("운양동", "장기동", "구래동", "마산동", "사우동", "북변동", "풍무동",
+               "감정동", "걸포동",
+               "통진읍", "고촌읍", "양촌읍", "대곶면", "월곶면", "하성면")
+# 지번주소에 읍·면 없이 리만 적힌 행(‘경기도 김포시 양곡리 1332’)을 읍·면으로 되돌린다.
+GIMPO_RI_TO_EUP = {
+    "양곡리": "양촌읍", "학운리": "양촌읍", "대포리": "양촌읍", "흥신리": "양촌읍",
+    "진호리": "양촌읍", "누산리": "양촌읍", "마조리": "양촌읍", "구래리": "양촌읍",
+    "신곡리": "고촌읍", "전호리": "고촌읍", "태리": "고촌읍", "향산리": "고촌읍",
+    "풍곡리": "고촌읍", "유현리": "고촌읍", "하사리": "고촌읍",
+    "마송리": "통진읍", "서암리": "통진읍", "도사리": "통진읍", "귀전리": "통진읍",
+    "옹정리": "통진읍", "가현리": "통진읍", "동을산리": "통진읍", "고정리": "통진읍",
+    "수찬리": "통진읍",
+    "율생리": "대곶면", "대능리": "대곶면", "신안리": "대곶면", "초원지리": "대곶면",
+    "거물대리": "대곶면", "오니산리": "대곶면", "대벽리": "대곶면", "송마리": "대곶면",
+    "쇄정리": "대곶면", "석정리": "대곶면", "성지리": "대곶면", "약암리": "대곶면",
+    "율마리": "대곶면",
+    "군하리": "월곶면", "포내리": "월곶면", "갈산리": "월곶면", "고막리": "월곶면",
+    "고양리": "월곶면", "성동리": "월곶면", "용강리": "월곶면", "조강리": "월곶면",
+    "보구곶리": "월곶면",
+    "석탄리": "하성면", "마곡리": "하성면", "후평리": "하성면", "가금리": "하성면",
+    "시암리": "하성면", "양택리": "하성면", "원산리": "하성면", "전류리": "하성면",
+    "봉성리": "하성면",
+}
+
+GIMPO_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2171011"
+GIMPO_BLOG_URL = "https://blog.naver.com/gimpo2010/224252112942"
+GIMPO_NEWS_URL = "https://www.gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=970481"
+GIMPO_HASEONG_URL = "https://www.gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=988443"
+GIMPO_GUCHON1_URL = "https://gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=954460"
+GIMPO_UNYANG2_URL = "https://www.gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=960218"
+GIMPO_H24_URL = "https://www.gimpo.go.kr/news/selectBbsNttView.do?bbsNo=466&key=9377&nttNo=716196"
+GIMPO_PORTAL_URL = "https://its.gimpo.go.kr/parking_portal.view"
+GIMPO_ANNEX_TXT = RAW / "gimpo.go.kr_주차장조례_별표1_20261117.txt"
+GIMPO_FREE_TXT = RAW / "gimpo.go.kr_공영주차장_1시간무료_대상_20261117.txt"
+GIMPO_PRESS_TXT = RAW / "gimpo.go.kr_보도자료_공영주차장_20261117.txt"
+GIMPO_GUC_TXT = RAW / "guc.or.kr_공영주차장_상세안내_20261117.txt"
+
+# 김포시 공영주차장 요금 — 「김포시 주차장 조례」 제5조제1항 별표1(시행 2026-09-28, 경기도김포시조례 제2322호).
+#   · 기본 30분 600원(1급지)·300원(2급지) 뒤 30분을 넘기면 10분 단위로 300원·100원이 붙는다.
+#   · 1일 주차요금이 상한이다(1급지 7,000원, 2급지 3,500원).
+#   · 월 정기권은 노외 1급지 주·야간 80,000원 / 주간 60,000원 / 야간 50,000원,
+#     노상 1급지 주간 60,000원만 있다.
+#   · 급지: 1급지 = 통진읍·고촌읍·양촌읍·동지역, 2급지 = 그 밖의 지역(대곶·월곶·하성면).
+GIMPO_FEES = {
+    "off": {
+        1: {"base_min": 30, "base_fee": 600, "unit_min": 10, "unit_fee": 300,
+            "day": 7_000, "month_all": 80_000, "month_day": 60_000, "month_night": 50_000},
+        2: {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 100,
+            "day": 3_500, "month_all": 50_000, "month_day": 35_000, "month_night": 25_000},
+    },
+    "street": {
+        1: {"base_min": 30, "base_fee": 600, "unit_min": 10, "unit_fee": 300,
+            "day": 7_000, "month_all": None, "month_day": 60_000, "month_night": None},
+        2: {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 100,
+            "day": 3_500, "month_all": None, "month_day": 35_000, "month_night": None},
+    },
+}
+# 5일장 주차장(북변공영·통진·양곡1)의 정기권 — 시 공식 블로그 감면표(2026-04-14).
+GIMPO_MARKET_MONTHLY = {"month_all": 50_000, "month_day": 40_000, "month_night": 30_000}
+GIMPO_MARKET_LOTS = ("북변 공영주차장", "통진공영주차장", "양곡1 공영주차장")
+# 1시간 무료(주차요금 1시간 감면) 정책 — 유료 노외 공영주차장 40개소, 2026-04-21~2027-04-30.
+#   조례 별표1 4.파(지역경제·전통시장 활성화를 위해 주차요금을 1시간 범위에서 면제할 수 있다)에 근거한다.
+GIMPO_FREE_HOUR_MIN = 60
+GIMPO_FREE_HOUR_NOTE = ("최초 1시간 무료(김포시 ‘주차요금 1시간 감면’, 2027-04-30까지) · "
+                        "00:00~09:00과 공휴일·설·추석 연휴에는 요금이 발생하지 않습니다")
+GIMPO_STREET_FREE_NOTE = ("일요일·공휴일과 야간(19:00~익일 09:00)은 무료입니다"
+                          "(「김포시 주차장 조례」 별표1 5.)")
+# 24시간 운영이지만 00:00~09:00에는 요금이 발생하지 않는다(2023-02-01 24시간 운영 전환 보도자료).
+GIMPO_NIGHT_FREE_NOTE = ("00:00~09:00에는 요금이 발생하지 않습니다 — 이 시간대에 걸쳐 주차하면 "
+                         "카드의 예상요금(주차한 시간 전체 기준)보다 적게 나올 수 있습니다")
+GIMPO_HOLIDAY_NOTE = "공휴일과 설·추석 연휴에는 모든 공영주차장을 무료로 개방합니다"
+# 「김포시 주차장 조례」 별표1 4. 주차요금의 특례와 김포도시관리공사 감면 안내(2026-11-17 확인).
+#   · 표에 적힌 ‘감면율이 높은 하나만’ 적용한다(별표1 8.).
+GIMPO_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·임산부 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경차(1,000cc 미만)·저공해·임산부·병역명문가(김포시민)·65세 이상 김포시민·장기기증자"},
+    {"label": "장애인·2자녀 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "장애인 표지+등록증(본인 탑승), 2자녀(경기아이플러스·경기도민), 최초 2시간 면제"},
+    {"label": "우수자원봉사자 4시간 면제 후 50%", "rate": 0.5, "exempt_min": 240,
+     "note": "경기도·김포시 우수자원봉사자증 소지자(본인 운전), 최초 4시간 면제"},
+    {"label": "국가보훈대상자 24시간 면제 후 50%", "rate": 0.5, "exempt_min": 1440,
+     "note": "국가보훈대상자 증서 소지자(본인 소유 승용차), 최초 24시간 면제(2026-09-28 개정)"},
+    {"label": "3자녀·유공납세자·중소기업 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "3자녀 이상 경기도민·경기도 유공납세자(1년)·김포시 중소기업 차량(1년·2대)"},
+]
+# 표준데이터(기준일 2026-07-15)에 없는 주차장 — 김포시 보도자료·행정안전부 명절 개방 목록으로 채웠다.
+#   · 좌표는 주소 지오코딩(카카오맵)·구글 장소로 채웠고, 주차장 입구와 수십 미터 다를 수 있다.
+GIMPO_EXTRA = [
+    {"name": "고촌1 공영주차장", "addr_jibun": "경기도 김포시 고촌읍 신곡리 1109",
+     "addr_road": "경기도 김포시 고촌읍 신기신동로 87", "spaces": 31, "ptype": "노외",
+     "lat": 37.6037916, "lng": 126.7731965, "tel": "031-996-6584",
+     "note": "2025-11-15 무료 시범운영 뒤 2026-01-01부터 유료 정식운영(김포복지재단 인근)",
+     "src": "시 보도자료·명절 무료개방 목록", "grade": 1, "free_hour": True},
+    {"name": "운양2 공영주차장", "addr_jibun": "경기도 김포시 운양동 1338-5",
+     "addr_road": "", "spaces": 20, "ptype": "노외",
+     "lat": 37.6505303, "lng": 126.6915699, "tel": "031-996-6584",
+     "note": "모담도서관 인근 · 2026-01-15 무료 시범운영 뒤 2026-02-01부터 유료 정식운영",
+     "src": "시 보도자료·1시간 무료 대상 목록", "grade": 1, "free_hour": True},
+    {"name": "하성공영주차장", "addr_jibun": "경기도 김포시 하성면 석탄리 530-15",
+     "addr_road": "", "spaces": 63, "ptype": "노외",
+     "lat": 37.7202321, "lng": 126.6343599, "tel": "031-996-6584",
+     "note": "하성면행정복지센터 인근 하성교차로 · 2026-09-01 무료 시범운영 뒤 2026년 11월부터 유료",
+     "src": "시 보도자료", "grade": 2, "free_hour": False,
+     "notice": ("2026년 11월부터 유료로 전환했으나 요금표가 아직 공개되지 않아 요금을 계산하지 못합니다 "
+                "— 김포도시관리공사(031-996-6584)에 확인하세요")},
+]
+
+
+def gimpo_dong_of(text: str):
+    """주소에서 김포시 법정동·읍·면을 뽑는다(‘양곡리 1332’처럼 읍·면이 빠진 표기도 되돌린다).
+
+    읍·면 이름은 뒤에 리 이름이 바로 붙어(‘고촌읍신곡리953-2’) 나오므로 느슨하게 찾고,
+    동 이름은 다른 낱말 속에 우연히 들어가지 않도록 뒤를 본다.
+    """
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(GIMPO_DONGS, key=len, reverse=True):
+        if d.endswith(("읍", "면")):
+            if re.search(re.escape(d) + r"(?=$|\d|[가-힣])", t):
+                return d
+        elif re.search(re.escape(d) + r"(?=$|\d|[^가-힣])", t):
+            return d
+    # 리만 적힌 주소 — 리 이름이 겹치지 않는 것만 되돌린다(신곡리·마조리·하사리는 둘 이상 읍·면에 있다).
+    for ri in sorted(GIMPO_RI_TO_EUP, key=len, reverse=True):
+        # ‘경기도김포시양곡리1332’처럼 앞 글자에 붙어도 찾되, 뒤에 다른 한글이 이어지면 다른 낱말로 본다.
+        if re.search(re.escape(ri) + r"(?=$|\d|[^가-힣])", t):
+            return GIMPO_RI_TO_EUP[ri]
+    return None
+
+
+def gimpo_name_key(s: str) -> str:
+    """주차장 이름 비교용 키 — 띄어쓰기·괄호와 끝의 ‘주차장’만 없앤다.
+
+    ‘고촌공영주차장’과 ‘고촌노상 주차장’처럼 다른 주차장이 같은 키가 되지 않도록,
+    가운데에 있는 ‘공영·노상·노외’는 지우지 않는다.
+    """
+    t = re.sub(r"\([^)]*\)", "", s or "")
+    t = re.sub(r"[\s'\"\[\]·,.ㆍ~\-]", "", t)
+    for w in ("주차장",):
+        if t.endswith(w):
+            t = t[: -len(w)]
+            break
+    return t
+
+
+def gimpo_fee(category: str, grade: int, *, free_hour: bool, monthly=None, daily_hours=24):
+    """김포시 요금 구조 → 사이트 공통 fee 객체."""
+    t = GIMPO_FEES[category][grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False, "grade": grade, "std_grade": None,
+        "base_min": t["base_min"], "base_fee": t["base_fee"],
+        "unit_min": t["unit_min"], "unit_fee": t["unit_fee"], "steps": None,
+        "free_min": 10 if category == "street" else None,
+        #   조례 별표1 3.라 ‘최초 10분 미만 정차 무료’ — 유료 노외는 1시간 무료(deduct_min)에 이미 포함된다.
+        "deduct_min": GIMPO_FREE_HOUR_MIN if free_hour else None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": daily_hours, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": monthly if monthly is not None else t["month_all"],
+        "monthly_day": t["month_day"], "monthly_night": t["month_night"],
+        "monthly_all": t["month_all"],
+        "pay": "", "basis": None, "category": None, "portal_free_now": False,
+    }
+
+
+def build_gimpo():
+    """김포시 공영주차장을 표준데이터 + 시 보도자료 + 조례 별표1로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 김포시 범위를 벗어난 행은 제외(껍데기 행).
+      · 김포시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 읍·면·동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 읍·면·동 페이지는 카드가 3곳 이상인 지역만 만든다.
+    요금은 조례 별표1(1~2급지, 30분 기본 뒤 10분 단위)과 ‘최초 1시간 무료’ 정책(노외)을 적용하고,
+    운영시간은 도시공사 안내(연중무휴 24시간, 00~09시 요금 없음)를 따른다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GIMPO_PROVIDER]
+    lots, excluded, merged, hour_fixed, grade_fixed, fee_diff = [], [], [], [], [], []
+    seen = {}
+    card_no = street_no = 0
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        # 같은 주차장이 두 행으로 등록된 곳 — 이름이 같거나, 지번·유형·면수가 모두 같으면 한 곳으로 묶는다.
+        jibun_key = re.sub(r"\s", "", jibun)
+        dup_key = None
+        if jibun_key and ("지번", jibun_key, ptype, spaces) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif gimpo_name_key(name) and ("이름", gimpo_name_key(name)) in seen:
+            dup_key = ("이름", gimpo_name_key(name))
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and gimpo_name_key(name):
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", gimpo_name_key(name))] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (GIMPO_BBOX[0] <= lat <= GIMPO_BBOX[1]
+                                      and GIMPO_BBOX[2] <= lng <= GIMPO_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = gimpo_dong_of(jibun) or gimpo_dong_of(road)
+        dong_src = "지번주소" if gimpo_dong_of(jibun) else ("도로명주소" if gimpo_dong_of(road) else "없음")
+        note = (r.get("특기사항") or "").strip()
+        pay = (r.get("요금정보") or "").strip()
+        std_grade = to_int(r.get("급지구분"))
+        street = ptype == "노상"
+
+        # 운영시간 — 노외는 도시공사 안내대로 연중무휴 24시간(00~09시 요금 없음)이다.
+        #   표준데이터는 대부분 ‘평일+토요일’로만 적혀 있어 공휴일·일요일이 휴무로 보인다.
+        std_win, _std_oper, _ = parse_schedule(r, note)
+        if not street:
+            win = {k: {"open": True, "start": 0, "end": 1440, "24h": True,
+                       "listed": True, "raw": ["00:00", "24:00"]} for k in ("weekday", "sat", "sun")}
+            oper = {"weekday": True, "sat": True, "sun": True}
+            if not all(std_win[k]["open"] and std_win[k]["24h"] for k in ("weekday", "sat", "sun")):
+                hour_fixed.append(f"{name}: 표준데이터 운영요일 {r.get('운영요일') or '—'} → 연중무휴 24시간")
+            free_days = {"sat": False, "sun": False}
+            closed_note = False
+        else:
+            win, oper, closed_note = parse_schedule(r, note)
+            # 조례 별표1 5. — 노상주차장은 일요일·공휴일과 야간에 무료가 원칙이다.
+            win["sun"] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                          "listed": True, "raw": ["00:00", "24:00"]}
+            oper["sun"] = True
+            free_days = {"sat": False, "sun": True}
+
+        grade = std_grade if std_grade in (1, 2) else 1
+        # 대곶공영주차장은 조례상 2급지(대곶면)지만 등록된 요금표가 1급지 요율이다 — 요금은 등록값을 따르고 사실을 남긴다.
+        apply_grade = grade
+        if (grade == 2 and (to_int(r.get("주차기본요금")) or 0) >= 600
+                and (to_int(r.get("1일주차권요금")) or 0) >= 7_000):
+            apply_grade = 1
+            grade_fixed.append(f"{name}: 표준데이터 {grade}급지 ↔ 등록요금이 1급지 요율"
+                               f"({r.get('주차기본시간')}분 {r.get('주차기본요금')}원·1일 {r.get('1일주차권요금')}원)")
+
+        market = any(k.replace(" ", "") in name.replace(" ", "") for k in GIMPO_MARKET_LOTS)
+        if street:
+            street_no += 1
+            lot_id = f"gp-s{street_no:03d}"
+            fee = gimpo_fee("street", apply_grade, free_hour=False, daily_hours=24)
+            fee["grade"] = apply_grade
+            fee["basis"] = f"「김포시 주차장 조례」 별표1 노상 {apply_grade}급지"
+            free_min_note = GIMPO_STREET_FREE_NOTE
+        else:
+            card_no += 1
+            lot_id = f"gp-{card_no:03d}"
+            if pay == "무료":
+                fee = {"type": "무료", "raw_type": "무료", "mixed": False, "grade": apply_grade,
+                       "std_grade": std_grade, "base_min": None, "base_fee": None, "unit_min": None,
+                       "unit_fee": None, "steps": None, "free_min": None, "deduct_min": None,
+                       "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+                       "prepaid_day": None, "prepaid_weekend": None, "monthly": None,
+                       "monthly_day": None, "monthly_night": None, "monthly_all": None,
+                       "pay": "", "basis": "요금 구분 ‘무료’", "category": None, "portal_free_now": False,
+                       "std": None}
+            else:
+                monthly = GIMPO_MARKET_MONTHLY["month_all"] if market else None
+                fee = gimpo_fee("off", apply_grade, free_hour=True, monthly=monthly)
+                fee["basis"] = (f"「김포시 주차장 조례」 별표1 노외 {apply_grade}급지 · "
+                                f"최초 1시간 무료(김포시 정책, 2027-04-30까지)")
+                if market:
+                    fee["monthly_day"] = GIMPO_MARKET_MONTHLY["month_day"]
+                    fee["monthly_night"] = GIMPO_MARKET_MONTHLY["month_night"]
+                    fee["monthly_all"] = GIMPO_MARKET_MONTHLY["month_all"]
+                # 등록된 월정기권 금액이 조례와 다르면 그 값을 적는다(주간권·야간권만 파는 주차장).
+                std_month = to_int(r.get("월정기권요금"))
+                if std_month and not market:
+                    if std_month == 60_000:
+                        fee["monthly"] = 60_000
+                    elif std_month == 50_000:
+                        fee["monthly"] = 50_000
+                    elif std_month == 80_000:
+                        fee["monthly"] = 80_000
+                    else:
+                        fee["monthly"] = std_month
+                        fee_diff.append(f"{name}: 등록 월정기권 {std_month:,}원")
+                free_min_note = GIMPO_FREE_HOUR_NOTE if pay != "무료" else None
+        fee["std_grade"] = std_grade
+        fee["pay"] = (r.get("결제방법") or "").strip()
+        fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                      "base_fee": to_int(r.get("주차기본요금")),
+                      "unit_min": to_int(r.get("추가단위시간")),
+                      "unit_fee": to_int(r.get("추가단위요금")),
+                      "day": to_int(r.get("1일주차권요금")),
+                      "monthly": to_int(r.get("월정기권요금"))}
+        if pay != "무료" and fee["std"]["base_fee"]:
+            want = GIMPO_FEES["off" if not street else "street"][apply_grade]
+            if (fee["std"]["base_min"], fee["std"]["base_fee"]) != (want["base_min"], want["base_fee"]):
+                fee_diff.append(f"{name}: 등록 {fee['std']['base_min']}분 {fee['std']['base_fee']}원 ↔ "
+                                f"적용 {want['base_min']}분 {want['base_fee']}원({apply_grade}급지)")
+        notice = None
+        if pay != "무료" and not street and grade != apply_grade:
+            notice = (f"조례상 대곶면은 2급지이나 이 주차장의 등록요금은 1급지 요율(30분 600원·10분 300원)입니다 "
+                      f"— 현장 요금표를 확인하세요")
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": mgmt,
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "김포시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip() or "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": (re.match(r"^([가-힣0-9]+(?:대로|로|길))", name).group(1)
+                     if street and re.match(r"^([가-힣0-9]+(?:대로|로|길))", name) else None),
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": "00:00~09:00" if (not street and pay != "무료") else None,
+            "free_hour_note": free_min_note,
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보호여부") or r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "김포시",
+            "city_slug": "gimpo",
+        })
+
+    # 표준데이터에 없는 주차장(고촌1·운양2·하성) — 시 보도자료로 채운다.
+    for ref in GIMPO_EXTRA:
+        card_no += 1
+        jibun, road = ref["addr_jibun"], ref["addr_road"]
+        dong = gimpo_dong_of(jibun) or gimpo_dong_of(road)
+        win = {k: {"open": True, "start": 0, "end": 1440, "24h": True,
+                   "listed": True, "raw": ["00:00", "24:00"]} for k in ("weekday", "sat", "sun")}
+        if ref.get("notice"):
+            fee = {"type": "미상", "raw_type": "미상", "mixed": False, "grade": ref["grade"],
+                   "std_grade": None, "base_min": None, "base_fee": None, "unit_min": None,
+                   "unit_fee": None, "steps": None, "free_min": None, "deduct_min": None,
+                   "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+                   "prepaid_day": None, "prepaid_weekend": None, "monthly": None,
+                   "monthly_day": None, "monthly_night": None, "monthly_all": None,
+                   "pay": "", "basis": "요금표 미공개(2026년 11월 유료 전환)", "category": None,
+                   "portal_free_now": False, "std": None}
+            free_min_note = "요금표가 공개되면 반영하겠습니다"
+        else:
+            fee = gimpo_fee("off", ref["grade"], free_hour=ref.get("free_hour", True))
+            fee["basis"] = (f"「김포시 주차장 조례」 별표1 노외 {ref['grade']}급지 · "
+                            f"최초 1시간 무료(김포시 정책, 2027-04-30까지)")
+            free_min_note = GIMPO_FREE_HOUR_NOTE
+        lots.append({
+            "id": f"gp-{card_no:03d}", "mgmt_no": "", "src": ref["src"], "list_mode": "card",
+            "name": ref["name"], "gu": "김포시", "dong": dong,
+            "dong_src": "지번주소" if gimpo_dong_of(jibun) else "없음",
+            "kind": "공영", "ptype": ref["ptype"],
+            "addr_jibun": jibun, "addr_road": road, "road": None,
+            "spaces": ref["spaces"], "tel": ref["tel"],
+            "lat": ref["lat"], "lng": ref["lng"],
+            "base_date": "2026-11 (시 보도자료)", "manager": "김포도시관리공사",
+            "note": ref["note"], "notice": ref.get("notice"),
+            "fee": fee, "oper": {"weekday": True, "sat": True, "sun": True}, "hours": win,
+            "free_days": {"sat": False, "sun": False},
+            "free_window": "00:00~09:00" if fee["type"] == "유료" else None,
+            "free_hour_note": free_min_note, "closed_from_note": False,
+            "disabled_area": "", "capa_detail": None, "portal_name": None, "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "김포시", "city_slug": "gimpo",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"gp-{i:03d}" if l["list_mode"] == "card" else f"gp-s{i:03d}"
+
+    quality = check_quality_gimpo(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                  grade_fixed, fee_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(GIMPO_FREE_TXT).strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "김포시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-07-15",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("김포시가 등록한 50행(제공기관명 '경기도 김포시', 노외 40·노상 10)을 읽었다. "
+                             "이름·주소·운전시간·좌표·전화·관리번호와 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "gimpo", "name": "김포시 공영주차장 1시간 무료 대상 40개소·요금 감면 표",
+                    "org": "김포시(교통정책과 주차시설팀)",
+                    "url": GIMPO_BLOG_URL,
+                    "file": GIMPO_FREE_TXT.name,
+                    "sha256": sha256(GIMPO_FREE_TXT) if GIMPO_FREE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-04-14 게시(2027-04-30까지 시행)",
+                    "rows_total": 40,
+                    "fetched_at": _snapshot_time(GIMPO_FREE_TXT).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if GIMPO_FREE_TXT.exists() else None,
+                    "note": ("유료 노외 공영주차장 40개소 목록·도로명주소와 요금 감면표(경차·장애인·다자녀·"
+                             "우수자원봉사자·5일장 정기권 등) 확인용. '최초 1시간 무료' 적용 근거."),
+                },
+                {
+                    "id": "press", "name": "김포시 보도자료(공영주차장 운영·개장)",
+                    "org": "김포시 교통정책과 주차시설팀",
+                    "url": GIMPO_NEWS_URL,
+                    "file": GIMPO_PRESS_TXT.name,
+                    "sha256": sha256(GIMPO_PRESS_TXT) if GIMPO_PRESS_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2023-02-02 ~ 2026-09-01",
+                    "rows_total": None,
+                    "fetched_at": _snapshot_time(GIMPO_PRESS_TXT).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if GIMPO_PRESS_TXT.exists() else None,
+                    "note": ("24시간 연중무휴 운영·00~09시 요금 없음·설·추석 연휴 무료 개방(2023-02-02), "
+                             "고촌1(2025-11-14)·운양2(2026-01-16)·하성(2026-09-01) 개장, "
+                             "1시간 감면 연장(2026-04-13) 확인용."),
+                },
+                {
+                    "id": "guc", "name": "김포도시관리공사 공영주차장 상세 안내(공유누리)",
+                    "org": "김포도시관리공사",
+                    "url": "https://www.eshare.go.kr/UserPortal/Upv/UprResrcExpr/index.do?rsrc_no=EE03O5124780",
+                    "file": GIMPO_GUC_TXT.name,
+                    "sha256": sha256(GIMPO_GUC_TXT) if GIMPO_GUC_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": None,
+                    "fetched_at": _snapshot_time(GIMPO_GUC_TXT).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if GIMPO_GUC_TXT.exists() else None,
+                    "note": ("주차장별 주차면수(표준데이터와 일치)와 ‘연중무휴(단, 공휴일 및 00시~09시 주차요금 "
+                             "제외)’·감면 안내 확인용. 김포 스마트 주차포털(parking.guc.or.kr)은 웹방화벽 "
+                             "차단으로 목록을 읽지 못했다."),
+                },
+                {
+                    "id": "ordinance", "name": "김포시 주차장 조례 (제5조제1항·별표1)",
+                    "org": "김포시",
+                    "url": GIMPO_ORDINANCE_URL,
+                    "file": GIMPO_ANNEX_TXT.name,
+                    "sha256": sha256(GIMPO_ANNEX_TXT) if GIMPO_ANNEX_TXT.exists() else None,
+                    "license": "자치법규(공개)",
+                    "base_date": "시행 2026-09-28 (경기도김포시조례 제2322호, 일부개정)",
+                    "rows_total": None,
+                    "fetched_at": _snapshot_time(GIMPO_ANNEX_TXT).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if GIMPO_ANNEX_TXT.exists() else None,
+                    "note": ("공영주차장 주차요금표(노상·노외 1~2급지: 기본 30분 600·300원, 이후 10분당 "
+                             "300·100원, 1일 7,000·3,500원, 월 정기권)와 요금 감면 특례 근거. 별표1 원문을 "
+                             "그대로 옮겨 두었다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GIMPO_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "gimpo_grade",
+            "unit_min": 10,
+            "base_min": 30,
+            "day_hours": 24,
+            "free_hour_min": GIMPO_FREE_HOUR_MIN,
+            "applies": "2026-09-28 시행 조례 · 1시간 무료는 2026-04-21~2027-04-30",
+            "off": [{"grade": g, **t, "lots": 0} for g, t in sorted(GIMPO_FEES["off"].items())],
+            "street": [{"grade": g, **t} for g, t in sorted(GIMPO_FEES["street"].items())],
+            "market": GIMPO_MARKET_MONTHLY,
+            "market_lots": list(GIMPO_MARKET_LOTS),
+            "grade_targets": {"1": "통진읍·고촌읍·양촌읍·동지역", "2": "1급지를 제외한 김포시 지역"},
+            "basis": ("「김포시 주차장 조례」 별표1(시행 2026-09-28) · 김포시 ‘공영주차장 1시간 무료’ "
+                      "정책(2027-04-30까지) · 김포도시관리공사 공영주차장 안내(2026-11-17 확인)"),
+        },
+    }
+    # 요금표의 ‘이 사이트 유료 주차장’ 칸은 노외 카드만 센다(노상은 따로 표를 그린다).
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["김포시"] | {
+        "city": "김포시",
+        "weekend_free_pages": False,     # 주말 무료 개방 ‘페이지’는 만들지 않는다
+        "discounts": GIMPO_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "gimpo_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_gimpo(std_all, rows, lots, excluded, merged, hour_fixed, grade_fixed, fee_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_김포시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"]["std_grade"] for l in paid if l["fee"].get("std_grade"))),
+        "1시간무료_적용": len([l for l in paid if l["fee"].get("deduct_min")]),
+        "운영시간_보정": hour_fixed,
+        "급지_보정": grade_fixed,
+        "등록값_차이": fee_diff,
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -5970,7 +6545,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -6029,14 +6604,15 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
-             "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"]}[args.city])
+             "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
+             "gimpo": ["김포시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -6062,6 +6638,8 @@ def main():
         cities.append(build_siheung())
     if "의정부시" in want:
         cities.append(build_uijeongbu())
+    if "김포시" in want:
+        cities.append(build_gimpo())
 
     if args.city == "all":
         site = build_site_payload(cities)
