@@ -348,6 +348,8 @@ CITY_META = {
     # 광주시(경기도) — 광주광역시와 다른 도시다. 슬러그는 gwangju, 경로는 /parking/gyeonggi/gwangju/.
     "광주시": {"slug": "gwangju", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "하남시": {"slug": "hanam", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7207,7 +7209,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -7713,18 +7715,616 @@ def check_quality_gwangju(std_all, rows, lots, excluded, merged, hour_fixed, gra
     }
 
 
+# ---------------------------------------------------------------- 하남시 (T-03 Phase 15)
+HANAM_PROVIDER = "경기도 하남시"
+# 하남시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 동 페이지를 둔다.
+HANAM_DISTRICTS = [("하남시", "hanam")]
+HANAM_BBOX = (37.47, 37.60, 127.13, 127.26)   # 하남시 대략 경계(좌표 점검용)
+# 하남시 법정동 24개 — 표준데이터 지번주소 세 번째 낱말이 법정동이다.
+#   (행정동 천현동·신장1·2동·덕풍1~3동·미사1~3동·감북동·감일동·위례동·춘궁동·초이동은
+#    여러 법정동을 묶거나 한 법정동을 나눈 이름이라 주소에는 법정동이 적힌다.)
+HANAM_DONGS = ("감북동", "감이동", "감일동", "광암동", "교산동", "당정동", "덕풍동", "망월동",
+               "미사동", "배알미동", "상사창동", "상산곡동", "선동", "신장동", "창우동",
+               "천현동", "초이동", "초일동", "춘궁동", "풍산동", "하사창동", "하산곡동",
+               "학암동", "항동")
+
+HANAM_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1844801"
+HANAM_FEE_URL = "https://www.hanam.go.kr/www/contents.do?key=5561"
+HANAM_LIST_URL = "https://www.hanam.go.kr/sotong/contents.do?key=11737"
+HANAM_CORP_URL = "https://www.huic.co.kr/www/contents.do?key=147"
+HANAM_DIRECT_URL = "https://www.huic.co.kr/www/contents.do?key=149"
+HANAM_FEE_TXT = RAW / "hanam.go.kr_주차요금정보_20261117.txt"
+HANAM_LIST_TXT = RAW / "hanam.go.kr_공영주차장현황_20261117.txt"
+HANAM_CORP_TXT = RAW / "huic.co.kr_공영주차장현황_20261117.txt"
+HANAM_DIRECT_TXT = RAW / "huic.co.kr_직영주차장_20261117.txt"
+HANAM_GEOCODE_JSON = RAW / "huic.co.kr_지오코딩_20261117.json"
+HANAM_ORDINANCE_NOTE = "시행 2023-08-04 (경기도하남시조례 제2192호, 일부개정)"
+
+# 하남시 공영주차장 요금 — 「하남시 주차장 조례」 [별표 1] 공영주차장 주차요금표(제3조제1항 관련)와
+#   하남시청 ‘주차요금 정보’(최종수정 2026-10-15) · 하남도시공사 공영주차장 요금표(2026-11-17 확인).
+#   · 1~3급지, 최초 30분 기본요금 뒤 10분 단위로 붙는다(1급지 30분 800원·10분당 300원).
+#   · 노상과 노외의 30분·10분 요율은 같지만 1일 주차권이 다르다(1급지 노상 5,000 ↔ 노외 7,000원).
+#   · 월 정기권은 주간·야간·주야간 세 가지이고 급지마다 같다(1급지 50,000·40,000·70,000원).
+#   · 주거지 전용(거주자우선주차) 구역은 주간 무료 개방, 야간 정기권 20,000원·전용 24시간 30,000원.
+HANAM_FEES = {
+    "노외": {
+        1: {"base_fee": 800, "unit_fee": 300, "day": 7_000,
+            "month_day": 50_000, "month_night": 40_000, "month_all": 70_000},
+        2: {"base_fee": 600, "unit_fee": 200, "day": 6_000,
+            "month_day": 40_000, "month_night": 30_000, "month_all": 50_000},
+        3: {"base_fee": 400, "unit_fee": 100, "day": 4_000,
+            "month_day": 30_000, "month_night": 20_000, "month_all": 40_000},
+    },
+    "노상": {
+        1: {"base_fee": 800, "unit_fee": 300, "day": 5_000,
+            "month_day": 50_000, "month_night": 40_000, "month_all": 70_000},
+        2: {"base_fee": 600, "unit_fee": 200, "day": 4_000,
+            "month_day": 40_000, "month_night": 30_000, "month_all": 50_000},
+        3: {"base_fee": 400, "unit_fee": 100, "day": 3_000,
+            "month_day": 30_000, "month_night": 20_000, "month_all": 40_000},
+    },
+}
+HANAM_BASE_MIN = 30
+HANAM_UNIT_MIN = 10
+HANAM_RESIDENT_MONTHLY = {"month_day": 20_000, "month_night": 20_000, "month_all": 30_000}
+HANAM_SEARCH_DAY = 2_000      # 검단산(현충탑 진입로) 노상 — 시간 요금 없이 전일 2,000원
+
+# 하남시 ‘주차요금 정보’(2026-10-15)의 감면 표.
+#   · 모범·유공·성실납세자는 면제(증서 발급일부터 1년), 경차(1,000cc 미만)·저공해는 50%,
+#     부제운행 20%, 국가유공자·장애인·다자녀·5·18·병역명문가·장기기증자·다문화가족·우수기업은
+#     최초 2시간 무료 뒤 50%, 환경친화적 자동차는 50%(당일 충전 영수증 제시 시 최초 2시간 면제).
+HANAM_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "배기량 1,000cc 미만 경형자동차, 수도권 대기환경 개선 특별법에 따른 저공해자동차 표지 부착 차량"},
+    {"label": "부제운행 20%", "rate": 0.2, "exempt_min": 0, "note": "승용차부제 운행 차량"},
+    {"label": "국가유공자·장애인 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "국가유공자 증서 소지자가 탑승한 차량, 장애인 등록증 소지자가 탑승한 차량, 다자녀가정우대카드(경기I-plus), 5·18민주유공자, 병역명문가, 장기등 기증자, 다문화가족, 우수기업 임직원 차량"},
+    {"label": "전기차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "환경친화적 자동차 표지 부착 차량 — 당일 충전하고 영수증을 제시하면 최초 2시간 면제(현장 확인)"},
+    {"label": "모범·성실납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "모범납세자·유공납세자·성실납세자 증서(스티커) 부착 차량 — 교부일부터 1년"},
+]
+# 하남도시공사 ‘공영주차장’ 현황(위탁 16곳)의 급지·면수 — 표준데이터와 대조해 카드에 차이를 적는다.
+HANAM_CORP_LOTS = {
+    "신장동 공영주차장": (1, 89),
+    "덕풍공원 제1공영주차장": (3, 129),
+    "덕풍공원 제2공영주차장": (3, 199),
+    "덕풍공원 제3공영주차장": (3, 213),
+    "덕풍어린이공원 공영주차장": (3, 47),
+    "덕풍수리골 공영주차장": (2, 69),
+    "하남덕풍 경기행복주택 공영주차장": (2, 98),
+    "감일제1공영주차장": (1, 57),
+    "감일제2공영주차장": (1, 41),
+    "감일제3공영주차장": (1, 39),
+    "천현동꿈나무공원 공영주차장": (3, 110),
+    "덕풍스포츠센터 공영주차장": (1, 95),
+    "덕풍소공원 공영주차장": (2, 18),
+    "현충탑 진입로": (3, 95),
+    "미사리대형차전용주차장": (3, 26),
+    "초광산단로 공영주차장": (1, 21),
+}
+# 하남도시공사가 직접 운영하는 미사중앙 제1·2주차장 — 표준데이터(기준일 2026-04-16)에 없어
+#   공사 ‘직영주차장’ 현황으로 카드를 만들었다(2023-12-01 판 표준데이터에는 있던 행이다).
+HANAM_DIRECT_LOTS = [
+    {"name": "미사중앙제1주차장", "jibun": "경기도 하남시 망월동 1086", "spaces": 48, "grade": 1,
+     "tel": "031-791-9580"},
+    {"name": "미사중앙제2주차장", "jibun": "경기도 하남시 망월동 1090", "spaces": 44, "grade": 1,
+     "tel": "031-791-9580"},
+]
+# 주소로 법정동을 찾지 못한 행의 보정(공사 현황 ‘신장로 228번길 5 (덕풍동)’).
+HANAM_DONG_OVERRIDE = {"덕풍수리골 공영주차장": ("덕풍동", "공사 현황 ‘신장로 228번길 5 (덕풍동)’")}
+# 시간 주차요금 없이 정기권만 받는 주차장 — 0원이 아니라 ‘요금 미상(정기권 전용)’으로 둔다.
+HANAM_TICKET_ONLY = {
+    "덕풍스포츠센터 공영주차장": ("거주자·직장인 정기권 위주로 운영합니다 — 야간(18:00~익일 09:00) "
+                                  "월 40,000원, 주말 주간 8일권 13,330원(하남도시공사 요금표). "
+                                  "일반 시간 주차요금은 게시되어 있지 않아 현장 확인이 필요합니다"),
+    "미사리대형차전용주차장": ("대형차 전용 주차장입니다 — 월 정기권 대형차 주간 90,000원·야간 60,000원·"
+                                "주야간 120,000원(하남도시공사 요금표). 시간제 주차는 받지 않습니다"),
+    "초광산단로 공영주차장": ("월 정기권(전용 24시간) 70,000원만 받고 시간제 주차요금은 게시되어 있지 않습니다"
+                              "(하남도시공사 요금표). 현장 확인이 필요합니다"),
+}
+
+
+def hanam_dong_of(text: str):
+    """주소에서 하남시 법정동을 뽑는다.
+
+    표준데이터 지번주소는 ‘경기도 하남시 {법정동} {번지}’ 꼴이라 세 번째 낱말이 법정동이다.
+    꼴이 다르면 법정동 목록에서 찾는다(이름이 서로 겹치지 않는다).
+    """
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "하남시" and parts[2].endswith("동") and parts[2] in HANAM_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(HANAM_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def hanam_fee(kind: str, grade: int, *, daily_hours=24):
+    """하남시 요금 구조 → 사이트 공통 fee 객체(유료). kind 는 ‘노외’·‘노상’."""
+    t = HANAM_FEES[kind][grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False, "grade": grade, "std_grade": None,
+        "base_min": HANAM_BASE_MIN, "base_fee": t["base_fee"],
+        "unit_min": HANAM_UNIT_MIN, "unit_fee": t["unit_fee"], "steps": None,
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": daily_hours, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": t["month_all"],
+        "monthly_day": t["month_day"], "monthly_night": t["month_night"], "monthly_all": t["month_all"],
+        "pay": "", "basis": f"「하남시 주차장 조례」 [별표1] {kind} {grade}급지", "category": None,
+        "portal_free_now": False, "flat_day": False, "ticket_only": False,
+    }
+
+
+def hanam_free_fee(**extra):
+    fee = {"type": "무료", "raw_type": "무료", "mixed": False, "grade": None, "std_grade": None,
+           "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "steps": None, "free_min": None, "deduct_min": None, "cap_fee": None, "cap_src": None,
+           "daily_hours": None, "daily_fee": None, "prepaid_day": None, "prepaid_weekend": None,
+           "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+           "pay": "", "basis": "요금 구분 ‘무료’", "category": None, "portal_free_now": False,
+           "flat_day": False, "ticket_only": False, "std": None}
+    fee.update(extra)
+    return fee
+
+
+def hanam_day_fee(day_fee: int):
+    """시간 요금 없이 전일 정액만 받는 주차장(검단산 노상 2,000원)."""
+    return {"type": "유료", "raw_type": "혼합", "mixed": True, "grade": 3, "std_grade": None,
+            "base_min": 1440, "base_fee": day_fee, "unit_min": 1440, "unit_fee": day_fee,
+            "steps": None, "free_min": None, "deduct_min": None,
+            "cap_fee": None, "cap_src": "조례 1일 주차요금",
+            "daily_hours": 24, "daily_fee": day_fee,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+            "pay": "", "basis": "하남도시공사 공영주차장 요금표(전일 2,000원)", "category": None,
+            "portal_free_now": False, "flat_day": True, "ticket_only": False}
+
+
+def hanam_ticket_fee(grade, kind, monthly=None, raw_type="혼합"):
+    """정기권만 받는 주차장 → ‘요금 미상’(시간 주차요금 없음)."""
+    return {"type": "미상", "raw_type": raw_type, "mixed": raw_type == "혼합", "grade": grade,
+            "std_grade": None, "base_min": None, "base_fee": None, "unit_min": None,
+            "unit_fee": None, "steps": None, "free_min": None, "deduct_min": None,
+            "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None, "monthly": monthly,
+            "monthly_day": None, "monthly_night": None, "monthly_all": None,
+            "pay": "", "basis": f"정기권 전용 — {kind} {grade}급지", "category": None,
+            "portal_free_now": False, "flat_day": False, "ticket_only": True}
+
+
+def build_hanam():
+    """하남시 공영주차장을 표준데이터 + 시 요금 정보 + 하남도시공사 현황으로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 하남시 범위를 벗어난 행은 제외(껍데기 행).
+      · 하남시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다.
+    요금은 조례 별표1(1~3급지, 30분 기본 뒤 10분 단위, 노상·노외 1일 주차권이 다름)을 적용하고,
+    운영시간은 표준데이터대로 24시간(연중) 또는 09:00~18:00(주거지 전용·일부 노상)이다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == HANAM_PROVIDER]
+    lots, excluded, merged, hour_fixed, grade_fixed, fee_diff, space_diff = [], [], [], [], [], [], []
+    corp_missing = []
+    seen = {}
+    card_no = street_no = 0
+    geocode = {g["name"]: (g["lat"], g["lng"]) for g in
+               json.loads(HANAM_GEOCODE_JSON.read_text())["rows"]} if HANAM_GEOCODE_JSON.exists() else {}
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        # 같은 주차장이 두 행으로 등록된 곳 — 지번·유형·면수가 같거나 이름·유형이 같으면 한 곳으로 묶는다.
+        jibun_key = re.sub(r"\s", "", jibun)
+        name_key = re.sub(r"\s+", "", name)
+        dup_key = None
+        if jibun_key and ("지번", jibun_key, ptype, spaces) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif name_key and ("이름", name_key, ptype) in seen:
+            dup_key = ("이름", name_key, ptype)
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and name_key:
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", name_key, ptype)] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (HANAM_BBOX[0] <= lat <= HANAM_BBOX[1]
+                                      and HANAM_BBOX[2] <= lng <= HANAM_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = hanam_dong_of(jibun) or hanam_dong_of(road)
+        dong_src = "지번주소" if hanam_dong_of(jibun) else ("도로명주소" if hanam_dong_of(road) else "없음")
+        if not dong and name in HANAM_DONG_OVERRIDE:
+            dong, why = HANAM_DONG_OVERRIDE[name]
+            dong_src = f"보정({why})"
+        note = (r.get("특기사항") or "").strip()
+        pay = (r.get("요금정보") or "").strip()
+        std_grade = to_int(r.get("급지구분"))
+        street = ptype == "노상"
+
+        win, oper, closed_note = parse_schedule(r, note)
+        if street:
+            closed_note = False
+        # 표준데이터 운영시간을 그대로 쓰고, 24시간이 아니면 그 사실을 남긴다.
+        if not all(win[k]["open"] and win[k]["24h"] for k in ("weekday", "sat", "sun")):
+            hour_fixed.append(f"{name}: 표준데이터 운영시간 {r.get('운영요일') or '—'} "
+                              f"{r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''}")
+
+        base_fee_reg = to_int(r.get("주차기본요금"))
+        grade = std_grade if std_grade in (1, 2, 3) else ({800: 1, 600: 2, 400: 3}.get(base_fee_reg or 0, 1))
+        if std_grade not in (1, 2, 3):
+            grade_fixed.append(f"{name}: 표준데이터 급지 없음 → 등록 기본요금 {base_fee_reg:,}원으로 {grade}급지 판정"
+                               if base_fee_reg else f"{name}: 표준데이터 급지 없음 → 1급지로 두고 현장 확인")
+        corp = HANAM_CORP_LOTS.get(name)
+        if corp is None:
+            corp_missing.append(name)
+        else:
+            if corp[0] != grade:
+                grade_fixed.append(f"{name}: 표준데이터 {grade}급지 ↔ 공사 현황 {corp[0]}급지")
+            if corp[1] != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 공사 현황 {corp[1]}면")
+
+        kind = "노상" if street else "노외"
+        # 요금 갈래: 무료 / 주거지 전용(주간 무료 개방) / 정기권 전용 / 일반 급지 요금.
+        resident = pay == "혼합" and name not in HANAM_TICKET_ONLY
+        if street:
+            street_no += 1
+            lot_id = f"hn-s{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"hn-{card_no:03d}"
+
+        if name == "현충탑 진입로":
+            # 검단산 노상 — 시간 요금 없이 전일 2,000원(공사 요금표).
+            fee = hanam_day_fee(HANAM_SEARCH_DAY)
+            fee["grade"] = grade
+        elif name in HANAM_TICKET_ONLY:
+            monthly = to_int(r.get("월정기권요금"))
+            fee = hanam_ticket_fee(grade, kind, monthly=monthly, raw_type=pay or "혼합")
+        elif resident:
+            fee = hanam_free_fee(grade=grade, raw_type="혼합", mixed=True, category="resident",
+                                 monthly=HANAM_RESIDENT_MONTHLY["month_all"],
+                                 monthly_day=HANAM_RESIDENT_MONTHLY["month_day"],
+                                 monthly_night=HANAM_RESIDENT_MONTHLY["month_night"],
+                                 monthly_all=HANAM_RESIDENT_MONTHLY["month_all"],
+                                 basis="주거지 전용(거주자우선주차) — 주간 무료 개방")
+        elif pay == "무료":
+            fee = hanam_free_fee()
+            fee["grade"] = grade
+        else:
+            fee = hanam_fee(kind, grade)
+            fee["basis"] = (f"「하남시 주차장 조례」 [별표1] {kind} {grade}급지 · "
+                            f"하남시 주차요금 정보(2026-10-15)")
+            reg_day = to_int(r.get("1일주차권요금"))
+            if reg_day and reg_day != fee["daily_fee"]:
+                fee_diff.append(f"{name}: 등록 1일 주차권 {reg_day:,}원 ↔ 조례 {kind} {grade}급지 "
+                                f"{fee['daily_fee']:,}원")
+        fee["std_grade"] = std_grade
+        fee["pay"] = (r.get("결제방법") or "").strip()
+        fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                      "base_fee": base_fee_reg,
+                      "unit_min": to_int(r.get("추가단위시간")),
+                      "unit_fee": to_int(r.get("추가단위요금")),
+                      "day": to_int(r.get("1일주차권요금")),
+                      "monthly": to_int(r.get("월정기권요금"))}
+        if fee["type"] == "유료" and not fee.get("flat_day") and base_fee_reg:
+            want = HANAM_FEES[kind][grade]
+            if (fee["std"]["base_min"], base_fee_reg) != (HANAM_BASE_MIN, want["base_fee"]):
+                fee_diff.append(f"{name}: 등록 {fee['std']['base_min']}분 {base_fee_reg:,}원 ↔ "
+                                f"적용 {HANAM_BASE_MIN}분 {want['base_fee']:,}원({kind} {grade}급지)")
+
+        # 주거지 전용 구역은 카드의 ‘무료’ 줄(build_site.free_note)에 안내를 적으므로 notice 는 두지 않는다.
+        notice = None
+        if name in HANAM_TICKET_ONLY:
+            notice = HANAM_TICKET_ONLY[name]
+        if name == "현충탑 진입로":
+            notice = ("하남도시공사는 이 노상 구간을 ‘검단산 공영주차장’으로 안내합니다 — "
+                      "시간 요금 없이 전일 2,000원입니다(2026-11-17 확인)")
+        if name == "에코1단지 주변":
+            notice = ("표준데이터(기준일 2026-04-16)는 유료(급지 2)로, 하남시 공영주차장 현황"
+                      "(2024-06-10)은 급지 미지정·무료 운영으로 적고 있습니다 — 방문 전 현장 표지를 확인하세요")
+        if corp and corp[1] != spaces:
+            notice = ((notice + " · ") if notice else "") + \
+                f"하남도시공사 현황은 {corp[1]}면으로 안내합니다(표준데이터 {spaces}면)"
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": mgmt,
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "하남시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip() or "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": (re.match(r"^([가-힣0-9]+(?:대로|로|길))", name).group(1)
+                     if street and re.match(r"^([가-힣0-9]+(?:대로|로|길))", name) else None),
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip() or "하남시",
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": None,
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "하남시",
+            "city_slug": "hanam",
+        })
+
+    # 표준데이터에 없는 하남도시공사 직영 2곳 — 공사 ‘직영주차장’ 현황·좌표(카카오맵 지오코딩).
+    for d in HANAM_DIRECT_LOTS:
+        lat, lng = geocode.get(d["name"], (None, None))
+        win = {k: {"open": True, "start": 0, "end": 1440, "24h": True, "listed": True,
+                   "raw": ["00:00", "24:00"]} for k in ("weekday", "sat", "sun")}
+        fee = hanam_fee("노외", d["grade"])
+        fee["basis"] = (f"「하남시 주차장 조례」 [별표1] 노외 {d['grade']}급지 · "
+                        f"하남도시공사 직영주차장 요금표(2026-11-17)")
+        fee["std"] = {"base_min": HANAM_BASE_MIN, "base_fee": fee["base_fee"],
+                      "unit_min": HANAM_UNIT_MIN, "unit_fee": fee["unit_fee"],
+                      "day": fee["daily_fee"], "monthly": None}
+        lots.append({
+            "id": "", "mgmt_no": "", "src": "하남도시공사 직영주차장 현황", "list_mode": "card",
+            "name": d["name"], "gu": "하남시", "dong": hanam_dong_of(d["jibun"]) or "망월동",
+            "dong_src": "지번주소", "kind": "공영", "ptype": "노외",
+            "addr_jibun": d["jibun"], "addr_road": "", "road": None, "spaces": d["spaces"],
+            "tel": d["tel"], "lat": lat, "lng": lng, "base_date": "2026-11-17 (공사 현황)",
+            "manager": "하남도시공사", "note": "", "notice": None, "fee": fee,
+            "oper": {k: True for k in ("weekday", "sat", "sun")}, "hours": win,
+            "free_days": {"sat": False, "sun": False}, "free_window": None,
+            "free_hour_note": None, "closed_from_note": False, "disabled_area": "",
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["unit_fee"], "city": "하남시", "city_slug": "hanam",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"hn-{i:03d}" if l["list_mode"] == "card" else f"hn-s{i:03d}"
+
+    quality = check_quality_hanam(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                  grade_fixed, fee_diff, space_diff, corp_missing)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(HANAM_CORP_TXT).strftime("%Y-%m-%d %H:%M")
+                           if HANAM_CORP_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "하남시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-16",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 하남시가 등록한 35행(노외 18·노상 17)을 읽었다. 이름·주소·구획수·"
+                             "급지·운영시간·좌표·전화·관리번호와 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "fee", "name": "하남시 공영주차장 주차요금 정보(급지별 요금표·요금 감면)",
+                    "org": "하남시 교통정책과 주차시설팀",
+                    "url": HANAM_FEE_URL,
+                    "file": HANAM_FEE_TXT.name if HANAM_FEE_TXT.exists() else None,
+                    "sha256": sha256(HANAM_FEE_TXT) if HANAM_FEE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-10-15 최종수정",
+                    "rows_total": None,
+                    "fetched_at": _sync_time(HANAM_FEE_TXT),
+                    "note": ("노상·노외 1~3급지 요금표(30분 800·600·400원, 10분당 300·200·100원, "
+                             "1일 주차권 노상 5,000·4,000·3,000원 / 노외 7,000·6,000·4,000원, "
+                             "월 정기권 주간·야간·주야간)와 주거지 전용 정기권(20,000·20,000·30,000원), "
+                             "요금 감면 표(면제 1항목·감면 15항목) 확인용."),
+                },
+                {
+                    "id": "corp", "name": "하남도시공사 공영주차장 현황·주차요금표",
+                    "org": "하남도시공사",
+                    "url": HANAM_CORP_URL,
+                    "file": HANAM_CORP_TXT.name if HANAM_CORP_TXT.exists() else None,
+                    "sha256": sha256(HANAM_CORP_TXT) if HANAM_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 16,
+                    "fetched_at": _sync_time(HANAM_CORP_TXT),
+                    "note": ("위탁 운영 공영주차장 16곳 1,281면의 유형·급지·면수와 주차장별 요금표"
+                             "(덕풍공원·천현동꿈나무 400·100·4,000원, 수리골·행복주택·소공원 600·200·6,000원, "
+                             "신장동·감일 800·300·7,000원, 검단산 노상 전일 2,000원, 초광산단로 전용 24시간 "
+                             "70,000원, 덕풍스포츠 거주자 정기권) 확인용."),
+                },
+                {
+                    "id": "direct", "name": "하남도시공사 직영주차장 현황·주차요금표",
+                    "org": "하남도시공사",
+                    "url": HANAM_DIRECT_URL,
+                    "file": HANAM_DIRECT_TXT.name if HANAM_DIRECT_TXT.exists() else None,
+                    "sha256": sha256(HANAM_DIRECT_TXT) if HANAM_DIRECT_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 2,
+                    "fetched_at": _sync_time(HANAM_DIRECT_TXT),
+                    "note": ("미사중앙제1(48면)·제2(44면)주차장 — 1급지 30분 800원·10분당 300원·"
+                             "1일 7,000원. 표준데이터(기준일 2026-04-16)에 없는 두 곳이라 이 현황으로 카드를 만들었다."),
+                },
+                {
+                    "id": "list", "name": "하남시 공영주차장 현황(주거지 전용 구역 포함)",
+                    "org": "하남시",
+                    "url": HANAM_LIST_URL,
+                    "file": HANAM_LIST_TXT.name if HANAM_LIST_TXT.exists() else None,
+                    "sha256": sha256(HANAM_LIST_TXT) if HANAM_LIST_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2024-06-10 최종수정",
+                    "rows_total": None,
+                    "fetched_at": _sync_time(HANAM_LIST_TXT),
+                    "note": ("노외 13·노상 8·주거지 전용 13·부설 1(동부초교) 구성과 급지, "
+                             "주거지 전용 구역의 ‘당일 18시~다음날 09시(주간무료개방)’ 운영 확인용."),
+                },
+                {
+                    "id": "ordinance", "name": "하남시 주차장 조례 [별표 1] 공영주차장 주차요금표(제3조제1항 관련)",
+                    "org": "하남시",
+                    "url": HANAM_ORDINANCE_URL,
+                    "file": None,
+                    "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": HANAM_ORDINANCE_NOTE,
+                    "rows_total": None,
+                    "fetched_at": _sync_time(HANAM_FEE_TXT),
+                    "note": ("요금표 원문은 국가법령정보센터의 별표 서식(HWP·PDF)으로만 게시되어 있어, "
+                             "같은 별표를 그대로 옮겨 적은 하남시 ‘주차요금 정보’ 화면으로 값을 확인했다."),
+                },
+                {
+                    "id": "geocode", "name": "주소 지오코딩(카카오맵)",
+                    "org": "Kakao Map 지오코딩(maps geocode)",
+                    "url": "https://map.kakao.com",
+                    "file": HANAM_GEOCODE_JSON.name if HANAM_GEOCODE_JSON.exists() else None,
+                    "sha256": sha256(HANAM_GEOCODE_JSON) if HANAM_GEOCODE_JSON.exists() else None,
+                    "license": "지도 서비스 지오코딩 결과(참고용)",
+                    "base_date": "2026-11-17",
+                    "rows_total": len(HANAM_DIRECT_LOTS),
+                    "fetched_at": _sync_time(HANAM_GEOCODE_JSON),
+                    "note": "표준데이터에 없는 미사중앙 제1·2주차장의 좌표(망월동 1086·1090).",
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in HANAM_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "hanam_grade",
+            "unit_min": HANAM_UNIT_MIN,
+            "base_min": HANAM_BASE_MIN,
+            "day_hours": 24,
+            "applies": HANAM_ORDINANCE_NOTE + " · 2026-10-15 시 요금정보 확인",
+            "off": [{"grade": g, **t, "lots": 0} for g, t in sorted(HANAM_FEES["노외"].items())],
+            "street": [{"grade": g, **t} for g, t in sorted(HANAM_FEES["노상"].items())],
+            "resident_monthly": HANAM_RESIDENT_MONTHLY,
+            "basis": ("「하남시 주차장 조례」 [별표 1] 공영주차장 주차요금표(제3조제1항 관련, 시행 2023-08-04) · "
+                      "하남시 주차요금 정보(2026-10-15 최종수정) · 하남도시공사 공영주차장 요금표"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["하남시"] | {
+        "city": "하남시",
+        "weekend_free_pages": False,
+        "discounts": HANAM_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "hanam_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_hanam(std_all, rows, lots, excluded, merged, hour_fixed, grade_fixed,
+                        fee_diff, space_diff, corp_missing):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_하남시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"]["std_grade"] for l in paid if l["fee"].get("std_grade"))),
+        "운영시간_보정": hour_fixed,
+        "급지_보정": grade_fixed,
+        "등록값_차이": fee_diff,
+        "면수_차이": space_diff,
+        "공사_현황_없음": corp_missing,
+        "주거지전용": [l["name"] for l in lots if (l["fee"].get("category") == "resident")],
+        "정기권전용": [l["name"] for l in lots if l["fee"].get("ticket_only")],
+        "포털추가": [l["name"] for l in lots if l["src"] != "표준데이터"],
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                 if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
-             "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"]}[args.city])
+             "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
+             "hanam": ["하남시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -7756,6 +8356,8 @@ def main():
         cities.append(build_paju())
     if "광주시" in want:
         cities.append(build_gwangju())
+    if "하남시" in want:
+        cities.append(build_hanam())
 
     if args.city == "all":
         site = build_site_payload(cities)

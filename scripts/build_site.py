@@ -709,6 +709,103 @@ CITY_UI = {
              "부설주차장은 운영기준이 따로 있어 넣지 않았습니다 — 광주시청(031-760-2000)이나 "
              "광주도시관리공사(031-762-1020)에 확인하세요."),
         ],
+    },    "하남시": {
+        "manager": "하남시 교통정책과 주차시설팀(031-790-6294) · 하남도시공사 공영주차장(031-791-9580~9581)",
+        "manager_inquiry": "하남시 교통정책과(031-790-6294)나 하남도시공사(031-791-9580)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-04-16",
+        "realtime": False,
+        "dong_unit_label": "동",
+        # 하남시는 자치구가 없다 — ‘이 구’ 대신 ‘이 시’로 적고, 시 페이지가 목록·계산기 페이지를 겸한다.
+        "area_label": "시",
+        "discount_note": ("「하남시 주차장 조례」와 하남시 ‘주차요금 정보’(2026-10-15 최종수정)입니다. "
+                          "경차(1,000cc 미만)·저공해자동차는 50%, 부제운행 차량은 20%, 국가유공자·장애인·"
+                          "다자녀(경기I-plus)·5·18민주유공자·병역명문가·장기기증자·다문화가족·우수기업 차량은 "
+                          "최초 2시간 면제 뒤 50%, 환경친화적 자동차(전기차)는 50%(당일 충전 영수증을 내면 "
+                          "최초 2시간 면제), 모범·유공·성실납세자는 증서 부착 시 면제(교부일부터 1년)입니다"
+                          "(현장 확인)."),
+        "free_example": "",
+        "calc_note": ("차량 감면은 <b>하남시 주차요금 정보(2026-10-15)</b> 기준입니다. 경차·저공해 50%, "
+                      "부제 20%, 국가유공자·장애인·다자녀·병역명문가 등 최초 2시간 면제 뒤 50%, "
+                      "모범·성실납세자 면제입니다(현장 확인)."),
+        "daily_example": "1일 주차요금 7,000원(노외 1급지)",
+        # 요금 구분 ‘무료’ 5곳 가운데 4곳은 주거지 전용(주간 무료 개방)이라 통계 이름에 함께 적는다.
+        "free_label": "무료·주간개방",
+        "street_examples": "‘에코1단지 주변’·‘현충탑 진입로’·‘초광산단로’",
+        "price_basis": "조례 별표1·하남시 주차요금 정보",
+        "std_note": ("급지는 표준데이터 등록값이고, 하남도시공사 공영주차장 현황(2026-11-17 확인)의 급지와 "
+                     "대조했습니다. "),
+        "street_fee_caveat": (
+            "<li><b>노상 요금</b>: 하남시 노상주차장은 노외와 30분·10분 요율이 같지만 <b>1일 주차권이 "
+            "다릅니다</b> — 1급지 30분 800원·10분당 300원·1일 5,000원, 2급지 600·200·4,000원, "
+            "3급지 400·100·3,000원.</li>"
+            "<li><b>주거지 전용</b>: 요금 구분이 ‘혼합’으로 등록된 노상 9구간은 거주자우선주차(주거지 전용) "
+            "구역입니다 — 주간(09:00~18:00) 무료 개방, 야간(18:00~익일 09:00)은 거주자 전용입니다.</li>"
+            "<li><b>전일 정액</b>: 검단산(현충탑 진입로)은 시간 요금 없이 전일 2,000원입니다.</li>"
+            "<li><b>정기권 전용</b>: 미사리대형차전용(대형차)·초광산단로는 시간 주차요금 없이 월 정기권만 "
+            "받아 ‘요금 정보 미상’으로 두었습니다.</li>"
+            "<li><b>구간 이름</b>: ‘에코1단지 주변’·‘검단산로(창우동안말)’처럼 위치 설명으로 등록되어 있어 "
+            "면수가 실제 주차면과 다를 수 있습니다(현장 확인).</li>"
+            "<li><b>일요일</b>: 표준데이터에 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 "
+            "준용</b>했습니다.</li>"),
+        "rate_bullets": [
+            "하남시 공영주차장은 <b>1~3급지</b>로 나뉩니다 — 최초 30분 800·600·400원, 30분 뒤 "
+            "<b>10분마다</b> 300·200·100원입니다.",
+            "<b>1일 주차요금</b>이 시간 요금의 상한입니다 — 노외 1급지 7,000원·2급지 6,000원·"
+            "3급지 4,000원, 노상 5,000·4,000·3,000원.",
+            "유료 공영주차장은 <b>24시간 연중무휴</b>로 등록되어 있고, 토요일·일요일·공휴일에도 같은 요금입니다.",
+            "<b>월 정기권</b>은 급지별로 같습니다 — 1급지 주간 50,000·야간 40,000·주야간 70,000원, "
+            "2급지 40,000·30,000·50,000원, 3급지 30,000·20,000·40,000원.",
+            "<b>주거지 전용(거주자우선주차) 구역 13곳</b>은 주간(09:00~18:00) 무료로 개방하고 야간은 "
+            "거주자 전용입니다 — 거주자 정기권 주간·야간 20,000원, 전용(24시간) 30,000원.",
+            "감면은 경차·저공해 50%, 부제운행 20%, 국가유공자·장애인·다자녀 등 <b>최초 2시간 면제 뒤 "
+            "50%</b>, 모범·성실납세자 면제입니다.",
+        ],
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 1~3급지 30분 800·600·400원 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 급지별 주차요금(1급지 30분 800원·10분당 300원·"
+                                "노외 1일 7,000원, 2급지 600·200·6,000원, 3급지 400·100·4,000원)과 "
+                                "주거지 전용 구역의 주간 무료 개방, 운영시간·구획수를 공공데이터로 "
+                                "정리했습니다. 2시간·하루 주차비를 바로 계산해 보세요."),
+        "cheap_lede": ("하남시 유료 노외 공영주차장은 1급지 6곳(2시간 3,500원·1일 7,000원), "
+                       "2급지 3곳(2시간 2,400원·1일 6,000원), 3급지 5곳(2시간 1,300원·1일 4,000원)이고, "
+                       "남은 5곳은 무료(주거지 전용 4곳은 주간 무료 개방)입니다. "
+                       "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
+        "street_count_note": ("하남시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 "
+                              "{spaces:,}면입니다. {where}에 있고, 유료 시간제 1구간·전일 정액 1구간·"
+                              "무료 4구간·주거지 전용 9구간·정기권 전용 2구간으로 나뉩니다. "),
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+                       "(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 유료 14곳(1급지 6·"
+                       "2급지 3·3급지 5), 무료 5곳(주거지 전용 4곳 포함), 정기권 전용 1곳입니다."),
+        "weekend_note": ("하남시 유료 공영주차장은 토요일·일요일·공휴일에도 같은 요금입니다(조례 별표1에 "
+                         "주말 무료 규정이 없고, 표준데이터도 평일+토요일+공휴일 24시간 운영으로 등록). "
+                         "주거지 전용 구역은 주말에도 주간(09:00~18:00) 무료 개방입니다. "),
+        "sun_free_note": ("유료 공영주차장은 일요일·공휴일에도 요금이 붙고, 무료는 남한산성등산로와 "
+                          "주거지 전용 4곳입니다. "),
+        "extra_faq": [
+            ("하남시 공영주차장은 주말에 무료인가요?",
+             "아닙니다. 유료 공영주차장은 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 별표1에 "
+             "주말 무료 규정이 없고, 표준데이터도 평일·토요일·공휴일 24시간 운영으로 등록되어 있습니다. "
+             "무료로 쓰는 곳은 남한산성등산로와 주거지 전용(거주자우선주차) 구역이며, 주거지 전용 구역은 "
+             "주간(09:00~18:00)에만 무료로 개방하고 야간에는 거주자만 쓸 수 있습니다."),
+            ("주거지 전용 구역에 잠깐 주차해도 되나요?",
+             "주거지 전용(거주자우선주차) 구역은 주간(09:00~18:00)에 무료로 개방합니다 — 이 사이트의 "
+             "예상요금도 그 시간 기준으로 0원입니다. 다만 18:00~익일 09:00에는 거주자 전용이라 일반 차량은 "
+             "주차할 수 없고, 거주자는 월 20,000원(주간·야간)·30,000원(전용 24시간) 정기권을 씁니다."),
+            ("1일 주차요금은 노상과 노외가 같은가요?",
+             "30분 기본요금과 10분당 요율은 같지만 1일 주차권이 다릅니다. 노외 1급지 30분 800원·10분당 "
+             "300원에 1일 7,000원, 노상 1급지 30분 800원·10분당 300원에 1일 5,000원입니다(2급지 노외 "
+             "6,000원·노상 4,000원, 3급지 노외 4,000원·노상 3,000원). 시간 요금 합계가 1일 주차요금을 "
+             "넘으면 1일 요금만 냅니다."),
+            ("미사중앙주차장은 왜 이 목록에 있나요?",
+             "미사중앙제1·2주차장(망월동 1086·1090, 92면)은 하남도시공사가 직접 운영하는 1급지 공영주차장"
+             "입니다. 표준데이터(기준일 2026-04-16)에는 빠져 있어 하남도시공사 ‘직영주차장’ 현황으로 넣었고, "
+             "요금은 30분 800원·10분당 300원·1일 7,000원입니다."),
+            ("시청·도서관 주차장도 이 요금인가요?",
+             "이 목록은 하남시가 공영주차장으로 등록한 노외·노상 주차장과 하남도시공사 직영 주차장입니다. "
+             "시청·행정복지센터·도서관 같은 부설주차장과 동부초교 부설주차장(역말로 55, 24면)은 운영기준이 "
+             "따로 있어 넣지 않았습니다 — 하남시 교통정책과(031-790-6294)에 확인하세요."),
+        ],
     },
 }
 
@@ -1118,6 +1215,10 @@ def map_links(lot):
 
 def free_note(lot):
     """무료 개방 관련 표기 문장."""
+    if lot["fee"].get("category") == "resident":
+        # 하남시 주거지 전용(거주자우선주차) 구역 — 주간 무료 개방, 야간 거주자 전용.
+        return ("주거지 전용(거주자우선주차) — 주간 09:00~18:00 무료 개방, 야간은 거주자 전용"
+                " (거주자 정기권 주간·야간 20,000원·전용 24시간 30,000원)")
     if lot["fee"]["type"] == "무료":
         return "원자료상 요금 구분이 '무료'입니다."
     out = []
@@ -1418,6 +1519,23 @@ def footer_sources(city, url) -> str:
                 f'<a href="https://smartparking.hscity.go.kr/Main" rel="nofollow noopener" target="_blank">'
                 f'화성시 통합주차포털</a>(화성도시공사 · 요금·감면 안내)을 기준으로 만든 참고용 정보입니다. '
                 f'화성시는 2026-03-01 4개 구(만세·효행·병점·동탄) 체제로 바뀌었습니다. '
+                f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
+                f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
+                f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+    if city["city"] == "하남시":
+        std_rows = city_rows_total(city)
+        return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
+                f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
+                f'전국주차장정보표준데이터</a>(경기도 하남시 {std_rows}행, 기준일 '
+                f'{esc(city_ui(city)["std_base_date"])})와 '
+                f'<a href="https://www.hanam.go.kr/www/contents.do?key=5561" rel="nofollow noopener" target="_blank">'
+                f'하남시 공영주차장 주차요금 정보</a>(급지별 요금표·감면), '
+                f'<a href="https://www.huic.co.kr/www/contents.do?key=147" rel="nofollow noopener" target="_blank">'
+                f'하남도시공사 공영주차장 현황·요금표</a>, '
+                f'<a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1844801" rel="nofollow noopener" target="_blank">'
+                f'하남시 주차장 조례</a>(별표1 요금표)를 기준으로 만든 참고용 정보입니다. '
+                f'하남시는 자치구가 없어 법정동 단위로 정리했습니다. '
                 f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
                 f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
@@ -2066,6 +2184,20 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>요금 구분이 ‘무료’인 {city_free_type_lots(city)}곳은 요일과 관계없이 무료입니다. 노상(거리) 구간은 이름이 위치 설명이라 카드가 아닌 표로 따로 정리했습니다.</li>
     <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다(합계 {q['총_구획수']:,}면 + 노상 {q['노상_구획수']:,}면 = 등록 총면수).</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 읍·면·동(양벌·장지·탄벌·신현·중대·도척·퇴촌 등)은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
+    if city["city"] == "하남시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(경기도 하남시가 등록한 {q.get('원자료_하남시행수', '')}행, 기준일 {esc(ui['std_base_date'])}) — 이 사이트에는 노외 {q['총_주차장']}곳(공사 직영 2곳 포함)과 노상 {q['노상_구간']}구간을 실었습니다.</li>
+    <li><b>요금표</b>: 「하남시 주차장 조례」 [별표 1] 공영주차장 주차요금표(제3조제1항 관련, 시행 2023-08-04, 경기도하남시조례 제2192호) · <a href="https://www.hanam.go.kr/www/contents.do?key=5561" rel="nofollow noopener" target="_blank">하남시 공영주차장 주차요금 정보</a>(최종수정 2026-10-15, 2026-11-17 확인) — 1~3급지 최초 30분 800·600·400원, 10분당 300·200·100원, 1일 주차권 <b>노상 5,000·4,000·3,000원 / 노외 7,000·6,000·4,000원</b>, 월 정기권 주간·야간·주야간(1급지 50,000·40,000·70,000원).</li>
+    <li><b>주차장별 급지·면수</b>: <a href="https://www.huic.co.kr/www/contents.do?key=147" rel="nofollow noopener" target="_blank">하남도시공사 공영주차장 현황</a> 16곳 1,281면(노외 13·노상 3, 2026-11-17 조회 스냅샷 · <code>data/raw/huic.co.kr_공영주차장현황_20261117.txt</code>)과 대조했습니다. 급지는 16곳 모두 일치하고 면수는 {len(q.get('면수_차이') or [])}곳이 다릅니다(감일제1 56↔57면, 덕풍스포츠센터 30↔95면 — 카드에 함께 적었습니다).</li>
+    <li><b>하남도시공사 직영주차장</b>: 미사중앙제1(48면)·제2(44면)주차장은 1급지 30분 800원·10분당 300원·1일 7,000원, 24시간 운영입니다. 표준데이터(기준일 2026-04-16)에는 없어 <a href="https://www.huic.co.kr/www/contents.do?key=149" rel="nofollow noopener" target="_blank">공사 직영주차장 현황</a>으로 카드를 만들고, 좌표는 주소(망월동 1086·1090)로 지오코딩했습니다.</li>
+    <li><b>주거지 전용(거주자우선주차) 구역 {len(q.get('주거지전용') or [])}곳</b>: 표준데이터에 요금 구분 ‘혼합’으로 등록된 노외 4곳·노상 9구간입니다(하남시 공영주차장 현황의 ‘주거지 전용 주차구역’ 13곳과 같습니다). 주간(09:00~18:00)은 무료로 개방하고 야간(18:00~익일 09:00)은 거주자 전용이라, 이 사이트는 <b>무료(0원)</b>로 표시하고 카드에 그 사실을 적었습니다. 거주자 정기권은 주간·야간 20,000원, 전용(24시간) 30,000원입니다.</li>
+    <li><b>정기권 전용 {len(q.get('정기권전용') or [])}곳</b>: 덕풍스포츠센터(거주자·직장인 정기권 위주), 미사리대형차전용(대형차 월 정기권 90,000·60,000·120,000원), 초광산단로(전용 24시간 월 70,000원)는 시간 주차요금이 게시되어 있지 않아 0원이 아니라 <b>‘요금 정보 미상(정기권 전용)’</b>으로 두었습니다.</li>
+    <li><b>검단산(현충탑 진입로)</b>은 시간 요금 없이 <b>전일 2,000원</b>입니다(하남도시공사 요금표). 표준데이터 이름은 ‘현충탑 진입로’, 공사 안내 이름은 ‘검단산 공영주차장’입니다.</li>
+    <li><b>표기 차이 1곳</b>: ‘에코1단지 주변’(신장동 563, 40면)은 표준데이터(기준일 2026-04-16)가 유료(급지 2)로, 하남시 공영주차장 현황(2024-06-10)은 급지 미지정·무료 운영으로 적고 있습니다. 최신 표준데이터 값을 따르고 카드에 차이를 적었습니다. 표준데이터 등록요금(30분 800원·1일 7,000원)은 1급지 값이라 조례 노상 2급지(600원·4,000원)로 계산했습니다(품질 리포트 ‘등록값_차이’).</li>
+    <li><b>운영시간</b>: 유료 노외는 24시간 연중무휴이고, 주거지 전용과 일부 노상은 09:00~18:00으로 등록되어 있습니다. 일요일 전용 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
+    <li><b>부설주차장</b>: 동부초교 부설(역말로 55, 24면, 평일·주말 18시~다음날)과 시청·행정복지센터·도서관 부설은 운영기준이 따로 있어 넣지 않았습니다(하남시 교통정책과 031-790-6294).</li>
+    <li>하남시는 <b>자치구가 없어</b> 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래에 동 페이지를 두었습니다. 동 이름은 <b>법정동</b> 기준입니다(행정동 신장1·2동, 덕풍1~3동, 미사1~3동, 감북동, 감일동, 위례동, 춘궁동, 초이동은 여러 법정동을 묶거나 한 법정동을 나눈 이름).</li>
+    <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>(노외 {q['총_구획수']:,}면 + 노상 {q['노상_구획수']:,}면)입니다.</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동(감이·감일·망월·신장·천현·초이·항동 등)은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
     return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터({esc(city['city'])} {city_rows_total(city)}행, 기준일 {esc(ui['std_base_date'])})</li>
     <li>실시간 잔여면수는 연동하지 않았습니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>"""
@@ -2121,13 +2253,23 @@ def build_district(city, d, lots, site, path=None, hub=False):
                          f"<b>모두 무료</b>이고, 요일과 관계없이 요금이 없습니다. "
                          "운영시간과 위치는 표의 등록값을 그대로 적었습니다.")
             else:
+                st_resident = len([l for l in street if l["fee"].get("category") == "resident"])
                 split = ((f"<b>무료 {st_free}곳·" if st_free else "<b>")
                          + f"유료 {st_paid}곳</b>"
                          + (f"(요금 정보 없음 {st_unknown}곳)" if st_unknown else "")
                          + "이고, ")
+                if st_resident:
+                    # 하남시 주거지 전용 구역 — 낮에만 무료 개방이라 ‘요일과 관계없이 무료’로 적지 않는다.
+                    free_sentence = (
+                        f"무료 {st_free}곳 가운데 {st_free - st_resident}곳은 요일과 관계없이 무료하고, "
+                        f"주거지 전용(거주자우선주차) {st_resident}곳은 주간(09:00~18:00)에만 무료로 개방합니다. "
+                        if st_free > st_resident else
+                        f"주거지 전용(거주자우선주차) {st_resident}곳은 주간(09:00~18:00)에만 무료로 개방하고 "
+                        f"야간은 거주자 전용입니다. ")
+                else:
+                    free_sentence = ("무료 구간은 요일과 관계없이 요금이 없습니다. " if st_free else "")
                 intro = (f"도로변에 설치된 공영 노상 주차구간입니다. 이 {area} {len(street)}곳 가운데 "
-                         + split
-                         + ("무료 구간은 요일과 관계없이 요금이 없습니다. " if st_free else "")
+                         + split + free_sentence
                          + "운영시간과 요금은 표의 등록값을 그대로 적었습니다.")
         street_block = f"""
 <h2 style="margin-top:26px">{esc(gu)} 노상(거리) 주차 구간 {len(street)}곳</h2>
@@ -2136,6 +2278,14 @@ def build_district(city, d, lots, site, path=None, hub=False):
 {street_rows(street, with_price=True, unit_label=street_unit_label(city))}
 """
     free_in_gu = len([l for l in lots if l["fee"]["type"] == "무료"])
+    free_resident_in_gu = len([l for l in lots if l["fee"].get("category") == "resident"])
+    # 주거지 전용 구역은 주간에만 무료 개방이라 ‘요일과 관계없이 무료’로 적지 않는다(하남시).
+    free_nuance = (f" 가운데 {free_in_gu - free_resident_in_gu}곳은 요일과 관계없이 무료이고, "
+                   f"주거지 전용 {free_resident_in_gu}곳은 주간(09:00~18:00)에만 무료로 개방합니다."
+                   if free_resident_in_gu and free_in_gu > free_resident_in_gu else
+                   f"은 주거지 전용(거주자우선주차) 구역으로 주간(09:00~18:00)에만 무료로 개방합니다."
+                   if free_resident_in_gu else
+                   "은 요일과 관계없이 무료입니다.")
     free_weekend_in_gu = len([l for l in lots if l["fee"]["type"] != "무료"
                               and (l["free_days"]["sat"] or l["free_days"]["sun"])])
     # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례인 도시(파주시)는 그 문구로 적고,
@@ -2157,7 +2307,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
 """ if city.get("weekend_free_pages") else (
         f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
-<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_in_gu}곳은 요일과 관계없이 무료입니다.
+<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_in_gu}곳{free_nuance}
 {weekend_extra}{weekend_rest}은 주말에도 요금이 부과되고, 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
 """ if free_in_gu else f"""
@@ -2470,6 +2620,47 @@ def fee_table_block(city) -> str:
     ft = city.get("fee_table")
     if not ft:
         return ""
+    if ft.get("style") == "hanam_grade":
+        # 하남시(조례 별표1 · 하남시 주차요금 정보 · 하남도시공사 요금표): 1~3급지가 같은 모양의 요금표를 쓰고,
+        #   노상·노외의 30분·10분 요율은 같지만 1일 주차권이 다르다. 주거지 전용은 정기권만 있다.
+        off_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_day"])} / {won(r["month_night"])} / {won(r["month_all"])}</td>'
+            f'<td class="num">{r.get("lots") or "—"}곳</td></tr>'
+            for r in ft["off"])
+        st_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_day"])} / {won(r["month_night"])} / {won(r["month_all"])}</td></tr>'
+            for r in ft["street"])
+        res = ft.get("resident_monthly") or {}
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">하남시 공영주차장은 <b>1~3급지</b>로 나뉘고, 최초 <b>{ft.get('base_min', 30)}분 기본요금</b> 뒤
+<b>{ft['unit_min']}분 단위</b>로 요금이 붙습니다. <b>1일 주차요금</b>이 시간 요금의 상한입니다
+(현재 적용: {esc(ft['applies'])}).</p>
+<h3 style="margin-top:20px">노외주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권<br>주간 / 야간 / 주·야간</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{off_rows}</tbody>
+</table>
+<h3 style="margin-top:22px">노상주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권<br>주간 / 야간 / 주·야간</th></tr></thead>
+  <tbody>{st_rows}</tbody>
+</table>
+<p class="updated">노상과 노외는 <b>30분·10분 요율이 같고 1일 주차권만 다릅니다</b>
+(1급지 노상 5,000원 ↔ 노외 7,000원, 2급지 4,000 ↔ 6,000원, 3급지 3,000 ↔ 4,000원).
+<b>주거지 전용(거주자우선주차)</b> 구역은 시간 요금 대신 정기권만 받습니다 — 주간 {won(res.get('month_day'))},
+야간 {won(res.get('month_night'))}, 전용(24시간) {won(res.get('month_all'))}이고 주간(09:00~18:00)은 무료로 개방합니다.
+유료 공영주차장은 <b>24시간 연중무휴</b>이며 주말·공휴일에도 같은 요금입니다.</p>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·주차장 종류(노상·노외)로 계산하고,
+월 정기권은 주·야간(주야간) 금액을 적었습니다.</p>
+"""
     if ft.get("style") == "paju_grade":
         # 파주시(조례 제3조제1항 별표1 · 통합주차 포털 요금안내): 1~3급지가 같은 모양의 요금표
         #   (최초 30분 + 10분 단위 + 1일 주차요금 상한 + 월 정기권 주간·야간·전일)를 쓴다.
@@ -3159,6 +3350,10 @@ def _build_street_mixed(city, street, site):
     ui = city_ui(city)
     total_spaces = sum(l["spaces"] or 0 for l in street)
     free = [l for l in street if l["fee"]["type"] == "무료"]
+    # 하남시 주거지 전용(거주자우선주차) 구간은 요금 구분이 ‘혼합’이지만 낮에는 무료로 개방해
+    #   fee.type 을 ‘무료’로 두었다 — 안내 문장에서는 두 갈래를 나눠 적는다.
+    free_resident = [l for l in free if l["fee"].get("category") == "resident"]
+    free_plain = [l for l in free if l["fee"].get("category") != "resident"]
     paid = [l for l in street if l["fee"]["type"] == "유료"]
     by_gu, by_road = {}, {}
     for l in street:
@@ -3171,14 +3366,16 @@ def _build_street_mixed(city, street, site):
         return (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f["daily_fee"],
                 f.get("cap_fee"), tuple(st["unit_fee"] for st in (f.get("steps") or ())))
 
-    bfee_min = min((l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee")), default=None)
-    bfee_max = max((l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee")), default=None)
+    # 종일 정액 구간(검단산 2,000원)은 시간 요금표와 기준이 달라 요율 비교에서 뺀다.
+    paid_timed = [l for l in paid if not l["fee"].get("flat_day")]
+    bfee_min = min((l["fee"]["base_fee"] for l in paid_timed if l["fee"].get("base_fee")), default=None)
+    bfee_max = max((l["fee"]["base_fee"] for l in paid_timed if l["fee"].get("base_fee")), default=None)
     sample, fee_n = None, 0
-    if paid:
-        fee_key = Counter(street_fee_key(l) for l in paid)
+    if paid_timed:
+        fee_key = Counter(street_fee_key(l) for l in paid_timed)
         _, fee_n = fee_key.most_common(1)[0]
         top = fee_key.most_common(1)[0][0]
-        sample = next(l for l in paid if street_fee_key(l) == top)
+        sample = next(l for l in paid_timed if street_fee_key(l) == top)
         bmin, bfee, umin, ufee, dfee = top[0], top[1], top[2], top[3], top[4]
 
     gu_rows = "".join(
@@ -3218,11 +3415,19 @@ def _build_street_mixed(city, street, site):
         diff_sentence = ("급지가 달라(1·2·3급지) 구간별 목록에 급지 요금표로 계산한 값을 적었습니다."
                          if (city.get("fee_table") or {}).get("style") == "goyang_grade_year"
                          else "등록 요금이 달라 구간별 목록의 값을 그대로 적었습니다.")
-        if fee_n < len(paid):
-            extra_bits += (f'<li><b>구간별 차이</b>: 나머지 {len(paid) - fee_n}개 구간은 {diff_sentence}</li>')
+        if fee_n < len(paid_timed):
+            extra_bits += (f'<li><b>구간별 차이</b>: 나머지 {len(paid_timed) - fee_n}개 구간은 {diff_sentence}</li>')
         if free:
-            extra_bits += (f'<li><b>무료 구간</b>: {len(free)}곳은 요금 구분이 ‘무료’로 등록되어 있어 '
-                           f'요일과 관계없이 무료입니다.</li>')
+            if free_resident:
+                bits = []
+                if free_plain:
+                    bits.append(f'{len(free_plain)}곳은 요금 구분이 ‘무료’로 등록되어 있어 요일과 관계없이 무료이고, ')
+                bits.append(f'{len(free_resident)}곳은 주거지 전용(거주자우선주차) 구역이라 '
+                            f'주간(09:00~18:00)에만 무료로 개방합니다(야간은 거주자 전용).')
+                extra_bits += f'<li><b>무료 구간</b>: ' + "".join(bits) + '</li>'
+            else:
+                extra_bits += (f'<li><b>무료 구간</b>: {len(free)}곳은 요금 구분이 ‘무료’로 등록되어 있어 '
+                               f'요일과 관계없이 무료입니다.</li>')
         if unknown:
             extra_bits += (f'<li><b>요금 정보 없음</b>: {len(unknown)}곳은 시간 주차요금이 등록되어 있지 않아 '
                            f'‘현장 확인’으로 두었습니다.</li>')
@@ -3251,12 +3456,19 @@ def _build_street_mixed(city, street, site):
           if ui.get("street_count_note") else
           f"공공데이터포털 표준데이터에 등록된 {city['city']} 공영 노상(거리) 주차 구간은 {len(street)}곳, "
           f"주차 구획은 총 {total_spaces:,}면입니다. {'·'.join(sorted(by_gu))}에 있습니다. ")
-         + (f"이 가운데 {len(free)}곳 모두 요금을 받지 않습니다." if free and not paid else
-            f"이 가운데 무료 구간이 {len(free)}곳, 유료 구간이 {len(paid)}곳입니다." if free
+         + (f"이 가운데 {len(free)}곳 모두 요금을 받지 않습니다."
+            + (f"({len(free_resident)}곳은 주거지 전용으로 주간에만 무료)" if free_resident else "")
+            if free and not paid else
+            f"이 가운데 무료 개방 {len(free)}곳" + (f"(주거지 전용 {len(free_resident)}곳 포함)" if free_resident else "")
+            + f", 유료 구간이 {len(paid)}곳입니다." if free
             else f"이 가운데 유료 구간이 {len(paid)}곳입니다.")),
         (f"{city['city']} 노상주차장은 언제 무료인가요?",
-         (f"요금 구분이 ‘무료’로 등록된 {len(free)}곳은 요일과 관계없이 요금이 없습니다. " if free
-          else "요금 구분이 ‘무료’로 등록된 구간은 없습니다. ")
+         ((f"요금 구분이 ‘무료’로 등록된 {len(free_plain)}곳은 요일과 관계없이 요금이 없고, "
+           f"주거지 전용(거주자우선주차) 구역 {len(free_resident)}곳은 주간(09:00~18:00)에만 무료로 개방합니다. "
+           if free_resident and free_plain else
+           f"주거지 전용(거주자우선주차) 구역 {len(free_resident)}곳은 주간(09:00~18:00)에만 무료로 개방하고 "
+           f"야간(18:00~익일 09:00)은 거주자 전용입니다. " if free_resident else "")
+          if free else "요금 구분이 ‘무료’로 등록된 구간은 없습니다. ")
          + (f"다만 {len(sun_free)}곳은 일요일·공휴일에 무료로 개방합니다(조례·등록값 기준). "
             if sun_free else "")
          + (f"유료 구간 {len(paid)}곳은 기본 {bmin}분 {won(bfee)}부터 요금이 붙습니다. "
@@ -3280,13 +3492,13 @@ def _build_street_mixed(city, street, site):
     ]
 
     body = f"""
-<h1>{city['city']} 노상주차장 {len(street)}구간 · {f"무료 {len(free)}곳과 요금" if free else "요금과 운영시간"}</h1>
+<h1>{city['city']} 노상주차장 {len(street)}구간 · {(f"무료 개방 {len(free)}곳과 요금" if free_resident else f"무료 {len(free)}곳과 요금") if free else "요금과 운영시간"}</h1>
 <p class="lede">도로변에 설치된 공영 노상(거리) 주차구간입니다. 구간 이름이 {esc(ui['street_examples'] or '위치 설명')}처럼 위치 설명으로
-등록되어 있어 카드 대신 도로별 표로 정리했습니다. {f"무료 {len(free)}곳과 유료 {len(paid)}곳" if free else f"유료 {len(paid)}곳"}을 구간별로 확인하세요.</p>
+등록되어 있어 카드 대신 도로별 표로 정리했습니다. {f"무료 개방 {len(free)}곳(주거지 전용 {len(free_resident)}곳 포함)과 유료 {len(paid)}곳" if free_resident else f"무료 {len(free)}곳과 유료 {len(paid)}곳" if free else f"유료 {len(paid)}곳"}을 구간별로 확인하세요.</p>
 <p class="updated">자료 기준일 {esc(ui['std_base_date'])} · {len(street)}구간 {total_spaces:,}면</p>
 <div class="stats">
   <div class="stat"><span class="k">노상 구간</span><span class="v">{len(street)}<small>곳</small></span></div>
-  <div class="stat {'free' if free else ''}"><span class="k">{'무료 구간' if free else '유료 구간'}</span><span class="v">{len(free) if free else len(paid)}<small>곳</small></span></div>
+  <div class="stat {'free' if free else ''}"><span class="k">{('무료 개방' if free_resident else '무료 구간') if free else '유료 구간'}</span><span class="v">{len(free) if free else len(paid)}<small>곳</small></span></div>
   <div class="stat"><span class="k">총 구획</span><span class="v">{total_spaces:,}<small>면</small></span></div>
 </div>
 {ad_slot()}
@@ -3320,7 +3532,9 @@ def _build_street_mixed(city, street, site):
 """
     crumbs = [("홈", "/"), ("경기도", None), (city["city"], city_path(city)), ("노상주차장 요금", "")]
     return path, layout(
-        title=(f"{city['city']} 노상주차장 {len(street)}구간 · 무료 {len(free)}곳·요금 총정리 | {SITE_NAME}"
+        title=(f"{city['city']} 노상주차장 {len(street)}구간 · 무료 개방 {len(free)}곳·요금 총정리 | {SITE_NAME}"
+               if free_resident else
+               f"{city['city']} 노상주차장 {len(street)}구간 · 무료 {len(free)}곳·요금 총정리 | {SITE_NAME}"
                if free else
                f"{city['city']} 노상주차장 {len(street)}구간 요금·운영시간 총정리 | {SITE_NAME}"),
         description=(f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳의 요금을 공공데이터로 정리했습니다. "
@@ -3329,7 +3543,11 @@ def _build_street_mixed(city, street, site):
                     (f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 {total_spaces:,}면은 모두 무료입니다. "
                      f"구간별 위치와 구획, 조례가 정한 노상 요금(1급지 10분 300원·1일 8,000원)을 함께 정리했습니다.")
                     if not paid else
-                    (f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 가운데 무료 {len(free)}곳과 "
+                    (f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 가운데 무료 개방 {len(free)}곳"
+                     f"(주거지 전용 {len(free_resident)}곳 포함)과 유료 {len(paid)}곳의 요금·구간별 위치를 "
+                     f"공공데이터로 정리했습니다."
+                     if free_resident else
+                     f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 가운데 무료 {len(free)}곳과 "
                      f"유료 {len(paid)}곳의 요금·구간별 위치를 공공데이터로 정리했습니다."
                      if not any(l["fee"]["daily_fee"] for l in paid) else
                      f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 가운데 무료 {len(free)}곳과 "

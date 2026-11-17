@@ -530,6 +530,15 @@ MIX["gwangju"] = (
     "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
     "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
 )
+# 하남시는 자치구가 없다 — 다른 도시 페이지에 하남 자료가 섞이면 실패.
+#   (‘하남시’로 좁힌다: 광주시 노상 예시에 ‘하남21세기자동차학원 앞’이 들어 있다.)
+HANAM_TOKENS = ("하남시", "하남도시공사", "하남시청")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + HANAM_TOKENS
+_others = set()
+for _k, _v in MIX.items():
+    _others.update(t for t in _v if t not in HANAM_TOKENS)
+MIX["hanam"] = tuple(sorted(_others))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -1768,6 +1777,124 @@ else:
     if gj_rows < len(gj_street):
         fails.append(f"광주시 노상 페이지 행 {gj_rows} < 구간 {len(gj_street)}")
 
+# 하남시: 「하남시 주차장 조례」 [별표 1] 공영주차장 주차요금표(제3조제1항, 시행 2023-08-04)
+#   · 1~3급지 30분 800·600·400원 + 10분당 300·200·100원, 1일 주차권 노상 5,000·4,000·3,000원 / 노외 7,000·6,000·4,000원.
+#   · 주거지 전용 13곳은 주간 무료 개방(fee.type=무료, category=resident), 정기권 전용 3곳은 요금 미상.
+HN_OFF = {1: (800, 300, 7000), 2: (600, 200, 6000), 3: (400, 100, 4000)}
+HN_ST = {1: (800, 300, 5000), 2: (600, 200, 4000), 3: (400, 100, 3000)}
+hn_cards = [l for l in LOTS if l.get("city") == "하남시" and l.get("list_mode") == "card"]
+hn_street = [l for l in LOTS if l.get("city") == "하남시" and l.get("list_mode") == "street"]
+if not hn_cards:
+    fails.append("하남시 카드 데이터가 없음")
+hn_paid = [l for l in hn_cards if l["fee"]["type"] == "유료"]
+hn_free = [l for l in hn_cards if l["fee"]["type"] == "무료"]
+hn_resident = [l for l in LOTS if l.get("city") == "하남시" and l["fee"].get("category") == "resident"]
+hn_ticket = [l for l in LOTS if l.get("city") == "하남시" and l["fee"].get("ticket_only")]
+hn_bad = []
+for l in hn_paid:
+    g = l["fee"]["grade"]
+    table = HN_ST if l["ptype"] == "노상" else HN_OFF
+    if g not in table:
+        hn_bad.append(f'{l["name"]}(급지 {g})')
+        continue
+    base, unit, day = table[g]
+    f = l["fee"]
+    if f.get("flat_day"):
+        if (f["base_fee"], f.get("daily_fee")) != (2000, 2000):
+            hn_bad.append(f'{l["name"]}(종일 {f["base_fee"]}원)')
+        continue
+    if (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f.get("daily_fee")) != (30, base, 10, unit, day):
+        hn_bad.append(f'{l["name"]}(요금 {f["base_min"]}분 {f["base_fee"]}원·{f["unit_min"]}분 {f["unit_fee"]}원·'
+                      f'일 {f.get("daily_fee")})')
+if hn_bad:
+    fails.append(f"하남시 유료 주차장 요금이 조례 별표1과 다름 {len(hn_bad)}곳 {hn_bad[:3]}")
+# 계산 결과: 30분 기본요금, 2시간 = 기본 + 9×10분 요율, 24시간은 1일 주차요금 상한.
+hn_price_bad = []
+for l in hn_paid:
+    if l["fee"].get("flat_day"):
+        for mins in (30, 120, 1440):
+            r = _pf(l, mins, "weekday")
+            if r.get("state") != "paid" or r.get("amount") != 2000:
+                hn_price_bad.append(f'{l["name"]} {mins}분 {r}')
+        continue
+    base, unit, day = (HN_ST if l["ptype"] == "노상" else HN_OFF)[l["fee"]["grade"]]
+    for mins, want in ((30, base), (120, base + 9 * unit), (1440, day)):
+        r = _pf(l, mins, "weekday")
+        if r.get("state") != "paid" or r.get("amount") != want:
+            hn_price_bad.append(f'{l["name"]} {mins}분 {r} ≠ {want}')
+if hn_price_bad:
+    fails.append(f"하남시 요금 계산이 조례 값과 다름 {len(hn_price_bad)}건 {hn_price_bad[:3]}")
+hn_disc = {d["label"]: (d["rate"], d.get("exempt_min") or 0) for d in
+           next(c for c in CITIES if c["city"] == "하남시").get("discounts") or []}
+if (hn_disc.get("경차·저공해 50%") or (None,))[0] != 0.5:
+    fails.append("하남시 감면표에 경차·저공해 50%가 없음")
+if (hn_disc.get("부제운행 20%") or (None,))[0] != 0.2:
+    fails.append("하남시 감면표에 부제운행 20%가 없음")
+if (hn_disc.get("국가유공자·장애인 2시간 면제 후 50%") or (None, None))[1] != 120:
+    fails.append("하남시 감면표의 국가유공자·장애인 면제 시간이 120분이 아님")
+if (hn_disc.get("모범·성실납세자 100%") or (None,))[0] != 1.0:
+    fails.append("하남시 감면표에 모범·성실납세자 100%가 없음")
+# 카드(노외) 유료 14곳 = 1급지 6 · 2급지 3 · 3급지 5, 노상 유료 2곳(에코1단지 2급지·검단산 3급지)
+if dict(Counter(l["fee"]["grade"] for l in hn_paid)) != {1: 6, 2: 3, 3: 5}:
+    fails.append(f"하남시 카드 유료 급지 구성이 다름: {dict(Counter(l['fee']['grade'] for l in hn_paid))} ≠ {{1: 6, 2: 3, 3: 5}}")
+if dict(Counter(l["fee"]["grade"] for l in LOTS
+                if l.get("city") == "하남시" and l["fee"]["type"] == "유료")) != {1: 6, 2: 4, 3: 6}:
+    fails.append("하남시 전체 유료 급지 구성이 {1: 6, 2: 4, 3: 6}이 아님")
+if len(hn_cards) != 20 or len(hn_street) != 17:
+    fails.append(f"하남시 카드·노상 구성이 다름: 카드 {len(hn_cards)} · 노상 {len(hn_street)}")
+if len(hn_paid) != 14 or len(hn_free) != 5 or len([l for l in hn_cards if l['fee'].get('ticket_only')]) != 1:
+    fails.append(f"하남시 카드 요금 구분이 다름: 유료 {len(hn_paid)}·무료 {len(hn_free)}·"
+                 f"정기권전용 {len([l for l in hn_cards if l['fee'].get('ticket_only')])}")
+if len(hn_ticket) != 3:
+    fails.append(f"하남시 정기권 전용 주차장이 3곳이 아님: {len(hn_ticket)}곳")
+if len([l for l in LOTS if l.get("city") == "하남시" and l["fee"]["type"] == "무료"]) != 18:
+    fails.append("하남시 무료(주거지 전용 포함) 주차장이 18곳이 아님")
+if len(hn_resident) != 13:
+    fails.append(f"하남시 주거지 전용 구역이 13곳이 아님: {len(hn_resident)}곳")
+if sum(l["spaces"] or 0 for l in hn_cards) != 1391 or sum(l["spaces"] or 0 for l in hn_street) != 613:
+    fails.append(f"하남시 구획 합계가 다름: 노외 {sum(l['spaces'] or 0 for l in hn_cards)} · "
+                 f"노상 {sum(l['spaces'] or 0 for l in hn_street)}")
+if len([l for l in hn_cards if not l.get("dong")]):
+    fails.append("하남시 카드에 동이 없는 주차장이 있음")
+hn_dup = [k for k, v in Counter(l["name"] for l in hn_cards).items() if v > 1]
+if hn_dup:
+    fails.append(f"하남시 카드 이름 중복: {hn_dup[:3]}")
+if not [l for l in hn_cards if l["name"] == "미사중앙제1주차장"]:
+    fails.append("하남시 카드에 미사중앙제1주차장(공사 직영) 없음")
+if [l for l in hn_cards if l["name"] == "미사중앙제1주차장" and not l["hours"]["weekday"]["24h"]]:
+    fails.append("미사중앙제1주차장이 24시간 운영으로 등록되지 않음")
+hn_root = DIST / "parking" / "gyeonggi" / "hanam"
+hn_hub = hn_root / "index.html"
+if not hn_hub.exists():
+    fails.append("하남시 시 페이지 없음")
+else:
+    hn_html = hn_hub.read_text()
+    for label in ("하남시 급지별 주차요금표", "1급지", "2급지", "3급지", "10분당", "최초 30분",
+                  "월 정기권", "주거지 전용", "노상주차장", "평일 2시간 기준 가장 저렴한 곳",
+                  'class="calc', "미사중앙제1주차장", "검단산"):
+        if label not in hn_html:
+            fails.append(f"하남시 시 페이지에 {label} 없음")
+    if hn_html.count('class="card lot') != len(hn_cards):
+        fails.append(f"하남시 시 페이지 카드 수 불일치({hn_html.count(chr(34)+'card lot')} vs {len(hn_cards)})")
+hn_dong_pages = sorted(q.parent.name for q in hn_root.rglob("index.html")
+                       if q.parent.parent == hn_root and q.parent.name != "street-parking")
+hn_expect = sorted(__import__("build_site").dong_slug(d)
+                   for d, n in Counter(l.get("dong") for l in hn_cards if l.get("dong")).items() if n >= 3)
+if hn_dong_pages != hn_expect:
+    fails.append(f"하남시 동 페이지 구성이 다름: {hn_dong_pages} ≠ {hn_expect}")
+if not hn_dong_pages:
+    fails.append("하남시 동 페이지가 없음")
+hn_street_page = hn_root / "street-parking" / "index.html"
+if not hn_street_page.exists():
+    fails.append("하남시 노상주차장 페이지 없음(street-parking)")
+else:
+    hn_rows = len(re.findall(r"<tr><td>", hn_street_page.read_text()))
+    if hn_rows < len(hn_street):
+        fails.append(f"하남시 노상 페이지 행 {hn_rows} < 구간 {len(hn_street)}")
+
+print()
+if warns:
+    print(f"주의 {len(warns)}건")
 print()
 if warns:
     print(f"주의 {len(warns)}건")

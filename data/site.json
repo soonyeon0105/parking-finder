@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 12:37",
+  "generated_at": "2026-11-17 13:01",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -97,6 +97,12 @@
    {
     "city": "광주시",
     "slug": "gwangju",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "하남시",
+    "slug": "hanam",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -691,6 +697,76 @@
     "fetched_at": "2026-11-17 12:24 (KST)",
     "note": "감면 24개 항목의 감면율과 확인(증빙) 방법. 감면이 겹치면 감면율이 높은 하나만 적용한다(제6조②).",
     "city": "광주시"
+   },
+   {
+    "id": "fee",
+    "name": "하남시 공영주차장 주차요금 정보(급지별 요금표·요금 감면)",
+    "org": "하남시 교통정책과 주차시설팀",
+    "url": "https://www.hanam.go.kr/www/contents.do?key=5561",
+    "file": "hanam.go.kr_주차요금정보_20261117.txt",
+    "sha256": "e7f0ab12cb5b2f64f96b4829aa14718707c66051af956564ebceba45f83e54ba",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-10-15 최종수정",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 12:57 (KST)",
+    "note": "노상·노외 1~3급지 요금표(30분 800·600·400원, 10분당 300·200·100원, 1일 주차권 노상 5,000·4,000·3,000원 / 노외 7,000·6,000·4,000원, 월 정기권 주간·야간·주야간)와 주거지 전용 정기권(20,000·20,000·30,000원), 요금 감면 표(면제 1항목·감면 15항목) 확인용.",
+    "city": "하남시"
+   },
+   {
+    "id": "corp",
+    "name": "하남도시공사 공영주차장 현황·주차요금표",
+    "org": "하남도시공사",
+    "url": "https://www.huic.co.kr/www/contents.do?key=147",
+    "file": "huic.co.kr_공영주차장현황_20261117.txt",
+    "sha256": "072af37a35befa9b6d9653dfd5d8094033443359b2b34d737c8126afd94ef6d7",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": 16,
+    "fetched_at": "2026-11-17 12:57 (KST)",
+    "note": "위탁 운영 공영주차장 16곳 1,281면의 유형·급지·면수와 주차장별 요금표(덕풍공원·천현동꿈나무 400·100·4,000원, 수리골·행복주택·소공원 600·200·6,000원, 신장동·감일 800·300·7,000원, 검단산 노상 전일 2,000원, 초광산단로 전용 24시간 70,000원, 덕풍스포츠 거주자 정기권) 확인용.",
+    "city": "하남시"
+   },
+   {
+    "id": "direct",
+    "name": "하남도시공사 직영주차장 현황·주차요금표",
+    "org": "하남도시공사",
+    "url": "https://www.huic.co.kr/www/contents.do?key=149",
+    "file": "huic.co.kr_직영주차장_20261117.txt",
+    "sha256": "e83447016785c48db2138509551e951f452ccf88a981c4b336f441ee075bcb86",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": 2,
+    "fetched_at": "2026-11-17 12:57 (KST)",
+    "note": "미사중앙제1(48면)·제2(44면)주차장 — 1급지 30분 800원·10분당 300원·1일 7,000원. 표준데이터(기준일 2026-04-16)에 없는 두 곳이라 이 현황으로 카드를 만들었다.",
+    "city": "하남시"
+   },
+   {
+    "id": "list",
+    "name": "하남시 공영주차장 현황(주거지 전용 구역 포함)",
+    "org": "하남시",
+    "url": "https://www.hanam.go.kr/sotong/contents.do?key=11737",
+    "file": "hanam.go.kr_공영주차장현황_20261117.txt",
+    "sha256": "ea00d10b404a7a1700fc88eddde41631cf3c34c84e86c8b57ca09c1c072ea3e5",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2024-06-10 최종수정",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 12:57 (KST)",
+    "note": "노외 13·노상 8·주거지 전용 13·부설 1(동부초교) 구성과 급지, 주거지 전용 구역의 ‘당일 18시~다음날 09시(주간무료개방)’ 운영 확인용.",
+    "city": "하남시"
+   },
+   {
+    "id": "ordinance",
+    "name": "하남시 주차장 조례 [별표 1] 공영주차장 주차요금표(제3조제1항 관련)",
+    "org": "하남시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1844801",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2023-08-04 (경기도하남시조례 제2192호, 일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 12:57 (KST)",
+    "note": "요금표 원문은 국가법령정보센터의 별표 서식(HWP·PDF)으로만 게시되어 있어, 같은 별표를 그대로 옮겨 적은 하남시 ‘주차요금 정보’ 화면으로 값을 확인했다.",
+    "city": "하남시"
    }
   ]
  },
@@ -719,7 +795,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -946,7 +1022,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1133,7 +1209,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -1327,7 +1403,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -1466,7 +1542,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -1653,7 +1729,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -1820,7 +1896,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -2039,7 +2115,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -2244,7 +2320,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -2478,7 +2554,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -3213,7 +3289,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -3576,7 +3652,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -3856,7 +3932,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4103,7 +4179,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -4382,7 +4458,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:37",
+    "generated_at": "2026-11-17 13:01",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -4603,6 +4679,273 @@
      "광주역 환승"
     ],
     "basis": "「광주시 주차장 설치 및 관리 조례」 제5조제1항 별표1 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17 확인)"
+   }
+  },
+  {
+   "city": "하남시",
+   "slug": "hanam",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "하남시",
+     "slug": "hanam"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 13:01",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 35,
+    "원자료_하남시행수": 35,
+    "제외_행수": 0,
+    "제외_행": [],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 20,
+    "노외_부설": {
+     "노외": 20
+    },
+    "노상_구간": 17,
+    "총_구획수": 1391,
+    "노상_구획수": 613,
+    "동별": {
+     "덕풍동": 10,
+     "감이동": 2,
+     "망월동": 2,
+     "신장동": 2,
+     "감일동": 1,
+     "천현동": 1,
+     "초이동": 1,
+     "항동": 1
+    },
+    "동수": 8,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 19,
+     "보정(공사 현황 ‘신장로 228번길 5 (덕풍동)’)": 1
+    },
+    "요금구분": {
+     "유료": 16,
+     "무료": 18,
+     "미상": 3
+    },
+    "요금_미상": [
+     "덕풍스포츠센터 공영주차장",
+     "미사리대형차전용주차장",
+     "초광산단로 공영주차장"
+    ],
+    "급지별": {
+     "1": 6,
+     "3": 6,
+     "2": 4
+    },
+    "표준데이터_급지": {
+     "1": 4,
+     "3": 6,
+     "2": 4
+    },
+    "운영시간_보정": [
+     "시립테니스장 주변 공영주차장: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "덕풍1동 주민센터: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "덕풍1동 벽산블루밍 APT 이면도로: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "한솔솔파크 이면도로: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "신장동거주자우선주차장: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "(구)국도43번호선공영주차장: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "신장동 566번지 앞공영주차장: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "초이동 공영주차장: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "동일하이빌아파트 이면도로: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "대명아파트 이면도로: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "현충탑 진입로: 표준데이터 운영시간 평일+토요일+공휴일 08:00~16:00",
+     "덕풍동 거주자우선주차장(중3류10호): 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "검단산로(창우동안말): 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "덕풍2동 주민센터(거주자우선주차장): 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00",
+     "덕풍스포츠센터 공영주차장: 표준데이터 운영시간 평일+토요일+공휴일 09:00~18:00"
+    ],
+    "급지_보정": [],
+    "등록값_차이": [
+     "에코1단지 주변: 등록 1일 주차권 7,000원 ↔ 조례 노상 2급지 4,000원",
+     "에코1단지 주변: 등록 30분 800원 ↔ 적용 30분 600원(노상 2급지)"
+    ],
+    "면수_차이": [
+     "감일제1공영주차장: 표준데이터 56면 ↔ 공사 현황 57면",
+     "덕풍스포츠센터 공영주차장: 표준데이터 30면 ↔ 공사 현황 95면"
+    ],
+    "공사_현황_없음": [
+     "시립테니스장 주변 공영주차장",
+     "덕풍1동 주민센터",
+     "하남프라자 주변",
+     "에코1단지 주변",
+     "덕풍1동 벽산블루밍 APT 이면도로",
+     "한솔솔파크 이면도로",
+     "하남순복음교회 주변",
+     "신장동거주자우선주차장",
+     "(구)국도43번호선공영주차장",
+     "남한산성등산로",
+     "신장동 566번지 앞공영주차장",
+     "초이동 공영주차장",
+     "동일하이빌아파트 이면도로",
+     "역말중앙길",
+     "대명아파트 이면도로",
+     "덕풍동 거주자우선주차장(중3류10호)",
+     "검단산로(창우동안말)",
+     "덕풍2동 주민센터(거주자우선주차장)",
+     "대명강변타운아파트 남측도로"
+    ],
+    "주거지전용": [
+     "덕풍1동 주민센터",
+     "덕풍2동 주민센터(거주자우선주차장)",
+     "신장동거주자우선주차장",
+     "초이동 공영주차장",
+     "덕풍1동 벽산블루밍 APT 이면도로",
+     "덕풍동 거주자우선주차장(중3류10호)",
+     "한솔솔파크 이면도로",
+     "대명아파트 이면도로",
+     "동일하이빌아파트 이면도로",
+     "시립테니스장 주변 공영주차장",
+     "신장동 566번지 앞공영주차장",
+     "검단산로(창우동안말)",
+     "(구)국도43번호선공영주차장"
+    ],
+    "정기권전용": [
+     "덕풍스포츠센터 공영주차장",
+     "미사리대형차전용주차장",
+     "초광산단로 공영주차장"
+    ],
+    "포털추가": [
+     "미사중앙제1주차장",
+     "미사중앙제2주차장"
+    ],
+    "평균_기본요금": 613,
+    "무료_요금구분": 18,
+    "무료개방_표기": [],
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [],
+    "주소_없음": [],
+    "이름중복": [],
+    "관리번호중복": [
+     "227-2-000022"
+    ],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-04-16",
+     "2026-11-17 (공사 현황)"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "경차·저공해 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "배기량 1,000cc 미만 경형자동차, 수도권 대기환경 개선 특별법에 따른 저공해자동차 표지 부착 차량"
+    },
+    {
+     "label": "부제운행 20%",
+     "rate": 0.2,
+     "exempt_min": 0,
+     "note": "승용차부제 운행 차량"
+    },
+    {
+     "label": "국가유공자·장애인 2시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 120,
+     "note": "국가유공자 증서 소지자가 탑승한 차량, 장애인 등록증 소지자가 탑승한 차량, 다자녀가정우대카드(경기I-plus), 5·18민주유공자, 병역명문가, 장기등 기증자, 다문화가족, 우수기업 임직원 차량"
+    },
+    {
+     "label": "전기차 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "환경친화적 자동차 표지 부착 차량 — 당일 충전하고 영수증을 제시하면 최초 2시간 면제(현장 확인)"
+    },
+    {
+     "label": "모범·성실납세자 100%",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "모범납세자·유공납세자·성실납세자 증서(스티커) 부착 차량 — 교부일부터 1년"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "hanam_grade",
+    "unit_min": 10,
+    "base_min": 30,
+    "day_hours": 24,
+    "applies": "시행 2023-08-04 (경기도하남시조례 제2192호, 일부개정) · 2026-10-15 시 요금정보 확인",
+    "off": [
+     {
+      "grade": 1,
+      "base_fee": 800,
+      "unit_fee": 300,
+      "day": 7000,
+      "month_day": 50000,
+      "month_night": 40000,
+      "month_all": 70000,
+      "lots": 6
+     },
+     {
+      "grade": 2,
+      "base_fee": 600,
+      "unit_fee": 200,
+      "day": 6000,
+      "month_day": 40000,
+      "month_night": 30000,
+      "month_all": 50000,
+      "lots": 3
+     },
+     {
+      "grade": 3,
+      "base_fee": 400,
+      "unit_fee": 100,
+      "day": 4000,
+      "month_day": 30000,
+      "month_night": 20000,
+      "month_all": 40000,
+      "lots": 5
+     }
+    ],
+    "street": [
+     {
+      "grade": 1,
+      "base_fee": 800,
+      "unit_fee": 300,
+      "day": 5000,
+      "month_day": 50000,
+      "month_night": 40000,
+      "month_all": 70000
+     },
+     {
+      "grade": 2,
+      "base_fee": 600,
+      "unit_fee": 200,
+      "day": 4000,
+      "month_day": 40000,
+      "month_night": 30000,
+      "month_all": 50000
+     },
+     {
+      "grade": 3,
+      "base_fee": 400,
+      "unit_fee": 100,
+      "day": 3000,
+      "month_day": 30000,
+      "month_night": 20000,
+      "month_all": 40000
+     }
+    ],
+    "resident_monthly": {
+     "month_day": 20000,
+     "month_night": 20000,
+     "month_all": 30000
+    },
+    "basis": "「하남시 주차장 조례」 [별표 1] 공영주차장 주차요금표(제3조제1항 관련, 시행 2023-08-04) · 하남시 주차요금 정보(2026-10-15 최종수정) · 하남도시공사 공영주차장 요금표"
    }
   }
  ],
@@ -196304,6 +196647,4298 @@
    "price_key": null,
    "city": "광주시",
    "city_slug": "gwangju"
+  },
+  {
+   "id": "hn-001",
+   "mgmt_no": "227-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "감일제1공영주차장",
+   "gu": "하남시",
+   "dong": "감이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 감이동 443-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "031-791-9580",
+   "lat": 37.508644,
+   "lng": 127.1549207,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 40000원+월주간 50000원",
+   "notice": "하남도시공사 현황은 57면으로 안내합니다(표준데이터 56면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 1급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-002",
+   "mgmt_no": "227-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "감일제3공영주차장",
+   "gu": "하남시",
+   "dong": "감이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 감이동 527-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "031-791-9580",
+   "lat": 37.50391055,
+   "lng": 127.1620865,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 40000원+월주간 50000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 1급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-003",
+   "mgmt_no": "227-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "감일제2공영주차장",
+   "gu": "하남시",
+   "dong": "감일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 감일동 531-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-791-9580",
+   "lat": 37.50997319,
+   "lng": 127.162342,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 40000원+월주간 50000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 1급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-004",
+   "mgmt_no": "227-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍1동 주민센터",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 435-205",
+   "addr_road": "경기도 하남시 덕풍공원로 110",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-791-9580",
+   "lat": 37.5351431,
+   "lng": 127.1984486,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-005",
+   "mgmt_no": "227-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍2동 주민센터(거주자우선주차장)",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 693",
+   "addr_road": "경기도 하남시 덕풍공원로 12",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-791-9580",
+   "lat": 37.542247,
+   "lng": 127.198104,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-006",
+   "mgmt_no": "227-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍공원 제1공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 435-224",
+   "addr_road": "경기도 하남시 덕풍공원로 80",
+   "road": null,
+   "spaces": 129,
+   "tel": "031-791-9580",
+   "lat": 37.53675111,
+   "lng": 127.2000934,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+월주간 30000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": 30000,
+    "monthly_night": 20000,
+    "monthly_all": 40000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 3급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 4000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-007",
+   "mgmt_no": "227-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍공원 제2공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 435-208",
+   "addr_road": "경기도 하남시 덕풍공원로 100",
+   "road": null,
+   "spaces": 199,
+   "tel": "031-791-9580",
+   "lat": 37.53609332,
+   "lng": 127.1993982,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+월주간 30000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": 30000,
+    "monthly_night": 20000,
+    "monthly_all": 40000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 3급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 4000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-008",
+   "mgmt_no": "227-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍공원 제3공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 435-202",
+   "addr_road": "경기도 하남시 덕풍공원로 70",
+   "road": null,
+   "spaces": 213,
+   "tel": "031-791-9580",
+   "lat": 37.53700666,
+   "lng": 127.1975778,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+월주간 30000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": 30000,
+    "monthly_night": 20000,
+    "monthly_all": 40000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 3급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 4000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-009",
+   "mgmt_no": "227-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍소공원 공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 285-58",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-791-9580",
+   "lat": 37.54476252,
+   "lng": 127.2058,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 2급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-010",
+   "mgmt_no": "227-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍수리골 공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "보정(공사 현황 ‘신장로 228번길 5 (덕풍동)’)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "경기도 하남시 신장로228번길5",
+   "road": null,
+   "spaces": 69,
+   "tel": "031-791-9580",
+   "lat": 37.54539276,
+   "lng": 127.1985073,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 30000원+월주간40000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 2급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-011",
+   "mgmt_no": "227-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍스포츠센터 공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 426-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-791-9580",
+   "lat": 37.537754291,
+   "lng": 127.2029535727,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+(승용)월야간 20000원 월주간 30000원 주야간 40000원 (대형) 월야간 60000원 월주간 90000원 주야간 120000원",
+   "notice": "거주자·직장인 정기권 위주로 운영합니다 — 야간(18:00~익일 09:00) 월 40,000원, 주말 주간 8일권 13,330원(하남도시공사 요금표). 일반 시간 주차요금은 게시되어 있지 않아 현장 확인이 필요합니다 · 하남도시공사 현황은 95면으로 안내합니다(표준데이터 30면)",
+   "fee": {
+    "type": "미상",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": "정기권 전용 — 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-012",
+   "mgmt_no": "227-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕풍어린이공원 공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 361-2",
+   "addr_road": "경기도 하남시 덕풍공원로 40-1",
+   "road": null,
+   "spaces": 47,
+   "tel": "031-791-9580",
+   "lat": 37.539912,
+   "lng": 127.1973457,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+월주간 30000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": 30000,
+    "monthly_night": 20000,
+    "monthly_all": 40000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 3급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 4000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-013",
+   "mgmt_no": "227-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남덕풍 경기행복주택 공영주차장",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 덕풍동 828",
+   "addr_road": "경기도 하남시 덕풍동로 35",
+   "road": null,
+   "spaces": 98,
+   "tel": "031-791-9580",
+   "lat": 37.545792,
+   "lng": 127.2049512,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 30000원+월주간40000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 2급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-014",
+   "mgmt_no": "",
+   "src": "하남도시공사 직영주차장 현황",
+   "list_mode": "card",
+   "name": "미사중앙제1주차장",
+   "gu": "하남시",
+   "dong": "망월동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 망월동 1086",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-791-9580",
+   "lat": 37.5655281105173,
+   "lng": 127.190037130473,
+   "base_date": "2026-11-17 (공사 현황)",
+   "manager": "하남도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 1급지 · 하남도시공사 직영주차장 요금표(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-015",
+   "mgmt_no": "",
+   "src": "하남도시공사 직영주차장 현황",
+   "list_mode": "card",
+   "name": "미사중앙제2주차장",
+   "gu": "하남시",
+   "dong": "망월동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 망월동 1090",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "031-791-9580",
+   "lat": 37.5656612939621,
+   "lng": 127.190530065798,
+   "base_date": "2026-11-17 (공사 현황)",
+   "manager": "하남도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 1급지 · 하남도시공사 직영주차장 요금표(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-016",
+   "mgmt_no": "227-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신장동 공영주차장",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 신장동 521-2",
+   "addr_road": "경기도 하남시 하남대로776번길 77",
+   "road": null,
+   "spaces": 89,
+   "tel": "031-791-9580",
+   "lat": 37.541376,
+   "lng": 127.2142372,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 40000원+월주간 50000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 1급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-017",
+   "mgmt_no": "227-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신장동거주자우선주차장",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 신장동 439-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-791-9580",
+   "lat": 37.537636,
+   "lng": 127.208945,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "장애인  50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-018",
+   "mgmt_no": "227-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천현동꿈나무공원 공영주차장",
+   "gu": "하남시",
+   "dong": "천현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 천현동 615",
+   "addr_road": "경기도 하남시 신장로48번길 30",
+   "road": null,
+   "spaces": 110,
+   "tel": "031-791-9580",
+   "lat": 37.5356027,
+   "lng": 127.2128853,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+월주간 30000원",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": 30000,
+    "monthly_night": 20000,
+    "monthly_all": 40000,
+    "pay": "신용카드",
+    "basis": "「하남시 주차장 조례」 [별표1] 노외 3급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 4000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-019",
+   "mgmt_no": "227-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "초이동 공영주차장",
+   "gu": "하남시",
+   "dong": "초이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 초이동 78-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-791-9580",
+   "lat": 37.54468255,
+   "lng": 127.1718222,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-020",
+   "mgmt_no": "227-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남한산성등산로",
+   "gu": "하남시",
+   "dong": "항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 하남시 항동 488-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "031-790-5650",
+   "lat": 37.496144,
+   "lng": 127.190002,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s021",
+   "mgmt_no": "227-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "덕풍1동 벽산블루밍 APT 이면도로",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 덕풍동 470-4",
+   "addr_road": "경기도 하남시 대성로 303-19",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-791-9580",
+   "lat": 37.536451,
+   "lng": 127.205705,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s022",
+   "mgmt_no": "227-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "덕풍동 거주자우선주차장(중3류10호)",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 덕풍동 370-142",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "031-791-9580",
+   "lat": 37.53742929,
+   "lng": 127.1985967,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s023",
+   "mgmt_no": "227-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "역말중앙길",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 덕풍동 523-3",
+   "addr_road": "",
+   "road": "역말중앙길",
+   "spaces": 13,
+   "tel": "031-790-5650",
+   "lat": 37.53328311,
+   "lng": 127.2003496,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s024",
+   "mgmt_no": "227-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "하남순복음교회 주변",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 덕풍동 512-4",
+   "addr_road": "경기도 하남시 신평로 9",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-790-5650",
+   "lat": 37.534775,
+   "lng": 127.203219,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s025",
+   "mgmt_no": "227-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "하남프라자 주변",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 덕풍동 745",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-790-5650",
+   "lat": 37.55144574,
+   "lng": 127.2082961,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s026",
+   "mgmt_no": "227-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한솔솔파크 이면도로",
+   "gu": "하남시",
+   "dong": "덕풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 덕풍동 332-38",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "031-791-9580",
+   "lat": 37.54295453,
+   "lng": 127.2014651,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s027",
+   "mgmt_no": "227-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대명강변타운아파트 남측도로",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 107-57",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-790-5650",
+   "lat": 37.54034814,
+   "lng": 127.2217879,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s028",
+   "mgmt_no": "227-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대명아파트 이면도로",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 73-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-791-9580",
+   "lat": 37.542958,
+   "lng": 127.222004,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s029",
+   "mgmt_no": "227-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동일하이빌아파트 이면도로",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 101-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-791-9580",
+   "lat": 37.5415454,
+   "lng": 127.219208,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s030",
+   "mgmt_no": "227-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "미사리대형차전용주차장",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 281-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-791-9580",
+   "lat": 37.55288655,
+   "lng": 127.2127622,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+(승용)월야간 20000원 월주간 30000원 주야간 40000원 (대형) 월야간 60000원 월주간 90000원 주야간 120000원",
+   "notice": "대형차 전용 주차장입니다 — 월 정기권 대형차 주간 90,000원·야간 60,000원·주야간 120,000원(하남도시공사 요금표). 시간제 주차는 받지 않습니다",
+   "fee": {
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": "정기권 전용 — 노상 3급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s031",
+   "mgmt_no": "227-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시립테니스장 주변 공영주차장",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 534",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "031-791-9580",
+   "lat": 37.54027343,
+   "lng": 127.2117248,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s032",
+   "mgmt_no": "227-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신장동 566번지 앞공영주차장",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 566",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "031-791-9580",
+   "lat": 37.542275,
+   "lng": 127.212708,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s033",
+   "mgmt_no": "227-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "에코1단지 주변",
+   "gu": "하남시",
+   "dong": "신장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 신장동 563",
+   "addr_road": "경기도 하남시 하남대로802번길 5-6",
+   "road": null,
+   "spaces": 40,
+   "tel": "1899-5498",
+   "lat": 37.5415464,
+   "lng": 127.2084973,
+   "base_date": "2026-04-16",
+   "manager": "이지스파크",
+   "note": "",
+   "notice": "표준데이터(기준일 2026-04-16)는 유료(급지 2)로, 하남시 공영주차장 현황(2024-06-10)은 급지 미지정·무료 운영으로 적고 있습니다 — 방문 전 현장 표지를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 30000,
+    "monthly_all": 50000,
+    "pay": "",
+    "basis": "「하남시 주차장 조례」 [별표1] 노상 2급지 · 하남시 주차요금 정보(2026-10-15)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s034",
+   "mgmt_no": "227-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "검단산로(창우동안말)",
+   "gu": "하남시",
+   "dong": "창우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 창우동 산2-2",
+   "addr_road": "",
+   "road": "검단산로",
+   "spaces": 16,
+   "tel": "031-791-9580",
+   "lat": 37.5393332,
+   "lng": 127.2336389,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s035",
+   "mgmt_no": "227-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "현충탑 진입로",
+   "gu": "하남시",
+   "dong": "창우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 창우동 272-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "031-791-9580",
+   "lat": 37.535104,
+   "lng": 127.230025,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인",
+   "notice": "하남도시공사는 이 노상 구간을 ‘검단산 공영주차장’으로 안내합니다 — 시간 요금 없이 전일 2,000원입니다(2026-11-17 확인)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 2000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": "하남도시공사 공영주차장 요금표(전일 2,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": true,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "16:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s036",
+   "mgmt_no": "227-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "(구)국도43번호선공영주차장",
+   "gu": "하남시",
+   "dong": "천현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 천현동 585",
+   "addr_road": "",
+   "road": null,
+   "spaces": 72,
+   "tel": "031-791-9580",
+   "lat": 37.53354889,
+   "lng": 127.2141955,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "경차·장애인·유공자등 50프로 할인+월야간 20000원+거주자우선주차장",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 30000,
+    "pay": "신용카드",
+    "basis": "주거지 전용(거주자우선주차) — 주간 무료 개방",
+    "category": "resident",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 20000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
+  },
+  {
+   "id": "hn-s037",
+   "mgmt_no": "227-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "초광산단로 공영주차장",
+   "gu": "하남시",
+   "dong": "초이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 하남시 초이동 642-2",
+   "addr_road": "",
+   "road": "초광산단로",
+   "spaces": 21,
+   "tel": "031-791-9580",
+   "lat": 37.52834116,
+   "lng": 127.1689272,
+   "base_date": "2026-04-16",
+   "manager": "경기도 하남도시공사",
+   "note": "",
+   "notice": "월 정기권(전용 24시간) 70,000원만 받고 시간제 주차요금은 게시되어 있지 않습니다(하남도시공사 요금표). 현장 확인이 필요합니다",
+   "fee": {
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": "정기권 전용 — 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "하남시",
+   "city_slug": "hanam"
   }
  ]
 }
