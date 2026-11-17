@@ -1,0 +1,4821 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 05:16",
+  "generated_at_iso": "2026-11-18T05:16:00+09:00",
+  "snapshot_at": "2026-11-18 05:16",
+  "region": {
+   "province": "서울특별시",
+   "city": "강서구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 37,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "강서구가 등록한 37행(노외 30·노상 7)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 강서구 주차장 설치 및 관리 조례」 별표1 공영주차장의 주차요금표 · 비고 감면",
+    "org": "강서구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2074729",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-10-01 · 서울특별시강서구조례 제1749호(일부개정) · 별표1 개정 2023.12.27.(시행 2024.3.27.)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 강서구는 구영(강서구청·강서구시설관리공단 위탁) 29개소(노상 6·노외 17·부설 6)를 무인으로 운영하고, 조례 별표1의 5분당 요금은 노상·노외가 같은 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 노상은 평일 09:00~19:00·토요일 09:00~15:00에만 요금을 받고 일요일·공휴일은 무료이며, 노외 5급지 10여 곳은 09:00~18:00에만 요금을 받습니다. 1일 주차권(야간에 한함)은 1급지 15,000원·2급지 10,000원·3급지 7,000원·4급지 5,000원·5급지 2,000원이고, 시영(서울시설공단)은 법정동 평균공시지가 변수를 곱합니다(가양역 320원·개화역 290원). 화곡6동 주민센터 부설(공항대로46길 105, 5분당 100원·24시간)은 공단 안내에만 있어 표준데이터에는 없습니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "강서구 공영주차장 시간제 현황·요금 안내",
+    "org": "강서구시설관리공단 통합주차관제센터(02-2065-1575) · 공영주차팀(02-2607-9113) · 시영은 서울시설공단",
+    "url": "https://www.gssi.or.kr/parking1/parking/fee.php",
+    "file": "gssi.or.kr_공영주차장_요금안내_20261118.txt",
+    "sha256": "a16309838bd0ecd8575d95f1506404ca8e051fbe1c6cb1ae32bebf63b4c73ce9",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 0,
+    "fetched_at": "2026-11-18 05:11 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "강서구",
+   "slug": "gangseo"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gangseo-001",
+   "mgmt_no": "115-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가양3동",
+   "gu": "강서구",
+   "dong": "가양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 가양동 1488-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "",
+   "lat": 37.560338,
+   "lng": 126.859775,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 200원으로 받습니다(공시지가 변수 반영) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-002",
+   "mgmt_no": "115-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가양라이품",
+   "gu": "강서구",
+   "dong": "가양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 가양동 1457-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "02-2290-6144",
+   "lat": 37.57170967,
+   "lng": 126.841653,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 200원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 109000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 109000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 109000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-003",
+   "mgmt_no": "115-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가양역",
+   "gu": "강서구",
+   "dong": "가양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 가양동 1480-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "",
+   "lat": 37.56333,
+   "lng": 126.853082,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 320원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 320,
+    "unit_min": 5,
+    "unit_fee": 320,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 320,
+     "unit_min": 5,
+     "unit_fee": 320,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 320,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-004",
+   "mgmt_no": "115-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개화역",
+   "gu": "강서구",
+   "dong": "개화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 개화동 664",
+   "addr_road": "",
+   "road": null,
+   "spaces": 483,
+   "tel": "02-2290-6312",
+   "lat": 37.5778861,
+   "lng": 126.798212,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 109000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 109000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 109000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-005",
+   "mgmt_no": "115-3-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마곡안전체험관",
+   "gu": "강서구",
+   "dong": "내발산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 강서구 내발산동 739",
+   "addr_road": "서울특별시 강서구 마곡중앙로 13",
+   "road": null,
+   "spaces": 36,
+   "tel": "02-2065-1575",
+   "lat": 37.5545411,
+   "lng": 126.8258394,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-006",
+   "mgmt_no": "115-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "등촌2-1",
+   "gu": "강서구",
+   "dong": "등촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 등촌동 531-5",
+   "addr_road": "서울특별시 강서구 등촌로55길 33-16",
+   "road": null,
+   "spaces": 110,
+   "tel": "02-2065-1575",
+   "lat": 37.549799,
+   "lng": 126.861316,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-007",
+   "mgmt_no": "115-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서울식물원 제2주차장",
+   "gu": "강서구",
+   "dong": "마곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 마곡동 20-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 202,
+   "tel": "02-2065-1575",
+   "lat": 37.572662,
+   "lng": 126.835236,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-008",
+   "mgmt_no": "115-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신방화역",
+   "gu": "강서구",
+   "dong": "마곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 마곡동 739",
+   "addr_road": "",
+   "road": null,
+   "spaces": 199,
+   "tel": "02-3405-4581",
+   "lat": 37.5667867,
+   "lng": 126.8177876,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 109000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 109000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 109000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-009",
+   "mgmt_no": "115-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개화산역",
+   "gu": "강서구",
+   "dong": "방화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 방화동 845",
+   "addr_road": "",
+   "road": null,
+   "spaces": 321,
+   "tel": "02-2290-6064",
+   "lat": 37.57213001,
+   "lng": 126.80519,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 109000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 109000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 109000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-010",
+   "mgmt_no": "115-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방화역(동)",
+   "gu": "강서구",
+   "dong": "방화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 방화동 830-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "",
+   "lat": 37.57729223,
+   "lng": 126.813315,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-011",
+   "mgmt_no": "115-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방화역(서)",
+   "gu": "강서구",
+   "dong": "방화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 방화동 829-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "",
+   "lat": 37.577574,
+   "lng": 126.812175,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-012",
+   "mgmt_no": "115-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가로공원로지하",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 662-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 512,
+   "tel": "02-2065-1575",
+   "lat": 37.537235,
+   "lng": 126.837039,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-013",
+   "mgmt_no": "115-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곰달래문화복지센터",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 강서구 화곡동 890",
+   "addr_road": "서울특별시 강서구 강서로5길 50",
+   "road": null,
+   "spaces": 252,
+   "tel": "02-2065-1575",
+   "lat": 37.52906,
+   "lng": 126.848898,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 80000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-014",
+   "mgmt_no": "115-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "등서초",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 강서구 화곡동 1130-4",
+   "addr_road": "서울특별시 강서구 화곡로58길 86",
+   "road": null,
+   "spaces": 32,
+   "tel": "02-2065-1575",
+   "lat": 37.551884,
+   "lng": 126.855038,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-015",
+   "mgmt_no": "115-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "볏골공원",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 98-99",
+   "addr_road": "서울특별시 강서구 까치산로4길 22",
+   "road": null,
+   "spaces": 228,
+   "tel": "02-2065-1575",
+   "lat": 37.541816,
+   "lng": 126.844323,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-016",
+   "mgmt_no": "115-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉제산근린공원",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 강서구 화곡동 산41-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "02-2065-1575",
+   "lat": 37.5421344,
+   "lng": 126.8510719,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-017",
+   "mgmt_no": "115-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡1-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동424-94",
+   "addr_road": "서울특별시 강서구 곰달래로15길 28",
+   "road": null,
+   "spaces": 99,
+   "tel": "02-2065-1575",
+   "lat": 37.5314204,
+   "lng": 126.839874,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-018",
+   "mgmt_no": "115-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡1-2",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 366-47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2065-1575",
+   "lat": 37.5338224,
+   "lng": 126.8410246,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-019",
+   "mgmt_no": "115-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡2-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 167-10",
+   "addr_road": "서울특별시 강서구 강서로18아길 26-15",
+   "road": null,
+   "spaces": 58,
+   "tel": "02-2065-1575",
+   "lat": 37.536046,
+   "lng": 126.852432,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-020",
+   "mgmt_no": "115-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡3-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 1045",
+   "addr_road": "서울특별시 강서구 화곡로15길 40",
+   "road": null,
+   "spaces": 99,
+   "tel": "02-2065-1575",
+   "lat": 37.541769,
+   "lng": 126.834727,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-021",
+   "mgmt_no": "115-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡4-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 강서구 화곡동 809-26",
+   "addr_road": "서울특별시 강서구 곰달래로57가길 20",
+   "road": null,
+   "spaces": 202,
+   "tel": "02-2065-1575",
+   "lat": 37.534301,
+   "lng": 126.861044,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-022",
+   "mgmt_no": "115-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡5-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 1030-33",
+   "addr_road": "서울특별시 강서구 강서로36길 21",
+   "road": null,
+   "spaces": 26,
+   "tel": "02-2065-1575",
+   "lat": 37.5438705,
+   "lng": 126.839922,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-023",
+   "mgmt_no": "115-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡5-2",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 1056-2",
+   "addr_road": "서울특별시 강서구 강서로34길 41-21",
+   "road": null,
+   "spaces": 27,
+   "tel": "02-2065-1575",
+   "lat": 37.544352,
+   "lng": 126.840763,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-024",
+   "mgmt_no": "115-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡5-3",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 1060-18",
+   "addr_road": "서울특별시 강서구 화곡로27가길 38",
+   "road": null,
+   "spaces": 13,
+   "tel": "02-2065-1575",
+   "lat": 37.543454,
+   "lng": 126.842258,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-025",
+   "mgmt_no": "115-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡6-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 1103-6",
+   "addr_road": "서울특별시 강서구 우장산로 114",
+   "road": null,
+   "spaces": 298,
+   "tel": "02-2065-1575",
+   "lat": 37.553032,
+   "lng": 126.848514,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-026",
+   "mgmt_no": "115-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡7-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 370-63",
+   "addr_road": "서울특별시 강서구 월정로32길 68",
+   "road": null,
+   "spaces": 86,
+   "tel": "02-2065-1575",
+   "lat": 37.536016,
+   "lng": 126.839155,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-027",
+   "mgmt_no": "115-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡8-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 410-60",
+   "addr_road": "서울특별시 강서구 초록마을로22길 57-11",
+   "road": null,
+   "spaces": 59,
+   "tel": "02-2065-1575",
+   "lat": 37.538511,
+   "lng": 126.84884,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-028",
+   "mgmt_no": "115-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡8-2",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 410-4",
+   "addr_road": "서울특별시 강서구 초록마을로 126",
+   "road": null,
+   "spaces": 109,
+   "tel": "02-2065-1575",
+   "lat": 37.537679,
+   "lng": 126.850354,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-029",
+   "mgmt_no": "115-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡본-1",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동56-127",
+   "addr_road": "서울특별시 강서구 초록마을로26길 48",
+   "road": null,
+   "spaces": 98,
+   "tel": "02-2065-1575",
+   "lat": 37.539744,
+   "lng": 126.849772,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-030",
+   "mgmt_no": "115-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화곡본-2",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강서구 화곡동 46-127",
+   "addr_road": "서울특별시 강서구 초록마을로5길 43",
+   "road": null,
+   "spaces": 100,
+   "tel": "02-2065-1575",
+   "lat": 37.5443203,
+   "lng": 126.848448,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s001",
+   "mgmt_no": "115-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "등촌3동 구암길",
+   "gu": "강서구",
+   "dong": "등촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 등촌동 695",
+   "addr_road": "서울특별시 강서구 공항대로39길 74",
+   "road": null,
+   "spaces": 49,
+   "tel": "02-2607-9113",
+   "lat": 37.561217,
+   "lng": 126.844636,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s002",
+   "mgmt_no": "115-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "등촌3동 꿈나무길",
+   "gu": "강서구",
+   "dong": "등촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 등촌동 701",
+   "addr_road": "서울특별시 강서구 공항대로 351-21",
+   "road": null,
+   "spaces": 60,
+   "tel": "02-2607-9113",
+   "lat": 37.560599,
+   "lng": 126.847619,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s003",
+   "mgmt_no": "115-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화곡1동 달구지길",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 화곡동 359-2",
+   "addr_road": "서울특별시 강서구 월정로28길 14",
+   "road": null,
+   "spaces": 29,
+   "tel": "02-2607-9113",
+   "lat": 37.532988,
+   "lng": 126.837414,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s004",
+   "mgmt_no": "115-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화곡1동 배다리서길",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 화곡동 904-2",
+   "addr_road": "서울특별시 강서구 강서로5나길 6",
+   "road": null,
+   "spaces": 249,
+   "tel": "02-2607-9113",
+   "lat": 37.528779,
+   "lng": 126.847886,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 200원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장 · 강서구시설관리공단은 이 노상 구간을 2급지 5분당 200원·월 정기권 120,000원으로 적습니다",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s005",
+   "mgmt_no": "115-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화곡2,4,8동 배다리동길",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 화곡동 891-13",
+   "addr_road": "서울특별시 강서구 국회대로7길 196",
+   "road": null,
+   "spaces": 304,
+   "tel": "02-2607-9113",
+   "lat": 37.529024,
+   "lng": 126.849947,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 200원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장 · 강서구시설관리공단은 이 노상 구간을 2급지 5분당 200원·월 정기권 120,000원(토요일 09:00~15:00, 그 밖의 시간 무료)으로 적습니다",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s006",
+   "mgmt_no": "115-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화곡6동 방죽길",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 화곡동 1112-1",
+   "addr_road": "서울특별시 강서구 공항대로46길 35",
+   "road": null,
+   "spaces": 47,
+   "tel": "02-2607-9113",
+   "lat": 37.554165,
+   "lng": 126.8524896,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  },
+  {
+   "id": "gangseo-s007",
+   "mgmt_no": "115-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화곡6동 신학대길",
+   "gu": "강서구",
+   "dong": "화곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강서구 화곡동 980-16",
+   "addr_road": "서울특별시 강서구 화곡로 302",
+   "road": null,
+   "spaces": 29,
+   "tel": "02-2607-9113",
+   "lat": 37.550966,
+   "lng": 126.849532,
+   "base_date": "2026-04-17",
+   "manager": "서울특별시 강서구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강서구청·강서구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강서구",
+   "city_slug": "gangseo"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 05:16",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 37,
+  "원자료_강서구행수": 37,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 30,
+  "노외_부설": {
+   "노외": 25,
+   "부설": 5
+  },
+  "노상_구간": 7,
+  "총_구획수": 4022,
+  "노상_구획수": 767,
+  "동별": {
+   "화곡동": 19,
+   "가양동": 3,
+   "방화동": 3,
+   "마곡동": 2,
+   "개화동": 1,
+   "내발산동": 1,
+   "등촌동": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 30
+  },
+  "요금구분": {
+   "유료": 37
+  },
+  "요금_미상": [],
+  "유료_노상": 7,
+  "유료_노외": 25,
+  "유료_부설": 5,
+  "운영시간_보정": [
+   "가양3동: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡8-2: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡8-2: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등서초: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등서초: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡1-2: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡1-2: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡본-2: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡본-2: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡2-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡2-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡3-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡3-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡5-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡5-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡5-2: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡5-2: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡5-3: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡5-3: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡7-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡7-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등촌2-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등촌2-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡본-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡본-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡1-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡1-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡8-1: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡8-1: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡1동 달구지길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡1동 배다리서길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡2,4,8동 배다리동길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡6동 방죽길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "화곡6동 신학대길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등촌3동 구암길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등촌3동 꿈나무길: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "신방화역: 1급지 기준 500원 ↔ 등록 290원",
+   "개화역: 1급지 기준 500원 ↔ 등록 290원",
+   "가양3동: 2급지 기준 250원 ↔ 등록 200원",
+   "가양역: 1급지 기준 500원 ↔ 등록 320원",
+   "가양라이품: 2급지 기준 250원 ↔ 등록 200원",
+   "개화산역: 1급지 기준 500원 ↔ 등록 290원",
+   "방화역(동): 1급지 기준 500원 ↔ 등록 290원",
+   "방화역(서): 1급지 기준 500원 ↔ 등록 290원",
+   "화곡1동 배다리서길: 2급지 기준 250원 ↔ 등록 200원",
+   "화곡2,4,8동 배다리동길: 2급지 기준 250원 ↔ 등록 200원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 강서구 주차장 설치 및 관리 조례」 별표1 공영주차장의 주차요금표 · 비고 감면(시행 2025-10-01 · 서울특별시강서구조례 제1749호(일부개정) · 별표1 개정 2023.12.27.(시행 2024.3.27.))",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "가양3동",
+   "등촌2-1",
+   "등서초",
+   "화곡1-1",
+   "화곡1-2",
+   "화곡2-1",
+   "화곡3-1",
+   "화곡5-1",
+   "화곡5-2",
+   "화곡5-3",
+   "화곡7-1",
+   "화곡8-1",
+   "화곡8-2",
+   "화곡본-1",
+   "화곡본-2",
+   "등촌3동 구암길",
+   "등촌3동 꿈나무길",
+   "화곡1동 달구지길",
+   "화곡1동 배다리서길",
+   "화곡2,4,8동 배다리동길",
+   "화곡6동 방죽길",
+   "화곡6동 신학대길"
+  ],
+  "무료개방_표기": [
+   "가양3동",
+   "등촌2-1",
+   "등서초",
+   "화곡1-1",
+   "화곡1-2",
+   "화곡2-1",
+   "화곡3-1",
+   "화곡5-1",
+   "화곡5-2",
+   "화곡5-3",
+   "화곡7-1",
+   "화곡8-1",
+   "화곡8-2",
+   "화곡본-1",
+   "화곡본-2",
+   "등촌3동 구암길",
+   "등촌3동 꿈나무길",
+   "화곡1동 달구지길",
+   "화곡1동 배다리서길",
+   "화곡2,4,8동 배다리동길",
+   "화곡6동 방죽길",
+   "화곡6동 신학대길"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 141,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "115-2-000003",
+   "115-2-000009",
+   "115-2-000002",
+   "115-2-000010",
+   "115-2-000001",
+   "115-2-000006",
+   "115-2-000007"
+  ],
+  "전화번호_없음": 4,
+  "데이터기준일": [
+   "2026-04-17",
+   "2026-05-15"
+  ],
+  "공단만_등록": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 6,
+    "fee_min": 290,
+    "fee_max": 320,
+    "unit_label": "290~320원",
+    "hour": 3480,
+    "two_hour": 6960,
+    "month_min": 109000,
+    "month_max": 109000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 500
+   },
+   {
+    "grade": 2,
+    "lots": 9,
+    "fee_min": 200,
+    "fee_max": 250,
+    "unit_label": "200~250원",
+    "hour": 2400,
+    "two_hour": 4800,
+    "month_min": 109000,
+    "month_max": 120000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 4,
+    "lots": 6,
+    "fee_min": 100,
+    "fee_max": 100,
+    "unit_label": "100원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "month_min": 50000,
+    "month_max": 80000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 100
+   },
+   {
+    "grade": 5,
+    "lots": 16,
+    "fee_min": 50,
+    "fee_max": 50,
+    "unit_label": "50원",
+    "hour": 600,
+    "two_hour": 1200,
+    "month_min": 50000,
+    "month_max": 50000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 50
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 26
+   },
+   {
+    "group": "09:00~19:00",
+    "count": 8
+   },
+   {
+    "group": "08:00~21:00",
+    "count": 3
+   }
+  ],
+  "notes": "강서구는 구영(강서구청·강서구시설관리공단 위탁) 29개소(노상 6·노외 17·부설 6)를 무인으로 운영하고, 조례 별표1의 5분당 요금은 노상·노외가 같은 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 노상은 평일 09:00~19:00·토요일 09:00~15:00에만 요금을 받고 일요일·공휴일은 무료이며, 노외 5급지 10여 곳은 09:00~18:00에만 요금을 받습니다. 1일 주차권(야간에 한함)은 1급지 15,000원·2급지 10,000원·3급지 7,000원·4급지 5,000원·5급지 2,000원이고, 시영(서울시설공단)은 법정동 평균공시지가 변수를 곱합니다(가양역 320원·개화역 290원). 화곡6동 주민센터 부설(공항대로46길 105, 5분당 100원·24시간)은 공단 안내에만 있어 표준데이터에는 없습니다",
+  "only_corp": [],
+  "corp": {
+   "paid": 37,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 7
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "1": 500,
+   "2": 250,
+   "3": 150,
+   "4": 100,
+   "5": 50
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 강서구 주차장 설치 및 관리 조례」 별표1 공영주차장의 주차요금표 · 비고 감면(시행 2025-10-01 · 서울특별시강서구조례 제1749호(일부개정) · 별표1 개정 2023.12.27.(시행 2024.3.27.)) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "gangseo",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "강서구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지 부착·등록증 제시), 국가유공 상이자, 고엽제후유의증 환자, 의상자, 독립유공자 80퍼센트(지하철환승주차장은 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "경차·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차(1,000㏄ 미만)와 저공해자동차 50퍼센트(환승 목적이면 80퍼센트·최초 3시간 면제)"
+  },
+  {
+   "label": "다둥이·보훈보상·참전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다둥이행복카드(막내 18세까지), 보훈보상대상자증, 참전유공자증, 장기등·인체조직 기증자 50퍼센트"
+  },
+  {
+   "label": "5·18민주유공자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주화운동 부상자가 증서를 소지하고 본인 차량을 운전 — 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "전기차 충전 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전기자동차를 충전한 경우 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "성실납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "서울시장·강서구청장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 교부일부터 1년간 면제(1일 주차권은 감면 제외)"
+  },
+  {
+   "label": "승용차요일제·병역명문가 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "승용차요일제 전자태그 부착·운휴일 준수 차량(1급지·5급지 제외), 강서구 병역명문가 예우대상자 30퍼센트"
+  },
+  {
+   "label": "자원봉사자·소상공인 10~20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "구청장이 발급한 자원봉사증(골드) 소지자 20퍼센트(정기권 제외), 소상공인 간편결제 10퍼센트"
+  }
+ ],
+ "realtime": false
+}

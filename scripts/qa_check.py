@@ -4,6 +4,8 @@
 import json
 import re
 import sys
+
+SITE_BASE = "https://parking.9welfare.com"
 from collections import Counter
 from pathlib import Path
 
@@ -47,6 +49,16 @@ for pg in pages:
             for it in obj["itemListElement"]:
                 if "position" not in it or "name" not in it:
                     fails.append(f"{pg}: BreadcrumbList 항목 누락 {it}")
+                # 구글 서치콘솔 ‘item 입력란 누락’ — 모든 ListItem 에 절대 URL item 이 있어야 하고,
+                # 마지막 항목은 그 페이지의 canonical 주소여야 한다.
+                item = it.get("item")
+                if not item or not str(item).startswith(SITE_BASE + "/"):
+                    fails.append(f"{pg.relative_to(DIST)}: BreadcrumbList item 누락/잘못된 URL {it}")
+                elif it is obj["itemListElement"][-1]:
+                    _m = re.search(r'<link rel="canonical" href="([^"]+)">', html)
+                    if _m and str(item) != _m.group(1):
+                        fails.append(f"{pg.relative_to(DIST)}: BreadcrumbList 마지막 item({item})이 "
+                                     f"canonical({_m.group(1)})과 다름")
         if t == "ItemList":
             if obj.get("numberOfItems") != len(obj.get("itemListElement", [])):
                 fails.append(f"{pg}: ItemList 개수 불일치")
@@ -606,9 +618,12 @@ for _k, _v in MIX.items():
 MIX["yangju"] = tuple(sorted(_others8))
 # 서울특별시 자치구(종로·중구·용산·강남·서초·송파·강동구)는 자치구 하나가 지역 한 단위다 — 다른 지역
 # 자료가 섞이면 실패한다. (‘서울’은 도로·기관 이름에도 흔해 쓰지 않고, 구 단위 이름으로 좁힌다.)
-SEOUL_GU = ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구")
+SEOUL_GU = ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구",
+            "마포구", "영등포구", "서대문구", "양천구", "강서구")
 SEOUL_TOKENS = ("서울시설공단", "종로구시설관리공단", "중구시설관리공단", "용산구시설관리공단",
-                "강남구도시관리공단", "서초구청", "송파구시설관리공단", "강동구도시관리공단") + SEOUL_GU
+                "강남구도시관리공단", "서초구청", "송파구시설관리공단", "강동구도시관리공단",
+                "마포구시설관리공단", "영등포구시설관리공단", "서대문구도시관리공단",
+                "양천시설관리공단", "강서구시설관리공단") + SEOUL_GU
 _seoul_outside = set()      # 서울 이외 지역 토큰(경기도 시·군)
 for _v in MIX.values():
     _seoul_outside.update(t for t in _v if t not in SEOUL_TOKENS)
@@ -616,9 +631,12 @@ for _k in list(MIX):
     MIX[_k] = tuple(sorted(set(MIX[_k]) | set(SEOUL_TOKENS)))
 for _g in SEOUL_GU:
     MIX[{"종로구": "jongno", "중구": "jung", "용산구": "yongsan", "강남구": "gangnam",
-         "서초구": "seocho", "송파구": "songpa", "강동구": "gangdong"}[_g]] = tuple(sorted(
+         "서초구": "seocho", "송파구": "songpa", "강동구": "gangdong",
+         "마포구": "mapo", "영등포구": "yeongdeungpo", "서대문구": "seodaemun",
+         "양천구": "yangcheon", "강서구": "gangseo"}[_g]] = tuple(sorted(
         _seoul_outside | {t for t in SEOUL_TOKENS
-                          if t != _g and not t.startswith(_g) and t != "서울시설공단"}))
+                          if t != _g and not t.startswith(_g) and not t.startswith(_g[:-1])
+                          and t != "서울시설공단"}))
 
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -4049,6 +4067,19 @@ SEOUL_EXPECT = {
                "dong_pages": ["macheon-dong", "pungnap-dong"], "ordin": "1893661"},
     "gangdong": {"gu": "강동구", "cards": 17, "street": 6,
                  "dong_pages": ["seongnae-dong", "cheonho-dong"], "ordin": "1871371"},
+    # Phase 32 — 마포·영등포·서대문·양천·강서구
+    "mapo": {"gu": "마포구", "cards": 18, "street": 13,
+             "dong_pages": ["mangwon-dong", "sangam-dong"], "ordin": "2082373"},
+    "yeongdeungpo": {"gu": "영등포구", "cards": 33, "street": 8,
+                     "dong_pages": ["singil-dong", "daerim-dong", "dangsandong3-ga",
+                                    "yeongdeungpo-dong"], "ordin": "2037503"},
+    "seodaemun": {"gu": "서대문구", "cards": 30, "street": 2,
+                  "dong_pages": ["hongeun-dong", "bukahyeon-dong", "yeonhui-dong",
+                                 "hongje-dong", "namgajwa-dong"], "ordin": "2070681"},
+    "yangcheon": {"gu": "양천구", "cards": 43, "street": 17,
+                  "dong_pages": ["mok-dong", "sinjeong-dong", "sinwol-dong"], "ordin": "2146835"},
+    "gangseo": {"gu": "강서구", "cards": 30, "street": 7,
+                "dong_pages": ["gayang-dong", "banghwa-dong", "hwagok-dong"], "ordin": "2074729"},
 }
 _seoul_pages = 0
 for _slug, _exp in SEOUL_EXPECT.items():
@@ -4092,7 +4123,10 @@ for _slug, _exp in SEOUL_EXPECT.items():
 # 법정동 페이지는 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
 for _slug, _gu in (("jongno", "종로구"), ("jung", "중구"), ("yongsan", "용산구"),
                    ("gangnam", "강남구"), ("seocho", "서초구"),
-                   ("songpa", "송파구"), ("gangdong", "강동구")):
+                   ("songpa", "송파구"), ("gangdong", "강동구"),
+                   ("mapo", "마포구"), ("yeongdeungpo", "영등포구"),
+                   ("seodaemun", "서대문구"), ("yangcheon", "양천구"),
+                   ("gangseo", "강서구")):
     _root = DIST / "parking" / "seoul" / _slug
     if not _root.exists():
         continue
@@ -4110,7 +4144,8 @@ for _slug, _gu in (("jongno", "종로구"), ("jung", "중구"), ("yongsan", "용
 
 # 계산 표본 — 5분당 요금·1일 주차권 상한·거주민 정기권 전용
 _seoul_by_name = {l["name"]: l for l in LOTS
-                  if l.get("city") in ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구")}
+                  if l.get("city") in ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구",
+                                       "마포구", "영등포구", "서대문구", "양천구", "강서구")}
 for _name, _min, _day, _want_state, _want in (
         ("세종로", 60, "weekday", "paid", 5_160),        # 5분당 430원 × 12
         ("세종로", 120, "weekday", "paid", 10_320),
@@ -4133,6 +4168,23 @@ for _name, _min, _day, _want_state, _want in (
         ("풍납1공영", 60, "weekday", "paid", 600),        # 5급지 50원
         ("천호역", 60, "weekday", "paid", 4_320),         # 강동 시설공단 360원
         ("볕우물", 120, "weekday", "paid", 2_880),        # 시설공단 120원
+        # Phase 32 — 마포·영등포·서대문·양천·강서구
+        ("신촌노외", 60, "weekday", "paid", 4_800),       # 마포 노외 1급지 400원
+        ("마포월드컵", 60, "weekday", "paid", 2_400),     # 3급지 200원
+        ("망원1-2", 60, "weekday", "paid", 3_600),        # 등록 300원(공단 안내 200원)
+        ("당산노외", 60, "weekday", "paid", 4_800),       # 영등포 시설공단 400원
+        ("영남", 120, "weekday", "paid", 3_840),          # 시설공단 160원
+        ("대림3동공영주차장", 120, "weekday", "paid", 1_200),  # 5급지 50원
+        ("신길7동공영주차장", 60, "weekday", "unknown", None),  # 월정기만 운영
+        ("신촌동 제1공영", 60, "weekday", "paid", 3_000),   # 서대문 고시 250원
+        ("남가좌1동 제2공영", 60, "weekday", "paid", 3_000),  # 고시 250원(조례 5급지 100원과 다름)
+        ("충현동 제2공영", 120, "weekday", "paid", 3_600),  # 고시 150원
+        ("홍은1동 제1공영", 60, "weekday", "paid", 1_200),  # 조례 5급지 100원(시간 요금 미등록)
+        ("목동", 60, "weekday", "paid", 1_800),           # 양천 3급지 150원
+        ("해맞이", 120, "weekday", "paid", 1_200),        # 5급지 50원
+        ("가양역", 60, "weekday", "paid", 3_840),         # 강서 시설공단 320원
+        ("화곡4-1", 60, "weekday", "paid", 600),          # 5급지 50원
+        ("마곡안전체험관", 60, "weekday", "paid", 1_200),  # 4급지 100원
 ):
     _lot = _seoul_by_name.get(_name)
     if not _lot:
@@ -4165,7 +4217,22 @@ for _u in ("https://parking.9welfare.com/parking/seoul/jongno/",
            "https://parking.9welfare.com/parking/seoul/songpa/street-parking/",
            "https://parking.9welfare.com/parking/seoul/gangdong/",
            "https://parking.9welfare.com/parking/seoul/gangdong/cheonho-dong/",
-           "https://parking.9welfare.com/parking/seoul/gangdong/street-parking/"):
+           "https://parking.9welfare.com/parking/seoul/gangdong/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/mapo/",
+           "https://parking.9welfare.com/parking/seoul/mapo/mangwon-dong/",
+           "https://parking.9welfare.com/parking/seoul/mapo/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/yeongdeungpo/",
+           "https://parking.9welfare.com/parking/seoul/yeongdeungpo/singil-dong/",
+           "https://parking.9welfare.com/parking/seoul/yeongdeungpo/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/seodaemun/",
+           "https://parking.9welfare.com/parking/seoul/seodaemun/hongeun-dong/",
+           "https://parking.9welfare.com/parking/seoul/seodaemun/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/yangcheon/",
+           "https://parking.9welfare.com/parking/seoul/yangcheon/mok-dong/",
+           "https://parking.9welfare.com/parking/seoul/yangcheon/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/gangseo/",
+           "https://parking.9welfare.com/parking/seoul/gangseo/hwagok-dong/",
+           "https://parking.9welfare.com/parking/seoul/gangseo/street-parking/"):
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"서울 주소가 사이트맵에 없음: {_u}")
 

@@ -2782,6 +2782,185 @@ CITY_UI.update({
         "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 강동구청·강동구도시관리공단 "
                      "안내와 대조했습니다. "),
     },
+    # ------------------------------------------------------------ T-03 Phase 32 (서울 5개 구)
+    "마포구": {
+        "manager": "마포구시설관리공단 주차관리부(02-300-5042~5045) · 시영은 서울시설공단",
+        "manager_inquiry": "마포구시설관리공단 주차관리부(02-300-5042~5045) · 시영 주차장은 서울시설공단 · 마포구청 주차관리 부서",
+        "merged_list": False, "district_short": False,
+        "std_base_date": "2026-10-23", "realtime": False,
+        "dong_unit_label": "동", "area_label": "구",
+        "discount_note": ("마포구 조례 별표1 비고와 마포구시설관리공단 안내(2026-11-18 확인) 기준입니다. "
+                          "장애인·국가유공자·고엽제후유(의)증·의상자·참전유공자·독립유공자 80%, 경차·저공해 "
+                          "50%, 다둥이행복카드·한부모가족 50%, 5·18민주유공자와 충전한 전기차는 1시간 면제 뒤 "
+                          "50%, 모범·유공납세자는 1년간 면제, 전통시장 2시간 30%, 병역명문가·자원봉사자 20%이고 "
+                          "감면은 한 가지만 적용됩니다. 시영(서울시설공단) 주차장에는 서울특별시 조례 제7조가 "
+                          "적용됩니다."),
+        "calc_note": ("차량 감면은 <b>마포구 조례 별표1 비고·공단 안내</b> 기준입니다. 장애인·국가유공자 80%, "
+                      "경차·저공해·다둥이 50%, 5·18·전기차 1시간 면제 뒤 50%, 모범납세자 면제, 전통시장 2시간 "
+                      "30%이고 감면은 한 가지만 적용됩니다."),
+        "daily_example": "1일 주차권 없음(시간 요금이 1일 주차요금을 넘으면 상한 적용)",
+        "price_basis": "「서울특별시 마포구 주차장 설치 및 관리 조례」 별표1(노상 1급지 5분당 500원·노외 400원)",
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 5분당 200·250·400원·감면 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 5분당 주차요금(노상 1급지 500원·노외 1급지 400원, "
+                                "2급지 250원, 3급지 200원)과 급지별 요금표, 월 정기권, 노상 13구간의 유료 "
+                                "운영시간과 감면 기준을 공공데이터와 조례로 정리했습니다."),
+        "rate_bullets": [
+            "마포구는 <b>노상·노외 요금이 다릅니다</b> — 조례 별표1은 5분당 노상 1급지 500원·노외 1급지 "
+            "400원, 2급지 250원, 3급지 노상 150원·노외 200원, 4급지 노상 100원·노외 150원, 5급지 "
+            "노상 50원·노외 100원입니다.",
+            "시설공영주차장 9곳은 마포구시설관리공단이 <b>24시간</b> 운영합니다 — 양화진·창천·망원1-2·"
+            "상암1·중앙도서관·망원나들목A동·소금나루는 5분당 200원, 염리·도화는 250원입니다.",
+            "망원1-2는 공단 안내 200원인데 표준데이터에는 300원으로 등록되어 있고, <b>마포월드컵대형</b>"
+            "(53면·400원)·<b>망원1-2</b>·<b>연남</b>(300원)은 등록요금이 조례 급지 요금과 다릅니다(카드에 병기).",
+            "노상 13구간은 공단이 맡고, 유료 시간은 대체로 평일 09:00~19:00·토요일 15:00까지이며 "
+            "일요일·공휴일은 무료로 개방합니다(연남·청기와·용강은 평일만).",
+            "카드가 3곳 이상인 법정동(망원동·상암동)만 별도 페이지를 만들었습니다.",
+        ],
+        "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 마포구시설관리공단 시설공영 "
+                     "현황·요금 안내와 대조했습니다. "),
+    },
+    "영등포구": {
+        "manager": "영등포구시설관리공단 노외주차 02-2650-1435 · 노상주차 02-2650-1455 · 시영은 서울시설공단",
+        "manager_inquiry": ("영등포구시설관리공단 노외주차(02-2650-1435)·노상주차(02-2650-1455)·"
+                            "공영노외 통합관제센터(02-2677-1401) · 시영은 서울시설공단"),
+        "merged_list": False, "district_short": False,
+        "std_base_date": "2026-10-23", "realtime": False,
+        "dong_unit_label": "동", "area_label": "구",
+        "discount_note": ("영등포구 조례 별표1 비고와 영등포구시설관리공단 정기권 감면 안내(2026-11-18 확인) "
+                          "기준입니다. 장애인·국가유공자·고엽제후유(의)증·의상자·독립유공자·참전유공자 80%, "
+                          "경차·저공해(경유차 제외)·다둥이·5·18민주유공자·보훈보상대상자 50%, 병역명문가·우수 "
+                          "자원봉사자·장기복무 제대군인·백세카드 30%, 모범·유공납세자는 1년간 면제, 전통시장 "
+                          "2시간 50%이고, 감면은 한 가지만 적용됩니다."),
+        "calc_note": ("차량 감면은 <b>영등포구 조례 별표1·공단 정기권 감면 안내</b> 기준입니다. 장애인·국가유공자 "
+                      "80%, 경차·저공해·다둥이·5·18 50%, 병역명문가·자원봉사자 30%, 모범납세자 면제이고 감면은 "
+                      "한 가지만 적용됩니다."),
+        "daily_example": "노상 1급지 1일 36,000원 상한(시간주차)",
+        "price_basis": "「서울특별시 영등포구 주차장 설치 및 관리 조례」 별표1(노상 1급지 5분당 500원·노외 400원)",
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 5분당 50~450원·감면 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 5분당 주차요금(노상 1급지 500원·노외 1급지 400원, "
+                                "2급지 250원, 3급지 150원, 4급지 100원, 5급지 50원)과 급지별 요금표, 월 정기권, "
+                                "최초 5분 무료와 감면 기준을 공공데이터와 조례로 정리했습니다."),
+        "rate_bullets": [
+            "영등포구는 1~5급지이고, 조례 별표1은 5분당 노상 1급지 500원·노외 1급지 400원, 2급지 250원, "
+            "3급지 150원, 4급지 100원, 5급지 50원입니다.",
+            "<b>최초 입차 후 5분 이내에 출차하면 요금을 받지 않습니다</b>(조례 비고5). 노상 1급지 시간주차는 "
+            "1일 36,000원을 넘지 못합니다.",
+            "구영(영등포구시설관리공단) 노외는 대부분 <b>4·5급지(100원·50원)</b>이고 24시간 무인 운영입니다. "
+            "신길7동공영주차장은 월 정기권만 운영해 시간 주차를 할 수 없습니다.",
+            "노상 8구간은 모두 시영(서울시설공단)이고, 공시지가 변수를 곱해 5분당 130~450원입니다 — "
+            "당산고가밑 450원·대림역 400원·여의도공원 370원·여의서로 280원·문래1동 130원입니다.",
+            "표준데이터에 지번주소 없이 도로명주소만 등록된 노외주차장은 구청·공단 안내와 공유누리 지번으로 "
+            "법정동을 확인해 묶었고, 확인하지 못한 4곳은 ‘동 미상’으로 표에만 실었습니다.",
+        ],
+        "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 영등포구시설관리공단 정기권 "
+                     "안내·공유누리 개방정보와 대조했습니다. "),
+    },
+    "서대문구": {
+        "manager": "서대문구도시관리공단 공공사업부(02-360-8531~4) · 시영은 서울시설공단",
+        "manager_inquiry": "서대문구도시관리공단 공공사업부(02-360-8531~4) · 시영 주차장은 서울시설공단 · 서대문구청 주차교통과",
+        "merged_list": False, "district_short": False,
+        "std_base_date": "2026-10-23", "realtime": False,
+        "dong_unit_label": "동", "area_label": "구",
+        "discount_note": ("서대문구 조례 별표1 비고와 서대문구도시관리공단 시간주차 감면 안내(2026-11-18 확인) "
+                          "기준입니다. 장애인·국가유공자·독립유공자(유족)·고엽제후유(의)증 80%, 경차·저공해 "
+                          "50%, 다둥이·통·반장 50%, 장기기증자 80%·기증희망등록자 50%, 전통시장 1시간 면제, "
+                          "전기차 1시간 면제 뒤 50%, 병역명문가·자원봉사자 20%, 모범·유공납세자는 1년간 "
+                          "면제입니다."),
+        "calc_note": ("차량 감면은 <b>서대문구 조례 별표1 비고</b> 기준입니다. 장애인·국가유공자 80%, "
+                      "경차·저공해·다둥이 50%, 전기차·5·18 1시간 면제 뒤 50%, 병역명문가·자원봉사자 20%, "
+                      "모범납세자 면제이고 감면은 한 가지만 적용됩니다."),
+        "daily_example": "충현동 제2·홍은2동 제3공영 1일 최대 20,000원(시간제)",
+        "price_basis": "「서울특별시 서대문구 주차장 설치 및 관리 조례」 별표1(노외 1급지 5분당 400원·5급지 100원)",
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 5분당 100~250원·정기 배정 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 5분당 주차요금(노외 1급지 400원·2급지 250원·3급지 "
+                                "150원·4·5급지 100원)과 급지별 요금표, 배정 정기권, 시간제 운영 주차장 4곳과 "
+                                "감면 기준을 공공데이터와 조례로 정리했습니다."),
+        "rate_bullets": [
+            "서대문구 공영노외주차장 29곳은 대부분 <b>5급지</b>이고, 조례 별표1의 5분당 요금은 노상 "
+            "1급지 500원·노외 1급지 400원, 2급지 250원, 3급지 150원, 4·5급지 100원입니다.",
+            "공영노외주차장은 <b>1년 순환배정(배정자)·무인 운영</b>이 기본입니다 — 전일(24시간) 65,000원·"
+            "주간 50,000원·야간 40,000원이고, 배정 시간 밖에 주차하면 단속·견인 대상입니다.",
+            "시간제 주차는 <b>일부 주차장만</b> 받습니다 — 신촌동 제1·남가좌1동 제2는 5분당 250원"
+            "(08:00~21:00·21시 이후 출차 시 1일 20,000원), 충현동 제2·홍은2동 제3(2층)은 5분당 150원"
+            "(08:00~20:00·1일 20,000원)입니다.",
+            "표준데이터에 시간 요금이 비어 있는 주차장은 <b>조례 별표1의 급지 요금</b>으로 계산하고 카드에 "
+            "그 사실을 적었습니다 — 시간제 운영 여부는 현장에서 확인하세요.",
+            "노상 2구간(연희맛로·유진상가/인왕시장 앞)은 2급지 250원이고, 카드가 3곳 이상인 법정동"
+            "(홍은동·홍제동·연희동·북아현동·남가좌동)만 별도 페이지를 만들었습니다.",
+        ],
+        "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 서대문구도시관리공단 공영주차장 "
+                     "현황·운영안내와 대조했습니다. "),
+    },
+    "양천구": {
+        "manager": "양천시설관리공단 주차관리팀(02-2644-1385~6) · 시영은 서울시설공단",
+        "manager_inquiry": "양천시설관리공단 주차관리팀(02-2644-1385~6) · 시영 주차장은 서울시설공단 · 양천구청 교통행정과",
+        "merged_list": False, "district_short": False,
+        "std_base_date": "2026-10-23", "realtime": False,
+        "dong_unit_label": "동", "area_label": "구",
+        "discount_note": ("양천구 조례 제7조와 양천시설관리공단 안내(2026-11-18 확인) 기준입니다. 장애인·"
+                          "국가유공자·고엽제후유(의)증·의사상자·참전유공자·독립유공자·장기복무 제대군인 80%, "
+                          "경차·환경친화적 자동차·다둥이·병역명문가·보훈보상대상자·임산부 50%, 장기기증자 30%, "
+                          "자원봉사자 20%, 모범·성실납세자는 1년간 면제이고, 최초 입차 후 10분 미만에 출차하면 "
+                          "요금을 받지 않습니다."),
+        "calc_note": ("차량 감면은 <b>양천구 조례 제7조</b> 기준입니다. 장애인·국가유공자 80%, 경차·환경친화·"
+                      "다둥이·병역명문가·임산부 50%, 장기기증자 30%, 자원봉사자 20%, 모범납세자 면제이고 감면은 "
+                      "한 가지만 적용됩니다(10분 미만 출차 무료)."),
+        "daily_example": "1일 주차권(10시간) 3급지 12,000원",
+        "price_basis": "「서울특별시 양천구 주차장 설치 및 관리 조례」 별표(2급지 5분당 250원·3급지 150원)",
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 5분당 150·50원·감면 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 5분당 주차요금(2급지 250원·3급지 150원·4급지 100원·"
+                                "5급지 50원)과 급지별 요금표, 1일 주차권·월 정기권, 무료 개방과 감면 기준을 "
+                                "공공데이터와 조례로 정리했습니다."),
+        "rate_bullets": [
+            "양천구는 노상·노외 <b>요금이 같고 1급지가 없습니다</b>(조례 별표 ‘1급지: 대상지역 없음’). "
+            "5분당 2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다.",
+            "양천시설관리공단이 노외 36·노상 15개소 계 <b>51개소 4,567구획</b>을 맡고, 유료 59곳 가운데 "
+            "3급지 150원이 41곳·5급지 50원이 17곳입니다.",
+            "<b>1일 주차권(10시간)</b>은 2급지 21,000원·3급지 12,000원·4급지 8,000원·5급지 4,000원이고, "
+            "공단은 2급지를 뺀 모든 주차장에 일일선불주차권(09:00~19:00, 12,000원)을 운영합니다.",
+            "목동은 평일 07:00~22:00·토·일·공휴일 08:00~19:00, 바람개비·도서관·문화회관은 <b>일요일·"
+            "공휴일에 무료</b>로 개방합니다. 신정교 주차장(285면)은 요금 구분이 ‘무료’입니다.",
+            "최초 입차 후 <b>10분 미만에 출차하면 요금을 받지 않습니다</b>(조례 제7조④).",
+        ],
+        "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 양천시설관리공단 주차장별 "
+                     "운영현황과 대조했습니다. "),
+    },
+    "강서구": {
+        "manager": "강서구시설관리공단 통합주차관제센터(02-2065-1575) · 시영은 서울시설공단",
+        "manager_inquiry": ("강서구시설관리공단 통합주차관제센터(02-2065-1575)·공영주차팀(02-2607-9113) · "
+                            "강서구청 주차관리과 · 시영은 서울시설공단"),
+        "merged_list": False, "district_short": False,
+        "std_base_date": "2026-10-23", "realtime": False,
+        "dong_unit_label": "동", "area_label": "구",
+        "discount_note": ("강서구 조례 별표1 비고와 강서구시설관리공단 요금 할인현황(2026-11-18 확인) 기준입니다. "
+                          "장애인·국가유공 상이자·고엽제후유의증·의상자·독립유공자 80%, 경차·저공해·다둥이·"
+                          "보훈보상대상자·참전유공자·장기기증자 50%, 5·18민주유공자와 충전한 전기차는 1시간 면제 뒤 "
+                          "50%, 승용차요일제·병역명문가 30%, 자원봉사증(골드) 20%, 성실납세자는 1년간 면제입니다"
+                          "(1일 주차권은 감면 제외)."),
+        "calc_note": ("차량 감면은 <b>강서구 조례 별표1·공단 할인현황</b> 기준입니다. 장애인·국가유공자 80%, "
+                      "경차·저공해·다둥이 50%, 5·18·전기차 1시간 면제 뒤 50%, 병역명문가 30%, 성실납세자 "
+                      "면제이고 감면은 한 가지만 적용됩니다."),
+        "daily_example": "1일 주차권(야간) 3급지 7,000원",
+        "price_basis": "「서울특별시 강서구 주차장 설치 및 관리 조례」 별표1(노상·노외 1급지 5분당 500원)",
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 5분당 50~320원·감면 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳의 5분당 주차요금(1급지 500원·2급지 250원·3급지 150원·"
+                                "4급지 100원·5급지 50원)과 급지별 요금표, 1일 주차권·월 정기권, 노상 유료시간과 "
+                                "감면 기준을 공공데이터와 조례로 정리했습니다."),
+        "rate_bullets": [
+            "강서구는 노상·노외 요금이 같고, 조례 별표1은 5분당 1급지 500원·2급지 250원·3급지 150원·"
+            "4급지 100원·5급지 50원입니다.",
+            "구영(강서구청·강서구시설관리공단 위탁) <b>29개소(노상 6·노외 17·부설 6)</b>는 무인으로 "
+            "운영합니다. 노외·부설은 <b>5급지 50원이 16곳</b>, 4급지 100원이 6곳입니다.",
+            "노상 7구간은 평일 09:00~19:00·토요일 09:00~15:00에만 요금을 받고 <b>일요일·공휴일은 "
+            "무료</b>입니다(달구지길은 운영시간 외 거주자우선주차).",
+            "<b>1일 주차권(야간에 한함)</b>은 1급지 15,000원·2급지 10,000원·3급지 7,000원·4급지 5,000원·"
+            "5급지 2,000원입니다.",
+            "시영(서울시설공단) 역사 주차장은 공시지가 변수를 곱해 5분당 290~320원입니다 — 가양역 320원, "
+            "개화역·개화산역·방화역·신방화역 290원입니다.",
+        ],
+        "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 강서구시설관리공단 주차요금 "
+                     "안내(노상·노외·부설)와 대조했습니다. "),
+    },
 })
 
 
@@ -3353,16 +3532,32 @@ def stats_for(lots):
 
 
 # ------------------------------------------------------------------ jsonld
-def jsonld_breadcrumb(items):
-    return {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            dict([("@type", "ListItem"), ("position", i + 1), ("name", name)]
-                 + ([("item", SITE_BASE + path if path else SITE_BASE + "/")] if path is not None else []))
-            for i, (name, path) in enumerate(items)
-        ],
-    }
+# 랜딩 페이지의 시·도 묶음 앵커 — BreadcrumbList 중간 항목의 주소로 쓴다.
+PROVINCE_ANCHOR = {"경기도": "/#gyeonggi", "서울특별시": "/#seoul"}
+
+
+def jsonld_breadcrumb(items, page_path=None):
+    """BreadcrumbList — 모든 ListItem 에 유효한 item(절대 URL)을 넣는다.
+
+    구글 서치콘솔은 ListItem 에 item 이 비어 있으면 ‘item 입력란 누락’ 오류로 본다.
+    그래서 화면용 breadcrumb 이 경로 없이(시·도 묶음) 또는 빈 문자열(현재 페이지)로
+    되어 있어도, 구조화 데이터에는 시·도 앵커와 그 페이지의 canonical 경로를 넣는다.
+    """
+    out = []
+    last = len(items) - 1
+    for i, (name, path) in enumerate(items):
+        if path:
+            target = path
+        elif path == "" and i == last:
+            target = page_path or "/"
+        else:
+            target = PROVINCE_ANCHOR.get(name, "/")
+        if not target.startswith("/"):
+            target = "/" + target
+        out.append({"@type": "ListItem", "position": i + 1, "name": name,
+                    "item": SITE_BASE + target})
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": out}
 
 
 def jsonld_itemlist(lots, path):
@@ -3431,6 +3626,12 @@ SEOUL_GU_ORDINANCE = {
     "서초구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1878895",
     "송파구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1893661",
     "강동구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1871371",
+    # T-03 Phase 32
+    "마포구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2082373",
+    "영등포구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2037503",
+    "서대문구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070681",
+    "양천구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2146835",
+    "강서구": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2074729",
 }
 
 
@@ -3806,7 +4007,8 @@ def footer_sources(city, url) -> str:
                 f'실시간 주차정보를 제공하지 않습니다).</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
                 f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
-    if city["city"] in ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구"):
+    if city["city"] in ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구",
+                        "마포구", "영등포구", "서대문구", "양천구", "강서구"):
         std_rows = city_rows_total(city)
         ord_url = SEOUL_GU_ORDINANCE.get(city["city"], "")
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
@@ -4665,7 +4867,8 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>군포시는 <b>자치구가 없어</b> 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 동 페이지를 두었습니다. 동 이름은 <b>법정동</b> 기준입니다(행정동 군포1·2동, 산본1·2동, 금정동, 재궁동, 오금동, 수리동, 궁내동, 광정동, 대야동, 송부동은 여러 법정동을 묶은 이름).</li>
     <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>(노외 {q['총_구획수']:,}면 + 노상 {q['노상_구획수']:,}면)입니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동(둔대동·부곡동)은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
-    if city["city"] in ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구"):
+    if city["city"] in ("종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구",
+                        "마포구", "영등포구", "서대문구", "양천구", "강서구"):
         q = city.get("quality") or {}
         note_bits = "; ".join((q.get("등록값_차이") or [])[:4])
         diff_bits = "; ".join((q.get("급지_요금_차이") or [])[:5])
@@ -5292,7 +5495,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
         title=title,
         description=description,
         path=path, body=body, crumbs=crumbs, nav_active=("city" if hub else gu), city=city,
-        jsonld=[jsonld_breadcrumb(crumbs),
+        jsonld=[jsonld_breadcrumb(crumbs, path),
                 jsonld_itemlist(lots_sorted, path),
                 jsonld_faq(qa, path)])
 
@@ -5367,7 +5570,7 @@ def build_weekend(city, d, lots, site):
         description=f"{gu}에서 토요일·일요일·공휴일에 무료로 이용할 수 있는 공영주차장 목록과 "
                     f"주말 예상요금이 낮은 대안 주차장을 공공데이터 기준으로 정리했습니다.",
         path=path, body=body, crumbs=crumbs, nav_active=gu, city=city,
-        jsonld=[jsonld_breadcrumb(crumbs),
+        jsonld=[jsonld_breadcrumb(crumbs, path),
                 jsonld_itemlist(free_lots or alt, path),
                 jsonld_faq(qa, path)])
 
@@ -5487,7 +5690,7 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
         description=f"{gu} {dong} 공영주차장 {s['n']}곳의 위치, 주차요금, 운영시간, 무료 개방 여부를 "
                     f"공공데이터로 정리했습니다. 예상 주차요금을 바로 계산해 보세요.",
         path=path, body=body, crumbs=crumbs, nav_active=gu, city=city,
-        jsonld=[jsonld_breadcrumb(crumbs), jsonld_itemlist(lots_sorted, path), jsonld_faq(qa, path)])
+        jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(lots_sorted, path), jsonld_faq(qa, path)])
 
 
 def fee_table_block(city) -> str:
@@ -6983,7 +7186,7 @@ def build_city(city, lots, site):
         description=f"{city['city']} {len(city['districts'])}개 구 공영주차장 {s['n']}곳의 주차요금, 운영시간, 무료 개방 정보를 정리했습니다. "
                     f"구별 요금 계산기로 2시간·하루 주차비를 바로 확인하세요.",
         path=path, body=body, crumbs=crumbs, nav_active="city", city=city,
-        jsonld=[jsonld_breadcrumb(crumbs), jsonld_itemlist(cheap, path), jsonld_faq(qa, path)])
+        jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(cheap, path), jsonld_faq(qa, path)])
 
 
 def build_street(city, street, site):
@@ -7101,7 +7304,7 @@ def _build_street_all_mixed(city, street, site):
         description=f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳의 요금(기본 {bmin}분 {won(bfee)}, "
                     f"1일권 {won(dfee)})과 평일 운영시간, 구간별 위치·구획수를 공공데이터로 정리했습니다.",
         path=path, body=body, crumbs=crumbs, nav_active="city", city=city,
-        jsonld=[jsonld_breadcrumb(crumbs), jsonld_itemlist(street, path), jsonld_faq(qa, path)])
+        jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(street, path), jsonld_faq(qa, path)])
 
 
 def _build_street_mixed(city, street, site):
@@ -7366,7 +7569,7 @@ def _build_street_mixed(city, street, site):
                      f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 가운데 무료 {len(free)}곳과 "
                      f"유료 {len(paid)}곳의 요금·1일권·구간별 위치를 공공데이터로 정리했습니다."),
         path=path, body=body, crumbs=crumbs, nav_active="city", city=city,
-        jsonld=[jsonld_breadcrumb(crumbs), jsonld_itemlist(street, path), jsonld_faq(qa, path)])
+        jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(street, path), jsonld_faq(qa, path)])
 
 
 def city_list_label(city) -> str:
@@ -7402,7 +7605,11 @@ def build_landing(site):
   <span class="t">{d['name']}<span class="go">{stats_for(dl)['n']}곳 →</span></span>
   <span class="d">{city['city']} · 주차요금 계산 · 동별 목록</span>
 </a>''')
-        head = f'<h3 class="prov">{esc(prov)}</h3>\n' if multi else ''
+        # 시·도 묶음에 앵커 id 를 둔다 — BreadcrumbList 의 시·도 항목이 /#gyeonggi·/#seoul 로 연결된다.
+        _prov_slug = next((c.get("province_slug") for c in groups[prov] if c.get("province_slug")), "")
+        head = (f'<h3 class="prov" id="{esc(_prov_slug)}">{esc(prov)}</h3>\n'
+                if multi and _prov_slug else
+                (f'<h3 class="prov">{esc(prov)}</h3>\n' if multi else ''))
         sections.append(f'{head}<div class="grid-2">{"".join(cards)}</div>')
     total = sum(stats_for(c["_card_lots"])["n"] for c in site["cities"])
     total_spaces = sum(stats_for(c["_card_lots"])["spaces"] for c in site["cities"])

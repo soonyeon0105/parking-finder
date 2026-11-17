@@ -1,0 +1,4161 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 05:16",
+  "generated_at_iso": "2026-11-18T05:16:00+09:00",
+  "snapshot_at": "2026-11-18 05:16",
+  "region": {
+   "province": "서울특별시",
+   "city": "서대문구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 32,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "서대문구가 등록한 32행(노외 30·노상 2)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 서대문구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면",
+    "org": "서대문구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070681",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-10-20 · 서울특별시서대문구조례 제1815호(일부개정) · 별표1 개정 2024.7.3.",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 서대문구 공영노외주차장 29곳은 서대문구도시관리공단이 1년 순환배정·무인으로 운영하고, 시간제 주차는 일부 주차장에서만 받습니다 — 신촌동 제1·남가좌1동 제2는 5분당 250원(08:00~21:00, 21시 이후 출차 시 일일 최대 20,000원), 충현동 제2·홍은2동 제3은 5분당 150원(08:00~20:00, 1일 최대 20,000원)입니다. 조례 별표1의 5분당 요금은 노상 1급지 500원·2급지 250원·3급지 150원·4·5급지 100원, 노외 1급지 400원·2급지 250원·3급지 150원·4·5급지 100원이고, 노상에는 1일 주차권(야간) 5,000·4,000·3,000·2,000·1,000원이 있습니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "서대문구 공영주차장 시간제 현황·요금 안내",
+    "org": "서대문구도시관리공단 공공사업부(02-360-8531~4) · 시영은 서울시설공단",
+    "url": "https://rparking.sscmc.or.kr/Public/PresentTab1_1",
+    "file": "rparking.sscmc.or.kr_공영주차장_현황_운영안내_20261118.txt",
+    "sha256": "10b0e94c48ed1fe5393c689e7fb931d7d727222490a8735b1ba24c2ed22b5f5e",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 1,
+    "fetched_at": "2026-11-18 05:11 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "서대문구",
+   "slug": "seodaemun"
+  }
+ ],
+ "lots": [
+  {
+   "id": "seodaemun-001",
+   "mgmt_no": "112-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남가좌1동 제2공영",
+   "gu": "서대문구",
+   "dong": "남가좌동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 남가좌1동 152-83",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "02-360-8542",
+   "lat": 37.569735,
+   "lng": 126.916373,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "구영(서대문구도시관리공단) 주차장 · 서대문구 고시(제2025-166호)로 2025-12-15부터 시간제주차를 병행하며, 요금은 5분당 250원(08:00~21:00)·21시 이후 출차 시 일일 최대 20,000원입니다 — 조례 5급지 요금(100원)과 다릅니다",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "공단·구청 고시 시간제 요금(표준데이터에 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-002",
+   "mgmt_no": "112-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남가좌2동 제1공영",
+   "gu": "서대문구",
+   "dong": "남가좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 남가좌동 64-8",
+   "addr_road": "서울특별시 서대문구 가재울로14길 22",
+   "road": null,
+   "spaces": 71,
+   "tel": "02-360-8542",
+   "lat": 37.57701887,
+   "lng": 126.9217979,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-003",
+   "mgmt_no": "112-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남가좌2동 제2공영",
+   "gu": "서대문구",
+   "dong": "남가좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 남가좌동 3-75",
+   "addr_road": "서울특별시 서대문구 명지대5길 10-8",
+   "road": null,
+   "spaces": 95,
+   "tel": "02-360-8542",
+   "lat": 37.5831553,
+   "lng": 126.9229512,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-004",
+   "mgmt_no": "112-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신촌동 봉원고가 하부 공영",
+   "gu": "서대문구",
+   "dong": "대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 대신동 143-31",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "02-360-8542",
+   "lat": 37.56710999,
+   "lng": 126.9471251,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-005",
+   "mgmt_no": "112-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미근동 공영",
+   "gu": "서대문구",
+   "dong": "미근동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 미근동 267-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "02-360-8542",
+   "lat": 37.562169,
+   "lng": 126.9684152,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-006",
+   "mgmt_no": "112-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북가좌2동 제1공영",
+   "gu": "서대문구",
+   "dong": "북가좌동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 북가좌2동 73-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "02-360-8542",
+   "lat": 37.578673,
+   "lng": 126.913443,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-007",
+   "mgmt_no": "112-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북가좌2동 제2공영",
+   "gu": "서대문구",
+   "dong": "북가좌동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 북가좌2동 346-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-360-8542",
+   "lat": 37.580808,
+   "lng": 126.908329,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-008",
+   "mgmt_no": "112-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북성초등학교 공영",
+   "gu": "서대문구",
+   "dong": "북아현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 북아현동 215",
+   "addr_road": "서울특별시 서대문구 북아현로1나길22",
+   "road": null,
+   "spaces": 100,
+   "tel": "02-360-8542",
+   "lat": 37.55963212,
+   "lng": 126.9518349,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-009",
+   "mgmt_no": "112-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북아현가구단지 공영",
+   "gu": "서대문구",
+   "dong": "북아현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 북아현동 915",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "02-360-8542",
+   "lat": 37.55829247,
+   "lng": 126.960347,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-010",
+   "mgmt_no": "112-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북아현동 제2공영",
+   "gu": "서대문구",
+   "dong": "북아현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 북아현동 121-1",
+   "addr_road": "서울특별시 서대문구 북아현로6길 60",
+   "road": null,
+   "spaces": 50,
+   "tel": "02-360-8542",
+   "lat": 37.56005012,
+   "lng": 126.9582929,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-011",
+   "mgmt_no": "112-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충현동 제2공영",
+   "gu": "서대문구",
+   "dong": "북아현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 북아현동 3-5",
+   "addr_road": "서울특별시 서대문구 북아현로14길 24",
+   "road": null,
+   "spaces": 38,
+   "tel": "02-360-8542",
+   "lat": 37.562837,
+   "lng": 126.9567878,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "구영(서대문구도시관리공단) 주차장 · 2층만 시간제로 운영하며 요금은 5분당 150원(08:00~20:00), 1일 최대 20,000원입니다(공단 안내)",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "공단·구청 고시 시간제 요금(표준데이터에 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-012",
+   "mgmt_no": "112-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연희동 제1공영",
+   "gu": "서대문구",
+   "dong": "연희동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 연희동 151-32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-360-8542",
+   "lat": 37.57672649,
+   "lng": 126.934308,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-013",
+   "mgmt_no": "112-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연희동 제2공영",
+   "gu": "서대문구",
+   "dong": "연희동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 연희동 105-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "02-360-8542",
+   "lat": 37.57237112,
+   "lng": 126.9276771,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-014",
+   "mgmt_no": "112-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연희동 제3공영",
+   "gu": "서대문구",
+   "dong": "연희동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 연희동 50-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "02-360-8542",
+   "lat": 37.56752792,
+   "lng": 126.9344644,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-015",
+   "mgmt_no": "112-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연희동 제6공영",
+   "gu": "서대문구",
+   "dong": "연희동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 연희동 706-2,3",
+   "addr_road": "서울특별시 서대문구 홍연길16",
+   "road": null,
+   "spaces": 43,
+   "tel": "02-360-8542",
+   "lat": 37.574957,
+   "lng": 126.927991,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-016",
+   "mgmt_no": "112-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "독립문문화공원 공영",
+   "gu": "서대문구",
+   "dong": "영천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 영천동 263",
+   "addr_road": "서울특별시 서대문구 성산로 700",
+   "road": null,
+   "spaces": 120,
+   "tel": "02-360-8542",
+   "lat": 37.57157589,
+   "lng": 126.9604898,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-017",
+   "mgmt_no": "112-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신촌동 제1공영",
+   "gu": "서대문구",
+   "dong": "창천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 창천동 70-34",
+   "addr_road": "서울특별시 서대문구 성산로22길 40",
+   "road": null,
+   "spaces": 23,
+   "tel": "02-360-8542",
+   "lat": 37.55912779,
+   "lng": 126.9343532,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "구영(서대문구도시관리공단) 주차장 · 서대문구 고시(제2025-166호)로 2025-12-15부터 시간제주차를 병행하며, 요금은 5분당 250원(08:00~21:00)·21시 이후 출차 시 일일 최대 20,000원입니다",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "공단·구청 고시 시간제 요금(표준데이터에 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-018",
+   "mgmt_no": "112-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충현동 제1공영",
+   "gu": "서대문구",
+   "dong": "충정로2가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 충정로2가 78-13",
+   "addr_road": "서울특별시 서대문구 경기대로 72",
+   "road": null,
+   "spaces": 63,
+   "tel": "02-360-8542",
+   "lat": 37.565118,
+   "lng": 126.964418,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-019",
+   "mgmt_no": "112-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정원단지 회차 주차시설",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은2동 265-220",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-360-8542",
+   "lat": 37.587733,
+   "lng": 126.930636,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-020",
+   "mgmt_no": "112-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍연초등학교 공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은동 305",
+   "addr_road": "서울특별시 서대문구 백련사길 55",
+   "road": null,
+   "spaces": 89,
+   "tel": "02-360-8542",
+   "lat": 37.58211871,
+   "lng": 126.9306604,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-021",
+   "mgmt_no": "112-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍은1동 제1공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은동 9-164",
+   "addr_road": "서울특별시 서대문구 포방터2길 10",
+   "road": null,
+   "spaces": 72,
+   "tel": "02-360-8542",
+   "lat": 37.598662,
+   "lng": 126.949577,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-022",
+   "mgmt_no": "112-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍은1동 제3공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은1동 8-1262",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "02-360-8542",
+   "lat": 37.605768,
+   "lng": 126.949863,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-023",
+   "mgmt_no": "112-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍은1동 제4공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은동 11-23",
+   "addr_road": "서울특별시 서대문구 홍은중앙로 125",
+   "road": null,
+   "spaces": 98,
+   "tel": "02-360-8542",
+   "lat": 37.60152713,
+   "lng": 126.9491809,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-024",
+   "mgmt_no": "112-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍은2동 제1공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은동 410-44",
+   "addr_road": "서울특별시 서대문구 증가로10길 60-23",
+   "road": null,
+   "spaces": 29,
+   "tel": "02-360-8542",
+   "lat": 37.578957,
+   "lng": 126.925681,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-025",
+   "mgmt_no": "112-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍은2동 제2공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은동 265-170",
+   "addr_road": "서울특별시 서대문구 연희로39나길 25",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-360-8542",
+   "lat": 37.58757262,
+   "lng": 126.9319203,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-026",
+   "mgmt_no": "112-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍은2동 제3공영",
+   "gu": "서대문구",
+   "dong": "홍은동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍은동 265-26",
+   "addr_road": "서울특별시 서대문구 연희로39길 12",
+   "road": null,
+   "spaces": 54,
+   "tel": "02-360-8542",
+   "lat": 37.586759,
+   "lng": 126.9342219,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "구영(서대문구도시관리공단) 주차장 · 2층만 시간제로 운영하며 요금은 5분당 150원(08:00~20:00), 1일 최대 20,000원입니다(공단 안내)",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "공단·구청 고시 시간제 요금(표준데이터에 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-027",
+   "mgmt_no": "112-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍제1동 제1공영",
+   "gu": "서대문구",
+   "dong": "홍제동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍제1동 361-36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "02-360-8542",
+   "lat": 37.584928,
+   "lng": 126.936114,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-028",
+   "mgmt_no": "112-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍제2동 제1공영",
+   "gu": "서대문구",
+   "dong": "홍제동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍제2동 192-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "02-360-8542",
+   "lat": 37.588295,
+   "lng": 126.947704,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-029",
+   "mgmt_no": "112-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍제3동 제1공영",
+   "gu": "서대문구",
+   "dong": "홍제동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍제3동 278-41",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-360-8542",
+   "lat": 37.595031,
+   "lng": 126.948166,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-030",
+   "mgmt_no": "112-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍제3동 제2공영",
+   "gu": "서대문구",
+   "dong": "홍제동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서대문구 홍제3동 8-173",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "02-360-8542",
+   "lat": 37.592975,
+   "lng": 126.950711,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-s001",
+   "mgmt_no": "112-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연희맛로 공영",
+   "gu": "서대문구",
+   "dong": "연희동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서대문구 연희동 131-1",
+   "addr_road": "서울특별시 서대문구 연희맛로 23",
+   "road": null,
+   "spaces": 54,
+   "tel": "02-360-8542",
+   "lat": 37.567117,
+   "lng": 126.929661,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  },
+  {
+   "id": "seodaemun-s002",
+   "mgmt_no": "112-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "유진상가/인왕시장 앞 공영",
+   "gu": "서대문구",
+   "dong": "홍제동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서대문구 홍제3동 294-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "02-360-8542",
+   "lat": 37.590854,
+   "lng": 126.942279,
+   "base_date": "2026-04-29",
+   "manager": "서대문구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(서대문구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서대문구",
+   "city_slug": "seodaemun"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 05:16",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 32,
+  "원자료_서대문구행수": 32,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 30,
+  "노외_부설": {
+   "노외": 30
+  },
+  "노상_구간": 2,
+  "총_구획수": 1310,
+  "노상_구획수": 118,
+  "동별": {
+   "홍은동": 8,
+   "북아현동": 4,
+   "연희동": 4,
+   "홍제동": 4,
+   "남가좌동": 3,
+   "북가좌동": 2,
+   "대신동": 1,
+   "미근동": 1,
+   "영천동": 1,
+   "창천동": 1,
+   "충정로2가": 1
+  },
+  "동수": 11,
+  "동_미상": [],
+  "동_보정": [
+   "홍제3동 제2공영: 지번주소의 행정동 ‘홍제3동’을 법정동 홍제동으로 묶었습니다",
+   "홍제3동 제1공영: 지번주소의 행정동 ‘홍제3동’을 법정동 홍제동으로 묶었습니다",
+   "홍제1동 제1공영: 지번주소의 행정동 ‘홍제1동’을 법정동 홍제동으로 묶었습니다",
+   "홍은1동 제3공영: 지번주소의 행정동 ‘홍은1동’을 법정동 홍은동으로 묶었습니다",
+   "정원단지 회차 주차시설: 지번주소의 행정동 ‘홍은2동’을 법정동 홍은동으로 묶었습니다",
+   "북가좌2동 제2공영: 지번주소의 행정동 ‘북가좌2동’을 법정동 북가좌동으로 묶었습니다",
+   "북가좌2동 제1공영: 지번주소의 행정동 ‘북가좌2동’을 법정동 북가좌동으로 묶었습니다",
+   "유진상가/인왕시장 앞 공영: 지번주소의 행정동 ‘홍제3동’을 법정동 홍제동으로 묶었습니다",
+   "홍제2동 제1공영: 지번주소의 행정동 ‘홍제2동’을 법정동 홍제동으로 묶었습니다",
+   "남가좌1동 제2공영: 지번주소의 행정동 ‘남가좌1동’을 법정동 남가좌동으로 묶었습니다"
+  ],
+  "동_근거": {
+   "지번주소(행정동→법정동)": 9,
+   "지번주소": 21
+  },
+  "요금구분": {
+   "유료": 32
+  },
+  "요금_미상": [],
+  "유료_노상": 2,
+  "유료_노외": 30,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "홍제3동 제2공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍제3동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍제1동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍은2동 제2공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍은2동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍은1동 제3공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍은1동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍연초등학교 공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "정원단지 회차 주차시설: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "독립문문화공원 공영: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "연희동 제3공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "연희동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "북아현동 제2공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "북아현가구단지 공영: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "북가좌2동 제2공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "북가좌2동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "미근동 공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "유진상가/인왕시장 앞 공영: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "연희맛로 공영: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "홍제2동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "홍은2동 제3공영: 표준데이터 요금 없음 → 공단·구청 고시 5분당 150원·1일 최대 20,000원 사용",
+   "홍은1동 제4공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "충현동 제2공영: 표준데이터 요금 없음 → 공단·구청 고시 5분당 150원·1일 최대 20,000원 사용",
+   "충현동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "연희동 제6공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "연희동 제2공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "신촌동 봉원고가 하부 공영: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "신촌동 제1공영: 표준데이터 요금 없음 → 공단·구청 고시 5분당 250원·1일 최대 20,000원 사용",
+   "북성초등학교 공영: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "남가좌2동 제2공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "남가좌2동 제1공영: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 100원 사용",
+   "남가좌1동 제2공영: 표준데이터 요금 없음 → 공단·구청 고시 5분당 250원·1일 최대 20,000원 사용"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 서대문구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-10-20 · 서울특별시서대문구조례 제1815호(일부개정) · 별표1 개정 2024.7.3.)",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [],
+  "무료개방_표기": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 141,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-29"
+  ],
+  "공단만_등록": [
+   "천연동 제1공영(천연동 98-13, 20면, 5급지 5분당 100원, 무인 운영(공단 배정 안내))"
+  ]
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 2,
+    "lots": 7,
+    "fee_min": 250,
+    "fee_max": 250,
+    "unit_label": "250원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "month_min": null,
+    "month_max": null,
+    "day_min": 20000,
+    "day_max": 20000,
+    "charter": 250
+   },
+   {
+    "grade": 5,
+    "lots": 25,
+    "fee_min": 100,
+    "fee_max": 250,
+    "unit_label": "100~250원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "month_min": null,
+    "month_max": null,
+    "day_min": 20000,
+    "day_max": 20000,
+    "charter": 100
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 26
+   },
+   {
+    "group": "10:00~19:00",
+    "count": 4
+   },
+   {
+    "group": "10:00~21:00",
+    "count": 1
+   },
+   {
+    "group": "10:00~20:00",
+    "count": 1
+   }
+  ],
+  "notes": "서대문구 공영노외주차장 29곳은 서대문구도시관리공단이 1년 순환배정·무인으로 운영하고, 시간제 주차는 일부 주차장에서만 받습니다 — 신촌동 제1·남가좌1동 제2는 5분당 250원(08:00~21:00, 21시 이후 출차 시 일일 최대 20,000원), 충현동 제2·홍은2동 제3은 5분당 150원(08:00~20:00, 1일 최대 20,000원)입니다. 조례 별표1의 5분당 요금은 노상 1급지 500원·2급지 250원·3급지 150원·4·5급지 100원, 노외 1급지 400원·2급지 250원·3급지 150원·4·5급지 100원이고, 노상에는 1일 주차권(야간) 5,000·4,000·3,000·2,000·1,000원이 있습니다",
+  "only_corp": [
+   "천연동 제1공영(천연동 98-13, 20면, 5급지 5분당 100원, 무인 운영(공단 배정 안내))"
+  ],
+  "corp": {
+   "paid": 32,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 2
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 500,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 100
+   },
+   "off": {
+    "1": 400,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 100
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 서대문구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-10-20 · 서울특별시서대문구조례 제1815호(일부개정) · 별표1 개정 2024.7.3.) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "seodaemun",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "서대문구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(등록증 제시), 국가유공 상이자·독립유공자(유족), 고엽제후유증·고엽제후유의증 환자 80퍼센트(지하철환승주차장은 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "경차·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차와 저공해자동차 50퍼센트(환승 목적이면 80퍼센트·최초 3시간 면제)"
+  },
+  {
+   "label": "다둥이·통·반장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다둥이행복카드 소지자, 관내 통·반장(신분증 제시), 장기등 기증희망등록자 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제",
+   "rate": 1.0,
+   "exempt_min": 60,
+   "note": "전통시장·상권활성화구역에서 구매한 당일 영수증을 제출한 차량 — 최초 1시간 면제",
+   "exempt_only": true
+  },
+  {
+   "label": "모범·유공납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지 부착 차량 1년간 면제, 구청장이 교부한 유공납세자 표지 부착 차량 면제(거주자우선구역은 50퍼센트)"
+  },
+  {
+   "label": "전기차 충전 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전기자동차를 충전한 경우 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "장기기증자 80%·기증희망 50%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장기등 기증자와 그 가족·유족 80퍼센트, 기증희망등록자 50퍼센트"
+  },
+  {
+   "label": "병역명문가·자원봉사자 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "병역명문가 예우대상자 20퍼센트(서대문구청사 부설은 30퍼센트), 자원봉사자증 소지자 20퍼센트"
+  }
+ ],
+ "realtime": false
+}
