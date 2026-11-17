@@ -1,0 +1,1385 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 08:53",
+  "generated_at_iso": "2026-11-18T08:53:31+09:00",
+  "snapshot_at": "2026-11-18 08:53",
+  "region": {
+   "province": "부산광역시",
+   "city": "수영구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 7,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "수영구로 등록된 행 7행(노외·부설 4·노상 3)을 읽어 노외·부설 6곳과 노상 3구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 10분 단위 요금과 1일 주차요금을 그대로 계산한다. 부산시설공단이 직접 운영하는 2곳은 표준데이터에 없어 공단 통합주차포털의 면수·급지·요금을 더했다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「부산광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제3조의2 감면",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2029885",
+    "file": "busan.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "3198af7edba3d6900d621faf219cb28b95962c3ad14a35c3bedb756068ca45c0",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:25 (KST)",
+    "note": "시영(부산시설공단) 공영주차장에 적용하는 요금표다. 1급지(가)·1급지(나)·2~4급지로 나뉘고 1구획 10분마다 700·500·300·200·100원이며, 1일 주차는 21,000·15,000·8,000·4,700·2,400원, 월 주차는 주간 220,000·160,000·90,000·50,000·30,000원·야간 90,000·80,000·70,000·40,000·22,000원이다(3급지는 환승 35,000·비환승 50,000원). 1일·월 주차는 노외주차장과 주간 2~4급지 노상주차장에만 받고, 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제3조의2는 장애인·국가유공자 등 1시간 면제 뒤 50퍼센트, 경차·환경친화·저공해 50퍼센트, 다자녀·임산부 50퍼센트, 전통시장 1시간 면제, 승용차부제 50퍼센트, 모범납세자 1년 면제, 환승 50퍼센트, 상가 할인권 30퍼센트 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「부산광역시 수영구 주차장 설치 및 관리 조례」 제3조 주차요금·감면(시 조례 준용)",
+    "org": "수영구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098527",
+    "file": "suyeong-gu.law.go.kr_주차장조례_20261118.txt",
+    "sha256": "4779974e948488d6d9f43159dd4a07d2b3ba0dfadcefa8a4ad62231acd547983",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-12-26 · 부산광역시수영구조례 제1381호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 수영구 조례 제3조는 공영주차장의 주차요금·가산금과 감면을 시 조례대로 하도록 정하고 따로 더한 감면은 없습니다(제3조의2는 2012년 삭제). 부산광역시 급지구분 고시는 광안2동을 1급지(나)(10분 500원)로 두고, 표준데이터는 광안리해수욕장 주차장을 1급지(500원), 광안·민락동 주차장을 2급지(300원), 남천동 노상을 3급지(200원), 망미·호암골을 4급지(100원)로 등록하고 있습니다. 2026년 6월 정식 운영을 시작한 민락 공영주차장(314면)은 2급지 10분 300원·1일 8,000원입니다."
+   },
+   {
+    "id": "city_fee_page",
+    "name": "부산광역시 분야별 통합 ‘주차요금’·감면 안내",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.busan.go.kr/depart/parkinfo0201",
+    "file": "busan.go.kr_주차요금_감면_20261118.txt",
+    "sha256": "9fb7422a2b9cd9de7900e00a8f80b513295fb7a42991cc3d6e0cf861ba177c41",
+    "license": "공공누리 제1유형",
+    "base_date": "최근 업데이트 2025-10-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:27 (KST)",
+    "note": "급지별 요금표와 감면 대상·비율을 조례와 같은 내용으로 싣고 있다(2026-11-18 확인). 표준데이터와 다른 값은 이 표·조례와 대조해 카드에 차이를 적었다."
+   },
+   {
+    "id": "corp_portal",
+    "name": "부산시설공단 통합주차포털 직영 주차장 목록·요금",
+    "org": "부산시설공단(051-860-7700)",
+    "url": "https://bsparking.bisco.or.kr/searchparking",
+    "file": "bsparking.bisco.or.kr_공영주차장_전체목록_20261118_부산5구군.json",
+    "sha256": "c5f9e28be53af10a3c44c5b2d6348885fcb5571acf55c504d8eddee255f685a1",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "2026-11-18 확인",
+    "rows_total": 2,
+    "fetched_at": "2026-11-18 08:31 (KST)",
+    "note": "부산시설공단이 직접 운영하는 공영주차장 53곳 전체 내려받기 가운데 이 구·군의 2곳을 더했다. 주차면수·급지·10분 요금·1일 주차요금·월 정기권·무료시간(10분)·좌표를 포털 값 그대로 썼고, 포털에 번지 없이 도로명만 있는 곳은 포털의 도로명 칸(건물번호 포함)과 함께 적힌 동 이름으로 법정동을 정해 카드 비고에 근거를 적었다. 화물차고지(미음)와 화물자동차 전용(녹산산단)은 일반 승용차용이 아니라 뺐다."
+   },
+   {
+    "id": "busan_grade",
+    "name": "부산광역시 분야별 통합 ‘공영주차장 급지구분’",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.busan.go.kr/depart/parkinfo0202",
+    "file": "busan.go.kr_급지구분_본문_20261118.txt",
+    "sha256": "b36a4733e70621dc83920b1fd9b20b92d6c4c6436acb9a399ecaa655417efda5",
+    "license": "공공누리 제1유형",
+    "base_date": "최근 업데이트 2025-09-29",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 08:31 (KST)",
+    "note": "1급지(가)·(나)에 드는 법정동을 적은 고시다. 이 구·군에서는 북구 구포1동·덕천2동, 수영구 광안2동, 사상구 괘법동이 1급지(나)(10분 500원)에 들고, 3급지는 역세권, 4급지는 그 밖의 노상·노외주차장이다. 기장군은 고시의 도심지역이 아니어서 4급지가 기본이다. 표준데이터 등록 급지와 다를 때 카드에 그 차이를 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "부산 수영구",
+   "slug": "suyeong-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "suyeong-gu-001",
+   "mgmt_no": "143-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광안리해수욕장 공영주차장",
+   "gu": "부산 수영구",
+   "dong": "광안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 수영구 광안동 198-3",
+   "addr_road": "부산광역시 수영구 남천바다로33번길 75 (광안동)",
+   "road": null,
+   "spaces": 54,
+   "tel": "051-610-4552",
+   "lat": 35.15143053,
+   "lng": 129.1160952,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": "표준데이터에 1일 주차권 요금이 없어 조례 별표1의 1급지(나) 1일 주차요금(15,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 240,000원을 함께 적었습니다 · 1일 주차요금 15,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-002",
+   "mgmt_no": "143-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호암골 공영주차장",
+   "gu": "부산 수영구",
+   "dong": "광안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 수영구 광안동 1146-4",
+   "addr_road": "부산광역시 수영구 호암로 71(광안동)",
+   "road": null,
+   "spaces": 53,
+   "tel": "051-610-4552",
+   "lat": 35.15881629,
+   "lng": 129.10605,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-003",
+   "mgmt_no": "143-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "망미동노외공영주차장",
+   "gu": "부산 수영구",
+   "dong": "망미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 수영구 망미동 979-73",
+   "addr_road": "부산광역시 수영구 금련로43번길 17 (망미동)",
+   "road": null,
+   "spaces": 171,
+   "tel": "051-610-4552",
+   "lat": 35.17031496,
+   "lng": 129.096892,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-004",
+   "mgmt_no": "143-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "민락 공영주차장",
+   "gu": "부산 수영구",
+   "dong": "민락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 수영구 민락동 113-46, 50",
+   "addr_road": "부산광역시 수영구 민락수변로17번길 60 (민락동)",
+   "road": null,
+   "spaces": 314,
+   "tel": "051-610-4552",
+   "lat": 35.15488069,
+   "lng": 129.1271746,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": "표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-005",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "수변공원",
+   "gu": "부산 수영구",
+   "dong": "민락동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "부산광역시 수영구 민락수변로 95",
+   "road": null,
+   "spaces": 102,
+   "tel": "051-860-7717",
+   "lat": 35.15479546469448,
+   "lng": 129.1315081751313,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 포털에 도로명주소만 공개되어 법정동은 민락동으로 적었습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-006",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "수변어린이공원",
+   "gu": "부산 수영구",
+   "dong": "민락동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 수영구 민락동 110-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 149,
+   "tel": "051-860-7716",
+   "lat": 35.156344,
+   "lng": 129.13399,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-s001",
+   "mgmt_no": "143-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남천1동 공영주차장",
+   "gu": "부산 수영구",
+   "dong": "남천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 수영구 남천동 212",
+   "addr_road": "부산광역시 수영구 황령대로 489번길 45",
+   "road": null,
+   "spaces": 66,
+   "tel": "051-610-4552",
+   "lat": 35.13985428,
+   "lng": 129.1091737,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’로 등록되어 일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 3급지 1일 주차요금(4,700원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 90,000원을 함께 적었습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4700,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-s002",
+   "mgmt_no": "143-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "민락수변공원 공영주차장",
+   "gu": "부산 수영구",
+   "dong": "민락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 수영구 민락동 110-49",
+   "addr_road": "부산광역시 수영구 민락수변로 109",
+   "road": null,
+   "spaces": 43,
+   "tel": "051-610-4552",
+   "lat": 35.15480612,
+   "lng": 129.1324395,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  },
+  {
+   "id": "suyeong-gu-s003",
+   "mgmt_no": "143-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "민락해변공원 공영주차장",
+   "gu": "부산 수영구",
+   "dong": "민락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 수영구 민락동 181-154",
+   "addr_road": "부산광역시 수영구 광안해변로 278번길 42",
+   "road": null,
+   "spaces": 26,
+   "tel": "051-610-4552",
+   "lat": 35.15397219,
+   "lng": 129.1245132,
+   "base_date": "2026-08-28",
+   "manager": "부산광역시 수영구청",
+   "note": "",
+   "notice": "표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 수영구",
+   "city_slug": "suyeong-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 08:53",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 7,
+  "원자료_수영구행수": 7,
+  "원자료_받은행수": 9,
+  "구별": "수영구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 6,
+  "노외_부설": {
+   "노외": 6
+  },
+  "노상_구간": 3,
+  "총_구획수": 843,
+  "노상_구획수": 135,
+  "동별": {
+   "민락동": 3,
+   "광안동": 2,
+   "망미동": 1
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 4,
+   "공단 안내": 2
+  },
+  "요금구분": {
+   "유료": 9
+  },
+  "요금_미상": [],
+  "유료_노상": 3,
+  "유료_노외": 6,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "남천1동 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일 미운영(등록값)"
+  ],
+  "등록값_차이": [
+   "민락해변공원 공영주차장: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "광안리해수욕장 공영주차장: 1일 주차권 요금이 없어 조례 별표1 1급지(나) 1일 주차 15,000원을 상한으로 계산",
+   "민락 공영주차장: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "남천1동 공영주차장: 1일 주차권 요금이 없어 조례 별표1 3급지 1일 주차 4,700원을 상한으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「부산광역시 주차장 설치 및 관리 조례」 제3조의2, 구영은 「부산광역시 수영구 주차장 설치 및 관리 조례」 제3조 주차요금·감면(시 조례 준용)(시행 2025-12-26 · 부산광역시수영구조례 제1381호(일부개정))",
+  "무료시간_출처": "부산광역시·구 조례 별표1은 10분 단위로 요금을 매기고 별도의 최초 무료시간을 두지 않는다. 부산시설공단이 직접 운영하는 주차장만 포털 안내대로 최초 10분을 무료로 두었다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항과 구청 안내(부산진구 주례초등학교 주말 무료, 서구 조례 제10조의2 노상 일요일·공휴일 무료)를 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 267,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 1,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-08-28",
+   "2026-11-18"
+  ],
+  "공단안내_주차장": [
+   "수변공원",
+   "수변어린이공원"
+  ]
+ },
+ "fee_table": {
+  "style": "busan_grade",
+  "unit_min": 10,
+  "applies": "2025-04-16",
+  "rows": [
+   {
+    "grade": "1가",
+    "label": "1급지(가)",
+    "lots": 0,
+    "unit_label": "700원",
+    "hour": 4200,
+    "two_hour": 8400,
+    "day": 21000,
+    "month": 310000,
+    "charter": 700,
+    "charter_day": 21000
+   },
+   {
+    "grade": "1나",
+    "label": "1급지(나)",
+    "lots": 1,
+    "unit_label": "500원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "day": 15000,
+    "month": 240000,
+    "charter": 500,
+    "charter_day": 15000
+   },
+   {
+    "grade": "2",
+    "label": "2급지",
+    "lots": 5,
+    "unit_label": "300원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "day": 8000,
+    "month": 160000,
+    "charter": 300,
+    "charter_day": 8000
+   },
+   {
+    "grade": "3",
+    "label": "3급지",
+    "lots": 1,
+    "unit_label": "200원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 4700,
+    "month": 90000,
+    "charter": 200,
+    "charter_day": 4700
+   },
+   {
+    "grade": "4",
+    "label": "4급지",
+    "lots": 2,
+    "unit_label": "100원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 2400,
+    "month": 52000,
+    "charter": 100,
+    "charter_day": 2400
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 6
+   },
+   {
+    "group": "10:00~22:00",
+    "count": 1
+   },
+   {
+    "group": "11:00~23:59",
+    "count": 1
+   },
+   {
+    "group": "09:00~24:00",
+    "count": 1
+   }
+  ],
+  "notes": "수영구 조례 제3조는 공영주차장의 주차요금·가산금과 감면을 시 조례대로 하도록 정하고 따로 더한 감면은 없습니다(제3조의2는 2012년 삭제). 부산광역시 급지구분 고시는 광안2동을 1급지(나)(10분 500원)로 두고, 표준데이터는 광안리해수욕장 주차장을 1급지(500원), 광안·민락동 주차장을 2급지(300원), 남천동 노상을 3급지(200원), 망미·호암골을 4급지(100원)로 등록하고 있습니다. 2026년 6월 정식 운영을 시작한 민락 공영주차장(314면)은 2급지 10분 300원·1일 8,000원입니다",
+  "corp": {
+   "paid": 6,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 3,
+   "corp": 2
+  },
+  "basis": "「부산광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면) · 「부산광역시 수영구 주차장 설치 및 관리 조례」 제3조 주차요금·감면(시 조례 준용)(시행 2025-12-26 · 부산광역시수영구조례 제1381호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "suyeong-gu",
+ "province": "부산광역시",
+ "province_slug": "busan",
+ "dong_page_min_lots": 3,
+ "city": "부산 수영구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인(등록)·독립유공자·상이자·5·18민주화운동부상자·고엽제후유의증 대상자가 자기 소유나 1년 이상 임차한 차를 직접 운전(또는 운전하게)한 경우 — 1시간까지 면제, 1시간 초과와 1일·월 주차는 50퍼센트 경감 (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "배기량 1,000cc 미만 경형자동차, 환경친화적 자동차 표지 부착 차, 저공해자동차 표지 부착 차 50퍼센트 — 전기자동차가 충전을 위해 주차하면 1시간까지 면제 (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 가족사랑카드에 등재된 비사업용 승용·승합(12인승 이하)·소형화물자동차 50퍼센트 (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지를 붙이고 임산부가 탑승한 차에 산모수첩 등 증명자료를 제시하면 50퍼센트 (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "시장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하면 1시간까지 면제하고 추가 1시간은 50퍼센트 경감 (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 승용차부제 지원 조례」 참여 자동차 50퍼센트(월 주차는 20퍼센트) (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "모범납세자·우수기업인 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "우수납세자·성실납세자(1년), 우수기업인(3년), 향토기업 차 1대, 사회공헌장·효행자·모범노동자(3년), 시무형유산 보유자·공예명장·병역명문가·우수 자원봉사자·장기기증자 50~100퍼센트 — 조례 제3조의2 (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 환승한 것이 확인되거나 근거자료를 낸 차 50퍼센트(월 주차는 별표1 요금) (시 조례 제3조의2 준용)"
+  },
+  {
+   "label": "상가 할인권 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "공영주차장 인근 상가와 사전협약이 있고 상가 이용 확인증(할인권)을 제시하면 30퍼센트 (시 조례 제3조의2 준용)"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인(등록)·독립유공자·상이자·5·18민주화운동부상자·고엽제후유의증 대상자가 자기 소유나 1년 이상 임차한 차를 직접 운전(또는 운전하게)한 경우 — 1시간까지 면제, 1시간 초과와 1일·월 주차는 50퍼센트 경감"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "배기량 1,000cc 미만 경형자동차, 환경친화적 자동차 표지 부착 차, 저공해자동차 표지 부착 차 50퍼센트 — 전기자동차가 충전을 위해 주차하면 1시간까지 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 가족사랑카드에 등재된 비사업용 승용·승합(12인승 이하)·소형화물자동차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지를 붙이고 임산부가 탑승한 차에 산모수첩 등 증명자료를 제시하면 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "시장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하면 1시간까지 면제하고 추가 1시간은 50퍼센트 경감"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 승용차부제 지원 조례」 참여 자동차 50퍼센트(월 주차는 20퍼센트)"
+  },
+  {
+   "label": "모범납세자·우수기업인 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "우수납세자·성실납세자(1년), 우수기업인(3년), 향토기업 차 1대, 사회공헌장·효행자·모범노동자(3년), 시무형유산 보유자·공예명장·병역명문가·우수 자원봉사자·장기기증자 50~100퍼센트 — 조례 제3조의2"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 환승한 것이 확인되거나 근거자료를 낸 차 50퍼센트(월 주차는 별표1 요금)"
+  },
+  {
+   "label": "상가 할인권 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "공영주차장 인근 상가와 사전협약이 있고 상가 이용 확인증(할인권)을 제시하면 30퍼센트"
+  }
+ ],
+ "realtime": false
+}

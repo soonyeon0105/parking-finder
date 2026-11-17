@@ -658,6 +658,21 @@ for _g in SEOUL_GU:
                           if t != _g and not t.startswith(_g) and not t.startswith(_g[:-1])
                           and t != "서울시설공단"}))
 
+# 부산광역시 구·군 페이지(/parking/busan/<slug>/) — 경기도·서울 자료가 본문에 섞이면 실패한다.
+#   부산 구·군 이름(중구·강서구·북구 등)은 다른 시·도와 글자가 같아 본문에 정당하게 나오므로 뺀다.
+#   (서울 ‘강서구’ 슬러그 gangseo 가 부산 gangseo-gu 페이지에 부분 일치해 엉뚱한 기준을 대던 것도 함께 막는다.)
+BUSAN_DISTRICT_NAMES = ("중구", "서구", "동구", "영도구", "부산진구", "동래구", "남구", "해운대구",
+                        "사하구", "금정구", "연제구", "북구", "강서구", "수영구", "사상구", "기장군")
+_all_mix_tokens = set()
+for _v in MIX.values():
+    _all_mix_tokens.update(_v)
+_busan_outside = tuple(sorted(t for t in _all_mix_tokens
+                              if t not in BUSAN_DISTRICT_NAMES and not t.startswith("부산")))
+for _slug in ("jung-gu", "seo-gu", "dong-gu", "yeongdo-gu", "busanjin-gu", "dongnae-gu", "nam-gu",
+              "haeundae-gu", "saha-gu", "geumjeong-gu", "yeonje-gu", "buk-gu", "gangseo-gu",
+              "suyeong-gu", "sasang-gu", "gijang-gun"):
+    MIX[_slug] = _busan_outside
+
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     _hits = [k for k in MIX if f"/{k}/" in f"/{rel}"]
@@ -4610,6 +4625,19 @@ BUSAN_EXPECT = {
                  "ordin": "2082771"},
     "부산 연제구": {"slug": "yeonje-gu", "cards": 11, "street": 3,
                  "dong_pages": ["yeonsan-dong"], "ordin": "2158003"},
+    # T-03 Phase 39 — 부산 마지막 5개 구·군(북·강서·수영·사상구·기장군)
+    "부산 북구": {"slug": "buk-gu", "cards": 30, "street": 2,
+               "dong_pages": ["deokcheon-dong", "gupo-dong", "hwamyeong-dong",
+                              "mandeok-dong"], "ordin": "1698351"},
+    "부산 강서구": {"slug": "gangseo-gu", "cards": 8, "street": 2,
+                "dong_pages": [], "ordin": "2175785"},
+    "부산 수영구": {"slug": "suyeong-gu", "cards": 6, "street": 3,
+                "dong_pages": ["millak-dong"], "ordin": "2098527"},
+    "부산 사상구": {"slug": "sasang-gu", "cards": 14, "street": 22,
+                "dong_pages": ["deokpo-dong", "jurye-dong", "mora-dong"], "ordin": "1692499"},
+    "부산 기장군": {"slug": "gijang-gun", "cards": 31, "street": 13,
+                "dong_pages": ["cheolma-myeon", "gijang-eup", "ilgwang-eup", "jangan-eup",
+                               "jeonggwan-eup"], "ordin": "2071507"},
 }
 _bus_pages = 0
 for _gu, _exp in BUSAN_EXPECT.items():
@@ -4701,6 +4729,37 @@ for _city, _name, _min, _day, _want_state, _want in (
         ("부산 금정구", "서2동공영주차장(기계식주차장)", 120, "weekday", "paid", 1200),  # 3급지 등록 100원
         ("부산 연제구", "연일시장공영주차장", 120, "weekday", "paid", 6000),      # 1급지(나) 500×12
         ("부산 연제구", "황령산봉수대공영주차장", 120, "weekday", "free", None),
+        # T-03 Phase 39 — 북·강서·수영·사상구·기장군
+        ("부산 북구", "덕천 공영주차장", 120, "weekday", "paid", 2400),           # 3급지 200×12
+        ("부산 북구", "덕천 공영주차장", 1440, "weekday", "paid", 4700),          # 3급지 1일 상한
+        ("부산 북구", "구포시장 고객전용 공영주차장", 60, "weekday", "paid", 1800),  # 2급지 300×6
+        ("부산 북구", "대천천마을공동주차장", 1440, "weekday", "paid", 2400),       # 4급지 1일 상한
+        ("부산 북구", "화명역", 60, "weekday", "paid", 1000),                    # 공단 3급지·10분 무료
+        ("부산 북구", "구포대교밑", 60, "weekday", "paid", 500),                  # 공단 노상 4급지·10분 무료
+        ("부산 강서구", "송정동 공영주차장", 120, "weekday", "free", None),       # 무료 등록
+        ("부산 강서구", "명지시장공영주차장", 120, "weekday", "paid", 1200),       # 요금 빈칸 → 조례 4급지
+        ("부산 수영구", "광안리해수욕장 공영주차장", 120, "weekday", "paid", 6000),  # 1급지(나) 500×12
+        ("부산 수영구", "민락 공영주차장", 120, "weekday", "paid", 3600),          # 2급지 300×12
+        ("부산 수영구", "수변공원", 60, "weekday", "paid", 1500),                 # 공단 2급지·10분 무료
+        ("부산 수영구", "수변어린이공원", 1440, "weekday", "paid", 8000),         # 2급지 1일 상한
+        ("부산 수영구", "남천1동 공영주차장", 120, "weekday", "paid", 2400),       # 노상 3급지 200×12
+        ("부산 수영구", "남천1동 공영주차장", 120, "sun", "closed", None),        # 일·공휴일 미운영
+        ("부산 사상구", "학장천 복개", 120, "weekday", "paid", 2200),             # 공단 3급지·10분 무료
+        ("부산 사상구", "학장천 복개", 1440, "weekday", "paid", 4700),
+        ("부산 사상구", "감전시장주변", 60, "weekday", "paid", 600),               # 노상 4급지 100×6
+        ("부산 사상구", "감전시장주변", 60, "sat", "paid", 600),                  # 토요일 08:00~15:00
+        ("부산 사상구", "감전시장주변", 60, "sun", "closed", None),               # 일·공휴일 미운영
+        ("부산 사상구", "주례역주변복개", 120, "weekday", "paid", 3300),           # 공단 2급지·10분 무료
+        ("부산 사상구", "운수천공영주차장", 120, "weekday", "free", None),
+        ("부산 기장군", "기장시장공영주차장", 120, "weekday", "paid", 2400),        # 2급지 200×12
+        ("부산 기장군", "기장시장공영주차장", 1440, "weekday", "paid", 8000),       # 1일 8,000원
+        ("부산 기장군", "군청사부설주차장", 120, "weekday", "paid", 1200),         # 최초 60분 무료 뒤 200×6
+        ("부산 기장군", "군청사부설주차장", 1440, "weekday", "paid", 4700),
+        ("부산 기장군", "군청사부설주차장", 120, "sat", "closed", None),          # 평일만 운영
+        ("부산 기장군", "일광해수욕장 공영주차장", 60, "weekday", "paid", 1800),
+        ("부산 기장군", "좌천리 노외공영주차장", 120, "weekday", "paid", 3600),     # 등록 3급지 300
+        ("부산 기장군", "삼성리 노외공영주차장(마을전용)", 120, "weekday", "free", None),
+        ("부산 기장군", "기장 1-3구역노상공영주차장", 60, "weekday", "paid", 1200),  # 노상 2급지 200×6
 ):
     _lot = _bus_by_key.get((_city, _name))
     if not _lot:
@@ -4724,6 +4783,11 @@ _bus_texts = {
     "saha-gu": ("을숙도문화회관", "12구간", "몰운대", "하단역"),
     "geumjeong-gu": ("서2동공영", "부산대역", "범어사상마", "3구간"),
     "yeonje-gu": ("연산4·5동", "황령산봉수대", "3구간", "연일시장"),
+    "buk-gu": ("북구청 공영주차장 목록", "구포1동·덕천2동", "노상 2구간", "화명역"),
+    "gangseo-gu": ("민영 주차장", "명지IC", "노외 8곳·노상 2구간", "녹산산단"),
+    "suyeong-gu": ("광안2동", "민락 공영주차장", "수변공원", "노상 3구간"),
+    "sasang-gu": ("괘법동", "토요일 08:00~15:00", "학장천 복개", "노상 22구간"),
+    "gijang-gun": ("기장군도시관리공단", "전통시장", "일광읍", "철마면"),
 }
 for _slug, _needles in _bus_texts.items():
     _hp = DIST / "parking" / "busan" / _slug / "index.html"
@@ -4772,7 +4836,22 @@ for _u in ("https://parking.9welfare.com/parking/busan/jung-gu/",
            "https://parking.9welfare.com/parking/busan/geumjeong-gu/street-parking/",
            "https://parking.9welfare.com/parking/busan/yeonje-gu/",
            "https://parking.9welfare.com/parking/busan/yeonje-gu/yeonsan-dong/",
-           "https://parking.9welfare.com/parking/busan/yeonje-gu/street-parking/"):
+           "https://parking.9welfare.com/parking/busan/yeonje-gu/street-parking/",
+           # T-03 Phase 39 — 부산 마지막 5개 구·군
+           "https://parking.9welfare.com/parking/busan/buk-gu/",
+           "https://parking.9welfare.com/parking/busan/buk-gu/gupo-dong/",
+           "https://parking.9welfare.com/parking/busan/buk-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/gangseo-gu/",
+           "https://parking.9welfare.com/parking/busan/gangseo-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/suyeong-gu/",
+           "https://parking.9welfare.com/parking/busan/suyeong-gu/millak-dong/",
+           "https://parking.9welfare.com/parking/busan/sasang-gu/",
+           "https://parking.9welfare.com/parking/busan/sasang-gu/mora-dong/",
+           "https://parking.9welfare.com/parking/busan/sasang-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/gijang-gun/",
+           "https://parking.9welfare.com/parking/busan/gijang-gun/gijang-eup/",
+           "https://parking.9welfare.com/parking/busan/gijang-gun/ilgwang-eup/",
+           "https://parking.9welfare.com/parking/busan/gijang-gun/street-parking/"):
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"부산 주소가 사이트맵에 없음: {_u}")
 
