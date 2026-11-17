@@ -356,6 +356,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "구리시": {"slug": "guri", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "오산시": {"slug": "osan", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7215,7 +7217,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -10267,20 +10269,695 @@ def check_quality_guri(std_all, rows, lots, excluded, merged, hour_fixed, space_
     }
 
 
+# ---------------------------------------------------------------- 오산시 (T-03 Phase 19)
+OS_PROVIDER = "경기도 오산시"
+# 오산시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+OS_DISTRICTS = [("오산시", "osan")]
+OS_BBOX = (37.10, 37.22, 126.98, 127.11)   # 오산시 대략 경계(좌표 점검용)
+# 오산시 법정동 24개 — 표준데이터 지번주소의 세 번째 낱말이 법정동이다.
+#   (행정동 중앙·대원1·2·남촌·신장1·2·세마·초평동은 여러 법정동을 묶은 이름이라 주소에는 법정동이 적힌다.)
+OS_DONGS = ("가수동", "가장동", "갈곶동", "고현동", "궐동", "금암동", "내삼미동", "누읍동",
+            "두곡동", "벌음동", "부산동", "서동", "서랑동", "세교동", "수청동", "양산동",
+            "오산동", "외삼미동", "원동", "은계동", "지곶동", "청학동", "청호동", "탑동")
+
+OS_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127813"
+                    "&gubun=ELIS&conDatGubunCd=1")
+OS_CITY_FEE_URL = "https://www.osan.go.kr/depart/contents.do?mId=0304020000"
+OS_CITY_MAP_URL = "https://www.osan.go.kr/depart/contents.do?mId=0304010000"
+OS_PORTAL_FEE_URL = "https://parking.osuc.or.kr/park/fee"
+OS_PORTAL_LIST_URL = "https://parking.osuc.or.kr/park/introduction"
+OS_ORD_TXT = RAW / "osan.law.go.kr_주차장조례_20261117.txt"
+OS_CITY_FEE_TXT = RAW / "osan.go.kr_공영주차장_요금표_20261117.txt"
+OS_CITY_MAP_TXT = RAW / "osan.go.kr_공영주차장_위치안내_20261117.txt"
+OS_PORTAL_FEE_TXT = RAW / "parking.osuc.or.kr_공영주차장_요금안내_20261117.txt"
+OS_PORTAL_LIST_TXT = RAW / "parking.osuc.or.kr_공영주차장_현황_20261117.txt"
+OS_ORDINANCE_NOTE = ("시행 2026-05-06 · 경기도오산시조례 제2363호"
+                     "(국가법령정보센터) · 별표1 개정 2025-05-22")
+OS_UNIT_MIN = 10
+
+# 오산시 공영주차장 요금 — 「오산시 주차장 조례」 [별표 1] 공영주차장 주차요금표
+#   (별표 개정 2025-05-22, 조례 시행 2026-05-06. 별표/서식 화면에서 펼쳐 읽음)의 값이다.
+#   오산도시공사 주차포털(parking.osuc.or.kr/park/fee)의 주차장별 무료시간·10분당 요금·
+#   12시간권·월 정기권과 표준데이터 등록값이 같은 숫자다 — 세 자료로 대조했다.
+#   · 노외 1급지(상업지역): 최초 1시간 무료 → 10분당 250원, 12시간 주차권 6,000원,
+#     월 야간권(19:00~익일 09:00) 40,000원, 월 정기권 80,000원
+#   · 노외 2급지(주거·공업지역, 그 밖의 지역): 최초 1시간 무료 → 10분당 200원,
+#     12시간 주차권 4,000원, 월 야간권 30,000원, 월 정기권 60,000원
+#   · 노상 1급지: 최초 1시간 무료 → 2시간까지 10분당 200원 → 2시간 초과 10분당 400원,
+#     12시간 주차권 10,000원 / 노상 2급지: 100원 → 200원, 12시간 주차권 5,000원
+#   · 별도 표: 오색시장 제1·2(1시간 30분 무료 → 3시간까지 200원 → 300원),
+#     오산천(2시간 무료 → 300원), 독산성입구(동문)(2시간 무료 → 200원, 12시간권 4,000원)
+#   · 환승주차장은 노외 1급지 요금에서 환승 목적 차량 60% 경감을 적용해 10분당 100원,
+#     12시간까지 최대 2,400원, 월 정기권 40,000원(50% 감면)이다.
+#   · 거주자전용은 월 30,000원(주간·야간 20,000원)이다(이 사이트 카드 대상 아님).
+OS_GRADE_FEES = {
+    "노외": {1: {"free": 60, "unit": 250, "ticket": 6_000, "night": 40_000, "month": 80_000},
+             2: {"free": 60, "unit": 200, "ticket": 4_000, "night": 30_000, "month": 60_000}},
+    "노상": {1: {"free": 60, "steps": ((120, 200), (None, 400)), "ticket": 10_000},
+             2: {"free": 60, "steps": ((120, 100), (None, 200)), "ticket": 5_000}},
+}
+
+# 주차장별 실제 적용 요금 — 오산도시공사 주차포털(2026-11-17)의 주차장별 값과 조례 별표1.
+#   무료시간(free)·10분당 요금(unit)·12시간 주차권(ticket)·월 정기권(month_*)을 그대로 적었고,
+#   별표1의 별도 표를 쓰는 곳은 steps(누진)로 적었다. 포털이 ‘해당없음’으로 안내한 12시간권은
+#   ticket 을 None 으로 두었다(별표1과 다르면 quality['12시간권_차이']에 남긴다).
+OS_RATES = {
+    "운암공영주차장": {"grade": 1, "free": 60, "unit": 250, "ticket": 6_000,
+                  "month": 80_000, "month_day": 50_000, "month_night": 40_000, "month_label": "종일"},
+    "궐동 공영주차장": {"grade": 2, "free": 60, "unit": 200, "ticket": 4_000,
+                   "month": 60_000, "month_label": "종일"},
+    "궐동 제3공영주차장": {"grade": 1, "free": 60, "unit": 250, "ticket": 6_000,
+                    "month": 80_000, "month_label": "종일"},
+    "어울림(복개천)공영주차장": {"grade": 1, "free": 60, "unit": 250, "ticket": 6_000,
+                        "month": 80_000, "month_night": 40_000, "month_label": "종일"},
+    "오산역제2환승주차장": {"grade": 1, "free": 60, "unit": 100, "ticket": 2_400,
+                    "month": 40_000, "month_label": "종일", "transfer": True},
+    "세마역 환승주차장": {"grade": 1, "free": 60, "unit": 100, "ticket": 2_400,
+                  "month": 40_000, "month_label": "종일", "transfer": True},
+    "오산대역 환승주차장": {"grade": 1, "free": 60, "unit": 100, "ticket": 2_400,
+                   "month": 40_000, "month_label": "종일", "transfer": True},
+    "오색시장 주차장": {"grade": None, "free": 90, "unit": 200,
+                  "steps": ((180, 200), (None, 300)), "ticket": None},
+    "오산 오색시장 제2공영주차장": {"grade": None, "free": 90, "unit": 200,
+                           "steps": ((180, 200), (None, 300)), "ticket": None,
+                           "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "문화의거리 제2공영주차장": {"grade": 1, "free": 60, "unit": 250, "ticket": 6_000,
+                       "month": 40_000, "month_night": 40_000, "month_label": "야간"},
+    "삼미공영주차장": {"grade": None, "free": 120, "unit": 300, "ticket": 4_000,
+                 "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "은계동 공영주차장": {"grade": 2, "free": 120, "unit": 200, "ticket": 4_000,
+                   "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "오산천공영주차장": {"grade": None, "free": 120, "unit": 300, "ticket": 4_000,
+                  "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "수청동 공영주차장": {"grade": 2, "free": 60, "unit": 200, "ticket": 4_000,
+                   "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "양산동 공영주차장(양산도서관 옆)": {"grade": 2, "free": 60, "unit": 200, "ticket": 4_000,
+                              "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "청학동 공영주차장": {"grade": 2, "free": 60, "unit": 200, "ticket": 4_000,
+                   "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "대원동 공영주차장": {"grade": 2, "free": 60, "unit": 200, "ticket": None},
+    "독산성입구(동문) 공영주차장": {"grade": None, "free": 120, "unit": 200, "ticket": None,
+                          "month": 60_000, "month_night": 30_000, "month_label": "종일"},
+    "운암2 노상주차장": {"grade": 2, "free": 60, "unit": 100, "street": True,
+                  "steps": ((120, 100), (None, 200)), "ticket": None},
+}
+
+# 오산도시공사 주차포털 ‘주차장 현황’(2026-11-17)의 면수 — 유료 공영주차장만 있다.
+#   (부설주차장 6곳은 공영 요금표 대상이 아니라 이 사이트 카드로 만들지 않는다.)
+OS_PORTAL_SPACES = {
+    "운암공영주차장": 586, "궐동 공영주차장": 229, "어울림(복개천)공영주차장": 165,
+    "오산역제2환승주차장": 133, "세마역 환승주차장": 70, "오산대역 환승주차장": 99,
+    "오색시장 주차장": 100, "오산 오색시장 제2공영주차장": 177,
+    "문화의거리 제2공영주차장": 40, "삼미공영주차장": 116, "은계동 공영주차장": 117,
+    "오산천공영주차장": 142, "수청동 공영주차장": 55, "양산동 공영주차장(양산도서관 옆)": 62,
+    "청학동 공영주차장": 45, "대원동 공영주차장": 32, "궐동 제3공영주차장": 113,
+    "독산성입구(동문) 공영주차장": 81, "운암2 노상주차장": 16,
+}
+# 포털의 부설주차장 6곳 — 요금표 대상이 아니라 자주 묻는 질문에만 적는다.
+OS_FACILITIES = (("오산시청", 546, "최초 1시간 무료, 이후 10분당 300원, 1일(24시간) 최대 9,000원"),
+                 ("오색문화체육센터", 187, "최초 2시간 무료, 이후 10분당 300원"),
+                 ("오산스포츠센터", 345, "최초 2시간 무료, 이후 10분당 300원"),
+                 ("그린케어숲공원", 83, "최초 2시간 무료, 이후 10분당 300원(16인승 이상 2배)"),
+                 ("세교복지타운", 149, "최초 2시간 무료, 이후 10분당 300원"),
+                 ("은빛개울공원 제2", 30, "최초 2시간 무료, 이후 10분당 300원"))
+
+# 오산시 ‘주차요금의 감면’(조례 제10조, 주차포털 감면표 2026-11-17) —
+#   · 면제(1회 12시간까지): 긴급자동차, 공무수행차량, 외교사절 일행, 국가보훈대상자 자가운전,
+#     모범·유공납세자(1년), 장애 정도가 심한 장애인 탑승 차량, 국경일·기념일 행사 참여자,
+#     당일 투표 마친 선거인
+#   · 60% 경감: 장애 정도가 심하지 않은 장애인 자가운전, 경형자동차, 환승주차장
+#   · 50%: 10부제 함께 타기, 저공해차, 다자녀, 우수자원봉사자, 통장 직무수행,
+#     환경친화적 자동차(전기차는 1일 1회 2시간 면제), 장기·인체조직 기증자, 병역명문가
+#   · 정기권: 면제 대상 70%, 경감 대상 50% 경감. 감면이 겹치면 높은 하나만, 100원 미만 절사.
+OS_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·경증장애인·환승 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "경형자동차(1,000cc 미만), 장애 정도가 심하지 않은 장애인 자가운전, 환승주차장 이용"},
+    {"label": "저공해·다자녀·기증자 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "저공해차, 다자녀가정, 장기·인체조직 기증자, 병역명문가, 우수자원봉사자, "
+             "통장 직무수행, 환경친화적 자동차, 10부제 함께 타기"},
+    {"label": "전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "환경친화적 자동차 중 전기자동차 — 1일 1회 2시간까지 면제 뒤 50%"},
+    {"label": "중증장애인·유공자 12시간 면제 후 60%", "rate": 0.6, "exempt_min": 720,
+     "note": "장애 정도가 심한 장애인 탑승 차량, 국가보훈대상자 자가운전, 모범·유공납세자(1년) "
+             "— 1회 12시간까지 면제(이후 60% 경감)"},
+    {"label": "긴급·공무 차량 면제(12시간 한도)", "rate": 1.0, "exempt_min": 720,
+     "note": "긴급자동차, 국가·지방자치단체 공무수행 자동차, 외교사절 수행자 차량 "
+             "— 1회 12시간까지 면제"},
+]
+
+
+def os_dong_of(text: str):
+    """주소에서 오산시 법정동을 뽑는다 — ‘경기도 오산시 {법정동} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "오산시" and parts[2] in OS_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(OS_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def os_win(spans):
+    """시 홈페이지·주차포털 운영시간 → 사이트 공통 hours 객체(요일 셋 모두 같은 값).
+
+    spans 는 (평일, 토요일, 일·공휴일) 문자열. ‘24H’는 24시간, ‘09:00~23:00’은 그 구간이다.
+    """
+    win = {}
+    for key, txt in zip(("weekday", "sat", "sun"), spans):
+        if txt == "24H":
+            win[key] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                        "listed": True, "raw": ["00:00", "24:00"]}
+        else:
+            m = re.match(r"(\d{1,2}):(\d{2})~(\d{1,2}):(\d{2})", txt)
+            s = int(m.group(1)) * 60 + int(m.group(2))
+            e = int(m.group(3)) * 60 + int(m.group(4))
+            win[key] = {"open": True, "start": s, "end": e, "24h": False,
+                        "listed": True, "raw": [f"{s // 60:02d}:{s % 60:02d}",
+                                                f"{e // 60:02d}:{e % 60:02d}"]}
+    return win
+
+
+def os_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def os_fee(rate: dict, std=None, monthly=None):
+    """오산시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    별표1은 기본요금 없이 ‘최초 1시간(또는 2시간·1시간 30분) 무료’ 뒤 10분 단위 요금이 붙는다.
+    free_min 과 base_min 을 같은 값으로 두고 base_fee 를 0으로 두면 계산기가 ‘최초 N분 무료 ·
+    이후 10분마다 X원’으로 계산한다(평택시 90분 무료와 같은 방식). 12시간 주차권은 선불로
+    사는 1일권이라 시간 요금의 상한으로 둔다.
+    """
+    free = rate["free"]
+    steps = ([{"until": u, "unit_min": OS_UNIT_MIN, "unit_fee": f} for u, f in rate["steps"]]
+             if rate.get("steps") else None)
+    ticket = rate.get("ticket")
+    fee = {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": rate.get("grade"), "std_grade": None,
+        "base_min": free, "base_fee": 0,
+        "unit_min": OS_UNIT_MIN, "unit_fee": rate["unit"],
+        "steps": steps,
+        "steps_label": ("3시간 초과 10분당 300원" if rate.get("steps") == ((180, 200), (None, 300))
+                        else "2시간 초과 10분당 200원" if rate.get("steps") == ((120, 100), (None, 200))
+                        else None),
+        "free_min": free, "deduct_min": None,
+        "cap_fee": None,
+        "cap_src": ("12시간 한도" if rate.get("transfer") else
+                    "12시간권(선불)" if ticket else None),
+        "daily_hours": 12 if ticket else None,
+        "daily_fee": ticket,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": monthly if monthly is not None else rate.get("month"),
+        "monthly_day": rate.get("month_day"), "monthly_night": rate.get("month_night"),
+        "monthly_all": rate.get("month"),
+        "monthly_label": rate.get("month_label"),
+        "pay": "", "basis": None,
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": std,
+    }
+    if rate.get("transfer"):
+        fee["basis"] = (f"「오산시 주차장 조례」 별표1 노외 1급지 · 환승주차장 60% 경감"
+                        f"({rate['unit']}원/10분)")
+    elif rate.get("street"):
+        fee["basis"] = f"「오산시 주차장 조례」 별표1 노상 {rate['grade']}급지"
+    elif rate.get("grade"):
+        fee["basis"] = f"「오산시 주차장 조례」 별표1 노외 {rate['grade']}급지"
+    else:
+        fee["basis"] = "「오산시 주차장 조례」 별표1 별도 요금표"
+    return fee
+
+
+def build_osan():
+    """오산시 공영주차장을 표준데이터 + 오산시 누리집 요금표 + 오산도시공사 주차포털로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 오산시 범위를 벗어난 행은 제외(껍데기 행).
+      · 오산시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 표준데이터에 등록된 44행은 모두 주차장유형이 ‘노외’지만, 그중 ‘운암2 노상주차장’은
+        주차포털이 노상(09:00~23:00)으로 안내하고 요금도 별표1 노상 2급지라 노상 카드로 만든다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다(오산동·원동·궐동·수청동·청학동·세교동·내삼미동).
+    요금은 오산도시공사 주차포털의 주차장별 값(조례 별표1과 같은 숫자)을 쓰고, 운영시간은
+    유료 노외 24시간·운암2 노상 09:00~23:00으로 적었다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == OS_PROVIDER]
+    lots, excluded, merged, hour_fixed, space_diff, note_fixed = [], [], [], [], [], []
+    ticket_diff, city_fee_diff, unknown_rate = [], [], []
+    seen = {}
+    card_no = street_no = 0
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                src="표준데이터", notice=None, tel="", mgmt="", lat=None, lng=None,
+                base_date="", free_days=None, free_note=None, list_mode="card"):
+        nonlocal card_no, street_no
+        fee["pay"] = (r.get("결제방법") or "").strip() if r else ""
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": src,
+            "list_mode": list_mode,
+            "name": name,
+            "gu": "오산시",
+            "dong": dong,
+            "dong_src": "지번주소" if r and os_dong_of((r.get("소재지지번주소") or "")) else
+                        ("도로명주소" if r and os_dong_of((r.get("소재지도로명주소") or "")) else
+                         ("시 홈페이지 주소" if src != "표준데이터" else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "오산도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "오산시",
+            "city_slug": "osan",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        jibun_key = re.sub(r"\s", "", jibun)
+        name_key = re.sub(r"\s+", "", name)
+        dup_key = None
+        if jibun_key and ("지번", jibun_key, ptype, spaces) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif name_key and ("이름", name_key, ptype) in seen:
+            dup_key = ("이름", name_key, ptype)
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and name_key:
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", name_key, ptype)] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (OS_BBOX[0] <= lat <= OS_BBOX[1]
+                                     and OS_BBOX[2] <= lng <= OS_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = os_dong_of(jibun) or os_dong_of(road)
+        rate = OS_RATES.get(name)
+        note_raw = (r.get("특기사항") or "")
+        win, oper, _closed = parse_schedule(r, note_raw)
+        notice = None
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        daily_h = to_int(r.get("1일주차권요금적용시간"))
+        daily = to_int(r.get("1일주차권요금"))
+        monthly_std = to_int(r.get("월정기권요금"))
+
+        # 운영시간 — 유료 노외는 24시간 연중무휴, 운암2 노상은 09:00~23:00(주차포털·별표1 비고3).
+        if rate is None:
+            # 무료 임시공영주차장 — 표준데이터 등록값(00:00~23:59, 평일+토+공휴일)을 그대로 쓴다.
+            win = os_win(("00:00~23:59", "00:00~23:59", "00:00~23:59"))
+            oper = {k: True for k in ("weekday", "sat", "sun")}
+        elif rate.get("street"):
+            want = os_win(("09:00~23:00",) * 3)
+            if (win["weekday"]["start"], win["weekday"]["end"]) != (want["weekday"]["start"],
+                                                                  want["weekday"]["end"]):
+                hour_fixed.append(f"{name}: 표준데이터 {win['weekday']['raw'][0]}~"
+                                  f"{win['weekday']['raw'][1]} → 노상 운영시간 09:00~23:00")
+            win, oper = want, {k: True for k in ("weekday", "sat", "sun")}
+        else:
+            if not all(win[k]["24h"] for k in ("weekday", "sat", "sun")) or \
+                    not all(oper[k] for k in ("weekday", "sat", "sun")):
+                hour_fixed.append(f"{name}: 표준데이터 {win['weekday']['raw'][0]}~"
+                                  f"{win['weekday']['raw'][1]} → 유료 노외 24시간 연중무휴")
+            win = os_win(("24H",) * 3)
+            oper = {k: True for k in ("weekday", "sat", "sun")}
+
+        if rate is None:
+            fee = os_free_fee()
+            if (r.get("요금정보") or "").strip() == "유료":
+                notice = "표준데이터는 유료로 등록했지만 이 사이트는 요금을 찾지 못했습니다 — 현장 확인"
+                unknown_rate.append(name)
+        else:
+            fee = os_fee(rate, monthly=rate.get("month"))
+            fee["std_grade"] = to_int(r.get("급지구분"))
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                          "base_fee": to_int(r.get("주차기본요금")),
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily, "day_hours": daily_h, "monthly": monthly_std}
+            # 표준데이터 등록값과 실제 적용값이 다른 부분을 남긴다(값은 포털·별표1을 쓴다).
+            if daily is not None and rate.get("ticket") is not None and daily != rate["ticket"]:
+                ticket_diff.append(f"{name}: 표준데이터 1일 주차권 {daily:,}원"
+                                   f"(적용 12시간권 {rate['ticket']:,}원)")
+            elif daily is None and rate.get("ticket"):
+                ticket_diff.append(f"{name}: 표준데이터에 1일 주차권 없음"
+                                   f"(적용 12시간권 {rate['ticket']:,}원)")
+            elif daily is None and rate.get("ticket") is None and name in (
+                    "오색시장 주차장", "운암2 노상주차장"):
+                ticket_diff.append(f"{name}: 주차포털은 12시간 주차권 해당없음"
+                                   f"(조례 별표1에는 {'5,000' if rate.get('street') else '4,000'}원권)")
+
+        # 주차포털과 표준데이터의 면수가 다른 곳 — 표준데이터 등록면수를 쓰고 카드에 적는다.
+        portal_spaces = OS_PORTAL_SPACES.get(name)
+        if portal_spaces and portal_spaces != spaces:
+            space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 주차포털 {portal_spaces}면")
+            notice = ((notice + " · ") if notice else "") + \
+                (f"오산도시공사 주차포털은 {portal_spaces}면으로 안내합니다"
+                 f"(표준데이터 {spaces}면)")
+
+        # 주차장별 안내 — 요금 구조와 현장 사정을 카드에 적는다.
+        extra = []
+        if rate and rate.get("transfer"):
+            extra.append("환승주차장은 도시철도 환승 목적 차량에 60% 경감을 적용해 10분당 100원이고, "
+                         "12시간까지 최대 2,400원·월 정기권 40,000원(50% 감면)입니다. "
+                         "환승하지 않은 차량은 노외 1급지 요금(10분당 250원)이 적용됩니다")
+        if rate and rate.get("steps") and not rate.get("street"):
+            extra.append("오색시장 제1·2 공영주차장은 조례 별표1의 별도 요금표를 씁니다 — 최초 1시간 30분 "
+                         "무료, 3시간까지 10분당 200원, 3시간을 넘기면 300원입니다")
+            if name == "오색시장 주차장":
+                extra.append("조례 별표1은 두 곳 모두 월 야간권 30,000원·월 정기권 60,000원을 두고 있지만, "
+                             "주차포털은 이 곳(제1)의 정기권을 ‘해당없음’으로, 제2만 종일 60,000원·야간 "
+                             "30,000원으로 안내합니다")
+        if name in ("은계동 공영주차장", "삼미공영주차장"):
+            extra.append("조례 별표1 비고는 이 두 주차장 이용객에게 처음 180분까지 무료로 적용할 수 있게 "
+                         "하고, 주차포털은 최초 2시간(120분) 무료로 안내합니다")
+        if name == "삼미공영주차장":
+            extra.append("캐러반·캠핑카 전용 61면이 있고, 캠핑카·카라반은 노외 1급지 월 정기권 80,000원을 "
+                         "적용합니다(감면 제외). 시 홈페이지는 내삼미동 454-4, 표준데이터·주차포털은 "
+                         "내삼미동 702-3으로 적습니다")
+        if name == "오산역 임시공영주차장":
+            extra.append("오산역 제1 환승 공영주차장(오산동 625-1, 216면)이 공사 중이어서 그 자리에 "
+                         "임시로 운영하는 무료 주차장입니다(오산도시공사 주차포털)")
+        if name == "운암2 노상주차장":
+            extra.append("도로변 노상주차장(16면)으로 09:00~23:00에만 운영합니다. 조례 별표1 노상 2급지 "
+                         "요금(최초 1시간 무료·2시간까지 10분당 100원·2시간 초과 200원)을 적용하고, "
+                         "주차포털도 같은 값입니다")
+            extra.append("조례 별표1 노상 2급지에는 12시간 주차권 5,000원이 있으나 주차포털은 해당없음으로 "
+                         "안내해 1일권 없이 계산합니다")
+        if name == "독산성입구(동문) 공영주차장":
+            extra.append("조례 별표1에는 12시간 주차권 4,000원이 있으나 주차포털은 해당없음으로 안내해 "
+                         "1일권 없이 계산합니다")
+        if name == "대원동 공영주차장":
+            extra.append("12시간 주차권과 월 정기권은 운영하지 않습니다(주차포털)")
+        if name == "문화의거리 제2공영주차장":
+            extra.append("월 정기권은 야간권(19:00~익일 09:00) 40,000원만 운영합니다(주차포털)")
+        if name == "궐동 공영주차장":
+            extra.append("표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지"
+                         "(10분당 200원·월 60,000원)입니다(주차포털·별표1 비고4: 1급지=상업지역)")
+        if name in ("청학동 공영주차장", "수청동 공영주차장", "양산동 공영주차장(양산도서관 옆)",
+                    "대원동 공영주차장"):
+            extra.append("표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지"
+                         "(10분당 200원)입니다(주차포털)")
+        if extra:
+            notice = " · ".join(([notice] if notice else []) + extra)
+
+        if rate is None:
+            note_fixed.append(f"{name}: 요금 구분 ‘무료’ — 요일과 관계없이 무료")
+        add_lot(name, jibun, road, "노상" if (rate and rate.get("street")) else
+                ("노외" if ptype != "노상" else ptype), spaces, dong, win, oper, fee, r=r,
+                notice=notice, tel=(r.get("전화번호") or "").strip(),
+                mgmt=(r.get("관리기관명") or "").strip() or "오산도시공사",
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    # 오산시 누리집 요금표(급지별)는 30분 기본요금으로 적혀 있어 조례 별표1과 다르다 — 한 번만 남긴다.
+    city_fee_diff.append("노외: 시 누리집 ‘처음 30분 1급지 500원·2급지 300원’ ↔ 조례 별표1·주차포털 "
+                         "‘최초 1시간 무료 + 10분당 1급지 250원·2급지 200원’")
+    city_fee_diff.append("노상: 시 누리집 ‘2시간까지 10분당 200원(1급지)·100원(2급지)’ ↔ 조례 별표1 "
+                         "‘최초 1시간 무료 + 2시간까지 200·100원, 2시간 초과 400·200원’")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"osn-{i:03d}" if l["list_mode"] == "card" else f"osn-s{i:03d}"
+
+    quality = check_quality_osan(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                 space_diff, note_fixed, ticket_diff, city_fee_diff, unknown_rate)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(OS_PORTAL_LIST_TXT).strftime("%Y-%m-%d %H:%M")
+                           if OS_PORTAL_LIST_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "오산시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-13",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 오산시가 등록한 44행(모두 노외)을 읽었다. 이름·주소·구획수·"
+                             "급지·운영요일·운영시간·좌표·전화·관리번호·결제방법과 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "ordinance", "name": "오산시 주차장 조례 [별표 1] 공영주차장 주차요금표",
+                    "org": "오산시(교통정책과 031-8036-7729)", "url": OS_ORDINANCE_URL,
+                    "file": OS_ORD_TXT.name,
+                    "sha256": sha256(OS_ORD_TXT) if OS_ORD_TXT.exists() else None,
+                    "license": "자치법규(공개)", "base_date": OS_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(OS_ORD_TXT),
+                    "note": ("노외 1급지 최초 1시간 무료 + 10분당 250원·12시간 주차권 6,000원·월 야간권 "
+                             "40,000원·월 정기권 80,000원, 2급지 200원·4,000·30,000·60,000원, 노상 1급지 "
+                             "2시간까지 200원·초과 400원·12시간권 10,000원, 2급지 100·200·5,000원, "
+                             "오색시장 제1·2(1시간 30분 무료·200→300원), 오산천(2시간 무료·300원), "
+                             "독산성입구(동문)(2시간 무료·200원)을 별표/서식 화면에서 확인했다. "
+                             "급지(1급지 상업지역, 2급지 주거·공업지역·그 밖), 노상 운영시간 "
+                             "09:00~23:00, 환승주차장은 노외 1급지 요금, 은계동·삼미 180분 무료 규정도 "
+                             "함께 읽었다."),
+                },
+                {
+                    "id": "city_fee", "name": "오산시 공영주차장 주차요금표",
+                    "org": "오산시 누리집", "url": OS_CITY_FEE_URL,
+                    "file": OS_CITY_FEE_TXT.name if OS_CITY_FEE_TXT.exists() else None,
+                    "sha256": sha256(OS_CITY_FEE_TXT) if OS_CITY_FEE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": None, "fetched_at": _sync_time(OS_CITY_FEE_TXT),
+                    "note": ("급지별 요금표(노상 2시간까지 200·100원, 2시간 초과 400·200원, 노외 "
+                             "30분 500·300원, 10분당 250·200원, 1일 6,000·4,000원, 월 80,000·60,000원)를 "
+                             "읽었다. 이 표에는 ‘최초 1시간 무료’가 빠져 있어 조례 별표1·주차포털과 "
+                             "다르고, 값은 조례 별표1을 썼다(품질 리포트 ‘시_요금표_차이’)."),
+                },
+                {
+                    "id": "portal_fee", "name": "오산도시공사 주차포털 공영주차장 요금안내",
+                    "org": "오산도시공사(031-371-1830)", "url": OS_PORTAL_FEE_URL,
+                    "file": OS_PORTAL_FEE_TXT.name if OS_PORTAL_FEE_TXT.exists() else None,
+                    "sha256": sha256(OS_PORTAL_FEE_TXT) if OS_PORTAL_FEE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 26, "fetched_at": _sync_time(OS_PORTAL_FEE_TXT),
+                    "note": ("주차장별 무료시간(1시간·2시간·1시간 30분)·10분당 요금·12시간권(선불)·"
+                             "월 정기권(종일·주간·야간)과 감면표(100%·60%·50%)·12시간권 선불 규정"
+                             "(입차 4시간 내 구매, 12시간 경과 후 시간제)·정기권 환불 규정을 확인했다."),
+                },
+                {
+                    "id": "portal_list", "name": "오산도시공사 주차포털 주차장 현황·운영시간",
+                    "org": "오산도시공사(031-371-1830)", "url": OS_PORTAL_LIST_URL,
+                    "file": OS_PORTAL_LIST_TXT.name if OS_PORTAL_LIST_TXT.exists() else None,
+                    "sha256": sha256(OS_PORTAL_LIST_TXT) if OS_PORTAL_LIST_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 26, "fetched_at": _sync_time(OS_PORTAL_LIST_TXT),
+                    "note": ("유료 공영주차장 19곳(노외 18·노상 1)과 부설주차장 6곳의 면수·운영시간"
+                             "(24시간 유료운영, 노상 09:00~23:00)·명절연휴 무료개방, 오산역 제1 환승 "
+                             "공영주차장의 공사중 표기를 확인했다. 면수는 표준데이터와 "
+                             f"{len(space_diff)}곳이 다르다."),
+                },
+                {
+                    "id": "city_map", "name": "오산시 누리집 공영주차장 위치안내",
+                    "org": "오산시 누리집", "url": OS_CITY_MAP_URL,
+                    "file": OS_CITY_MAP_TXT.name if OS_CITY_MAP_TXT.exists() else None,
+                    "sha256": sha256(OS_CITY_MAP_TXT) if OS_CITY_MAP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 18, "fetched_at": _sync_time(OS_CITY_MAP_TXT),
+                    "note": ("시가 안내하는 유료 공영주차장 18곳의 명칭·주소를 확인했다(무료 임시공영 "
+                             "25곳은 들어 있지 않다). 삼미 공영주차장은 시 안내가 내삼미동 454-4, "
+                             "표준데이터·주차포털은 내삼미동 702-3으로 적는다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in OS_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "osan_free_hour",
+            "unit_min": OS_UNIT_MIN,
+            "free_min": 60,
+            "applies": OS_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "상업지역", "free": 60, "unit": 250, "ticket": 6_000,
+                 "night": 40_000, "month": 80_000, "lots": 0},
+                {"grade": 2, "where": "주거지역·공업지역·그 밖의 지역", "free": 60, "unit": 200,
+                 "ticket": 4_000, "night": 30_000, "month": 60_000, "lots": 0},
+            ],
+            "street": [
+                {"grade": 1, "free": 60, "unit2": 200, "unit_over": 400, "ticket": 10_000},
+                {"grade": 2, "free": 60, "unit2": 100, "unit_over": 200, "ticket": 5_000},
+            ],
+            "special": [
+                {"name": "오색시장 제1", "free": 90, "tiers": "3시간까지 10분당 200원 → 3시간 초과 300원",
+                 "ticket": None, "month": None, "night": None},
+                {"name": "오색시장 제2", "free": 90, "tiers": "3시간까지 10분당 200원 → 3시간 초과 300원",
+                 "ticket": None, "month": 60_000, "night": 30_000},
+                {"name": "오산천", "free": 120, "tiers": "2시간 초과 10분당 300원",
+                 "ticket": 4_000, "month": 60_000, "night": 30_000},
+                {"name": "독산성입구(동문)", "free": 120, "tiers": "2시간 초과 10분당 200원",
+                 "ticket": None, "month": 60_000, "night": 30_000},
+                {"name": "환승 3곳(오산역 제2·세마역·오산대역)", "free": 60,
+                 "tiers": "10분당 100원(환승 60% 경감, 12시간까지 최대 2,400원)",
+                 "ticket": None, "month": 40_000, "night": None},
+            ],
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "grade": l["fee"].get("grade"),
+                 "free": l["fee"].get("free_min"), "unit": l["fee"].get("unit_fee"),
+                 "ticket": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly"),
+                 "month_label": l["fee"].get("monthly_label")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "corp": {"out": len([l for l in lots if l["fee"]["type"] == "유료" and l["ptype"] == "노외"]),
+                     "st": len([l for l in lots if l["ptype"] == "노상"]),
+                     "st_spaces": sum(l["spaces"] or 0 for l in lots if l["ptype"] == "노상"),
+                     "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                     "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                     "portal_sum": 3_702,
+                     "fac": len(OS_FACILITIES),
+                     "fac_spaces": sum(f[1] for f in OS_FACILITIES)},
+            "basis": ("「오산시 주차장 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({OS_ORDINANCE_NOTE}) · 오산도시공사 주차포털 요금안내(2026-11-17) · "
+                      "표준데이터 등록값(2026-10-13) 대조"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["오산시"] | {
+        "city": "오산시",
+        "weekend_free_pages": False,
+        "discounts": OS_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "osan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_osan(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                       note_fixed, ticket_diff, city_fee_diff, unknown_rate):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_오산시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "특기사항_보정": note_fixed,
+        "12시간권_차이": ticket_diff,
+        "정기권_차이": [f"{l['name']}: 주차포털은 정기권 해당없음"
+                     f"(조례 별표1 월 야간권 30,000·월 정기권 60,000원)"
+                     for l in lots if l["name"] == "오색시장 주차장" and not l["fee"].get("monthly")],
+        "시_요금표_차이": city_fee_diff,
+        "요금_미상_유료행": unknown_rate,
+        "무료시간_출처": "「오산시 주차장 조례」 별표1(개정 2025-05-22) · 오산도시공사 주차포털",
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
              "hanam": ["하남시"], "gunpo": ["군포시"],
-             "gwangmyeong": ["광명시"], "guri": ["구리시"]}[args.city])
+             "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -10320,6 +10997,8 @@ def main():
         cities.append(build_gwangmyeong())
     if "구리시" in want:
         cities.append(build_guri())
+    if "오산시" in want:
+        cities.append(build_osan())
 
     if args.city == "all":
         site = build_site_payload(cities)

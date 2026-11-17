@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 14:30",
+  "generated_at": "2026-11-17 15:11",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -121,6 +121,12 @@
    {
     "city": "구리시",
     "slug": "guri",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "오산시",
+    "slug": "osan",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -995,6 +1001,76 @@
     "fetched_at": "2026-11-17 13:53 (KST)",
     "note": "공공기관·학교·종교시설 부설주차장을 시간대를 정해 무료로 여는 공유주차장 19개소 2,251면(시청 597면·수택3동 173면·체육관 232면·구리유통종합시장 924면 등) 확인용 — 공영주차장 요금표 대상이 아니라 카드로 만들지 않고 자주 묻는 질문에 안내했다.",
     "city": "구리시"
+   },
+   {
+    "id": "ordinance",
+    "name": "오산시 주차장 조례 [별표 1] 공영주차장 주차요금표",
+    "org": "오산시(교통정책과 031-8036-7729)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127813&gubun=ELIS&conDatGubunCd=1",
+    "file": "osan.law.go.kr_주차장조례_20261117.txt",
+    "sha256": "99aa89f39e410c90d23ebdf4fa2a316e891462e940a59cb26146aecdeb12dca4",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-05-06 · 경기도오산시조례 제2363호(국가법령정보센터) · 별표1 개정 2025-05-22",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 15:20 (KST)",
+    "note": "노외 1급지 최초 1시간 무료 + 10분당 250원·12시간 주차권 6,000원·월 야간권 40,000원·월 정기권 80,000원, 2급지 200원·4,000·30,000·60,000원, 노상 1급지 2시간까지 200원·초과 400원·12시간권 10,000원, 2급지 100·200·5,000원, 오색시장 제1·2(1시간 30분 무료·200→300원), 오산천(2시간 무료·300원), 독산성입구(동문)(2시간 무료·200원)을 별표/서식 화면에서 확인했다. 급지(1급지 상업지역, 2급지 주거·공업지역·그 밖), 노상 운영시간 09:00~23:00, 환승주차장은 노외 1급지 요금, 은계동·삼미 180분 무료 규정도 함께 읽었다.",
+    "city": "오산시"
+   },
+   {
+    "id": "city_fee",
+    "name": "오산시 공영주차장 주차요금표",
+    "org": "오산시 누리집",
+    "url": "https://www.osan.go.kr/depart/contents.do?mId=0304020000",
+    "file": "osan.go.kr_공영주차장_요금표_20261117.txt",
+    "sha256": "c386e3ed8dcccce59fde4b7ad36435d80ba55ea01b5ad3bdbd4de23d852f1e62",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 15:20 (KST)",
+    "note": "급지별 요금표(노상 2시간까지 200·100원, 2시간 초과 400·200원, 노외 30분 500·300원, 10분당 250·200원, 1일 6,000·4,000원, 월 80,000·60,000원)를 읽었다. 이 표에는 ‘최초 1시간 무료’가 빠져 있어 조례 별표1·주차포털과 다르고, 값은 조례 별표1을 썼다(품질 리포트 ‘시_요금표_차이’).",
+    "city": "오산시"
+   },
+   {
+    "id": "portal_fee",
+    "name": "오산도시공사 주차포털 공영주차장 요금안내",
+    "org": "오산도시공사(031-371-1830)",
+    "url": "https://parking.osuc.or.kr/park/fee",
+    "file": "parking.osuc.or.kr_공영주차장_요금안내_20261117.txt",
+    "sha256": "679887d7269efb7076dce8f12013b635e8512bbd3e5ad95c58957c1850a998e3",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 26,
+    "fetched_at": "2026-11-17 15:20 (KST)",
+    "note": "주차장별 무료시간(1시간·2시간·1시간 30분)·10분당 요금·12시간권(선불)·월 정기권(종일·주간·야간)과 감면표(100%·60%·50%)·12시간권 선불 규정(입차 4시간 내 구매, 12시간 경과 후 시간제)·정기권 환불 규정을 확인했다.",
+    "city": "오산시"
+   },
+   {
+    "id": "portal_list",
+    "name": "오산도시공사 주차포털 주차장 현황·운영시간",
+    "org": "오산도시공사(031-371-1830)",
+    "url": "https://parking.osuc.or.kr/park/introduction",
+    "file": "parking.osuc.or.kr_공영주차장_현황_20261117.txt",
+    "sha256": "3bb8139d2f773fbb357c843736584321d2d95c2e18a1c1b8d7f29c927aa8e52c",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 26,
+    "fetched_at": "2026-11-17 15:20 (KST)",
+    "note": "유료 공영주차장 19곳(노외 18·노상 1)과 부설주차장 6곳의 면수·운영시간(24시간 유료운영, 노상 09:00~23:00)·명절연휴 무료개방, 오산역 제1 환승 공영주차장의 공사중 표기를 확인했다. 면수는 표준데이터와 13곳이 다르다.",
+    "city": "오산시"
+   },
+   {
+    "id": "city_map",
+    "name": "오산시 누리집 공영주차장 위치안내",
+    "org": "오산시 누리집",
+    "url": "https://www.osan.go.kr/depart/contents.do?mId=0304010000",
+    "file": "osan.go.kr_공영주차장_위치안내_20261117.txt",
+    "sha256": "c66156bf2e834c15c4b4b597283869965aaa5c04c94ab72cb4210b0869870448",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 18,
+    "fetched_at": "2026-11-17 15:20 (KST)",
+    "note": "시가 안내하는 유료 공영주차장 18곳의 명칭·주소를 확인했다(무료 임시공영 25곳은 들어 있지 않다). 삼미 공영주차장은 시 안내가 내삼미동 454-4, 표준데이터·주차포털은 내삼미동 702-3으로 적는다.",
+    "city": "오산시"
    }
   ]
  },
@@ -1023,7 +1099,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -1250,7 +1326,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1437,7 +1513,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -1631,7 +1707,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -1770,7 +1846,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -1957,7 +2033,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -2124,7 +2200,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -2343,7 +2419,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -2548,7 +2624,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -2782,7 +2858,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -3517,7 +3593,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -3880,7 +3956,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -4160,7 +4236,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4407,7 +4483,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -4686,7 +4762,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -4921,7 +4997,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 35,
     "원자료_하남시행수": 35,
@@ -5188,7 +5264,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 80,
     "원자료_군포시행수": 80,
@@ -5535,7 +5611,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 28,
     "원자료_광명시행수": 28,
@@ -5756,7 +5832,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 14:30",
+    "generated_at": "2026-11-17 15:11",
     "원자료_전국행수": 18994,
     "원자료_행수": 15,
     "원자료_구리시행수": 15,
@@ -5966,6 +6042,469 @@
      "city_st_spaces": 144
     },
     "basis": "「구리시 주차장 조례」 [별표 1] 공영주차장 주차요금표(시행 2023-10-16 · 경기도구리시조례 제2161호(국가법령정보센터) · 최신 공포본 2026-04-06) · 구리시 노외·노상주차장 요금표(2026-10-30) · 표준데이터 등록값(2026-10-13) 대조"
+   }
+  },
+  {
+   "city": "오산시",
+   "slug": "osan",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "오산시",
+     "slug": "osan"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 15:11",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 44,
+    "원자료_오산시행수": 44,
+    "제외_행수": 0,
+    "제외_행": [],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 44,
+    "노외_부설": {
+     "노외": 43,
+     "노상": 1
+    },
+    "노상_구간": 0,
+    "총_구획수": 3653,
+    "노상_구획수": 0,
+    "동별": {
+     "오산동": 9,
+     "원동": 8,
+     "궐동": 6,
+     "수청동": 5,
+     "내삼미동": 3,
+     "세교동": 3,
+     "청학동": 3,
+     "양산동": 2,
+     "지곶동": 2,
+     "갈곶동": 1,
+     "누읍동": 1,
+     "은계동": 1
+    },
+    "동수": 12,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 44
+    },
+    "요금구분": {
+     "무료": 25,
+     "유료": 19
+    },
+    "요금_미상": [],
+    "급지별": {
+     "2": 7,
+     "1": 7
+    },
+    "표준데이터_급지": {
+     "1": 17,
+     "2": 2
+    },
+    "운영시간_보정": [],
+    "면수_차이": [
+     "오산천공영주차장: 표준데이터 150면 ↔ 주차포털 142면",
+     "삼미공영주차장: 표준데이터 212면 ↔ 주차포털 116면",
+     "문화의거리 제2공영주차장: 표준데이터 41면 ↔ 주차포털 40면",
+     "궐동 제3공영주차장: 표준데이터 112면 ↔ 주차포털 113면",
+     "어울림(복개천)공영주차장: 표준데이터 163면 ↔ 주차포털 165면",
+     "독산성입구(동문) 공영주차장: 표준데이터 84면 ↔ 주차포털 81면",
+     "청학동 공영주차장: 표준데이터 46면 ↔ 주차포털 45면",
+     "오산역제2환승주차장: 표준데이터 132면 ↔ 주차포털 133면",
+     "양산동 공영주차장(양산도서관 옆): 표준데이터 64면 ↔ 주차포털 62면",
+     "은계동 공영주차장: 표준데이터 118면 ↔ 주차포털 117면",
+     "오색시장 주차장: 표준데이터 105면 ↔ 주차포털 100면",
+     "오산 오색시장 제2공영주차장: 표준데이터 184면 ↔ 주차포털 177면",
+     "운암공영주차장: 표준데이터 593면 ↔ 주차포털 586면"
+    ],
+    "특기사항_보정": [
+     "갈곶동 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "오산역 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "남촌동 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "남촌마을 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "지곶동 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "대원동 제2공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "꿈두레도서관 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "수청동 제3임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "수청동 제2임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "궐동 제4임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "수청동 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "오산역환승센터 철도변노상주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "원동복개도로 노상주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "궐리사학당 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "신장동 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "독산성 서쪽 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "누읍동 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "내삼미동 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "세마역 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "밀머리길 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "청학동 임시공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "성산초교 뒤 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "궐동 복개천 주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "궐리사앞 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료",
+     "원동 공영주차장: 요금 구분 ‘무료’ — 요일과 관계없이 무료"
+    ],
+    "12시간권_차이": [
+     "운암2 노상주차장: 주차포털은 12시간 주차권 해당없음(조례 별표1에는 5,000원권)",
+     "어울림(복개천)공영주차장: 표준데이터에 1일 주차권 없음(적용 12시간권 6,000원)",
+     "오색시장 주차장: 주차포털은 12시간 주차권 해당없음(조례 별표1에는 4,000원권)"
+    ],
+    "정기권_차이": [
+     "오색시장 주차장: 주차포털은 정기권 해당없음(조례 별표1 월 야간권 30,000·월 정기권 60,000원)"
+    ],
+    "시_요금표_차이": [
+     "노외: 시 누리집 ‘처음 30분 1급지 500원·2급지 300원’ ↔ 조례 별표1·주차포털 ‘최초 1시간 무료 + 10분당 1급지 250원·2급지 200원’",
+     "노상: 시 누리집 ‘2시간까지 10분당 200원(1급지)·100원(2급지)’ ↔ 조례 별표1 ‘최초 1시간 무료 + 2시간까지 200·100원, 2시간 초과 400·200원’"
+    ],
+    "요금_미상_유료행": [],
+    "무료시간_출처": "「오산시 주차장 조례」 별표1(개정 2025-05-22) · 오산도시공사 주차포털",
+    "일요일_무료표기": [],
+    "무료개방_표기": [],
+    "무료_요금구분": 25,
+    "평균_기본요금": 0,
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [],
+    "주소_없음": [],
+    "이름중복": [],
+    "관리번호중복": [],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-10-13"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "경차·경증장애인·환승 60%",
+     "rate": 0.6,
+     "exempt_min": 0,
+     "note": "경형자동차(1,000cc 미만), 장애 정도가 심하지 않은 장애인 자가운전, 환승주차장 이용"
+    },
+    {
+     "label": "저공해·다자녀·기증자 등 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "저공해차, 다자녀가정, 장기·인체조직 기증자, 병역명문가, 우수자원봉사자, 통장 직무수행, 환경친화적 자동차, 10부제 함께 타기"
+    },
+    {
+     "label": "전기차 2시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 120,
+     "note": "환경친화적 자동차 중 전기자동차 — 1일 1회 2시간까지 면제 뒤 50%"
+    },
+    {
+     "label": "중증장애인·유공자 12시간 면제 후 60%",
+     "rate": 0.6,
+     "exempt_min": 720,
+     "note": "장애 정도가 심한 장애인 탑승 차량, 국가보훈대상자 자가운전, 모범·유공납세자(1년) — 1회 12시간까지 면제(이후 60% 경감)"
+    },
+    {
+     "label": "긴급·공무 차량 면제(12시간 한도)",
+     "rate": 1.0,
+     "exempt_min": 720,
+     "note": "긴급자동차, 국가·지방자치단체 공무수행 자동차, 외교사절 수행자 차량 — 1회 12시간까지 면제"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "osan_free_hour",
+    "unit_min": 10,
+    "free_min": 60,
+    "applies": "시행 2026-05-06 · 경기도오산시조례 제2363호(국가법령정보센터) · 별표1 개정 2025-05-22",
+    "off": [
+     {
+      "grade": 1,
+      "where": "상업지역",
+      "free": 60,
+      "unit": 250,
+      "ticket": 6000,
+      "night": 40000,
+      "month": 80000,
+      "lots": 7
+     },
+     {
+      "grade": 2,
+      "where": "주거지역·공업지역·그 밖의 지역",
+      "free": 60,
+      "unit": 200,
+      "ticket": 4000,
+      "night": 30000,
+      "month": 60000,
+      "lots": 7
+     }
+    ],
+    "street": [
+     {
+      "grade": 1,
+      "free": 60,
+      "unit2": 200,
+      "unit_over": 400,
+      "ticket": 10000
+     },
+     {
+      "grade": 2,
+      "free": 60,
+      "unit2": 100,
+      "unit_over": 200,
+      "ticket": 5000
+     }
+    ],
+    "special": [
+     {
+      "name": "오색시장 제1",
+      "free": 90,
+      "tiers": "3시간까지 10분당 200원 → 3시간 초과 300원",
+      "ticket": null,
+      "month": null,
+      "night": null
+     },
+     {
+      "name": "오색시장 제2",
+      "free": 90,
+      "tiers": "3시간까지 10분당 200원 → 3시간 초과 300원",
+      "ticket": null,
+      "month": 60000,
+      "night": 30000
+     },
+     {
+      "name": "오산천",
+      "free": 120,
+      "tiers": "2시간 초과 10분당 300원",
+      "ticket": 4000,
+      "month": 60000,
+      "night": 30000
+     },
+     {
+      "name": "독산성입구(동문)",
+      "free": 120,
+      "tiers": "2시간 초과 10분당 200원",
+      "ticket": null,
+      "month": 60000,
+      "night": 30000
+     },
+     {
+      "name": "환승 3곳(오산역 제2·세마역·오산대역)",
+      "free": 60,
+      "tiers": "10분당 100원(환승 60% 경감, 12시간까지 최대 2,400원)",
+      "ticket": null,
+      "month": 40000,
+      "night": null
+     }
+    ],
+    "lots": [
+     {
+      "name": "궐동 공영주차장",
+      "dong": "궐동",
+      "grade": 2,
+      "free": 60,
+      "unit": 200,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "궐동 제3공영주차장",
+      "dong": "궐동",
+      "grade": 1,
+      "free": 60,
+      "unit": 250,
+      "ticket": 6000,
+      "month": 80000,
+      "month_label": "종일"
+     },
+     {
+      "name": "삼미공영주차장",
+      "dong": "내삼미동",
+      "grade": null,
+      "free": 120,
+      "unit": 300,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "세마역 환승주차장",
+      "dong": "세교동",
+      "grade": 1,
+      "free": 60,
+      "unit": 100,
+      "ticket": 2400,
+      "month": 40000,
+      "month_label": "종일"
+     },
+     {
+      "name": "수청동 공영주차장",
+      "dong": "수청동",
+      "grade": 2,
+      "free": 60,
+      "unit": 200,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "오산대역 환승주차장",
+      "dong": "수청동",
+      "grade": 1,
+      "free": 60,
+      "unit": 100,
+      "ticket": 2400,
+      "month": 40000,
+      "month_label": "종일"
+     },
+     {
+      "name": "양산동 공영주차장(양산도서관 옆)",
+      "dong": "양산동",
+      "grade": 2,
+      "free": 60,
+      "unit": 200,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "오산 오색시장 제2공영주차장",
+      "dong": "오산동",
+      "grade": null,
+      "free": 90,
+      "unit": 200,
+      "ticket": null,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "오산역제2환승주차장",
+      "dong": "오산동",
+      "grade": 1,
+      "free": 60,
+      "unit": 100,
+      "ticket": 2400,
+      "month": 40000,
+      "month_label": "종일"
+     },
+     {
+      "name": "오산천공영주차장",
+      "dong": "오산동",
+      "grade": null,
+      "free": 120,
+      "unit": 300,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "오색시장 주차장",
+      "dong": "오산동",
+      "grade": null,
+      "free": 90,
+      "unit": 200,
+      "ticket": null,
+      "month": null,
+      "month_label": null
+     },
+     {
+      "name": "운암2 노상주차장",
+      "dong": "오산동",
+      "grade": 2,
+      "free": 60,
+      "unit": 100,
+      "ticket": null,
+      "month": null,
+      "month_label": null
+     },
+     {
+      "name": "대원동 공영주차장",
+      "dong": "원동",
+      "grade": 2,
+      "free": 60,
+      "unit": 200,
+      "ticket": null,
+      "month": null,
+      "month_label": null
+     },
+     {
+      "name": "문화의거리 제2공영주차장",
+      "dong": "원동",
+      "grade": 1,
+      "free": 60,
+      "unit": 250,
+      "ticket": 6000,
+      "month": 40000,
+      "month_label": "야간"
+     },
+     {
+      "name": "어울림(복개천)공영주차장",
+      "dong": "원동",
+      "grade": 1,
+      "free": 60,
+      "unit": 250,
+      "ticket": 6000,
+      "month": 80000,
+      "month_label": "종일"
+     },
+     {
+      "name": "운암공영주차장",
+      "dong": "원동",
+      "grade": 1,
+      "free": 60,
+      "unit": 250,
+      "ticket": 6000,
+      "month": 80000,
+      "month_label": "종일"
+     },
+     {
+      "name": "은계동 공영주차장",
+      "dong": "은계동",
+      "grade": 2,
+      "free": 120,
+      "unit": 200,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "독산성입구(동문) 공영주차장",
+      "dong": "지곶동",
+      "grade": null,
+      "free": 120,
+      "unit": 200,
+      "ticket": null,
+      "month": 60000,
+      "month_label": "종일"
+     },
+     {
+      "name": "청학동 공영주차장",
+      "dong": "청학동",
+      "grade": 2,
+      "free": 60,
+      "unit": 200,
+      "ticket": 4000,
+      "month": 60000,
+      "month_label": "종일"
+     }
+    ],
+    "corp": {
+     "out": 18,
+     "st": 1,
+     "st_spaces": 16,
+     "free": 25,
+     "free_spaces": 1148,
+     "portal_sum": 3702,
+     "fac": 6,
+     "fac_spaces": 1340
+    },
+    "basis": "「오산시 주차장 조례」 [별표 1] 공영주차장 주차요금표(시행 2026-05-06 · 경기도오산시조례 제2363호(국가법령정보센터) · 별표1 개정 2025-05-22) · 오산도시공사 주차포털 요금안내(2026-11-17) · 표준데이터 등록값(2026-10-13) 대조"
    }
   }
  ],
@@ -216703,6 +217242,5075 @@
    "price_key": 200,
    "city": "구리시",
    "city_slug": "guri"
+  },
+  {
+   "id": "osn-001",
+   "mgmt_no": "223-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갈곶동 임시공영주차장",
+   "gu": "오산시",
+   "dong": "갈곶동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시  갈곶동 159-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "031-8036-6793",
+   "lat": 37.13125021,
+   "lng": 127.069999,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-002",
+   "mgmt_no": "223-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궐동 공영주차장",
+   "gu": "오산시",
+   "dong": "궐동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 궐동 692",
+   "addr_road": "",
+   "road": null,
+   "spaces": 229,
+   "tel": "031-371-1830",
+   "lat": 37.15714959,
+   "lng": 127.0560661,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지(10분당 200원·월 60,000원)입니다(주차포털·별표1 비고4: 1급지=상업지역)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-003",
+   "mgmt_no": "223-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궐동 복개천 주차장",
+   "gu": "오산시",
+   "dong": "궐동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 궐동 14-1",
+   "addr_road": "경기도 오산시 오산로368번길 3",
+   "road": null,
+   "spaces": 52,
+   "tel": "031-8036-6793",
+   "lat": 37.15993434,
+   "lng": 127.0664601,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-004",
+   "mgmt_no": "223-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궐동 제3공영주차장",
+   "gu": "오산시",
+   "dong": "궐동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 궐동 613-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 112,
+   "tel": "031-371-1830",
+   "lat": 37.1615052,
+   "lng": 127.0534574,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 113면으로 안내합니다(표준데이터 112면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 250,
+     "day": 6000,
+     "day_hours": 12,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-005",
+   "mgmt_no": "223-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궐동 제4임시공영주차장",
+   "gu": "오산시",
+   "dong": "궐동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 궐동704-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-8036-6793",
+   "lat": 37.15581831,
+   "lng": 127.0547541,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-006",
+   "mgmt_no": "223-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궐리사앞 공영주차장",
+   "gu": "오산시",
+   "dong": "궐동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 궐동 637-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-8036-6793",
+   "lat": 37.158531,
+   "lng": 127.0622773,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-007",
+   "mgmt_no": "223-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궐리사학당 공영주차장",
+   "gu": "오산시",
+   "dong": "궐동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 궐동 635-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-8036-6793",
+   "lat": 37.15968041,
+   "lng": 127.0615872,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-008",
+   "mgmt_no": "223-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내삼미동 임시공영주차장",
+   "gu": "오산시",
+   "dong": "내삼미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 내삼미동 889",
+   "addr_road": "",
+   "road": null,
+   "spaces": 140,
+   "tel": "031-8036-6793",
+   "lat": 37.17669531,
+   "lng": 127.0569024,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-009",
+   "mgmt_no": "223-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼미공영주차장",
+   "gu": "오산시",
+   "dong": "내삼미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 내삼미동 702-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 212,
+   "tel": "031-371-1830",
+   "lat": 37.17713334,
+   "lng": 127.0615789,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 116면으로 안내합니다(표준데이터 212면) · 조례 별표1 비고는 이 두 주차장 이용객에게 처음 180분까지 무료로 적용할 수 있게 하고, 주차포털은 최초 2시간(120분) 무료로 안내합니다 · 캐러반·캠핑카 전용 61면이 있고, 캠핑카·카라반은 노외 1급지 월 정기권 80,000원을 적용합니다(감면 제외). 시 홈페이지는 내삼미동 454-4, 표준데이터·주차포털은 내삼미동 702-3으로 적습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 별도 요금표",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-010",
+   "mgmt_no": "223-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신장동 임시공영주차장",
+   "gu": "오산시",
+   "dong": "내삼미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 내삼미동 490-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "031-8036-6793",
+   "lat": 37.17765014,
+   "lng": 127.0560795,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-011",
+   "mgmt_no": "223-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "누읍동 공영주차장",
+   "gu": "오산시",
+   "dong": "누읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 누읍동 630-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-8036-6793",
+   "lat": 37.13933722,
+   "lng": 127.0532111,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-012",
+   "mgmt_no": "223-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "꿈두레도서관 임시공영주차장",
+   "gu": "오산시",
+   "dong": "세교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 세교동 617-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "031-8036-6793",
+   "lat": 37.18131277,
+   "lng": 127.044486,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-013",
+   "mgmt_no": "223-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세마역 임시공영주차장",
+   "gu": "오산시",
+   "dong": "세교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 세교동 603-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "031-8036-6793",
+   "lat": 37.18635349,
+   "lng": 127.0433787,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-014",
+   "mgmt_no": "223-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세마역 환승주차장",
+   "gu": "오산시",
+   "dong": "세교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 세교동 592-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "031-371-1830",
+   "lat": 37.1873288,
+   "lng": 127.0439563,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "환승주차장은 도시철도 환승 목적 차량에 60% 경감을 적용해 10분당 100원이고, 12시간까지 최대 2,400원·월 정기권 40,000원(50% 감면)입니다. 환승하지 않은 차량은 노외 1급지 요금(10분당 250원)이 적용됩니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간 한도",
+    "daily_hours": 12,
+    "daily_fee": 2400,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지 · 환승주차장 60% 경감(100원/10분)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "day_hours": 12,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-015",
+   "mgmt_no": "223-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수청동 공영주차장",
+   "gu": "오산시",
+   "dong": "수청동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 수청동 635-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "031-371-1830",
+   "lat": 37.16739744,
+   "lng": 127.067656,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지(10분당 200원)입니다(주차포털)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-016",
+   "mgmt_no": "223-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수청동 임시공영주차장",
+   "gu": "오산시",
+   "dong": "수청동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 수청동561-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-8036-6793",
+   "lat": 37.17224956,
+   "lng": 127.0596326,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-017",
+   "mgmt_no": "223-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수청동 제2임시공영주차장",
+   "gu": "오산시",
+   "dong": "수청동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 수청동563-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-8036-6793",
+   "lat": 37.1711601,
+   "lng": 127.0602715,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-018",
+   "mgmt_no": "223-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수청동 제3임시공영주차장",
+   "gu": "오산시",
+   "dong": "수청동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 수청동630-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-8036-6793",
+   "lat": 37.168848,
+   "lng": 127.0682712,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-019",
+   "mgmt_no": "223-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오산대역 환승주차장",
+   "gu": "오산시",
+   "dong": "수청동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 수청동 600",
+   "addr_road": "",
+   "road": null,
+   "spaces": 99,
+   "tel": "031-371-1830",
+   "lat": 37.16978747,
+   "lng": 127.0607301,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "환승주차장은 도시철도 환승 목적 차량에 60% 경감을 적용해 10분당 100원이고, 12시간까지 최대 2,400원·월 정기권 40,000원(50% 감면)입니다. 환승하지 않은 차량은 노외 1급지 요금(10분당 250원)이 적용됩니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간 한도",
+    "daily_hours": 12,
+    "daily_fee": 2400,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지 · 환승주차장 60% 경감(100원/10분)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "day_hours": 12,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-020",
+   "mgmt_no": "223-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "독산성 서쪽 공영주차장",
+   "gu": "오산시",
+   "dong": "양산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 양산동 산19-89",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "031-8036-6793",
+   "lat": 37.18148721,
+   "lng": 127.0155361,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-021",
+   "mgmt_no": "223-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양산동 공영주차장(양산도서관 옆)",
+   "gu": "오산시",
+   "dong": "양산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 양산동 670-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "031-371-1830",
+   "lat": 37.193986,
+   "lng": 127.032747,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 62면으로 안내합니다(표준데이터 64면) · 표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지(10분당 200원)입니다(주차포털)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-022",
+   "mgmt_no": "223-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남촌마을 공영주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 609-47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-8036-6793",
+   "lat": 37.14774385,
+   "lng": 127.0648152,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-023",
+   "mgmt_no": "223-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성산초교 뒤 공영주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 494-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-8036-6793",
+   "lat": 37.152133,
+   "lng": 127.0669339,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-024",
+   "mgmt_no": "223-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오산 오색시장 제2공영주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 316-47",
+   "addr_road": "경기도 오산시 오산로300번길 22",
+   "road": null,
+   "spaces": 184,
+   "tel": "031-371-1830",
+   "lat": 37.1534422,
+   "lng": 127.0709423,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 177면으로 안내합니다(표준데이터 184면) · 오색시장 제1·2 공영주차장은 조례 별표1의 별도 요금표를 씁니다 — 최초 1시간 30분 무료, 3시간까지 10분당 200원, 3시간을 넘기면 300원입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": 90,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": [
+     {
+      "until": 180,
+      "unit_min": 10,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "3시간 초과 10분당 300원",
+    "free_min": 90,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 별도 요금표",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 90,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "day_hours": null,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-025",
+   "mgmt_no": "223-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오산역 임시공영주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시  오산동 637-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 200,
+   "tel": "031-8036-6793",
+   "lat": 37.14656243,
+   "lng": 127.0657318,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": "오산역 제1 환승 공영주차장(오산동 625-1, 216면)이 공사 중이어서 그 자리에 임시로 운영하는 무료 주차장입니다(오산도시공사 주차포털)",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-026",
+   "mgmt_no": "223-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오산역제2환승주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 679-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 132,
+   "tel": "031-371-1830",
+   "lat": 37.14380066,
+   "lng": 127.0671661,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 133면으로 안내합니다(표준데이터 132면) · 환승주차장은 도시철도 환승 목적 차량에 60% 경감을 적용해 10분당 100원이고, 12시간까지 최대 2,400원·월 정기권 40,000원(50% 감면)입니다. 환승하지 않은 차량은 노외 1급지 요금(10분당 250원)이 적용됩니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간 한도",
+    "daily_hours": 12,
+    "daily_fee": 2400,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지 · 환승주차장 60% 경감(100원/10분)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "day_hours": 12,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-027",
+   "mgmt_no": "223-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오산역환승센터 철도변노상주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 603-22",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-8036-6793",
+   "lat": 37.14822091,
+   "lng": 127.0673104,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-028",
+   "mgmt_no": "223-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오산천공영주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 345-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "031-371-1830",
+   "lat": 37.15555819,
+   "lng": 127.0706462,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 142면으로 안내합니다(표준데이터 150면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 2,
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 별도 요금표",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-029",
+   "mgmt_no": "223-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오색시장 주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 오산동 854-1",
+   "addr_road": "경기도 오산시 오산로278번길 10",
+   "road": null,
+   "spaces": 105,
+   "tel": "031-371-1830",
+   "lat": 37.15150223,
+   "lng": 127.0696079,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 100면으로 안내합니다(표준데이터 105면) · 오색시장 제1·2 공영주차장은 조례 별표1의 별도 요금표를 씁니다 — 최초 1시간 30분 무료, 3시간까지 10분당 200원, 3시간을 넘기면 300원입니다 · 조례 별표1은 두 곳 모두 월 야간권 30,000원·월 정기권 60,000원을 두고 있지만, 주차포털은 이 곳(제1)의 정기권을 ‘해당없음’으로, 제2만 종일 60,000원·야간 30,000원으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": 90,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": [
+     {
+      "until": 180,
+      "unit_min": 10,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "3시간 초과 10분당 300원",
+    "free_min": 90,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 별도 요금표",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 90,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "day_hours": null,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-030",
+   "mgmt_no": "223-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운암2 노상주차장",
+   "gu": "오산시",
+   "dong": "오산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 오산시 오산동 911-35",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-371-1830",
+   "lat": 37.15632305,
+   "lng": 127.0764864,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "도로변 노상주차장(16면)으로 09:00~23:00에만 운영합니다. 조례 별표1 노상 2급지 요금(최초 1시간 무료·2시간까지 10분당 100원·2시간 초과 200원)을 적용하고, 주차포털도 같은 값입니다 · 조례 별표1 노상 2급지에는 12시간 주차권 5,000원이 있으나 주차포털은 해당없음으로 안내해 1일권 없이 계산합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 200원",
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노상 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "day_hours": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-031",
+   "mgmt_no": "223-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대원동 공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 404-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-371-1830",
+   "lat": 37.138152,
+   "lng": 127.0717721,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "12시간 주차권과 월 정기권은 운영하지 않습니다(주차포털) · 표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지(10분당 200원)입니다(주차포털)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "「오산시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "day_hours": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-032",
+   "mgmt_no": "223-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대원동 제2공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 404-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "031-8036-6793",
+   "lat": 37.13815345,
+   "lng": 127.0723257,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-033",
+   "mgmt_no": "223-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화의거리 제2공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동763-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-371-1830",
+   "lat": 37.14583079,
+   "lng": 127.0707102,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 40면으로 안내합니다(표준데이터 41면) · 월 정기권은 야간권(19:00~익일 09:00) 40,000원만 운영합니다(주차포털)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "야간",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 250,
+     "day": 6000,
+     "day_hours": 12,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-034",
+   "mgmt_no": "223-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "밀머리길 임시공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 377-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-8036-6793",
+   "lat": 37.13828659,
+   "lng": 127.0746945,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-035",
+   "mgmt_no": "223-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어울림(복개천)공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 772-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 163,
+   "tel": "031-371-1830",
+   "lat": 37.14427156,
+   "lng": 127.072068,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 165면으로 안내합니다(표준데이터 163면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 80000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 250,
+     "day": null,
+     "day_hours": null,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-036",
+   "mgmt_no": "223-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운암공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 812-5",
+   "addr_road": "경기도 오산시 운암로 13-6",
+   "road": null,
+   "spaces": 593,
+   "tel": "031-371-1830",
+   "lat": 37.1472682,
+   "lng": 127.0756038,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 586면으로 안내합니다(표준데이터 593면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 80000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 250,
+     "day": 6000,
+     "day_hours": 12,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-037",
+   "mgmt_no": "223-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원동 공영주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 806-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-8036-6793",
+   "lat": 37.134663,
+   "lng": 127.0724056,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-038",
+   "mgmt_no": "223-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원동복개도로 노상주차장",
+   "gu": "오산시",
+   "dong": "원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 원동 759-1",
+   "addr_road": "경기도 오산시 대원로29번길 12",
+   "road": null,
+   "spaces": 53,
+   "tel": "031-371-1830",
+   "lat": 37.14746771,
+   "lng": 127.071914,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-039",
+   "mgmt_no": "223-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "은계동 공영주차장",
+   "gu": "오산시",
+   "dong": "은계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 은계동 53-3",
+   "addr_road": "경기도 오산시 현충로 36-8",
+   "road": null,
+   "spaces": 118,
+   "tel": "031-371-1830",
+   "lat": 37.16291914,
+   "lng": 127.0717792,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 117면으로 안내합니다(표준데이터 118면) · 조례 별표1 비고는 이 두 주차장 이용객에게 처음 180분까지 무료로 적용할 수 있게 하고, 주차포털은 최초 2시간(120분) 무료로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-040",
+   "mgmt_no": "223-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "독산성입구(동문) 공영주차장",
+   "gu": "오산시",
+   "dong": "지곶동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 지곶동 89-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 84,
+   "tel": "031-371-1830",
+   "lat": 37.18019816,
+   "lng": 127.0283722,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 81면으로 안내합니다(표준데이터 84면) · 조례 별표1에는 12시간 주차권 4,000원이 있으나 주차포털은 해당없음으로 안내해 1일권 없이 계산합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 별도 요금표",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-041",
+   "mgmt_no": "223-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지곶동 공영주차장",
+   "gu": "오산시",
+   "dong": "지곶동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 지곶동 604-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-8036-6793",
+   "lat": 37.17476567,
+   "lng": 127.0345611,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-042",
+   "mgmt_no": "223-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남촌동 임시공영주차장",
+   "gu": "오산시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 청학동14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-8036-6793",
+   "lat": 37.15414653,
+   "lng": 127.0637113,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-043",
+   "mgmt_no": "223-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동 공영주차장",
+   "gu": "오산시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 청학동 188-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "031-371-1830",
+   "lat": 37.15103793,
+   "lng": 127.0598016,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산도시공사",
+   "note": "",
+   "notice": "오산도시공사 주차포털은 45면으로 안내합니다(표준데이터 46면) · 표준데이터 급지구분은 1급지로 등록되어 있지만, 실제 적용 요금은 2급지(10분당 200원)입니다(주차포털)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 1,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "12시간권(선불)",
+    "daily_hours": 12,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": 30000,
+    "monthly_all": 60000,
+    "monthly_label": "종일",
+    "pay": "신용카드",
+    "basis": "「오산시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "day_hours": 12,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "오산시",
+   "city_slug": "osan"
+  },
+  {
+   "id": "osn-044",
+   "mgmt_no": "223-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동 임시공영주차장",
+   "gu": "오산시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 오산시 청학동 58-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-8036-6793",
+   "lat": 37.15522316,
+   "lng": 127.0577068,
+   "base_date": "2026-10-13",
+   "manager": "경기도 오산시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "오산시",
+   "city_slug": "osan"
   }
  ]
 }

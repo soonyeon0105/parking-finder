@@ -566,6 +566,15 @@ _others4 = set()
 for _k, _v in MIX.items():
     _others4.update(t for t in _v if t not in GR_TOKENS)
 MIX["guri"] = tuple(sorted(_others4))
+# 오산시도 자치구가 없다 — 다른 도시 페이지에 오산 자료가 섞이면 실패.
+#   (‘오산시’ ‘오산도시공사’처럼 시 단위 이름과 오산에만 있는 ‘필봉산’으로 좁힌다.)
+OS_TOKENS = ("오산시", "오산도시공사", "오산시청", "필봉산")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + OS_TOKENS
+_others5 = set()
+for _k, _v in MIX.items():
+    _others5.update(t for t in _v if t not in OS_TOKENS)
+MIX["osan"] = tuple(sorted(_others5))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -2257,6 +2266,112 @@ else:
     gri_rows = len(re.findall(r"<tr><td>", gri_street_page.read_text()))
     if gri_rows < len(gri_street):
         fails.append(f"구리시 노상 페이지 행 {gri_rows} < 구간 {len(gri_street)}")
+
+# ---------------------------------------------------------------- 오산시 (T-03 Phase 19)
+# 「오산시 주차장 조례」 [별표 1](별표 1 개정 2025-05-22, 조례 시행 2026-05-06)과 오산도시공사
+# 주차포털(2026-11-17): 최초 1시간(2시간·1시간 30분) 무료 + 10분당 250·200원(1·2급지),
+# 12시간 주차권 6,000·4,000원, 월 정기권 80,000·60,000원, 환승주차장 60% 경감(100원).
+os_cards = [l for l in LOTS if l.get("city") == "오산시" and l.get("list_mode") == "card"]
+os_paid = [l for l in os_cards if l["fee"]["type"] == "유료"]
+os_free = [l for l in os_cards if l["fee"]["type"] == "무료"]
+os_by = {l["name"]: l for l in os_cards}
+if not os_cards:
+    fails.append("오산시 카드 데이터가 없음")
+# 구성: 카드 44곳(유료 19·무료 25) · 구획 3,653면 · 동 12개
+if len(os_cards) != 44 or len(os_paid) != 19 or len(os_free) != 25:
+    fails.append(f"오산시 카드 구성이 다름: 카드 {len(os_cards)} · 유료 {len(os_paid)} · 무료 {len(os_free)}")
+if sum(l["spaces"] or 0 for l in os_cards) != 3653:
+    fails.append(f"오산시 구획 합계가 다름: {sum(l['spaces'] or 0 for l in os_cards)}")
+if len({l.get("dong") for l in os_cards}) != 12 or any(not l.get("dong") for l in os_cards):
+    fails.append(f"오산시 동 구성이 다름: {sorted({l.get('dong') for l in os_cards})}")
+_os_dup = [k for k, v in Counter(l["name"] for l in os_cards).items() if v > 1]
+if _os_dup:
+    fails.append(f"오산시 카드 이름 중복: {_os_dup[:3]}")
+# 급지·요금 — 별표1 값
+_O_FEE = {"운암공영주차장": (1, 60, 250, 6000, 80000),
+          "궐동 공영주차장": (2, 60, 200, 4000, 60000),
+          "궐동 제3공영주차장": (1, 60, 250, 6000, 80000),
+          "오색시장 주차장": (None, 90, 200, None, None),
+          "오산천공영주차장": (None, 120, 300, 4000, 60000),
+          "독산성입구(동문) 공영주차장": (None, 120, 200, None, 60000),
+          "오산역제2환승주차장": (1, 60, 100, 2400, 40000)}
+for _n, (_g, _free, _unit, _day, _month) in _O_FEE.items():
+    _l = os_by.get(_n)
+    if not _l:
+        fails.append(f"오산시 카드에 {_n} 없음")
+        continue
+    _f = _l["fee"]
+    if (_f.get("grade"), _f.get("free_min"), _f.get("unit_fee"), _f.get("daily_fee"),
+            _f.get("monthly")) != (_g, _free, _unit, _day, _month):
+        fails.append(f"오산시 요금이 별표1과 다름: {_n} {_f.get('grade')}/{_f.get('free_min')}/"
+                     f"{_f.get('unit_fee')}/{_f.get('daily_fee')}/{_f.get('monthly')}")
+# 운암2는 노상 카드(별표1 노상 2급지: 1시간 무료, 2시간까지 100원, 이후 200원)
+_os_st = os_by.get("운암2 노상주차장")
+if not _os_st or _os_st["ptype"] != "노상" or _os_st["fee"]["unit_fee"] != 100:
+    fails.append("오산시 운암2 노상주차장 카드가 노상 2급지로 만들어지지 않음")
+if any(l.get("list_mode") == "street" for l in LOTS if l.get("city") == "오산시"):
+    fails.append("오산시에 노상 구간(list_mode=street)이 섞여 있음")
+# 계산 표본 — 별표1로 직접 계산한 값
+for _n, _mins, _want in (("운암공영주차장", 30, 0), ("운암공영주차장", 60, 0),
+                         ("운암공영주차장", 120, 1500), ("운암공영주차장", 300, 6000),
+                         ("궐동 공영주차장", 120, 1200), ("오산역제2환승주차장", 120, 600),
+                         ("오산역제2환승주차장", 1440, 2400), ("오산천공영주차장", 120, 0),
+                         ("오색시장 주차장", 120, 600), ("오색시장 주차장", 240, 3600),
+                         ("운암2 노상주차장", 120, 600), ("운암2 노상주차장", 180, 1800)):
+    _l = os_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"오산시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 감면표 — 조례 제10조(환승·경차 60%, 전기차 2시간 면제 후 50%, 12시간 면제)
+_os_disc = next(c for c in CITIES if c["city"] == "오산시").get("discounts") or []
+if not any(d["rate"] == 0.6 for d in _os_disc):
+    fails.append("오산시 감면표에 60% 경감(경차·경증장애인·환승)이 없음")
+if not any(d["rate"] == 0.5 and d.get("exempt_min") == 120 for d in _os_disc):
+    fails.append("오산시 감면표에 전기차 2시간 면제 후 50%가 없음")
+if not any(d.get("exempt_min") == 720 for d in _os_disc):
+    fails.append("오산시 감면표에 12시간 면제 대상이 없음")
+# 주차장 요금표(품질 리포트) — 면수 차이 13곳, 시 요금표 차이 2건
+_os_q = next(c for c in CITIES if c["city"] == "오산시").get("quality") or {}
+if len(_os_q.get("면수_차이") or []) != 13:
+    fails.append(f"오산시 면수 차이가 13곳이 아님: {len(_os_q.get('면수_차이') or [])}")
+if len(_os_q.get("시_요금표_차이") or []) != 2:
+    fails.append("오산시 시 누리집 요금표 차이가 2건이 아님")
+os_root = DIST / "parking" / "gyeonggi" / "osan"
+os_hub = os_root / "index.html"
+if not os_hub.exists():
+    fails.append("오산시 시 페이지 없음")
+else:
+    os_html = os_hub.read_text()
+    for label in ("오산시 급지별 주차요금표", "노외주차장", "노상주차장", "1급지", "2급지",
+                  "최초 1시간", "12시간 주차권", "월 야간권", "평일 2시간 기준 가장 저렴한 곳",
+                  'class="calc', "오산도시공사", "상업지역", "경기도 오산시 44행", "명절연휴",
+                  "부설주차장", "오산역 제1 환승"):
+        if label not in os_html:
+            fails.append(f"오산시 시 페이지에 {label} 없음")
+    if os_html.count('class="card lot') != len(os_cards):
+        fails.append(f"오산시 시 페이지 카드 수 불일치({os_html.count(chr(34)+'card lot')} vs {len(os_cards)})")
+    if "&lt;b&gt;" in os_html:
+        fails.append("오산시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    for _t in ("오산시", "오산도시공사"):
+        if _t not in os_html:
+            fails.append(f"오산시 시 페이지에 {_t} 표기 없음")
+os_dong_pages = sorted(q.parent.name for q in os_root.rglob("index.html") if q.parent.parent == os_root)
+if os_dong_pages != ["cheonghak-dong", "gwol-dong", "naesammi-dong", "osan-dong", "segyo-dong",
+                     "sucheong-dong", "won-dong"]:
+    fails.append(f"오산시 동 페이지 구성이 다름: {os_dong_pages}")
+if (os_root / "street-parking" / "index.html").exists():
+    fails.append("오산시에 노상 전용 페이지가 생김(구간 0 — 빈 페이지)")
+for _slug, _n in (("osan-dong", 9), ("won-dong", 8), ("gwol-dong", 6), ("sucheong-dong", 5),
+                  ("cheonghak-dong", 3), ("segyo-dong", 3), ("naesammi-dong", 3)):
+    _p = os_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"오산시 동 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"오산시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+
 
 print()
 if warns:
