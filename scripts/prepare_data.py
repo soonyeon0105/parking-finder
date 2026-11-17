@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -353,6 +353,8 @@ CITY_META = {
     "군포시": {"slug": "gunpo", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "광명시": {"slug": "gwangmyeong", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "구리시": {"slug": "guri", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -7213,7 +7215,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -9745,20 +9747,540 @@ def check_quality_gwangmyeong(std_all, rows, lots, excluded, merged, hour_fixed,
     }
 
 
+
+# ---------------------------------------------------------------- 구리시 (T-03 Phase 18)
+GR_PROVIDER = "경기도 구리시"
+# 구리시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+GR_DISTRICTS = [("구리시", "guri")]
+GR_BBOX = (37.54, 37.64, 127.09, 127.18)   # 구리시 대략 경계(좌표 점검용)
+# 구리시 법정동 9개 — 표준데이터 지번주소의 세 번째 낱말이 법정동이다.
+#   (행정동 교문1·2동, 수택1·2·3동, 인창동, 동구동, 갈매동은 여러 법정동을 묶은 이름이라
+#    주소에는 법정동이 적힌다. 이 사이트의 카드 9곳은 수택동 6·인창동 2·교문동 1이다.)
+GR_DONGS = ("교문동", "수택동", "인창동", "동구동", "갈매동", "아천동", "사노동", "토평동", "학동")
+
+GR_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?chrClsCd=010202"
+                    "&gubun=ELIS&ordinSeq=1864905")
+GR_CITY_NOOE_URL = "https://www.guri.go.kr/www/contents.do?key=707"
+GR_CITY_STREET_URL = "https://www.guri.go.kr/www/contents.do?key=706"
+GR_CITY_DISCOUNT_URL = "https://www.guri.go.kr/www/contents.do?key=708"
+GR_CITY_SHARE_URL = "https://www.guri.go.kr/www/contents.do?key=6896"
+GR_NOOE_TXT = RAW / "guri.go.kr_노외주차장_20261117.txt"
+GR_STREET_TXT = RAW / "guri.go.kr_노상주차장_20261117.txt"
+GR_DISC_TXT = RAW / "guri.go.kr_주차요금감면_20261117.txt"
+GR_SHARE_TXT = RAW / "guri.go.kr_공유주차장_20261117.txt"
+GR_ORD_TXT = RAW / "guri.law.go.kr_주차장조례_20261117.txt"
+GR_ORDINANCE_NOTE = ("시행 2023-10-16 · 경기도구리시조례 제2161호"
+                     "(국가법령정보센터) · 최신 공포본 2026-04-06")
+
+# 구리시 공영주차장 요금 — 「구리시 주차장 조례」 [별표 1] 공영주차장 주차요금표
+#   (국가법령정보센터 별표/서식에서 펼쳐 읽음)의 값이다. 구리시 홈페이지 노외·노상 주차장
+#   요금표(최종수정 2026-10-30)와 표준데이터 등록값이 같은 숫자다 — 세 자료로 대조했다.
+#   · 노상 1급지 30분 700원 → 10분당 300원, 1일 주차권 9,000원(적용 10시간), 월 정기권 없음
+#   · 노상 2급지 30분 500원 → 10분당 200원, 1일 주차권 6,000원
+#   · 노외 1급지 30분 600원 → 10분당 200원, 1일 주차권 8,000원, 월 정기권 70,000원
+#   · 노외 2급지 30분 500원 → 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원
+#   · 노외 3급지 30분 400원 → 10분당 100원, 1일 주차권 5,000원, 월 정기권 40,000원
+#   · 거주자전용(조례 별표1): 월 정기권 전일 30,000원 · 주간 20,000원 · 야간 20,000원
+#   별표 비고: 1급지=상업지역·준주거지역·인창유수지 주차장, 2급지=일반주거지역,
+#   3급지=그 밖의 지역·옥밭굴 지하주차장. 노외는 ‘1일 단위 시간당 주차요금의 합계액이
+#   1일 주차요금을 초과할 수 없다’(조례 제5조①·별표 비고1) — 1일 주차권이 시간요금의 상한이다.
+GR_FEES = {
+    "노상": {1: {"base": 700, "unit": 300, "day": 9_000, "month": None},
+             2: {"base": 500, "unit": 200, "day": 6_000, "month": None}},
+    "노외": {1: {"base": 600, "unit": 200, "day": 8_000, "month": 70_000},
+             2: {"base": 500, "unit": 200, "day": 6_000, "month": 50_000},
+             3: {"base": 400, "unit": 100, "day": 5_000, "month": 40_000}},
+}
+GR_BASE_MIN = 30
+GR_UNIT_MIN = 10
+
+# 노상 구간의 도로명 — 시 홈페이지 ‘노상주차장’ 위치 표기(표준데이터 이름은 ‘제N공영노상주차장’뿐).
+GR_ROADS = {
+    "제1공영노상주차장": "검배로",
+    "제2공영노상주차장": "안골로",
+    "제6공영노상주차장": "동구릉로85번길",
+    "제7공영노상주차장": "장자대로86번길",
+    "제9공영노상주차장": "수택천로",
+    "제10공영노상주차장": "건원대로34번길",
+}
+# 요일·공휴일에 요금을 받지 않는 노외 주차장 — 시 홈페이지 ‘제4~제7공영 → 월~토요일
+#   유료(06:00~22:00) / 일요일, 공휴일 무료’. 표준데이터는 공휴일 칸을 00:00~00:00(미운영)으로
+#   두었고, 구리시 안내는 ‘무료 개방’이라 그 값으로 바로잡았다.
+GR_NOOE_SUN_FREE = ("제4공영노외주차장", "제5공영노외주차장", "제6공영노외주차장")
+# 노상 6구간 — 평일 09:00~19:00, 토요일 09:00~17:00에만 요금을 받고 일요일·공휴일은 무료다.
+GR_STREET_HOURS = ("09:00~19:00", "09:00~17:00", "09:00~19:00")
+# 시 홈페이지와 표준데이터의 면수가 다른 곳 — 표준데이터 등록면수를 쓰고 카드에 적는다.
+#   제5공영노외 249면(표준데이터) ↔ 217면(시 홈페이지·언론 보도), 제9공영노상 15면 ↔ 14면.
+GR_SPACE_DIFF = {"제5공영노외주차장": 217, "제9공영노상주차장": 14}
+
+# 구리시 ‘주차요금의 경감 및 면제대상’(조례 제6조, 최종수정 2026-10-30) —
+#   · 면제: 긴급차량, 공무수행차량, 외교사절 일행, 유공납세증(1년), 투표확인증(2천원 범위 1회),
+#     국가유공자·다자녀 가정 차량은 1회 주차 48시간(노외 한정), 노상 5분 이내 주차
+#   · 50% + 1일 1회 3시간 면제: 등록장애인, 고엽제후유의증, 5·18민주화운동 부상자,
+#     국가유공자(노상은 50%만)
+#   · 50% + 1일 1회 2시간 면제: 환경친화적 자동차(전기·수소 등), 다자녀 가정(노상)
+#   · 50%: 경형자동차, 저공해자동차, 장기기증자·등록자, 우수자원봉사자(연 100시간 이상),
+#     병역명문가, 효행 부양자, 의사자 유족·의상자, 구리시 시민대상 수상자
+#   · 20%: 승용차 요일제 참여차량
+#   감면사유가 둘 이상이면 감면율이 높은 하나만 적용하고 100원 미만은 절사한다.
+GR_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·장기기증 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형자동차(「자동차관리법」), 저공해 표시 스티커 부착 차량, 장기기증자·장기기증 등록자, "
+             "우수자원봉사자(연 100시간 이상), 병역명문가 예우대상자·가족, 효행 부양자(세대주), "
+             "의사자 유족·의상자 및 가족, 구리시 시민대상 수상자"},
+    {"label": "장애인·유공자 3시간 면제 후 50%", "rate": 0.5, "exempt_min": 180,
+     "note": "등록장애인 운전·동반 차량, 고엽제후유의증 환자 비사업용 차량, 5·18민주화운동 부상자 "
+             "운전·동반 차량, 국가유공자 증서 제시자 탑승 차량 — 1일 1회 3시간까지 전액 면제 뒤 50%"},
+    {"label": "환경친화적 자동차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "「구리시 환경친화적 자동차의 보급 및 이용활성화를 위한 지원 조례」에 따른 전기·수소 등 "
+             "환경친화적 자동차 — 1일 1회 2시간까지 전액 면제 뒤 50%(노외는 다자녀 가정도 48시간 면제)"},
+    {"label": "승용차 요일제 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "10인승 이하 비영업용 승용·승합차로 요일제 전자태그를 붙이고 운휴일을 지킨 차량"},
+    {"label": "긴급·공무·유공납세 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "긴급차량, 국가·지방자치단체 공무수행차량(관용), 외교사절 및 수행자 차량, "
+             "유공납세증 스티커 부착 차량(교부일부터 1년), 투표확인증 제출 차량(2천원 범위 1회)"},
+]
+
+
+def gr_dong_of(text: str):
+    """주소에서 구리시 법정동을 뽑는다 — ‘경기도 구리시 {법정동} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "구리시" and parts[2] in GR_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(GR_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def gr_win(spec):
+    """시 홈페이지 운영시간 문자열(‘09:00~19:00’) → 사이트 공통 hours 객체."""
+    win = {}
+    for key, txt in zip(("weekday", "sat", "sun"), spec):
+        if txt in ("24H", "무료개방"):
+            win[key] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                        "listed": True, "raw": ["00:00", "24:00"]}
+        else:
+            m = re.match(r"(\d{1,2}):(\d{2})~(\d{1,2}):(\d{2})", txt)
+            s = int(m.group(1)) * 60 + int(m.group(2))
+            e = int(m.group(3)) * 60 + int(m.group(4))
+            win[key] = {"open": True, "start": s, "end": e, "24h": False,
+                        "listed": True, "raw": [f"{s // 60:02d}:{s % 60:02d}",
+                                                f"{e // 60:02d}:{e % 60:02d}"]}
+    return win
+
+
+def gr_fee(grade: int, street: bool, daily=None, daily_hours=None, monthly=None):
+    """구리시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    조례 별표1은 노상·노외의 기본요금이 다르고(노상 1급지 700원·노외 1급지 600원),
+    노외만 월 정기권을 받는다. 두 시간 단위는 30분 기본 + 10분 단위로 같다.
+    """
+    kind = "노상" if street else "노외"
+    t = GR_FEES[kind][grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "std_grade": None,
+        "base_min": GR_BASE_MIN, "base_fee": t["base"],
+        "unit_min": GR_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None,
+        "daily_hours": daily_hours, "daily_fee": daily or t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": monthly or (None if street else t["month"]),
+        "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "pay": "", "basis": f"「구리시 주차장 조례」 별표1 {kind} {grade}급지",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_guri():
+    """구리시 공영주차장을 표준데이터 + 구리시 홈페이지 요금표·감면안내 + 조례 별표1로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 구리시 범위를 벗어난 행은 제외(껍데기 행).
+      · 구리시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다(구리시는 수택동 6곳뿐).
+    요금은 조례 별표1의 노상·노외 1~3급지 요금을 적용하고, 운영시간은 표준데이터 등록값을 쓰되
+    일요일·공휴일 무료 개방을 시 홈페이지 안내로 보정했다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GR_PROVIDER]
+    lots, excluded, merged, hour_fixed, space_diff, note_fixed = [], [], [], [], [], []
+    ticket_diff, disc_note = [], []
+    seen = {}
+    card_no = street_no = 0
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, pay, win, oper, fee, r=None,
+                src="표준데이터", notice=None, tel="", mgmt="", lat=None, lng=None,
+                base_date="", free_days=None, free_note=None, detail_road=None):
+        nonlocal card_no, street_no
+        street = ptype == "노상"
+        fee["pay"] = (r.get("결제방법") or "").strip() if r else ""
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": src,
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "구리시",
+            "dong": dong,
+            "dong_src": "지번주소" if r and gr_dong_of((r.get("소재지지번주소") or "")) else
+                        ("도로명주소" if r and gr_dong_of((r.get("소재지도로명주소") or "")) else
+                         ("시 홈페이지 주소" if src != "표준데이터" else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": detail_road,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "구리도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "구리시",
+            "city_slug": "guri",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        jibun_key = re.sub(r"\s", "", jibun)
+        name_key = re.sub(r"\s+", "", name)
+        dup_key = None
+        if jibun_key and ("지번", jibun_key, ptype, spaces) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif name_key and ("이름", name_key, ptype) in seen:
+            dup_key = ("이름", name_key, ptype)
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and name_key:
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", name_key, ptype)] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (GR_BBOX[0] <= lat <= GR_BBOX[1]
+                                     and GR_BBOX[2] <= lng <= GR_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = gr_dong_of(jibun) or gr_dong_of(road)
+        street = ptype == "노상"
+        note_raw = (r.get("특기사항") or "")
+        win, oper, _closed = parse_schedule(r, note_raw)
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        notice = None
+
+        if street:
+            # 노상은 평일 09:00~19:00 · 토요일 09:00~17:00에만 요금을 받고 일요일·공휴일은 무료다.
+            want = gr_win(GR_STREET_HOURS)
+            if any(win[k]["start"] != want[k]["start"] or win[k]["end"] != want[k]["end"]
+                   for k in ("weekday", "sat")):
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {win['weekday']['raw'][0]}~{win['weekday']['raw'][1]} · "
+                    f"토 {win['sat']['raw'][0]}~{win['sat']['raw'][1]} → 시 안내 평일 09:00~19:00 · "
+                    f"토요일 09:00~17:00")
+            if not oper["sun"]:
+                hour_fixed.append(f"{name}: 표준데이터 공휴일 미운영(00:00~00:00) → "
+                                  f"시 안내 일요일·공휴일 무료 개방")
+            win = want
+            oper = {k: True for k in ("weekday", "sat", "sun")}
+            free_days = {"sat": False, "sun": True}
+            free_note = None
+            notice = ("평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 "
+                      "무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·"
+                      "하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다")
+        elif name in GR_NOOE_SUN_FREE:
+            win["sun"] = (gr_win(("06:00~22:00",))["weekday"]
+                          | {"raw": ["06:00", "22:00"]})
+            oper["sun"] = True
+            free_days = {"sat": False, "sun": True}
+            free_note = None
+            hour_fixed.append(f"{name}: 표준데이터 공휴일 미운영(00:00~00:00) → "
+                              f"시 안내 일요일·공휴일 무료 개방")
+            notice = ("월요일~토요일 06:00~22:00에 요금을 받고, 일요일·공휴일은 무료로 "
+                      "개방합니다(구리시 홈페이지)")
+
+        grade = to_int(r.get("급지구분"))
+        if not grade:
+            grade = 1
+        daily = to_int(r.get("1일주차권요금"))
+        daily_hours = to_int(r.get("1일주차권요금적용시간"))
+        monthly = to_int(r.get("월정기권요금"))
+        fee = gr_fee(grade, street=street, daily=daily, daily_hours=daily_hours,
+                     monthly=monthly)
+        fee["std_grade"] = to_int(r.get("급지구분"))
+        fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                      "base_fee": to_int(r.get("주차기본요금")),
+                      "unit_min": to_int(r.get("추가단위시간")),
+                      "unit_fee": to_int(r.get("추가단위요금")),
+                      "day": daily, "monthly": monthly}
+
+        # 등록요금이 조례 별표1과 다르면 그 사실을 남긴다(값은 조례를 쓴다).
+        tbl = GR_FEES["노상" if street else "노외"].get(grade, {})
+        if tbl and (tbl["base"] != fee["std"]["base_fee"] or tbl["unit"] != fee["std"]["unit_fee"]):
+            notice = ((notice + " · ") if notice else "") + \
+                (f"표준데이터 등록요금은 30분 {fee['std']['base_fee']}원·10분당 "
+                 f"{fee['std']['unit_fee']}원입니다")
+        if monthly and not street and tbl.get("month") and monthly != tbl["month"]:
+            ticket_diff.append(f"{name}: 월 정기권 {monthly:,}원(조례 별표1 {tbl['month']:,}원)")
+
+        if name in GR_SPACE_DIFF and GR_SPACE_DIFF[name] != spaces:
+            space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 시 홈페이지 {GR_SPACE_DIFF[name]}면")
+            notice = ((notice + " · ") if notice else "") + \
+                f"구리시 홈페이지는 {GR_SPACE_DIFF[name]}면으로 안내합니다(표준데이터 {spaces}면)"
+        if name == "제6공영노외주차장":
+            notice = ((notice + " · ") if notice else "") + \
+                ("인창유수지 위 주차장이라 여름철 자연재난 대책기간(2025년 6월 1일~9월 30일)에는 "
+                 "운영을 멈춘 적이 있습니다 — 장마철 이용 전 구리도시공사(031-550-3766)에 확인하세요")
+        note_fixed.append(f"{name}: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 "
+                          f"카드 대신 시 페이지 감면표로 옮김")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, (r.get("요금정보") or "").strip(),
+                win, oper, fee, r=r, notice=notice,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=(r.get("관리기관명") or "").strip() or "구리도시공사",
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note,
+                detail_road=GR_ROADS.get(name))
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"gri-{i:03d}" if l["list_mode"] == "card" else f"gri-s{i:03d}"
+
+    quality = check_quality_guri(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                 space_diff, note_fixed, ticket_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(GR_NOOE_TXT).strftime("%Y-%m-%d %H:%M")
+                           if GR_NOOE_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "구리시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-13",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 구리시가 등록한 15행(노외 9·노상 6)을 읽었다. 이름·주소·구획수·"
+                             "급지·운영요일·운영시간·좌표·전화·관리번호·결제방법과 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "ordinance", "name": "구리시 주차장 조례 [별표 1] 공영주차장 주차요금표",
+                    "org": "구리시(자동차관리과 031-550-2705)", "url": GR_ORDINANCE_URL,
+                    "file": GR_ORD_TXT.name,
+                    "sha256": sha256(GR_ORD_TXT) if GR_ORD_TXT.exists() else None,
+                    "license": "자치법규(공개)", "base_date": GR_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(GR_ORD_TXT),
+                    "note": ("노상 1급지 700·300·9,000원 / 2급지 500·200·6,000원, 노외 1급지 "
+                             "600·200·8,000·월 70,000원 / 2급지 500·200·6,000·50,000원 / 3급지 "
+                             "400·100·5,000·40,000원, 거주자전용 월 30,000원(주간·야간 20,000원)을 "
+                             "별표/서식 화면에서 확인했다. 급지 기준(1급지 상업·준주거지역·인창유수지, "
+                             "2급지 일반주거지역, 3급지 그 밖의 지역·옥밭굴 지하)과 ‘노외 시간요금은 "
+                             "1일 주차요금을 넘지 않는다’는 비고도 함께 읽었다."),
+                },
+                {
+                    "id": "city_nooe", "name": "구리시 노외주차장 현황·요금표",
+                    "org": "구리시 자동차관리과(031-550-2795)", "url": GR_CITY_NOOE_URL,
+                    "file": GR_NOOE_TXT.name if GR_NOOE_TXT.exists() else None,
+                    "sha256": sha256(GR_NOOE_TXT) if GR_NOOE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "2026-10-30 최종수정",
+                    "rows_total": 9, "fetched_at": _sync_time(GR_NOOE_TXT),
+                    "note": ("노외 9곳 1,486면의 위치·면수·급지·요금(기본 30분·10분당·1일 주차권·"
+                             "월 정기권)과 운영시간(제1·2·3·8·9공영 24시간 연중무휴, 제4~7공영 "
+                             "월~토 06:00~22:00·일요일·공휴일 무료) 확인용."),
+                },
+                {
+                    "id": "city_street", "name": "구리시 노상주차장 현황·요금표",
+                    "org": "구리시 자동차관리과(031-550-2795)", "url": GR_CITY_STREET_URL,
+                    "file": GR_STREET_TXT.name if GR_STREET_TXT.exists() else None,
+                    "sha256": sha256(GR_STREET_TXT) if GR_STREET_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "2026-10-30 최종수정",
+                    "rows_total": 6, "fetched_at": _sync_time(GR_STREET_TXT),
+                    "note": ("노상 6구간 144면의 위치(도로명)·면수·급지·요금(1급지 700·300·"
+                             "9,000원, 2급지 500·200·6,000원)과 요금 부과 시간(평일 09:00~19:00, "
+                             "토요일 09:00~17:00, 일요일·공휴일 무료) 확인용. 제9공영은 시 14면·"
+                             "표준데이터 15면으로 1면 차이가 있다."),
+                },
+                {
+                    "id": "discount", "name": "구리시 주차요금의 경감 및 면제대상",
+                    "org": "구리시 자동차관리과(031-550-2795)", "url": GR_CITY_DISCOUNT_URL,
+                    "file": GR_DISC_TXT.name if GR_DISC_TXT.exists() else None,
+                    "sha256": sha256(GR_DISC_TXT) if GR_DISC_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "2026-10-30 최종수정",
+                    "rows_total": None, "fetched_at": _sync_time(GR_DISC_TXT),
+                    "note": ("조례 제6조의 면제(긴급·공무·유공납세·국가유공자 48시간·다자녀 48시간·"
+                             "노상 5분)와 경감(장애인·유공자 3시간 면제 후 50%, 환경친화적 자동차 "
+                             "2시간 면제 후 50%, 경차·저공해·다자녀·병역명문가 등 50%, 요일제 20%) "
+                             "확인용."),
+                },
+                {
+                    "id": "share", "name": "구리시 공유주차장 운영현황",
+                    "org": "구리시 자동차관리과(031-550-2932)", "url": GR_CITY_SHARE_URL,
+                    "file": GR_SHARE_TXT.name if GR_SHARE_TXT.exists() else None,
+                    "sha256": sha256(GR_SHARE_TXT) if GR_SHARE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "2026-10-30 최종수정",
+                    "rows_total": 19, "fetched_at": _sync_time(GR_SHARE_TXT),
+                    "note": ("공공기관·학교·종교시설 부설주차장을 시간대를 정해 무료로 여는 "
+                             "공유주차장 19개소 2,251면(시청 597면·수택3동 173면·체육관 232면·"
+                             "구리유통종합시장 924면 등) 확인용 — 공영주차장 요금표 대상이 아니라 "
+                             "카드로 만들지 않고 자주 묻는 질문에 안내했다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GR_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "guri_grade",
+            "unit_min": GR_UNIT_MIN,
+            "base_min": GR_BASE_MIN,
+            "free_min": 0,
+            "applies": GR_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "base": 600, "unit": 200, "day": 8_000, "month": 70_000,
+                 "where": "상업지역·준주거지역·인창유수지", "lots": 0},
+                {"grade": 2, "base": 500, "unit": 200, "day": 6_000, "month": 50_000,
+                 "where": "일반주거지역", "lots": 0},
+                {"grade": 3, "base": 400, "unit": 100, "day": 5_000, "month": 40_000,
+                 "where": "그 밖의 지역·옥밭굴 지하", "lots": 0},
+            ],
+            "street": [
+                {"grade": 1, "base": 700, "unit": 300, "day": 9_000, "month": None},
+                {"grade": 2, "base": 500, "unit": 200, "day": 6_000, "month": None},
+            ],
+            "corp": {"out": 9, "out_spaces": 1_518, "st": 6, "st_spaces": 145,
+                     "share": 19, "share_spaces": 2_251,
+                     "city_out_spaces": 1_486, "city_st_spaces": 144},
+            "basis": ("「구리시 주차장 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({GR_ORDINANCE_NOTE}) · 구리시 노외·노상주차장 요금표(2026-10-30) · "
+                      "표준데이터 등록값(2026-10-13) 대조"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["구리시"] | {
+        "city": "구리시",
+        "weekend_free_pages": False,
+        "discounts": GR_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "guri_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_guri(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                       note_fixed, ticket_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_구리시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "특기사항_보정": note_fixed,
+        "정기권_금액없음": ticket_diff,
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
              "hanam": ["하남시"], "gunpo": ["군포시"],
-             "gwangmyeong": ["광명시"]}[args.city])
+             "gwangmyeong": ["광명시"], "guri": ["구리시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -9796,6 +10318,8 @@ def main():
         cities.append(build_gunpo())
     if "광명시" in want:
         cities.append(build_gwangmyeong())
+    if "구리시" in want:
+        cities.append(build_guri())
 
     if args.city == "all":
         site = build_site_payload(cities)

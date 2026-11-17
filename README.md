@@ -1,4 +1,4 @@
-# 공영주차장 파인더 — 수원시 · 성남시 · 용인시 · 화성시 · 안양시 · 평택시 · 부천시 · 고양시 · 남양주시 · 안산시 · 시흥시 · 의정부시 · 김포시 · 파주시 · 광주시 · 하남시 · 군포시 · 광명시
+# 공영주차장 파인더 — 수원시 · 성남시 · 용인시 · 화성시 · 안양시 · 평택시 · 부천시 · 고양시 · 남양주시 · 안산시 · 시흥시 · 의정부시 · 김포시 · 파주시 · 광주시 · 하남시 · 군포시 · 광명시 · 구리시
 
 공공데이터로 만든 **공영주차장 요금 계산 + 무료 개방 파인더**입니다.
 수원시(4개 구 72곳), 성남시(3개 구 노외 98곳 + 노상 66구간), 용인시(3개 구 노외·부설 159곳 + 노상 54구간),
@@ -15,8 +15,9 @@
 광주시(자치구 없이 3읍 5면·동, 노외 45곳 + 노상 10구간, 1~2급지 요금표·최초 10분 무료),
 하남시(자치구 없이 법정동 24개, 노외 20곳 + 노상 17구간, 1~3급지 30분 요금·노상·노외 1일권 구분·주거지 전용 무료 개방),
 군포시(자치구 없이 법정동 9개, 노외 50곳 + 노상 29구간, 1~3급지 최초 15분 무료·중심상가·산본로데오 누진 요금),
-광명시(자치구 없이 법정동 9개, 노외 22곳 + 노상 10구간, 30분 800원·10분당 300원·2시간 초과 400원·노외 1일 13,000원·전통시장 누진)를
-정적 HTML 268페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
+광명시(자치구 없이 법정동 9개, 노외 22곳 + 노상 10구간, 30분 800원·10분당 300원·2시간 초과 400원·노외 1일 13,000원·전통시장 누진),
+구리시(자치구 없이 법정동 9개, 노외 9곳 + 노상 6구간, 노외 1~3급지 30분 600·500·400원·노상 1급지 700원·노외 1일 8,000원·일요일·공휴일 무료)를
+정적 HTML 271페이지 + 404 페이지 + 인터랙티브 JavaScript 계산기로 제공하며, 서버·DB·외부 API 없이 동작합니다.
 페이지 경로는 시·도 / 시·군 / 구 / 동 단위로 나뉘어 있어 다른 지자체를 같은 파이프라인에 추가할 수 있습니다.
 
 - 랜딩(도시 선택): `dist/index.html`
@@ -75,6 +76,9 @@
 - 광명시 허브(계산기·목록 겸용): `dist/parking/gyeonggi/gwangmyeong/index.html` (자치구 없음, 동 3개 페이지)
 - 광명시 동 상세: `dist/parking/gyeonggi/gwangmyeong/cheolsan-dong/index.html` (광명동·철산동·소하동)
 - 광명시 노상주차장: `dist/parking/gyeonggi/gwangmyeong/street-parking/index.html`
+- 구리시 허브(계산기·목록 겸용): `dist/parking/gyeonggi/guri/index.html` (자치구 없음, 동 1개 페이지)
+- 구리시 동 상세: `dist/parking/gyeonggi/guri/sutaek-dong/index.html` (수택동 6곳)
+- 구리시 노상주차장: `dist/parking/gyeonggi/guri/street-parking/index.html` (6구간 145면)
 - 없는 주소(소프트 404 방지): `dist/404.html`
 
 ## 데이터 (모두 실제 공개 데이터)
@@ -136,6 +140,9 @@
 | 광명시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 광명시` 28행) | `scripts/prepare_data.py --city gwangmyeong` | 광명시 **28행**(노외 19 + 노상 9) — 껍데기 행 0건 | 2026-04-17 |
 | 광명시 요금표·급지·면수·할인 | [광명시 공영주차장 현황·요금표·할인대상](https://www.gm.go.kr/pt/ns/gi/czfacility/PTMN207/PTGI0042.jsp) · [「광명시 주차장 설치 및 관리 조례」](https://www.law.go.kr/LSW/ordinInfoP.do?chrClsCd=010202&gubun=ELIS&ordinSeq=2162053)(시행 2026-08-14, 조례 제3407호) | 공개 웹페이지 표 스냅샷(`data/raw/gm.go.kr_공영주차장_20261117.txt`, `data/raw/gwangmyeong.law.go.kr_주차장조례_20261117.txt`) | 노외 21곳·노상 10곳 **31개소 2,373면**, 1급지 30분 800원·10분당 300원·2시간 초과 400원·1일 13,000원·월 75,000·45,000원, 2급지(옥길동·학온동) 500·200·300원·1일 8,000원, 전통시장 2시간 초과 500원(1일 한도 없음), 거주지 전용 800·300·400원·1일 5,000원 | 2026-11-17 13:44 조회 |
 | 광명시 운영시간·월정기·공유주차 | [광명도시공사 공영주차장 운영현황](https://gmuc.co.kr/user/conn/parkFacil.do) · [공영주차장 안내](https://www.gmuc.co.kr/user/conn/parkPublic.do) · [이용요금](https://www.gmuc.co.kr/user/conn/parkPrice.do) · [이용약관](https://www.gmuc.co.kr/user/conn/parkTerms.do) | 공개 웹페이지 스냅샷(`data/raw/gmuc.co.kr_공영주차장현황_20261117.txt` 등 4개) | 노외 **24시간 연중무휴**, 노상 **평일 10:00~19:00**(주말·공휴일 무료), 새빛공원 평일 09:00~18:00·주말 무료, 월정기 전일 120,000·주간 75,000·야간 45,000원, 거주자우선 공유주차 30분 800원·1회 5,000원 | 2026-11-17 13:46 조회 |
+| 구리시 요금·운영시간·좌표 | 같은 표준데이터(제공기관명 `경기도 구리시` 15행) | `scripts/prepare_data.py --city guri` | 구리시 **15행**(노외 9 + 노상 6) — 껍데기 행 0건 | 2026-10-13 |
+| 구리시 요금표·급지·면수 | [구리시 노외주차장 현황·요금표](https://www.guri.go.kr/www/contents.do?key=707) · [노상주차장 현황·요금표](https://www.guri.go.kr/www/contents.do?key=706) · [「구리시 주차장 조례」](https://www.law.go.kr/LSW/ordinInfoP.do?chrClsCd=010202&gubun=ELIS&ordinSeq=1864905) [별표 1] 공영주차장 주차요금표(시행 2023-10-16, 조례 제2161호 / 최신 공포본 2026-04-06) | 공개 웹페이지 표 스냅샷(`data/raw/guri.go.kr_노외주차장_20261117.txt`·`노상주차장_20261117.txt`)과 자치법규 별표(`data/raw/guri.law.go.kr_주차장조례_20261117.txt`) | 노외 9곳 **1,486면**·노상 6구간 **144면**, 노외 1급지 600·200·8,000·월 70,000원 / 2급지 500·200·6,000·50,000원 / 3급지 400·100·5,000·40,000원, 노상 1급지 700·300·9,000원 / 2급지 500·200·6,000원 | 2026-11-17 13:53 조회 |
+| 구리시 감면·공유주차장 | [구리시 주차요금의 경감 및 면제대상](https://www.guri.go.kr/www/contents.do?key=708) · [공유주차장 운영현황](https://www.guri.go.kr/www/contents.do?key=6896) | 공개 웹페이지 표 스냅샷(`data/raw/guri.go.kr_주차요금감면_20261117.txt`·`공유주차장_20261117.txt`) | 감면: 긴급·공무·유공납세 면제, 국가유공자·다자녀 48시간 면제(노외), 장애인·유공자·고엽제·5·18 <b>3시간 면제 후 50%</b>, 환경친화·다자녀 2시간 면제 후 50%, 경차·저공해 등 50%, 요일제 20%. 공유주차장 **19개소 2,251면**(시청 597·수택3동 173·체육관 232·구리유통종합시장 924) | 2026-11-17 13:53 조회 |
 
 원본은 `data/raw/`에 그대로 보관했고, `data/suwon_parking.json`의 `meta.sources`에 파일명·sha256·수령 시각·라이선스를 기록했습니다.
 
@@ -316,6 +323,23 @@
   - 거주자우선(목감로)은 배정 차량 월 정기권(전일 40,000원)과 ‘모두의 주차장’ 공유주차(30분 800원·1회 5,000원)를 안내하고,
     계산은 조례 별표1 ‘거주지 전용’(30분 800원·10분당 300원·1일 5,000원)으로 합니다
   - 시청(261면)·시민체육관(510면)·광명동굴 제1·2·경관광장은 **부설주차장**이라 목록에 넣지 않고 FAQ에 안내했습니다
+- 구리시: 원자료 15행 → **노외 9곳(1,518면) + 노상 6구간(145면) → 3페이지**(시 1·동 1·노상 1), 사이트 전체 271페이지
+  - 구리시는 **자치구가 없어**(법정동 9개) 시 페이지가 계산기·목록 페이지를 겸하고, 카드가 3곳 이상인 **수택동 1개 동 페이지**(6곳)만 따로 두었습니다.
+    인창동 2곳·교문동 1곳은 시 페이지의 동별 표에만 실었습니다(동 미상 0곳)
+  - 요금: 「구리시 주차장 조례」 **[별표 1]**(국가법령정보센터 별표/서식에서 펼쳐 확인) — **노상·노외를 나눠** 정합니다.
+    노외 1급지 **최초 30분 600원**·10분당 200원·1일 8,000원·월 70,000원, 2급지 500·200·6,000·50,000원,
+    3급지 400·100·5,000·40,000원. 노상 1급지 **30분 700원**·10분당 300원·1일 9,000원(적용 10시간), 2급지 500·200·6,000원이고 **노상에는 월 정기권이 없습니다**
+  - **노외는 1일 주차권이 시간 요금의 상한**입니다(조례 제5조①·별표 비고 '노외의 1일 단위 시간당 요금 합계는 1일 주차요금을 초과할 수 없다') —
+    1급지 6시간 40분·2급지 5시간 10분·3급지 8시간 10분을 넘기면 8,000·6,000·5,000원만 냅니다
+  - 급지는 땅의 용도로 나뉩니다 — 1급지 상업·준주거지역과 인창유수지(제6공영), 2급지 일반주거지역, 3급지 그 밖의 지역과 옥밭굴 지하(제9공영) → 카드 1급지 3·2급지 5·3급지 1
+  - **일요일·공휴일 무료 개방 9곳**: 노외 제4·5·6공영(월~토 06:00~22:00 유료)과 노상 6구간(평일 09:00~19:00·토 09:00~17:00 유료).
+    표준데이터는 이 9곳의 공휴일 칸을 00:00~00:00(미운영)으로 등록했지만, 구리시 홈페이지의 '일요일, 공휴일 무료 운영'으로 바로잡았습니다.
+    나머지 노외 5곳(제1·2·3·8·9공영)은 연중무휴 24시간 같은 요금입니다
+  - **면수 차이 2건**: 제5공영노외 249면(표준데이터) ↔ 217면(시 홈페이지), 제9공영노상 15면 ↔ 14면 — 등록면수를 쓰고 카드에 차이를 적었습니다
+  - 표준데이터 **특기사항 15행이 모두 같은 감면 안내문**이라 카드마다 반복하지 않고, 시 페이지의 감면표로 한 번만 실었습니다
+  - 시청(597면)·수택3동 행정복지센터(173면)·구리시체육관(232면)·구리유통종합시장(924면) 같은 부설주차장은 공영 요금표 대상이 아니라
+    **공유주차장**(19개소 2,251면)으로 업무 시간 밖에 무료 개방해 목록에 넣지 않고 FAQ에 안내했습니다
+  - 표준데이터·시 홈페이지에 없는 제7공영노외(옛 등록값 벌말로 147번길 51면)와 제4공영노상은 폐지된 것으로 보여 넣지 않았습니다
 
   - 같은 주차장이 **안산시(153행)와 안산도시공사(75행)** 두 제공기관으로 나뉘어 등록되어 있어, 도시공사 행을 기준으로 두고 같은 주차장인 시 행 50행을 뺐습니다(품질 리포트 `중복제거_행`)
   - 상록·단원 2개 구(단원 97·상록 66)로 묶고, 동은 **법정동** 기준(동 미상 0곳 · 17개 동). 주소에 구가 잘못 적힌 1행(중앙역사거리 ‘상록구 고잔동’)은 법정동이 속한 구로 바로잡음
@@ -332,9 +356,9 @@
 ## 빌드
 
 ```bash
-python3 scripts/prepare_data.py                 # 열일곱 도시 정제 → data/site.json·도시별 *_parking.json
-python3 scripts/prepare_data.py --city anyang   # 한 도시만 (suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|ansan|siheung|uijeongbu|gimpo|paju|gwangju|hanam|gunpo|all, 기본 all)
-python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 268페이지 + 404.html + sitemap.xml, robots.txt
+python3 scripts/prepare_data.py                 # 열여덟 도시 정제 → data/site.json·도시별 *_parking.json
+python3 scripts/prepare_data.py --city anyang   # 한 도시만 (suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|ansan|siheung|uijeongbu|gimpo|paju|gwangju|hanam|gunpo|gwangmyeong|guri|all, 기본 all)
+python3 scripts/build_site.py --base https://parking.9welfare.com   # dist/ 271페이지 + 404.html + sitemap.xml, robots.txt
 python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ```
 
@@ -357,7 +381,7 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·개인정보처리방침·GA4 조건·슬러그/canonical·도시별 확장 규칙·계산 표본
 python3 scripts/verify_site.py              # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py          # Chromium으로 JS 계산 vs Python 규칙 전수 교차검증
-python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(118,530건)
+python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(119,340건)
 ```
 
 `qa_check.py`는 도시별 확장 안전 규칙도 검사합니다: 수원시 38페이지(허브1·구4·주말4·동29) 유지,
@@ -378,7 +402,7 @@ python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은
 `screenshots/`에 저장되고 `PARKING_SHOTS_DIR=/원하는/경로`로 바꿀 수 있습니다.
 검증 결과 요약은 `scripts/verify_result.json`에 남습니다.
 
-현재 상태: qa_check 통과(268페이지), JS↔Python 교차검증 118,530건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
+현재 상태: qa_check 통과(271페이지), JS↔Python 교차검증 119,340건 불일치 0건(quickjs), verify_site는 Chromium 이 있는 환경에서 실행.
 
 ## 개인정보처리방침 · 통계 (GA4)
 
@@ -387,7 +411,7 @@ python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은
   `priority=0.3`으로 들어갑니다.
 - **오류 제보**: `build_site.py`의 `ERROR_REPORT_FORM_URL`(구글 폼, 이메일 자동 수집 꺼짐 · 지역/주차장명·오류 유형·상세 내용 3항목)을
   푸터의 `개인정보처리방침 · 오류 제보`와 `/privacy/` 8항에서 `target="_blank" rel="noopener noreferrer"`로 겁니다.
-  `qa_check.py`가 `/privacy/`와 모든 페이지 푸터(268페이지)에 이 주소가 박혀 있는지 확인합니다.
+  `qa_check.py`가 `/privacy/`와 모든 페이지 푸터(271페이지)에 이 주소가 박혀 있는지 확인합니다.
 - GA4는 **조건부**입니다. `data/site.json`의 `ga_measurement_id`(기본 `""`)가 비어 있으면
   `gtag.js`·`gtag('config')`를 **HTML에 넣지 않습니다**. 값을 채우고 다시 빌드하면 모든 페이지
   `<head>`에 표준 GA4 스니펫이 들어가고, `/privacy/` 4항 문구도 실제 수집 항목으로 바뀝니다.
@@ -531,7 +555,7 @@ URL은 `/{시·도}/{시·군}/{구}/{동}/` 구조이고, 구·동 이름의 �
 ├── scripts/verify_site.py        # 브라우저 검증(+스크린샷)
 ├── scripts/crosscheck_calc.py    # JS↔Python 계산 교차검증(Chromium)
 ├── scripts/crosscheck_calc_nobrowser.py # 같은 검증(quickjs, 브라우저 불필요)
-└── dist/                         # 배포 산출물 268페이지(개인정보처리방침 포함) + 404.html
+└── dist/                         # 배포 산출물 271페이지(개인정보처리방침 포함) + 404.html
 ```
 
 ## 배포 (Cloudflare Pages)

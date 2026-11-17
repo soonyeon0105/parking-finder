@@ -1,0 +1,2071 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 14:30",
+  "generated_at_iso": "2026-11-17T14:30:10+09:00",
+  "snapshot_at": "2026-11-17 13:53",
+  "region": {
+   "province": "경기도",
+   "city": "구리시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-13",
+    "rows_total": 18994,
+    "rows_city": 15,
+    "fetched_at": "2026-11-16 19:07 (KST)",
+    "note": "경기도 구리시가 등록한 15행(노외 9·노상 6)을 읽었다. 이름·주소·구획수·급지·운영요일·운영시간·좌표·전화·관리번호·결제방법과 등록요금 출처로 썼다."
+   },
+   {
+    "id": "ordinance",
+    "name": "구리시 주차장 조례 [별표 1] 공영주차장 주차요금표",
+    "org": "구리시(자동차관리과 031-550-2705)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?chrClsCd=010202&gubun=ELIS&ordinSeq=1864905",
+    "file": "guri.law.go.kr_주차장조례_20261117.txt",
+    "sha256": "d07fd9a2648ba5e68df9ddce59390ad3de9ba95dacb1e14d692118d0eaade727",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2023-10-16 · 경기도구리시조례 제2161호(국가법령정보센터) · 최신 공포본 2026-04-06",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 13:53 (KST)",
+    "note": "노상 1급지 700·300·9,000원 / 2급지 500·200·6,000원, 노외 1급지 600·200·8,000·월 70,000원 / 2급지 500·200·6,000·50,000원 / 3급지 400·100·5,000·40,000원, 거주자전용 월 30,000원(주간·야간 20,000원)을 별표/서식 화면에서 확인했다. 급지 기준(1급지 상업·준주거지역·인창유수지, 2급지 일반주거지역, 3급지 그 밖의 지역·옥밭굴 지하)과 ‘노외 시간요금은 1일 주차요금을 넘지 않는다’는 비고도 함께 읽었다."
+   },
+   {
+    "id": "city_nooe",
+    "name": "구리시 노외주차장 현황·요금표",
+    "org": "구리시 자동차관리과(031-550-2795)",
+    "url": "https://www.guri.go.kr/www/contents.do?key=707",
+    "file": "guri.go.kr_노외주차장_20261117.txt",
+    "sha256": "147a8d8fe4651046b9f63f9b8136d34eb0c2eaa495846a103d856c5003e75726",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-10-30 최종수정",
+    "rows_total": 9,
+    "fetched_at": "2026-11-17 13:53 (KST)",
+    "note": "노외 9곳 1,486면의 위치·면수·급지·요금(기본 30분·10분당·1일 주차권·월 정기권)과 운영시간(제1·2·3·8·9공영 24시간 연중무휴, 제4~7공영 월~토 06:00~22:00·일요일·공휴일 무료) 확인용."
+   },
+   {
+    "id": "city_street",
+    "name": "구리시 노상주차장 현황·요금표",
+    "org": "구리시 자동차관리과(031-550-2795)",
+    "url": "https://www.guri.go.kr/www/contents.do?key=706",
+    "file": "guri.go.kr_노상주차장_20261117.txt",
+    "sha256": "96a54c13dfeea799c22f10e73928f82cfc43c83af6d6bbed0b1c2fd94a43d0f7",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-10-30 최종수정",
+    "rows_total": 6,
+    "fetched_at": "2026-11-17 13:53 (KST)",
+    "note": "노상 6구간 144면의 위치(도로명)·면수·급지·요금(1급지 700·300·9,000원, 2급지 500·200·6,000원)과 요금 부과 시간(평일 09:00~19:00, 토요일 09:00~17:00, 일요일·공휴일 무료) 확인용. 제9공영은 시 14면·표준데이터 15면으로 1면 차이가 있다."
+   },
+   {
+    "id": "discount",
+    "name": "구리시 주차요금의 경감 및 면제대상",
+    "org": "구리시 자동차관리과(031-550-2795)",
+    "url": "https://www.guri.go.kr/www/contents.do?key=708",
+    "file": "guri.go.kr_주차요금감면_20261117.txt",
+    "sha256": "a94630c4707a249334ff23084cb4fc4285e985f3165029ce1b19cd4aaf2a5eba",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-10-30 최종수정",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 13:53 (KST)",
+    "note": "조례 제6조의 면제(긴급·공무·유공납세·국가유공자 48시간·다자녀 48시간·노상 5분)와 경감(장애인·유공자 3시간 면제 후 50%, 환경친화적 자동차 2시간 면제 후 50%, 경차·저공해·다자녀·병역명문가 등 50%, 요일제 20%) 확인용."
+   },
+   {
+    "id": "share",
+    "name": "구리시 공유주차장 운영현황",
+    "org": "구리시 자동차관리과(031-550-2932)",
+    "url": "https://www.guri.go.kr/www/contents.do?key=6896",
+    "file": "guri.go.kr_공유주차장_20261117.txt",
+    "sha256": "c23ce2fa3da24259a3860be0d731f3e6e0e05f4e3cdbf8364a47ef512514f9c1",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-10-30 최종수정",
+    "rows_total": 19,
+    "fetched_at": "2026-11-17 13:53 (KST)",
+    "note": "공공기관·학교·종교시설 부설주차장을 시간대를 정해 무료로 여는 공유주차장 19개소 2,251면(시청 597면·수택3동 173면·체육관 232면·구리유통종합시장 924면 등) 확인용 — 공영주차장 요금표 대상이 아니라 카드로 만들지 않고 자주 묻는 질문에 안내했다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "구리시",
+   "slug": "guri"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gri-001",
+   "mgmt_no": "221-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2공영노외주차장",
+   "gu": "구리시",
+   "dong": "교문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 교문동 736-3",
+   "addr_road": "경기도 구리시 안골로 40",
+   "road": null,
+   "spaces": 345,
+   "tel": "031-550-3766",
+   "lat": 37.59693701,
+   "lng": 127.1355301,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-002",
+   "mgmt_no": "221-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제10공영노외주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 수택동 산2-4",
+   "addr_road": "경기도 구리시 검배공원로 5",
+   "road": null,
+   "spaces": 97,
+   "tel": "031-550-3766",
+   "lat": 37.59826914,
+   "lng": 127.1468857,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-003",
+   "mgmt_no": "221-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1공영노외주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 수택동 528",
+   "addr_road": "경기도 구리시 경춘로248번길 88",
+   "road": null,
+   "spaces": 72,
+   "tel": "031-550-3766",
+   "lat": 37.5996156,
+   "lng": 127.1468725,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 8000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-004",
+   "mgmt_no": "221-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3공영노외주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 수택동 852",
+   "addr_road": "경기도 구리시 체육관로74번길 67",
+   "road": null,
+   "spaces": 200,
+   "tel": "031-550-3766",
+   "lat": 37.59138959,
+   "lng": 127.1416049,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 8000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-005",
+   "mgmt_no": "221-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제4공영노외주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 수택동 528",
+   "addr_road": "경기도 구리시 경춘로248번길 88",
+   "road": null,
+   "spaces": 87,
+   "tel": "031-550-3766",
+   "lat": 37.59961461,
+   "lng": 127.1468742,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "월요일~토요일 06:00~22:00에 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 16,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-006",
+   "mgmt_no": "221-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제5공영노외주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 수택동 528",
+   "addr_road": "경기도 구리시 경춘로248번길 88",
+   "road": null,
+   "spaces": 249,
+   "tel": "031-550-3766",
+   "lat": 37.59961461,
+   "lng": 127.1468742,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "월요일~토요일 06:00~22:00에 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지) · 구리시 홈페이지는 217면으로 안내합니다(표준데이터 249면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 16,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-007",
+   "mgmt_no": "221-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제9공영노외주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 수택동 436",
+   "addr_road": "경기도 구리시 원수택로 43",
+   "road": null,
+   "spaces": 69,
+   "tel": "031-550-3766",
+   "lat": 37.59594218,
+   "lng": 127.140804,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 3급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 5000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-008",
+   "mgmt_no": "221-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제6공영노외주차장",
+   "gu": "구리시",
+   "dong": "인창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 인창동 208-39",
+   "addr_road": "경기도 구리시 건원대로34번길 32-13",
+   "road": null,
+   "spaces": 297,
+   "tel": "031-550-3766",
+   "lat": 37.60423622,
+   "lng": 127.1448196,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "월요일~토요일 06:00~22:00에 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지) · 인창유수지 위 주차장이라 여름철 자연재난 대책기간(2025년 6월 1일~9월 30일)에는 운영을 멈춘 적이 있습니다 — 장마철 이용 전 구리도시공사(031-550-3766)에 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 16,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 8000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-009",
+   "mgmt_no": "221-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제8공영노외주차장",
+   "gu": "구리시",
+   "dong": "인창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 구리시 인창동 309-2",
+   "addr_road": "경기도 구리시 동구릉로66번길 29",
+   "road": null,
+   "spaces": 102,
+   "tel": "031-550-3766",
+   "lat": 37.60590072,
+   "lng": 127.1361322,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 16,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-s010",
+   "mgmt_no": "221-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제1공영노상주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 구리시 수택동 490-1",
+   "addr_road": "경기도 구리시 검배로 77-1",
+   "road": "검배로",
+   "spaces": 46,
+   "tel": "031-550-3766",
+   "lat": 37.59573889,
+   "lng": 127.1469574,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 10,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-s011",
+   "mgmt_no": "221-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제2공영노상주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 구리시 수택동 490-1",
+   "addr_road": "경기도 구리시 검배로 6-1",
+   "road": "안골로",
+   "spaces": 12,
+   "tel": "031-550-3766",
+   "lat": 37.60039284,
+   "lng": 127.1415224,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 10,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-s012",
+   "mgmt_no": "221-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제7공영노상주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 구리시 수택동 878-3",
+   "addr_road": "경기도 구리시 장자대로 86번길",
+   "road": "장자대로86번길",
+   "spaces": 48,
+   "tel": "031-550-3766",
+   "lat": 37.58693521,
+   "lng": 127.1400259,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 10,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-s013",
+   "mgmt_no": "221-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제9공영노상주차장",
+   "gu": "구리시",
+   "dong": "수택동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 구리시 수택동 514",
+   "addr_road": "경기도 구리시 수택천로 35번길",
+   "road": "수택천로",
+   "spaces": 15,
+   "tel": "031-550-3766",
+   "lat": 37.59865956,
+   "lng": 127.145338,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다 · 구리시 홈페이지는 14면으로 안내합니다(표준데이터 15면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 10,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-s014",
+   "mgmt_no": "221-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제10공영노상주차장",
+   "gu": "구리시",
+   "dong": "인창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 구리시 인창동 678-3",
+   "addr_road": "경기도 구리시 건원대로 34번길",
+   "road": "건원대로34번길",
+   "spaces": 16,
+   "tel": "031-550-3766",
+   "lat": 37.60324203,
+   "lng": 127.1440716,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 10,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "구리시",
+   "city_slug": "guri"
+  },
+  {
+   "id": "gri-s015",
+   "mgmt_no": "221-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제6공영노상주차장",
+   "gu": "구리시",
+   "dong": "인창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 구리시 인창동 493-29",
+   "addr_road": "경기도 구리시 동구릉로 85번길",
+   "road": "동구릉로85번길",
+   "spaces": 8,
+   "tel": "031-550-3766",
+   "lat": 37.60886383,
+   "lng": 127.1331391,
+   "base_date": "2026-10-13",
+   "manager": "구리도시공사",
+   "note": "",
+   "notice": "평일 09:00~19:00과 토요일 09:00~17:00에만 요금을 받고, 일요일·공휴일은 무료로 개방합니다(구리시 홈페이지). 조례 제12조는 동절기 09:00~19:00·하절기 08:00~20:00으로 적고 있어 계절에 따라 1시간 앞뒤로 달라질 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 10,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "카드",
+    "basis": "「구리시 주차장 조례」 별표1 노상 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "구리시",
+   "city_slug": "guri"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 14:30",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 15,
+  "원자료_구리시행수": 15,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 9,
+  "노외_부설": {
+   "노외": 9
+  },
+  "노상_구간": 6,
+  "총_구획수": 1518,
+  "노상_구획수": 145,
+  "동별": {
+   "수택동": 6,
+   "인창동": 2,
+   "교문동": 1
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 9
+  },
+  "요금구분": {
+   "유료": 15
+  },
+  "요금_미상": [],
+  "급지별": {
+   "2": 6,
+   "1": 8,
+   "3": 1
+  },
+  "표준데이터_급지": {
+   "2": 6,
+   "1": 8,
+   "3": 1
+  },
+  "운영시간_보정": [
+   "제6공영노외주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제5공영노외주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제4공영노외주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제10공영노상주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제9공영노상주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제7공영노상주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제6공영노상주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제2공영노상주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방",
+   "제1공영노상주차장: 표준데이터 공휴일 미운영(00:00~00:00) → 시 안내 일요일·공휴일 무료 개방"
+  ],
+  "면수_차이": [
+   "제5공영노외주차장: 표준데이터 249면 ↔ 시 홈페이지 217면",
+   "제9공영노상주차장: 표준데이터 15면 ↔ 시 홈페이지 14면"
+  ],
+  "특기사항_보정": [
+   "제10공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제9공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제8공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제6공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제5공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제4공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제3공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제2공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제1공영노외주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제10공영노상주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제9공영노상주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제7공영노상주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제6공영노상주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제2공영노상주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김",
+   "제1공영노상주차장: 표준데이터 특기사항이 15행 모두 같은 감면 안내문이라 카드 대신 시 페이지 감면표로 옮김"
+  ],
+  "정기권_금액없음": [],
+  "일요일_무료표기": [
+   "제4공영노외주차장",
+   "제5공영노외주차장",
+   "제6공영노외주차장",
+   "제1공영노상주차장",
+   "제2공영노상주차장",
+   "제7공영노상주차장",
+   "제9공영노상주차장",
+   "제10공영노상주차장",
+   "제6공영노상주차장"
+  ],
+  "무료개방_표기": [
+   "제4공영노외주차장",
+   "제5공영노외주차장",
+   "제6공영노외주차장",
+   "제1공영노상주차장",
+   "제2공영노상주차장",
+   "제7공영노상주차장",
+   "제9공영노상주차장",
+   "제10공영노상주차장",
+   "제6공영노상주차장"
+  ],
+  "무료_요금구분": 0,
+  "평균_기본요금": 580,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-13"
+  ]
+ },
+ "fee_table": {
+  "style": "guri_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "free_min": 0,
+  "applies": "시행 2023-10-16 · 경기도구리시조례 제2161호(국가법령정보센터) · 최신 공포본 2026-04-06",
+  "off": [
+   {
+    "grade": 1,
+    "base": 600,
+    "unit": 200,
+    "day": 8000,
+    "month": 70000,
+    "where": "상업지역·준주거지역·인창유수지",
+    "lots": 3
+   },
+   {
+    "grade": 2,
+    "base": 500,
+    "unit": 200,
+    "day": 6000,
+    "month": 50000,
+    "where": "일반주거지역",
+    "lots": 5
+   },
+   {
+    "grade": 3,
+    "base": 400,
+    "unit": 100,
+    "day": 5000,
+    "month": 40000,
+    "where": "그 밖의 지역·옥밭굴 지하",
+    "lots": 1
+   }
+  ],
+  "street": [
+   {
+    "grade": 1,
+    "base": 700,
+    "unit": 300,
+    "day": 9000,
+    "month": null
+   },
+   {
+    "grade": 2,
+    "base": 500,
+    "unit": 200,
+    "day": 6000,
+    "month": null
+   }
+  ],
+  "corp": {
+   "out": 9,
+   "out_spaces": 1518,
+   "st": 6,
+   "st_spaces": 145,
+   "share": 19,
+   "share_spaces": 2251,
+   "city_out_spaces": 1486,
+   "city_st_spaces": 144
+  },
+  "basis": "「구리시 주차장 조례」 [별표 1] 공영주차장 주차요금표(시행 2023-10-16 · 경기도구리시조례 제2161호(국가법령정보센터) · 최신 공포본 2026-04-06) · 구리시 노외·노상주차장 요금표(2026-10-30) · 표준데이터 등록값(2026-10-13) 대조"
+ },
+ "slug": "guri",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "구리시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "경차·저공해·장기기증 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차(「자동차관리법」), 저공해 표시 스티커 부착 차량, 장기기증자·장기기증 등록자, 우수자원봉사자(연 100시간 이상), 병역명문가 예우대상자·가족, 효행 부양자(세대주), 의사자 유족·의상자 및 가족, 구리시 시민대상 수상자"
+  },
+  {
+   "label": "장애인·유공자 3시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 180,
+   "note": "등록장애인 운전·동반 차량, 고엽제후유의증 환자 비사업용 차량, 5·18민주화운동 부상자 운전·동반 차량, 국가유공자 증서 제시자 탑승 차량 — 1일 1회 3시간까지 전액 면제 뒤 50%"
+  },
+  {
+   "label": "환경친화적 자동차 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "「구리시 환경친화적 자동차의 보급 및 이용활성화를 위한 지원 조례」에 따른 전기·수소 등 환경친화적 자동차 — 1일 1회 2시간까지 전액 면제 뒤 50%(노외는 다자녀 가정도 48시간 면제)"
+  },
+  {
+   "label": "승용차 요일제 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "10인승 이하 비영업용 승용·승합차로 요일제 전자태그를 붙이고 운휴일을 지킨 차량"
+  },
+  {
+   "label": "긴급·공무·유공납세 차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급차량, 국가·지방자치단체 공무수행차량(관용), 외교사절 및 수행자 차량, 유공납세증 스티커 부착 차량(교부일부터 1년), 투표확인증 제출 차량(2천원 범위 1회)"
+  }
+ ],
+ "realtime": false
+}

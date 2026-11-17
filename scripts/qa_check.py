@@ -557,6 +557,15 @@ _others3 = set()
 for _k, _v in MIX.items():
     _others3.update(t for t in _v if t not in GM_TOKENS)
 MIX["gwangmyeong"] = tuple(sorted(_others3))
+# 구리시도 자치구가 없다 — 다른 도시 페이지에 구리 자료가 섞이면 실패.
+#   (‘구리시’ 단위로 좁힌다: 도로·상호 이름에 ‘구리’가 들어가는 경우와 겹치지 않게.)
+GR_TOKENS = ("구리시", "구리도시공사", "구리시청", "옥밭굴공원", "인창유수지")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + GR_TOKENS
+_others4 = set()
+for _k, _v in MIX.items():
+    _others4.update(t for t in _v if t not in GR_TOKENS)
+MIX["guri"] = tuple(sorted(_others4))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -2149,6 +2158,105 @@ else:
     gmy_rows = len(re.findall(r"<tr><td>", gmy_street_page.read_text()))
     if gmy_rows < len(gmy_street):
         fails.append(f"광명시 노상 페이지 행 {gmy_rows} < 구간 {len(gmy_street)}")
+
+# 구리시: 「구리시 주차장 조례」 [별표 1] 공영주차장 주차요금표(별표/서식에서 확인)
+#   · 노외 1급지 30분 600원·10분당 200원·1일 8,000원·월 70,000원, 2급지 500·200·6,000·50,000원,
+#     3급지 400·100·5,000·40,000원 — 노외는 1일 주차권이 시간 요금의 상한이다.
+#   · 노상 1급지 30분 700원·10분당 300원·1일 9,000원(적용 10시간), 2급지 500·200·6,000원, 월 정기권 없음.
+gri_cards = [l for l in LOTS if l.get("city") == "구리시" and l.get("list_mode") == "card"]
+gri_street = [l for l in LOTS if l.get("city") == "구리시" and l.get("list_mode") == "street"]
+if not gri_cards:
+    fails.append("구리시 카드 데이터가 없음")
+gri_paid = [l for l in gri_cards if l["fee"]["type"] == "유료"]
+gri_free = [l for l in gri_cards if l["fee"]["type"] != "유료"]
+if gri_free:
+    fails.append(f"구리시 카드에 유료가 아닌 주차장이 있음: {[l['name'] for l in gri_free][:3]}")
+_gr_want = {1: (600, 200, 8_000, 70_000), 2: (500, 200, 6_000, 50_000), 3: (400, 100, 5_000, 40_000)}
+_gr_bad = [(l["name"], l["fee"]["grade"], l["fee"]["base_fee"], l["fee"]["unit_fee"],
+            l["fee"]["daily_fee"], l["fee"]["monthly"]) for l in gri_paid
+           if (l["fee"]["base_min"], l["fee"]["unit_min"]) != (30, 10)
+           or _gr_want.get(l["fee"]["grade"]) != (l["fee"]["base_fee"], l["fee"]["unit_fee"],
+                                                 l["fee"]["daily_fee"], l["fee"]["monthly"])]
+if _gr_bad:
+    fails.append(f"구리시 노외 요금이 조례 별표1과 다름 {_gr_bad[:3]}")
+_gr_st_want = {1: (700, 300, 9_000), 2: (500, 200, 6_000)}
+_gr_st_bad = [(l["name"], l["fee"]["grade"], l["fee"]["base_fee"], l["fee"]["unit_fee"],
+               l["fee"]["daily_fee"], l["fee"]["monthly"]) for l in gri_street
+              if _gr_st_want.get(l["fee"]["grade"]) != (l["fee"]["base_fee"], l["fee"]["unit_fee"],
+                                                        l["fee"]["daily_fee"]) or l["fee"]["monthly"]]
+if _gr_st_bad:
+    fails.append(f"구리시 노상 요금이 조례 별표1과 다름 {_gr_st_bad[:3]}")
+# 계산 규칙: 노외 1급지 2시간 2,400·4시간 4,800·24시간 8,000원(1일 상한),
+#   노외 3급지 2시간 1,300원, 노상 1급지 2시간 3,400원·24시간 9,000원(1일 주차권 상한)
+_gr1 = next((l for l in gri_paid if l["fee"]["grade"] == 1), None)
+_gr3 = next((l for l in gri_paid if l["fee"]["grade"] == 3), None)
+_gr_st = next((l for l in gri_street if l["fee"]["grade"] == 1), None)
+if not (_gr1 and _gr3 and _gr_st):
+    fails.append("구리시 1급지·3급지·노상 표본 주차장이 없음")
+else:
+    for lot, mins, want in ((_gr1, 120, 2_400), (_gr1, 240, 4_800), (_gr1, 1440, 8_000),
+                            (_gr3, 120, 1_300), (_gr_st, 120, 3_400), (_gr_st, 1440, 9_000)):
+        got = price_for(lot, mins, "weekday").get("amount")
+        if got != want:
+            fails.append(f"구리시 요금 계산이 조례 값과 다름: {lot['name']} {mins}분 {got} ≠ {want}")
+# 일요일·공휴일 무료 개방 9곳(노외 3 + 노상 6)
+if len([l for l in LOTS if l.get("city") == "구리시" and l["free_days"].get("sun")]) != 9:
+    fails.append("구리시 일요일·공휴일 무료 개방 주차장이 9곳이 아님")
+# 감면표: 장애인·유공자 3시간 면제 후 50%, 환경친화 2시간 면제 후 50%, 요일제 20%, 면제
+_gr_disc = next(c for c in CITIES if c["city"] == "구리시").get("discounts") or []
+if not any(d.get("rate") == 0.5 and (d.get("exempt_min") or 0) == 180 for d in _gr_disc):
+    fails.append("구리시 감면표의 장애인·유공자 면제 시간이 180분이 아님")
+if not any(d.get("rate") == 0.5 and (d.get("exempt_min") or 0) == 120 for d in _gr_disc):
+    fails.append("구리시 감면표의 환경친화 자동차 면제 시간이 120분이 아님")
+if not any(d.get("rate") == 0.2 for d in _gr_disc):
+    fails.append("구리시 감면표에 승용차 요일제 20%가 없음")
+if not any(d.get("rate") == 1.0 for d in _gr_disc):
+    fails.append("구리시 감면표에 면제 대상이 없음")
+# 구성: 카드 9곳(1급지 3·2급지 5·3급지 1) · 노상 6구간 · 구획 1,518면 / 145면
+if len(gri_cards) != 9 or len(gri_street) != 6:
+    fails.append(f"구리시 카드·노상 구성이 다름: 카드 {len(gri_cards)} · 노상 {len(gri_street)}")
+if dict(Counter(l["fee"]["grade"] for l in gri_paid)) != {1: 3, 2: 5, 3: 1}:
+    fails.append(f"구리시 카드 급지 구성이 다름: {dict(Counter(l['fee']['grade'] for l in gri_paid))}")
+if sum(l["spaces"] or 0 for l in gri_cards) != 1518 or sum(l["spaces"] or 0 for l in gri_street) != 145:
+    fails.append(f"구리시 구획 합계가 다름: 노외 {sum(l['spaces'] or 0 for l in gri_cards)} · "
+                 f"노상 {sum(l['spaces'] or 0 for l in gri_street)}")
+if len([l for l in gri_cards if not l.get("dong")]) or len([l for l in gri_street if not l.get("dong")]):
+    fails.append("구리시 주차장에 동이 없는 곳이 있음")
+_gr_dup = [k for k, v in Counter(l["name"] for l in gri_cards).items() if v > 1]
+if _gr_dup:
+    fails.append(f"구리시 카드 이름 중복: {_gr_dup[:3]}")
+for _n in ("제1공영노외주차장", "제6공영노외주차장", "제9공영노외주차장", "제10공영노외주차장"):
+    if not any(l["name"] == _n for l in gri_cards):
+        fails.append(f"구리시 카드에 {_n} 없음")
+gri_root = DIST / "parking" / "gyeonggi" / "guri"
+gri_hub = gri_root / "index.html"
+if not gri_hub.exists():
+    fails.append("구리시 시 페이지 없음")
+else:
+    gri_html = gri_hub.read_text()
+    for label in ("구리시 급지별 주차요금표", "노외주차장", "노상주차장", "1급지", "2급지", "3급지",
+                  "10분당", "30분", "1일 주차권", "월 정기권", "평일 2시간 기준 가장 저렴한 곳",
+                  'class="calc', "구리도시공사", "인창유수지", "옥밭굴", "경기도 구리시 15행",
+                  "공유주차장"):
+        if label not in gri_html:
+            fails.append(f"구리시 시 페이지에 {label} 없음")
+    if gri_html.count('class="card lot') != len(gri_cards):
+        fails.append(f"구리시 시 페이지 카드 수 불일치({gri_html.count(chr(34)+'card lot')} vs {len(gri_cards)})")
+    if "&lt;b&gt;" in gri_html:
+        fails.append("구리시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    if "일반주거지역" not in gri_html:
+        fails.append("구리시 시 페이지에 급지 기준(일반주거지역) 안내 없음")
+gri_dong_pages = sorted(q.parent.name for q in gri_root.rglob("index.html")
+                        if q.parent.parent == gri_root and q.parent.name != "street-parking")
+if gri_dong_pages != ["sutaek-dong"]:
+    fails.append(f"구리시 동 페이지 구성이 다름: {gri_dong_pages} ≠ ['sutaek-dong']")
+gri_street_page = gri_root / "street-parking" / "index.html"
+if not gri_street_page.exists():
+    fails.append("구리시 노상주차장 페이지 없음(street-parking)")
+else:
+    gri_rows = len(re.findall(r"<tr><td>", gri_street_page.read_text()))
+    if gri_rows < len(gri_street):
+        fails.append(f"구리시 노상 페이지 행 {gri_rows} < 구간 {len(gri_street)}")
 
 print()
 if warns:
