@@ -414,6 +414,58 @@ CITY_UI = {
         "cheap_lede": ("시흥시 유료 공영주차장은 2급지(30분 500원)가 가장 많고, 2시간 기준 2,300원·반나절(6시간) "
                        "4,700원·1일 5,000원이 상한입니다. 공휴일은 무료로 개방하는 곳이 대부분입니다. "
                        "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
+    },    "의정부시": {
+        "manager": "의정부도시공사 교통사업처 공공교통팀(031-828-6841~8)",
+        "manager_inquiry": "의정부도시공사 교통사업처(031-828-6845)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-07-15",
+        "realtime": False,
+        "dong_unit_label": "동",
+        "free_label": "무료",
+        # 의정부시는 자치구가 없다 — ‘이 구’ 대신 ‘이 시’로 적고, 시 페이지가 목록·계산기 페이지를 겸한다.
+        "area_label": "시",
+        "discount_note": ("의정부시 조례(제3조제1항)와 의정부도시공사 감면 안내(2026-11-17 확인)입니다. "
+                          "국가유공자는 최초 5시간 면제 후 50%, 다자녀가정(막내 만 18세 이하)·전기차는 최초 2시간 면제 후 "
+                          "50%, 장애인(표지+복지카드)·경차(1,000cc 미만)·저공해·환승(30분 이내 결제)·우수자원봉사자·"
+                          "병역명문가·교육차량은 50%, 모범·유공·성실납세자는 주차요금을 면제합니다. "
+                          "감면이 겹치면 감면율이 높은 하나만 적용됩니다(현장 확인)."),
+        "free_example": "",
+        "calc_note": ("차량 감면은 <b>의정부시 조례(제3조제1항)·의정부도시공사 안내</b> 기준입니다. "
+                      "국가유공자 5시간 면제 후 50%, 다자녀·전기차 2시간 면제 후 50%, 장애인·경차·저공해·환승 50%, "
+                      "성실납세자 100%이고, 감면이 겹치면 가장 높은 하나만 적용됩니다(현장 확인)."),
+        "daily_example": "1일 주차권 9,000원(노외 1급지·12시간)",
+        "street_examples": "‘호국로 흥선광장～경민광장’·‘파발교차로’",
+        "street_fee_caveat": ("<li><b>노상 요금</b>: 조례 별표1은 노상에도 10분당 요금과 1일 주차요금(1급지 8,000원·"
+                              "2급지 6,000원·3급지 4,000원)을 두지만, 의정부도시공사 현황의 <b>노상 13구간은 모두 "
+                              "무료</b>로 운영됩니다.</li>"
+                              "<li><b>무료 구간</b>: 노상 13구간(448면)은 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다.</li>"
+                              "<li><b>구간 이름</b>: ‘신흥로’·‘경기북부지방경찰청 옆’처럼 도로·위치 이름으로 등록되어 있어 "
+                              "면수가 실제 주차면과 다를 수 있습니다(현장 확인).</li>"),
+        "rate_bullets": [
+            "의정부시 공영주차장은 <b>1~3급지</b>로 나뉘고, 기본시간 없이 <b>10분 단위</b>로 요금이 붙습니다"
+            "(노외 1급지 10분당 300원, 2급지 200원, 3급지 150원 — 1시간 1,800·1,200·900원).",
+            "<b>노외 1일 주차권(12시간)이 상한</b>입니다(1급지 9,000원, 2급지 5,000원, 3급지 3,000원). "
+            "시간 요금 합계가 이 금액을 넘지 않습니다. 12시간을 넘기면 요금이 한 번 더 붙습니다.",
+            "<b>부설주차장</b>(시청·도서관·공원)은 「의정부시 공공시설 부설주차장 운영 조례」 별표3 요금으로, "
+            "시청·낙양물사랑공원은 최초 30분, 도서관은 최초 1시간, 직동·추동·송산사지 근린공원은 최초 3시간이 무료입니다.",
+            "<b>대형자동차 전용</b> 주차장(306보충대·캠프카일)은 기준 요금의 2배(10분 400원·1일 10,000원)입니다. "
+            "캠핑카 전용 구역은 등록요금(10분 200원·1일 5,000원·월 84,000원)을 받습니다.",
+            "<b>월 정기권</b>은 노외 1급지 주간 70,000원·야간 60,000원·전일 104,000원, 2급지 40,000·30,000·56,000원이고, "
+            "의정부도시공사에서 분기별 추첨으로 접수합니다.",
+        ],
+        "hub_title_tpl": "{gu} 공영주차장 {n}곳 주차요금 계산 — 1~3급지 10분 요금·부설 무료시간 | {site}",
+        "hub_description_tpl": ("{gu} 공영주차장 {n}곳(노외·부설)의 급지별 주차요금(1급지 10분 300원·2급지 200원·"
+                                "3급지 150원, 노외 1일 주차권 9,000·5,000·3,000원)과 운영시간·구획수, "
+                                "노상 13구간 무료 정보를 공공데이터로 정리했습니다. 2시간·하루 주차비를 바로 계산해 보세요."),
+        "cheap_lede": ("의정부시 유료 공영주차장은 2급지(10분 200원)가 가장 많고, 2시간 기준 2,400원·1일 주차권 "
+                       "5,000원이 상한입니다. 1급지(10분 300원)는 2시간 3,600원·1일 9,000원입니다. "
+                       "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
+        "street_count_note": ("의정부도시공사 공영주차장 현황(2026년 9월)의 노상(거리) 주차 구간은 {n}곳, "
+                              "주차 구획은 총 {spaces:,}면입니다. {where}에 있고 모두 무료로 운영됩니다. "),
+        "count_note": ("의정부도시공사 공영주차장 현황(2026년 9월)의 노외·부설 {n}곳과 노상 {street_n}구간을 합쳐 "
+                       "공영주차장 {total}곳, 주차 구획 {spaces:,}면(노상 {street_spaces}면 포함)입니다. "
+                       "이 가운데 도시공사 현황에 없는 표준데이터 등록 1곳(의정부동 제7공영)도 함께 실었습니다."),
     },
 }
 
@@ -1017,6 +1069,23 @@ def footer_sources(city, url) -> str:
                 f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
                 f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+    if city["city"] == "의정부시":
+        std_rows = city_rows_total(city)
+        return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
+                f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
+                f'전국주차장정보표준데이터</a>(의정부시 {std_rows}행, 기준일 '
+                f'{esc(city_ui(city)["std_base_date"])})와 '
+                f'<a href="https://www.uiuc.or.kr/businessInfo/trafficPage/public/list3.do" rel="nofollow noopener" target="_blank">'
+                f'의정부도시공사 공영주차장 현황</a>(2026년 9월 기준·급지·면수·구획 구성), '
+                f'<a href="https://www.uiuc.or.kr/businessInfo/trafficPage/public/list.do" rel="nofollow noopener" target="_blank">'
+                f'공영주차장 요금·감면 안내</a>, '
+                f'<a href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2107023" rel="nofollow noopener" target="_blank">'
+                f'의정부시 주차장 설치 및 관리 조례</a>(별표1 요금표·감면)를 기준으로 만든 참고용 정보입니다. '
+                f'의정부시는 자치구가 없어 법정동 단위로 정리했습니다. '
+                f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 실시간 잔여면수는 연동하지 않았습니다.</p>\n'
+                f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
+                f'<a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
     if city["city"] == "남양주시":
         std_rows = city_rows_total(city)
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
@@ -1211,7 +1280,14 @@ def free_first_stat(city, lots):
     평택시 1급지는 기본요금이 0원이고 당일 최초 90분이 무료라, 기본요금 평균만 보여 주면
     실제보다 비싸 보인다. 남양주시도 기본요금은 있지만 최초 10분을 받지 않아 같이 적는다.
     """
-    if (city.get("fee_table") or {}).get("style") not in ("grade_flat", "namyangju_dual"):
+    style = (city.get("fee_table") or {}).get("style")
+    if style == "uijeongbu_grade":
+        # 의정부시는 기본시간 없이 10분 단위 요금이라 ‘평균 기본요금’ 대신 10분 평균요금을 적는다.
+        paid = [l for l in lots if l["fee"]["type"] == "유료" and l["fee"].get("unit_fee")]
+        if not paid:
+            return None
+        return ("10분 평균요금", won(round(sum(l["fee"]["unit_fee"] for l in paid) / len(paid))))
+    if style not in ("grade_flat", "namyangju_dual"):
         return None
     paid = [l for l in lots if l["fee"]["type"] == "유료" and l["fee"].get("free_min")]
     if not paid:
@@ -1610,6 +1686,19 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>노상(거리) 주차 구간은 이름이 구간·위치 설명이라 카드가 아닌 표로 따로 정리했습니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동·읍·면은 이 페이지의 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
+    if city["city"] == "의정부시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(의정부시가 등록한 {q.get('원자료_의정부시행수', '')}행, 기준일 {esc(ui['std_base_date'])})</li>
+    <li><b>요금표</b>: 「의정부시 주차장 설치 및 관리 조례」 제3조제1항 별표1(시행 2026-01-09, 경기도의정부시조례 제3674호) · <a href="https://www.uiuc.or.kr/businessInfo/trafficPage/public/list.do" rel="nofollow noopener" target="_blank">의정부도시공사 공영주차장 요금·감면 안내</a>(2026-11-17 확인) — 1~3급지 10분당 300·200·150원, 노외 1일 주차권(12시간) 9,000·5,000·3,000원, 노상 1일 8,000·6,000·4,000원, 월 정기권(노외 전일) 104,000·56,000·32,000원</li>
+    <li><b>주차장별 유형·급지·면수·구획 구성</b>: <a href="https://www.uiuc.or.kr/businessInfo/trafficPage/public/list3.do" rel="nofollow noopener" target="_blank">의정부도시공사 공영주차장 현황(2026년 9월 기준)</a> 80곳 5,649면(노외 67·노상 13, 그 가운데 부설 10) — 2026-11-17 10:11 조회 스냅샷 · <code>data/raw/uiuc.or.kr_공영주차장현황_20261117.json</code></li>
+    <li><b>부설주차장</b>: 「의정부시 공공시설 부설주차장 운영 조례」 제9조·별표3(공포 2026-02-23) — 시청·낙양물사랑공원 최초 30분 무료, 도서관 최초 1시간 무료, 직동·추동·송산사지 근린공원 최초 3시간 무료 뒤 10분당 300·200원, 1일 7,000·5,000원. 유료 운영시간(별표 2) 외에는 무료 개방입니다.</li>
+    <li><b>면수</b>: 표준데이터와 도시공사 현황의 면수가 {len(q.get('면수_차이') or [])}곳에서 다릅니다(가능동·의정부동 일대 등). 표준데이터는 같은 지번에서 다른 면수를 담은 행이 있어, 구획 구성(일반·장애인·경차·여성·전기차·대형차·캠핑카)의 합계와 일치하는 <b>도시공사 현황의 면수</b>를 썼습니다 — 품질 리포트 ‘면수_차이’.</li>
+    <li><b>유형</b>: 표준데이터는 72행을 모두 ‘노외’로 등록했지만, 도시공사 현황과 맞추면 노상 13구간(448면)이 섞여 있어 노상·노외는 도시공사 현황을 따랐습니다.</li>
+    <li><b>도시공사 현황에 없는 주차장</b>: 나눔주차장은 표준데이터에 고산동 961-1·963-1·963-4 세 행으로 나뉘어 있으나 현황표에는 1곳(31면)이라 하나로 묶었습니다. 반대로 <b>의정부동 제7공영주차장</b>(120면·무료)은 현황표에 없고 표준데이터에만 있어 카드에 그 사실을 적었습니다.</li>
+    <li><b>좌표</b>: 표준데이터에 없는 부설 10곳과 고산지구 제3공영·용현동 제1공영은 주소로 지오코딩한 좌표(카카오맵)를 썼습니다 — 주차장 입구와 수십 미터 다를 수 있습니다. 용현동 제1공영은 표준데이터 좌표가 호원동 한주3차아파트 앞과 같은 값이라 쓰지 않았습니다.</li>
+    <li>요금 구분이 ‘무료’인 {city_free_type_lots(city)}곳(노외 12·노상 13·부설 2·표준데이터만 1)은 요일과 관계없이 무료입니다. 실시간 잔여면수는 연동하지 않았습니다.</li>
+    <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>
+    <li>의정부시는 <b>자치구가 없어</b> 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래에 동 페이지를 두었습니다. 동 이름은 <b>법정동</b> 기준입니다(송산1~3동은 행정동).</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동(낙양·녹양·산곡·장암동 등)은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
     return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터({esc(city['city'])} {city_rows_total(city)}행, 기준일 {esc(ui['std_base_date'])})</li>
     <li>실시간 잔여면수는 연동하지 않았습니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>"""
@@ -1659,14 +1748,20 @@ def build_district(city, d, lots, site, path=None, hub=False):
                      "무료 이용 가능 여부는 현장 표지를 확인하세요.")
         else:
             st_unknown = len([l for l in street if l["fee"]["type"] == "미상"])
-            split = ((f"<b>무료 {st_free}곳·" if st_free else "<b>")
-                     + f"유료 {st_paid}곳</b>"
-                     + (f"(요금 정보 없음 {st_unknown}곳)" if st_unknown else "")
-                     + "이고, ")
-            intro = (f"도로변에 설치된 공영 노상 주차구간입니다. 이 {area} {len(street)}곳 가운데 "
-                     + split
-                     + ("무료 구간은 요일과 관계없이 요금이 없습니다. " if st_free else "")
-                     + "운영시간과 요금은 표의 등록값을 그대로 적었습니다.")
+            if not st_paid:
+                # 전 구간 무료인 도시(의정부시) — 유료 0곳을 세지 않고 그대로 적는다.
+                intro = (f"도로변에 설치된 공영 노상 주차구간입니다. 이 {area} {len(street)}곳은 "
+                         f"<b>모두 무료</b>이고, 요일과 관계없이 요금이 없습니다. "
+                         "운영시간과 위치는 표의 등록값을 그대로 적었습니다.")
+            else:
+                split = ((f"<b>무료 {st_free}곳·" if st_free else "<b>")
+                         + f"유료 {st_paid}곳</b>"
+                         + (f"(요금 정보 없음 {st_unknown}곳)" if st_unknown else "")
+                         + "이고, ")
+                intro = (f"도로변에 설치된 공영 노상 주차구간입니다. 이 {area} {len(street)}곳 가운데 "
+                         + split
+                         + ("무료 구간은 요일과 관계없이 요금이 없습니다. " if st_free else "")
+                         + "운영시간과 요금은 표의 등록값을 그대로 적었습니다.")
         street_block = f"""
 <h2 style="margin-top:26px">{esc(gu)} 노상(거리) 주차 구간 {len(street)}곳</h2>
 <p class="lede">{intro} 전체 {len(city.get("_street_lots", []))}구간은
@@ -1704,14 +1799,19 @@ def build_district(city, d, lots, site, path=None, hub=False):
     ]
     rate_li = "".join(f"    <li>{b}</li>\n" for b in rate_bullets)
 
+    street_spaces = sum(l["spaces"] or 0 for l in street)
     qa = [
         (f"{gu} 공영주차장은 모두 몇 곳인가요?",
-         (f"공공데이터포털 전국주차장정보표준데이터와 수원도시공사 안내 목록을 합쳐 {s['n']}곳이 등록되어 있습니다. "
-          if ui["merged_list"] else
-          f"공공데이터포털 전국주차장정보표준데이터에 등록된 "
-          f"{gu if hub else city['city'] + ' ' + gu} {park_label(city)} 공영주차장은 {s['n']}곳입니다. ")
-         + f"주차 구획은 총 {s['spaces']:,}면입니다."
-         + (f" 이 밖에 노상(거리) 주차 구간 {len(street)}곳이 따로 등록되어 있습니다." if street else "")),
+         # 도시별로 ‘몇 곳’의 기준이 다르다(부설·노상을 어떻게 세는지) — 화면 문구가 있으면 그것을 쓴다.
+         (ui["count_note"].format(n=s["n"], street_n=len(street), total=s["n"] + len(street),
+                                  spaces=s["spaces"] + street_spaces, street_spaces=street_spaces)
+          if ui.get("count_note") else
+          ((f"공공데이터포털 전국주차장정보표준데이터와 수원도시공사 안내 목록을 합쳐 {s['n']}곳이 등록되어 있습니다. "
+            if ui["merged_list"] else
+            f"공공데이터포털 전국주차장정보표준데이터에 등록된 "
+            f"{gu if hub else city['city'] + ' ' + gu} {park_label(city)} 공영주차장은 {s['n']}곳입니다. ")
+           + f"주차 구획은 총 {s['spaces']:,}면입니다."
+           + (f" 이 밖에 노상(거리) 주차 구간 {len(street)}곳이 따로 등록되어 있습니다." if street else "")))),
         (f"{gu}에서 일요일·공휴일에 무료로 주차할 수 있는 곳은?",
          ((f"요금 구분이 ‘무료’로 등록된 곳은 {free_in_gu}곳으로, 요일과 관계없이 무료입니다. "
            + (f"이 밖에 {ui.get('free_weekend_phrase') or '특기사항에 주말·공휴일 무료 개방이 적힌'} 곳이 "
@@ -1741,11 +1841,18 @@ def build_district(city, d, lots, site, path=None, hub=False):
     if hub:
         # 구가 없는 시 — 시 허브에만 있던 급지 요금표와 ‘가장 저렴한 곳’ 표를 이 페이지에 함께 그린다.
         paid = [l for l in lots_sorted if l["fee"]["type"] == "유료"]
-        cheap = sorted(paid, key=lambda l: price_for(l, 120)["amount"])[:8]
+
+        def _cheap_key(l):
+            # 최초 무료시간이 2시간을 덮는 부설주차장(의정부 직동·추동 근린공원 3시간 무료)은 0원으로 본다.
+            r = price_for(l, 120)
+            return 0 if r.get("state") == "free" else (r.get("amount") if r.get("amount") is not None else 10 ** 9)
+
+        cheap = sorted(paid, key=_cheap_key)[:8]
         cheap_rows = ""
         for l in cheap:
             idx = lots_sorted.index(l) + 1
-            grade = f'{l["fee"]["grade"]}급지' if l["fee"].get("grade") else "—"
+            grade = (f'{l["fee"]["grade"]}급지' if l["fee"].get("grade")
+                     else ("부설" if l["ptype"] == "부설" else "—"))
             cheap_rows += (f'<tr><td><a href="#lot-{idx}">{esc(l["name"])}</a></td>'
                            f'<td>{esc(l["dong"] or "—")}</td><td class="num">{grade}</td>'
                            f'<td class="num">{price_cell(l, 120)}</td>'
@@ -2023,6 +2130,56 @@ def fee_table_block(city) -> str:
   <li><b>행주산성</b>: 입차 때 1구획 {won(fac.get("haengju_day"))} · <b>그 밖의 부설</b>: 시청부설 기준</li>
 </ul>
 <p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·부설 갈래로 계산하며, 월 정기권은 카드에 표시했습니다.</p>
+"""
+    if ft.get("style") == "uijeongbu_grade":
+        # 의정부시(조례 별표1): 기본시간 없이 10분 단위 요금. 노외는 1일 주차권(12시간)이 상한이고,
+        #   노상은 1일 주차요금이 따로 있으며, 부설은 「공공시설 부설주차장 운영 조례」 별표3 요금을 쓴다.
+        off_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["unit"])}</td>'
+            f'<td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month_day"])} / {won(r["month_night"])} / {won(r["month_all"])}</td>'
+            f'<td class="num">{r.get("lots") or "—"}곳</td></tr>'
+            for r in ft["off"])
+        st_rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["unit"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td></tr>'
+            for r in ft["street"])
+        fac_rows = "".join(
+            f'<tr><td>{esc(f["name"])}</td><td class="num">최초 {f["free_min"]}분</td>'
+            f'<td class="num">{won(f["unit"])}</td><td class="num">{won(f["day"])}</td>'
+            f'<td class="num">{won(f["month"]) if f.get("month") else "—"}</td></tr>'
+            for f in ft["facility"])
+        camp = ft.get("camp") or {}
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">의정부시 공영주차장은 <b>1~3급지</b>로 나뉘고, 기본시간 없이 <b>{ft['unit_min']}분 단위</b>로 요금이 붙습니다.
+<b>노외 1일 주차권({ft['day_hours']}시간)</b>이 시간 요금의 상한이고, 노상은 1일 주차요금이 따로 있습니다
+(현재 적용: {esc(ft['applies'])}).</p>
+<h3 style="margin-top:20px">노외주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">{ft['unit_min']}분당</th><th class="num">1일 주차권({ft['day_hours']}시간)</th>
+  <th class="num">월 정기권<br>주간 / 야간 / 전일</th><th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{off_rows}</tbody>
+</table>
+<h3 style="margin-top:22px">노상주차장</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">{ft['unit_min']}분당</th><th class="num">1일 주차요금</th>
+  <th class="num">월 정기권</th></tr></thead>
+  <tbody>{st_rows}</tbody>
+</table>
+<p class="updated">노상 13구간(448면)은 도시공사 현황에서 <b>모두 무료</b>로 운영됩니다 — 위 요금표는 조례가 정한 상한입니다.
+<b>대형자동차</b>(15인승 이상 승합·2.5톤 이상 화물)는 기준 요금의 2배이고, 306보충대·캠프카일 대형자동차 전용
+주차장은 10분 400원·1일 10,000원입니다. 캠핑카 전용 구역은 등록요금(10분 {won(camp.get('unit'))}·1일
+{won(camp.get('day'))}·월 {won(camp.get('month'))})을 받습니다.</p>
+<h3 style="margin-top:22px">부설주차장(「의정부시 공공시설 부설주차장 운영 조례」 별표3)</h3>
+<table class="data">
+  <thead><tr><th>주차장</th><th class="num">최초 무료</th><th class="num">이후 {ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권</th></tr></thead>
+  <tbody>{fac_rows}</tbody>
+</table>
+<p class="updated">부설주차장은 <b>유료 운영시간(조례 별표 2) 외의 시간을 무료로 개방</b>합니다. 카드의 예상요금은
+유료 운영시간 기준이며, 야간·휴일 개방 여부는 시설 안내를 확인하세요.</p>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·주차장 종류로 계산하며, 월 정기권은 전일 요금을 적었습니다.</p>
 """
     if ft.get("style") == "siheung_dual":
         # 시흥시(조례 별표1): 1~3급지가 같은 모양의 요금표를 쓰고, 2시간을 넘기면 10분당 요율이 올라간다.
@@ -2571,9 +2728,12 @@ def _build_street_mixed(city, street, site):
 
     qa = [
         (f"{city['city']} 노상주차장은 몇 곳인가요?",
-         f"공공데이터포털 표준데이터에 등록된 {city['city']} 공영 노상(거리) 주차 구간은 {len(street)}곳, "
-         f"주차 구획은 총 {total_spaces:,}면입니다. {'·'.join(sorted(by_gu))}에 있습니다. "
-         + (f"이 가운데 무료 구간이 {len(free)}곳, 유료 구간이 {len(paid)}곳입니다." if free
+         (ui["street_count_note"].format(n=len(street), spaces=total_spaces, where="·".join(sorted(by_gu)))
+          if ui.get("street_count_note") else
+          f"공공데이터포털 표준데이터에 등록된 {city['city']} 공영 노상(거리) 주차 구간은 {len(street)}곳, "
+          f"주차 구획은 총 {total_spaces:,}면입니다. {'·'.join(sorted(by_gu))}에 있습니다. ")
+         + (f"이 가운데 {len(free)}곳 모두 요금을 받지 않습니다." if free and not paid else
+            f"이 가운데 무료 구간이 {len(free)}곳, 유료 구간이 {len(paid)}곳입니다." if free
             else f"이 가운데 유료 구간이 {len(paid)}곳입니다.")),
         (f"{city['city']} 노상주차장은 언제 무료인가요?",
          (f"요금 구분이 ‘무료’로 등록된 {len(free)}곳은 요일과 관계없이 요금이 없습니다. " if free
@@ -2645,6 +2805,9 @@ def _build_street_mixed(city, street, site):
         description=(f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳의 요금을 공공데이터로 정리했습니다. "
                      f"유료 {len(paid)}곳의 기본요금·운영시간과 구간별 위치를 확인하세요.")
                     if not free else
+                    (f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 {total_spaces:,}면은 모두 무료입니다. "
+                     f"구간별 위치와 구획, 조례가 정한 노상 요금(1급지 10분 300원·1일 8,000원)을 함께 정리했습니다.")
+                    if not paid else
                     (f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳 가운데 무료 {len(free)}곳과 "
                      f"유료 {len(paid)}곳의 요금·구간별 위치를 공공데이터로 정리했습니다."
                      if not any(l["fee"]["daily_fee"] for l in paid) else

@@ -337,6 +337,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "시흥시": {"slug": "siheung", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "의정부시": {"slug": "uijeongbu", "province": "경기도", "province_slug": "gyeonggi",
+              "dong_page_min_lots": 3},
 }
 
 
@@ -5331,6 +5333,627 @@ def check_quality_siheung(std_all, rows, lots, excluded, dropped, city_list,
     }
 
 
+# ---------------------------------------------------------------- 의정부시 (T-03 Phase 11)
+UIJEONGBU_PROVIDER = "경기도 의정부시"
+# 의정부시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고 그 아래 동 페이지를 둔다.
+UIJEONGBU_DISTRICTS = [("의정부시", "uijeongbu")]
+UIJEONGBU_BBOX = (37.67, 37.79, 126.97, 127.16)     # 의정부시 대략 경계(좌표 점검용)
+# 의정부시 법정동(2026-11 기준 14개) — 표준데이터 지번주소에서 동을 뽑는 데 쓴다.
+#   송산1~3동은 행정동이고, 법정동은 민락동·낙양동·고산동 등으로 나뉜다.
+UIJEONGBU_DONGS = ("의정부동", "가능동", "신곡동", "용현동", "호원동", "장암동", "금오동",
+                   "녹양동", "자금동", "흥선동", "민락동", "낙양동", "고산동", "산곡동")
+UIJEONGBU_LIST_JSON = RAW / "uiuc.or.kr_공영주차장현황_20261117.json"
+UIJEONGBU_PORTAL_TXT = RAW / "uiuc.or.kr_공영주차장_요금감면_20261117.txt"
+UIJEONGBU_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2107023"
+UIJEONGBU_ANNEX_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111261"
+UIJEONGBU_PAGE_URL = "https://www.uiuc.or.kr/businessInfo/trafficPage/public/list.do"
+UIJEONGBU_LIST_URL = "https://www.uiuc.or.kr/businessInfo/trafficPage/public/list3.do"
+
+# 의정부시 공영주차장 요금 — 「의정부시 주차장 설치 및 관리 조례」 제3조제1항(별표1, 시행 2026-01-09,
+# 경기도의정부조례 제3674호)과 의정부도시공사 ‘공영주차장’ 요금 안내(2026-11-17 확인)를 그대로 옮겼다.
+#   · 기본시간 없이 1회 주차 10분당 요금이 바로 붙는다(1급지 300원, 2급지 200원, 3급지 150원).
+#   · 노외는 1일 주차권(12시간)이 상한이고, 노상은 1일 주차요금이 따로 있다.
+#   · 월 정기권은 노외만 주간·야간·전일로 나뉜다(전일 = 1급지 104,000원).
+UIJEONGBU_FEES = {
+    "off": {
+        1: {"unit": 300, "day": 9_000, "month_day": 70_000, "month_night": 60_000, "month_all": 104_000},
+        2: {"unit": 200, "day": 5_000, "month_day": 40_000, "month_night": 30_000, "month_all": 56_000},
+        3: {"unit": 150, "day": 3_000, "month_day": 20_000, "month_night": 20_000, "month_all": 32_000},
+    },
+    "street": {
+        1: {"unit": 300, "day": 8_000, "month": 80_000},
+        2: {"unit": 200, "day": 6_000, "month": 60_000},
+        3: {"unit": 150, "day": 4_000, "month": 40_000},
+    },
+}
+UIJEONGBU_DAY_HOURS = 12       # 노외 1일 주차권은 12시간 기준
+# 「의정부시 공공시설 부설주차장 운영 조례」 제9조제1항(별표3) 요금 — 의정부도시공사 부설주차장 안내표.
+UIJEONGBU_FACILITY = {
+    "의정부시청": {"free_min": 30, "unit": 300, "day": 7_000, "month": None},
+    "정보도서관": {"free_min": 60, "unit": 300, "day": 7_000, "month": None},
+    "과학도서관": {"free_min": 60, "unit": 300, "day": 7_000, "month": 40_000},
+    "낙양동 물사랑공원": {"free_min": 30, "unit": 300, "day": 7_000, "month": 56_000},
+    "직동 근린공원": {"free_min": 180, "unit": 200, "day": 5_000, "month": 56_000},
+    "추동근린공원": {"free_min": 180, "unit": 200, "day": 5_000, "month": None},
+    "송산사지 근린공원": {"free_min": 180, "unit": 200, "day": 5_000, "month": None},
+}
+# 캠핑카 전용 구역은 조례 급지 요금이 아니라 표준데이터에 등록된 요금을 쓴다
+#   (민락2지구·추동 캠핑카: 10분 200원·1일 5,000원·월 84,000원).
+UIJEONGBU_CAMP_FEE = {"unit": 200, "day": 5_000, "month": 84_000}
+# 「의정부시 주차장 설치 및 관리 조례」 제3조제1항 감면표와 의정부도시공사 안내(2026-11-17 확인).
+#   · 국가유공자        : 최초 5시간 전액 면제, 5시간 초과분 50%
+#   · 다자녀가정·전기차  : 최초 2시간 면제, 이후 50%(전기차는 충전시설이 있는 공영주차장)
+#   · 장애인·경차·저공해·환승·우수자원봉사자·병역명문가·교육차량 : 50%
+#   · 모범·유공·성실납세자 : 주차요금 면제(발행일부터 1년)
+#   · 감면이 겹치면 감면율이 높은 하나만 적용한다.
+UIJEONGBU_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·장애인 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경차(1,000cc 미만)·저공해·장애인(표지+복지카드)·환승(30분 이내 결제)·우수자원봉사자·병역명문가·교육차량"},
+    {"label": "다자녀·전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "두 자녀 이상(막내 만 18세 이하)·전기자동차(충전시설 설치 주차장), 최초 2시간 면제"},
+    {"label": "국가유공자 5시간 면제 후 50%", "rate": 0.5, "exempt_min": 300,
+     "note": "국가유공자증서 소지자, 최초 5시간 전액 면제"},
+    {"label": "성실납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "국세청 모범납세자·경기도 유공납세자·의정부시 성실납세자(발행일부터 1년)"},
+]
+UIJEONGBU_FACILITY_NOTE = ("이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) "
+                           "외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, "
+                           "야간·휴일 개방 여부는 시설 안내를 확인하세요")
+UIJEONGBU_CAMP_NOTE = ("캠핑카 전용 구역은 표준데이터 등록요금(10분 200원·1일 5,000원·월 84,000원)이 적용됩니다"
+                       " — 일반 구획 요금과 다를 수 있으니 현장 표지를 확인하세요")
+UIJEONGBU_BIG_NOTE = ("대형자동차 전용 주차장입니다 — 조례 별표1의 ‘대형 기준 요금의 2배’"
+                       "(10분 400원·1일 10,000원)를 적용했습니다")
+UIJEONGBU_NEW_LOT_NOTE = ("도시공사 공영주차장 현황(2026년 9월 기준)에는 없고 표준데이터(기준일 2026-07-15)에만 "
+                          "등록된 주차장입니다 — 운영 여부를 도시공사에 확인하세요")
+
+# 표준데이터(제공기관 '경기도 의정부시') 행 ↔ 도시공사 공영주차장 현황(2026년 9월) 행 짝.
+#   · 좌표·운영시간·전화·관리번호는 표준데이터에서, 이름·유형·급지·면수는 도시공사 현황에서 가져온다.
+#   · 도시공사 현황은 면수가 구획 구성(일반+장애인+경차+여성+전기차+대형+캠핑카)의 합과 일치하고,
+#     표준데이터의 면수는 같은 지번에서 다른 값을 담은 행이 있어(가능동 일대) 현황표 값을 쓴다.
+UIJEONGBU_STD_MAP = {
+    1: ["207-2-000011"], 2: ["207-2-000012"], 3: ["207-2-000008"], 4: ["207-2-000005"],
+    5: ["207-2-000006"], 6: ["207-2-000007"], 7: ["207-2-000010"], 8: ["207-2-000003"],
+    9: ["207-2-000002"], 10: ["207-2-000001"], 11: ["207-2-000009"], 12: ["207-2-000004"],
+    13: ["207-2-000026"], 14: ["207-2-000021"], 15: ["207-2-000022"], 16: ["207-2-000023"],
+    17: ["207-2-000024"], 18: ["207-2-000025"], 19: ["207-2-000029"], 20: ["207-2-000041"],
+    21: ["207-2-000038"], 23: ["207-2-000027"], 24: ["207-2-000031"], 25: ["207-2-000047"],
+    26: ["207-2-000046"], 27: ["207-2-000033"], 28: ["207-2-000013"], 29: ["207-2-000040"],
+    30: ["207-2-000044"], 31: ["207-2-000020"], 32: ["207-2-000018"], 33: ["207-2-000019"],
+    34: ["207-2-000037"], 35: ["207-2-000017"], 36: ["207-2-000015"], 37: ["207-2-000016"],
+    38: ["207-2-000028"],
+    39: ["207-2-000030"], 40: ["207-2-000039"], 41: ["207-2-000048"], 42: ["207-2-000014"],
+    43: ["207-2-000045"], 44: ["207-2-000042"], 45: ["207-2-000032"], 46: ["207-2-000034"],
+    47: ["207-2-000050", "207-2-000051", "207-2-000052"], 48: ["207-2-000049"], 49: ["207-2-000036"],
+    50: ["207-2-000035"], 51: ["207-2-000053"], 52: ["207-2-000054"], 53: ["207-2-000055"],
+    54: ["207-2-000056"], 55: ["207-2-000057"], 56: ["207-2-000058"], 57: ["207-2-000059"],
+    58: ["207-2-000060"], 59: ["207-2-000061"], 60: ["207-2-000062"], 61: ["207-2-000063"],
+    62: ["207-2-000064"], 63: ["207-2-000065"], 64: ["207-2-000066"], 65: ["207-2-000067"],
+    66: ["207-2-000068"], 67: ["207-2-000069"], 68: ["207-2-000070"], 69: ["207-2-000071"],
+    70: ["207-2-000072"],
+}
+# 표준데이터 좌표가 다른 주차장과 겹쳐 지도 핀이 엉뚱한 곳에 찍히는 행은 좌표를 비운다.
+#   · 용현동 제1공영(도 34번): 표준데이터 좌표가 호원동 한주3차아파트 앞과 같은 값이다.
+UIJEONGBU_COORD_DROP = {34}
+# 표준데이터에 없는 주차장(부설 10곳·고산지구 제3·용현동 제1공영)의 좌표는 카카오맵 지오코딩으로 채웠다.
+#   · 주소만으로 찍은 좌표라 주차장 입구와 수십 미터 다를 수 있다(지도 링크용).
+UIJEONGBU_GEOCODE_JSON = RAW / "uiuc.or.kr_지오코딩_20261117.json"
+
+
+def uijeongbu_dong_of(text: str):
+    """주소에서 의정부시 법정동을 뽑는다(‘가능동678’·‘의정부동 30-38’ 같은 표기도 인정)."""
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(UIJEONGBU_DONGS, key=len, reverse=True):
+        if re.search(re.escape(d) + r"(?=$|\d|[^가-힣])", t):
+            return d
+    return None
+
+
+def load_uijeongbu_geocode() -> dict:
+    """부설·신설 주차장 좌표(카카오맵 지오코딩) → {주차장명: (위도, 경도)}."""
+    if not UIJEONGBU_GEOCODE_JSON.exists():
+        return {}
+    rows = json.loads(UIJEONGBU_GEOCODE_JSON.read_text()).get("rows", [])
+    return {r["name"]: (r["lat"], r["lng"]) for r in rows if r.get("lat") and r.get("lng")}
+
+
+def load_uijeongbu_list() -> list:
+    """의정부도시공사 공영주차장 현황(2026년 9월) → 주차장별 유형·급지·면수·구획 구성."""
+    if not UIJEONGBU_LIST_JSON.exists():
+        return []
+    return json.loads(UIJEONGBU_LIST_JSON.read_text()).get("rows", [])
+
+
+def uijeongbu_facility_fee(name: str):
+    """부설주차장 이름 → 부설주차장 운영 조례 요금(가장 긴 이름이 먼저 맞도록 정렬해 본다)."""
+    for key in sorted(UIJEONGBU_FACILITY, key=len, reverse=True):
+        if key in name:
+            return UIJEONGBU_FACILITY[key]
+    return None
+
+
+def build_uijeongbu():
+    """의정부시 공영주차장을 도시공사 현황(2026년 9월) + 표준데이터로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 의정부시 범위를 벗어난 행은 제외(껍데기 행).
+      · 의정부시는 자치구가 없어 구 대신 법정동으로 묶고, 시 페이지가 계산기·목록 페이지를 겸한다.
+      · 노상(거리) 구간은 도시공사 현황의 ‘노상’ 13구간을 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    요금은 조례 별표1의 노외·노상 1~3급지 요금표(10분 단위)를 쓰고, 부설은 부설주차장 운영 조례 요금을 쓴다.
+    면수·급지·유형은 도시공사 현황표(2026년 9월)를 따르고, 표준데이터와 다른 곳은 품질 리포트에 남긴다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == UIJEONGBU_PROVIDER]
+    std_by_no = {(r_["주차장관리번호"] or "").strip(): r_ for r_ in rows_city}
+    city_list = load_uijeongbu_list()
+    geocode = load_uijeongbu_geocode()
+    lots, excluded = [], []
+    card_no = street_no = 0
+    used_std, matched = set(), 0
+    grade_diff, space_diff, name_diff, fee_diff = [], [], [], []
+    capa_bad = []
+
+    def fee_base(kind, grade, free_min=0, unit=None, day=None, month=None, month_night=None,
+                 month_all=None, daily_hours=None):
+        return {
+            "type": "유료", "raw_type": "유료", "mixed": False, "grade": grade if kind != "facility" else None,
+            "std_grade": None,
+            "base_min": free_min or 10, "base_fee": 0 if free_min else unit,
+            "unit_min": 10, "unit_fee": unit, "steps": None,
+            "free_min": free_min, "cap_fee": None, "cap_src": None,
+            "daily_hours": daily_hours, "daily_fee": day,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": month, "monthly_night": month_night, "monthly_all": month_all,
+            "pay": "", "basis": None, "category": None, "portal_free_now": False,
+        }
+
+    for ref in sorted(city_list, key=lambda x: x["no"]):
+        name = (ref.get("name") or "").strip()
+        ptype = ref.get("type") or "노외"
+        grade = ref.get("grade")
+        pay = ref.get("pay") or ""
+        spaces = ref.get("spaces")
+        std_ids = UIJEONGBU_STD_MAP.get(ref["no"], [])
+        std = std_by_no.get(std_ids[0]) if std_ids else None
+        for sid in std_ids:
+            if sid in std_by_no:
+                used_std.add(sid)
+        if std:
+            matched += 1
+            if int(std.get("주차구획수") or 0) != spaces:
+                space_diff.append(f"{name}: 표준데이터 {std.get('주차구획수')}면 ↔ 도시공사 {spaces}면")
+            sg = to_int(std.get("급지구분"))
+            if sg in (1, 2, 3) and grade and sg != grade:
+                grade_diff.append(f"{name}: 표준데이터 {sg}급지 ↔ 도시공사 {grade}급지")
+            if uij_name_key(std.get("주차장명")) != uij_name_key(name):
+                name_diff.append(f"{name} ↔ 표준데이터 ‘{std.get('주차장명')}’")
+        for sid in std_ids[1:]:
+            extra = std_by_no.get(sid)
+            if extra:
+                space_diff.append(f"{name}: 표준데이터 ‘{extra.get('주차장명')}’ "
+                                  f"{extra.get('주차구획수')}면이 같은 주차장으로 묶여 있음")
+
+        # 주소·좌표 — 표준데이터가 있으면 그 주소를, 없으면 도시공사 현황 위치를 쓴다.
+        jibun = (std.get("소재지지번주소") or "").strip() if std else ""
+        road = (std.get("소재지도로명주소") or "").strip() if std else ""
+        loc = (ref.get("loc") or "").strip()
+        if not jibun and not road:
+            addr_jibun = f"경기도 의정부시 {loc}" if loc else ""
+            addr_road = ""
+        else:
+            addr_jibun, addr_road = jibun, road
+        addr = addr_jibun or addr_road or loc
+
+        lat = lng = None
+        if std and ref["no"] not in UIJEONGBU_COORD_DROP:
+            try:
+                lat = float(std["위도"]) if (std.get("위도") or "").strip() else None
+                lng = float(std["경도"]) if (std.get("경도") or "").strip() else None
+            except ValueError:
+                lat = lng = None
+        if lat is None or lng is None:
+            lat, lng = geocode.get(name, (None, None))
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (UIJEONGBU_BBOX[0] <= lat <= UIJEONGBU_BBOX[1]
+                                      and UIJEONGBU_BBOX[2] <= lng <= UIJEONGBU_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = (uijeongbu_dong_of(jibun) or uijeongbu_dong_of(road) or uijeongbu_dong_of(loc)
+                or next((d for d in UIJEONGBU_DONGS if name.startswith(d)), None))
+        dong_src = "지번주소" if uijeongbu_dong_of(jibun) else (
+            "도로명주소" if uijeongbu_dong_of(road) else
+            ("도시공사위치" if uijeongbu_dong_of(loc) else
+             ("주차장명" if name.startswith(tuple(UIJEONGBU_DONGS)) else "없음")))
+        gu = UIJEONGBU_DISTRICTS[0][0]
+
+        note = (std.get("특기사항") or "").strip() if std else ""
+        if std:
+            win, oper, closed_note = parse_schedule(std, note)
+        else:
+            win = {k: {"open": True, "start": 0, "end": 1440, "24h": True,
+                       "listed": True, "raw": ["00:00", "24:00"]} for k in ("weekday", "sat", "sun")}
+            oper, closed_note = {"weekday": True, "sat": True, "sun": True}, False
+        free_days = parse_free_days(note)
+
+        capa = ref.get("capa") or {}
+        if capa and sum(capa.values()) != spaces:
+            capa_bad.append(f"{name}({sum(capa.values())}면 ≠ {spaces}면)")
+        capa_detail = {"disabled": capa.get("장애인") or 0, "compact": capa.get("경차") or 0,
+                       "elec": capa.get("전기차") or 0, "woman": capa.get("여성") or 0}
+        big = []
+        if capa.get("대형차"):
+            big.append(f"대형차 {capa['대형차']}면")
+        if capa.get("캠핑카"):
+            big.append(f"캠핑카 {capa['캠핑카']}면")
+        if big:
+            note = (note + " · " if note else "") + " · ".join(big)
+
+        street = ptype == "노상"
+        facility = ptype == "부설"
+        category = "facility" if facility else ("street" if street else "off")
+        if street:
+            street_no += 1
+            lot_id = f"uj-s{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"uj-{card_no:03d}"
+
+        is_free = pay == "무료"
+        fee = fee_base(category, grade)
+        std_fee = {
+            "base_min": to_int(std.get("주차기본시간")) if std else None,
+            "base_fee": to_int(std.get("주차기본요금")) if std else None,
+            "unit_min": to_int(std.get("추가단위시간")) if std else None,
+            "unit_fee": to_int(std.get("추가단위요금")) if std else None,
+            "day": to_int(std.get("1일주차권요금")) if std else None,
+            "monthly": to_int(std.get("월정기권요금")) if std else None,
+        }
+        fee["std"] = std_fee
+        notice = None
+        if is_free:
+            fee["type"] = fee["raw_type"] = "무료"
+            fee["category"] = None
+            free_days = {"sat": True, "sun": True}
+        elif facility:
+            fac = uijeongbu_facility_fee(name)
+            if fac is None:
+                fee["type"] = fee["raw_type"] = "미상"
+                fee["category"] = None
+                notice = "「의정부시 공공시설 부설주차장 운영 조례」 별표 3에 이 주차장의 요금이 없어 현장 확인이 필요합니다"
+            else:
+                fee.update(fee_base("facility", None, free_min=fac["free_min"], unit=fac["unit"],
+                                    day=fac["day"], month=fac["month"], daily_hours=24))
+                fee["category"] = "facility"
+                fee["basis"] = "「의정부시 공공시설 부설주차장 운영 조례」 별표 3"
+                notice = UIJEONGBU_FACILITY_NOTE
+        elif street:
+            table = UIJEONGBU_FEES["street"][grade]
+            fee.update(fee_base("street", grade, unit=table["unit"], day=table["day"],
+                                month=table["month"], daily_hours=24))
+            fee["cap_src"] = "조례 1일 주차요금"
+            fee["basis"] = f"「의정부시 주차장 설치 및 관리 조례」 별표1 노상 {grade}급지"
+            if std_fee["base_fee"] and (std_fee["base_min"], std_fee["base_fee"]) != (10, table["unit"]):
+                fee_diff.append(f"{name}: 등록 {std_fee['base_min']}분 {std_fee['base_fee']}원 "
+                                f"→ 적용 10분 {table['unit']}원(조례 {grade}급지)")
+        elif capa.get("대형차") and capa.get("대형차") == spaces:
+            # 대형자동차 전용 주차장 — 조례 별표1의 ‘대형 기준 요금의 2배’를 적용한다
+            #   (표준데이터 등록값도 10분 400원·1일 10,000원·월 112,000원으로 2급지의 2배다).
+            table = UIJEONGBU_FEES["off"][grade]
+            fee.update(fee_base("off", grade, unit=table["unit"] * 2, day=table["day"] * 2,
+                                month=table["month_all"] * 2, month_night=table["month_night"] * 2,
+                                month_all=table["month_all"] * 2, daily_hours=UIJEONGBU_DAY_HOURS))
+            fee["basis"] = f"「의정부시 주차장 설치 및 관리 조례」 별표1 노외 {grade}급지(대형차 기준요금의 2배)"
+            notice = UIJEONGBU_BIG_NOTE
+        elif "캠핑카" in name:
+            fee.update(fee_base("off", grade, unit=UIJEONGBU_CAMP_FEE["unit"], day=UIJEONGBU_CAMP_FEE["day"],
+                                month=UIJEONGBU_CAMP_FEE["month"], month_all=UIJEONGBU_CAMP_FEE["month"],
+                                daily_hours=UIJEONGBU_DAY_HOURS))
+            fee["basis"] = "표준데이터 등록요금(캠핑카 전용)"
+            notice = UIJEONGBU_CAMP_NOTE
+        else:
+            table = UIJEONGBU_FEES["off"][grade]
+            fee.update(fee_base("off", grade, unit=table["unit"], day=table["day"],
+                                month=table["month_all"], month_night=table["month_night"],
+                                month_all=table["month_all"], daily_hours=UIJEONGBU_DAY_HOURS))
+            fee["basis"] = f"「의정부시 주차장 설치 및 관리 조례」 별표1 노외 {grade}급지"
+            if std_fee["base_fee"]:
+                applied = (10, table["unit"])
+                if (std_fee["base_min"], std_fee["base_fee"]) != applied:
+                    fee_diff.append(f"{name}: 등록 {std_fee['base_min']}분 {std_fee['base_fee']}원 "
+                                    f"→ 적용 10분 {table['unit']}원(조례 {grade}급지)")
+
+        fee["pay"] = (std.get("결제방법") or "").strip() if std else ""
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (std.get("주차장관리번호") or "").strip() if std else "",
+            "src": "표준데이터" if std else "도시공사현황",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (std.get("주차장구분") or "").strip() if std else "공영",
+            "ptype": ptype,
+            "addr_jibun": addr_jibun,
+            "addr_road": addr_road,
+            "road": (re.match(r"^([가-힣0-9]+(?:대로|로|길))", name).group(1)
+                     if street and re.match(r"^([가-힣0-9]+(?:대로|로|길))", name) else None),
+            "spaces": spaces,
+            "tel": (std.get("전화번호") or "").strip() if std else "",
+            "lat": lat, "lng": lng,
+            "base_date": (std.get("데이터기준일자") or "").strip() if std else "2026-09 (도시공사 현황)",
+            "manager": (std.get("관리기관명") or "").strip() if std else "의정부도시공사",
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (std.get("장애인전용주차구역보유여부") or "").strip() if std else "",
+            "capa_detail": capa_detail,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "의정부시",
+            "city_slug": "uijeongbu",
+        })
+
+    # 표준데이터에만 있고 도시공사 현황(2026-09)에 없는 주차장 — 등록값 그대로 카드로 넣고 안내를 단다.
+    for mgmt, std in sorted(std_by_no.items()):
+        if mgmt in used_std:
+            continue
+        name = (std.get("주차장명") or "").strip()
+        jibun = (std.get("소재지지번주소") or "").strip()
+        road = (std.get("소재지도로명주소") or "").strip()
+        spaces = to_int(std.get("주차구획수"))
+        pay = (std.get("요금정보") or "").strip()
+        if not (name and (jibun or road) and spaces):
+            excluded.append({"name": name or "(이름 없음)", "reason": "이름·주소·구획수 중 없음"})
+            continue
+        try:
+            lat = float(std["위도"]) if (std.get("위도") or "").strip() else None
+            lng = float(std["경도"]) if (std.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and not (UIJEONGBU_BBOX[0] <= lat <= UIJEONGBU_BBOX[1]
+                                    and UIJEONGBU_BBOX[2] <= lng <= UIJEONGBU_BBOX[3]):
+            excluded.append({"name": name, "reason": "좌표 범위 이탈"})
+            continue
+        note = (std.get("특기사항") or "").strip()
+        win, oper, closed_note = parse_schedule(std, note)
+        grade = to_int(std.get("급지구분")) or 2
+        fee = fee_base("off", grade)
+        if pay == "무료":
+            fee["type"] = fee["raw_type"] = "무료"
+            free_days = {"sat": True, "sun": True}
+        else:
+            table = UIJEONGBU_FEES["off"][grade]
+            fee.update(fee_base("off", grade, unit=table["unit"], day=table["day"],
+                                month=table["month_all"], month_night=table["month_night"],
+                                month_all=table["month_all"], daily_hours=UIJEONGBU_DAY_HOURS))
+            fee["basis"] = f"「의정부시 주차장 설치 및 관리 조례」 별표1 노외 {grade}급지"
+            free_days = parse_free_days(note)
+        fee["pay"] = (std.get("결제방법") or "").strip()
+        fee["std"] = {"base_min": to_int(std.get("주차기본시간")), "base_fee": to_int(std.get("주차기본요금")),
+                      "unit_min": to_int(std.get("추가단위시간")), "unit_fee": to_int(std.get("추가단위요금")),
+                      "day": to_int(std.get("1일주차권요금")), "monthly": to_int(std.get("월정기권요금"))}
+        card_no += 1
+        lots.append({
+            "id": f"uj-{card_no:03d}", "mgmt_no": mgmt, "src": "표준데이터", "list_mode": "card",
+            "name": name, "gu": UIJEONGBU_DISTRICTS[0][0],
+            "dong": uijeongbu_dong_of(jibun) or uijeongbu_dong_of(road),
+            "dong_src": "지번주소" if uijeongbu_dong_of(jibun) else "없음",
+            "kind": (std.get("주차장구분") or "").strip(), "ptype": (std.get("주차장유형") or "노외").strip(),
+            "addr_jibun": jibun, "addr_road": road, "road": None, "spaces": spaces,
+            "tel": (std.get("전화번호") or "").strip(), "lat": lat, "lng": lng,
+            "base_date": (std.get("데이터기준일자") or "").strip(),
+            "manager": (std.get("관리기관명") or "").strip(), "note": note,
+            "notice": UIJEONGBU_NEW_LOT_NOTE, "fee": fee, "oper": oper, "hours": win,
+            "free_days": free_days, "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (std.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "의정부시", "city_slug": "uijeongbu",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"uj-{i:03d}" if l["list_mode"] == "card" else f"uj-s{i:03d}"
+
+    quality = check_quality_uijeongbu(rows_all, rows_city, lots, excluded, city_list,
+                                      matched, grade_diff, space_diff, name_diff, fee_diff, capa_bad)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(UIJEONGBU_LIST_JSON).strftime("%Y-%m-%d %H:%M")
+                            if UIJEONGBU_LIST_JSON.exists() else None,
+            "region": {"province": "경기도", "city": "의정부시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-07-15",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("의정부시가 등록한 72행(제공기관명 '경기도 의정부시')을 읽었다. 모두 노외로 등록되어 "
+                             "있으나 도시공사 현황과 맞춰 보면 노상 13구간이 섞여 있어, 유형은 도시공사 현황을 따랐다. "
+                             "좌표·운영시간·전화·관리번호 출처로 썼다."),
+                },
+                {
+                    "id": "uiuc", "name": "의정부도시공사 공영주차장 현황·요금 안내",
+                    "org": "의정부도시공사 교통사업처",
+                    "url": UIJEONGBU_LIST_URL,
+                    "file": UIJEONGBU_LIST_JSON.name,
+                    "sha256": sha256(UIJEONGBU_LIST_JSON) if UIJEONGBU_LIST_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026년 9월 기준", "rows_total": len(city_list),
+                    "fetched_at": _snapshot_time(UIJEONGBU_LIST_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if UIJEONGBU_LIST_JSON.exists() else None,
+                    "note": ("공영주차장 80곳(노외 67·노상 13, 그 가운데 부설 10) 5,649면의 유형·급지·면수와 "
+                             "구획 구성(일반·장애인·경차·여성·전기차·대형차·캠핑카) 확인용. 이름·유형·급지·면수의 "
+                             "기준으로 삼았다."),
+                },
+                {
+                    "id": "portal", "name": "의정부도시공사 공영주차장 주차요금·감면 안내",
+                    "org": "의정부도시공사 교통사업처",
+                    "url": UIJEONGBU_PAGE_URL,
+                    "file": UIJEONGBU_PORTAL_TXT.name,
+                    "sha256": sha256(UIJEONGBU_PORTAL_TXT) if UIJEONGBU_PORTAL_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": None,
+                    "fetched_at": _snapshot_time(UIJEONGBU_PORTAL_TXT).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if UIJEONGBU_PORTAL_TXT.exists() else None,
+                    "note": ("급지 구분(1급지 상업지역·역세권·의정부1동 둔치, 2급지 주거지역, 3급지 그 밖), "
+                             "노상·노외 1~3급지 요금표(10분당), 부설주차장 요금표, 감면 11종 확인용."),
+                },
+                {
+                    "id": "geocode", "name": "주소 지오코딩(카카오맵)",
+                    "org": "Kakao Map 지오코딩(maps geocode)",
+                    "url": "https://map.kakao.com",
+                    "file": UIJEONGBU_GEOCODE_JSON.name,
+                    "sha256": sha256(UIJEONGBU_GEOCODE_JSON) if UIJEONGBU_GEOCODE_JSON.exists() else None,
+                    "license": "지도 서비스 지오코딩 결과(참고용)",
+                    "base_date": None, "rows_total": len(geocode),
+                    "fetched_at": "2026-11-17 10:24 (KST)",
+                    "note": ("표준데이터에 없는 부설주차장 10곳과 고산지구 제3공영·용현동 제1공영의 좌표를 "
+                             "주소로 지오코딩해 채웠다. 주차장 입구와 수십 미터 다를 수 있다."),
+                },
+                {
+                    "id": "ordinance", "name": "의정부시 주차장 설치 및 관리 조례 (제3조제1항·별표1)",
+                    "org": "의정부시",
+                    "url": UIJEONGBU_ORDINANCE_URL,
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "시행 2026-01-09 (경기도의정부시조례 제3674호)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("공영주차장 주차요금(노상·노외 1~3급지 10분당 요율, 1일 주차요금·1일 주차권, "
+                             "월 정기권)과 요금 감면 근거. 도시공사 요금 안내로 교차 확인."),
+                },
+                {
+                    "id": "annex", "name": "의정부시 공공시설 부설주차장 운영 조례 (제8조·제9조·별표2·별표3)",
+                    "org": "의정부시",
+                    "url": UIJEONGBU_ANNEX_URL,
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "공포 2026-02-23 (조례 제3699호 일부개정)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("시청·도서관·공원 등 공공시설 부설주차장의 유료 운영시간(별표 2)과 요금(별표 3: "
+                             "최초 30분~3시간 무료 뒤 10분당 300·200원, 1일 7,000·5,000원) 근거. 유료 운영시간 외에는 "
+                             "무료로 개방한다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in UIJEONGBU_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "uijeongbu_grade",
+            "unit_min": 10,
+            "day_hours": UIJEONGBU_DAY_HOURS,
+            "applies": "2026-01-09 시행 조례",
+            "off": [{"grade": g, **t, "lots": 0} for g, t in sorted(UIJEONGBU_FEES["off"].items())],
+            "street": [{"grade": g, **t} for g, t in sorted(UIJEONGBU_FEES["street"].items())],
+            "facility": [{"name": k, **v} for k, v in UIJEONGBU_FACILITY.items()],
+            "camp": UIJEONGBU_CAMP_FEE,
+            "basis": ("「의정부시 주차장 설치 및 관리 조례」 별표1(2026-01-09 시행) · 「의정부시 공공시설 부설주차장 "
+                      "운영 조례」 별표3 · 의정부도시공사 공영주차장 요금·감면 안내(2026-11-17 확인)"),
+        },
+    }
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = quality["급지별"].get(row["grade"], 0)
+    payload.update(CITY_META["의정부시"] | {
+        "city": "의정부시",
+        "weekend_free_pages": False,     # 주말 무료 개방 ‘페이지’는 만들지 않는다
+        "discounts": UIJEONGBU_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "uijeongbu_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def uij_name_key(s: str) -> str:
+    """주차장 이름 비교용 키 — 괄호·공백·‘주차장/공영/제/지하’와 숫자 표기 차이를 없앤다."""
+    t = re.sub(r"\([^)]*\)", "", s or "")
+    t = re.sub(r"[\s'\"\[\]·,.ㆍ~\-]", "", t)
+    t = t.replace("제", "")
+    for w in ("주차장", "공영주차장", "노외", "공영", "지하", "임시", "전용"):
+        t = t.replace(w, "")
+    return t
+
+
+def check_quality_uijeongbu(std_all, rows, lots, excluded, city_list,
+                            matched, grade_diff, space_diff, name_diff, fee_diff, capa_bad):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(f'{l["gu"]} {l["dong"] or "동 미상"}' for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["unit_fee"] for l in lots
+            if l["fee"]["type"] == "유료" and l["fee"]["unit_fee"] and l["ptype"] != "부설"]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_의정부시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(Counter(l["gu"] for l in card)),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in lots
+                               if l["fee"]["type"] == "유료" and l["fee"].get("grade"))),
+        "도시공사_목록수": len(city_list),
+        "도시공사_매칭": matched,
+        "급지_차이": grade_diff,
+        "면수_차이": space_diff,
+        "이름_차이": name_diff,
+        "등록값_차이": fee_diff,
+        "구획구성_불일치": capa_bad,
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -5347,7 +5970,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -5406,14 +6029,14 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
-             "ansan": ["안산시"], "siheung": ["시흥시"]}[args.city])
+             "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -5437,6 +6060,8 @@ def main():
         cities.append(build_ansan())
     if "시흥시" in want:
         cities.append(build_siheung())
+    if "의정부시" in want:
+        cities.append(build_uijeongbu())
 
     if args.city == "all":
         site = build_site_payload(cities)

@@ -1,0 +1,9763 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 10:23",
+  "generated_at_iso": "2026-11-17T10:23:31+09:00",
+  "snapshot_at": "2026-11-17 10:11",
+  "region": {
+   "province": "경기도",
+   "city": "의정부시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-07-15",
+    "rows_total": 18994,
+    "rows_city": 72,
+    "fetched_at": "2026-11-16 19:07 (KST)",
+    "note": "의정부시가 등록한 72행(제공기관명 '경기도 의정부시')을 읽었다. 모두 노외로 등록되어 있으나 도시공사 현황과 맞춰 보면 노상 13구간이 섞여 있어, 유형은 도시공사 현황을 따랐다. 좌표·운영시간·전화·관리번호 출처로 썼다."
+   },
+   {
+    "id": "uiuc",
+    "name": "의정부도시공사 공영주차장 현황·요금 안내",
+    "org": "의정부도시공사 교통사업처",
+    "url": "https://www.uiuc.or.kr/businessInfo/trafficPage/public/list3.do",
+    "file": "uiuc.or.kr_공영주차장현황_20261117.json",
+    "sha256": "aa75cbe5df44771f41d1480f502939c17bef0e3e6ace3243b59f3cef68d2342f",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026년 9월 기준",
+    "rows_total": 80,
+    "fetched_at": "2026-11-17 10:11 (KST)",
+    "note": "공영주차장 80곳(노외 67·노상 13, 그 가운데 부설 10) 5,649면의 유형·급지·면수와 구획 구성(일반·장애인·경차·여성·전기차·대형차·캠핑카) 확인용. 이름·유형·급지·면수의 기준으로 삼았다."
+   },
+   {
+    "id": "portal",
+    "name": "의정부도시공사 공영주차장 주차요금·감면 안내",
+    "org": "의정부도시공사 교통사업처",
+    "url": "https://www.uiuc.or.kr/businessInfo/trafficPage/public/list.do",
+    "file": "uiuc.or.kr_공영주차장_요금감면_20261117.txt",
+    "sha256": "2d064c8f4b764dce00c5100d1936507215aa85c9c27a37c0eaeb56ebbe8c19e6",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": null,
+    "rows_total": null,
+    "fetched_at": "2026-11-17 10:11 (KST)",
+    "note": "급지 구분(1급지 상업지역·역세권·의정부1동 둔치, 2급지 주거지역, 3급지 그 밖), 노상·노외 1~3급지 요금표(10분당), 부설주차장 요금표, 감면 11종 확인용."
+   },
+   {
+    "id": "geocode",
+    "name": "주소 지오코딩(카카오맵)",
+    "org": "Kakao Map 지오코딩(maps geocode)",
+    "url": "https://map.kakao.com",
+    "file": "uiuc.or.kr_지오코딩_20261117.json",
+    "sha256": "82656ba4ee2302024cd850dea39b0a7aa824f63477545533fc9531b878d73799",
+    "license": "지도 서비스 지오코딩 결과(참고용)",
+    "base_date": null,
+    "rows_total": 12,
+    "fetched_at": "2026-11-17 10:24 (KST)",
+    "note": "표준데이터에 없는 부설주차장 10곳과 고산지구 제3공영·용현동 제1공영의 좌표를 주소로 지오코딩해 채웠다. 주차장 입구와 수십 미터 다를 수 있다."
+   },
+   {
+    "id": "ordinance",
+    "name": "의정부시 주차장 설치 및 관리 조례 (제3조제1항·별표1)",
+    "org": "의정부시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2107023",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-01-09 (경기도의정부시조례 제3674호)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 (KST)",
+    "note": "공영주차장 주차요금(노상·노외 1~3급지 10분당 요율, 1일 주차요금·1일 주차권, 월 정기권)과 요금 감면 근거. 도시공사 요금 안내로 교차 확인."
+   },
+   {
+    "id": "annex",
+    "name": "의정부시 공공시설 부설주차장 운영 조례 (제8조·제9조·별표2·별표3)",
+    "org": "의정부시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111261",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "공포 2026-02-23 (조례 제3699호 일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 (KST)",
+    "note": "시청·도서관·공원 등 공공시설 부설주차장의 유료 운영시간(별표 2)과 요금(별표 3: 최초 30분~3시간 무료 뒤 10분당 300·200원, 1일 7,000·5,000원) 근거. 유료 운영시간 외에는 무료로 개방한다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "의정부시",
+   "slug": "uijeongbu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "uj-001",
+   "mgmt_no": "207-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 법원앞",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 109-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-828-6845",
+   "lat": 37.75405311,
+   "lng": 127.0349945,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-002",
+   "mgmt_no": "207-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 입체주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 628",
+   "addr_road": "",
+   "road": null,
+   "spaces": 153,
+   "tel": "031-828-6845",
+   "lat": 37.75148575,
+   "lng": 127.0391704,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 1,
+    "elec": 10,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-003",
+   "mgmt_no": "207-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 제2공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 681-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "031-828-6845",
+   "lat": 37.74825754,
+   "lng": 127.0330011,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 3,
+    "woman": 4
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-004",
+   "mgmt_no": "207-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 제3공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 628",
+   "addr_road": "경기도 의정부시 신촌로39번길 20",
+   "road": null,
+   "spaces": 106,
+   "tel": "031-828-6845",
+   "lat": 37.75148575,
+   "lng": 127.0391704,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 12,
+    "elec": 5,
+    "woman": 10
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-005",
+   "mgmt_no": "207-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 제4공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 302-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "031-828-6845",
+   "lat": 37.74905559,
+   "lng": 127.031604,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 4,
+    "woman": 8
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-006",
+   "mgmt_no": "207-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 제5공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 362-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 238,
+   "tel": "031-828-6845",
+   "lat": 37.7532877,
+   "lng": 127.0368834,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 8,
+    "compact": 1,
+    "elec": 12,
+    "woman": 23
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-007",
+   "mgmt_no": "207-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 제6공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 676-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-828-6845",
+   "lat": 37.7477019,
+   "lng": 127.0339903,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 1,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-008",
+   "mgmt_no": "207-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가능동 제7공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 205-23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "031-828-6845",
+   "lat": 37.75061206,
+   "lng": 127.0433582,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 2,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-009",
+   "mgmt_no": "207-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경민대앞 공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 564-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "031-828-6845",
+   "lat": 37.74583195,
+   "lng": 127.0269067,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인) · 대형차 13면",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-010",
+   "mgmt_no": "207-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 제4공영주차장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 가능동 15-436",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "031-828-6845",
+   "lat": 37.75433405,
+   "lng": 127.0456608,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-011",
+   "mgmt_no": "207-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고산지구 제2공영주차장",
+   "gu": "의정부시",
+   "dong": "고산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 고산동 994-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-828-6845",
+   "lat": 37.72901893,
+   "lng": 127.1054269,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 6,
+    "elec": 1,
+    "woman": 5
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-012",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "고산지구 제3공영주차장",
+   "gu": "의정부시",
+   "dong": "고산동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 고산동 959-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 37.7345478821765,
+   "lng": 127.11150763941,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 1,
+    "elec": 2,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-013",
+   "mgmt_no": "207-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "나눔주차장",
+   "gu": "의정부시",
+   "dong": "고산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 고산동 961-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-828-6845",
+   "lat": 37.7343963082,
+   "lng": 127.110798127,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-014",
+   "mgmt_no": "207-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오6지구",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 452-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-828-6845",
+   "lat": 37.75509068,
+   "lng": 127.0747786,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 2,
+    "elec": 0,
+    "woman": 4
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-015",
+   "mgmt_no": "207-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오그린(동,서측)",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 470-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "031-828-6845",
+   "lat": 37.752735,
+   "lng": 127.0686459,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 0,
+    "elec": 5,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-016",
+   "mgmt_no": "207-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오동공영",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 417-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-828-6845",
+   "lat": 37.74949655,
+   "lng": 127.0562146,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-017",
+   "mgmt_no": "207-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오동쌈지",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 438-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-828-6845",
+   "lat": 37.74923955,
+   "lng": 127.0505682,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 5,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-018",
+   "mgmt_no": "207-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오지구공영주차장",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 467-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-828-6845",
+   "lat": 37.74939298,
+   "lng": 127.0610053,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-019",
+   "mgmt_no": "207-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오행정(광역행정타운2구역)",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 482-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-828-6845",
+   "lat": 37.75517811,
+   "lng": 127.0681215,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 5,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-020",
+   "mgmt_no": "207-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중금오 공영주차장",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 218-2번지 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-828-6845",
+   "lat": 37.753656,
+   "lng": 127.067314,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 6,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-021",
+   "mgmt_no": "207-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "캠프카일 대형자동차 주차장",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 금오동 209",
+   "addr_road": "",
+   "road": null,
+   "spaces": 120,
+   "tel": "031-828-6845",
+   "lat": 37.75312927,
+   "lng": 127.0631292,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(장애인+다자녀 등 50프로 할인), 월정기 전용 · 대형차 120면",
+   "notice": "대형자동차 전용 주차장입니다 — 조례 별표1의 ‘대형 기준 요금의 2배’(10분 400원·1일 10,000원)를 적용했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 112000,
+    "monthly_night": 60000,
+    "monthly_all": 112000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지(대형차 기준요금의 2배)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 10000,
+     "monthly": 112000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-022",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "낙양동 물사랑공원",
+   "gu": "의정부시",
+   "dong": "낙양동",
+   "dong_src": "주차장명",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 용민로 205",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "",
+   "lat": 37.7472224293432,
+   "lng": 127.092695708887,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "대형차 2면",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 30,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 5,
+    "compact": 4,
+    "elec": 4,
+    "woman": 5
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-023",
+   "mgmt_no": "207-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "민락2지구 캠핑카 공영주차장",
+   "gu": "의정부시",
+   "dong": "낙양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 낙양동 717",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-828-6845",
+   "lat": 37.75167304,
+   "lng": 127.1013076,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인) · 캠핑카 24면",
+   "notice": "캠핑카 전용 구역은 표준데이터 등록요금(10분 200원·1일 5,000원·월 84,000원)이 적용됩니다 — 일반 구획 요금과 다를 수 있으니 현장 표지를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "pay": "신용카드",
+    "basis": "표준데이터 등록요금(캠핑카 전용)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 84000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-024",
+   "mgmt_no": "207-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "녹양역 공영주차장(환승)",
+   "gu": "의정부시",
+   "dong": "녹양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 녹양동 413",
+   "addr_road": "",
+   "road": null,
+   "spaces": 134,
+   "tel": "031-828-6845",
+   "lat": 37.760799,
+   "lng": 127.0419928,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 13,
+    "elec": 7,
+    "woman": 16
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-025",
+   "mgmt_no": "207-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "민락2지구 궁촌교",
+   "gu": "의정부시",
+   "dong": "민락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 민락동 914",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-828-6845",
+   "lat": 37.75192052,
+   "lng": 127.1131105,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 8,
+    "elec": 0,
+    "woman": 8
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-026",
+   "mgmt_no": "207-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "민락동 제2공영주차장",
+   "gu": "의정부시",
+   "dong": "민락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 민락동 831",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-828-6845",
+   "lat": 37.74692812,
+   "lng": 127.095528,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 4,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-027",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "송산사지 근린공원",
+   "gu": "의정부시",
+   "dong": "민락동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 민락동 878번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "",
+   "lat": 37.7468348544586,
+   "lng": 127.110059548458,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 180,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 180,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-028",
+   "mgmt_no": "207-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고산지구 제1공영주차장",
+   "gu": "의정부시",
+   "dong": "산곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 산곡동 684-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 180,
+   "tel": "031-828-6845",
+   "lat": 37.7297544,
+   "lng": 127.1079737,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 6,
+    "compact": 18,
+    "elec": 9,
+    "woman": 9
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-029",
+   "mgmt_no": "207-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "발곡어울림주차장",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 353-108",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "031-828-6845",
+   "lat": 37.731347,
+   "lng": 127.0610852,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 5,
+    "elec": 4,
+    "woman": 6
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-030",
+   "mgmt_no": "207-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "본둔야제1주차장",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 197-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-828-6845",
+   "lat": 37.73015488,
+   "lng": 127.0701625,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-031",
+   "mgmt_no": "207-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "본둔야제2주차장",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 211-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-828-6845",
+   "lat": 37.72799893,
+   "lng": 127.0699253,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-032",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "신곡1동 성당",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 신곡동 425-2(성당 아래)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "",
+   "lat": 37.7333228526411,
+   "lng": 127.060820033451,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 4,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-033",
+   "mgmt_no": "207-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신곡2공영(동오마을)",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 674",
+   "addr_road": "",
+   "road": null,
+   "spaces": 160,
+   "tel": "031-828-6845",
+   "lat": 37.74350797,
+   "lng": 127.0570808,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 17,
+    "elec": 8,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-034",
+   "mgmt_no": "207-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신곡동 동신2차아파트옆",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 718-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-828-6845",
+   "lat": 37.73094555,
+   "lng": 127.0550167,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-035",
+   "mgmt_no": "207-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신곡동 제1공영주차장",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 762-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 116,
+   "tel": "031-828-6845",
+   "lat": 37.74966141,
+   "lng": 127.0705311,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 9,
+    "elec": 6,
+    "woman": 13
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-036",
+   "mgmt_no": "207-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신곡동 한일아파트옆",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 720-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-828-6845",
+   "lat": 37.73110049,
+   "lng": 127.0567229,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 4,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-037",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "의정부 과학도서관",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 신곡동 124-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "",
+   "lat": 37.7449183546627,
+   "lng": 127.068956067858,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "대형차 1면",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 3,
+    "compact": 4,
+    "elec": 3,
+    "woman": 6
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-038",
+   "mgmt_no": "207-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "추동 캠핑카 전용 공영주차장",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 신곡동 130-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-828-6845",
+   "lat": 37.74026176,
+   "lng": 127.064306,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인) · 캠핑카 18면",
+   "notice": "캠핑카 전용 구역은 표준데이터 등록요금(10분 200원·1일 5,000원·월 84,000원)이 적용됩니다 — 일반 구획 요금과 다를 수 있으니 현장 표지를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "pay": "신용카드",
+    "basis": "표준데이터 등록요금(캠핑카 전용)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 84000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-039",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "추동근린공원",
+   "gu": "의정부시",
+   "dong": "신곡동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 신곡동 128-3번지 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 102,
+   "tel": "",
+   "lat": 37.7418743351424,
+   "lng": 127.06756737179,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 180,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 180,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 6,
+    "compact": 2,
+    "elec": 4,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-040",
+   "mgmt_no": "207-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "306보충대 대형자동차 주차장",
+   "gu": "의정부시",
+   "dong": "용현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 용현동 437",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "031-828-6845",
+   "lat": 37.73109354,
+   "lng": 127.076482,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(장애인+다자녀 등 50프로 할인), 월정기 전용 · 대형차 110면",
+   "notice": "대형자동차 전용 주차장입니다 — 조례 별표1의 ‘대형 기준 요금의 2배’(10분 400원·1일 10,000원)를 적용했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 112000,
+    "monthly_night": 60000,
+    "monthly_all": 112000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지(대형차 기준요금의 2배)",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 10000,
+     "monthly": 112000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-041",
+   "mgmt_no": "207-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "만가대 공영주차장",
+   "gu": "의정부시",
+   "dong": "용현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 용현동 176-2번지 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-828-6845",
+   "lat": 37.728615,
+   "lng": 127.083728,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 2,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-042",
+   "mgmt_no": "207-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용현동 자투리 주차장",
+   "gu": "의정부시",
+   "dong": "용현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 용현동 235-59번지 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "031-828-6845",
+   "lat": 37.733448,
+   "lng": 127.084062,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 1,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-043",
+   "mgmt_no": "207-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용현동 제1공영주차장",
+   "gu": "의정부시",
+   "dong": "용현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 용현동 241",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-828-6845",
+   "lat": 37.7358275611185,
+   "lng": 127.084859533248,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 5
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-044",
+   "mgmt_no": "207-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석천 제1지하주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 489",
+   "addr_road": "경기도 의정부시 시민로 12",
+   "road": null,
+   "spaces": 346,
+   "tel": "031-828-6845",
+   "lat": 37.73758163,
+   "lng": 127.0363738,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 10,
+    "compact": 15,
+    "elec": 17,
+    "woman": 25
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-045",
+   "mgmt_no": "207-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백석천 제2지하주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 488",
+   "addr_road": "경기도 의정부시 시민로19번길 13",
+   "road": null,
+   "spaces": 246,
+   "tel": "031-828-6845",
+   "lat": 37.7386919,
+   "lng": 127.035717,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 8,
+    "compact": 25,
+    "elec": 12,
+    "woman": 32
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-046",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "의정부 정보도서관",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 의정부동 326-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 90,
+   "tel": "",
+   "lat": 37.7366129787419,
+   "lng": 127.034039562085,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "대형차 1면",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 8,
+    "elec": 5,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-047",
+   "mgmt_no": "207-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부2동 제1공영주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 545-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-828-6845",
+   "lat": 37.73416888,
+   "lng": 127.0391729,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 3,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-048",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "의정부교육지원청",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 의정부동 225-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "",
+   "lat": 37.7458957595282,
+   "lng": 127.046884163494,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 3,
+    "compact": 9,
+    "elec": 4,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-049",
+   "mgmt_no": "207-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 둔치주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 30-38",
+   "addr_road": "",
+   "road": null,
+   "spaces": 241,
+   "tel": "031-828-6845",
+   "lat": 37.74148589,
+   "lng": 127.0539389,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 8,
+    "compact": 5,
+    "elec": 12,
+    "woman": 12
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-050",
+   "mgmt_no": "207-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 입체주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 190-16",
+   "addr_road": "경기도 의정부시 평화로562번길 29",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-828-6845",
+   "lat": 37.74243045,
+   "lng": 127.0486631,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 3,
+    "woman": 1
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-051",
+   "mgmt_no": "207-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 제1공영주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 216-42",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "031-828-6845",
+   "lat": 37.74815074,
+   "lng": 127.04878,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 3,
+    "compact": 0,
+    "elec": 4,
+    "woman": 6
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-052",
+   "mgmt_no": "207-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 제3공영주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 238-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 200,
+   "tel": "031-828-6845",
+   "lat": 37.74474435,
+   "lng": 127.0453294,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 5,
+    "compact": 8,
+    "elec": 10,
+    "woman": 2
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-053",
+   "mgmt_no": "207-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 제5공영주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 240-262",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-828-6845",
+   "lat": 37.74529867,
+   "lng": 127.0433614,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-054",
+   "mgmt_no": "207-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 제6공영주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 726",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "031-828-6845",
+   "lat": 37.73180569,
+   "lng": 127.0490611,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 3,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-055",
+   "mgmt_no": "207-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 제7공영주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 393-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 120,
+   "tel": "031-828-6845",
+   "lat": 37.730201,
+   "lng": 127.052641,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": "도시공사 공영주차장 현황(2026년 9월 기준)에는 없고 표준데이터(기준일 2026-07-15)에만 등록된 주차장입니다 — 운영 여부를 도시공사에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-056",
+   "mgmt_no": "207-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부동 지하주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 199-6",
+   "addr_road": "경기도 의정부시 평화로552번길 17",
+   "road": null,
+   "spaces": 138,
+   "tel": "031-828-6845",
+   "lat": 37.7415876,
+   "lng": 127.0482123,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 4,
+    "elec": 9,
+    "woman": 5
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-057",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "의정부시청",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 의정부동 326-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 215,
+   "tel": "",
+   "lat": 37.7380611482356,
+   "lng": 127.033897957884,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "대형차 1면",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 30,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 11,
+    "compact": 18,
+    "elec": 2,
+    "woman": 19
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-058",
+   "mgmt_no": "207-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의정부역 공영주차장(환승)",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 162-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 101,
+   "tel": "031-828-6845",
+   "lat": 37.73643015,
+   "lng": 127.0475155,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 14,
+    "elec": 5,
+    "woman": 8
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-059",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "직동 근린공원 1주차장",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 의정부동 346",
+   "addr_road": "",
+   "road": null,
+   "spaces": 102,
+   "tel": "",
+   "lat": 37.7403580450338,
+   "lng": 127.032746082868,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 180,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 180,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 3,
+    "compact": 2,
+    "elec": 5,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-060",
+   "mgmt_no": "207-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥선역(라과디아)",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 의정부동 246-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 227,
+   "tel": "031-828-6845",
+   "lat": 37.74384331,
+   "lng": 127.0407508,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-061",
+   "mgmt_no": "207-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장암더샵포레스트",
+   "gu": "의정부시",
+   "dong": "장암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 장암동 431",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-828-6845",
+   "lat": 37.72256584,
+   "lng": 127.0591013,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-062",
+   "mgmt_no": "207-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장암역 공영주차장(환승)",
+   "gu": "의정부시",
+   "dong": "장암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 장암동 159",
+   "addr_road": "",
+   "road": null,
+   "spaces": 188,
+   "tel": "031-828-6845",
+   "lat": 37.70034848,
+   "lng": 127.0540473,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 9000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 104000,
+    "monthly_night": 60000,
+    "monthly_all": 104000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 9000,
+     "monthly": 104000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 0,
+    "elec": 9,
+    "woman": 17
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-063",
+   "mgmt_no": "",
+   "src": "도시공사현황",
+   "list_mode": "card",
+   "name": "직동 근린공원 2주차장",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "도시공사위치",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 의정부시 호원동 393",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 37.7260211377317,
+   "lng": 127.038250542649,
+   "base_date": "2026-09 (도시공사 현황)",
+   "manager": "의정부도시공사",
+   "note": "",
+   "notice": "이 주차장은 「의정부시 공공시설 부설주차장 운영 조례」 제8조에 따라 유료 운영시간(별표 2) 외의 시간을 무료로 개방합니다 — 카드의 예상요금은 유료 운영시간 기준이고, 야간·휴일 개방 여부는 시설 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": 180,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 180,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "「의정부시 공공시설 부설주차장 운영 조례」 별표 3",
+    "category": "facility",
+    "portal_free_now": false,
+    "std": {
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 2,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-064",
+   "mgmt_no": "207-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호원동 원도봉 공영주차장",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 호원동 229-103",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "031-828-6845",
+   "lat": 37.7059473085,
+   "lng": 127.0376857686,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-065",
+   "mgmt_no": "207-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호원동 자투리 주차장",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 호원동 119-11번지 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-828-6845",
+   "lat": 37.707485,
+   "lng": 127.045608,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "24시간 운영(경차+장애인+다자녀 등 50프로 할인)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 12,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 56000,
+    "monthly_night": 30000,
+    "monthly_all": 56000,
+    "pay": "신용카드",
+    "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 56000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-066",
+   "mgmt_no": "207-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호원동안말",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 호원동 247-77",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-828-6845",
+   "lat": 37.71167917,
+   "lng": 127.0448652,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-067",
+   "mgmt_no": "207-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호원동안말2지구제1주차장",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 호원동 249-52",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-828-6845",
+   "lat": 37.71211652,
+   "lng": 127.0435564,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-068",
+   "mgmt_no": "207-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호원동안말2지구제2주차장",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의정부시 호원동 235-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "031-828-6845",
+   "lat": 37.71071786,
+   "lng": 127.0437322,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "대형차량 포함",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s069",
+   "mgmt_no": "207-2-000064",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신흥로(구 가능1동주민센터)",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 가능동 816",
+   "addr_road": "",
+   "road": "신흥로",
+   "spaces": 57,
+   "tel": "031-828-6845",
+   "lat": 37.75020266,
+   "lng": 127.0378433,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 2,
+    "compact": 0,
+    "elec": 1,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s070",
+   "mgmt_no": "207-2-000067",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "호국로 흥선광장～경민광장",
+   "gu": "의정부시",
+   "dong": "가능동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 가능동 803",
+   "addr_road": "",
+   "road": "호국로",
+   "spaces": 27,
+   "tel": "031-828-6845",
+   "lat": 37.74287099,
+   "lng": 127.02714,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s071",
+   "mgmt_no": "207-2-000065",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "경기북부지방경찰청 옆",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 금오동 484-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "031-828-6845",
+   "lat": 37.7563938,
+   "lng": 127.0711573,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s072",
+   "mgmt_no": "207-2-000068",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "자금동사무소앞",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 금오동 422-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-828-6845",
+   "lat": 37.75156903,
+   "lng": 127.0569589,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s073",
+   "mgmt_no": "207-2-000063",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "홈플러스 앞",
+   "gu": "의정부시",
+   "dong": "금오동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 금오동 477-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-828-6845",
+   "lat": 37.75172384,
+   "lng": 127.0695466,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s074",
+   "mgmt_no": "207-2-000066",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "비우로(녹양동 천주교성당 앞)",
+   "gu": "의정부시",
+   "dong": "녹양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 녹양동 360",
+   "addr_road": "",
+   "road": "비우로",
+   "spaces": 79,
+   "tel": "031-828-6845",
+   "lat": 37.75829777,
+   "lng": 127.0368663,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 4,
+    "compact": 0,
+    "elec": 1,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s075",
+   "mgmt_no": "207-2-000071",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "민락동 버스공영차고지 앞",
+   "gu": "의정부시",
+   "dong": "민락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 민락동 694",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-828-6845",
+   "lat": 37.74183835,
+   "lng": 127.097906,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s076",
+   "mgmt_no": "207-2-000070",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "용현동 세아1차아파트 앞",
+   "gu": "의정부시",
+   "dong": "용현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 용현동 390-27",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-828-6845",
+   "lat": 37.73766869,
+   "lng": 127.0780965,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s077",
+   "mgmt_no": "207-2-000072",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "용현동 용현산업단지",
+   "gu": "의정부시",
+   "dong": "용현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 용현동 539",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "031-828-6845",
+   "lat": 37.74264603,
+   "lng": 127.081441,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "대형차 50면",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s078",
+   "mgmt_no": "207-2-000060",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "의정부(서부)역 철도변",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 의정부동 704",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "031-828-6845",
+   "lat": 37.73543323,
+   "lng": 127.0456583,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 7,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s079",
+   "mgmt_no": "207-2-000061",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "파발교차로",
+   "gu": "의정부시",
+   "dong": "의정부동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 의정부동 15-10",
+   "addr_road": "",
+   "road": "파발교차로",
+   "spaces": 10,
+   "tel": "031-828-6845",
+   "lat": 37.74366809,
+   "lng": 127.0495897,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 0,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s080",
+   "mgmt_no": "207-2-000069",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신한대 앞",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 호원동 119-30",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-828-6845",
+   "lat": 37.70803493,
+   "lng": 127.0465574,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  },
+  {
+   "id": "uj-s081",
+   "mgmt_no": "207-2-000062",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "호원동 한주3차아파트 앞(구 빕스)",
+   "gu": "의정부시",
+   "dong": "호원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의정부시 호원동 440-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-828-6845",
+   "lat": 37.71845904,
+   "lng": 127.0469116,
+   "base_date": "2026-07-15",
+   "manager": "경기도 의정부도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 10,
+    "base_fee": null,
+    "unit_min": 10,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": null,
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": {
+    "disabled": 1,
+    "compact": 0,
+    "elec": 0,
+    "woman": 0
+   },
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의정부시",
+   "city_slug": "uijeongbu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 10:23",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 72,
+  "원자료_의정부시행수": 72,
+  "제외_행수": 0,
+  "제외_행": [],
+  "총_주차장": 68,
+  "노외_부설": {
+   "노외": 58,
+   "부설": 10
+  },
+  "노상_구간": 13,
+  "총_구획수": 5321,
+  "노상_구획수": 448,
+  "구별": {
+   "의정부시": 68
+  },
+  "동별": {
+   "의정부시 의정부동": 17,
+   "의정부시 신곡동": 11,
+   "의정부시 가능동": 10,
+   "의정부시 금오동": 8,
+   "의정부시 호원동": 6,
+   "의정부시 용현동": 4,
+   "의정부시 고산동": 3,
+   "의정부시 민락동": 3,
+   "의정부시 낙양동": 2,
+   "의정부시 장암동": 2,
+   "의정부시 녹양동": 1,
+   "의정부시 산곡동": 1
+  },
+  "동수": 12,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 57,
+   "도시공사위치": 10,
+   "주차장명": 1
+  },
+  "요금구분": {
+   "유료": 53,
+   "무료": 28
+  },
+  "요금_미상": [],
+  "급지별": {
+   "2": 32,
+   "1": 12,
+   "3": 1
+  },
+  "도시공사_목록수": 80,
+  "도시공사_매칭": 69,
+  "급지_차이": [],
+  "면수_차이": [
+   "가능동 법원앞: 표준데이터 238면 ↔ 도시공사 26면",
+   "가능동 입체주차장: 표준데이터 160면 ↔ 도시공사 153면",
+   "가능동 제2공영주차장: 표준데이터 153면 ↔ 도시공사 58면",
+   "가능동 제3공영주차장: 표준데이터 58면 ↔ 도시공사 106면",
+   "가능동 제4공영주차장: 표준데이터 106면 ↔ 도시공사 86면",
+   "가능동 제5공영주차장: 표준데이터 86면 ↔ 도시공사 238면",
+   "가능동 제6공영주차장: 표준데이터 37면 ↔ 도시공사 15면",
+   "가능동 제7공영주차장: 표준데이터 20면 ↔ 도시공사 49면",
+   "경민대앞 공영주차장: 표준데이터 41면 ↔ 도시공사 36면",
+   "금오6지구: 표준데이터 26면 ↔ 도시공사 38면",
+   "금오동쌈지: 표준데이터 21면 ↔ 도시공사 23면",
+   "민락2지구 캠핑카 공영주차장: 표준데이터 35면 ↔ 도시공사 38면",
+   "민락동 제2공영주차장: 표준데이터 62면 ↔ 도시공사 20면",
+   "신곡2공영(동오마을): 표준데이터 41면 ↔ 도시공사 160면",
+   "신곡동 동신2차아파트옆: 표준데이터 48면 ↔ 도시공사 24면",
+   "신곡동 한일아파트옆: 표준데이터 24면 ↔ 도시공사 41면",
+   "용현동 제1공영주차장: 표준데이터 8면 ↔ 도시공사 41면",
+   "의정부2동 제1공영주차장: 표준데이터 200면 ↔ 도시공사 48면",
+   "의정부동 제1공영주차장: 표준데이터 54면 ↔ 도시공사 73면",
+   "의정부동 제3공영주차장: 표준데이터 73면 ↔ 도시공사 200면",
+   "의정부동 제4공영주차장: 표준데이터 38면 ↔ 도시공사 37면",
+   "의정부동 제5공영주차장: 표준데이터 15면 ↔ 도시공사 21면",
+   "의정부동 제6공영주차장: 표준데이터 36면 ↔ 도시공사 62면",
+   "캠프카일 대형자동차 주차장: 표준데이터 49면 ↔ 도시공사 120면",
+   "금오지구공영주차장: 표준데이터 23면 ↔ 도시공사 35면",
+   "금오행정(광역행정타운2구역): 표준데이터 38면 ↔ 도시공사 30면",
+   "나눔주차장: 표준데이터 8면 ↔ 도시공사 31면",
+   "나눔주차장: 표준데이터 ‘나눔주차장 고산동 963-1’ 12면이 같은 주차장으로 묶여 있음",
+   "나눔주차장: 표준데이터 ‘나눔주차장 고산동 963-4’ 11면이 같은 주차장으로 묶여 있음",
+   "장암더샵포레스트: 표준데이터 10면 ↔ 도시공사 8면",
+   "호원동안말: 표준데이터 30면 ↔ 도시공사 10면"
+  ],
+  "이름_차이": [
+   "녹양역 공영주차장(환승) ↔ 표준데이터 ‘녹양동 녹양역(환승)’",
+   "백석천 제1지하주차장 ↔ 표준데이터 ‘백석천 지하1번’",
+   "백석천 제2지하주차장 ↔ 표준데이터 ‘백석천 지하2번’",
+   "장암역 공영주차장(환승) ↔ 표준데이터 ‘장암동 장암역(환승)’",
+   "가능동 법원앞 ↔ 표준데이터 ‘법원앞 공영’",
+   "금오6지구 ↔ 표준데이터 ‘금오동 6지구’",
+   "민락2지구 궁촌교 ↔ 표준데이터 ‘민락2지구(궁촌교)’",
+   "신곡2공영(동오마을) ↔ 표준데이터 ‘신곡2동공영(동오마을)’",
+   "신곡동 동신2차아파트옆 ↔ 표준데이터 ‘동신2차아파트옆(중랑천 옆)’",
+   "신곡동 한일아파트옆 ↔ 표준데이터 ‘한일아파트 옆(신곡1동주민센터)’",
+   "306보충대 대형자동차 주차장 ↔ 표준데이터 ‘구306보충대 임시 대형자동차 주차장’",
+   "캠프카일 대형자동차 주차장 ↔ 표준데이터 ‘캠프카일 임시 대형주차장’",
+   "금오행정(광역행정타운2구역) ↔ 표준데이터 ‘금오동 광역행정타운2구역’",
+   "나눔주차장 ↔ 표준데이터 ‘나눔주차장 고산동 961-1’",
+   "경기북부지방경찰청 옆 ↔ 표준데이터 ‘금오로(경기지방북부경찰청 옆)’",
+   "호국로 흥선광장～경민광장 ↔ 표준데이터 ‘호국로(흥선광장~경민광장)’",
+   "자금동사무소앞 ↔ 표준데이터 ‘거북로(자금동사무소 앞)’"
+  ],
+  "등록값_차이": [],
+  "구획구성_불일치": [],
+  "평균_기본요금": 236,
+  "무료_요금구분": 28,
+  "무료개방_표기": [],
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 11,
+  "데이터기준일": [
+   "2026-07-15",
+   "2026-09 (도시공사 현황)"
+  ]
+ },
+ "fee_table": {
+  "style": "uijeongbu_grade",
+  "unit_min": 10,
+  "day_hours": 12,
+  "applies": "2026-01-09 시행 조례",
+  "off": [
+   {
+    "grade": 1,
+    "unit": 300,
+    "day": 9000,
+    "month_day": 70000,
+    "month_night": 60000,
+    "month_all": 104000,
+    "lots": 12
+   },
+   {
+    "grade": 2,
+    "unit": 200,
+    "day": 5000,
+    "month_day": 40000,
+    "month_night": 30000,
+    "month_all": 56000,
+    "lots": 32
+   },
+   {
+    "grade": 3,
+    "unit": 150,
+    "day": 3000,
+    "month_day": 20000,
+    "month_night": 20000,
+    "month_all": 32000,
+    "lots": 1
+   }
+  ],
+  "street": [
+   {
+    "grade": 1,
+    "unit": 300,
+    "day": 8000,
+    "month": 80000
+   },
+   {
+    "grade": 2,
+    "unit": 200,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "grade": 3,
+    "unit": 150,
+    "day": 4000,
+    "month": 40000
+   }
+  ],
+  "facility": [
+   {
+    "name": "의정부시청",
+    "free_min": 30,
+    "unit": 300,
+    "day": 7000,
+    "month": null
+   },
+   {
+    "name": "정보도서관",
+    "free_min": 60,
+    "unit": 300,
+    "day": 7000,
+    "month": null
+   },
+   {
+    "name": "과학도서관",
+    "free_min": 60,
+    "unit": 300,
+    "day": 7000,
+    "month": 40000
+   },
+   {
+    "name": "낙양동 물사랑공원",
+    "free_min": 30,
+    "unit": 300,
+    "day": 7000,
+    "month": 56000
+   },
+   {
+    "name": "직동 근린공원",
+    "free_min": 180,
+    "unit": 200,
+    "day": 5000,
+    "month": 56000
+   },
+   {
+    "name": "추동근린공원",
+    "free_min": 180,
+    "unit": 200,
+    "day": 5000,
+    "month": null
+   },
+   {
+    "name": "송산사지 근린공원",
+    "free_min": 180,
+    "unit": 200,
+    "day": 5000,
+    "month": null
+   }
+  ],
+  "camp": {
+   "unit": 200,
+   "day": 5000,
+   "month": 84000
+  },
+  "basis": "「의정부시 주차장 설치 및 관리 조례」 별표1(2026-01-09 시행) · 「의정부시 공공시설 부설주차장 운영 조례」 별표3 · 의정부도시공사 공영주차장 요금·감면 안내(2026-11-17 확인)"
+ },
+ "slug": "uijeongbu",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "의정부시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "경차·저공해·장애인 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경차(1,000cc 미만)·저공해·장애인(표지+복지카드)·환승(30분 이내 결제)·우수자원봉사자·병역명문가·교육차량"
+  },
+  {
+   "label": "다자녀·전기차 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "두 자녀 이상(막내 만 18세 이하)·전기자동차(충전시설 설치 주차장), 최초 2시간 면제"
+  },
+  {
+   "label": "국가유공자 5시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 300,
+   "note": "국가유공자증서 소지자, 최초 5시간 전액 면제"
+  },
+  {
+   "label": "성실납세자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "국세청 모범납세자·경기도 유공납세자·의정부시 성실납세자(발행일부터 1년)"
+  }
+ ],
+ "realtime": false
+}

@@ -447,8 +447,11 @@ NAMYANGJU_TOKENS = ("남양주", "남양주도시공사", "원패스파킹")
 ANSAN_TOKENS = ("안산", "안산도시공사", "상록구", "단원구")
 # 시흥시는 자치구가 없다 — 다른 도시 페이지에 시흥 자료가 섞이면 실패.
 SIHEUNG_TOKENS = ("시흥", "시흥도시공사", "시흥공영주차")
+# 의정부시는 자치구가 없다 — 다른 도시 페이지에 의정부 자료가 섞이면 실패.
+UIJEONGBU_TOKENS = ("의정부", "의정부도시공사", "의정부시청")
 for _k in list(MIX):
-    MIX[_k] = MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS + SIHEUNG_TOKENS
+    MIX[_k] = (MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS + SIHEUNG_TOKENS
+               + UIJEONGBU_TOKENS)
 MIX["namyangju"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
@@ -470,6 +473,15 @@ MIX["ansan"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
     "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
+)
+MIX["uijeongbu"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
+    "안산", "안산도시공사", "시흥", "시흥도시공사", "시흥공영주차",
     "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
     "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
     "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
@@ -1333,6 +1345,88 @@ else:
     sh_rows = len(re.findall(r"<tr><td>", sh_street_page.read_text()))
     if sh_rows < len(sh_street):
         fails.append(f"시흥시 노상 페이지 행 {sh_rows} < 구간 {len(sh_street)}")
+
+# 의정부시: 「의정부시 주차장 설치 및 관리 조례」 별표1(2026-01-09 시행) — 기본시간 없이 10분 단위,
+#   노외 1~3급지 10분당 300·200·150원, 1일 주차권(12시간) 9,000·5,000·3,000원.
+#   대형자동차 전용은 기준요금의 2배, 캠핑카 전용은 등록요금(10분 200원·1일 5,000원·월 84,000원),
+#   부설은 「공공시설 부설주차장 운영 조례」 별표3(최초 30분·1시간·3시간 무료 뒤 10분당 300·200원).
+UJ_OFF = {1: (300, 9000, 104000), 2: (200, 5000, 56000), 3: (150, 3000, 32000)}
+uj_cards = [l for l in LOTS if l.get("city") == "의정부시" and l.get("list_mode") == "card"]
+uj_street = [l for l in LOTS if l.get("city") == "의정부시" and l.get("list_mode") == "street"]
+if not uj_cards:
+    fails.append("의정부시 카드 데이터가 없음")
+uj_paid = [l for l in uj_cards if l["fee"]["type"] == "유료"]
+uj_free = [l for l in uj_cards if l["fee"]["type"] == "무료"]
+uj_big = [l for l in uj_paid if "대형자동차" in l["name"]]
+uj_camp = [l for l in uj_paid if "캠핑카" in l["name"]]
+uj_fac = [l for l in uj_paid if l["ptype"] == "부설"]
+uj_norm = [l for l in uj_paid if l not in uj_big and l not in uj_camp and l not in uj_fac]
+uj_bad = []
+for l in uj_norm:
+    g = l["fee"]["grade"]
+    if g not in UJ_OFF:
+        uj_bad.append(f'{l["name"]}(급지 {g})')
+        continue
+    unit, day, month = UJ_OFF[g]
+    f = l["fee"]
+    if (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f.get("daily_fee"), f.get("monthly")) != \
+            (10, unit, 10, unit, day, month):
+        uj_bad.append(f'{l["name"]}(요금 {f["base_min"]}분 {f["base_fee"]}원·{f["unit_fee"]}원·'
+                      f'일 {f.get("daily_fee")}·월 {f.get("monthly")})')
+if uj_bad:
+    fails.append(f"의정부시 유료 주차장 요금이 조례 별표1과 다름 {len(uj_bad)}곳 {uj_bad[:3]}")
+uj_grades = {l["fee"]["grade"] for l in uj_paid if l["fee"].get("grade")}
+if sorted(uj_grades) != [1, 2, 3]:
+    fails.append(f"의정부시 유료 주차장 급지가 1~3급지가 아님: {sorted(uj_grades)}")
+uj_big_bad = [l["name"] for l in uj_big
+              if (l["fee"]["unit_fee"], l["fee"]["daily_fee"], l["fee"].get("monthly")) != (400, 10000, 112000)]
+if uj_big_bad:
+    fails.append(f"의정부시 대형자동차 전용 요금(2배)이 아님: {uj_big_bad}")
+uj_camp_bad = [l["name"] for l in uj_camp
+               if (l["fee"]["unit_fee"], l["fee"]["daily_fee"], l["fee"].get("monthly")) != (200, 5000, 84000)]
+if uj_camp_bad:
+    fails.append(f"의정부시 캠핑카 전용 요금이 등록값과 다름: {uj_camp_bad}")
+uj_fac_bad = [f'{l["name"]}({l["fee"].get("free_min")}분·{l["fee"].get("unit_fee")}원·{l["fee"].get("daily_fee")})'
+              for l in uj_fac
+              if l["fee"].get("free_min") not in (30, 60, 180)
+              or l["fee"].get("unit_fee") not in (200, 300)
+              or l["fee"].get("daily_fee") not in (5000, 7000)]
+if uj_fac_bad:
+    fails.append(f"의정부시 부설주차장 요금이 부설 조례 별표3과 다름: {uj_fac_bad}")
+if len([l for l in uj_free if not (l["free_days"]["sat"] and l["free_days"]["sun"])]):
+    fails.append("의정부시 무료 주차장이 주말 무료로 표시되지 않음")
+if len(uj_cards) != 68:
+    fails.append(f"의정부시 카드 수가 예상(68)과 다름: {len(uj_cards)}")
+if len(uj_street) != 13 or [l for l in uj_street if l["fee"]["type"] != "무료"]:
+    fails.append(f"의정부시 노상 13구간이 모두 무료가 아님: {len(uj_street)}구간")
+uj_dup = [k for k, v in Counter(l["name"] for l in uj_cards).items() if v > 1]
+if uj_dup:
+    fails.append(f"의정부시 카드 이름 중복: {uj_dup[:3]}")
+uj_root = DIST / "parking" / "gyeonggi" / "uijeongbu"
+uj_hub = uj_root / "index.html"
+if not uj_hub.exists():
+    fails.append("의정부시 시 페이지 없음")
+else:
+    uj_html = uj_hub.read_text()
+    for label in ("의정부시 급지별 주차요금표", "1급지", "2급지", "3급지", "10분당",
+                  "평일 2시간 기준 가장 저렴한 곳", 'class="calc', "부설주차장", "유료 운영시간"):
+        if label not in uj_html:
+            fails.append(f"의정부시 시 페이지에 {label} 없음")
+    if uj_html.count('class="card lot') != len(uj_cards):
+        fails.append(f"의정부시 시 페이지 카드 수 불일치({uj_html.count(chr(34)+'card lot')} vs {len(uj_cards)})")
+uj_dong_pages = sorted(q.parent.name for q in uj_root.rglob("index.html")
+                       if q.parent.parent == uj_root and q.parent.name != "street-parking")
+uj_expect = sorted(__import__("build_site").dong_slug(d)
+                   for d, n in Counter(l.get("dong") for l in uj_cards if l.get("dong")).items() if n >= 3)
+if uj_dong_pages != uj_expect:
+    fails.append(f"의정부시 동 페이지 구성이 다름: {uj_dong_pages} ≠ {uj_expect}")
+uj_street_page = uj_root / "street-parking" / "index.html"
+if not uj_street_page.exists():
+    fails.append("의정부시 노상주차장 페이지 없음(street-parking)")
+else:
+    uj_rows = len(re.findall(r"<tr><td>", uj_street_page.read_text()))
+    if uj_rows < len(uj_street):
+        fails.append(f"의정부시 노상 페이지 행 {uj_rows} < 구간 {len(uj_street)}")
 
 print()
 if warns:
