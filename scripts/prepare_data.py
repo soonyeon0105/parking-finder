@@ -45,7 +45,7 @@
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|ansan|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|ansan|siheung|all]
 """
 from __future__ import annotations
 
@@ -334,6 +334,8 @@ CITY_META = {
     "남양주시": {"slug": "namyangju", "province": "경기도", "province_slug": "gyeonggi",
               "dong_page_min_lots": 3},
     "안산시": {"slug": "ansan", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "시흥시": {"slug": "siheung", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -4813,6 +4815,522 @@ def check_quality_ansan(std_all, rows_city, rows_corp, lots, excluded, portal, c
     }
 
 
+# ---------------------------------------------------------------- 시흥시 (T-03 Phase 10)
+SIHEUNG_PROVIDER = "경기도 시흥시"
+# 시흥시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고 그 아래 동 페이지를 둔다.
+SIHEUNG_DISTRICTS = [("시흥시", "siheung")]
+SIHEUNG_BBOX = (37.28, 37.48, 126.60, 126.92)      # 시흥시 대략 경계(좌표 점검용)
+# 시흥시 법정동(2026-11 기준 28개) — 표준데이터 지번주소에서 동을 뽑는 데 쓴다.
+SIHEUNG_DONGS = ("거모동", "군자동", "논곡동", "능곡동", "대야동", "도창동", "매화동", "목감동",
+                 "미산동", "방산동", "배곧동", "산현동", "신천동", "안현동", "월곶동", "은행동",
+                 "장곡동", "장현동", "정왕동", "조남동", "죽률동", "포동", "하상동", "하중동",
+                 "광석동", "계수동", "물왕동", "화정동")
+SIHEUNG_LIST_JSON = RAW / "siheung.go.kr_주차시설현황_20261117.json"
+SIHEUNG_PORTAL_TXT = RAW / "parking.shsi.or.kr_주차요금체계_20261117.txt"
+SIHEUNG_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2128143"
+SIHEUNG_PAGE_URL = "https://www.siheung.go.kr/portal/parkinglotState/list.do?mId=0517010300"
+SIHEUNG_PORTAL_URL = "https://parking.shsi.or.kr/main/mainPage.do"
+SIHEUNG_ANNEX_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2076383"
+
+# 시흥시 공영주차장 요금 — 「시흥시 주차장 설치 및 관리 조례」 별표1(시행 2026-05-07, 경기도시흥시조례 제2621호)과
+# 시흥시 ‘주차시설현황’ 요금표·시흥공영주차 포털 ‘주차장 요금체계’(2026-11-17 확인)를 그대로 옮겼다.
+#   · 2시간 이내는 최초 30분 기본요금 뒤 10분마다 가산하고, 2시간을 넘기면 10분당 요율이 올라간다.
+#   · 노외 1급지 800·300·400(2시간 초과)·1일 8,000 / 2급지 500·200·300·5,000 / 3급지 300·100·200·3,000
+#   · 노상은 1일 주차요금이 없다(시간제만). 노상 1급지 800·300·400 / 2급지 500·200·300 / 3급지 300·100·200
+#   · 월 정기권(주간) 70,000·50,000·30,000원, 야간 50,000·30,000·20,000원
+#   · 공공청사 부설주차장은 최초 30분 500원·10분당 100원·1일 3,000원·월 10,000원(별도 조례)
+SIHEUNG_FEES = {
+    "off": {
+        1: {"base_min": 30, "base_fee": 800, "unit_min": 10, "unit_fee": 300, "over_fee": 400,
+            "day": 8_000, "night": 5_000, "month_day": 70_000, "month_night": 50_000},
+        2: {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200, "over_fee": 300,
+            "day": 5_000, "night": 3_000, "month_day": 50_000, "month_night": 30_000},
+        3: {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 100, "over_fee": 200,
+            "day": 3_000, "night": 2_000, "month_day": 30_000, "month_night": 20_000},
+    },
+    "street": {
+        1: {"base_min": 30, "base_fee": 800, "unit_min": 10, "unit_fee": 300, "over_fee": 400,
+            "month_day": 70_000, "month_night": 50_000},
+        2: {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200, "over_fee": 300,
+            "month_day": 50_000, "month_night": 30_000},
+        3: {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 100, "over_fee": 200,
+            "month_day": 30_000, "month_night": 20_000},
+    },
+}
+SIHEUNG_OVER_MIN = 120        # 2시간을 넘기면 10분당 요율이 올라간다
+SIHEUNG_ANNEX = {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 100,
+                 "day": 3_000, "month_day": 10_000}
+# 「시흥시 주차장 설치 및 관리 조례」 제6조(감면)·제5조의2(면제)와 시흥공영주차 포털 감면·면제 기준(2026-11-17 확인).
+#   · 100%              : 긴급자동차·공무수행 관용차, 국가유공자·독립유공자·참전유공자·고엽제·5·18·특수임무유공자·
+#                         의사상자·국군포로, 심한 장애인, 모범·유공·성실납세자
+#   · 2시간 면제 후 50% : 심하지 않은 장애인, 성실·모범·유공납세자 스티커, 자원봉사자, 다자녀(경기I-PLUS),
+#                         장기·인체조직 기증자, 헌혈자 (전기·환경친화 자동차는 2시간 무료 후 60%)
+#   · 60%               : 경형자동차(1,000cc 미만), 저공해자동차, 환경친화적 자동차
+#   · 50%               : 전통시장 이용차량, 병역명문가
+#   · 30%               : 승용차요일제 참여차량
+#   · 20%               : 자가용 10부제·승용차 함께타기 등 시책 참여차량
+#   · 감면·할인은 할인율이 가장 높은 1개만 적용하고, 100원 미만은 버린다.
+SIHEUNG_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "전통시장·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "전통시장 이용차량·병역명문가 예우대상자 차량"},
+    {"label": "경차·저공해·환경친화 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "경형(1,000cc 미만)·저공해 표지·환경친화적 자동차 표지 부착 차량"},
+    {"label": "전기차 2시간 면제 후 60%", "rate": 0.6, "exempt_min": 120,
+     "note": "전기자동차, 최초 2시간 면제"},
+    {"label": "장애인·다자녀 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "심하지 않은 장애인·성실납세자·자원봉사자·다자녀(경기I-PLUS)·장기기증자·헌혈자, 최초 2시간 면제"},
+    {"label": "승용차요일제 30%", "rate": 0.3, "exempt_min": 0,
+     "note": "승용차요일제 전자태그 부착·운휴일 준수 차량"},
+    {"label": "국가유공자·심한 장애인 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "국가유공자·독립·참전유공자·고엽제·5·18·특수임무유공자·의사상자·국군포로, 심한 장애인, 모범·유공납세자"},
+]
+# 공휴일 무료 개방에서 빠지는 주차장 — 명절 연휴에만 무료로 개방한다(시흥공영주차 포털 안내).
+#   · 표준데이터 이름 그대로 적는다: 오이도·삼미시장·신천천·월곶(노상), 배다리 선착장(노외).
+#     ‘오이도역’은 예외 대상이 아니므로 이름이 정확히 같은 것만 해당시킨다.
+SIHEUNG_HOLIDAY_EXCEPT = ("오이도", "삼미시장", "신천천", "월곶", "배다리 선착장",
+                          "조가비광장", "갯골생태공원")
+SIHEUNG_HOLIDAY_NOTE = ("이 주차장은 공휴일 무료 개방 대상에서 빠져 명절 연휴에만 무료로 개방합니다"
+                        " — 일요일·공휴일에도 요금이 붙을 수 있으니 현장 표지를 확인하세요")
+SIHEUNG_CITY_HALL_NOTE = ("시흥시 등록 현황은 무료 개방으로 표시되어 있으나, 「시흥시청과 그 소속기관 등의 부설주차장 운영 조례」"
+                          "(2026-01-01 시행)는 평일 08:00~20:00에 30분 500원·10분당 100원·1일 3,000원을 받을 수 있게 합니다")
+
+
+def siheung_dong_of(text: str):
+    """주소에서 시흥시 법정동을 뽑는다(‘은행동672-7’처럼 번지가 붙은 표기도 인정)."""
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(SIHEUNG_DONGS, key=len, reverse=True):
+        if re.search(re.escape(d) + r"(?=$|\d|산\d|[^가-힣])", t):
+            return d
+    return None
+
+
+def siheung_addr_jibun(addr: str) -> str:
+    """지번주소 비교용 — 공백·‘경기도 시흥시’·괄호·‘일원/H’ 꼬리표를 빼고 동+번지로 맞춘다."""
+    t = re.sub(r"\s", "", addr or "").replace("경기도시흥시", "")
+    t = re.sub(r"\([^)]*\)", "", t)
+    return re.sub(r"(일원|外?H|외\d+필지)$", "", t)
+
+
+def siheung_name_key(s: str) -> str:
+    """주차장 이름 비교용 키 — 괄호·공백·‘주차장/노외/공영’을 뺀다."""
+    t = re.sub(r"['\"\s\[\]·,.ㆍ~-]", "", s or "")
+    t = re.sub(r"\([^)]*\)", "", t)
+    for w in ("주차장", "공영주차장", "노외", "공영"):
+        t = t.replace(w, "")
+    return t
+
+
+def load_siheung_list() -> list:
+    """시흥시 ‘주차시설현황’ 목록 스냅샷 → 주차장별 유형·동·급지·면수(교차 확인용)."""
+    if not SIHEUNG_LIST_JSON.exists():
+        return []
+    raw = json.loads(SIHEUNG_LIST_JSON.read_text())
+    return raw.get("rows", [])
+
+
+def siheung_list_match(name: str, addr: str, pool: list):
+    """표준데이터 한 행에 대응하는 시 현황표 행을 정한다(같은 지번 → 이름 키).
+
+    ‘나눔 제27~47호’처럼 두 자료의 번호가 하나씩 어긋난 주차장이 있어, 이름보다 같은 지번을
+    먼저 본다(조남동 745 · 28면 = 표준데이터 나눔제28호 ↔ 시 현황 나눔 제27호).
+    """
+    if not pool:
+        return None
+    jib = siheung_addr_jibun(addr)
+    if jib:
+        near = [r for r in pool if siheung_addr_jibun(r["addr"]) == jib]
+        if len(near) == 1:
+            return near[0]
+    key = siheung_name_key(name)
+    hit = [r for r in pool if key and siheung_name_key(r["name"]) == key]
+    if len(hit) == 1:
+        return hit[0]
+    if hit:
+        return hit[0]
+    return None
+
+
+def siheung_rows_dedupe(rows):
+    """같은 주차장이 무료·유료 두 줄로 등록된 행을 하나로 줄인다.
+
+    시흥시 표준데이터에는 같은 지번에 이름만 다른 줄이 2쌍 있고(조남동 664 · 정왕동 1622),
+    시 현황표에는 유료 쪽 이름만 남아 있다. 유료(요금이 채워진) 줄을 남기고 무료 중복 줄을 뺀다.
+    """
+    kept, dropped = [], []
+    for r in rows:
+        jib = siheung_addr_jibun(r.get("소재지지번주소"))
+        dup = next((k for k in kept if jib and siheung_addr_jibun(k.get("소재지지번주소")) == jib), None) if jib else None
+        if dup is None:
+            kept.append(r)
+            continue
+        a, b = dup, r
+        paid_a = (a.get("요금정보") or "").strip() == "유료"
+        paid_b = (b.get("요금정보") or "").strip() == "유료"
+        if paid_b and not paid_a:
+            kept[kept.index(a)] = b
+            dropped.append({"name": a.get("주차장명"), "addr": a.get("소재지지번주소"),
+                            "kept": b.get("주차장명"), "why": "같은 지번·무료 중복행"})
+        elif not paid_a and not paid_b:
+            # 둘 다 무료면 나중에 등록된 이름(시 현황표에 남아 있는 이름)을 남긴다.
+            kept[kept.index(a)] = b
+            dropped.append({"name": a.get("주차장명"), "addr": a.get("소재지지번주소"),
+                            "kept": b.get("주차장명"), "why": "같은 지번·무료 중복행"})
+        else:
+            dropped.append({"name": b.get("주차장명"), "addr": b.get("소재지지번주소"),
+                            "kept": a.get("주차장명"), "why": "같은 지번·무료 중복행"})
+    return kept, dropped
+
+
+def build_siheung():
+    """시흥시 공영주차장을 표준데이터 + 시흥시 주차시설현황으로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 시흥시 범위를 벗어난 행은 제외(껍데기 행).
+      · 시흥시는 자치구가 없어 구 대신 법정동으로 묶고, 시 페이지가 계산기·목록 페이지를 겸한다.
+      · 노상(거리) 구간은 이름이 구간 설명이라 카드 대신 전용 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    요금은 조례 별표1의 노외·노상 1~3급지 요금표를 쓰고, 급지·면수는 시흥시 주차시설현황(2026-11-17 조회)과
+    교차 확인한다. 표준데이터 등록값이 조례표와 다르면 품질 리포트 ‘등록값_차이’에 남기고 조례표를 적용한다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == SIHEUNG_PROVIDER]
+    chosen, dropped = siheung_rows_dedupe(rows_city)
+    city_list = load_siheung_list()
+    lots, excluded = [], []
+    card_no = street_no = 0
+    fee_counts = Counter()
+    grade_diff, space_diff, list_matched = [], [], 0
+
+    for r in sorted(chosen, key=lambda r: (r.get("주차장명") or "")):
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        fee_raw = (r.get("요금정보") or "").strip()
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (SIHEUNG_BBOX[0] <= lat <= SIHEUNG_BBOX[1]
+                                      and SIHEUNG_BBOX[2] <= lng <= SIHEUNG_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        ref = siheung_list_match(name, addr, city_list)
+        if ref:
+            list_matched += 1
+        dong = siheung_dong_of(jibun) or siheung_dong_of(road)
+        dong_src = "지번주소"
+        if not dong:
+            dong = siheung_dong_of(ref["addr"] if ref else "")
+            dong_src = "시현황주소"
+        if not dong:
+            dong_src = "없음"
+        gu = SIHEUNG_DISTRICTS[0][0]
+
+        note = (r.get("특기사항") or "").strip()
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        std_grade = to_int(r.get("급지구분"))
+        std_fee = {
+            "base_min": to_int(r.get("주차기본시간")),
+            "base_fee": to_int(r.get("주차기본요금")),
+            "unit_min": to_int(r.get("추가단위시간")),
+            "unit_fee": to_int(r.get("추가단위요금")),
+            "day": to_int(r.get("1일주차권요금")),
+            "monthly": to_int(r.get("월정기권요금")),
+        }
+
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"sh-s{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"sh-{card_no:03d}"
+
+        # 급지는 시 현황표 → 표준데이터 급지구분 → 2급지 순으로 정한다(무료 주차장은 급지가 없다).
+        grade = (ref or {}).get("grade") or (std_grade if std_grade in (1, 2, 3) else None)
+        if fee_raw == "유료" and grade is None:
+            grade = 2
+        if ref and ref.get("grade") and std_grade in (1, 2, 3) and ref["grade"] != std_grade:
+            grade_diff.append(f"{name}: 표준데이터 {std_grade}급지 ↔ 시 현황 {ref['grade']}급지")
+        if ref and ref.get("spaces") and ref["spaces"] != spaces:
+            space_diff.append(f"{name}: 등록 {spaces}면 ↔ 시 현황 {ref['spaces']}면")
+
+        category = "facility" if ptype == "부설" else ("street" if street else "off")
+        fee = {
+            "type": "무료" if fee_raw == "무료" else ("유료" if fee_raw in ("유료", "혼합") else "미상"),
+            "raw_type": fee_raw,
+            "mixed": fee_raw == "혼합",
+            "grade": grade,
+            "std_grade": std_grade,
+            "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None,
+            "free_min": 0, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None, "monthly_night": None, "monthly_all": None,
+            "pay": (r.get("결제방법") or "").strip(),
+            "basis": None,
+            "category": category if fee_raw == "유료" else None,
+            "std": std_fee,
+            "portal_free_now": False,
+        }
+        notice = None
+
+        if fee["type"] == "유료":
+            kind = "street" if street else "off"
+            table = SIHEUNG_FEES[kind][grade]
+            fee.update({
+                "base_min": table["base_min"], "base_fee": table["base_fee"],
+                "unit_min": table["unit_min"], "unit_fee": table["unit_fee"],
+                "steps": [{"until": SIHEUNG_OVER_MIN, "unit_min": table["unit_min"],
+                           "unit_fee": table["unit_fee"]},
+                          {"until": None, "unit_min": table["unit_min"],
+                           "unit_fee": table["over_fee"]}],
+                "steps_label": f"2시간까지 {table['unit_fee']:,}원 · 2시간 초과 {table['over_fee']:,}원",
+                "monthly": std_fee["monthly"] or table["month_day"],
+                "monthly_night": table["month_night"],
+                "daily_hours": 12,
+            })
+            if kind == "off":
+                fee.update({"daily_fee": table["day"], "cap_src": "조례 1일 주차요금"})
+            fee["basis"] = (f"「시흥시 주차장 설치 및 관리 조례」 별표1 {grade}급지"
+                            f"({'노상' if street else '노외'})") if std_grade in (1, 2, 3) else \
+                           f"「시흥시 주차장 설치 및 관리 조례」 별표1 {grade}급지"
+            # 등록값(표준데이터)이 조례표와 다른 주차장 — 품질 리포트에 남긴다.
+            if std_fee["base_fee"]:
+                applied = (fee["base_min"], fee["base_fee"], fee["unit_min"], fee["unit_fee"])
+                if (std_fee["base_min"], std_fee["base_fee"], std_fee["unit_min"],
+                        std_fee["unit_fee"]) != applied:
+                    fee["std_diff"] = (f"등록값 {std_fee['base_min'] or 0}분 {std_fee['base_fee'] or 0}원·"
+                                       f"{std_fee['unit_min'] or 0}분당 {std_fee['unit_fee'] or 0}원 → 적용 "
+                                       f"{applied[0]}분 {applied[1]}원·{applied[2]}분당 {applied[3]}원")
+            fee_counts[f"{kind}{grade}"] += 1
+            # 일요일·공휴일 무료 개방 — 공휴일 무료 개방에서 빠지는 주차장은 요금이 붙는다.
+            if name not in SIHEUNG_HOLIDAY_EXCEPT:
+                free_days["sun"] = True
+            else:
+                notice = SIHEUNG_HOLIDAY_NOTE
+        if fee["type"] == "무료":
+            free_days = {"sat": True, "sun": True}
+            if all(win[k]["open"] and win[k]["24h"] for k in ("weekday", "sat", "sun")) or \
+                    win["weekday"]["24h"]:
+                for k in ("weekday", "sat", "sun"):
+                    win[k] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                              "listed": True, "raw": ["00:00", "24:00"]}
+                oper = {"weekday": True, "sat": True, "sun": True}
+        if ptype == "부설" and name.startswith("시청"):
+            notice = SIHEUNG_CITY_HALL_NOTE if not notice else notice + " / " + SIHEUNG_CITY_HALL_NOTE
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": ref["name"] if ref else None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["base_fee"] if fee["base_fee"] else (fee["unit_fee"] or None),
+            "city": "시흥시",
+            "city_slug": "siheung",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"sh-{i:03d}" if l["list_mode"] == "card" else f"sh-s{i:03d}"
+
+    quality = check_quality_siheung(rows_all, rows_city, lots, excluded, dropped, city_list,
+                                    list_matched, grade_diff, space_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(SIHEUNG_LIST_JSON).strftime("%Y-%m-%d %H:%M")
+                            if SIHEUNG_LIST_JSON.exists() else None,
+            "region": {"province": "경기도", "city": "시흥시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-14", "rows_total": len(rows_all),
+                    "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("시흥시가 등록한 199행(제공기관명 '경기도 시흥시')을 읽었다. 노외 168행·노상 30행·"
+                             "부설 1행이며, 같은 지번에 무료·유료로 두 번 등록된 2쌍은 유료 행만 남겼다"
+                             "(quality.중복제거_행 참고)."),
+                },
+                {
+                    "id": "siheung", "name": "시흥시 주차시설현황(공영주차장 요금표·현황 목록)",
+                    "org": "시흥시청 교통행정과",
+                    "url": SIHEUNG_PAGE_URL,
+                    "file": SIHEUNG_LIST_JSON.name,
+                    "sha256": sha256(SIHEUNG_LIST_JSON) if SIHEUNG_LIST_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": len(city_list),
+                    "fetched_at": _snapshot_time(SIHEUNG_LIST_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if SIHEUNG_LIST_JSON.exists() else None,
+                    "note": ("공영주차장 199곳(유료 노외 85·무료 노외 83·유료 노상 8·유료 부설 22·무료 노상 1)의 "
+                             "급지·소재지·면수·면적 교차 확인용. 표준데이터와 급지·면수가 다른 곳은 quality에 남겼다."),
+                },
+                {
+                    "id": "portal", "name": "시흥공영주차 포털 주차장 요금체계",
+                    "org": "시흥도시공사",
+                    "url": SIHEUNG_PORTAL_URL,
+                    "file": SIHEUNG_PORTAL_TXT.name,
+                    "sha256": sha256(SIHEUNG_PORTAL_TXT) if SIHEUNG_PORTAL_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": None,
+                    "fetched_at": _snapshot_time(SIHEUNG_PORTAL_TXT).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if SIHEUNG_PORTAL_TXT.exists() else None,
+                    "note": ("급지 구분 기준, 주·야간 시간 구분(상업지역 10~22시·그 밖 08~20시), "
+                             "공휴일·평일 야간 무료 개방과 예외 7곳, 면제·감면 기준, 1구획 초과 차량 할증 확인용."),
+                },
+                {
+                    "id": "ordinance", "name": "시흥시 주차장 설치 및 관리 조례 (별표1 공영주차장 주차요금)",
+                    "org": "시흥시",
+                    "url": SIHEUNG_ORDINANCE_URL,
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "2026-05-07 개정·시행(경기도시흥시조례 제2621호)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("노상·노외 1~3급지의 최초 30분·10분당·2시간 초과 10분당 요율, 1일 주차요금, "
+                             "월 정기 주차요금 근거. 요금 감면은 제6조, 면제는 제5조의2."),
+                },
+                {
+                    "id": "annex", "name": "시흥시청과 그 소속기관 등의 부설주차장 운영 조례",
+                    "org": "시흥시",
+                    "url": SIHEUNG_ANNEX_URL,
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "2025-10-02 공포·2026-01-01 시행(조례 제2530호)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("시청·소속기관 부설주차장의 운영시간(평일 08:00~20:00, 토요일·공휴일 제외)과 "
+                             "요금(30분 500원·10분당 100원·1일 3,000원)·면제 기준 확인용."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in SIHEUNG_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "siheung_dual",
+            "unit_min": 10,
+            "over_min": SIHEUNG_OVER_MIN,
+            "applies": "2026-05-07 개정 조례",
+            "off": [{"grade": g, **t, "lots": quality["급지별"].get(g, 0)} for g, t in sorted(SIHEUNG_FEES["off"].items())],
+            "street": [{"grade": g, **t} for g, t in sorted(SIHEUNG_FEES["street"].items())],
+            "facility": SIHEUNG_ANNEX,
+            "holiday_except": list(SIHEUNG_HOLIDAY_EXCEPT),
+            "basis": ("「시흥시 주차장 설치 및 관리 조례」 별표1(2026-05-07 개정·시행) · 시흥시 주차시설현황 요금표 · "
+                      "시흥공영주차 포털 주차장 요금체계(2026-11-17 확인)"),
+        },
+    }
+    payload.update(CITY_META["시흥시"] | {
+        "city": "시흥시",
+        "weekend_free_pages": False,     # 주말 무료 개방 ‘페이지’는 만들지 않는다(공휴일 무료 개방은 카드·계산기에 반영)
+        "discounts": SIHEUNG_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "siheung_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_siheung(std_all, rows, lots, excluded, dropped, city_list,
+                          list_matched, grade_diff, space_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(f'{l["gu"]} {l["dong"] or "동 미상"}' for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["base_fee"] for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_시흥시행수": len(rows),
+        "중복제거_행수": len(dropped),
+        "중복제거_행": dropped,
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(Counter(l["gu"] for l in card)),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "요금갈래": dict(Counter(l["fee"]["category"] for l in lots if l["fee"]["category"])),
+        "급지별": dict(Counter(l["fee"]["grade"] for l in lots if l["fee"]["type"] == "유료")),
+        "등록값_차이": [f'{l["name"]}: {l["fee"]["std_diff"]}' for l in lots if l["fee"].get("std_diff")],
+        "시현황_목록수": len(city_list),
+        "시현황_매칭": list_matched,
+        "급지_차이": grade_diff,
+        "면수_차이": space_diff,
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "공휴일_무료제외": [l["name"] for l in lots
+                            if l["fee"]["type"] == "유료" and l["name"] in SIHEUNG_HOLIDAY_EXCEPT],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+    }
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -4827,8 +5345,9 @@ def build_summary_city(payload):
     else:
         lines.append(f"- 노외·부설 주차장 **{q['총_주차장']}곳** · 총 구획 {q['총_구획수']:,}면 "
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
-        lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외")
-        if city in ("평택시", "남양주시"):
+        lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
+                     + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
+        if city in ("평택시", "남양주시", "시흥시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -4887,14 +5406,14 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
-             "ansan": ["안산시"]}[args.city])
+             "ansan": ["안산시"], "siheung": ["시흥시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -4916,6 +5435,8 @@ def main():
         cities.append(build_namyangju())
     if "안산시" in want:
         cities.append(build_ansan())
+    if "시흥시" in want:
+        cities.append(build_siheung())
 
     if args.city == "all":
         site = build_site_payload(cities)

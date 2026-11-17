@@ -445,12 +445,23 @@ GOYANG_TOKENS = ("고양", "고양도시관리공사", "덕양구", "일산동�
 NAMYANGJU_TOKENS = ("남양주", "남양주도시공사", "원패스파킹")
 # 안산시는 상록구·단원구 2개 구 — 다른 도시 페이지에 안산 자료가 섞이면 실패.
 ANSAN_TOKENS = ("안산", "안산도시공사", "상록구", "단원구")
+# 시흥시는 자치구가 없다 — 다른 도시 페이지에 시흥 자료가 섞이면 실패.
+SIHEUNG_TOKENS = ("시흥", "시흥도시공사", "시흥공영주차")
 for _k in list(MIX):
-    MIX[_k] = MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS
+    MIX[_k] = MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS + SIHEUNG_TOKENS
 MIX["namyangju"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
     "부천", "부천도시공사", "고양", "고양도시관리공사",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
+)
+MIX["siheung"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
+    "안산", "안산도시공사", "상록구", "단원구",
     "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
     "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
     "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
@@ -484,6 +495,11 @@ for p in pages:
     for n in sorted({l["name"] for l in LOTS
                      if any(b in l["name"] for b in MIX[city_key])}, key=len, reverse=True):
         probe = probe.replace(n, "")
+    # 주소에 든 상호·건물 이름(예: 시흥 배곧동 ‘안양축산농협’)도 자료 혼입이 아니므로 함께 지운다.
+    for a in sorted({l.get("addr_jibun") or "" for l in LOTS} | {l.get("addr_road") or "" for l in LOTS},
+                    key=len, reverse=True):
+        if len(a) > 4:
+            probe = probe.replace(a, "")
     for bad in MIX[city_key]:
         if bad in probe:
             fails.append(f"{rel}: 본문에 다른 도시 자료 '{bad}' 혼입")
@@ -718,6 +734,34 @@ cases = [
     ("중앙하이츠빌앞", 240, "weekday", 0.5, 180, "paid", 3450),      # 6,900의 50%
     ("중앙하이츠빌앞", 120, "weekday", 0.5, 0, "paid", 1650),
     ("중앙하이츠빌앞", 120, "weekday", 1.0, 0, "paid", 0),           # 모범·성실납세자
+    # 시흥시(조례 별표1, 2026-05-07 시행): 노외 1급지 30분 800원 + 10분당 300원(2시간 초과 400원)·1일 8,000원,
+    #   2급지 500+200(300)·5,000원, 3급지 300+100(200)·3,000원. 노상은 같은 요율에 1일 주차요금 없음.
+    ("장곡농협", 30, "weekday", 0, 0, "paid", 800),                 # 노외 1급지 기본
+    ("장곡농협", 60, "weekday", 0, 0, "paid", 1700),                # 800 + 300×3
+    ("장곡농협", 120, "weekday", 0, 0, "paid", 3500),               # 800 + 300×9
+    ("장곡농협", 240, "weekday", 0, 0, "paid", 8000),               # 8,300 → 1일 주차요금 8,000
+    ("장곡농협", 180, "weekday", 0, 0, "paid", 5900),               # 800 + 300×9 + 400×6 (2시간 초과 할증)
+    ("어린이도서관", 120, "weekday", 0, 0, "paid", 2300),            # 노외 2급지 500 + 200×9
+    ("어린이도서관", 240, "weekday", 0, 0, "paid", 5000),            # 5,900 → 1일 5,000
+    ("정왕역", 120, "weekday", 0, 0, "paid", 1200),                  # 노외 3급지 300 + 100×9
+    ("정왕역", 240, "weekday", 0, 0, "paid", 3000),                  # 3,600 → 1일 3,000
+    ("물왕호수", 120, "weekday", 0, 0, "paid", 2300),                # 시 현황 2급지
+    ("장곡농협", 120, "sun", 0, 0, "free", None),                    # 공휴일 무료 개방
+    ("장곡농협", 120, "sat", 0, 0, "paid", 3500),                    # 토요일은 유료
+    ("시청 부설주차장", 120, "weekday", 0, 0, "free", None),         # 시 등록 현황 무료
+    ("관곡지로 노상", 120, "weekday", 0, 0, "free", None),           # 노상 무료 구간
+    ("오이도", 120, "weekday", 0, 0, "paid", 2300),                  # 노상 2급지(1일 주차요금 없음)
+    ("오이도", 240, "weekday", 0, 0, "paid", 5900),                  # 500 + 200×9 + 300×12
+    ("오이도", 120, "sun", 0, 0, "paid", 2300),                      # 공휴일 무료 개방 제외(명절만)
+    ("배다리 선착장", 120, "sun", 0, 0, "paid", 1200),               # 공휴일 무료 개방 제외
+    # 시흥시 감면: 국가유공자·심한 장애인 100%, 경차·저공해 60%, 전통시장·병역명문가 50%,
+    #   장애인·다자녀 등 2시간 면제 후 50%, 승용차요일제 30%
+    ("장곡농협", 120, "weekday", 0.5, 0, "paid", 1750),
+    ("어린이도서관", 120, "weekday", 0.6, 0, "paid", 920),
+    ("장곡농협", 120, "weekday", 0.3, 0, "paid", 2450),
+    ("어린이도서관", 120, "weekday", 0.5, 120, "free", None),         # 2시간 면제
+    ("어린이도서관", 180, "weekday", 0.5, 120, "paid", 2050),         # 4,100의 50%
+    ("오이도", 120, "weekday", 1.0, 0, "paid", 0),
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -1219,6 +1263,76 @@ else:
     as_rows = len(re.findall(r"<tr><td>", as_street_page.read_text()))
     if as_rows < len(as_street):
         fails.append(f"안산시 노상 페이지 행 {as_rows} < 구간 {len(as_street)}")
+
+# 시흥시: 「시흥시 주차장 설치 및 관리 조례」 별표1(2026-05-07 시행) — 1~3급지, 노외만 1일 주차요금.
+#   · 2시간까지는 최초 30분 기본요금 뒤 10분당, 2시간을 넘기면 10분당 요율이 올라간다(1급지 300→400원).
+#   · 공휴일 무료 개방이 원칙이고, 오이도·삼미시장·신천천·월곶·배다리선착장은 명절 연휴만 무료다.
+SH_OFF = {1: (800, 300, 400, 8000, 70000), 2: (500, 200, 300, 5000, 50000), 3: (300, 100, 200, 3000, 30000)}
+sh_cards = [l for l in LOTS if l.get("city") == "시흥시" and l.get("list_mode") == "card"]
+sh_street = [l for l in LOTS if l.get("city") == "시흥시" and l.get("list_mode") == "street"]
+if not sh_cards:
+    fails.append("시흥시 카드 데이터가 없음")
+sh_paid = [l for l in sh_cards if l["fee"]["type"] == "유료"]
+sh_free = [l for l in sh_cards if l["fee"]["type"] == "무료"]
+sh_bad = []
+for l in sh_paid:
+    g = l["fee"]["grade"]
+    if g not in SH_OFF:
+        sh_bad.append(f'{l["name"]}(급지 {g})')
+        continue
+    base, unit, over, day, month = SH_OFF[g]
+    f = l["fee"]
+    steps = f.get("steps") or []
+    if (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f.get("daily_fee"), f.get("cap_fee")) != \
+            (30, base, 10, unit, day, None):
+        sh_bad.append(f'{l["name"]}(요금 {f["base_fee"]}/{f["unit_fee"]}/{f.get("daily_fee")})')
+    elif len(steps) != 2 or steps[0]["unit_fee"] != unit or steps[1]["unit_fee"] != over:
+        sh_bad.append(f'{l["name"]}(2시간 초과 할증 {[x["unit_fee"] for x in steps]})')
+    elif f.get("monthly") != month:
+        sh_bad.append(f'{l["name"]}(월 정기권 {f.get("monthly")})')
+if sh_bad:
+    fails.append(f"시흥시 유료 주차장 요금이 조례 별표1과 다름 {len(sh_bad)}곳 {sh_bad[:3]}")
+if sorted({l["fee"]["grade"] for l in sh_paid}) != [1, 2, 3]:
+    fails.append(f"시흥시 유료 주차장 급지가 1~3급지가 아님: {sorted({l['fee']['grade'] for l in sh_paid})}")
+if len([l for l in sh_free if not (l["free_days"]["sat"] and l["free_days"]["sun"])]):
+    fails.append("시흥시 무료 주차장이 주말 무료로 표시되지 않음")
+sh_sun_charged = sorted(l["name"] for l in sh_cards if l["fee"]["type"] == "유료" and not l["free_days"]["sun"])
+if sh_sun_charged != ["배다리 선착장"]:
+    fails.append(f"시흥시 공휴일 무료 개방 제외 주차장이 예상과 다름: {sh_sun_charged}")
+sh_dup = [k for k, v in Counter(l["name"] for l in sh_cards).items() if v > 1]
+if sh_dup:
+    fails.append(f"시흥시 카드 이름 중복(같은 지번 중복 행 혼입 의심): {sh_dup[:3]}")
+sh_st_free = [l for l in sh_street if l["fee"]["type"] == "무료"]
+sh_st_paid = [l for l in sh_street if l["fee"]["type"] == "유료"]
+if (len(sh_st_free), len(sh_st_paid)) != (21, 8):
+    fails.append(f"시흥시 노상 무료/유료 수가 자료와 다름(무료 {len(sh_st_free)}·유료 {len(sh_st_paid)})")
+if [l for l in sh_st_paid if l["fee"].get("daily_fee") or l["fee"].get("cap_fee")]:
+    fails.append("시흥시 노상 구간에 1일 주차요금(상한)이 붙음 — 조례상 노상은 시간제만")
+sh_root = DIST / "parking" / "gyeonggi" / "siheung"
+sh_hub = sh_root / "index.html"
+if not sh_hub.exists():
+    fails.append("시흥시 시 페이지 없음")
+else:
+    sh_html = sh_hub.read_text()
+    for label in ("시흥시 급지별 주차요금표", "1급지", "2급지", "3급지", "2시간 초과",
+                  "평일 2시간 기준 가장 저렴한 곳", 'class="calc'):
+        if label not in sh_html:
+            fails.append(f"시흥시 시 페이지에 {label} 없음")
+    if sh_html.count('class="card lot') != len(sh_cards):
+        fails.append(f"시흥시 시 페이지 카드 수 불일치({sh_html.count(chr(34)+'card lot')} vs {len(sh_cards)})")
+sh_dong_pages = sorted(q.parent.name for q in sh_root.rglob("index.html")
+                       if q.parent.parent == sh_root and q.parent.name != "street-parking")
+sh_expect = sorted(__import__("build_site").dong_slug(d)
+                   for d, n in Counter(l.get("dong") for l in sh_cards if l.get("dong")).items() if n >= 3)
+if sh_dong_pages != sh_expect:
+    fails.append(f"시흥시 동 페이지 구성이 다름: {sh_dong_pages} ≠ {sh_expect}")
+sh_street_page = sh_root / "street-parking" / "index.html"
+if not sh_street_page.exists():
+    fails.append("시흥시 노상주차장 페이지 없음(street-parking)")
+else:
+    sh_rows = len(re.findall(r"<tr><td>", sh_street_page.read_text()))
+    if sh_rows < len(sh_street):
+        fails.append(f"시흥시 노상 페이지 행 {sh_rows} < 구간 {len(sh_street)}")
 
 print()
 if warns:
