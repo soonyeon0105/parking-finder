@@ -1,0 +1,1733 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 05:45",
+  "generated_at_iso": "2026-11-18T05:45:46+09:00",
+  "snapshot_at": "2026-11-18 05:45",
+  "region": {
+   "province": "서울특별시",
+   "city": "성북구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 12,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "성북구가 등록한 12행(노외 12·노상 0)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 성북구 주차장 설치 및 관리 조례」 별표1 공영주차장 요금표 · 비고 감면",
+    "org": "성북구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2184663",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-11-12 · 서울특별시성북구조례 제1760호(일부개정) · 별표1 개정 2023-10-05",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 성북구는 구영(성북구도시관리공단) 11곳(노외 10·부설 1)을 맡고, 조례 별표1의 5분당 요금은 노상 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원, 노외 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 실제로는 노외 대부분이 3급지 5분당 150원이고 성북구청 부설만 2급지 250원이며, 2~5급지 주차장은 하루 요금 상한이 10,000원입니다(별표1 비고). 노외는 24시간 연중무휴로 운영하고 시간주차는 카드로만 결제하며, 월 정기권은 3개월 단위로 전일 84,000~96,000원·주간 56,000~70,000원·야간 28,000~30,000원입니다. 성북동길·장위시장 제2·정릉시장·개운산은 월 정기권을 운영하지 않습니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "성북구 공영주차장 시간제 현황·요금 안내",
+    "org": "성북구도시관리공단 공영주차센터(02-6925-0023)",
+    "url": "https://www.gongdan.go.kr/park/cnts/selectContents.do?cntnt_id=P100000006",
+    "file": "gongdan.go.kr_공영주차장_운영시간_요금_20261118.txt",
+    "sha256": "a7d420f524eb8f941a370526807790cf96853a10bc321a5ce60067b693968073",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 0,
+    "fetched_at": "2026-11-18 05:36 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "성북구",
+   "slug": "seongbuk"
+  }
+ ],
+ "lots": [
+  {
+   "id": "seongbuk-001",
+   "mgmt_no": "107-3-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시네마부설주차장",
+   "gu": "성북구",
+   "dong": "돈암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 성북구 돈암동 538-59",
+   "addr_road": "서울특별시 성북구 아리랑로12길 4",
+   "road": null,
+   "spaces": 100,
+   "tel": "02-6906-9624",
+   "lat": 37.59915465,
+   "lng": 127.0147755,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 성북문화재단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 86000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 86000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 86000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-002",
+   "mgmt_no": "107-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼선동",
+   "gu": "성북구",
+   "dong": "삼선동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 삼선동1가 278-5",
+   "addr_road": "서울특별시 성북구 삼선교로4길 71",
+   "road": null,
+   "spaces": 133,
+   "tel": "02-6925-0023",
+   "lat": 37.58471902,
+   "lng": 127.007389,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 84000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-003",
+   "mgmt_no": "107-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경동고",
+   "gu": "성북구",
+   "dong": "삼선동3가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 삼선동3가 43-1",
+   "addr_road": "서울특별시 성북구 보문로29길 49",
+   "road": null,
+   "spaces": 123,
+   "tel": "02-6925-0023",
+   "lat": 37.58660133,
+   "lng": 127.0160317,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 90000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 90000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-004",
+   "mgmt_no": "107-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구청사부설",
+   "gu": "성북구",
+   "dong": "삼선동5가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "서울특별시 성북구 삼선동5가 411",
+   "addr_road": "서울특별시 성북구 보문로 168",
+   "road": null,
+   "spaces": 200,
+   "tel": "02-6925-0023",
+   "lat": 37.58945628,
+   "lng": 127.0168496,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 1,000원으로 받습니다(개별 조정) · 1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-005",
+   "mgmt_no": "107-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석관동",
+   "gu": "성북구",
+   "dong": "석관동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 석관동 332-165",
+   "addr_road": "",
+   "road": null,
+   "spaces": 77,
+   "tel": "02-6925-0023",
+   "lat": 37.6069817,
+   "lng": 127.0600694,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 90000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 90000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-006",
+   "mgmt_no": "107-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성북동길",
+   "gu": "성북구",
+   "dong": "성북동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 성북동 237-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "02-6925-0023",
+   "lat": 37.59483642,
+   "lng": 126.9938746,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-007",
+   "mgmt_no": "107-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개운산",
+   "gu": "성북구",
+   "dong": "안암동5가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 안암동5가 산1-95",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "02-6925-0023",
+   "lat": 37.59523309,
+   "lng": 127.0261921,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-008",
+   "mgmt_no": "107-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동방고개",
+   "gu": "성북구",
+   "dong": "장위동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 장위동 230-110",
+   "addr_road": "서울특별시 성북구 장위로13길 9",
+   "road": null,
+   "spaces": 64,
+   "tel": "02-6925-0023",
+   "lat": 37.61460901,
+   "lng": 127.0409876,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 90000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 90000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-009",
+   "mgmt_no": "107-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마을공원",
+   "gu": "성북구",
+   "dong": "장위동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 장위동 270-134",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "02-6925-0023",
+   "lat": 37.61734643,
+   "lng": 127.0529242,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 96000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 96000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 96000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-010",
+   "mgmt_no": "107-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벤처빌딩",
+   "gu": "성북구",
+   "dong": "장위동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 장위동 65-154",
+   "addr_road": "서울특별시 성북구 화랑로 211",
+   "road": null,
+   "spaces": 56,
+   "tel": "02-6925-0023",
+   "lat": 37.60935675,
+   "lng": 127.0530356,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 90000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 90000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-011",
+   "mgmt_no": "107-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장위시장2",
+   "gu": "성북구",
+   "dong": "장위동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 장위동 68-110",
+   "addr_road": "서울특별시 성북구 장위로40길 62",
+   "road": null,
+   "spaces": 6,
+   "tel": "02-6925-0023",
+   "lat": 37.61110175,
+   "lng": 127.0524075,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  },
+  {
+   "id": "seongbuk-012",
+   "mgmt_no": "107-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정릉시장",
+   "gu": "성북구",
+   "dong": "정릉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 성북구 정릉동 405-4",
+   "addr_road": "서울특별시 성북구 정릉로23길 56",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-6925-0023",
+   "lat": 37.60820115,
+   "lng": 127.0093728,
+   "base_date": "2026-10-13",
+   "manager": "서울특별시 성북구 도시관리공단",
+   "note": "",
+   "notice": "1일 주차권 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성북구",
+   "city_slug": "seongbuk"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 05:45",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 12,
+  "원자료_성북구행수": 12,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 12,
+  "노외_부설": {
+   "부설": 2,
+   "노외": 10
+  },
+  "노상_구간": 0,
+  "총_구획수": 927,
+  "노상_구획수": 0,
+  "동별": {
+   "장위동": 4,
+   "돈암동": 1,
+   "삼선동1가": 1,
+   "삼선동3가": 1,
+   "삼선동5가": 1,
+   "석관동": 1,
+   "성북동": 1,
+   "안암동5가": 1,
+   "정릉동": 1
+  },
+  "동수": 9,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 12
+  },
+  "요금구분": {
+   "유료": 12
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 10,
+  "유료_부설": 2,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "구청사부설: 2급지 기준 250원 ↔ 등록 1,000원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 성북구 주차장 설치 및 관리 조례」 별표1 공영주차장 요금표 · 비고 감면(시행 2026-11-12 · 서울특별시성북구조례 제1760호(일부개정) · 별표1 개정 2023-10-05)",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [],
+  "무료개방_표기": [
+   "구청사부설"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 221,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-13"
+  ],
+  "공단만_등록": [],
+  "공단추가_주차장": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 2,
+    "lots": 1,
+    "fee_min": 1000,
+    "fee_max": 1000,
+    "unit_label": "1,000원(30분 기준)",
+    "hour": 2500,
+    "two_hour": 5500,
+    "month_min": null,
+    "month_max": null,
+    "day_min": 10000,
+    "day_max": 10000,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 11,
+    "fee_min": 150,
+    "fee_max": 150,
+    "unit_label": "150원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "month_min": 84000,
+    "month_max": 96000,
+    "day_min": 10000,
+    "day_max": 10000,
+    "charter": 150
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 11
+   },
+   {
+    "group": "06:00~22:00",
+    "count": 1
+   }
+  ],
+  "notes": "성북구는 구영(성북구도시관리공단) 11곳(노외 10·부설 1)을 맡고, 조례 별표1의 5분당 요금은 노상 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원, 노외 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 실제로는 노외 대부분이 3급지 5분당 150원이고 성북구청 부설만 2급지 250원이며, 2~5급지 주차장은 하루 요금 상한이 10,000원입니다(별표1 비고). 노외는 24시간 연중무휴로 운영하고 시간주차는 카드로만 결제하며, 월 정기권은 3개월 단위로 전일 84,000~96,000원·주간 56,000~70,000원·야간 28,000~30,000원입니다. 성북동길·장위시장 제2·정릉시장·개운산은 월 정기권을 운영하지 않습니다",
+  "only_corp": [],
+  "corp": {
+   "paid": 12,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 500,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   },
+   "off": {
+    "1": 400,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 성북구 주차장 설치 및 관리 조례」 별표1 공영주차장 요금표 · 비고 감면(시행 2026-11-12 · 서울특별시성북구조례 제1760호(일부개정) · 별표1 개정 2023-10-05) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "seongbuk",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "성북구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "서울시장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 발행일부터 1년"
+  },
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지·등록증), 국가유공 상이자, 고엽제후유(의)증 환자, 의상자, 독립유공자 80퍼센트(환승주차장은 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "경차·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차와 저공해자동차 50퍼센트(2~5급지, 환승주차장은 80퍼센트·최초 3시간 면제)"
+  },
+  {
+   "label": "다둥이·보훈보상·기증자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다둥이행복카드, 보훈보상대상자, 장기등·인체조직 기증자와 유족 1인 50퍼센트"
+  },
+  {
+   "label": "전기차 충전 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "환경친화적 자동차를 충전한 경우 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "전통시장 2시간 면제",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "전통시장 주변 공영주차장에서 당일 영수증을 제출한 차량 — 최초 2시간 면제"
+  },
+  {
+   "label": "자원봉사자 2시간 면제",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "자원봉사증을 지참한 자원봉사자 — 1일 최초 2시간 면제(민간위탁 주차장 제외)"
+  },
+  {
+   "label": "임산부 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "임산부가 탑승하고 산모수첩 등 증명자료를 제시한 경우 면제(조례 비고 24)"
+  },
+  {
+   "label": "병역명문가 30%·참전유공자 20%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "성북구 병역명문가 예우대상자 30퍼센트, 참전유공자 20퍼센트"
+  }
+ ],
+ "realtime": false
+}

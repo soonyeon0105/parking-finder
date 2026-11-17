@@ -1,0 +1,2940 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 05:45",
+  "generated_at_iso": "2026-11-18T05:45:46+09:00",
+  "snapshot_at": "2026-11-18 05:45",
+  "region": {
+   "province": "서울특별시",
+   "city": "동대문구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 22,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "동대문구가 등록한 22행(노외 10·노상 12)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 동대문구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "동대문구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2106663",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-01-08 · 서울특별시동대문구조례 제1816호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 동대문구는 요금을 10분 단위로 매깁니다 — 조례 별표1 노상 1급지 1,000원·2급지 500원·3급지 300원·4급지 200원·5급지 100원, 노외 1급지 800원·2급지 500원·3급지 300원·4급지 200원·5급지 200원(10분당)입니다. 구영(동대문구시설관리공단)은 18개소(노상 11·노외 7, 직영 4·민간위탁 14)를 맡고, 노상은 평일 09:00~19:00·토요일 09:00~15:00에만 요금을 받고 일요일·공휴일은 무료입니다. 1일 주차권(야간에 한함)은 1급지 5,000원·2급지 4,000원·3급지 3,000원·4급지 2,000원·5급지 1,000원이고, 약령시·정릉천복개·용두유수지·견인차량보관소가 월 정기권(전일 170,000원·주간 120,000원·야간 50,000원)을 운영합니다. 구청사부설주차장은 최초 30분 무료·30분~1시간 1,000원·1시간 초과 10분당 500원입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "동대문구 공영주차장 시간제 현황·요금 안내",
+    "org": "동대문구시설관리공단 주차사업부(02-2247-9664~6) · 시영은 서울시설공단",
+    "url": "https://park.dfmc.kr/ASPX/public_parking/current_situation.aspx",
+    "file": "park.dfmc.kr_공영주차장_현황_20261118.txt",
+    "sha256": "ec8e4dc58dbc7674f2e8f9085b3bc74ca01606f7d53d3d8fe609002659f9221c",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 1,
+    "fetched_at": "2026-11-18 06:05 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "동대문구",
+   "slug": "dongdaemun"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dongdaemun-001",
+   "mgmt_no": "105-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신설동",
+   "gu": "동대문구",
+   "dong": "신설동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 신설동 114-29",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "02-2232-6096",
+   "lat": 37.57267066,
+   "lng": 127.0241924,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 800원을 360원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 360,
+    "unit_min": 5,
+    "unit_fee": 360,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 360,
+     "unit_min": 5,
+     "unit_fee": 360,
+     "day": 0,
+     "monthly": 84000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 360,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-002",
+   "mgmt_no": "105-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용두유수지공영",
+   "gu": "동대문구",
+   "dong": "용두동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 용두동 129-4",
+   "addr_road": "서울특별시 동대문구 청계천로525",
+   "road": null,
+   "spaces": 50,
+   "tel": "02-6929-0895",
+   "lat": 37.57197256,
+   "lng": 127.0344246,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-003",
+   "mgmt_no": "105-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "외대주차빌딩",
+   "gu": "동대문구",
+   "dong": "이문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 이문동 306-14",
+   "addr_road": "서울특별시 동대문구 휘경로28",
+   "road": null,
+   "spaces": 83,
+   "tel": "02-6929-0895",
+   "lat": 37.59503764,
+   "lng": 127.0626233,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "동대문구시설관리공단 공영주차장 현황(2026-11-18 조회)에는 ‘공사로 인한 임시폐쇄’로 적혀 있습니다 — 방문 전 공단(02-2247-9664~6)에 운영 재개 여부를 확인하세요",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-004",
+   "mgmt_no": "105-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕원주차장",
+   "gu": "동대문구",
+   "dong": "장안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 장안동458-8",
+   "addr_road": "서울특별시 동대문구 장한로6길 54",
+   "road": null,
+   "spaces": 77,
+   "tel": "02-6929-0895",
+   "lat": 37.56226142,
+   "lng": 127.0687101,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-005",
+   "mgmt_no": "105-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장안2동",
+   "gu": "동대문구",
+   "dong": "장안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 장안동 286-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "02-2290-6417",
+   "lat": 37.57826388,
+   "lng": 127.0706008,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 3급지 기준 300원을 130원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 130,
+    "unit_min": 5,
+    "unit_fee": 130,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 130,
+     "unit_min": 5,
+     "unit_fee": 130,
+     "day": 0,
+     "monthly": 84000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 130,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-006",
+   "mgmt_no": "105-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서울약령시",
+   "gu": "동대문구",
+   "dong": "제기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 제기동 1082",
+   "addr_road": "서울특별시 동대문구 약령중앙로 26",
+   "road": null,
+   "spaces": 196,
+   "tel": "02-6929-0895",
+   "lat": 37.58060041,
+   "lng": 127.0375862,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "1일 주차권 20,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 20000,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-007",
+   "mgmt_no": "105-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정릉천복개공영",
+   "gu": "동대문구",
+   "dong": "제기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 제기동 271-48",
+   "addr_road": "서울특별시 동대문구 정릉천동로 83",
+   "road": null,
+   "spaces": 143,
+   "tel": "02-6929-0895",
+   "lat": 37.57978654,
+   "lng": 127.0349611,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-008",
+   "mgmt_no": "105-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "견인차량보관소",
+   "gu": "동대문구",
+   "dong": "휘경동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 휘경동 7-18",
+   "addr_road": "서울특별시 동대문구 한천로326",
+   "road": null,
+   "spaces": 40,
+   "tel": "02-6929-0895",
+   "lat": 37.59003508,
+   "lng": 127.0695883,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-009",
+   "mgmt_no": "105-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "휘경유수지",
+   "gu": "동대문구",
+   "dong": "휘경동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 동대문구 휘경동 7-18",
+   "addr_road": "서울특별시 동대문구 한천로326",
+   "road": null,
+   "spaces": 53,
+   "tel": "02-6929-0895",
+   "lat": 37.59003508,
+   "lng": 127.0695883,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 170000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 170000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 170000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-010",
+   "mgmt_no": "105-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장안1동",
+   "gu": "동대문구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 동대문구 답십리로66길 75",
+   "road": null,
+   "spaces": 71,
+   "tel": "02-3405-4598",
+   "lat": 37.5694719036,
+   "lng": 127.0670036008,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 3급지 기준 300원을 130원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 130,
+    "unit_min": 5,
+    "unit_fee": 130,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 90000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 130,
+     "unit_min": 5,
+     "unit_fee": 130,
+     "day": 0,
+     "monthly": 90000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 130,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s001",
+   "mgmt_no": "105-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "답십리부품상가공영",
+   "gu": "동대문구",
+   "dong": "답십리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 답십리동 959-1",
+   "addr_road": "서울특별시 동대문구 황물로 17길13",
+   "road": null,
+   "spaces": 72,
+   "tel": "02-6929-0895",
+   "lat": 37.56472665,
+   "lng": 127.0586628,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s002",
+   "mgmt_no": "105-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신답고가공영",
+   "gu": "동대문구",
+   "dong": "답십리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 답십리동 530-5",
+   "addr_road": "서울특별시 동대문구 고미술로11",
+   "road": null,
+   "spaces": 22,
+   "tel": "02-6929-0895",
+   "lat": 37.5700305,
+   "lng": 127.0504071,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s003",
+   "mgmt_no": "105-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "용두동청계공영",
+   "gu": "동대문구",
+   "dong": "신설동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 신설동 97-1",
+   "addr_road": "서울특별시 동대문구 청계천로 5길 47",
+   "road": null,
+   "spaces": 23,
+   "tel": "02-6929-0895",
+   "lat": 37.57303077,
+   "lng": 127.0275891,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s004",
+   "mgmt_no": "105-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계8(남)",
+   "gu": "동대문구",
+   "dong": "신설동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 신설동 109-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 72,
+   "tel": "02-2274-2009",
+   "lat": 37.57142462,
+   "lng": 127.0251495,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 1,000원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s005",
+   "mgmt_no": "105-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계8(북)",
+   "gu": "동대문구",
+   "dong": "신설동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 신설동 109-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "02-2274-2009",
+   "lat": 37.57142462,
+   "lng": 127.0251495,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 1,000원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s006",
+   "mgmt_no": "105-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신일피혁공영",
+   "gu": "동대문구",
+   "dong": "장안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 장안동 437-1",
+   "addr_road": "서울특별시 동대문구 장한로12길18",
+   "road": null,
+   "spaces": 17,
+   "tel": "02-6929-0895",
+   "lat": 37.56550691,
+   "lng": 127.0686919,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s007",
+   "mgmt_no": "105-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "정릉천변공영",
+   "gu": "동대문구",
+   "dong": "제기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 제기동 1204",
+   "addr_road": "서울특별시 동대문구 정릉천동로107",
+   "road": null,
+   "spaces": 58,
+   "tel": "02-6929-0895",
+   "lat": 37.58191245,
+   "lng": 127.0355354,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s008",
+   "mgmt_no": "105-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청량리시장제1공영",
+   "gu": "동대문구",
+   "dong": "제기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 제기동 1000",
+   "addr_road": "서울특별시 동대문구 경동시장로 1",
+   "road": null,
+   "spaces": 42,
+   "tel": "02-6929-0895",
+   "lat": 37.57913563,
+   "lng": 127.0409546,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 10,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 1000,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 1000,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s009",
+   "mgmt_no": "105-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청량리시장제2공영",
+   "gu": "동대문구",
+   "dong": "제기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 제기동 988",
+   "addr_road": "서울특별시 동대문구 경동시장로19-1",
+   "road": null,
+   "spaces": 43,
+   "tel": "02-6929-0895",
+   "lat": 37.5807432,
+   "lng": 127.0403784,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 10,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 1000,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 1000,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s010",
+   "mgmt_no": "105-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청량리시장제3공영",
+   "gu": "동대문구",
+   "dong": "제기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 제기동 620-2",
+   "addr_road": "서울특별시 동대문구 경동시장로40",
+   "road": null,
+   "spaces": 66,
+   "tel": "02-6929-0895",
+   "lat": 37.58242616,
+   "lng": 127.040656,
+   "base_date": "2026-10-12",
+   "manager": "동대문구시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 10,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 1000,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 1000,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s011",
+   "mgmt_no": "105-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "회기역1번공영",
+   "gu": "동대문구",
+   "dong": "휘경동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 휘경동 320-5",
+   "addr_road": "서울특별시 동대문구 회기로185",
+   "road": null,
+   "spaces": 13,
+   "tel": "02-6929-0895",
+   "lat": 37.5900412,
+   "lng": 127.0565123,
+   "base_date": "2026-10-12",
+   "manager": "동대문구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  },
+  {
+   "id": "dongdaemun-s012",
+   "mgmt_no": "105-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "회기역2번공영",
+   "gu": "동대문구",
+   "dong": "휘경동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 동대문구 휘경동 312-17",
+   "addr_road": "서울특별시 동대문구 망우로21",
+   "road": null,
+   "spaces": 47,
+   "tel": "02-6929-0895",
+   "lat": 37.5882912,
+   "lng": 127.0557123,
+   "base_date": "2026-10-12",
+   "manager": "동대문구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인)",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "신용카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "동대문구",
+   "city_slug": "dongdaemun"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 05:45",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 22,
+  "원자료_동대문구행수": 22,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 10,
+  "노외_부설": {
+   "노외": 10
+  },
+  "노상_구간": 12,
+  "총_구획수": 872,
+  "노상_구획수": 513,
+  "동별": {
+   "장안동": 2,
+   "제기동": 2,
+   "휘경동": 2,
+   "동 미상": 1,
+   "신설동": 1,
+   "용두동": 1,
+   "이문동": 1
+  },
+  "동수": 6,
+  "동_미상": [
+   "장안1동"
+  ],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 9,
+   "없음": 1
+  },
+  "요금구분": {
+   "유료": 22
+  },
+  "요금_미상": [],
+  "유료_노상": 12,
+  "유료_노외": 10,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "신일피혁공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "정릉천변공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "신답고가공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "용두동청계공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "답십리부품상가공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "회기역2번공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "회기역1번공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "장안2동: 3급지 기준 300원 ↔ 등록 130원",
+   "신설동: 1급지 기준 800원 ↔ 등록 360원",
+   "청계8(남): 1급지 기준 1,000원 ↔ 등록 450원",
+   "청계8(북): 1급지 기준 1,000원 ↔ 등록 450원",
+   "장안1동: 3급지 기준 300원 ↔ 등록 130원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 동대문구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면(시행 2026-01-08 · 서울특별시동대문구조례 제1816호(일부개정))",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "답십리부품상가공영",
+   "신답고가공영",
+   "용두동청계공영",
+   "신일피혁공영",
+   "정릉천변공영",
+   "회기역1번공영",
+   "회기역2번공영"
+  ],
+  "무료개방_표기": [
+   "답십리부품상가공영",
+   "신답고가공영",
+   "용두동청계공영",
+   "신일피혁공영",
+   "정릉천변공영",
+   "회기역1번공영",
+   "회기역2번공영"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 524,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "105-1-000002"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-05-15",
+   "2026-10-12"
+  ],
+  "공단만_등록": [
+   "구청사부설주차장(천호대로 145, 232면, 30분~1시간 1,000원·1시간 초과 10분당 500원(최초 30분 무료), 평일 09:00~18:00(토·일·공휴일 휴무))"
+  ],
+  "공단추가_주차장": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 6,
+    "fee_min": 360,
+    "fee_max": 1000,
+    "unit_label": "360~1,000원",
+    "hour": 4320,
+    "two_hour": 8640,
+    "month_min": 84000,
+    "month_max": 84000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 800
+   },
+   {
+    "grade": 2,
+    "lots": 14,
+    "fee_min": 500,
+    "fee_max": 500,
+    "unit_label": "500원(10분 기준)",
+    "hour": 3000,
+    "two_hour": 6000,
+    "month_min": 170000,
+    "month_max": 170000,
+    "day_min": 20000,
+    "day_max": 20000,
+    "charter": 500
+   },
+   {
+    "grade": 3,
+    "lots": 2,
+    "fee_min": 130,
+    "fee_max": 130,
+    "unit_label": "130원",
+    "hour": 1560,
+    "two_hour": 3120,
+    "month_min": 84000,
+    "month_max": 90000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 300
+   }
+  ],
+  "windows": [
+   {
+    "group": "09:00~19:00",
+    "count": 13
+   },
+   {
+    "group": "24시간",
+    "count": 9
+   }
+  ],
+  "notes": "동대문구는 요금을 10분 단위로 매깁니다 — 조례 별표1 노상 1급지 1,000원·2급지 500원·3급지 300원·4급지 200원·5급지 100원, 노외 1급지 800원·2급지 500원·3급지 300원·4급지 200원·5급지 200원(10분당)입니다. 구영(동대문구시설관리공단)은 18개소(노상 11·노외 7, 직영 4·민간위탁 14)를 맡고, 노상은 평일 09:00~19:00·토요일 09:00~15:00에만 요금을 받고 일요일·공휴일은 무료입니다. 1일 주차권(야간에 한함)은 1급지 5,000원·2급지 4,000원·3급지 3,000원·4급지 2,000원·5급지 1,000원이고, 약령시·정릉천복개·용두유수지·견인차량보관소가 월 정기권(전일 170,000원·주간 120,000원·야간 50,000원)을 운영합니다. 구청사부설주차장은 최초 30분 무료·30분~1시간 1,000원·1시간 초과 10분당 500원입니다",
+  "only_corp": [
+   "구청사부설주차장(천호대로 145, 232면, 30분~1시간 1,000원·1시간 초과 10분당 500원(최초 30분 무료), 평일 09:00~18:00(토·일·공휴일 휴무))"
+  ],
+  "corp": {
+   "paid": 22,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 12
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 1000,
+    "2": 500,
+    "3": 300,
+    "4": 200,
+    "5": 100
+   },
+   "off": {
+    "1": 800,
+    "2": 500,
+    "3": 300,
+    "4": 200,
+    "5": 200
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 동대문구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면(시행 2026-01-08 · 서울특별시동대문구조례 제1816호(일부개정)) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "dongdaemun",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "동대문구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "성실·유공납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "국세청 성실납세자 또는 서울시·자치구 유공납세자로 선정된 차량 — 선정일부터 1년"
+  },
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(등록증·표지), 유공자 중 상이자, 고엽제후유(의)증환자, 의상자, 독립유공자 80퍼센트"
+  },
+  {
+   "label": "경차·저공해·다둥이 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경차, 저공해자동차, 5·18민주유공자, 다둥이행복카드, 보훈보상대상자, 참전유공자, 특수임무유공자, 임산부 50퍼센트"
+  },
+  {
+   "label": "병역명문가·자원봉사자 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "동대문구 거주 병역명문가 예우대상자, 동대문구 자원봉사자증 소지자 30퍼센트"
+  }
+ ],
+ "realtime": false
+}

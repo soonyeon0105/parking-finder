@@ -1,0 +1,4660 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 05:45",
+  "generated_at_iso": "2026-11-18T05:45:46+09:00",
+  "snapshot_at": "2026-11-18 05:45",
+  "region": {
+   "province": "서울특별시",
+   "city": "강북구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 36,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "강북구가 등록한 36행(노외 27·노상 9)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 강북구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면",
+    "org": "강북구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2061689",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-08-01 · 서울특별시강북구조례 제1899호(일부개정) · 별표1 개정 2025-08-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 강북구는 구영(강북구도시관리공단)이 노외 26곳·노상 8곳을 맡고, 노외는 24시간 연중무휴 무인정산기로, 노상은 평일 09:00~18:00에만 운영합니다. 조례 별표1(2025-08-01 개정)의 5분당 요금은 1급지 350원·2급지 250원·3급지 150원·4급지 100원·5급지 100원인데, 구청과 공단이 공개한 안내와 표준데이터 등록값은 1급지 250원·3급지 200원·5급지 150원이라 카드에는 등록값을 쓰고 차이를 적었습니다(현장 확인 필요). 1일 주차권은 1급지 5,000원·2급지 4,000원·3급지 3,000원·4급지 2,000원·5급지 1,000원(야간에 한함)이고 월 정기권은 전일 60,000~150,000원입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "강북구 공영주차장 시간제 현황·요금 안내",
+    "org": "강북구도시관리공단 주차관리과(02-944-3025·3037) · 시영은 서울시설공단",
+    "url": "https://www.gangbuk.go.kr/portal/main/contents.do?menuNo=200267",
+    "file": "gangbuk.go.kr_공영주차장_현황_요금_감면_20261118.txt",
+    "sha256": "eac09bc2c35c67ce698b178d02c444a50df861fd02bbfd25c7ae9bc2e3f42f91",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 1,
+    "fetched_at": "2026-11-18 05:36 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "강북구",
+   "slug": "gangbuk"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gangbuk-001",
+   "mgmt_no": "108-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구세군길",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 791-1364",
+   "addr_road": "서울특별시 강북구 인수봉로20가길 21",
+   "road": null,
+   "spaces": 87,
+   "tel": "02-944-3025",
+   "lat": 37.6260722,
+   "lng": 127.0134696,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-002",
+   "mgmt_no": "108-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "냉천길",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 756-1",
+   "addr_road": "서울특별시 강북구 삼양로 230-12",
+   "road": null,
+   "spaces": 104,
+   "tel": "02-944-3025",
+   "lat": 37.6240065,
+   "lng": 127.0195388,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-003",
+   "mgmt_no": "108-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대지시장길",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 703-8",
+   "addr_road": "서울특별시 강북구 솔샘로 243-8",
+   "road": null,
+   "spaces": 47,
+   "tel": "02-944-3025",
+   "lat": 37.6201434,
+   "lng": 127.0202413,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-004",
+   "mgmt_no": "108-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미아동",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 222-100",
+   "addr_road": "서울특별시 강북구 도봉로61길 46",
+   "road": null,
+   "spaces": 155,
+   "tel": "02-944-3025",
+   "lat": 37.6285602,
+   "lng": 127.0223435,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 80000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-005",
+   "mgmt_no": "108-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미양마을마당",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 791-1974",
+   "addr_road": "서울특별시 강북구 인수봉로6길 39",
+   "road": null,
+   "spaces": 10,
+   "tel": "02-944-3025",
+   "lat": 37.6220890906,
+   "lng": 127.0150104475,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 144000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 144000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 144000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-006",
+   "mgmt_no": "108-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼양마을공원",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 748-2",
+   "addr_road": "서울특별시 강북구 삼양로47길 15",
+   "road": null,
+   "spaces": 95,
+   "tel": "02-944-3025",
+   "lat": 37.622899,
+   "lng": 127.0182175,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-007",
+   "mgmt_no": "108-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼양시장길",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 791-1429",
+   "addr_road": "서울특별시 강북구 솔매로7가길 33",
+   "road": null,
+   "spaces": 43,
+   "tel": "02-944-3025",
+   "lat": 37.6258661,
+   "lng": 127.015692,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-008",
+   "mgmt_no": "108-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송중동",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 48-1",
+   "addr_road": "서울특별시 강북구 월계로7길 36",
+   "road": null,
+   "spaces": 54,
+   "tel": "02-944-3025",
+   "lat": 37.6116327,
+   "lng": 127.0335871,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-009",
+   "mgmt_no": "108-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송중동(임시)",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 860-123",
+   "addr_road": "서울특별시 강북구 도봉로8길 67",
+   "road": null,
+   "spaces": 6,
+   "tel": "02-944-3025",
+   "lat": 37.6112017,
+   "lng": 127.0335232,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-010",
+   "mgmt_no": "108-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어울림소공원",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 4",
+   "addr_road": "서울특별시 강북구 오현로 56",
+   "road": null,
+   "spaces": 45,
+   "tel": "02-944-3025",
+   "lat": 37.6184131,
+   "lng": 127.0364771,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-011",
+   "mgmt_no": "108-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오패산",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 133-100",
+   "addr_road": "서울특별시 강북구 도봉로34길 54",
+   "road": null,
+   "spaces": 76,
+   "tel": "02-944-3025",
+   "lat": 37.6220897,
+   "lng": 127.0311622,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-012",
+   "mgmt_no": "108-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "은혜",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 791-1049",
+   "addr_road": "서울특별시 강북구 삼양로67길 16",
+   "road": null,
+   "spaces": 20,
+   "tel": "02-944-3025",
+   "lat": 37.6279612,
+   "lng": 127.0169821,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-013",
+   "mgmt_no": "108-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청암",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 미아동 791-1694",
+   "addr_road": "서울특별시 강북구 솔매로22가길 20",
+   "road": null,
+   "spaces": 47,
+   "tel": "02-944-3025",
+   "lat": 37.6247155,
+   "lng": 127.0154205,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-014",
+   "mgmt_no": "108-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "번2동",
+   "gu": "강북구",
+   "dong": "번동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 번동 148-140",
+   "addr_road": "서울특별시 강북구 오현로21길 6",
+   "road": null,
+   "spaces": 20,
+   "tel": "02-944-3025",
+   "lat": 37.6267046,
+   "lng": 127.0365901,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-015",
+   "mgmt_no": "108-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "번동햇살",
+   "gu": "강북구",
+   "dong": "번동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 번동 148-380",
+   "addr_road": "서울특별시 강북구 오현로21길 84",
+   "road": null,
+   "spaces": 187,
+   "tel": "02-944-3025",
+   "lat": 37.6251004,
+   "lng": 127.0334059,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-016",
+   "mgmt_no": "108-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수송초등학교",
+   "gu": "강북구",
+   "dong": "번동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 번동 456",
+   "addr_road": "서울특별시 강북구 한천로124길 14",
+   "road": null,
+   "spaces": 185,
+   "tel": "02-944-3025",
+   "lat": 37.637324,
+   "lng": 127.0332067,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-017",
+   "mgmt_no": "108-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가오리",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 349-3",
+   "addr_road": "서울특별시 강북구 삼양로107길 30",
+   "road": null,
+   "spaces": 120,
+   "tel": "02-944-3025",
+   "lat": 37.6416051,
+   "lng": 127.0149889,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-018",
+   "mgmt_no": "108-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "색동공원",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 49-7",
+   "addr_road": "서울특별시 강북구 삼양로80나길 56",
+   "road": null,
+   "spaces": 80,
+   "tel": "02-944-3025",
+   "lat": 37.6333382,
+   "lng": 127.0206239,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-019",
+   "mgmt_no": "108-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수유2동",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 660-30",
+   "addr_road": "서울특별시 강북구 한천로160길 40",
+   "road": null,
+   "spaces": 62,
+   "tel": "02-944-3025",
+   "lat": 37.6460297,
+   "lng": 127.0218735,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-020",
+   "mgmt_no": "108-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수유마을시장",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 55-29",
+   "addr_road": "서울특별시 강북구 도봉로69길 29",
+   "road": null,
+   "spaces": 116,
+   "tel": "02-944-3025",
+   "lat": 37.6305304,
+   "lng": 127.0218524,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 80000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-021",
+   "mgmt_no": "108-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수유쌈지",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 612-6",
+   "addr_road": "서울특별시 강북구 도봉로 265",
+   "road": null,
+   "spaces": 19,
+   "tel": "02-944-3025",
+   "lat": 37.6320481,
+   "lng": 127.0235551,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 1급지 기준 350원을 250원으로 받습니다(개별 조정) · 1일 주차권 20,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 20000,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-022",
+   "mgmt_no": "108-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수유일공원",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 605-407",
+   "addr_road": "서울특별시 강북구 삼양로79길 5",
+   "road": null,
+   "spaces": 91,
+   "tel": "02-944-3025",
+   "lat": 37.6306612,
+   "lng": 127.0174444,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-023",
+   "mgmt_no": "108-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시범",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 190-11",
+   "addr_road": "서울특별시 강북구 한천로139가길 10",
+   "road": null,
+   "spaces": 45,
+   "tel": "02-944-3025",
+   "lat": 37.6399548,
+   "lng": 127.0257737,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 1급지 기준 350원을 250원으로 받습니다(개별 조정) · 1일 주차권 20,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 20000,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-024",
+   "mgmt_no": "108-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인수동",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 126",
+   "addr_road": "서울특별시 강북구 삼양로92길 34",
+   "road": null,
+   "spaces": 73,
+   "tel": "02-944-3025",
+   "lat": 37.6361708,
+   "lng": 127.0185347,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-025",
+   "mgmt_no": "108-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장미원시장",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 수유동 294-13",
+   "addr_road": "서울특별시 강북구 인수봉로78길 24",
+   "road": null,
+   "spaces": 152,
+   "tel": "02-944-3025",
+   "lat": 37.64414204,
+   "lng": 127.0124546,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 80000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-026",
+   "mgmt_no": "108-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "교통광장",
+   "gu": "강북구",
+   "dong": "우이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 우이동 265",
+   "addr_road": "서울특별시 강북구 삼양로 678",
+   "road": null,
+   "spaces": 158,
+   "tel": "02-944-3025",
+   "lat": 37.6633705,
+   "lng": 127.0126653,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-027",
+   "mgmt_no": "108-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우이동",
+   "gu": "강북구",
+   "dong": "우이동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강북구 우이동 105-2",
+   "addr_road": "서울특별시 강북구 삼양로155길 33",
+   "road": null,
+   "spaces": 82,
+   "tel": "02-944-3025",
+   "lat": 37.6567143,
+   "lng": 127.0115891,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 5급지 기준 100원을 150원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 10000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s001",
+   "mgmt_no": "108-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "도봉로 15길",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 미아동 458-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "02-2648-8292",
+   "lat": 37.61674547,
+   "lng": 127.0282393,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 200원으로 받습니다(공시지가 변수 반영) · 표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s002",
+   "mgmt_no": "108-1-000035",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "으뜸공원(무인)",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 미아동 317번지",
+   "addr_road": "서울특별시 강북구 솔샘로 67",
+   "road": null,
+   "spaces": 76,
+   "tel": "02-944-3025",
+   "lat": 37.620006,
+   "lng": 127.0285111,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s003",
+   "mgmt_no": "108-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "큰마을길",
+   "gu": "강북구",
+   "dong": "미아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 미아동 309-14",
+   "addr_road": "서울특별시 강북구 삼양로54길 133",
+   "road": null,
+   "spaces": 41,
+   "tel": "02-944-3025",
+   "lat": 37.6236738,
+   "lng": 127.0252208,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s004",
+   "mgmt_no": "108-1-000031",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "교육청길",
+   "gu": "강북구",
+   "dong": "송중동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 송중동 137-19번지",
+   "addr_road": "서울특별시 강북구 도봉로20가길 3",
+   "road": null,
+   "spaces": 80,
+   "tel": "02-944-3025",
+   "lat": 37.6187374,
+   "lng": 127.0297161,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s005",
+   "mgmt_no": "108-1-000032",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가오천",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 수유동 181-1",
+   "addr_road": "서울특별시 강북구 한천로150길 46",
+   "road": null,
+   "spaces": 60,
+   "tel": "02-944-3025",
+   "lat": 37.6436141,
+   "lng": 127.0251254,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s006",
+   "mgmt_no": "108-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "나눔터길",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 수유동 605-2",
+   "addr_road": "서울특별시 강북구 수유로 47",
+   "road": null,
+   "spaces": 48,
+   "tel": "02-944-3025",
+   "lat": 37.6351482,
+   "lng": 127.0191574,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s007",
+   "mgmt_no": "108-1-000029",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "벽산",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 수유동 36-1",
+   "addr_road": "서울특별시 강북구 삼각산로 140",
+   "road": null,
+   "spaces": 36,
+   "tel": "02-944-3025",
+   "lat": 37.6409017,
+   "lng": 127.0197223,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s008",
+   "mgmt_no": "108-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "빨래골",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 수유동 49-27",
+   "addr_road": "서울특별시 강북구 수유로 30",
+   "road": null,
+   "spaces": 35,
+   "tel": "02-944-3025",
+   "lat": 37.6334583,
+   "lng": 127.0193948,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  },
+  {
+   "id": "gangbuk-s009",
+   "mgmt_no": "108-1-000030",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "아카데미",
+   "gu": "강북구",
+   "dong": "수유동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강북구 수유동 568-102",
+   "addr_road": "서울특별시 강북구 4.19로 25",
+   "road": null,
+   "spaces": 37,
+   "tel": "02-944-3025",
+   "lat": 37.6474065,
+   "lng": 127.0113669,
+   "base_date": "2026-04-14",
+   "manager": "강북구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(개별 조정) · 1일 주차권 10,000원(24시간) — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(강북구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": 24,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌이체",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강북구",
+   "city_slug": "gangbuk"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 05:45",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 36,
+  "원자료_강북구행수": 36,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 27,
+  "노외_부설": {
+   "노외": 27
+  },
+  "노상_구간": 9,
+  "총_구획수": 2179,
+  "노상_구획수": 429,
+  "동별": {
+   "미아동": 13,
+   "수유동": 9,
+   "번동": 3,
+   "우이동": 2
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 27
+  },
+  "요금구분": {
+   "유료": 36
+  },
+  "요금_미상": [],
+  "유료_노상": 9,
+  "유료_노외": 27,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "도봉로 15길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "도봉로 15길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "가오천: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "가오천: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "교육청길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "교육청길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "큰마을길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "큰마을길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "나눔터길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "나눔터길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "도봉로 15길: 2급지 기준 250원 ↔ 등록 200원",
+   "미양마을마당: 3급지 기준 150원 ↔ 등록 200원",
+   "장미원시장: 5급지 기준 100원 ↔ 등록 150원",
+   "수유쌈지: 1급지 기준 350원 ↔ 등록 250원",
+   "송중동(임시): 3급지 기준 150원 ↔ 등록 200원",
+   "수유2동: 5급지 기준 100원 ↔ 등록 150원",
+   "색동공원: 3급지 기준 150원 ↔ 등록 200원",
+   "어울림소공원: 3급지 기준 150원 ↔ 등록 200원",
+   "가오리: 5급지 기준 100원 ↔ 등록 150원",
+   "삼양마을공원: 3급지 기준 150원 ↔ 등록 200원",
+   "대지시장길: 3급지 기준 150원 ↔ 등록 200원",
+   "수유일공원: 3급지 기준 150원 ↔ 등록 200원",
+   "오패산: 5급지 기준 100원 ↔ 등록 150원",
+   "냉천길: 3급지 기준 150원 ↔ 등록 200원",
+   "구세군길: 5급지 기준 100원 ↔ 등록 150원",
+   "번2동: 5급지 기준 100원 ↔ 등록 150원",
+   "은혜: 5급지 기준 100원 ↔ 등록 150원",
+   "삼양시장길: 5급지 기준 100원 ↔ 등록 150원",
+   "청암: 5급지 기준 100원 ↔ 등록 150원",
+   "우이동: 5급지 기준 100원 ↔ 등록 150원",
+   "수송초등학교: 3급지 기준 150원 ↔ 등록 200원",
+   "수유마을시장: 5급지 기준 100원 ↔ 등록 150원",
+   "번동햇살: 5급지 기준 100원 ↔ 등록 150원",
+   "미아동: 5급지 기준 100원 ↔ 등록 150원",
+   "교통광장: 3급지 기준 150원 ↔ 등록 200원",
+   "인수동: 3급지 기준 150원 ↔ 등록 200원",
+   "시범: 1급지 기준 350원 ↔ 등록 250원",
+   "송중동: 3급지 기준 150원 ↔ 등록 200원",
+   "으뜸공원(무인): 3급지 기준 150원 ↔ 등록 200원",
+   "빨래골: 3급지 기준 150원 ↔ 등록 200원",
+   "가오천: 3급지 기준 150원 ↔ 등록 200원",
+   "교육청길: 3급지 기준 150원 ↔ 등록 200원",
+   "아카데미: 3급지 기준 150원 ↔ 등록 200원",
+   "벽산: 3급지 기준 150원 ↔ 등록 200원",
+   "큰마을길: 3급지 기준 150원 ↔ 등록 200원",
+   "나눔터길: 3급지 기준 150원 ↔ 등록 200원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 강북구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-08-01 · 서울특별시강북구조례 제1899호(일부개정) · 별표1 개정 2025-08-01)",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "도봉로 15길",
+   "큰마을길",
+   "교육청길",
+   "가오천",
+   "나눔터길"
+  ],
+  "무료개방_표기": [
+   "도봉로 15길",
+   "큰마을길",
+   "교육청길",
+   "가오천",
+   "나눔터길"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 185,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-14",
+   "2026-05-15"
+  ],
+  "공단만_등록": [
+   "구청앞 노상(한천로139길, 21면, 1급지 5분당 250원, 평일 09:00~18:00·야간만 이용)"
+  ],
+  "공단추가_주차장": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 2,
+    "fee_min": 250,
+    "fee_max": 250,
+    "unit_label": "250원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "month_min": 150000,
+    "month_max": 150000,
+    "day_min": 20000,
+    "day_max": 20000,
+    "charter": 350
+   },
+   {
+    "grade": 2,
+    "lots": 1,
+    "fee_min": 200,
+    "fee_max": 200,
+    "unit_label": "200원",
+    "hour": 2400,
+    "two_hour": 4800,
+    "month_min": null,
+    "month_max": null,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 20,
+    "fee_min": 200,
+    "fee_max": 200,
+    "unit_label": "200원",
+    "hour": 2400,
+    "two_hour": 4800,
+    "month_min": 100000,
+    "month_max": 144000,
+    "day_min": 10000,
+    "day_max": 10000,
+    "charter": 150
+   },
+   {
+    "grade": 5,
+    "lots": 13,
+    "fee_min": 150,
+    "fee_max": 150,
+    "unit_label": "150원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "month_min": 60000,
+    "month_max": 80000,
+    "day_min": 10000,
+    "day_max": 10000,
+    "charter": 100
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 35
+   },
+   {
+    "group": "09:00~18:00",
+    "count": 1
+   }
+  ],
+  "notes": "강북구는 구영(강북구도시관리공단)이 노외 26곳·노상 8곳을 맡고, 노외는 24시간 연중무휴 무인정산기로, 노상은 평일 09:00~18:00에만 운영합니다. 조례 별표1(2025-08-01 개정)의 5분당 요금은 1급지 350원·2급지 250원·3급지 150원·4급지 100원·5급지 100원인데, 구청과 공단이 공개한 안내와 표준데이터 등록값은 1급지 250원·3급지 200원·5급지 150원이라 카드에는 등록값을 쓰고 차이를 적었습니다(현장 확인 필요). 1일 주차권은 1급지 5,000원·2급지 4,000원·3급지 3,000원·4급지 2,000원·5급지 1,000원(야간에 한함)이고 월 정기권은 전일 60,000~150,000원입니다",
+  "only_corp": [
+   "구청앞 노상(한천로139길, 21면, 1급지 5분당 250원, 평일 09:00~18:00·야간만 이용)"
+  ],
+  "corp": {
+   "paid": 36,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 9
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 350,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 100
+   },
+   "off": {
+    "1": 350,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 100
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 강북구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-08-01 · 서울특별시강북구조례 제1899호(일부개정) · 별표1 개정 2025-08-01) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "gangbuk",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "강북구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세자로 표창받아 서울시장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 발행일부터 1년"
+  },
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(복지카드·표지), 국가유공자(참전·독립유공자), 의사상자, 병역명문가, 보훈보상대상자 80퍼센트"
+  },
+  {
+   "label": "경차·저공해·다둥이 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차, 저공해자동차, 다둥이행복카드, 한부모가정, 기초생활수급자 50퍼센트"
+  },
+  {
+   "label": "5·18민주유공자 1시간 면제 후 80%",
+   "rate": 0.8,
+   "exempt_min": 60,
+   "note": "5·18민주유공자 증서를 소지하고 본인 소유 비사업용 자동차를 운전 — 1시간 면제, 초과분 80퍼센트"
+  },
+  {
+   "label": "전기차 충전 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전기자동차를 충전한 경우 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "자원봉사자 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "강북구청장이 발급한 자원봉사증 소지자 20퍼센트"
+  },
+  {
+   "label": "전통시장 2시간 면제",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "전통시장·골목형상점가 주변(100m 이내) 공영주차장에서 상인이 발행한 주차권을 제출한 차량 — 최초 2시간 면제(1급지 제외)"
+  }
+ ],
+ "realtime": false
+}

@@ -1,0 +1,3709 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 05:45",
+  "generated_at_iso": "2026-11-18T05:45:46+09:00",
+  "snapshot_at": "2026-11-18 05:45",
+  "region": {
+   "province": "서울특별시",
+   "city": "성동구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 1,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "성동구가 등록한 1행(노외 0·노상 1)을 읽었다는 데 그쳐 구청·공단 안내에만 있는 27곳을 함께 실었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 성동구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제6조의2 감면",
+    "org": "성동구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2035019",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-05-08 · 서울특별시성동구조례 제1777호(일부개정) · 별표1 개정 2023-09-21",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 성동구는 구영(성동구도시관리공단)이 노외 27곳·노상 9개 구간(직영 9개소 623면·위탁 1개소 17면)을 맡고, 조례 별표1의 5분당 요금은 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 실제로는 노외 4·5급지(50~100원)와 노상 2급지 250원·4급지 100원을 받고, 노상은 평일 09:00~18:00(성수역 3번 출구는 09:00~19:00)·토요일 09:00~15:00에만 요금을 받고 일요일·공휴일은 무료입니다. 월 정기권은 노외 전일 50,000~120,000원, 주간 30,000~90,000원, 야간 20,000~30,000원이고 살곶이·금남시장·용답어울림·대현산배수지공원은 시간주차만 받습니다. 시영(서울시설공단) 옥수역 노상은 공시지가 변수를 곱한 5분당 290원입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "성동구 공영주차장 시간제 현황·요금 안내",
+    "org": "성동구도시관리공단 주차관리부(02-2204-7970) · 시영은 서울시설공단",
+    "url": "https://parking.happysd.or.kr/Public/PresentTab2",
+    "file": "parking.happysd.or.kr_공영주차장_노외현황_요금_20261118.txt",
+    "sha256": "bfaa1b1a6a2d67975871277c0140d27a278dcfbd2192527c876def388b96b08a",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 2,
+    "fetched_at": "2026-11-18 06:05 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "성동구",
+   "slug": "seongdong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "seongdong-001",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "대현산배수지공원",
+   "gu": "성동구",
+   "dong": "금호동1가",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "금호동1가 103",
+   "addr_road": "금호동1가 103",
+   "road": null,
+   "spaces": 5,
+   "tel": "02-2204-7970",
+   "lat": 37.556127,
+   "lng": 127.020128,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(시간주차만 운영) · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-002",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "도선동(지하)",
+   "gu": "성동구",
+   "dong": "도선동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "무학로8길 8",
+   "road": null,
+   "spaces": 186,
+   "tel": "02-2204-7970",
+   "lat": 37.565503,
+   "lng": 127.031477,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-003",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "마장동(건물)",
+   "gu": "성동구",
+   "dong": "마장동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "청계천로10나길 38",
+   "road": null,
+   "spaces": 52,
+   "tel": "02-2204-7970",
+   "lat": 37.569931,
+   "lng": 127.035132,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2m 높이제한) · 월 정기권 전일 50,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-004",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "마장동(평면)",
+   "gu": "성동구",
+   "dong": "마장동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "마장동 459-6",
+   "addr_road": "마장동 459-6",
+   "road": null,
+   "spaces": 10,
+   "tel": "02-2204-7970",
+   "lat": 37.5692,
+   "lng": 127.034715,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(시간 요금 없이 월 정기권만 운영) · 월 정기권 전일 80,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 칸이 비어 있음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-005",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "마장축산물시장 북문(평면) 임시",
+   "gu": "성동구",
+   "dong": "마장동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "마장동 437",
+   "addr_road": "마장동 437",
+   "road": null,
+   "spaces": 67,
+   "tel": "02-2204-7970",
+   "lat": 37.571117,
+   "lng": 127.041447,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(임시 주차장) · 월 정기권 전일 120,000원·주간 90,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-006",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "마장축산물시장 서문(건물)",
+   "gu": "성동구",
+   "dong": "마장동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "고산자로26길 6",
+   "road": null,
+   "spaces": 126,
+   "tel": "02-2204-7970",
+   "lat": 37.57047,
+   "lng": 127.038297,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.4m 높이제한) · 월 정기권 전일 120,000원·주간 90,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-007",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "마장축산물시장(건물)",
+   "gu": "성동구",
+   "dong": "마장동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "마장동 525-1",
+   "addr_road": "마장동 525-1",
+   "road": null,
+   "spaces": 107,
+   "tel": "02-2204-7970",
+   "lat": 37.571477,
+   "lng": 127.039918,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.3m 높이제한) · 월 정기권 전일 120,000원·주간 90,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-008",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "뚝섬유수지(평면)",
+   "gu": "성동구",
+   "dong": "성수동1가",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "성수동1가 685-63",
+   "addr_road": "성수동1가 685-63",
+   "road": null,
+   "spaces": 329,
+   "tel": "02-2204-7970",
+   "lat": 37.549628,
+   "lng": 127.041456,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다 · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-009",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "성수1가1동(건물)",
+   "gu": "성동구",
+   "dong": "성수동1가",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "성덕정1길 6",
+   "road": null,
+   "spaces": 91,
+   "tel": "02-2204-7970",
+   "lat": 37.539928,
+   "lng": 127.04637,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-010",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "성수2가1동(건물)",
+   "gu": "성동구",
+   "dong": "성수동2가",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "성덕정길 115",
+   "road": null,
+   "spaces": 161,
+   "tel": "02-2204-7970",
+   "lat": 37.53724,
+   "lng": 127.056147,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-011",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "성수2가3동(건물)",
+   "gu": "성동구",
+   "dong": "성수동2가",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "광나루로4가길 23",
+   "road": null,
+   "spaces": 192,
+   "tel": "02-2204-7970",
+   "lat": 37.549004,
+   "lng": 127.055158,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-012",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "송정동 공공복합청사(지하)",
+   "gu": "성동구",
+   "dong": "송정동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "송정18가길 9",
+   "road": null,
+   "spaces": 78,
+   "tel": "02-2204-7970",
+   "lat": 37.553227,
+   "lng": 127.068372,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.2m 높이제한) · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-013",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "송정동(건물)",
+   "gu": "성동구",
+   "dong": "송정동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "동일로 199",
+   "road": null,
+   "spaces": 120,
+   "tel": "02-2204-7970",
+   "lat": 37.549964,
+   "lng": 127.06807,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2m 높이제한) · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-014",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "옥수역(평면)",
+   "gu": "성동구",
+   "dong": "옥수동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "옥수동 168-6",
+   "addr_road": "옥수동 168-6",
+   "road": null,
+   "spaces": 32,
+   "tel": "02-2204-7970",
+   "lat": 37.540851,
+   "lng": 127.018498,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다 · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-015",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "옥수유수지(평면)",
+   "gu": "성동구",
+   "dong": "옥수동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "옥수동 77-3",
+   "addr_road": "옥수동 77-3",
+   "road": null,
+   "spaces": 45,
+   "tel": "02-2204-7970",
+   "lat": 37.541364,
+   "lng": 127.018395,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다 · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-016",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "용답동(건물)",
+   "gu": "성동구",
+   "dong": "용답동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "용답29길 22",
+   "road": null,
+   "spaces": 160,
+   "tel": "02-2204-7970",
+   "lat": 37.564564,
+   "lng": 127.054307,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-017",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "용답어울림",
+   "gu": "성동구",
+   "dong": "용답동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "용답15길 4-5",
+   "road": null,
+   "spaces": 16,
+   "tel": "02-2204-7970",
+   "lat": 37.564102,
+   "lng": 127.051201,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(시간주차만 운영) · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-018",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "용답제2(평면)",
+   "gu": "성동구",
+   "dong": "용답동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "천호대로78길 9",
+   "road": null,
+   "spaces": 153,
+   "tel": "02-2204-7970",
+   "lat": 37.563096,
+   "lng": 127.056149,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다 · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-019",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "응봉동(건물)",
+   "gu": "성동구",
+   "dong": "응봉동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "독서당로63길 40",
+   "road": null,
+   "spaces": 156,
+   "tel": "02-2204-7970",
+   "lat": 37.553433,
+   "lng": 127.030762,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 50,000원·주간 30,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 50,
+     "unit_min": 5,
+     "unit_fee": 50,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-020",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "응봉동(평면)",
+   "gu": "성동구",
+   "dong": "응봉동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "고산자로 125-98",
+   "road": null,
+   "spaces": 65,
+   "tel": "02-2204-7970",
+   "lat": 37.549341,
+   "lng": 127.033453,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다 · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-021",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "하왕십리(건물)",
+   "gu": "성동구",
+   "dong": "하왕십리동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "무학봉길 48",
+   "road": null,
+   "spaces": 94,
+   "tel": "02-2204-7970",
+   "lat": 37.560288,
+   "lng": 127.027921,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.2m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-022",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "행당동(평면)",
+   "gu": "성동구",
+   "dong": "행당동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "고산자로2길 71",
+   "road": null,
+   "spaces": 48,
+   "tel": "02-2204-7970",
+   "lat": 37.557652,
+   "lng": 127.037623,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다 · 월 정기권 전일 100,000원·주간 70,000원·야간 30,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-023",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "홍익동(건물)",
+   "gu": "성동구",
+   "dong": "홍익동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "무학로10길 28",
+   "road": null,
+   "spaces": 83,
+   "tel": "02-2204-7970",
+   "lat": 37.565608,
+   "lng": 127.033863,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-024",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "강변(건물)",
+   "gu": "성동구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "둘레길 47-5",
+   "road": null,
+   "spaces": 99,
+   "tel": "02-2204-7970",
+   "lat": 37.536964,
+   "lng": 127.049067,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.1m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-025",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "금남시장",
+   "gu": "성동구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "독서당로 309-11",
+   "road": null,
+   "spaces": 11,
+   "tel": "02-2204-7970",
+   "lat": 37.548503,
+   "lng": 127.023269,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 200원으로 받습니다(개별 조정) · 표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(시간주차만 운영) · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-026",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "금호초등학교(건물)",
+   "gu": "성동구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "무수막길 69",
+   "road": null,
+   "spaces": 118,
+   "tel": "02-2204-7970",
+   "lat": 37.551898,
+   "lng": 127.020753,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(2.3m 높이제한) · 월 정기권 전일 70,000원·주간 50,000원·야간 20,000원 · 구영(성동구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-027",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "살곶이(평면)",
+   "gu": "성동구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "살곶이길",
+   "road": null,
+   "spaces": 203,
+   "tel": "02-2204-7970",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-11-18",
+   "manager": "서울특별시성동구도시관리공단",
+   "note": "",
+   "notice": "표준데이터에 없고 구청·공단 안내에만 있어 공단 표의 면수·급지·요금을 썼습니다(평면 주차장(시간주차만 운영)) · 구영(성동구도시관리공단) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  },
+  {
+   "id": "seongdong-s001",
+   "mgmt_no": "103-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥수역",
+   "gu": "성동구",
+   "dong": "옥수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 성동구 옥수동 401-1(옥수역7번출구 부근)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "",
+   "lat": 37.54219225,
+   "lng": 127.0170773,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "성동구",
+   "city_slug": "seongdong"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 05:45",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 1,
+  "원자료_성동구행수": 1,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 27,
+  "노외_부설": {
+   "노외": 27
+  },
+  "노상_구간": 1,
+  "총_구획수": 2807,
+  "노상_구획수": 31,
+  "동별": {
+   "마장동": 5,
+   "동 미상": 4,
+   "용답동": 3,
+   "성수동1가": 2,
+   "성수동2가": 2,
+   "송정동": 2,
+   "옥수동": 2,
+   "응봉동": 2,
+   "금호동1가": 1,
+   "도선동": 1,
+   "하왕십리동": 1,
+   "행당동": 1,
+   "홍익동": 1
+  },
+  "동수": 12,
+  "동_미상": [
+   "강변(건물)",
+   "금남시장",
+   "금호초등학교(건물)",
+   "살곶이(평면)"
+  ],
+  "동_보정": [],
+  "동_근거": {
+   "공단 안내": 23,
+   "없음": 4
+  },
+  "요금구분": {
+   "유료": 27,
+   "미상": 1
+  },
+  "요금_미상": [
+   "마장동(평면)"
+  ],
+  "유료_노상": 1,
+  "유료_노외": 26,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "옥수역: 1급지 기준 500원 ↔ 등록 290원",
+   "금남시장: 2급지 기준 250원 ↔ 등록 200원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "살곶이(평면)"
+  ],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 성동구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제6조의2 감면(시행 2025-05-08 · 서울특별시성동구조례 제1777호(일부개정) · 별표1 개정 2023-09-21)",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [],
+  "무료개방_표기": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 172,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 1,
+  "데이터기준일": [
+   "2026-05-15",
+   "2026-11-18"
+  ],
+  "공단만_등록": [
+   "성수역 3번 출구(성수이로, 46면, 2급지 5분당 250원, 평일·토·일 09:00~19:00)",
+   "마장축산물시장 북문(살곶이길 40, 90면, 2급지 5분당 250원, 24시간)"
+  ],
+  "공단추가_주차장": [
+   "하왕십리(건물)",
+   "홍익동(건물)",
+   "도선동(지하)",
+   "마장동(건물)",
+   "마장축산물시장(건물)",
+   "마장축산물시장 서문(건물)",
+   "살곶이(평면)",
+   "응봉동(건물)",
+   "응봉동(평면)",
+   "금호초등학교(건물)",
+   "금남시장",
+   "강변(건물)",
+   "성수1가1동(건물)",
+   "성수2가1동(건물)",
+   "성수2가3동(건물)",
+   "송정동(건물)",
+   "송정동 공공복합청사(지하)",
+   "용답동(건물)",
+   "용답제2(평면)",
+   "용답어울림",
+   "옥수유수지(평면)",
+   "뚝섬유수지(평면)",
+   "대현산배수지공원",
+   "마장동(평면)",
+   "마장축산물시장 북문(평면) 임시",
+   "행당동(평면)",
+   "옥수역(평면)"
+  ]
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 1,
+    "fee_min": 290,
+    "fee_max": 290,
+    "unit_label": "290원",
+    "hour": 3480,
+    "two_hour": 6960,
+    "month_min": null,
+    "month_max": null,
+    "day_min": null,
+    "day_max": null,
+    "charter": 500
+   },
+   {
+    "grade": 2,
+    "lots": 10,
+    "fee_min": 200,
+    "fee_max": 250,
+    "unit_label": "200~250원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "month_min": 70000,
+    "month_max": 120000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 8,
+    "fee_min": 150,
+    "fee_max": 150,
+    "unit_label": "150원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "month_min": 70000,
+    "month_max": 100000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 150
+   },
+   {
+    "grade": 4,
+    "lots": 6,
+    "fee_min": 100,
+    "fee_max": 100,
+    "unit_label": "100원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "month_min": 70000,
+    "month_max": 70000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 100
+   },
+   {
+    "grade": 5,
+    "lots": 2,
+    "fee_min": 50,
+    "fee_max": 50,
+    "unit_label": "50원",
+    "hour": 600,
+    "two_hour": 1200,
+    "month_min": 50000,
+    "month_max": 50000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 50
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 25
+   },
+   {
+    "group": "07:00~21:00",
+    "count": 1
+   },
+   {
+    "group": "09:00~19:00",
+    "count": 1
+   }
+  ],
+  "notes": "성동구는 구영(성동구도시관리공단)이 노외 27곳·노상 9개 구간(직영 9개소 623면·위탁 1개소 17면)을 맡고, 조례 별표1의 5분당 요금은 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 실제로는 노외 4·5급지(50~100원)와 노상 2급지 250원·4급지 100원을 받고, 노상은 평일 09:00~18:00(성수역 3번 출구는 09:00~19:00)·토요일 09:00~15:00에만 요금을 받고 일요일·공휴일은 무료입니다. 월 정기권은 노외 전일 50,000~120,000원, 주간 30,000~90,000원, 야간 20,000~30,000원이고 살곶이·금남시장·용답어울림·대현산배수지공원은 시간주차만 받습니다. 시영(서울시설공단) 옥수역 노상은 공시지가 변수를 곱한 5분당 290원입니다",
+  "only_corp": [
+   "성수역 3번 출구(성수이로, 46면, 2급지 5분당 250원, 평일·토·일 09:00~19:00)",
+   "마장축산물시장 북문(살곶이길 40, 90면, 2급지 5분당 250원, 24시간)"
+  ],
+  "corp": {
+   "paid": 27,
+   "free": 0,
+   "unknown": 1,
+   "street_paid": 1
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "1": 500,
+   "2": 250,
+   "3": 150,
+   "4": 100,
+   "5": 50
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 성동구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제6조의2 감면(시행 2025-05-08 · 서울특별시성동구조례 제1777호(일부개정) · 별표1 개정 2023-09-21) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "seongdong",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "성동구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지 부착·등록증 제시), 국가유공자 상이자, 고엽제후유(의)증 환자, 의상자·의사자유족, 독립유공자 80퍼센트(지하철환승주차장은 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "경차·저공해·다둥이 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차(1,000cc 미만), 저공해자동차, 서울시 다둥이행복카드(2자녀 이상·막내 18세 이하), 보훈보상대상자 50퍼센트"
+  },
+  {
+   "label": "5·18민주유공자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주유공자 증서를 소지한 본인 차량 — 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "전기차 충전 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전기자동차를 충전한 경우 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "서울시장·구청장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 발행일부터 1년"
+  },
+  {
+   "label": "임산부 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "임산부가 탑승하고 산모수첩·육아수첩을 제시한 경우 30퍼센트(월 정기권은 임산부 전용 신청 배정차량)"
+  },
+  {
+   "label": "병역명문가 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "성동구 병역명문가 예우대상자와 가족(부모·배우자·자녀) — 병역명문가증·신분증·가족관계 증빙 20퍼센트"
+  },
+  {
+   "label": "전통시장 60분 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전통시장에서 상품을 구매해 점포주가 발행한 주차권을 제출하면 최초 60분 면제, 초과분 50퍼센트"
+  }
+ ],
+ "realtime": false
+}
