@@ -451,9 +451,11 @@ SIHEUNG_TOKENS = ("시흥", "시흥도시공사", "시흥공영주차")
 UIJEONGBU_TOKENS = ("의정부", "의정부도시공사", "의정부시청")
 # 김포시는 자치구가 없다 — 다른 도시 페이지에 김포 자료가 섞이면 실패.
 GIMPO_TOKENS = ("김포", "김포도시관리공사", "김포시청", "김포 스마트 주차포털")
+# 파주시는 자치구가 없다 — 다른 도시 페이지에 파주 자료가 섞이면 실패.
+PAJU_TOKENS = ("파주", "파주시청", "파주도시관광공사", "파주파킹", "파주시 통합주차 포털")
 for _k in list(MIX):
     MIX[_k] = (MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS + SIHEUNG_TOKENS
-               + UIJEONGBU_TOKENS + GIMPO_TOKENS)
+               + UIJEONGBU_TOKENS + GIMPO_TOKENS + PAJU_TOKENS)
 MIX["namyangju"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
@@ -484,6 +486,17 @@ MIX["gimpo"] = (
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
     "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
     "안산", "안산도시공사", "시흥", "시흥도시공사", "시흥공영주차", "의정부", "의정부도시공사",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
+)
+# 파주시 페이지에는 다른 도시 자료가 섞이면 실패(파주는 구가 없다).
+MIX["paju"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
+    "안산", "안산도시공사", "시흥", "시흥도시공사", "시흥공영주차", "의정부", "의정부도시공사",
+    "김포", "김포도시관리공사",
     "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
     "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
     "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
@@ -1521,6 +1534,126 @@ else:
     gp_rows = len(re.findall(r"<tr><td>", gp_street_page.read_text()))
     if gp_rows < len(gp_street):
         fails.append(f"김포시 노상 페이지 행 {gp_rows} < 구간 {len(gp_street)}")
+
+# 파주시: 「파주시 주차장 설치 및 관리 조례」 제3조제1항 별표1(포털 요금안내 2026-11-17 확인)
+#   1급지 30분 600원·10분당 250원·1일 9,000원, 2급지 500·200·8,000원, 3급지 400·150·7,000원.
+#   주차장별 기본시간(80·90·150분)과 최초 무료시간(10~120분)은 포털 등록값, 관광지 4곳은 종일 2,000원.
+PJ_FEES = {1: (600, 250, 9000), 2: (500, 200, 8000), 3: (400, 150, 7000)}
+# 포털이 주차장별로 다르게 설정한 기본시간·기본요금·간격·1일 요금(괄호는 1일 상한).
+PJ_SPECIAL_BASE = {(80, 1000, 20, 500): 7000, (90, 500, 10, 200): 8000,
+                   (90, 400, 10, 150): 7000, (150, 500, 10, 200): 8000}
+PJ_TOURIST = {"감악산 제3주차장", "감악산 제5주차장", "마장호수 제1주차장", "임진각 주차장"}
+pj_cards = [l for l in LOTS if l.get("city") == "파주시" and l.get("list_mode") == "card"]
+pj_street = [l for l in LOTS if l.get("city") == "파주시" and l.get("list_mode") == "street"]
+if not pj_cards:
+    fails.append("파주시 카드 데이터가 없음")
+pj_paid = [l for l in pj_cards if l["fee"]["type"] == "유료"]
+pj_free = [l for l in pj_cards if l["fee"]["type"] == "무료"]
+pj_bad = []
+for l in pj_paid:
+    f = l["fee"]
+    if l["name"] in PJ_TOURIST:
+        if not f.get("flat_day") or f.get("grade") or f["base_fee"] != 2000 or f.get("daily_fee") != 2000:
+            pj_bad.append(f'{l["name"]}(관광지 종일요금 아님 {f["base_fee"]})')
+        continue
+    if f["grade"] not in PJ_FEES:
+        pj_bad.append(f'{l["name"]}(급지 {f["grade"]})')
+        continue
+    base, unit, day = PJ_FEES[f["grade"]]
+    key = (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"])
+    if key == (30, base, 10, unit):
+        want_day = day
+    elif key in PJ_SPECIAL_BASE:
+        want_day = PJ_SPECIAL_BASE[key]
+    else:
+        pj_bad.append(f'{l["name"]}(기본 {f["base_min"]}분 {f["base_fee"]}원·{f["unit_min"]}분당 {f["unit_fee"]}원)')
+        continue
+    if f.get("daily_fee") != want_day:
+        pj_bad.append(f'{l["name"]}(1일 {f.get("daily_fee")} ≠ {want_day})')
+if pj_bad:
+    fails.append(f"파주시 유료 주차장 요금이 조례·포털 값과 다름 {len(pj_bad)}곳 {pj_bad[:3]}")
+pj_deduct_bad = [f'{l["name"]}({l["fee"].get("deduct_min")})' for l in pj_paid
+                 if l["fee"].get("deduct_min") not in (10, 15, 20, 60, 120)]
+if pj_deduct_bad:
+    fails.append(f"파주시 최초 무료시간이 포털 값(10·15·20·60·120분)과 다름: {pj_deduct_bad[:3]}")
+# 계산 표본 — 조례·포털 값으로 손으로 계산한 값
+from build_site import price_for as _pj_pf  # noqa: E402
+PJ_SAMPLES = {
+    "금촌2": [(30, 600), (120, 2600), (240, 5600), (1440, 9000)],
+    "가람마을공원 공영주차장": [(60, "free"), (120, 500), (240, 2300), (1440, 8000)],
+    "광탄경매시장": [(60, "free"), (120, 400), (240, 1750), (1440, 7000)],
+    "시청주차장": [(60, "free"), (120, 1000), (240, 3500)],
+    "봉일천 공영주차장": [(120, "free"), (240, 500)],
+    "감악산 제3주차장": [(120, 2000), (1440, 2000)],
+    "문산고가다리": [(120, 2600), (1440, 9000)],
+}
+pj_price_bad = []
+for name, cases in PJ_SAMPLES.items():
+    lot = next((l for l in pj_paid if l["name"] == name), None)
+    if not lot:
+        pj_price_bad.append(f"{name} 없음")
+        continue
+    for mins, want in cases:
+        r = _pj_pf(lot, mins, "weekday")
+        if want == "free":
+            if r.get("state") != "free":
+                pj_price_bad.append(f"{name} {mins}분 {r}")
+        elif r.get("state") != "paid" or r.get("amount") != want:
+            pj_price_bad.append(f"{name} {mins}분 {r} ≠ {want}")
+if pj_price_bad:
+    fails.append(f"파주시 요금 계산이 조례·포털 값과 다름 {len(pj_price_bad)}건 {pj_price_bad[:3]}")
+# 주말 무료 개방: 관광지·포털 미등록(문산고가다리)을 뺀 유료 노외는 토·일 모두 무료
+pj_paid_free_weekend = [l for l in pj_paid
+                        if l["name"] not in PJ_TOURIST and l["name"] != "문산고가다리"]
+if len([l for l in pj_paid_free_weekend if not (l["free_days"]["sat"] and l["free_days"]["sun"])]):
+    fails.append("파주시 유료 노외에 토·일 무료 개방 표시가 없음")
+if len([l for l in pj_paid if l["name"] in PJ_TOURIST and (l["free_days"]["sat"] or l["free_days"]["sun"])]):
+    fails.append("파주시 관광지 주차장이 주말 무료로 잘못 표시됨")
+if len(pj_cards) != 96:
+    fails.append(f"파주시 카드 수가 예상(96)과 다름: {len(pj_cards)}")
+if len(pj_free) != 65:
+    fails.append(f"파주시 무료 주차장이 65곳이 아님: {len(pj_free)}곳")
+if len(pj_street) != 64:
+    fails.append(f"파주시 노상 구간이 64곳이 아님: {len(pj_street)}")
+if len([l for l in pj_street if l["fee"]["type"] == "유료"]) != 19:
+    fails.append("파주시 유료 노상 구간이 19곳이 아님")
+if len([l for l in pj_cards if not l.get("dong")]):
+    fails.append("파주시 카드에 읍·면·동이 없는 주차장이 있음")
+pj_dup = [k for k, v in Counter(l["name"] for l in pj_cards).items() if v > 1]
+if pj_dup:
+    fails.append(f"파주시 카드 이름 중복: {pj_dup[:3]}")
+if any(l["name"] in ("놀이구름 제1주차장", "(주기장) 월롱임시공영주기장") for l in pj_cards):
+    fails.append("파주시 카드에 넣지 않기로 한 포털 주차장이 들어감")
+pj_names = {l["name"] for l in pj_cards}
+for extra in PJ_TOURIST | {"시청주차장", "시의회주차장"}:
+    if extra not in pj_names:
+        fails.append(f"파주시 카드에 {extra} 없음")
+pj_root = DIST / "parking" / "gyeonggi" / "paju"
+pj_hub = pj_root / "index.html"
+if not pj_hub.exists():
+    fails.append("파주시 시 페이지 없음")
+else:
+    pj_html = pj_hub.read_text()
+    for label in ("파주시 급지별 주차요금표", "1급지", "2급지", "3급지", "10분당",
+                  "월 정기권", "종일 2,000원", "환승요금", "토요일·일요일·공휴일",
+                  "평일 2시간 기준 가장 저렴한 곳", 'class="calc', "시청주차장"):
+        if label not in pj_html:
+            fails.append(f"파주시 시 페이지에 {label} 없음")
+    if pj_html.count('class="card lot') != len(pj_cards):
+        fails.append(f"파주시 시 페이지 카드 수 불일치({pj_html.count(chr(34)+'card lot')} vs {len(pj_cards)})")
+pj_dong_pages = sorted(q.parent.name for q in pj_root.rglob("index.html")
+                       if q.parent.parent == pj_root and q.parent.name != "street-parking")
+pj_expect = sorted(__import__("build_site").dong_slug(d)
+                   for d, n in Counter(l.get("dong") for l in pj_cards if l.get("dong")).items() if n >= 3)
+if pj_dong_pages != pj_expect:
+    fails.append(f"파주시 읍·면·동 페이지 구성이 다름: {pj_dong_pages} ≠ {pj_expect}")
+pj_street_page = pj_root / "street-parking" / "index.html"
+if not pj_street_page.exists():
+    fails.append("파주시 노상주차장 페이지 없음(street-parking)")
+else:
+    pj_rows = len(re.findall(r"<tr><td>", pj_street_page.read_text()))
+    if pj_rows < len(pj_street):
+        fails.append(f"파주시 노상 페이지 행 {pj_rows} < 구간 {len(pj_street)}")
 
 print()
 if warns:
