@@ -7219,6 +7219,10 @@ def _build_street_all_mixed(city, street, site):
     sample = next(l for l in street
                   if (l["fee"]["base_min"], l["fee"]["base_fee"], l["fee"]["unit_min"],
                       l["fee"]["unit_fee"], l["fee"]["daily_fee"]) == (bmin, bfee, umin, ufee, dfee))
+    # 1일 주차권 문구 — 적용시간이 없거나 1일권이 없으면 그 사실을 그대로 적는다.
+    _dh = sample["fee"].get("daily_hours")
+    dtext = (f"1일권({_dh}시간) {won(dfee)}" if dfee and _dh else
+             f"1일권 {won(dfee)}" if dfee else "1일 주차권 없음")
     example_rows = "".join(
         f'<tr><td>{label}</td><td class="num">{price_cell(sample, m)}</td></tr>'
         for label, m in (("30분", 30), ("1시간", 60), ("2시간", 120), ("4시간", 240), ("9시간(1일권 기준)", 540)))
@@ -7243,10 +7247,10 @@ def _build_street_all_mixed(city, street, site):
          f"토요일·일요일·공휴일은 운영시간이 등록되어 있지 않습니다(무료 이용 가능 여부는 현장 표지 확인). "
          f"기본 {bmin}분 {won(bfee)}, 이후 {umin}분마다 {won(ufee)}, 1일권 {won(dfee)}입니다."),
         ("노상주차장 요금은 어떻게 계산하나요?",
-         f"기본 {bmin}분 {won(bfee)}이고, 초과분은 {umin}분마다 {won(ufee)}씩 올림해서 더합니다. "
-         f"1일권({sample['fee']['daily_hours']}시간) {won(dfee)}이 상한입니다. "
-         f"예를 들어 2시간은 {won(price_for(sample, 120, 'weekday')['amount'])}, 4시간은 "
-         f"{won(price_for(sample, 240, 'weekday')['amount'])}입니다."),
+         (f"기본 {bmin}분 {won(bfee)}이고, 초과분은 {umin}분마다 {won(ufee)}씩 올림해서 더합니다. "
+          + (f"{dtext}이 상한입니다. " if dfee else f"{dtext} — 시간 요금만으로 계산합니다. ")
+          + f"예를 들어 2시간은 {won(price_for(sample, 120, 'weekday')['amount'])}, 4시간은 "
+          f"{won(price_for(sample, 240, 'weekday')['amount'])}입니다.")),
         ("월정기권도 있나요?",
          f"구간별로 월정기권 요금이 등록되어 있습니다(대부분 월 {won(next((l['fee']['monthly'] for l in street if l['fee']['monthly']), None))}). "
          f"월정기 신청·대기는 {ui['manager']}에서 받습니다."),
@@ -7267,7 +7271,7 @@ def _build_street_all_mixed(city, street, site):
   <h2>노상주차장 요금·운영시간</h2>
   <ul>
     <li><b>운영시간</b>: 평일 {hhmm(sample['hours']['weekday']['start'])}~{hhmm(sample['hours']['weekday']['end'])} (토요일·일요일·공휴일 운영시간 미등록)</li>
-    <li><b>요금</b>: 기본 {bmin}분 {won(bfee)} · 이후 {umin}분마다 {won(ufee)} · 1일권({sample['fee']['daily_hours']}시간) {won(dfee)}</li>
+    <li><b>요금</b>: 기본 {bmin}분 {won(bfee)} · 이후 {umin}분마다 {won(ufee)} · {dtext}</li>
     <li><b>요금 구분</b>: 표준데이터에 ‘혼합’으로 등록 — 운영시간에는 유료, 그 외 시간대는 운영시간이 비어 있습니다.</li>
     <li><b>감면</b>: {esc(ui['discount_note'])}</li>
     <li><b>결제</b>: {esc(sample['fee']['pay'] or '현장 확인')}</li>
@@ -7344,6 +7348,10 @@ def _build_street_mixed(city, street, site):
         top = fee_key.most_common(1)[0][0]
         sample = next(l for l in paid_timed if street_fee_key(l) == top)
         bmin, bfee, umin, ufee, dfee = top[0], top[1], top[2], top[3], top[4]
+        # 1일 주차권 문구 — 등록된 적용시간이 없거나 1일권이 없으면 그 사실을 그대로 적는다.
+        _dh = sample["fee"].get("daily_hours")
+        dtext = (f"1일권({_dh}시간) {won(dfee)}" if dfee and _dh else
+                 f"1일권 {won(dfee)}" if dfee else "1일 주차권 없음")
 
     gu_rows = "".join(
         f'<tr><td>{esc(g)}</td><td class="num">{len(v)}</td>'
