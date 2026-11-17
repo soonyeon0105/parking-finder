@@ -1,0 +1,3504 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 06:10",
+  "generated_at_iso": "2026-11-18T06:10:04+09:00",
+  "snapshot_at": "2026-11-18 06:10",
+  "region": {
+   "province": "서울특별시",
+   "city": "노원구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 26,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "노원구가 등록한 26행(노외 9·노상 17)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 노원구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면",
+    "org": "노원구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2001403",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2024-12-30 · 서울특별시노원구조례 제1973호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 노원구는 구영(노원구시설관리공단)이 노외 10곳·노상 16구간을 맡고, 조례 별표1은 5분당 노상 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원, 노외 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 실제로는 석계역 260원·공릉동 320원·중계근린공원·등나무근린공원 250원·상계2동·불암산·마들스포츠타운·상계역 서측 150원을 받고, 노상은 주공3단지상가 주변 400원·(구)북부지법 주변 320원·주공12단지 뒤 250원·수락산디자인 150원·구청부설 250원입니다. 한글비·동막골·은빛1-2단지 옆은 월 정기권만 발행하고, 상계역 서측은 야간 정기권(30,000원)만 받습니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "노원구 공영주차장 시간제 현황·요금 안내",
+    "org": "노원구시설관리공단 주차사업팀(02-2289-6700) · 시영은 서울시설공단",
+    "url": "https://parking.nowonsc.kr/park/fee",
+    "file": "nowonsc.kr_공영주차장_요금안내_20261118.txt",
+    "sha256": "f56e44459ae3a498cbaf96a6290acd426e772348490f8c8634427f500480c339",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 0,
+    "fetched_at": "2026-11-18 06:25 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "노원구",
+   "slug": "nowon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "nowon-001",
+   "mgmt_no": "110-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공릉동 노외(구기계식)주차장",
+   "gu": "노원구",
+   "dong": "공릉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 공릉동 633-19",
+   "addr_road": "서울특별시 노원구 동일로174길",
+   "road": null,
+   "spaces": 15,
+   "tel": "02-2289-6723",
+   "lat": 37.6201058,
+   "lng": 127.0774206,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 320,
+    "unit_min": 5,
+    "unit_fee": 320,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 250000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 250000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 320,
+     "day": 0,
+     "monthly": 250000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 320,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-002",
+   "mgmt_no": "110-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마들스타디움(근린공원)주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "보정(지번(상계6·7동 770-2)→법정동 상계동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 상계6·7동770-2",
+   "addr_road": "서울특별시 노원구 덕릉로450",
+   "road": null,
+   "spaces": 225,
+   "tel": "02-2289-6723",
+   "lat": 37.64487286,
+   "lng": 127.0583049,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-003",
+   "mgmt_no": "110-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상계2동공영주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 상계동 373-13",
+   "addr_road": "서울특별시 노원구 상계로10길 14",
+   "road": null,
+   "spaces": 94,
+   "tel": "02-2289-6723",
+   "lat": 37.65683176,
+   "lng": 127.0676381,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-004",
+   "mgmt_no": "110-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상계역 서측 주택가 공영주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 상계동 169-409",
+   "addr_road": "서울특별시 노원구 상계로23다길 49",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-2289-6723",
+   "lat": 37.6600051,
+   "lng": 127.071002,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 30000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 30000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-005",
+   "mgmt_no": "110-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석계역",
+   "gu": "노원구",
+   "dong": "월계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 월계동 50-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "02-2648-8292",
+   "lat": 37.61581538,
+   "lng": 127.0610792,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 280원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 280,
+    "unit_min": 5,
+    "unit_fee": 280,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 280,
+     "unit_min": 5,
+     "unit_fee": 280,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 280,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-006",
+   "mgmt_no": "110-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석계역앞주차장",
+   "gu": "노원구",
+   "dong": "월계동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 월계1동36-5",
+   "addr_road": "서울특별시 노원구 화랑로341.화랑로45길",
+   "road": null,
+   "spaces": 29,
+   "tel": "02-2289-6723",
+   "lat": 37.6155862,
+   "lng": 127.0651876,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 260,
+    "unit_min": 5,
+    "unit_fee": 260,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 260,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 260,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-007",
+   "mgmt_no": "110-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "등나무근린공원주차장",
+   "gu": "노원구",
+   "dong": "중계동",
+   "dong_src": "보정(지번(중계2·3동 508-1)→법정동 중계동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 중계2·3동508-1",
+   "addr_road": "서울특별시 노원구 동일로204가길",
+   "road": null,
+   "spaces": 120,
+   "tel": "02-2289-6723",
+   "lat": 37.6403161,
+   "lng": 127.0676909,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-008",
+   "mgmt_no": "110-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중계근린공원주차장",
+   "gu": "노원구",
+   "dong": "중계동",
+   "dong_src": "보정(지번(중계2·3동 507)→법정동 중계동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 중계2·3동507",
+   "addr_road": "서울특별시 노원구 동일로203가길",
+   "road": null,
+   "spaces": 108,
+   "tel": "02-2289-6723",
+   "lat": 37.6395423,
+   "lng": 127.0651903,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-009",
+   "mgmt_no": "110-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한글비공영주차장",
+   "gu": "노원구",
+   "dong": "하계동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 노원구 하계1동256-1",
+   "addr_road": "서울특별시 노원구 노원로16길",
+   "road": null,
+   "spaces": 116,
+   "tel": "02-2289-6723",
+   "lat": 37.6439379,
+   "lng": 127.075519,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 300,000원) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 300000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": "거주민 월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "거주민 월 정기권 전용 — 시간 주차요금 없음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s001",
+   "mgmt_no": "110-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "(구)북부지법주변주차장",
+   "gu": "노원구",
+   "dong": "공릉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 공릉동 622",
+   "addr_road": "서울특별시 노원구 동일로174길 27",
+   "road": null,
+   "spaces": 11,
+   "tel": "02-2289-6723",
+   "lat": 37.620174,
+   "lng": 127.0769385,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 320,
+    "unit_min": 5,
+    "unit_fee": 320,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 320,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 320,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s002",
+   "mgmt_no": "110-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공7단지 옆주차장",
+   "gu": "노원구",
+   "dong": "상계10동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계10동692-2",
+   "addr_road": "서울특별시 노원구 동일로220길",
+   "road": null,
+   "spaces": 16,
+   "tel": "02-2289-6723",
+   "lat": 37.658447,
+   "lng": 127.0599957,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s003",
+   "mgmt_no": "110-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "수락산디자인서울거리주차장",
+   "gu": "노원구",
+   "dong": "상계1동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계1동1120",
+   "addr_road": "서울특별시 노원구 동일로242길",
+   "road": null,
+   "spaces": 62,
+   "tel": "02-2289-6723",
+   "lat": 37.6757895,
+   "lng": 127.0565291,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s004",
+   "mgmt_no": "110-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공11단지상가 뒤주차장",
+   "gu": "노원구",
+   "dong": "상계8동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계8동652",
+   "addr_road": "서울특별시 노원구 동일로227길25옆",
+   "road": null,
+   "spaces": 13,
+   "tel": "02-2289-6723",
+   "lat": 37.6657378,
+   "lng": 127.0556395,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s005",
+   "mgmt_no": "110-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공12단지상가 뒤주차장",
+   "gu": "노원구",
+   "dong": "상계9동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계9동649",
+   "addr_road": "서울특별시 노원구 한글비석로530옆",
+   "road": null,
+   "spaces": 11,
+   "tel": "02-2289-6723",
+   "lat": 37.6659979,
+   "lng": 127.0579317,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s006",
+   "mgmt_no": "110-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "구청사주변주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계동 701-1",
+   "addr_road": "서울특별시 노원구 노해로437",
+   "road": null,
+   "spaces": 17,
+   "tel": "02-2289-6723",
+   "lat": 37.65458133,
+   "lng": 127.0562972,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s007",
+   "mgmt_no": "110-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "당고개위",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계동 111-567(도로양쪽)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-2648-8292",
+   "lat": 37.670582,
+   "lng": 127.081017,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 400원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s008",
+   "mgmt_no": "110-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "은빛1-2단지 옆 주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계동 1255",
+   "addr_road": "서울특별시 노원구 동일로245길 162",
+   "road": null,
+   "spaces": 22,
+   "tel": "02-2289-6723",
+   "lat": 37.68082342,
+   "lng": 127.0542201,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 40,000원) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": "거주민 월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "거주민 월 정기권 전용 — 시간 주차요금 없음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1439,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "24:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s009",
+   "mgmt_no": "110-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공1-3단지주변주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "보정(지번(상계6·7동 766-2)→법정동 상계동)",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계6·7동766-2",
+   "addr_road": "서울특별시 노원구 동일로 1333~1379옆",
+   "road": null,
+   "spaces": 35,
+   "tel": "02-2289-6723",
+   "lat": 37.6427545,
+   "lng": 127.0559917,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s010",
+   "mgmt_no": "110-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공3단지상가주변주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "보정(지번(상계6·7동 735)→법정동 상계동)",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계6·7동735",
+   "addr_road": "서울특별시 노원구 동일로217길",
+   "road": null,
+   "spaces": 41,
+   "tel": "02-2289-6723",
+   "lat": 37.6531164,
+   "lng": 127.0579964,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s011",
+   "mgmt_no": "110-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공4-6단지주변주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "보정(지번(상계6·7동 720-4)→법정동 상계동)",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계6·7동720-4",
+   "addr_road": "서울특별시 노원구 동일로 1350~1384옆",
+   "road": null,
+   "spaces": 15,
+   "tel": "02-2289-6723",
+   "lat": 37.6527467,
+   "lng": 127.0629849,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s012",
+   "mgmt_no": "110-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공6단지상가주변주차장",
+   "gu": "노원구",
+   "dong": "상계동",
+   "dong_src": "보정(지번(상계6·7동 720)→법정동 상계동)",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 상계6·7동720",
+   "addr_road": "서울특별시 노원구 동일로218길",
+   "road": null,
+   "spaces": 38,
+   "tel": "02-2289-6723",
+   "lat": 37.6541107,
+   "lng": 127.0645944,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s013",
+   "mgmt_no": "110-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "주공5단지 옆주차장",
+   "gu": "노원구",
+   "dong": "중계1동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 중계1동359-16",
+   "addr_road": "서울특별시 노원구 중계로20길",
+   "road": null,
+   "spaces": 30,
+   "tel": "02-2289-6723",
+   "lat": 37.6516166,
+   "lng": 127.0764455,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s014",
+   "mgmt_no": "110-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청구건영아파트 옆주차장",
+   "gu": "노원구",
+   "dong": "중계1동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 중계1동360-2,15",
+   "addr_road": "서울특별시 노원구 중계로19길",
+   "road": null,
+   "spaces": 37,
+   "tel": "02-2289-6723",
+   "lat": 37.649959,
+   "lng": 127.0739725,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s015",
+   "mgmt_no": "110-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "라이프청구신동아주변",
+   "gu": "노원구",
+   "dong": "중계본동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 중계본동366-14",
+   "addr_road": "서울특별시 노원구 중계로18길",
+   "road": null,
+   "spaces": 25,
+   "tel": "02-2289-6723",
+   "lat": 37.6513157,
+   "lng": 127.0778023,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s016",
+   "mgmt_no": "110-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "유경백화점 뒤주차장",
+   "gu": "노원구",
+   "dong": "중계본동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 중계본동364-16",
+   "addr_road": "서울특별시 노원구 중계로17길",
+   "road": null,
+   "spaces": 29,
+   "tel": "02-2289-6723",
+   "lat": 37.650302,
+   "lng": 127.0775454,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  },
+  {
+   "id": "nowon-s017",
+   "mgmt_no": "110-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한신동성아파트 옆주차장",
+   "gu": "노원구",
+   "dong": "하계동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 노원구 하계1동256-7",
+   "addr_road": "서울특별시 노원구 노원로14길",
+   "road": null,
+   "spaces": 15,
+   "tel": "02-2289-6723",
+   "lat": 37.6396737,
+   "lng": 127.0744426,
+   "base_date": "2026-04-14",
+   "manager": "노원구시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(노원구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "노원구",
+   "city_slug": "nowon"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 06:10",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 26,
+  "원자료_노원구행수": 26,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 9,
+  "노외_부설": {
+   "노외": 9
+  },
+  "노상_구간": 17,
+  "총_구획수": 795,
+  "노상_구획수": 441,
+  "동별": {
+   "상계동": 3,
+   "월계동": 2,
+   "중계동": 2,
+   "공릉동": 1,
+   "하계동": 1
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_보정": [
+   "한글비공영주차장: 지번주소의 행정동 ‘하계1동’을 법정동 하계동으로 묶었습니다",
+   "한신동성아파트 옆주차장: 지번주소의 행정동 ‘하계1동’을 법정동 하계동으로 묶었습니다",
+   "주공3단지상가주변주차장: 지번주소에 법정동이 없어 지번(상계6·7동 735)→법정동 상계동을 근거로 상계동으로 두었습니다",
+   "주공6단지상가주변주차장: 지번주소에 법정동이 없어 지번(상계6·7동 720)→법정동 상계동을 근거로 상계동으로 두었습니다",
+   "주공1-3단지주변주차장: 지번주소에 법정동이 없어 지번(상계6·7동 766-2)→법정동 상계동을 근거로 상계동으로 두었습니다",
+   "주공4-6단지주변주차장: 지번주소에 법정동이 없어 지번(상계6·7동 720-4)→법정동 상계동을 근거로 상계동으로 두었습니다",
+   "중계근린공원주차장: 지번주소에 법정동이 없어 지번(중계2·3동 507)→법정동 중계동을 근거로 중계동으로 두었습니다",
+   "등나무근린공원주차장: 지번주소에 법정동이 없어 지번(중계2·3동 508-1)→법정동 중계동을 근거로 중계동으로 두었습니다",
+   "마들스타디움(근린공원)주차장: 지번주소에 법정동이 없어 지번(상계6·7동 770-2)→법정동 상계동을 근거로 상계동으로 두었습니다",
+   "석계역앞주차장: 지번주소의 행정동 ‘월계1동’을 법정동 월계동으로 묶었습니다"
+  ],
+  "동_근거": {
+   "지번주소": 4,
+   "보정(지번(상계6·7동 770-2)→법정동 상계동)": 1,
+   "지번주소(행정동→법정동)": 2,
+   "보정(지번(중계2·3동 508-1)→법정동 중계동)": 1,
+   "보정(지번(중계2·3동 507)→법정동 중계동)": 1
+  },
+  "요금구분": {
+   "유료": 24,
+   "미상": 2
+  },
+  "요금_미상": [
+   "한글비공영주차장",
+   "은빛1-2단지 옆 주차장"
+  ],
+  "유료_노상": 16,
+  "유료_노외": 8,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "공릉동 노외(구기계식)주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "상계역 서측 주택가 공영주차장: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "상계역 서측 주택가 공영주차장: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "한신동성아파트 옆주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "청구건영아파트 옆주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공5단지 옆주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "라이프청구신동아주변: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "유경백화점 뒤주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "(구)북부지법주변주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공3단지상가주변주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공6단지상가주변주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공7단지 옆주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "구청사주변주차장: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "구청사주변주차장: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공1-3단지주변주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공4-6단지주변주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공11단지상가 뒤주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "주공12단지상가 뒤주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "수락산디자인서울거리주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "중계근린공원주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "등나무근린공원주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "마들스타디움(근린공원)주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "석계역앞주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [
+   "공릉동 노외(구기계식)주차장: 기본요금 칸이 비어 있어 추가단위 5분 320원을 기준요금으로 사용",
+   "상계역 서측 주택가 공영주차장: 기본요금 칸이 비어 있어 추가단위 5분 150원을 기준요금으로 사용",
+   "한신동성아파트 옆주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "청구건영아파트 옆주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "주공5단지 옆주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "라이프청구신동아주변: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "유경백화점 뒤주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "(구)북부지법주변주차장: 기본요금 칸이 비어 있어 추가단위 5분 320원을 기준요금으로 사용",
+   "주공3단지상가주변주차장: 기본요금 칸이 비어 있어 추가단위 5분 400원을 기준요금으로 사용",
+   "주공6단지상가주변주차장: 기본요금 칸이 비어 있어 추가단위 5분 400원을 기준요금으로 사용",
+   "주공7단지 옆주차장: 기본요금 칸이 비어 있어 추가단위 5분 400원을 기준요금으로 사용",
+   "구청사주변주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "주공1-3단지주변주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "주공4-6단지주변주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "주공11단지상가 뒤주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "주공12단지상가 뒤주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "수락산디자인서울거리주차장: 기본요금 칸이 비어 있어 추가단위 5분 150원을 기준요금으로 사용",
+   "중계근린공원주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "등나무근린공원주차장: 기본요금 칸이 비어 있어 추가단위 5분 250원을 기준요금으로 사용",
+   "상계2동공영주차장: 기본요금 칸이 비어 있어 추가단위 5분 150원을 기준요금으로 사용",
+   "마들스타디움(근린공원)주차장: 기본요금 칸이 비어 있어 추가단위 5분 150원을 기준요금으로 사용",
+   "석계역앞주차장: 기본요금 칸이 비어 있어 추가단위 5분 260원을 기준요금으로 사용"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "석계역: 1급지 기준 400원 ↔ 등록 280원",
+   "당고개위: 1급지 기준 500원 ↔ 등록 400원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 노원구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2024-12-30 · 서울특별시노원구조례 제1973호(일부개정))",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "공릉동 노외(구기계식)주차장",
+   "마들스타디움(근린공원)주차장",
+   "상계역 서측 주택가 공영주차장",
+   "석계역앞주차장",
+   "등나무근린공원주차장",
+   "중계근린공원주차장",
+   "(구)북부지법주변주차장",
+   "주공7단지 옆주차장",
+   "수락산디자인서울거리주차장",
+   "주공11단지상가 뒤주차장",
+   "주공12단지상가 뒤주차장",
+   "구청사주변주차장",
+   "주공1-3단지주변주차장",
+   "주공3단지상가주변주차장",
+   "주공4-6단지주변주차장",
+   "주공6단지상가주변주차장",
+   "주공5단지 옆주차장",
+   "청구건영아파트 옆주차장",
+   "라이프청구신동아주변",
+   "유경백화점 뒤주차장",
+   "한신동성아파트 옆주차장"
+  ],
+  "무료개방_표기": [
+   "공릉동 노외(구기계식)주차장",
+   "마들스타디움(근린공원)주차장",
+   "상계역 서측 주택가 공영주차장",
+   "석계역앞주차장",
+   "등나무근린공원주차장",
+   "중계근린공원주차장",
+   "(구)북부지법주변주차장",
+   "주공7단지 옆주차장",
+   "수락산디자인서울거리주차장",
+   "주공11단지상가 뒤주차장",
+   "주공12단지상가 뒤주차장",
+   "구청사주변주차장",
+   "주공1-3단지주변주차장",
+   "주공3단지상가주변주차장",
+   "주공4-6단지주변주차장",
+   "주공6단지상가주변주차장",
+   "주공5단지 옆주차장",
+   "청구건영아파트 옆주차장",
+   "라이프청구신동아주변",
+   "유경백화점 뒤주차장",
+   "한신동성아파트 옆주차장"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 266,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "110-1-000001"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-14",
+   "2026-05-15"
+  ],
+  "공단만_등록": [],
+  "공단추가_주차장": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 8,
+    "fee_min": 260,
+    "fee_max": 400,
+    "unit_label": "260~400원",
+    "hour": 3840,
+    "two_hour": 7680,
+    "month_min": 140000,
+    "month_max": 250000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 400
+   },
+   {
+    "grade": 2,
+    "lots": 12,
+    "fee_min": 250,
+    "fee_max": 250,
+    "unit_label": "250원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "month_min": 180000,
+    "month_max": 180000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 4,
+    "fee_min": 150,
+    "fee_max": 150,
+    "unit_label": "150원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "month_min": 30000,
+    "month_max": 100000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 150
+   }
+  ],
+  "windows": [
+   {
+    "group": "09:00~19:00",
+    "count": 22
+   },
+   {
+    "group": "24시간",
+    "count": 1
+   },
+   {
+    "group": "09:00~22:00",
+    "count": 1
+   }
+  ],
+  "notes": "노원구는 구영(노원구시설관리공단)이 노외 10곳·노상 16구간을 맡고, 조례 별표1은 5분당 노상 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원, 노외 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 실제로는 석계역 260원·공릉동 320원·중계근린공원·등나무근린공원 250원·상계2동·불암산·마들스포츠타운·상계역 서측 150원을 받고, 노상은 주공3단지상가 주변 400원·(구)북부지법 주변 320원·주공12단지 뒤 250원·수락산디자인 150원·구청부설 250원입니다. 한글비·동막골·은빛1-2단지 옆은 월 정기권만 발행하고, 상계역 서측은 야간 정기권(30,000원)만 받습니다",
+  "only_corp": [],
+  "corp": {
+   "paid": 24,
+   "free": 0,
+   "unknown": 2,
+   "street_paid": 16
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 500,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   },
+   "off": {
+    "1": 400,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 노원구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2024-12-30 · 서울특별시노원구조례 제1973호(일부개정)) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "nowon",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "노원구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지·등록증), 국가유공 상이자, 고엽제후유(의)증 환자, 의상자, 독립유공자 80퍼센트(지하철 환승주차장은 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "경차·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차, 환경친화적 자동차 50퍼센트(환승주차장에 환승 목적으로 주차하면 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "5·18민주유공자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주화운동부상자가 증서를 소지하고 본인 소유 비사업용 차량을 운전 — 1시간 면제, 초과분과 정기권 50퍼센트"
+  },
+  {
+   "label": "다둥이·보훈보상·공동이용 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다둥이행복카드(막내 만 18세 이하), 보훈보상대상자, 승용차공동이용 자동차 50퍼센트"
+  },
+  {
+   "label": "병역명문가·전통시장 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "병역명문가 예우대상자, 전통시장 구매 영수증을 제시한 차량(1급지·거주자우선주차 제외) 30퍼센트"
+  },
+  {
+   "label": "참전유공자·10인 미만 사업주 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "참전유공자, 사회보험 가입 10인 미만 사업장 사업주 20퍼센트"
+  },
+  {
+   "label": "전기차 충전 1시간 면제",
+   "rate": 1.0,
+   "exempt_min": 60,
+   "note": "전기자동차를 충전하는 경우 1시간 범위에서 주차요금 면제"
+  },
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "서울특별시장·구청장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 1년간 면제"
+  }
+ ],
+ "realtime": false
+}

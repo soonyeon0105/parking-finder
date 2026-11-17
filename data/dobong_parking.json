@@ -1,0 +1,5516 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 06:10",
+  "generated_at_iso": "2026-11-18T06:10:04+09:00",
+  "snapshot_at": "2026-11-18 06:10",
+  "region": {
+   "province": "서울특별시",
+   "city": "도봉구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 44,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "도봉구가 등록한 44행(노외 43·노상 1)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 도봉구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면",
+    "org": "도봉구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2037431",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-05-15 · 서울특별시도봉구조례 제1857호(일부개정) · 별표1 개정 2026-10-08",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 도봉구 공영주차장은 구영(도봉구시설관리공단)이 지정구획제(월 정기 배정)로 운영하고, 조례 별표1의 5분당 요금은 노상 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원, 노외 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 주택가 소규모 공동주차장은 월 50,000원(전일) 정기 배정이 기본이고, 방학동 도깨비시장과 창1동 제1공영주차장은 시간제(5분당 100원)를 함께 받습니다. 1일 주차권(야간에 한함)은 1급지 5,000원·2급지 4,000원·3급지 3,000원·4급지 2,000원·5급지 1,000원이고, 창동역·도봉산역 주변 시영 주차장은 공시지가 변수를 곱한 5분당 170~320원입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "도봉구 공영주차장 시간제 현황·요금 안내",
+    "org": "도봉구시설관리공단 주차사업팀(02-901-5100) · 시영은 서울시설공단",
+    "url": "https://dobong.park119.com/userNew/guide/publicparking_guide.aspx",
+    "file": "dobong.park119.com_공영주차장_현황_요금_20261118.txt",
+    "sha256": "58db9e6116ea2fc7da3239ab3276193a060af0397ad263762ec4e3eb8a79a72f",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 0,
+    "fetched_at": "2026-11-18 06:25 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "도봉구",
+   "slug": "dobong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dobong-001",
+   "mgmt_no": "109-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉1동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 599-34",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "02-2091-4215",
+   "lat": 37.6749747236,
+   "lng": 127.042486168,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 4급지 5분당 100원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-002",
+   "mgmt_no": "109-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉1동제3공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉1동 470-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "02-2091-4215",
+   "lat": 37.6782118,
+   "lng": 127.0373805,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-003",
+   "mgmt_no": "109-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동법조2타운공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 624-105",
+   "addr_road": "서울특별시 도봉구 도봉로160길",
+   "road": null,
+   "spaces": 64,
+   "tel": "02-2091-4215",
+   "lat": 37.6736578457,
+   "lng": 127.0464544027,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-004",
+   "mgmt_no": "109-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동법조타운공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 624-105",
+   "addr_road": "",
+   "road": null,
+   "spaces": 164,
+   "tel": "02-2091-4215",
+   "lat": 37.6736578457,
+   "lng": 127.04648,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-005",
+   "mgmt_no": "109-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 639",
+   "addr_road": "서울특별시 도봉구 도봉로170길 2",
+   "road": null,
+   "spaces": 58,
+   "tel": "02-2091-4215",
+   "lat": 37.6803629062,
+   "lng": 127.0457640163,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-006",
+   "mgmt_no": "109-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동제3공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 639",
+   "addr_road": "서울특별시 도봉구 도봉로170길 2",
+   "road": null,
+   "spaces": 28,
+   "tel": "02-2091-4215",
+   "lat": 37.6803234,
+   "lng": 127.045755,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-007",
+   "mgmt_no": "109-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동제4공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 639",
+   "addr_road": "서울특별시 도봉구 도봉로170길 2",
+   "road": null,
+   "spaces": 72,
+   "tel": "02-2091-4215",
+   "lat": 37.6803234,
+   "lng": 127.045755,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 3급지 5분당 150원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-008",
+   "mgmt_no": "109-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동제5공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 639",
+   "addr_road": "서울특별시 도봉구 도봉로170길 2",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2091-4215",
+   "lat": 37.6803234,
+   "lng": 127.045755,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-009",
+   "mgmt_no": "109-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉2동제6공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 59-1",
+   "addr_road": "서울특별시 도봉구 도봉로 884",
+   "road": null,
+   "spaces": 13,
+   "tel": "02-2091-4215",
+   "lat": 37.6832962188,
+   "lng": 127.0462315313,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-010",
+   "mgmt_no": "109-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉권역 공영차고지",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 341-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 190,
+   "tel": "02-000-0000",
+   "lat": 37.6904787749,
+   "lng": 127.042244849,
+   "base_date": "2026-04-21",
+   "manager": "도봉권역 공영차고지",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-011",
+   "mgmt_no": "109-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉산",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 282-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 142,
+   "tel": "02-2648-8292",
+   "lat": 37.68749583,
+   "lng": 127.0405739,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 170원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 170,
+    "unit_min": 5,
+    "unit_fee": 170,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 170,
+     "unit_min": 5,
+     "unit_fee": 170,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 170,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-012",
+   "mgmt_no": "109-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉산 주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 282-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 194,
+   "tel": "02-000-0000",
+   "lat": 37.68749583,
+   "lng": 127.0405738645,
+   "base_date": "2026-04-21",
+   "manager": "도봉산 주차장",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 3급지 5분당 150원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-013",
+   "mgmt_no": "109-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉산역",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 288-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 358,
+   "tel": "02-2290-6047",
+   "lat": 37.689721,
+   "lng": 127.0449195,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 280원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 280,
+    "unit_min": 5,
+    "unit_fee": 280,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 109000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 109000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 280,
+     "unit_min": 5,
+     "unit_fee": 280,
+     "day": 0,
+     "monthly": 109000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 280,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-014",
+   "mgmt_no": "109-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도봉산역 환승주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 288-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 364,
+   "tel": "02-000-0000",
+   "lat": 37.6897506981,
+   "lng": 127.0449194561,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-015",
+   "mgmt_no": "109-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화학부대공영주차장",
+   "gu": "도봉구",
+   "dong": "도봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 도봉동 132-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 135,
+   "tel": "02-2091-4215",
+   "lat": 37.6738298677,
+   "lng": 127.0415040431,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-016",
+   "mgmt_no": "109-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도깨비시장공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 632-1",
+   "addr_road": "서울특별시 도봉구 방학로10길 51",
+   "road": null,
+   "spaces": 81,
+   "tel": "02-2091-4215",
+   "lat": 37.6645053115,
+   "lng": 127.0340186204,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "공단·구청 고시 시간제 요금(표준데이터에 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-017",
+   "mgmt_no": "109-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학1동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 653-15",
+   "addr_road": "서울특별시 도봉구 도당로31길",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-2091-4215",
+   "lat": 37.66938,
+   "lng": 127.04284,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-018",
+   "mgmt_no": "109-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학1동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 684-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2091-4215",
+   "lat": 37.66582,
+   "lng": 127.0392035501,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-019",
+   "mgmt_no": "109-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학2동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 629-12",
+   "addr_road": "서울특별시 도봉구 도당로13바길",
+   "road": null,
+   "spaces": 20,
+   "tel": "02-2091-4215",
+   "lat": 37.66721,
+   "lng": 127.03463,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-020",
+   "mgmt_no": "109-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학2동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 632-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "02-2091-4215",
+   "lat": 37.6656358875,
+   "lng": 127.0335622468,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-021",
+   "mgmt_no": "109-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학2동제3공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 612-8",
+   "addr_road": "서울특별시 도봉구 시루봉로15마길 5",
+   "road": null,
+   "spaces": 23,
+   "tel": "02-2091-4215",
+   "lat": 37.6683560795,
+   "lng": 127.0318424618,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-022",
+   "mgmt_no": "109-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학2동제4공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 600-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "02-2091-4215",
+   "lat": 37.6700855433,
+   "lng": 127.037229446,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-023",
+   "mgmt_no": "109-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방학2동제5공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 599-7",
+   "addr_road": "서울특별시 도봉구 시루봉로 273",
+   "road": null,
+   "spaces": 28,
+   "tel": "02-2091-4215",
+   "lat": 37.6709401946,
+   "lng": 127.0393217,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-024",
+   "mgmt_no": "109-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문3동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 방학동 684-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "02-2091-4215",
+   "lat": 37.6658536019,
+   "lng": 127.0392035501,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-025",
+   "mgmt_no": "109-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문1동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 460-103",
+   "addr_road": "서울특별시 도봉구 우이천로38길 94",
+   "road": null,
+   "spaces": 29,
+   "tel": "02-2091-4215",
+   "lat": 37.6531909586,
+   "lng": 127.0223431536,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-026",
+   "mgmt_no": "109-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문1동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 378-35",
+   "addr_road": "서울특별시 도봉구 우이천로30길 25",
+   "road": null,
+   "spaces": 11,
+   "tel": "02-2091-4215",
+   "lat": 37.648652263,
+   "lng": 127.0258414031,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-027",
+   "mgmt_no": "109-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문2동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 85-7",
+   "addr_road": "서울특별시 도봉구 노해로 227",
+   "road": null,
+   "spaces": 14,
+   "tel": "02-2091-4215",
+   "lat": 37.6513297622,
+   "lng": 127.03355,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-028",
+   "mgmt_no": "109-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문2동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 81-102",
+   "addr_road": "서울특별시 도봉구 도봉로123길",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-2091-4215",
+   "lat": 37.653242895,
+   "lng": 127.03353,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-029",
+   "mgmt_no": "109-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문2동제3공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 710-4",
+   "addr_road": "서울특별시 도봉구 도봉로139길 56-14",
+   "road": null,
+   "spaces": 37,
+   "tel": "02-2091-4215",
+   "lat": 37.6611511427,
+   "lng": 127.03869,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-030",
+   "mgmt_no": "109-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문2동제4공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소(행정동→법정동)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문2동 708-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "02-2091-4215",
+   "lat": 37.6610954,
+   "lng": 127.0406278,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-031",
+   "mgmt_no": "109-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문3동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 315-62",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "02-2091-4215",
+   "lat": 37.64925,
+   "lng": 127.02934,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-032",
+   "mgmt_no": "109-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍문4동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "쌍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 쌍문동 137-139",
+   "addr_road": "서울특별시 도봉구 노해로53길",
+   "road": null,
+   "spaces": 12,
+   "tel": "02-2091-4215",
+   "lat": 37.6521258961,
+   "lng": 127.03084,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-033",
+   "mgmt_no": "109-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창1동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 657-37",
+   "addr_road": "서울특별시 도봉구 도봉로112길 43",
+   "road": null,
+   "spaces": 42,
+   "tel": "02-2091-4215",
+   "lat": 37.6471281036,
+   "lng": 127.037192,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "공단·구청 고시 시간제 요금(표준데이터에 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-034",
+   "mgmt_no": "109-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창2동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 623-42",
+   "addr_road": "서울특별시 도봉구 도봉로104길",
+   "road": null,
+   "spaces": 19,
+   "tel": "02-2091-4215",
+   "lat": 37.6439971784,
+   "lng": 127.0373050821,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-035",
+   "mgmt_no": "109-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창2동제2공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 632-75",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "02-2091-4215",
+   "lat": 37.64113,
+   "lng": 127.03532,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-036",
+   "mgmt_no": "109-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창2동제3공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 578-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-2091-4215",
+   "lat": 37.63841,
+   "lng": 127.0374195358,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-037",
+   "mgmt_no": "109-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창2동제4공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 582-22",
+   "addr_road": "서울특별시 도봉구 덕릉로59길 63",
+   "road": null,
+   "spaces": 82,
+   "tel": "02-2091-4215",
+   "lat": 37.6413547414,
+   "lng": 127.0361404338,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-038",
+   "mgmt_no": "109-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창3동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 504-21",
+   "addr_road": "서울특별시 도봉구 우이천로4길 24-11",
+   "road": null,
+   "spaces": 80,
+   "tel": "02-2091-4215",
+   "lat": 37.6331096114,
+   "lng": 127.041196924,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-039",
+   "mgmt_no": "109-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창5동제1공영주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 690-1",
+   "addr_road": "서울특별시 도봉구 도봉로126길",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2091-4215",
+   "lat": 37.6525139899,
+   "lng": 127.0396,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 50000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드결제",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-040",
+   "mgmt_no": "109-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창동역 동측 주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 1-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 534,
+   "tel": "02-000-0000",
+   "lat": 37.6544778723,
+   "lng": 127.04908859,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 5급지 5분당 50원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 5,
+    "grade_label": "5급지",
+    "std_grade": 5,
+    "base_min": 5,
+    "base_fee": 50,
+    "unit_min": 5,
+    "unit_fee": 50,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 50,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-041",
+   "mgmt_no": "109-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창동역 서측 주차장",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 330",
+   "addr_road": "",
+   "road": null,
+   "spaces": 124,
+   "tel": "02-000-0000",
+   "lat": 37.6523644174,
+   "lng": 127.0456545486,
+   "base_date": "2026-04-21",
+   "manager": "창동역 서측 주차장",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-042",
+   "mgmt_no": "109-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창동역(서)",
+   "gu": "도봉구",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 도봉구 창동 330",
+   "addr_road": "",
+   "road": null,
+   "spaces": 107,
+   "tel": "02-2648-8292",
+   "lat": 37.65237,
+   "lng": 127.045677,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 320원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 320,
+    "unit_min": 5,
+    "unit_fee": 320,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 320,
+     "unit_min": 5,
+     "unit_fee": 320,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 320,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  },
+  {
+   "id": "dobong-s001",
+   "mgmt_no": "109-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "도봉월드상가공영주차장",
+   "gu": "도봉구",
+   "dong": "방학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 도봉구 방학동 720-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "02-2091-4215",
+   "lat": 37.6686873571,
+   "lng": 127.0479008482,
+   "base_date": "2026-04-21",
+   "manager": "서울특별시 도봉구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 등록되어 있지 않아 조례 별표1의 2급지 5분당 250원으로 계산합니다 — 정기 배정 중심 주차장이라 시간제 운영 여부는 현장에서 확인하세요 · 구영(도봉구시설관리공단 위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "도봉구",
+   "city_slug": "dobong"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 06:10",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 44,
+  "원자료_도봉구행수": 44,
+  "민영_제외": 0,
+  "제외_행수": 1,
+  "제외_행": [
+   {
+    "name": "도봉구견인보관소",
+    "reason": "견인차량 보관소(일반 주차장 아님)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 42,
+  "노외_부설": {
+   "노외": 42
+  },
+  "노상_구간": 1,
+  "총_구획수": 3269,
+  "노상_구획수": 17,
+  "동별": {
+   "도봉동": 15,
+   "창동": 10,
+   "방학동": 9,
+   "쌍문동": 8
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [
+   "쌍문2동제4공영주차장: 지번주소의 행정동 ‘쌍문2동’을 법정동 쌍문동으로 묶었습니다",
+   "도봉1동제3공영주차장: 지번주소의 행정동 ‘도봉1동’을 법정동 도봉동으로 묶었습니다"
+  ],
+  "동_근거": {
+   "지번주소": 40,
+   "지번주소(행정동→법정동)": 2
+  },
+  "요금구분": {
+   "유료": 42,
+   "무료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 1,
+  "유료_노외": 41,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "도봉월드상가공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "도봉2동법조2타운공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문2동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문1동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문2동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문1동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문4동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "방학2동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "방학2동제3공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문2동제3공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창2동제4공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창2동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창동역 서측 주차장: 표준데이터 시간 요금 없음 → 조례 별표1 2급지 5분당 250원 사용",
+   "창동역 동측 주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문2동제4공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉산역 환승주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉산 주차장: 표준데이터 시간 요금 없음 → 조례 별표1 3급지 5분당 150원 사용",
+   "방학2동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉2동법조타운공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "쌍문3동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창2동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉2동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "방학1동제2공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "화학부대공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도깨비시장공영주차장: 표준데이터 요금 없음 → 공단·구청 고시 5분당 100원 사용",
+   "방학2동제4공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창5동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉1동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 4급지 5분당 100원 사용",
+   "창3동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창2동제3공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "창1동제1공영주차장: 표준데이터 요금 없음 → 공단·구청 고시 5분당 100원 사용",
+   "쌍문3동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "방학1동제1공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "방학2동제5공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉2동제6공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉2동제5공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉2동제4공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 3급지 5분당 150원 사용",
+   "도봉2동제3공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용",
+   "도봉1동제3공영주차장: 표준데이터 시간 요금 없음 → 조례 별표1 5급지 5분당 50원 사용"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "창동역(서): 1급지 기준 400원 ↔ 등록 320원",
+   "도봉산역: 1급지 기준 400원 ↔ 등록 280원",
+   "도봉산: 2급지 기준 250원 ↔ 등록 170원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 도봉구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-05-15 · 서울특별시도봉구조례 제1857호(일부개정) · 별표1 개정 2026-10-08)",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [],
+  "무료개방_표기": [],
+  "무료_요금구분": 1,
+  "무료_구획수": 190,
+  "평균_기본요금": 83,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "109-2-000002",
+   "109-2-000003",
+   "109-2-000004"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-21",
+   "2026-05-15"
+  ],
+  "공단만_등록": [],
+  "공단추가_주차장": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 2,
+    "fee_min": 280,
+    "fee_max": 320,
+    "unit_label": "280~320원",
+    "hour": 3360,
+    "two_hour": 6720,
+    "month_min": 109000,
+    "month_max": 109000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 400
+   },
+   {
+    "grade": 2,
+    "lots": 3,
+    "fee_min": 170,
+    "fee_max": 250,
+    "unit_label": "170~250원",
+    "hour": 2040,
+    "two_hour": 4080,
+    "month_min": null,
+    "month_max": null,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 2,
+    "fee_min": 150,
+    "fee_max": 150,
+    "unit_label": "150원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "month_min": 50000,
+    "month_max": 50000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 150
+   },
+   {
+    "grade": 4,
+    "lots": 1,
+    "fee_min": 100,
+    "fee_max": 100,
+    "unit_label": "100원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "month_min": 50000,
+    "month_max": 50000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 100
+   },
+   {
+    "grade": 5,
+    "lots": 34,
+    "fee_min": 50,
+    "fee_max": 100,
+    "unit_label": "50~100원",
+    "hour": 600,
+    "two_hour": 1200,
+    "month_min": 50000,
+    "month_max": 50000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 50
+   }
+  ],
+  "windows": [
+   {
+    "group": "00:00~23:39",
+    "count": 39
+   },
+   {
+    "group": "24시간",
+    "count": 2
+   },
+   {
+    "group": "08:00~22:00",
+    "count": 1
+   }
+  ],
+  "notes": "도봉구 공영주차장은 구영(도봉구시설관리공단)이 지정구획제(월 정기 배정)로 운영하고, 조례 별표1의 5분당 요금은 노상 1급지 500원·2급지 250원·3급지 150원·4급지 100원·5급지 50원, 노외 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 주택가 소규모 공동주차장은 월 50,000원(전일) 정기 배정이 기본이고, 방학동 도깨비시장과 창1동 제1공영주차장은 시간제(5분당 100원)를 함께 받습니다. 1일 주차권(야간에 한함)은 1급지 5,000원·2급지 4,000원·3급지 3,000원·4급지 2,000원·5급지 1,000원이고, 창동역·도봉산역 주변 시영 주차장은 공시지가 변수를 곱한 5분당 170~320원입니다",
+  "only_corp": [],
+  "corp": {
+   "paid": 42,
+   "free": 1,
+   "unknown": 0,
+   "street_paid": 1
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 500,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   },
+   "off": {
+    "1": 400,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 도봉구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-05-15 · 서울특별시도봉구조례 제1857호(일부개정) · 별표1 개정 2026-10-08) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "dobong",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "도봉구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "표창을 받아 구청장·서울특별시장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 교부일부터 1년"
+  },
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지·등록증), 국가유공 상이자, 고엽제후유(의)증 환자 80퍼센트(지하철 환승주차장은 최초 3시간 면제 뒤 80퍼센트)"
+  },
+  {
+   "label": "의사상자 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "「서울특별시 도봉구 의사상자 등 예우 및 지원에 관한 조례」에 따른 의사자 유족·의상자와 그 가족 80퍼센트"
+  },
+  {
+   "label": "경차·저공해·다둥이 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차, 환경친화적 자동차, 다둥이행복카드 소지자 50퍼센트"
+  },
+  {
+   "label": "5·18민주유공자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주화운동부상자가 증서를 소지하고 본인 소유 비사업용 차량을 운전(대리운전 포함) — 1시간 면제, 초과분 50퍼센트"
+  },
+  {
+   "label": "전기차 충전 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전기자동차를 충전한 경우 1시간 면제, 1시간 초과분부터 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장 주변 공영주차장에서 점포주가 발급한 주차권·영수증을 가진 차량 — 최초 1시간 50퍼센트"
+  },
+  {
+   "label": "병역명문가·장기기증자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "병역명문가 예우대상자(병역명문가증), 장기등·인체조직 기증자 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부가 탑승하고 임산부 증명자료(임산부자동차표지·모자보건수첩)를 제시한 시간제 이용 차량 50퍼센트"
+  },
+  {
+   "label": "자원봉사자·토박이 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "구청장이 발급한 자원봉사자증·토박이증 소지자 20퍼센트"
+  }
+ ],
+ "realtime": false
+}
