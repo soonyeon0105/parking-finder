@@ -1,0 +1,8623 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 04:55",
+  "generated_at_iso": "2026-11-18T04:55:04+09:00",
+  "snapshot_at": "2026-11-18 04:55",
+  "region": {
+   "province": "서울특별시",
+   "city": "강남구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 68,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "강남구가 등록한 68행(노외 40·노상 28)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 강남구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면",
+    "org": "강남구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2082681",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-11-07 · 서울특별시강남구조례 제2074호(일부개정) · 별표1 개정 2023.9.27.",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 강남구는 시영(서울시설공단)과 구영(강남구도시관리공단) 주차장이 섞여 있습니다. 조례 별표1은 노상 1급지 500원·노외 1급지 400원, 2급지 250원, 3급지 150원, 4급지 100원(5분당)인데, 강남구도시관리공단은 조례 제6조②에 따라 노상도 노외와 같은 1급지 400원·2급지 300원·3급지 200원·4급지 100원을 받습니다. 노상은 평일 09:00~19:00(일부 10:00~20:00·11:00~21:00)에만 요금을 받고 토요일·공휴일은 무료이며, 시영 주차장은 법정동 평균공시지가 변수를 곱해 정합니다(학여울역 370원·일원역 290원·압구정고가 810원·수서역 320원)."
+   },
+   {
+    "id": "gu_portal",
+    "name": "강남구 공영주차장 시간제 현황·요금 안내",
+    "org": "강남구도시관리공단 주차사업팀(02-1544-3113) · 시영은 서울시설공단",
+    "url": "https://park.gncity.or.kr/user/html/parkingFee.html",
+    "file": "park.gncity.or.kr_공영주차장_주차요금안내_20261118.txt",
+    "sha256": "e67c9cc6607634ec56353d881bee4d6fd328dcb4a7e1eb5cbf41cb0e18007561",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 2,
+    "fetched_at": "2026-11-18 05:15 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "강남구",
+   "slug": "gangnam"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gangnam-001",
+   "mgmt_no": "122-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개포4문화센터",
+   "gu": "강남구",
+   "dong": "개포동",
+   "dong_src": "보정(공단 지번(개포동 1204))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 개포로24길33",
+   "road": null,
+   "spaces": 43,
+   "tel": "1544-3113",
+   "lat": 37.4771384,
+   "lng": 127.0497487,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "조례 3급지 기준 200원을 300원으로 받습니다(개별 조정) · 구영(강남구도시관리공단) 주차장 · 강 · 남 · 구 · 도 · 시 · 관 · 리 · 공 · 단 ·   · 주 · 차 · 장 ·   · 현 · 황 · 에 · 는 ·   · 이 · 곳 · 을 ·   · 3 · 급 · 지 ·   · 5 · 분 · 당 ·   · 2 · 0 · 0 · 원 · 으 · 로 ·   · 적 · 고 ·   · 있 · 는 · 데 · , ·   · 표 · 준 · 데 · 이 · 터 · 에 · 는 ·   · 3 · 0 · 0 · 원 · 으 · 로 ·   · 등 · 록 · 되 · 어 ·   · 있 · 습 · 니 · 다 ·   · — ·   · 현 · 장 ·   · 요 · 금 · 표 · 를 ·   · 확 · 인 · 하 · 세 · 요",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-002",
+   "mgmt_no": "122-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개포동공원",
+   "gu": "강남구",
+   "dong": "개포동",
+   "dong_src": "보정(공단 지번(개포동 183-2))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 개포로 509",
+   "road": null,
+   "spaces": 146,
+   "tel": "1544-3113",
+   "lat": 37.48970641,
+   "lng": 127.0682905,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-003",
+   "mgmt_no": "122-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구룡산제1호",
+   "gu": "강남구",
+   "dong": "개포동",
+   "dong_src": "보정(공단 지번(개포동 567-25))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 양재대로 478",
+   "road": null,
+   "spaces": 91,
+   "tel": "1544-3113",
+   "lat": 37.47606527,
+   "lng": 127.0672862,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-004",
+   "mgmt_no": "122-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구룡산제2호",
+   "gu": "강남구",
+   "dong": "개포동",
+   "dong_src": "보정(공단 지번(개포동 126-2))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 양재대로 478",
+   "road": null,
+   "spaces": 127,
+   "tel": "1544-3113",
+   "lat": 37.47606527,
+   "lng": 127.0672862,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-005",
+   "mgmt_no": "122-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대청역",
+   "gu": "강남구",
+   "dong": "개포동",
+   "dong_src": "보정(공단 지번(개포동 13-2))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 개포로 623-1",
+   "road": null,
+   "spaces": 161,
+   "tel": "1544-3113",
+   "lat": 37.494949,
+   "lng": 127.0793181,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-006",
+   "mgmt_no": "122-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논현 제1호",
+   "gu": "강남구",
+   "dong": "논현동",
+   "dong_src": "보정(공단 주소(학동로6길 19))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 학동로6길 19",
+   "road": null,
+   "spaces": 88,
+   "tel": "1544-3113",
+   "lat": 37.510693,
+   "lng": 127.0246023,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-007",
+   "mgmt_no": "122-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논현문화마루",
+   "gu": "강남구",
+   "dong": "논현동",
+   "dong_src": "보정(공단 주소(논현로131길 40))",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 논현로131길 40",
+   "road": null,
+   "spaces": 66,
+   "tel": "1544-3113",
+   "lat": 37.51377724,
+   "lng": 127.0268997,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-008",
+   "mgmt_no": "122-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논현제2호",
+   "gu": "강남구",
+   "dong": "논현동",
+   "dong_src": "보정(공단 주소(학동로20길 13))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 학동로 20길 13",
+   "road": null,
+   "spaces": 78,
+   "tel": "1544-3113",
+   "lat": 37.5122317,
+   "lng": 127.0285547,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-009",
+   "mgmt_no": "122-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논현초교",
+   "gu": "강남구",
+   "dong": "논현동",
+   "dong_src": "보정(공단 지번(논현동 168))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 강남대로 120길33",
+   "road": null,
+   "spaces": 181,
+   "tel": "1544-3113",
+   "lat": 37.50848958,
+   "lng": 127.0262229,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-010",
+   "mgmt_no": "122-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대치2문화센터",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "보정(공단 지번(대치동 980-9))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 영동대로 65길 24",
+   "road": null,
+   "spaces": 156,
+   "tel": "1544-3113",
+   "lat": 37.50230433,
+   "lng": 127.0641674,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-011",
+   "mgmt_no": "122-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도곡로421",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "보정(공단 지번(대치동 939-21))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 도곡로 421",
+   "road": null,
+   "spaces": 25,
+   "tel": "1544-3113",
+   "lat": 37.49767963,
+   "lng": 127.0564652,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-012",
+   "mgmt_no": "122-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도곡초교",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "보정(공단 지번(대치동 924-10))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 선릉로 64길 33",
+   "road": null,
+   "spaces": 195,
+   "tel": "1544-3113",
+   "lat": 37.49951141,
+   "lng": 127.0544655,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-013",
+   "mgmt_no": "122-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄천주차장",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강남구 대치동 78-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 430,
+   "tel": "1544-3113",
+   "lat": 37.5086351,
+   "lng": 127.0683804,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-014",
+   "mgmt_no": "122-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학여울역",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강남구 대치동 514",
+   "addr_road": "",
+   "road": null,
+   "spaces": 180,
+   "tel": "02-3405-4074",
+   "lat": 37.49567866,
+   "lng": 127.071912,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 300원을 370원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 370,
+    "unit_min": 5,
+    "unit_fee": 370,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 168000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 168000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 370,
+     "unit_min": 5,
+     "unit_fee": 370,
+     "day": 0,
+     "monthly": 168000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 300,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "05:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 300,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "05:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 300,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "05:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 370,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-015",
+   "mgmt_no": "122-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논현로32길15",
+   "gu": "강남구",
+   "dong": "도곡동",
+   "dong_src": "보정(공단 지번(도곡동 516-2))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 논현로 32길15",
+   "road": null,
+   "spaces": 16,
+   "tel": "1544-3113",
+   "lat": 37.48425157,
+   "lng": 127.0434027,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-016",
+   "mgmt_no": "122-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도곡정보문화도서관",
+   "gu": "강남구",
+   "dong": "도곡동",
+   "dong_src": "보정(도서관 안내(도곡동 892-6))",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 도곡로18길 57",
+   "road": null,
+   "spaces": 57,
+   "tel": "1544-3113",
+   "lat": 37.4883103,
+   "lng": 127.0388804,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-017",
+   "mgmt_no": "122-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "언주초교",
+   "gu": "강남구",
+   "dong": "도곡동",
+   "dong_src": "보정(공단 지번(도곡동 922))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 남부순환로363길19",
+   "road": null,
+   "spaces": 203,
+   "tel": "1544-3113",
+   "lat": 37.486322,
+   "lng": 127.036793,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-018",
+   "mgmt_no": "122-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "강남치매안심센터",
+   "gu": "강남구",
+   "dong": "삼성동",
+   "dong_src": "보정(공단 지번(삼성동 113-26))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 선릉로 108길 27",
+   "road": null,
+   "spaces": 90,
+   "tel": "1544-3113",
+   "lat": 37.5103126,
+   "lng": 127.0463796,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-019",
+   "mgmt_no": "122-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구청 부설",
+   "gu": "강남구",
+   "dong": "삼성동",
+   "dong_src": "보정(공단 지번(삼성동 16-1))",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 학동로426",
+   "road": null,
+   "spaces": 120,
+   "tel": "1544-3113",
+   "lat": 37.51796816,
+   "lng": 127.0470598,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-020",
+   "mgmt_no": "122-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성1동문화센터",
+   "gu": "강남구",
+   "dong": "삼성동",
+   "dong_src": "보정(공단 지번(삼성동 161-2))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 봉은사로 616",
+   "road": null,
+   "spaces": 66,
+   "tel": "1544-3113",
+   "lat": 37.51433979,
+   "lng": 127.062632,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-021",
+   "mgmt_no": "122-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성로별관 부설",
+   "gu": "강남구",
+   "dong": "삼성동",
+   "dong_src": "보정(공단 지번(삼성동 66))",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 삼성로628",
+   "road": null,
+   "spaces": 42,
+   "tel": "1544-3113",
+   "lat": 37.51591066,
+   "lng": 127.0521228,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-022",
+   "mgmt_no": "122-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대왕초교",
+   "gu": "강남구",
+   "dong": "세곡동",
+   "dong_src": "보정(공단 지번(세곡동 122-2))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 헌릉로 618길 8",
+   "road": null,
+   "spaces": 101,
+   "tel": "1544-3113",
+   "lat": 37.46462117,
+   "lng": 127.1055381,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-023",
+   "mgmt_no": "122-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수서역",
+   "gu": "강남구",
+   "dong": "수서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강남구 수서동 735",
+   "addr_road": "",
+   "road": null,
+   "spaces": 568,
+   "tel": "02-3405-4076",
+   "lat": 37.48785438,
+   "lng": 127.0999519,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 320원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 320,
+    "unit_min": 5,
+    "unit_fee": 320,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 200000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 200000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 320,
+     "unit_min": 5,
+     "unit_fee": 320,
+     "day": 0,
+     "monthly": 200000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 320,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-024",
+   "mgmt_no": "122-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신구초교",
+   "gu": "강남구",
+   "dong": "신사동",
+   "dong_src": "보정(공단 지번(신사동 550-11))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 압구정로 18길 28",
+   "road": null,
+   "spaces": 184,
+   "tel": "1544-3113",
+   "lat": 37.52336057,
+   "lng": 127.0239924,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-025",
+   "mgmt_no": "122-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "압구정428",
+   "gu": "강남구",
+   "dong": "압구정동",
+   "dong_src": "보정(공단 지번(압구정동 428))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 압구정로 161",
+   "road": null,
+   "spaces": 343,
+   "tel": "1544-3113",
+   "lat": 37.52684175,
+   "lng": 127.0270569,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-026",
+   "mgmt_no": "122-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도곡로21길7",
+   "gu": "강남구",
+   "dong": "역삼동",
+   "dong_src": "보정(공단 지번(역삼동 795-38))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 도곡로 21길7",
+   "road": null,
+   "spaces": 75,
+   "tel": "1544-3113",
+   "lat": 37.49259279,
+   "lng": 127.0388717,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-027",
+   "mgmt_no": "122-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도곡로327",
+   "gu": "강남구",
+   "dong": "역삼동",
+   "dong_src": "보정(공단 지번(역삼동 765-22))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 도곡로 327",
+   "road": null,
+   "spaces": 19,
+   "tel": "1544-3113",
+   "lat": 37.49615768,
+   "lng": 127.0516645,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-028",
+   "mgmt_no": "122-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역삼1동문화센터",
+   "gu": "강남구",
+   "dong": "역삼동",
+   "dong_src": "보정(공단 지번(역삼동 829-20))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 역삼로 7길 16",
+   "road": null,
+   "spaces": 118,
+   "tel": "1544-3113",
+   "lat": 37.4953545,
+   "lng": 127.0332497,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 280000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 280000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 280000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-029",
+   "mgmt_no": "122-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역삼문화공원 제1호 공영주차장",
+   "gu": "강남구",
+   "dong": "역삼동",
+   "dong_src": "보정(공단 주소(테헤란로7길 21))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로7길 21",
+   "road": null,
+   "spaces": 247,
+   "tel": "1544-3113",
+   "lat": 37.5009602,
+   "lng": 127.0296765,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "조례 2급지 기준 300원을 400원으로 받습니다(개별 조정) · 구영(강남구도시관리공단) 주차장 · 강 · 남 · 구 · 도 · 시 · 관 · 리 · 공 · 단 ·   · 주 · 차 · 장 ·   · 현 · 황 · 에 · 는 ·   · 이 · 곳 · 을 ·   · 2 · 급 · 지 ·   · 5 · 분 · 당 ·   · 3 · 0 · 0 · 원 · 으 · 로 ·   · 적 · 고 ·   · 있 · 는 · 데 · , ·   · 표 · 준 · 데 · 이 · 터 · 에 · 는 ·   · 4 · 0 · 0 · 원 · 으 · 로 ·   · 등 · 록 · 되 · 어 ·   · 있 · 습 · 니 · 다 ·   · — ·   · 현 · 장 ·   · 요 · 금 · 표 · 를 ·   · 확 · 인 · 하 · 세 · 요",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-030",
+   "mgmt_no": "122-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역삼문화공원 제2호 공영주차장",
+   "gu": "강남구",
+   "dong": "역삼동",
+   "dong_src": "보정(공단 지번(역삼동 635))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로7길 32",
+   "road": null,
+   "spaces": 50,
+   "tel": "1544-3113",
+   "lat": 37.50251536,
+   "lng": 127.0303909,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-031",
+   "mgmt_no": "122-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역삼푸른솔도서관",
+   "gu": "강남구",
+   "dong": "역삼동",
+   "dong_src": "보정(도서관 안내(역삼동 827-61))",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로8길 36",
+   "road": null,
+   "spaces": 45,
+   "tel": "1544-3113",
+   "lat": 37.49649918,
+   "lng": 127.0320288,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 230000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 230000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 230000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-032",
+   "mgmt_no": "122-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "밤고개로21길",
+   "gu": "강남구",
+   "dong": "율현동",
+   "dong_src": "보정(공단 지번(율현동 77-5))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 밤고개로21길 71",
+   "road": null,
+   "spaces": 105,
+   "tel": "1544-3113",
+   "lat": 37.4742623,
+   "lng": 127.1141389,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-033",
+   "mgmt_no": "122-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영희초교",
+   "gu": "강남구",
+   "dong": "일원동",
+   "dong_src": "보정(공단 지번(일원동 617))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 일원로21",
+   "road": null,
+   "spaces": 184,
+   "tel": "1544-3113",
+   "lat": 37.4923004,
+   "lng": 127.0811328,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-034",
+   "mgmt_no": "122-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일원1동(기계식)",
+   "gu": "강남구",
+   "dong": "일원동",
+   "dong_src": "보정(공단 지번(일원동 684-8))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 양재대로 27길 5",
+   "road": null,
+   "spaces": 66,
+   "tel": "1544-3113",
+   "lat": 37.48956502,
+   "lng": 127.0817444,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-035",
+   "mgmt_no": "122-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일원터널",
+   "gu": "강남구",
+   "dong": "일원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강남구 일원동 722-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "",
+   "lat": 37.48283301,
+   "lng": 127.0790178,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 칸이 비어 있음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-036",
+   "mgmt_no": "122-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탄천제2호",
+   "gu": "강남구",
+   "dong": "일원동",
+   "dong_src": "보정(공단 지번(일원동 4-47))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 양재대로 55길28",
+   "road": null,
+   "spaces": 322,
+   "tel": "1544-3113",
+   "lat": 37.4931481,
+   "lng": 127.0877673,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 70000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-037",
+   "mgmt_no": "122-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일원역",
+   "gu": "강남구",
+   "dong": "일원본동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 강남구 일원본동 716-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "",
+   "lat": 37.484686,
+   "lng": 127.08409,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 290원으로 받습니다(공시지가 변수 반영) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-038",
+   "mgmt_no": "122-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "언북초교",
+   "gu": "강남구",
+   "dong": "청담동",
+   "dong_src": "보정(공단 지번(청담동 27))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 삼성로 135길 42",
+   "road": null,
+   "spaces": 220,
+   "tel": "1544-3113",
+   "lat": 37.52012517,
+   "lng": 127.0447158,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-039",
+   "mgmt_no": "122-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논현로22길",
+   "gu": "강남구",
+   "dong": "포이동",
+   "dong_src": "보정(공단 지번(포이동 266))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 개포로25길 32",
+   "road": null,
+   "spaces": 86,
+   "tel": "1544-3113",
+   "lat": 37.48202594,
+   "lng": 127.0484223,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-040",
+   "mgmt_no": "122-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "포이초교",
+   "gu": "강남구",
+   "dong": "포이동",
+   "dong_src": "보정(공단 지번(포이동 273))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 개포로22길 87",
+   "road": null,
+   "spaces": 189,
+   "tel": "1544-3113",
+   "lat": 37.47591562,
+   "lng": 127.0525106,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s001",
+   "mgmt_no": "122-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대치동507-3",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강남구 대치동 507-3",
+   "addr_road": "서울특별시 강남구 삼성로 151길",
+   "road": null,
+   "spaces": 26,
+   "tel": "1544-3113",
+   "lat": 37.4933415,
+   "lng": 127.0626234,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s002",
+   "mgmt_no": "122-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영동6교밑",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강남구 대치동 512-1(극동교회앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "",
+   "lat": 37.49509713,
+   "lng": 127.0703164,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 300원을 370원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 370,
+    "unit_min": 5,
+    "unit_fee": 370,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 370,
+     "unit_min": 5,
+     "unit_fee": 370,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 370,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s003",
+   "mgmt_no": "122-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영동대로85길",
+   "gu": "강남구",
+   "dong": "대치동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강남구 대치동 1012-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 76,
+   "tel": "1544-3113",
+   "lat": 37.50605387,
+   "lng": 127.0602571,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s004",
+   "mgmt_no": "122-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "압구정고가1",
+   "gu": "강남구",
+   "dong": "신사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강남구 신사동 668(압구정고가하부)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "",
+   "lat": 37.52643082,
+   "lng": 127.028448,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 810원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 810,
+    "unit_min": 5,
+    "unit_fee": 810,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 810,
+     "unit_min": 5,
+     "unit_fee": 810,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 810,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s005",
+   "mgmt_no": "122-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "압구정고가2",
+   "gu": "강남구",
+   "dong": "신사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강남구 신사동 668(압구정고가하부)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "",
+   "lat": 37.52643082,
+   "lng": 127.0284809,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 810원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 810,
+    "unit_min": 5,
+    "unit_fee": 810,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 810,
+     "unit_min": 5,
+     "unit_fee": 810,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 810,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s006",
+   "mgmt_no": "122-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동호대교(남)",
+   "gu": "강남구",
+   "dong": "압구정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 강남구 압구정동 435(동호대교하부 올림픽대로 진입부)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 37.52923653,
+   "lng": 127.0262531,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 3급지 기준 200원을 290원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 290,
+    "unit_min": 5,
+    "unit_fee": 290,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 290,
+     "unit_min": 5,
+     "unit_fee": 290,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 290,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s007",
+   "mgmt_no": "122-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남부순환로397길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 남부순환로 391길",
+   "road": null,
+   "spaces": 31,
+   "tel": "1544-3113",
+   "lat": 37.4938113,
+   "lng": 127.0600561,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s008",
+   "mgmt_no": "122-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "논현로131길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 논현로 131길",
+   "road": null,
+   "spaces": 18,
+   "tel": "1544-3113",
+   "lat": 37.5140664,
+   "lng": 127.0283924,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s009",
+   "mgmt_no": "122-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "논현로28길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 논현로30길 36 주변",
+   "road": null,
+   "spaces": 66,
+   "tel": "1544-3113",
+   "lat": 37.4836036,
+   "lng": 127.0446624,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s010",
+   "mgmt_no": "122-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대치유수지",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 역삼로107길 20-30 외",
+   "road": null,
+   "spaces": 47,
+   "tel": "1544-3113",
+   "lat": 37.5052374,
+   "lng": 127.0681833,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 80000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s011",
+   "mgmt_no": "122-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "도산대로45길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 도산대로45길 10 주변",
+   "road": null,
+   "spaces": 31,
+   "tel": "1544-3113",
+   "lat": 37.5232251,
+   "lng": 127.0345108,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s012",
+   "mgmt_no": "122-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "선릉로132길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 선릉로132길 12-2",
+   "road": null,
+   "spaces": 17,
+   "tel": "1544-3113",
+   "lat": 37.51806116,
+   "lng": 127.0419888,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s013",
+   "mgmt_no": "122-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "선릉로146길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 선릉로 748",
+   "road": null,
+   "spaces": 30,
+   "tel": "1544-3113",
+   "lat": 37.52183785,
+   "lng": 127.0413577,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s014",
+   "mgmt_no": "122-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신사역",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 가로수길",
+   "road": null,
+   "spaces": 31,
+   "tel": "1544-3113",
+   "lat": 37.5233605,
+   "lng": 127.0239924,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s015",
+   "mgmt_no": "122-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "압구정로29길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 압구정로29길",
+   "road": null,
+   "spaces": 130,
+   "tel": "1544-3113",
+   "lat": 37.5309168,
+   "lng": 127.0271688,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 80000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s016",
+   "mgmt_no": "122-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "언주로147길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 언주로 147길 18 주변",
+   "road": null,
+   "spaces": 13,
+   "tel": "1544-3113",
+   "lat": 37.5193644,
+   "lng": 127.0323682,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s017",
+   "mgmt_no": "122-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "언주로171길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 압구정로36길 17 주변",
+   "road": null,
+   "spaces": 28,
+   "tel": "1544-3113",
+   "lat": 37.5277673,
+   "lng": 127.032123,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 150000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 150000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 150000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s018",
+   "mgmt_no": "122-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영동대로106길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구영동대로106길 33 주변",
+   "road": null,
+   "spaces": 19,
+   "tel": "1544-3113",
+   "lat": 37.5139455,
+   "lng": 127.0633953,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s019",
+   "mgmt_no": "122-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영동대로86길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 영동대로86길",
+   "road": null,
+   "spaces": 16,
+   "tel": "1544-3113",
+   "lat": 37.5079995,
+   "lng": 127.065498,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s020",
+   "mgmt_no": "122-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영동대로96길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 영동대로 96길",
+   "road": null,
+   "spaces": 35,
+   "tel": "1544-3113",
+   "lat": 37.5109127,
+   "lng": 127.0643199,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s021",
+   "mgmt_no": "122-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "은마아파트",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 삼성로 58길",
+   "road": null,
+   "spaces": 55,
+   "tel": "1544-3113",
+   "lat": 37.4990926,
+   "lng": 127.0631233,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s022",
+   "mgmt_no": "122-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "일원동맛의거리",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 일원로 9",
+   "road": null,
+   "spaces": 40,
+   "tel": "1544-3113",
+   "lat": 37.504319,
+   "lng": 127.0680509,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s023",
+   "mgmt_no": "122-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "테헤란로26길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로 152",
+   "road": null,
+   "spaces": 9,
+   "tel": "1544-3113",
+   "lat": 37.50002424,
+   "lng": 127.0365086,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s024",
+   "mgmt_no": "122-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "테헤란로64길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로 412 주변",
+   "road": null,
+   "spaces": 7,
+   "tel": "1544-3113",
+   "lat": 37.5037597,
+   "lng": 127.0512298,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s025",
+   "mgmt_no": "122-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "테헤란로69길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로 69길",
+   "road": null,
+   "spaces": 21,
+   "tel": "1544-3113",
+   "lat": 37.5065829,
+   "lng": 127.0525014,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s026",
+   "mgmt_no": "122-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "테헤란로78길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 테헤란로78길",
+   "road": null,
+   "spaces": 10,
+   "tel": "1544-3113",
+   "lat": 37.5050296,
+   "lng": 127.0550466,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s027",
+   "mgmt_no": "122-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한티역",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 선릉로69길+서울특별시 강남구 선릉로 63길+서울특별시 강남구 도곡로57길",
+   "road": null,
+   "spaces": 33,
+   "tel": "1544-3113",
+   "lat": 37.4981503,
+   "lng": 127.0506429,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  },
+  {
+   "id": "gangnam-s028",
+   "mgmt_no": "122-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "헌릉로745길",
+   "gu": "강남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 강남구 헌릉로745길",
+   "road": null,
+   "spaces": 215,
+   "tel": "1544-3113",
+   "lat": 37.4698283,
+   "lng": 127.1184316,
+   "base_date": "2026-10-22",
+   "manager": "강남구도시관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(강남구도시관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+현금+무통장+지로",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "강남구",
+   "city_slug": "gangnam"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 04:55",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 68,
+  "원자료_강남구행수": 68,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 40,
+  "노외_부설": {
+   "노외": 35,
+   "부설": 5
+  },
+  "노상_구간": 28,
+  "총_구획수": 5561,
+  "노상_구획수": 1099,
+  "동별": {
+   "역삼동": 6,
+   "개포동": 5,
+   "대치동": 5,
+   "논현동": 4,
+   "삼성동": 4,
+   "일원동": 4,
+   "도곡동": 3,
+   "포이동": 2,
+   "세곡동": 1,
+   "수서동": 1,
+   "신사동": 1,
+   "압구정동": 1,
+   "율현동": 1,
+   "일원본동": 1,
+   "청담동": 1
+  },
+  "동수": 15,
+  "동_미상": [],
+  "동_보정": [
+   "논현 제1호: 지번주소에 법정동이 없어 공단 주소(학동로6길 19)을 근거로 논현동으로 두었습니다",
+   "개포4문화센터: 지번주소에 법정동이 없어 공단 지번(개포동 1204)을 근거로 개포동으로 두었습니다",
+   "밤고개로21길: 지번주소에 법정동이 없어 공단 지번(율현동 77-5)을 근거로 율현동으로 두었습니다",
+   "대왕초교: 지번주소에 법정동이 없어 공단 지번(세곡동 122-2)을 근거로 세곡동으로 두었습니다",
+   "영희초교: 지번주소에 법정동이 없어 공단 지번(일원동 617)을 근거로 일원동으로 두었습니다",
+   "논현문화마루: 지번주소에 법정동이 없어 공단 주소(논현로131길 40)을 근거로 논현동으로 두었습니다",
+   "도곡정보문화도서관: 지번주소에 법정동이 없어 도서관 안내(도곡동 892-6)을 근거로 도곡동으로 두었습니다",
+   "역삼푸른솔도서관: 지번주소에 법정동이 없어 도서관 안내(역삼동 827-61)을 근거로 역삼동으로 두었습니다",
+   "삼성로별관 부설: 지번주소에 법정동이 없어 공단 지번(삼성동 66)을 근거로 삼성동으로 두었습니다",
+   "구청 부설: 지번주소에 법정동이 없어 공단 지번(삼성동 16-1)을 근거로 삼성동으로 두었습니다",
+   "논현제2호: 지번주소에 법정동이 없어 공단 주소(학동로20길 13)을 근거로 논현동으로 두었습니다",
+   "역삼문화공원 제1호 공영주차장: 지번주소에 법정동이 없어 공단 주소(테헤란로7길 21)을 근거로 역삼동으로 두었습니다",
+   "일원1동(기계식): 지번주소에 법정동이 없어 공단 지번(일원동 684-8)을 근거로 일원동으로 두었습니다",
+   "대청역: 지번주소에 법정동이 없어 공단 지번(개포동 13-2)을 근거로 개포동으로 두었습니다",
+   "탄천제2호: 지번주소에 법정동이 없어 공단 지번(일원동 4-47)을 근거로 일원동으로 두었습니다",
+   "언주초교: 지번주소에 법정동이 없어 공단 지번(도곡동 922)을 근거로 도곡동으로 두었습니다",
+   "개포동공원: 지번주소에 법정동이 없어 공단 지번(개포동 183-2)을 근거로 개포동으로 두었습니다",
+   "논현로22길: 지번주소에 법정동이 없어 공단 지번(포이동 266)을 근거로 포이동으로 두었습니다",
+   "포이초교: 지번주소에 법정동이 없어 공단 지번(포이동 273)을 근거로 포이동으로 두었습니다",
+   "구룡산제2호: 지번주소에 법정동이 없어 공단 지번(개포동 126-2)을 근거로 개포동으로 두었습니다",
+   "구룡산제1호: 지번주소에 법정동이 없어 공단 지번(개포동 567-25)을 근거로 개포동으로 두었습니다",
+   "신구초교: 지번주소에 법정동이 없어 공단 지번(신사동 550-11)을 근거로 신사동으로 두었습니다",
+   "도곡초교: 지번주소에 법정동이 없어 공단 지번(대치동 924-10)을 근거로 대치동으로 두었습니다",
+   "논현초교: 지번주소에 법정동이 없어 공단 지번(논현동 168)을 근거로 논현동으로 두었습니다",
+   "대치2문화센터: 지번주소에 법정동이 없어 공단 지번(대치동 980-9)을 근거로 대치동으로 두었습니다",
+   "논현로32길15: 지번주소에 법정동이 없어 공단 지번(도곡동 516-2)을 근거로 도곡동으로 두었습니다",
+   "언북초교: 지번주소에 법정동이 없어 공단 지번(청담동 27)을 근거로 청담동으로 두었습니다",
+   "역삼문화공원 제2호 공영주차장: 지번주소에 법정동이 없어 공단 지번(역삼동 635)을 근거로 역삼동으로 두었습니다",
+   "압구정428: 지번주소에 법정동이 없어 공단 지번(압구정동 428)을 근거로 압구정동으로 두었습니다",
+   "삼성1동문화센터: 지번주소에 법정동이 없어 공단 지번(삼성동 161-2)을 근거로 삼성동으로 두었습니다",
+   "역삼1동문화센터: 지번주소에 법정동이 없어 공단 지번(역삼동 829-20)을 근거로 역삼동으로 두었습니다",
+   "강남치매안심센터: 지번주소에 법정동이 없어 공단 지번(삼성동 113-26)을 근거로 삼성동으로 두었습니다",
+   "도곡로421: 지번주소에 법정동이 없어 공단 지번(대치동 939-21)을 근거로 대치동으로 두었습니다",
+   "도곡로21길7: 지번주소에 법정동이 없어 공단 지번(역삼동 795-38)을 근거로 역삼동으로 두었습니다",
+   "도곡로327: 지번주소에 법정동이 없어 공단 지번(역삼동 765-22)을 근거로 역삼동으로 두었습니다"
+  ],
+  "동_근거": {
+   "보정(공단 지번(개포동 1204))": 1,
+   "보정(공단 지번(개포동 183-2))": 1,
+   "보정(공단 지번(개포동 567-25))": 1,
+   "보정(공단 지번(개포동 126-2))": 1,
+   "보정(공단 지번(개포동 13-2))": 1,
+   "보정(공단 주소(학동로6길 19))": 1,
+   "보정(공단 주소(논현로131길 40))": 1,
+   "보정(공단 주소(학동로20길 13))": 1,
+   "보정(공단 지번(논현동 168))": 1,
+   "보정(공단 지번(대치동 980-9))": 1,
+   "보정(공단 지번(대치동 939-21))": 1,
+   "보정(공단 지번(대치동 924-10))": 1,
+   "지번주소": 5,
+   "보정(공단 지번(도곡동 516-2))": 1,
+   "보정(도서관 안내(도곡동 892-6))": 1,
+   "보정(공단 지번(도곡동 922))": 1,
+   "보정(공단 지번(삼성동 113-26))": 1,
+   "보정(공단 지번(삼성동 16-1))": 1,
+   "보정(공단 지번(삼성동 161-2))": 1,
+   "보정(공단 지번(삼성동 66))": 1,
+   "보정(공단 지번(세곡동 122-2))": 1,
+   "보정(공단 지번(신사동 550-11))": 1,
+   "보정(공단 지번(압구정동 428))": 1,
+   "보정(공단 지번(역삼동 795-38))": 1,
+   "보정(공단 지번(역삼동 765-22))": 1,
+   "보정(공단 지번(역삼동 829-20))": 1,
+   "보정(공단 주소(테헤란로7길 21))": 1,
+   "보정(공단 지번(역삼동 635))": 1,
+   "보정(도서관 안내(역삼동 827-61))": 1,
+   "보정(공단 지번(율현동 77-5))": 1,
+   "보정(공단 지번(일원동 617))": 1,
+   "보정(공단 지번(일원동 684-8))": 1,
+   "보정(공단 지번(일원동 4-47))": 1,
+   "보정(공단 지번(청담동 27))": 1,
+   "보정(공단 지번(포이동 266))": 1,
+   "보정(공단 지번(포이동 273))": 1
+  },
+  "요금구분": {
+   "유료": 67,
+   "미상": 1
+  },
+  "요금_미상": [
+   "일원터널"
+  ],
+  "유료_노상": 28,
+  "유료_노외": 34,
+  "유료_부설": 5,
+  "운영시간_보정": [
+   "선릉로146길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "선릉로146길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "언주로171길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "언주로171길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "도산대로45길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "도산대로45길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "언주로147길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "언주로147길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "삼성로별관 부설: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "삼성로별관 부설: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "남부순환로397길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "남부순환로397길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로96길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로96길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로106길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로106길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "논현로28길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "논현로28길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로26길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로26길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로85길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로85길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로64길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로64길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "선릉로132길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "선릉로132길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "신사역: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "신사역: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로78길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로78길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로86길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "영동대로86길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로69길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "테헤란로69길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "논현로131길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "논현로131길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "일원동맛의거리: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "일원동맛의거리: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "대치유수지: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "대치유수지: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "압구정로29길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "압구정로29길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "은마아파트: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "은마아파트: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "헌릉로745길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "헌릉로745길: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "대치동507-3: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "대치동507-3: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "구룡산제2호: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "구룡산제2호: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "구룡산제1호: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "구룡산제1호: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "한티역: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "한티역: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "일원역: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "개포4문화센터: 3급지 기준 200원 ↔ 등록 300원",
+   "역삼문화공원 제1호 공영주차장: 2급지 기준 300원 ↔ 등록 400원",
+   "학여울역: 2급지 기준 300원 ↔ 등록 370원",
+   "영동6교밑: 2급지 기준 300원 ↔ 등록 370원",
+   "일원역: 1급지 기준 400원 ↔ 등록 290원",
+   "동호대교(남): 3급지 기준 200원 ↔ 등록 290원",
+   "압구정고가2: 1급지 기준 400원 ↔ 등록 810원",
+   "압구정고가1: 1급지 기준 400원 ↔ 등록 810원",
+   "수서역: 1급지 기준 400원 ↔ 등록 320원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 강남구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-11-07 · 서울특별시강남구조례 제2074호(일부개정) · 별표1 개정 2023.9.27.)",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "구룡산제1호",
+   "구룡산제2호",
+   "삼성로별관 부설",
+   "일원역",
+   "대치동507-3",
+   "영동대로85길",
+   "남부순환로397길",
+   "논현로131길",
+   "논현로28길",
+   "대치유수지",
+   "도산대로45길",
+   "선릉로132길",
+   "선릉로146길",
+   "신사역",
+   "압구정로29길",
+   "언주로147길",
+   "언주로171길",
+   "영동대로106길",
+   "영동대로86길",
+   "영동대로96길",
+   "은마아파트",
+   "일원동맛의거리",
+   "테헤란로26길",
+   "테헤란로64길",
+   "테헤란로69길",
+   "테헤란로78길",
+   "한티역",
+   "헌릉로745길"
+  ],
+  "무료개방_표기": [
+   "구룡산제1호",
+   "구룡산제2호",
+   "삼성로별관 부설",
+   "일원역",
+   "대치동507-3",
+   "영동대로85길",
+   "남부순환로397길",
+   "논현로131길",
+   "논현로28길",
+   "대치유수지",
+   "도산대로45길",
+   "선릉로132길",
+   "선릉로146길",
+   "신사역",
+   "압구정로29길",
+   "언주로147길",
+   "언주로171길",
+   "영동대로106길",
+   "영동대로86길",
+   "영동대로96길",
+   "은마아파트",
+   "일원동맛의거리",
+   "테헤란로26길",
+   "테헤란로64길",
+   "테헤란로69길",
+   "테헤란로78길",
+   "한티역",
+   "헌릉로745길"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 316,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "122-3-000002",
+   "122-2-000001",
+   "122-2-000003",
+   "122-2-000004",
+   "122-1-000002",
+   "122-1-000003"
+  ],
+  "전화번호_없음": 6,
+  "데이터기준일": [
+   "2026-05-15",
+   "2026-10-22"
+  ],
+  "공단만_등록": [
+   "강남구민회관 부설(삼성로 154, 108면, 2급지 5분당 300원(일일 30,000원), 06:00~22:00 연중무휴)",
+   "세곡체육공원(세곡동 산1-7, 58면, 3급지 5분당 200원, 24시간 연중무휴)"
+  ]
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 27,
+    "fee_min": 290,
+    "fee_max": 810,
+    "unit_label": "290~810원",
+    "hour": 4800,
+    "two_hour": 9600,
+    "month_min": 150000,
+    "month_max": 280000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 400
+   },
+   {
+    "grade": 2,
+    "lots": 21,
+    "fee_min": 300,
+    "fee_max": 400,
+    "unit_label": "300~400원",
+    "hour": 3600,
+    "two_hour": 7200,
+    "month_min": 60000,
+    "month_max": 230000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 300
+   },
+   {
+    "grade": 3,
+    "lots": 11,
+    "fee_min": 200,
+    "fee_max": 300,
+    "unit_label": "200~300원",
+    "hour": 2400,
+    "two_hour": 4800,
+    "month_min": 60000,
+    "month_max": 120000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 200
+   },
+   {
+    "grade": 4,
+    "lots": 8,
+    "fee_min": 100,
+    "fee_max": 100,
+    "unit_label": "100원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "month_min": 70000,
+    "month_max": 70000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 100
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 31
+   },
+   {
+    "group": "09:00~19:00",
+    "count": 25
+   },
+   {
+    "group": "08:00~21:00",
+    "count": 2
+   },
+   {
+    "group": "10:00~20:00",
+    "count": 2
+   },
+   {
+    "group": "11:00~21:00",
+    "count": 2
+   },
+   {
+    "group": "05:00~24:00",
+    "count": 1
+   },
+   {
+    "group": "09:00~22:00",
+    "count": 1
+   },
+   {
+    "group": "08:00~19:00",
+    "count": 1
+   },
+   {
+    "group": "09:00~18:00",
+    "count": 1
+   },
+   {
+    "group": "09:00~21:00",
+    "count": 1
+   }
+  ],
+  "notes": "강남구는 시영(서울시설공단)과 구영(강남구도시관리공단) 주차장이 섞여 있습니다. 조례 별표1은 노상 1급지 500원·노외 1급지 400원, 2급지 250원, 3급지 150원, 4급지 100원(5분당)인데, 강남구도시관리공단은 조례 제6조②에 따라 노상도 노외와 같은 1급지 400원·2급지 300원·3급지 200원·4급지 100원을 받습니다. 노상은 평일 09:00~19:00(일부 10:00~20:00·11:00~21:00)에만 요금을 받고 토요일·공휴일은 무료이며, 시영 주차장은 법정동 평균공시지가 변수를 곱해 정합니다(학여울역 370원·일원역 290원·압구정고가 810원·수서역 320원)",
+  "only_corp": [
+   "강남구민회관 부설(삼성로 154, 108면, 2급지 5분당 300원(일일 30,000원), 06:00~22:00 연중무휴)",
+   "세곡체육공원(세곡동 산1-7, 58면, 3급지 5분당 200원, 24시간 연중무휴)"
+  ],
+  "corp": {
+   "paid": 67,
+   "free": 0,
+   "unknown": 1,
+   "street_paid": 28
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "1": 400,
+   "2": 300,
+   "3": 200,
+   "4": 100
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 강남구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 비고 감면(시행 2025-11-07 · 서울특별시강남구조례 제2074호(일부개정) · 별표1 개정 2023.9.27.) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "gangnam",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "강남구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지 부착·등록증), 국가유공자 상이자, 독립유공자, 의상자, 고엽제후유(의)증 환자, 참전유공자, 강남구 거주 만 65세 이상 본인 소유 차량(동승자 제외), 병역명문가 80퍼센트"
+  },
+  {
+   "label": "경차·저공해·다둥이·전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경차(1,000cc 미만), 저공해자동차, 다둥이행복카드(2자녀 이상·막내 만 18세 이하), 강남구 전통시장 구매 영수증 제시 차량 50퍼센트"
+  },
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실·모범납세자 표지를 부착한 차량 — 표지 교부일부터 1년간 면제"
+  },
+  {
+   "label": "승용차요일제·전통시장 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "승용차요일제 전자태그 부착·운휴일 준수 차량과 전통시장 영수증 차량 30퍼센트(1급지 주차장 제외)"
+  }
+ ],
+ "realtime": false
+}

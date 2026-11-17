@@ -1,0 +1,4987 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 04:55",
+  "generated_at_iso": "2026-11-18T04:55:04+09:00",
+  "snapshot_at": "2026-11-18 04:55",
+  "region": {
+   "province": "서울특별시",
+   "city": "서초구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 39,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "서초구가 등록한 39행(노외 29·노상 10)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 서초구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 별표1의2 감면",
+    "org": "서초구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1878895",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2023-12-08 · 서울특별시서초구조례 제1529호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 서초구는 구영(서초구청 직영·위탁)과 시영(서울시설공단) 주차장이 섞여 있고, 조례 별표1의 5분당 요금은 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 구영은 교대역동측(09:00~23:00)·내곡동(09:00~18:00)처럼 일부 주차장만 요금을 받는 시간을 두고 그 밖의 시간은 무료로 개방하며, 시영은 법정동 평균공시지가 변수를 곱합니다(반포천복개 550원·양재역·사당노외 400원·동작대교 450원). 월 정기권은 반기별 추첨제입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "서초구 공영주차장 시간제 현황·요금 안내",
+    "org": "서초구청 주차관리과(02-2155-7294) · 시영은 서울시설공단",
+    "url": "https://www.seocho.go.kr/site/seocho/04/10415061200002026080502.jsp",
+    "file": "seocho.go.kr_공영주차장_월정기권_감면_20261118.txt",
+    "sha256": "a1c71f0eaffa47c2f614206f9291828a5030d5f38d6e68431349435f7a1afc47",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 0,
+    "fetched_at": "2026-11-18 05:15 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "서초구",
+   "slug": "seocho"
+  }
+ ],
+ "lots": [
+  {
+   "id": "seocho-001",
+   "mgmt_no": "121-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반포 둥근마을",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 49-8",
+   "addr_road": "서울특별시 서초구 서초중앙로31길 14-5",
+   "road": null,
+   "spaces": 177,
+   "tel": "02-2155-7287",
+   "lat": 37.5000322,
+   "lng": 127.0104462,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-002",
+   "mgmt_no": "121-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반포2동",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 5-1",
+   "addr_road": "서울특별시 서초구 신반포로15길 6",
+   "road": null,
+   "spaces": 162,
+   "tel": "02-2155-7287",
+   "lat": 37.50429,
+   "lng": 126.9953408,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-003",
+   "mgmt_no": "121-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반포4동 주민센터",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 74-7",
+   "addr_road": "서울특별시 서초구 사평대로28길 70",
+   "road": null,
+   "spaces": 51,
+   "tel": "02-2155-7287",
+   "lat": 37.4974872,
+   "lng": 127.0003241,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-004",
+   "mgmt_no": "121-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반포동 방음언덕형",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 730",
+   "addr_road": "서울특별시 서초구 주흥3길 34",
+   "road": null,
+   "spaces": 88,
+   "tel": "02-2155-7287",
+   "lat": 37.5049722,
+   "lng": 127.0183131,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-005",
+   "mgmt_no": "121-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반포서래",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 95-13",
+   "addr_road": "서울특별시 서초구 사평대로22길31",
+   "road": null,
+   "spaces": 7,
+   "tel": "02-2155-7284",
+   "lat": 37.4981599,
+   "lng": 126.9978271,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-006",
+   "mgmt_no": "121-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반포천복개공영주차장",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "보정(도로명주소(사평대로 205)·명칭(반포천))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 서초구 사평대로 205",
+   "road": null,
+   "spaces": 1181,
+   "tel": "02-0000-0000",
+   "lat": 37.5044921229,
+   "lng": 127.0078452709,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 550원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 550,
+    "unit_min": 5,
+    "unit_fee": 550,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 550,
+     "unit_min": 5,
+     "unit_fee": 550,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 550,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-007",
+   "mgmt_no": "121-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서래마을",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 90-7",
+   "addr_road": "서울특별시 서초구 서래로4길 5",
+   "road": null,
+   "spaces": 71,
+   "tel": "02-2155-7287",
+   "lat": 37.4971758,
+   "lng": 126.9986658,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-008",
+   "mgmt_no": "121-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "언구비",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 반포동 741-3",
+   "addr_road": "서울특별시 서초구 강남대로83길 55",
+   "road": null,
+   "spaces": 51,
+   "tel": "02-2155-7287",
+   "lat": 37.5047241,
+   "lng": 127.0209708,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-009",
+   "mgmt_no": "121-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방배1동",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 방배동 328-1",
+   "addr_road": "서울특별시 서초구 방배로23길 31-6",
+   "road": null,
+   "spaces": 120,
+   "tel": "02-2155-7289",
+   "lat": 37.4854463,
+   "lng": 126.9925579,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-010",
+   "mgmt_no": "121-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방배열린문화센터",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 방배동 852-14",
+   "addr_road": "서울특별시 서초구 방배로 173",
+   "road": null,
+   "spaces": 109,
+   "tel": "02-2155-7289",
+   "lat": 37.4890028,
+   "lng": 126.9922501,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-011",
+   "mgmt_no": "121-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방배카페골목",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 방배동 761-3",
+   "addr_road": "서울특별시 서초구 방배중앙로 193",
+   "road": null,
+   "spaces": 152,
+   "tel": "02-2155-7289",
+   "lat": 37.4962789,
+   "lng": 126.985401,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-012",
+   "mgmt_no": "121-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사당노외",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 방배동 507-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 183,
+   "tel": "02-3405-4078",
+   "lat": 37.4752427,
+   "lng": 126.9839861,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 218000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 218000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 218000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-013",
+   "mgmt_no": "121-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙로",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 방배동 977-17",
+   "addr_road": "서울특별시 서초구 방배중앙로 25",
+   "road": null,
+   "spaces": 49,
+   "tel": "02-2155-7289",
+   "lat": 37.482243,
+   "lng": 126.9920242,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-014",
+   "mgmt_no": "121-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "교대역동측",
+   "gu": "서초구",
+   "dong": "서초동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 서초동 1674-1",
+   "addr_road": "서울특별시 서초구 서초대로 314",
+   "road": null,
+   "spaces": 27,
+   "tel": "02-2155-7294",
+   "lat": 37.4940332,
+   "lng": 127.0158921,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-015",
+   "mgmt_no": "121-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무궁화",
+   "gu": "서초구",
+   "dong": "서초동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 서초동 1666-17",
+   "addr_road": "서울특별시 서초구 서초대로54길 45",
+   "road": null,
+   "spaces": 67,
+   "tel": "02-2155-7289",
+   "lat": 37.4923272,
+   "lng": 127.0168126,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-016",
+   "mgmt_no": "121-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서초3동열린문화센터",
+   "gu": "서초구",
+   "dong": "서초동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 서초동 1542-11,12",
+   "addr_road": "서울특별시 서초구 반포대로28길 7",
+   "road": null,
+   "spaces": 28,
+   "tel": "02-2155-7289",
+   "lat": 37.4906624111,
+   "lng": 127.0088771085,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-017",
+   "mgmt_no": "121-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내곡동 임시",
+   "gu": "서초구",
+   "dong": "신원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 신원동 625",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "02-2155-7287",
+   "lat": 37.44955521,
+   "lng": 127.0579168,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-018",
+   "mgmt_no": "121-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청계산청룡",
+   "gu": "서초구",
+   "dong": "신원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 신원동 224-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "02-2155-7268",
+   "lat": 37.4465698,
+   "lng": 127.0599447,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "1일 주차권 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 3000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 3000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "혼합",
+    "mixed": true,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당) — 요금 구분 ‘혼합’이라 운영시간에만 유료"
+   },
+   "oper": {
+    "weekday": false,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 300,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "05:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 300,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "05:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-019",
+   "mgmt_no": "121-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구룡공원",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 399",
+   "addr_road": "서울특별시 서초구 논현로5길 29",
+   "road": null,
+   "spaces": 131,
+   "tel": "02-2155-7294",
+   "lat": 37.4716366,
+   "lng": 127.0485008,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-020",
+   "mgmt_no": "121-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동산마을",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 370-5",
+   "addr_road": "서울특별시 서초구 강남대로8길 77",
+   "road": null,
+   "spaces": 121,
+   "tel": "02-2155-7268",
+   "lat": 37.4700443,
+   "lng": 127.0443493,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-021",
+   "mgmt_no": "121-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매헌시민의숲(매헌)역",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 237-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "02-2155-7284",
+   "lat": 37.4704204,
+   "lng": 127.0384652,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-022",
+   "mgmt_no": "121-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매헌시민의숲동측",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 237",
+   "addr_road": "",
+   "road": null,
+   "spaces": 143,
+   "tel": "02-2155-7284",
+   "lat": 37.4723013,
+   "lng": 127.0382044,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-023",
+   "mgmt_no": "121-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양재",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 90-2",
+   "addr_road": "서울특별시 서초구 양재천로 125-10",
+   "road": null,
+   "spaces": 175,
+   "tel": "02-2155-7294",
+   "lat": 37.478603,
+   "lng": 127.0413575,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-024",
+   "mgmt_no": "121-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양재2동주민센터",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 323-1",
+   "addr_road": "서울특별시 서초구 강남대로12길 44",
+   "road": null,
+   "spaces": 32,
+   "tel": "02-2155-7294",
+   "lat": 37.4706412,
+   "lng": 127.0412781,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-025",
+   "mgmt_no": "121-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양재근린공원",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 311",
+   "addr_road": "서울특별시 서초구 동산로 35",
+   "road": null,
+   "spaces": 101,
+   "tel": "02-2155-7294",
+   "lat": 37.471894,
+   "lng": 127.0424265,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-026",
+   "mgmt_no": "121-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양재역",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 894,
+   "tel": "02-2290-6449",
+   "lat": 37.4836851,
+   "lng": 127.0341178,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 250000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 250000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 250000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-027",
+   "mgmt_no": "121-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "언남문화체육센터",
+   "gu": "서초구",
+   "dong": "양재동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 양재동 309",
+   "addr_road": "서울특별시 서초구 동산로 13길 35",
+   "road": null,
+   "spaces": 190,
+   "tel": "02-2155-7294",
+   "lat": 37.4723312,
+   "lng": 127.0430088,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "1일 주차권 20,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 20000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 20000,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-028",
+   "mgmt_no": "121-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청계산근린광장",
+   "gu": "서초구",
+   "dong": "원지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 원지동 361-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "02-2155-7268",
+   "lat": 37.4458831,
+   "lng": 127.0568139,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "1일 주차권 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차권 요금을 받습니다 · 구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 6000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-029",
+   "mgmt_no": "121-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "잠원동 방음언덕형",
+   "gu": "서초구",
+   "dong": "잠원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 서초구 잠원동 10-33",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "02-2155-7287",
+   "lat": 37.5161854,
+   "lng": 127.0163843,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 150,
+    "unit_min": 5,
+    "unit_fee": 150,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 120000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "day": 0,
+     "monthly": 120000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s001",
+   "mgmt_no": "121-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동작대교(위)",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 반포동 1333-1 서울시 동작구 동작동 316-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "",
+   "lat": 37.505255,
+   "lng": 126.980127,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 720,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 720,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 720,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s002",
+   "mgmt_no": "121-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "반포복개천",
+   "gu": "서초구",
+   "dong": "반포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 반포동 57-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "02-2155-7287",
+   "lat": 37.5042121,
+   "lng": 127.0103346,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s003",
+   "mgmt_no": "121-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "방배가구거리",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 방배동 758-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "02-2155-7289",
+   "lat": 37.4955055,
+   "lng": 126.9887363,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s004",
+   "mgmt_no": "121-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "방배복개도로 제1지역",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 방배동 493-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 124,
+   "tel": "02-2155-7284",
+   "lat": 37.4780085,
+   "lng": 126.9826064,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s005",
+   "mgmt_no": "121-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "방배복개도로 제2지역",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 방배동 493-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 148,
+   "tel": "02-2155-7284",
+   "lat": 37.4830018,
+   "lng": 126.9825637,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s006",
+   "mgmt_no": "121-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "방배사이길",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 방배동 758-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "02-2155-7289",
+   "lat": 37.4955055,
+   "lng": 126.9887363,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s007",
+   "mgmt_no": "121-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "방배역",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 방배동 910-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2155-7289",
+   "lat": 37.4831582,
+   "lng": 126.9966972,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s008",
+   "mgmt_no": "121-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "방배중앙로",
+   "gu": "서초구",
+   "dong": "방배동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 방배동 760-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "02-2155-7289",
+   "lat": 37.4955026,
+   "lng": 126.9857983,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s009",
+   "mgmt_no": "121-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "법원입구도로",
+   "gu": "서초구",
+   "dong": "서초동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 서초동 1711-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "02-2155-7289",
+   "lat": 37.4937426,
+   "lng": 127.0108109,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "서초구",
+   "city_slug": "seocho"
+  },
+  {
+   "id": "seocho-s010",
+   "mgmt_no": "121-1-000032",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신원지하차도 상부도로",
+   "gu": "서초구",
+   "dong": "원지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 서초구 원지동 26-26",
+   "addr_road": "서울특별시 서초구 양재대로12길 일대",
+   "road": null,
+   "spaces": 45,
+   "tel": "02-2155-7287",
+   "lat": 37.45819382,
+   "lng": 127.0396269,
+   "base_date": "2026-10-16",
+   "manager": "서울특별시 서초구청",
+   "note": "",
+   "notice": "구영(서초구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 4,
+    "grade_label": "4급지",
+    "std_grade": 4,
+    "base_min": 5,
+    "base_fee": 100,
+    "unit_min": 5,
+    "unit_fee": 100,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 100,
+     "unit_min": 5,
+     "unit_fee": 100,
+     "day": 0,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "서초구",
+   "city_slug": "seocho"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 04:55",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 39,
+  "원자료_서초구행수": 39,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 29,
+  "노외_부설": {
+   "노외": 29
+  },
+  "노상_구간": 10,
+  "총_구획수": 4664,
+  "노상_구획수": 492,
+  "동별": {
+   "양재동": 9,
+   "반포동": 8,
+   "방배동": 5,
+   "서초동": 3,
+   "신원동": 2,
+   "원지동": 1,
+   "잠원동": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [
+   "반포천복개공영주차장: 지번주소에 법정동이 없어 도로명주소(사평대로 205)·명칭(반포천)을 근거로 반포동으로 두었습니다"
+  ],
+  "동_근거": {
+   "지번주소": 28,
+   "보정(도로명주소(사평대로 205)·명칭(반포천))": 1
+  },
+  "요금구분": {
+   "유료": 39
+  },
+  "요금_미상": [],
+  "유료_노상": 10,
+  "유료_노외": 29,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "법원입구도로: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "법원입구도로: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "방배중앙로: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "방배중앙로: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "반포복개천: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "반포천복개공영주차장: 1급지 기준 400원 ↔ 등록 550원",
+   "동작대교(위): 1급지 기준 400원 ↔ 등록 450원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 서초구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 별표1의2 감면(시행 2023-12-08 · 서울특별시서초구조례 제1529호(일부개정))",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "반포복개천",
+   "방배중앙로",
+   "법원입구도로"
+  ],
+  "무료개방_표기": [
+   "반포복개천",
+   "방배중앙로",
+   "법원입구도로"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 223,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "121-2-000002",
+   "121-2-000001",
+   "121-2-000003",
+   "121-1-000001"
+  ],
+  "전화번호_없음": 1,
+  "데이터기준일": [
+   "2026-05-15",
+   "2026-10-16"
+  ],
+  "공단만_등록": []
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 7,
+    "fee_min": 400,
+    "fee_max": 550,
+    "unit_label": "400~550원",
+    "hour": 4800,
+    "two_hour": 9600,
+    "month_min": 218000,
+    "month_max": 250000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 400
+   },
+   {
+    "grade": 2,
+    "lots": 11,
+    "fee_min": 250,
+    "fee_max": 250,
+    "unit_label": "250원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "month_min": 140000,
+    "month_max": 180000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 17,
+    "fee_min": 150,
+    "fee_max": 150,
+    "unit_label": "150원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "month_min": 120000,
+    "month_max": 120000,
+    "day_min": 20000,
+    "day_max": 20000,
+    "charter": 150
+   },
+   {
+    "grade": 4,
+    "lots": 4,
+    "fee_min": 100,
+    "fee_max": 100,
+    "unit_label": "100원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "month_min": 40000,
+    "month_max": 40000,
+    "day_min": 3000,
+    "day_max": 6000,
+    "charter": 100
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 24
+   },
+   {
+    "group": "09:00~21:00",
+    "count": 5
+   },
+   {
+    "group": "09:00~18:00",
+    "count": 3
+   },
+   {
+    "group": "10:00~23:00",
+    "count": 2
+   },
+   {
+    "group": "09:00~23:00",
+    "count": 1
+   },
+   {
+    "group": "등록 없음",
+    "count": 1
+   },
+   {
+    "group": "07:00~21:00",
+    "count": 1
+   },
+   {
+    "group": "12:00~21:00",
+    "count": 1
+   },
+   {
+    "group": "10:00~20:00",
+    "count": 1
+   }
+  ],
+  "notes": "서초구는 구영(서초구청 직영·위탁)과 시영(서울시설공단) 주차장이 섞여 있고, 조례 별표1의 5분당 요금은 1급지 400원·2급지 250원·3급지 150원·4급지 100원·5급지 50원입니다. 구영은 교대역동측(09:00~23:00)·내곡동(09:00~18:00)처럼 일부 주차장만 요금을 받는 시간을 두고 그 밖의 시간은 무료로 개방하며, 시영은 법정동 평균공시지가 변수를 곱합니다(반포천복개 550원·양재역·사당노외 400원·동작대교 450원). 월 정기권은 반기별 추첨제입니다",
+  "only_corp": [],
+  "corp": {
+   "paid": 39,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 10
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "1": 400,
+   "2": 250,
+   "3": 150,
+   "4": 100,
+   "5": 50
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 서초구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 별표1의2 감면(시행 2023-12-08 · 서울특별시서초구조례 제1529호(일부개정)) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "seocho",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "서초구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "국가유공 상이자, 고엽제후유증 환자, 참전유공자, 의상자, 독립유공자, 5·18민주 유공상이자, 장애인(표지 부착), 경로우대 대상자(서초구 거주 자가운전자) 80퍼센트"
+  },
+  {
+   "label": "경차·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경차(1,000cc 미만)와 저공해자동차(스티커 부착) 50퍼센트"
+  },
+  {
+   "label": "다둥이 2자녀 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "다둥이행복카드 2자녀 30퍼센트(3자녀 이상은 50퍼센트)"
+  },
+  {
+   "label": "다둥이 3자녀 이상 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다둥이행복카드 3자녀 이상 50퍼센트"
+  },
+  {
+   "label": "성실납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지를 부착한 차량 — 발행일부터 1년간 면제"
+  }
+ ],
+ "realtime": false
+}
