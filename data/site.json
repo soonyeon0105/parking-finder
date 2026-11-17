@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 16:07",
+  "generated_at": "2026-11-17 16:38",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -133,6 +133,12 @@
    {
     "city": "이천시",
     "slug": "icheon",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "안성시",
+    "slug": "anseong",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -1147,6 +1153,118 @@
     "fetched_at": "2026-11-17 15:20 (KST)",
     "note": "남천상가 공영주차장 지하 2층 보수공사(2026-11-23~12-14, 11-23~12-4 지하 2층 전면 폐쇄)를 확인해 카드에 적었다.",
     "city": "이천시"
+   },
+   {
+    "id": "ordinance",
+    "name": "안성시 주차장 설치 및 관리조례 [별표 1] 공영주차장 주차요금표",
+    "org": "안성시(교통정책과, 031-678-2812) · 안성시시설관리공단 공영주차팀(031-677-6262)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2115243&gubun=ELIS&conDatGubunCd=1",
+    "file": "anseong.law.go.kr_주차장조례_별표1_20261117.txt",
+    "sha256": "41ded2ee4e8d1c0cb4257f1b05fab2f2ab25b0885d2a522619a664053a173b9a",
+    "license": "자치법규(공개)",
+    "base_date": "공포 2026-03-13 · 경기도안성시조례 제2217호(일부개정) · 별표1 〈개정 2025.4.18.〉",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "노외 1급지 2시간까지 30분당 500원·2시간 초과 30분당 2,000원·1일 10,000원·월 정기권 100,000원, 2급지 200·1,000·6,000·60,000원, 3급지 200·1,000·5,000·40,000원, 노상 1급지 500·2,000·8,000·80,000원, 노상 2급지 200·1,000·4,000원(정기권 없음)을 별표/서식 HWP에서 읽었다. 30분 미만 무료(비고3), 1일·월 주차권을 단위요금으로 하는 상한(비고4), 노상 운영시간 하절기 08:00~20:00·동절기 09:00~19:00(비고5), 전통시장 인근 노상의 30분 미만 무료·일요일 무료 운영(비고6)도 함께 읽었다.",
+    "city": "안성시"
+   },
+   {
+    "id": "news_fee",
+    "name": "중앙신문 — 안성시, 공영주차장 무료시간 30분으로 확대·요금 체계 조정(2025.4.21 시행)",
+    "org": "중앙신문(2025-04-09 보도)",
+    "url": "http://www.joongang.tv/news/articleView.html?idxno=130621",
+    "file": "joongang.tv_안성시_주차요금_개정_20250521_20261117.txt",
+    "sha256": "aa8ffa3622340f4abdaa1063a4d9cfb9d9f9646d0e58ee3e85c38dc7533e2e6a",
+    "license": "언론 보도(참고용)",
+    "base_date": "2025-04-09",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 16:36 (KST)",
+    "note": "무료 주차시간을 10분에서 30분으로 넓히고, 2시간까지 30분당 500원·2시간 초과 30분당 2,000원으로 올리며 월 정기권을 60,000원에서 100,000원으로 인상한 개정안을 2025-04-21부터 적용한다는 것을 확인했다(대상 14개소 유료 노상·노외). 별표1 〈개정 2025.4.18.〉과 같은 내용이다.",
+    "city": "안성시"
+   },
+   {
+    "id": "corp_intro",
+    "name": "안성시시설관리공단 공영주차장 소개(운영현황·주차장 현황)",
+    "org": "안성시시설관리공단(031-672-1234)",
+    "url": "https://www.asimc.or.kr/portal/contents.do?mid=0104181600",
+    "file": "asimc.or.kr_공영주차장_소개_20261117.txt",
+    "sha256": "7e0f624336777377f6baffc4764ed54dd7d62889956ae309901f00ee1c850eca",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 13,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "공단이 안성시에서 위탁받아 운영하는 공영주차장 13곳(노외 12·노상 1, 1,053면)의 이름·주소·급지·면수를 확인했다 — 노외는 24시간, 노상(안성맞춤2구간, 서인동 121, 19면)은 평일 09:00~18:00·주말·공휴일 무료이고 모두 카드결제 전용이다.",
+    "city": "안성시"
+   },
+   {
+    "id": "corp_fee",
+    "name": "안성시시설관리공단 주차장 이용요금·주차장 주요감면 안내",
+    "org": "안성시시설관리공단(031-672-1234)",
+    "url": "https://www.asimc.or.kr/portal/contents.do?mid=0104181700",
+    "file": "asimc.or.kr_주차장_이용요금_20261117.txt",
+    "sha256": "4a90a30567c5c08414dff07540f8022c10f61e695058b8ed0261a82005772f4b",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "1급지(동·읍 단위) 30분 미만 무료·2시간까지 500원·2시간 초과 2,000원·1일 10,000원·월 100,000원, 2급지(면 단위) 200·1,000·6,000·60,000원, 3급지(공업지역) 200·1,000·5,000·40,000원과 감면표(100%·1시간 면제 후 50%·60%·50%·30%)를 조례 제3조의2와 대조했다.",
+    "city": "안성시"
+   },
+   {
+    "id": "corp_csv",
+    "name": "안성시시설관리공단_안성공영주차장정보(공공데이터포털 15156880)",
+    "org": "안성시시설관리공단 기획예산팀(070-8856-2339)",
+    "url": "https://www.data.go.kr/data/15156880/fileData.do",
+    "file": "data.go.kr_안성시시설관리공단_안성공영주차장정보_20261117.txt",
+    "sha256": "0c89fa955ef3b88765fc54db7a4cfdb1967dbbaae7d6565aee79ef80da9a6ce8",
+    "license": "이용허락범위 제한 없음",
+    "base_date": "2026-06-10",
+    "rows_total": 12,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "공단이 운영하는 노외 12곳의 급지·주차면수·운영시간·요금정보·기본 무료시간(30분 미만)·추가단위(30분)·1일 주차요금·결제방법을 확인해 표준데이터에 없는 5곳(안성맞춤공감센터·아양지구 제3·대덕면 광덕·원곡면·안성 제2산업단지)을 채웠다.",
+    "city": "안성시"
+   },
+   {
+    "id": "city_out",
+    "name": "안성시청 공영주차장 현황(노외)·주차요금 안내",
+    "org": "안성시청 교통정책과(031-678-2815)",
+    "url": "https://www.anseong.go.kr/depart/contents.do?mId=0302060100",
+    "file": "anseong.go.kr_공영주차장_노외_현황_20261117.txt",
+    "sha256": "54b255729616769607609c0b96e6412681feb403601d2531d18b939ba5472cb7",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 27,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "노외 공영주차장 27곳의 면수(계·주차대수·장애인·경차)·전기차 충전시설과 급지별 요금·감면표를 확인했다. 면수가 표준데이터와 다른 곳은 카드에 함께 적었다.",
+    "city": "안성시"
+   },
+   {
+    "id": "city_street",
+    "name": "안성시청 공영주차장 현황(노상)",
+    "org": "안성시청 교통정책과(031-678-2815)",
+    "url": "https://www.anseong.go.kr/depart/contents.do?mId=0302060200",
+    "file": "anseong.go.kr_공영주차장_노상_현황_20261117.txt",
+    "sha256": "a7f0d6ba293cab6d35c38a2c56e5f491dc9ecaa7e22344e2a4f089644bf81d72",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 17,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "노상 공영주차장 17곳의 위치와 면수를 확인해 표준데이터와 대조했다 — 혜산로(44면)는 표준데이터의 아양로로 보이고, 명륜천 주차장(68면)은 표준데이터에 없다. 안성맞춤대로1·2구간과 비룡로·고수1로는 면수가 다르다.",
+    "city": "안성시"
+   },
+   {
+    "id": "news_paid",
+    "name": "안성뉴스 — 안성맞춤2구간 노상공영주차장, 9월 1일부터 유료 운영",
+    "org": "안성뉴스(2026-08-26 보도)",
+    "url": "http://www.asns.co.kr/news/articleView.html?idxno=11974",
+    "file": "asns.co.kr_안성맞춤2구간_노상_유료운영_20261117.txt",
+    "sha256": "de07ac978c48a136da39a2a26d69a135ea44b4e087a7421c537dccca4efa1209",
+    "license": "언론 보도(참고용)",
+    "base_date": "2026-08-26",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 16:21 (KST)",
+    "note": "안성맞춤2구간 노상공영주차장(서인동 121)이 2026-09-01부터 유료로 바뀌어 평일 09:00~18:00 운영하고 주말·공휴일은 무료, 카드결제만 받는다는 것을 확인했다 — 표준데이터는 아직 무료·24시간으로 등록.",
+    "city": "안성시"
    }
   ]
  },
@@ -1175,7 +1293,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -1402,7 +1520,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1589,7 +1707,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -1783,7 +1901,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -1922,7 +2040,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -2109,7 +2227,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -2276,7 +2394,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -2495,7 +2613,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -2700,7 +2818,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -2934,7 +3052,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -3669,7 +3787,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -4032,7 +4150,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -4312,7 +4430,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4559,7 +4677,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -4838,7 +4956,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -5073,7 +5191,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 35,
     "원자료_하남시행수": 35,
@@ -5340,7 +5458,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 80,
     "원자료_군포시행수": 80,
@@ -5687,7 +5805,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 28,
     "원자료_광명시행수": 28,
@@ -5908,7 +6026,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 15,
     "원자료_구리시행수": 15,
@@ -6132,7 +6250,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 44,
     "원자료_오산시행수": 44,
@@ -6595,7 +6713,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 16:07",
+    "generated_at": "2026-11-17 16:38",
     "원자료_전국행수": 18994,
     "원자료_행수": 115,
     "원자료_이천시행수": 115,
@@ -7360,6 +7478,372 @@
      "corp_total": "노상 유인 31구간·노외 10개소 2,137면(공단 FAQ)"
     },
     "basis": "「이천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표(공포 2025-05-16 · 경기도이천시조례 제2224호(일부개정) · 별표1 〈개정 2025.5.16.〉) · 이천스마트주차포털 주차장 이용안내(2026-11-17) · 표준데이터 등록값(2026-10-13) 대조"
+   }
+  },
+  {
+   "city": "안성시",
+   "slug": "anseong",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "안성시",
+     "slug": "anseong"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 16:38",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 52,
+    "원자료_안성시행수": 52,
+    "제외_행수": 0,
+    "제외_행": [],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 40,
+    "노외_부설": {
+     "노외": 40
+    },
+    "노상_구간": 17,
+    "총_구획수": 2348,
+    "노상_구획수": 1158,
+    "동별": {
+     "공도읍": 8,
+     "당왕동": 3,
+     "대덕면": 3,
+     "석정동": 3,
+     "옥산동": 3,
+     "금산동": 2,
+     "미양면": 2,
+     "서운면": 2,
+     "일죽면": 2,
+     "가사동": 1,
+     "낙원동": 1,
+     "도기동": 1,
+     "동본동": 1,
+     "명륜동": 1,
+     "봉남동": 1,
+     "봉산동": 1,
+     "서인동": 1,
+     "아양동": 1,
+     "옥천동": 1,
+     "원곡면": 1,
+     "죽산면": 1
+    },
+    "동수": 21,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 35,
+     "공단 안내": 5
+    },
+    "요금구분": {
+     "무료": 42,
+     "유료": 15
+    },
+    "요금_미상": [],
+    "급지별": {
+     "1": 11,
+     "2": 3,
+     "3": 1
+    },
+    "표준데이터_급지": {
+     "1": 9,
+     "2": 1
+    },
+    "운영시간_보정": [
+     "안성맞춤대로2구간: 표준데이터 24시간·무료 등록 → 공단 안내 2026-09-01부터 유료(평일 09:00~18:00, 토·일·공휴일 무료, 카드결제)"
+    ],
+    "면수_차이": [
+     "석정동공영주차장(건축물식): 표준데이터 54면 ↔ 공단 47면 ↔ 시 홈페이지 53면",
+     "대덕 내리 공영주차장: 표준데이터 48면 ↔ 공단 38면",
+     "금산동 공영주차장: 표준데이터 19면 ↔ 공단 18면 ↔ 시 홈페이지 18면",
+     "공도저류지 공영주차장: 표준데이터 201면 ↔ 공단 199면",
+     "동본동공영주차장(건축물식): 표준데이터 87면 ↔ 공단 70면 ↔ 시 홈페이지 76면",
+     "서인동공영주차장(건축물식): 표준데이터 74면 ↔ 공단 68면 ↔ 시 홈페이지 74면"
+    ],
+    "특기사항_보정": [
+     "석정동공영주차장(건축물식): 표준데이터 결제방법 ‘현금’ ↔ 공단 안내 카드결제 전용",
+     "대덕 내리 공영주차장: 표준데이터 결제방법 ‘현금’ ↔ 공단 안내 카드결제 전용",
+     "금산동 공영주차장: 표준데이터 결제방법 ‘현금’ ↔ 공단 안내 카드결제 전용",
+     "공도저류지 공영주차장: 표준데이터 결제방법 ‘현금’ ↔ 공단 안내 카드결제 전용",
+     "동본동공영주차장(건축물식): 표준데이터 결제방법 ‘현금’ ↔ 공단 안내 카드결제 전용",
+     "서인동공영주차장(건축물식): 표준데이터 결제방법 ‘현금’ ↔ 공단 안내 카드결제 전용"
+    ],
+    "요금구분_보정": [
+     "아양지구 제2공영주차장: 표준데이터 요금정보 ‘무료’ ↔ 안성시시설관리공단이 카드결제 전용 유료로 운영(아양지구 제2공영주차장) — 유료로 바로잡음",
+     "안성맞춤대로2구간: 표준데이터 요금정보 ‘무료’ ↔ 안성시시설관리공단이 카드결제 전용 유료로 운영(안성맞춤2구간 노상공영주차장) — 유료로 바로잡음"
+    ],
+    "노상_자료차이": [
+     "혜산로 노상주차장(시 홈페이지, 44면) ↔ 아양로(표준데이터, 아양동 384, 44면) — 같은 구간으로 보임",
+     "명륜천 주차장(시 홈페이지, 68면, 장안면옥~보룡약국)은 표준데이터에 없음",
+     "안성맞춤대로1구간 22면(표준) ↔ 19면(시) · 안성맞춤대로2구간 19면(표준) ↔ 23면(시) · 비룡로 27면(표준) ↔ 19면(시) · 고수1로 35면(표준) ↔ 32면(시)"
+    ],
+    "감면_출처": "「안성시 주차장 설치 및 관리조례」 제3조의2 · 안성시청 주차요금 면제표 · 안성시시설관리공단 주차장 이용요금 안내",
+    "무료시간_출처": "조례 별표1 비고3(주차시간 30분 미만 무료)",
+    "일요일_무료표기": [
+     "안성맞춤대로2구간"
+    ],
+    "무료개방_표기": [
+     "안성맞춤대로2구간"
+    ],
+    "무료_요금구분": 42,
+    "평균_기본요금": 420,
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [
+     "안성맞춤공감센터 공영주차장",
+     "대덕면 광덕 공영주차장",
+     "안성 제2산업단지 공영주차장",
+     "아양지구 제3공영주차장",
+     "원곡면 공영주차장"
+    ],
+    "주소_없음": [],
+    "이름중복": [],
+    "관리번호중복": [],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-06-10",
+     "2026-10-15"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "경차 60%",
+     "rate": 0.6,
+     "exempt_min": 0,
+     "note": "경형자동차(배기량 1,000cc 미만) — 조례 제3조의2④"
+    },
+    {
+     "label": "경증장애인·저공해차 등 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "장애 정도가 심하지 않은 장애인, 저공해자동차 표지 부착 차량(전기차는 최초 2시간 전액 면제 가능), 우수자원봉사자(경기도·안성시), 병역명문가 예우대상자와 가족, 두 자녀 이상 가정 경기아이플러스카드 소지자"
+    },
+    {
+     "label": "중증장애인·국가유공자 등 1시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 60,
+     "note": "장애 정도가 심한 장애인, 국가유공자·상이자, 고엽제후유증환자, 5·18민주유공자 — 본인 소유 차량을 직접 운전·동승한 경우 최초 1시간 면제, 그 뒤 50%"
+    },
+    {
+     "label": "차량부제·함께 타기 30%",
+     "rate": 0.3,
+     "exempt_min": 0,
+     "note": "자가용 승용차로 차량부제 운행·함께 타기 참여 스티커를 부착한 차량"
+    },
+    {
+     "label": "긴급·모범납세자 등 100% 면제",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "긴급자동차, 모범납세자·경기도 유공납세자·성실납세자 주차스티커 부착 차량(스티커 유효기간에 한정)"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "anseong_grade",
+    "unit_min": 30,
+    "base_min": 30,
+    "free_min": 30,
+    "applies": "공포 2026-03-13 · 경기도안성시조례 제2217호(일부개정) · 별표1 〈개정 2025.4.18.〉",
+    "off": [
+     {
+      "grade": 1,
+      "where": "동·읍의 도시계획 지역",
+      "tier1": 500,
+      "tier2": 2000,
+      "day": 10000,
+      "month": 100000,
+      "lots": 8
+     },
+     {
+      "grade": 2,
+      "where": "1급지 외의 지역(면)",
+      "tier1": 200,
+      "tier2": 1000,
+      "day": 6000,
+      "month": 60000,
+      "lots": 3
+     },
+     {
+      "grade": 3,
+      "where": "공업지역 또는 공업지역에 접한 지역",
+      "tier1": 200,
+      "tier2": 1000,
+      "day": 5000,
+      "month": 40000,
+      "lots": 1
+     }
+    ],
+    "street": [
+     {
+      "grade": 1,
+      "tier1": 500,
+      "tier2": 2000,
+      "day": 8000,
+      "month": 80000
+     },
+     {
+      "grade": 2,
+      "tier1": 200,
+      "tier2": 1000,
+      "day": 4000,
+      "month": null
+     }
+    ],
+    "lots": [
+     {
+      "name": "공도저류지 공영주차장",
+      "dong": "공도읍",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "금산동 공영주차장",
+      "dong": "금산동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "안성맞춤공감센터 공영주차장",
+      "dong": "낙원동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "대덕 내리 공영주차장",
+      "dong": "대덕면",
+      "grade": 2,
+      "free": 30,
+      "unit": 1000,
+      "day": 6000,
+      "month": 60000
+     },
+     {
+      "name": "대덕면 광덕 공영주차장",
+      "dong": "대덕면",
+      "grade": 2,
+      "free": 30,
+      "unit": 1000,
+      "day": 6000,
+      "month": 60000
+     },
+     {
+      "name": "동본동공영주차장(건축물식)",
+      "dong": "동본동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "안성 제2산업단지 공영주차장",
+      "dong": "미양면",
+      "grade": 3,
+      "free": 30,
+      "unit": 1000,
+      "day": 5000,
+      "month": 40000
+     },
+     {
+      "name": "서인동공영주차장(건축물식)",
+      "dong": "서인동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "석정동공영주차장(건축물식)",
+      "dong": "석정동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "아양지구 제2공영주차장",
+      "dong": "옥산동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "아양지구 제3공영주차장",
+      "dong": "옥산동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 10000,
+      "month": 100000
+     },
+     {
+      "name": "원곡면 공영주차장",
+      "dong": "원곡면",
+      "grade": 2,
+      "free": 30,
+      "unit": 1000,
+      "day": 6000,
+      "month": 60000
+     },
+     {
+      "name": "신시장로",
+      "dong": "서인동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 8000,
+      "month": 80000
+     },
+     {
+      "name": "안성맞춤대로2구간",
+      "dong": "서인동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 8000,
+      "month": 80000
+     },
+     {
+      "name": "장기로1구간",
+      "dong": "인지동",
+      "grade": 1,
+      "free": 30,
+      "unit": 2000,
+      "day": 8000,
+      "month": 80000
+     }
+    ],
+    "corp": {
+     "out": 12,
+     "st": 3,
+     "st_spaces": 85,
+     "free": 42,
+     "free_spaces": 2344,
+     "corp_total": "공영주차장 13개소 1,053면(노외 12·노상 1, 공단 운영현황)"
+    },
+    "basis": "「안성시 주차장 설치 및 관리조례」 [별표 1] 공영주차장 주차요금표(공포 2026-03-13 · 경기도안성시조례 제2217호(일부개정) · 별표1 〈개정 2025.4.18.〉) · 안성시시설관리공단 주차장 이용요금 안내(2026-11-17) · 표준데이터 등록값(2026-10-15) 대조"
    }
   }
  ],
@@ -232361,6 +232845,6568 @@
    "price_key": null,
    "city": "이천시",
    "city_slug": "icheon"
+  },
+  {
+   "id": "aseo-001",
+   "mgmt_no": "231-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안성종합터미널",
+   "gu": "안성시",
+   "dong": "가사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 가사동 181-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-678-2815",
+   "lat": 37.01256301,
+   "lng": 127.2912582,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-002",
+   "mgmt_no": "231-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공도",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 승두리 65-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "031-678-2815",
+   "lat": 36.99765633,
+   "lng": 127.1686101,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-003",
+   "mgmt_no": "231-4-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공도임시(승두리)",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 승두리 60-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "031-678-2815",
+   "lat": 36.99871514,
+   "lng": 127.1709107,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-004",
+   "mgmt_no": "231-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공도저류지 공영주차장",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 만정리 819",
+   "addr_road": "",
+   "road": null,
+   "spaces": 201,
+   "tel": "031-678-2815",
+   "lat": 36.999301,
+   "lng": 127.168714,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단 안내는 199면입니다(표준데이터 등록 201면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 10000,
+     "monthly": 100000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-005",
+   "mgmt_no": "231-4-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공도제2임시(만정리)",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 만정리 816-3",
+   "addr_road": "경기도 안성시 공도읍 공도3로 10-8",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-678-2815",
+   "lat": 37.00060233,
+   "lng": 127.1715205,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-006",
+   "mgmt_no": "231-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "승두리 2공영주차장",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 승두리 895",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-678-2815",
+   "lat": 36.99675263,
+   "lng": 127.1694986,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-007",
+   "mgmt_no": "231-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "승두리 사곡 공영주차장",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 승두리 61-4",
+   "addr_road": "경기도 안성시 공도읍 고무다리길 13-11",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-678-2815",
+   "lat": 36.99852677,
+   "lng": 127.1703808,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-008",
+   "mgmt_no": "231-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안성맞춤가족공원",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 마정리 112-52",
+   "addr_road": "",
+   "road": null,
+   "spaces": 130,
+   "tel": "031-678-2815",
+   "lat": 37.01417739,
+   "lng": 127.2031143,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-009",
+   "mgmt_no": "231-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양기리 공영주차장",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 공도읍 양기리 619",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-678-2815",
+   "lat": 37.00561589,
+   "lng": 127.1958497,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-010",
+   "mgmt_no": "231-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산동",
+   "gu": "안성시",
+   "dong": "금산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 금산동 191-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-678-2815",
+   "lat": 37.0149446,
+   "lng": 127.2697082,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-011",
+   "mgmt_no": "231-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산동 공영주차장",
+   "gu": "안성시",
+   "dong": "금산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 금산동 8",
+   "addr_road": "경기도 안성시 안성맞춤대로 1108",
+   "road": null,
+   "spaces": 19,
+   "tel": "031-678-2815",
+   "lat": 37.01167602,
+   "lng": 127.2694954,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단 안내는 18면입니다(표준데이터 등록 19면, 시 홈페이지 18면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 10000,
+     "monthly": 100000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-012",
+   "mgmt_no": "",
+   "src": "안성시시설관리공단",
+   "list_mode": "card",
+   "name": "안성맞춤공감센터 공영주차장",
+   "gu": "안성시",
+   "dong": "낙원동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 낙원동 68-1",
+   "addr_road": "경기도 안성시 장기로 107",
+   "road": null,
+   "spaces": 67,
+   "tel": "031-677-6262",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-06-10",
+   "manager": "안성시시설관리공단",
+   "note": "",
+   "notice": "안성시시설관리공단이 운영하는 주차장으로 표준데이터에는 등록되어 있지 않습니다 — 공단 공영주차장 소개와 공공데이터포털 ‘안성시시설관리공단_안성공영주차장정보’(12행, 2026-06-10)의 급지·면수·요금입니다. 원자료에 좌표가 없어 지도는 이름·주소 검색으로 엽니다 · 면수는 부설주차장을 포함한 값입니다(일반62·장애인2·전기차2·임산부1)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-013",
+   "mgmt_no": "231-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "당왕동",
+   "gu": "안성시",
+   "dong": "당왕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 당왕동 553-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-678-2815",
+   "lat": 37.01392374,
+   "lng": 127.2631506,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-014",
+   "mgmt_no": "231-4-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "당왕동(쌍용아파트상가)",
+   "gu": "안성시",
+   "dong": "당왕동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 당왕동 545",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-678-2815",
+   "lat": 37.0144598,
+   "lng": 127.2653201,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-015",
+   "mgmt_no": "231-4-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "당왕동(제일교회)",
+   "gu": "안성시",
+   "dong": "당왕동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 당왕동 553-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-678-2815",
+   "lat": 37.01396571,
+   "lng": 127.262802,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-016",
+   "mgmt_no": "231-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대덕 내리 공영주차장",
+   "gu": "안성시",
+   "dong": "대덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 대덕면 내리 681-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-678-2815",
+   "lat": 37.002933,
+   "lng": 127.2244008,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단 안내는 38면입니다(표준데이터 등록 48면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 30,
+    "unit_fee": 1000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 200원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 30,
+     "unit_fee": 1000,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-017",
+   "mgmt_no": "",
+   "src": "안성시시설관리공단",
+   "list_mode": "card",
+   "name": "대덕면 광덕 공영주차장",
+   "gu": "안성시",
+   "dong": "대덕면",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 대덕면 내리 322-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "031-677-6262",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-06-10",
+   "manager": "안성시시설관리공단",
+   "note": "",
+   "notice": "안성시시설관리공단이 운영하는 주차장으로 표준데이터에는 등록되어 있지 않습니다 — 공단 공영주차장 소개와 공공데이터포털 ‘안성시시설관리공단_안성공영주차장정보’(12행, 2026-06-10)의 급지·면수·요금입니다. 원자료에 좌표가 없어 지도는 이름·주소 검색으로 엽니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 30,
+    "unit_fee": 1000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 200원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-018",
+   "mgmt_no": "231-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙대",
+   "gu": "안성시",
+   "dong": "대덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 대덕면 내리 407",
+   "addr_road": "",
+   "road": null,
+   "spaces": 131,
+   "tel": "031-678-2815",
+   "lat": 37.01204394,
+   "lng": 127.2258101,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-019",
+   "mgmt_no": "231-4-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도기동임시",
+   "gu": "안성시",
+   "dong": "도기동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 도기동 138",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "031-678-2815",
+   "lat": 37.00373427,
+   "lng": 127.2659615,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-020",
+   "mgmt_no": "231-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동본동공영주차장(건축물식)",
+   "gu": "안성시",
+   "dong": "동본동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 동본동 21",
+   "addr_road": "경기도 안성시 중앙2길 42",
+   "road": null,
+   "spaces": 87,
+   "tel": "031-678-2815",
+   "lat": 37.00789048,
+   "lng": 127.2719562,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단 안내는 70면입니다(표준데이터 등록 87면, 시 홈페이지 76면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 10000,
+     "monthly": 100000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-021",
+   "mgmt_no": "231-4-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명륜도로(중앙3-3호선)",
+   "gu": "안성시",
+   "dong": "명륜동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 명륜동 157-2",
+   "addr_road": "경기도 안성시 명륜길 33-2",
+   "road": null,
+   "spaces": 4,
+   "tel": "031-678-2815",
+   "lat": 37.01421655,
+   "lng": 127.2741274,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-022",
+   "mgmt_no": "231-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개정 일반산업단지",
+   "gu": "안성시",
+   "dong": "미양면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 미양면 개정리 766",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-678-2815",
+   "lat": 36.95820534,
+   "lng": 127.1983532,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-023",
+   "mgmt_no": "",
+   "src": "안성시시설관리공단",
+   "list_mode": "card",
+   "name": "안성 제2산업단지 공영주차장",
+   "gu": "안성시",
+   "dong": "미양면",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 미양면 계륵리 80-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 288,
+   "tel": "031-677-6262",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-06-10",
+   "manager": "안성시시설관리공단",
+   "note": "",
+   "notice": "안성시시설관리공단이 운영하는 주차장으로 표준데이터에는 등록되어 있지 않습니다 — 공단 공영주차장 소개와 공공데이터포털 ‘안성시시설관리공단_안성공영주차장정보’(12행, 2026-06-10)의 급지·면수·요금입니다. 원자료에 좌표가 없어 지도는 이름·주소 검색으로 엽니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 30,
+    "unit_fee": 1000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 200원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 3급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-024",
+   "mgmt_no": "231-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉남동",
+   "gu": "안성시",
+   "dong": "봉남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 봉남동 9-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "031-678-2815",
+   "lat": 37.00552789,
+   "lng": 127.2758442,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-025",
+   "mgmt_no": "231-4-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉산동임시",
+   "gu": "안성시",
+   "dong": "봉산동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 봉산동 47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-678-2815",
+   "lat": 37.00610779,
+   "lng": 127.2776889,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-026",
+   "mgmt_no": "231-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서운공영주차장",
+   "gu": "안성시",
+   "dong": "서운면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 서운면 신촌리 12-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-678-2815",
+   "lat": 36.94268926,
+   "lng": 127.2585401,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-027",
+   "mgmt_no": "231-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3산업단지",
+   "gu": "안성시",
+   "dong": "서운면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 서운면 신능리 223",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "031-678-2815",
+   "lat": 36.97350615,
+   "lng": 127.2671456,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-028",
+   "mgmt_no": "231-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서인동공영주차장(건축물식)",
+   "gu": "안성시",
+   "dong": "서인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 서인동 47",
+   "addr_road": "경기도 안성시 장기로69번길 31",
+   "road": null,
+   "spaces": 74,
+   "tel": "031-678-2815",
+   "lat": 37.00571917,
+   "lng": 127.2702675,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단 안내는 68면입니다(표준데이터 등록 74면, 시 홈페이지 74면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 10000,
+     "monthly": 100000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-029",
+   "mgmt_no": "231-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비룡초교 정문",
+   "gu": "안성시",
+   "dong": "석정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 석정동 332-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "031-678-2815",
+   "lat": 37.01428231,
+   "lng": 127.2618573,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-030",
+   "mgmt_no": "231-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석정동공영주차장(건축물식)",
+   "gu": "안성시",
+   "dong": "석정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 석정동 11-1",
+   "addr_road": "경기도 안성시 중앙로367번길 7",
+   "road": null,
+   "spaces": 54,
+   "tel": "031-678-2815",
+   "lat": 37.00830239,
+   "lng": 127.2675126,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단 안내는 47면입니다(표준데이터 등록 54면, 시 홈페이지 53면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 10000,
+     "monthly": 100000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-031",
+   "mgmt_no": "231-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한경대 노외",
+   "gu": "안성시",
+   "dong": "석정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 석정동 338-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-678-2815",
+   "lat": 37.00979318,
+   "lng": 127.2656528,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-032",
+   "mgmt_no": "231-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아양복개천",
+   "gu": "안성시",
+   "dong": "아양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 아양동 387",
+   "addr_road": "경기도 안성시 내혜홀3길 26",
+   "road": null,
+   "spaces": 81,
+   "tel": "031-678-2815",
+   "lat": 37.005244,
+   "lng": 127.2650484,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-033",
+   "mgmt_no": "231-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아양지구 제2공영주차장",
+   "gu": "안성시",
+   "dong": "옥산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 옥산동 546",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "031-678-2815",
+   "lat": 37.00794972,
+   "lng": 127.2522755,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-034",
+   "mgmt_no": "",
+   "src": "안성시시설관리공단",
+   "list_mode": "card",
+   "name": "아양지구 제3공영주차장",
+   "gu": "안성시",
+   "dong": "옥산동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 옥산동 596",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "031-677-6262",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-06-10",
+   "manager": "안성시시설관리공단",
+   "note": "",
+   "notice": "안성시시설관리공단이 운영하는 주차장으로 표준데이터에는 등록되어 있지 않습니다 — 공단 공영주차장 소개와 공공데이터포털 ‘안성시시설관리공단_안성공영주차장정보’(12행, 2026-06-10)의 급지·면수·요금입니다. 원자료에 좌표가 없어 지도는 이름·주소 검색으로 엽니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-035",
+   "mgmt_no": "231-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아양지구 제4공영주차장",
+   "gu": "안성시",
+   "dong": "옥산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 옥산동 587",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-678-2815",
+   "lat": 37.00307734,
+   "lng": 127.253496,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-036",
+   "mgmt_no": "231-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안성천둔치",
+   "gu": "안성시",
+   "dong": "옥천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 옥천동 201",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "031-678-2815",
+   "lat": 37.00301261,
+   "lng": 127.2760998,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-037",
+   "mgmt_no": "",
+   "src": "안성시시설관리공단",
+   "list_mode": "card",
+   "name": "원곡면 공영주차장",
+   "gu": "안성시",
+   "dong": "원곡면",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 원곡면 외가천리 208",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "031-677-6262",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-06-10",
+   "manager": "안성시시설관리공단",
+   "note": "",
+   "notice": "안성시시설관리공단이 운영하는 주차장으로 표준데이터에는 등록되어 있지 않습니다 — 공단 공영주차장 소개와 공공데이터포털 ‘안성시시설관리공단_안성공영주차장정보’(12행, 2026-06-10)의 급지·면수·요금입니다. 원자료에 좌표가 없어 지도는 이름·주소 검색으로 엽니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 30,
+    "unit_fee": 1000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 200원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노외 2급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:59"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-038",
+   "mgmt_no": "231-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월정산업단지",
+   "gu": "안성시",
+   "dong": "일죽면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 일죽면 월정리 1839",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-678-2815",
+   "lat": 37.08581056,
+   "lng": 127.4579104,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-039",
+   "mgmt_no": "231-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일죽면",
+   "gu": "안성시",
+   "dong": "일죽면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 일죽면 송천리 31",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "031-678-2815",
+   "lat": 37.09432992,
+   "lng": 127.4778572,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-040",
+   "mgmt_no": "231-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽산면",
+   "gu": "안성시",
+   "dong": "죽산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 안성시 죽산면 죽산리 506-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "031-678-2815",
+   "lat": 37.07447023,
+   "lng": 127.4237244,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s041",
+   "mgmt_no": "231-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "공도도서관",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 공도읍 만정리 839",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "031-678-2815",
+   "lat": 37.0026005,
+   "lng": 127.1717745,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s042",
+   "mgmt_no": "231-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "공도일방통행로",
+   "gu": "안성시",
+   "dong": "공도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 공도읍 만정리 865",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "031-678-2815",
+   "lat": 37.00041522,
+   "lng": 127.1699711,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s043",
+   "mgmt_no": "231-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "진안로",
+   "gu": "안성시",
+   "dong": "금광면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 금광면 금광리 145-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-678-2815",
+   "lat": 36.99791041,
+   "lng": 127.3226237,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s044",
+   "mgmt_no": "231-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고수1로",
+   "gu": "안성시",
+   "dong": "당왕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 당왕동 555",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-678-2815",
+   "lat": 37.01485005,
+   "lng": 127.2540104,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s045",
+   "mgmt_no": "231-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남파로",
+   "gu": "안성시",
+   "dong": "명륜동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 명륜동 산10-12",
+   "addr_road": "경기도 안성시 남파로 250-4",
+   "road": null,
+   "spaces": 55,
+   "tel": "031-678-2815",
+   "lat": 37.01291423,
+   "lng": 127.2761804,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s046",
+   "mgmt_no": "231-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제2산업단지",
+   "gu": "안성시",
+   "dong": "미양면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 미양면 계륵리 280",
+   "addr_road": "",
+   "road": null,
+   "spaces": 270,
+   "tel": "031-678-2815",
+   "lat": 36.980012,
+   "lng": 127.2547812,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s047",
+   "mgmt_no": "231-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남파로 1구간",
+   "gu": "안성시",
+   "dong": "봉남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 봉남동 352",
+   "addr_road": "경기도 안성시 남파로 286",
+   "road": null,
+   "spaces": 128,
+   "tel": "031-678-2815",
+   "lat": 37.00964931,
+   "lng": 127.2766853,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s048",
+   "mgmt_no": "231-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남파로2구간",
+   "gu": "안성시",
+   "dong": "봉남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 봉남동 352",
+   "addr_road": "경기도 안성시 남파로 286",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-678-2815",
+   "lat": 37.00963185,
+   "lng": 127.2766853,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s049",
+   "mgmt_no": "231-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장기로2구간",
+   "gu": "안성시",
+   "dong": "봉산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 봉산동 92",
+   "addr_road": "",
+   "road": null,
+   "spaces": 151,
+   "tel": "031-678-2815",
+   "lat": 37.00533624,
+   "lng": 127.2795565,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s050",
+   "mgmt_no": "231-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로",
+   "gu": "안성시",
+   "dong": "봉산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 봉산동 92",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-678-2815",
+   "lat": 37.00533624,
+   "lng": 127.2795565,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s051",
+   "mgmt_no": "231-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신시장로",
+   "gu": "안성시",
+   "dong": "서인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 서인동 88",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-678-2815",
+   "lat": 37.00740072,
+   "lng": 127.2686796,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "조례 별표1 비고5는 노상주차장 운영시간을 하절기(4~10월) 08:00~20:00·동절기(11~3월) 09:00~19:00으로 정하고, 시장이 주차수요·주민편익을 위해 주차장별로 조정할 수 있습니다 — 표준데이터에는 24시간으로 등록되어 있어 현장 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s052",
+   "mgmt_no": "231-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "안성맞춤대로2구간",
+   "gu": "안성시",
+   "dong": "서인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 서인동 121",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "031-678-2815",
+   "lat": 37.00659935,
+   "lng": 127.2692144,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "안성시시설관리공단이 2026-09-01부터 유료로 운영합니다 — 평일 09:00~18:00에만 요금을 받고 토요일·일요일·공휴일은 무료이며, 현금 없이 카드로만 결제합니다(공단 홈페이지·안성뉴스 2026-08-26). 공단은 이 구간을 ‘안성맞춤2구간 노상공영주차장’으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s053",
+   "mgmt_no": "231-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대학로",
+   "gu": "안성시",
+   "dong": "석정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 석정동 339",
+   "addr_road": "경기도 안성시 중앙로 335",
+   "road": null,
+   "spaces": 155,
+   "tel": "031-678-2815",
+   "lat": 37.00914729,
+   "lng": 127.2644642,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s054",
+   "mgmt_no": "231-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "비룡로",
+   "gu": "안성시",
+   "dong": "석정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 석정동 333",
+   "addr_road": "경기도 안성시 비룡5길 14",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-678-2815",
+   "lat": 37.01379931,
+   "lng": 127.2617296,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s055",
+   "mgmt_no": "231-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "아양로",
+   "gu": "안성시",
+   "dong": "아양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 아양동 384",
+   "addr_road": "경기도 안성시 석정2길 5",
+   "road": null,
+   "spaces": 44,
+   "tel": "031-678-2815",
+   "lat": 37.00769467,
+   "lng": 127.2606748,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s056",
+   "mgmt_no": "231-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "안성맞춤대로1구간",
+   "gu": "안성시",
+   "dong": "연지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 연지동 146-3",
+   "addr_road": "경기도 안성시 안성맞춤대로 1079",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-678-2815",
+   "lat": 37.00985577,
+   "lng": 127.2699561,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "안성시",
+   "city_slug": "anseong"
+  },
+  {
+   "id": "aseo-s057",
+   "mgmt_no": "231-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장기로1구간",
+   "gu": "안성시",
+   "dong": "인지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 안성시 인지동 352-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "031-678-2815",
+   "lat": 37.00587521,
+   "lng": 127.2675712,
+   "base_date": "2026-10-15",
+   "manager": "경기도 안성시청",
+   "note": "",
+   "notice": "조례 별표1 비고5는 노상주차장 운영시간을 하절기(4~10월) 08:00~20:00·동절기(11~3월) 09:00~19:00으로 정하고, 시장이 주차수요·주민편익을 위해 주차장별로 조정할 수 있습니다 — 표준데이터에는 24시간으로 등록되어 있어 현장 안내를 확인하세요",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 2000,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 2000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원",
+    "free_min": 30,
+    "deduct_min": 30,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권(비고4)",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 80000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「안성시 주차장 설치 및 관리조례」 별표1 노상 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 2000,
+     "day": 8000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "안성시",
+   "city_slug": "anseong"
   }
  ]
 }

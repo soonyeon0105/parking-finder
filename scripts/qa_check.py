@@ -584,6 +584,15 @@ _others6 = set()
 for _k, _v in MIX.items():
     _others6.update(t for t in _v if t not in IC_TOKENS)
 MIX["icheon"] = tuple(sorted(_others6))
+# 안성시도 자치구가 없다 — 다른 도시 페이지에 안성 자료가 섞이면 실패.
+#   (‘안성시’ ‘안성시시설관리공단’처럼 시 단위 이름과 안성맞춤·공도저류지로 좁힌다.)
+AS_TOKENS = ("안성시", "안성시시설관리공단", "안성맞춤", "공도저류지", "아양지구")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + AS_TOKENS
+_others7 = set()
+for _k, _v in MIX.items():
+    _others7.update(t for t in _v if t not in AS_TOKENS)
+MIX["anseong"] = tuple(sorted(_others7))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -2504,6 +2513,147 @@ for _slug, _n in (("changjeon-dong", 5), ("gwango-dong", 4), ("jungri-dong", 3),
         continue
     elif _p.read_text().count('class="card lot') != _n:
         fails.append(f"이천시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+
+# ---------------------------------------------------------------- 안성시 (T-03 Phase 21)
+# 「안성시 주차장 설치 및 관리조례」 [별표 1](공포 2026-03-13, 경기도안성시조례 제2217호 · 별표1 개정
+# 2025-04-18)과 안성시시설관리공단 이용요금 안내(2026-11-17): 30분 미만 무료 뒤 2시간까지 30분당
+# 노외 1급지 500원·2급지·3급지 200원, 2시간 초과 30분당 1급지 2,000원·2급지·3급지 1,000원.
+# 1일 주차권 노외 1급지 10,000원·2급지 6,000원·3급지 5,000원, 노상 1급지 8,000원·2급지 4,000원.
+as_cards = [l for l in LOTS if l.get("city") == "안성시" and l.get("list_mode") == "card"]
+as_paid = [l for l in as_cards if l["fee"]["type"] == "유료"]
+as_free = [l for l in as_cards if l["fee"]["type"] == "무료"]
+as_by = {l["name"]: l for l in as_cards}
+if not as_cards:
+    fails.append("안성시 카드 데이터가 없음")
+# 구성: 카드 40곳(유료 12·무료 28) · 구획 2,348면 · 노상 17구간 1,158면
+if len(as_cards) != 40 or len(as_paid) != 12 or len(as_free) != 28:
+    fails.append(f"안성시 카드 구성이 다름: 카드 {len(as_cards)} · 유료 {len(as_paid)} · 무료 {len(as_free)}")
+if sum(l["spaces"] or 0 for l in as_cards) != 2348:
+    fails.append(f"안성시 구획 합계가 다름: {sum(l['spaces'] or 0 for l in as_cards)}")
+as_street = [l for l in LOTS if l.get("city") == "안성시" and l.get("list_mode") == "street"]
+if len(as_street) != 17 or sum(l["spaces"] or 0 for l in as_street) != 1158:
+    fails.append(f"안성시 노상 구간이 다름: {len(as_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in as_street)}면")
+if len({l.get("dong") for l in as_cards}) != 21 or any(not l.get("dong") for l in as_cards):
+    fails.append(f"안성시 동 구성이 다름: {sorted({l.get('dong') for l in as_cards})}")
+_as_dup = [k for k, v in Counter(l["name"] for l in as_cards).items() if v > 1]
+if _as_dup:
+    fails.append(f"안성시 카드 이름 중복: {_as_dup[:3]}")
+# 급지·요금 — 별표1 값(30분 미만 무료는 deduct_min 으로 계산)
+_AS_FEE = {
+    "석정동공영주차장(건축물식)": (1, 500, 2_000, 10_000, 100_000),
+    "동본동공영주차장(건축물식)": (1, 500, 2_000, 10_000, 100_000),
+    "공도저류지 공영주차장": (1, 500, 2_000, 10_000, 100_000),
+    "아양지구 제2공영주차장": (1, 500, 2_000, 10_000, 100_000),
+    "안성맞춤공감센터 공영주차장": (1, 500, 2_000, 10_000, 100_000),
+    "아양지구 제3공영주차장": (1, 500, 2_000, 10_000, 100_000),
+    "대덕 내리 공영주차장": (2, 200, 1_000, 6_000, 60_000),
+    "대덕면 광덕 공영주차장": (2, 200, 1_000, 6_000, 60_000),
+    "원곡면 공영주차장": (2, 200, 1_000, 6_000, 60_000),
+    "안성 제2산업단지 공영주차장": (3, 200, 1_000, 5_000, 40_000),
+}
+for _n, (_g, _base, _unit, _day, _month) in _AS_FEE.items():
+    _l = as_by.get(_n)
+    if not _l:
+        fails.append(f"안성시 카드에 {_n} 없음")
+        continue
+    _f = _l["fee"]
+    if (_f.get("grade"), _f.get("base_fee"), _f.get("unit_fee"), _f.get("daily_fee"),
+            _f.get("monthly")) != (_g, _base, _unit, _day, _month):
+        fails.append(f"안성시 요금이 별표1과 다름: {_n} {_f.get('grade')}/{_f.get('base_fee')}/"
+                     f"{_f.get('unit_fee')}/{_f.get('daily_fee')}/{_f.get('monthly')}")
+    if _f.get("free_min") != 30 or _f.get("deduct_min") != 30:
+        fails.append(f"안성시 {_n}의 30분 미만 무료 표기가 없음: "
+                     f"{_f.get('free_min')}/{_f.get('deduct_min')}")
+# 유료 노상 3구간은 1급지 · 1일 8,000원이고, 안성맞춤2구간만 주말·공휴일 무료다.
+_as_st_paid = [l for l in as_street if l["fee"]["type"] == "유료"]
+if len(_as_st_paid) != 3:
+    fails.append(f"안성시 유료 노상이 3구간이 아님: {[l['name'] for l in _as_st_paid]}")
+for _l in _as_st_paid:
+    _f = _l["fee"]
+    if (_f.get("grade"), _f.get("base_fee"), _f.get("unit_fee"), _f.get("daily_fee"),
+            _f.get("monthly")) != (1, 500, 2_000, 8_000, 80_000):
+        fails.append(f"안성시 유료 노상 {_l['name']} 요금이 별표1 노상 1급지와 다름")
+    _wk = _l["hours"]["weekday"]
+    if _l["name"] == "안성맞춤대로2구간":
+        if not (_l["free_days"].get("sat") and _l["free_days"].get("sun")):
+            fails.append("안성시 안성맞춤대로2구간의 주말 무료 표기 없음")
+        if (_wk["start"], _wk["end"]) != (9 * 60, 18 * 60):
+            fails.append(f"안성시 안성맞춤대로2구간 평일 운영시간이 09:00~18:00이 아님: "
+                         f"{_wk['start']}/{_wk['end']}")
+    elif _l["free_days"].get("sat") or _l["free_days"].get("sun"):
+        fails.append(f"안성시 유료 노상 {_l['name']}이 주말 무료로 표기됨")
+# 표준데이터가 ‘무료’로 등록한 2곳을 공단 안내(유료)에 맞춰 바로잡았다.
+_as_q = next(c for c in CITIES if c["city"] == "안성시").get("quality") or {}
+if len(_as_q.get("요금구분_보정") or []) != 2:
+    fails.append(f"안성시 요금구분 보정이 2건이 아님: {_as_q.get('요금구분_보정')}")
+if len(_as_q.get("운영시간_보정") or []) != 1:
+    fails.append(f"안성시 운영시간 보정이 1건이 아님: {_as_q.get('운영시간_보정')}")
+if len(_as_q.get("면수_차이") or []) != 6:
+    fails.append(f"안성시 면수 차이가 6건이 아님: {len(_as_q.get('면수_차이') or [])}")
+if len(_as_q.get("노상_자료차이") or []) != 3:
+    fails.append(f"안성시 노상 자료 차이가 3건이 아님: {len(_as_q.get('노상_자료차이') or [])}")
+# 계산 표본 — 별표1(30분 미만 무료를 뺀 시간에 30분 단위)로 직접 계산한 값
+for _n, _mins, _want in (("석정동공영주차장(건축물식)", 30, 0), ("석정동공영주차장(건축물식)", 31, 500),
+                         ("석정동공영주차장(건축물식)", 60, 500), ("석정동공영주차장(건축물식)", 120, 1500),
+                         ("석정동공영주차장(건축물식)", 150, 2000), ("석정동공영주차장(건축물식)", 180, 4000),
+                         ("석정동공영주차장(건축물식)", 600, 10000), ("대덕 내리 공영주차장", 120, 600),
+                         ("대덕 내리 공영주차장", 1440, 6000), ("안성 제2산업단지 공영주차장", 120, 600),
+                         ("안성 제2산업단지 공영주차장", 1440, 5000)):
+    _l = as_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"안성시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 감면표 — 조례 제3조의2(경차 60%, 1시간 면제 뒤 50%, 50%, 차량부제 30%, 100% 면제)
+_as_disc = next(c for c in CITIES if c["city"] == "안성시").get("discounts") or []
+if not any(d["rate"] == 0.6 for d in _as_disc):
+    fails.append("안성시 감면표에 경차 60%가 없음")
+if not any(d["rate"] == 0.5 and d.get("exempt_min") == 60 for d in _as_disc):
+    fails.append("안성시 감면표에 1시간 면제 후 50%가 없음")
+if not any(d["rate"] == 0.3 for d in _as_disc):
+    fails.append("안성시 감면표에 차량부제 30%가 없음")
+if not any(d["rate"] == 1.0 for d in _as_disc):
+    fails.append("안성시 감면표에 100% 면제 대상이 없음")
+as_root = DIST / "parking" / "gyeonggi" / "anseong"
+as_hub = as_root / "index.html"
+if not as_hub.exists():
+    fails.append("안성시 시 페이지 없음")
+else:
+    as_html = as_hub.read_text()
+    for label in ("안성시 급지별 주차요금표", "노외주차장(건축물식 포함)", "노상주차장",
+                  "2시간까지 30분당", "2시간 초과 30분당", "1일 주차권", "월 정기권",
+                  "30분", "안성시시설관리공단", "안성맞춤2구간", "경기도 안성시",
+                  "동·읍의 도시계획 지역", "3급지", "공업지역"):
+        if label not in as_html:
+            fails.append(f"안성시 시 페이지에 {label} 없음")
+    if as_html.count('class="card lot') != len(as_cards):
+        fails.append(f"안성시 시 페이지 카드 수 불일치({as_html.count(chr(34)+'card lot')} vs {len(as_cards)})")
+    if "&lt;b&gt;" in as_html:
+        fails.append("안성시 시 페이지에 이스케이프된 <b> 태그가 보임")
+as_street_page = as_root / "street-parking" / "index.html"
+if not as_street_page.exists():
+    fails.append("안성시 노상 페이지 없음")
+else:
+    as_st = as_street_page.read_text()
+    if as_st.count('class="strow') + as_st.count("<tr>") == 0:
+        fails.append("안성시 노상 페이지에 표 행이 없음")
+    for label in ("안성맞춤대로2구간", "장기로1구간", "신시장로", "하절기 08:00~20:00"):
+        if label not in as_st:
+            fails.append(f"안성시 노상 페이지에 {label} 없음")
+as_dong_pages = sorted(q.parent.name for q in as_root.rglob("index.html") if q.parent.parent == as_root)
+for _slug, _n in (("gongdo-eup", 8), ("seokjeong-dong", 3), ("dangwang-dong", 3),
+                  ("oksan-dong", 3), ("daedeok-myeon", 3), ("geumsan-dong", 2),
+                  ("wongok-myeon", 1)):
+    _p = as_root / _slug / "index.html"
+    if not _p.exists():
+        if _n >= 3:      # 카드 3곳 이상인 동·읍·면만 페이지를 만든다(빈 페이지 방지)
+            fails.append(f"안성시 동 페이지 없음: {_slug}")
+        continue
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"안성시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
 
 print()
 if warns:

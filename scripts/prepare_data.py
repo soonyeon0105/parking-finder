@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시 + 오산시 + 이천시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시 + 오산시 + 이천시 + 안성시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -43,6 +43,7 @@
   data/goyang_parking.json   고양시 단독 결과
   data/namyangju_parking.json 남양주시 단독 결과
   data/ansan_parking.json    안산시 단독 결과
+  data/anseong_parking.json  안성시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
@@ -359,6 +360,8 @@ CITY_META = {
     "오산시": {"slug": "osan", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "이천시": {"slug": "icheon", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "안성시": {"slug": "anseong", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -7219,7 +7222,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -11551,20 +11554,642 @@ def check_quality_icheon(std_all, rows, lots, excluded, merged, hour_fixed, spac
     }
 
 
+# ---------------------------------------------------------------- 안성시 (T-03 Phase 21)
+AS_PROVIDER = "경기도 안성시"
+# 안성시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+AS_DISTRICTS = [("안성시", "anseong")]
+AS_BBOX = (36.85, 37.17, 127.05, 127.58)   # 안성시 대략 경계(좌표 점검용)
+# 안성시 법정동·읍·면 — 표준데이터 지번주소의 세 번째 낱말이 지역 이름이다(‘경기도 안성시 공도읍 승두리’).
+AS_DONGS = ("공도읍", "미양면", "대덕면", "양성면", "원곡면", "고삼면", "보개면", "금광면",
+            "서운면", "일죽면", "죽산면", "삼죽면",
+            "가사동", "계동", "구포동", "금산동", "낙원동", "당왕동", "도기동", "동본동",
+            "명륜동", "봉남동", "봉산동", "서인동", "석정동", "숭인동", "아양동", "연지동",
+            "영동", "옥산동", "옥천동", "인지동", "중리동", "창전동", "현수동")
+
+AS_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2115243"
+                    "&gubun=ELIS&conDatGubunCd=1")
+AS_CITY_OUT_URL = "https://www.anseong.go.kr/depart/contents.do?mId=0302060100"
+AS_CITY_ST_URL = "https://www.anseong.go.kr/depart/contents.do?mId=0302060200"
+AS_CORP_URL = "https://www.asimc.or.kr/portal/contents.do?mid=0104181600"
+AS_CORP_FEE_URL = "https://www.asimc.or.kr/portal/contents.do?mid=0104181700"
+AS_CORP_CSV_URL = "https://www.data.go.kr/data/15156880/fileData.do"
+AS_NEWS_URL = "http://www.asns.co.kr/news/articleView.html?idxno=11974"
+AS_ORD_HWP = RAW / "anseong.law.go.kr_주차장조례_별표1_20261117.hwp"
+AS_ORD_TXT = RAW / "anseong.law.go.kr_주차장조례_별표1_20261117.txt"
+AS_CITY_OUT_TXT = RAW / "anseong.go.kr_공영주차장_노외_현황_20261117.txt"
+AS_CITY_ST_TXT = RAW / "anseong.go.kr_공영주차장_노상_현황_20261117.txt"
+AS_CORP_TXT = RAW / "asimc.or.kr_공영주차장_소개_20261117.txt"
+AS_CORP_FEE_TXT = RAW / "asimc.or.kr_주차장_이용요금_20261117.txt"
+AS_CORP_CSV_TXT = RAW / "data.go.kr_안성시시설관리공단_안성공영주차장정보_20261117.txt"
+AS_NEWS_TXT = RAW / "asns.co.kr_안성맞춤2구간_노상_유료운영_20261117.txt"
+AS_NEWS_FEE_URL = "http://www.joongang.tv/news/articleView.html?idxno=130621"
+AS_NEWS_FEE_TXT = RAW / "joongang.tv_안성시_주차요금_개정_20250521_20261117.txt"
+AS_ORDINANCE_NOTE = "공포 2026-03-13 · 경기도안성시조례 제2217호(일부개정) · 별표1 〈개정 2025.4.18.〉"
+AS_BASE_MIN = 30
+AS_UNIT_MIN = 30
+AS_FREE_MIN = 30
+
+# 안성시 공영주차장 요금 — 「안성시 주차장 설치 및 관리조례」 [별표 1] 공영주차장 주차요금표
+#   (공포 2026-03-13, 경기도안성시조례 제2217호. 별표/서식 HWP에서 표를 읽음)의 값이다.
+#   · 30분 미만은 무료(비고3) — 그 뒤 30분 단위로 요금이 붙는다.
+#   · 노외 1급지: 2시간까지 30분당 500원 → 2시간 초과 30분당 2,000원,
+#     1일 주차권 10,000원, 월 정기권 100,000원
+#   · 노외 2급지: 200 · 1,000 · 6,000 · 60,000원 / 3급지: 200 · 1,000 · 5,000 · 40,000원
+#   · 노상 1급지: 500 · 2,000 · 8,000 · 80,000원 / 2급지: 200 · 1,000 · 4,000원(정기권 없음)
+#   · 급지(비고2): 1급지 동·읍의 도시계획 지역, 2급지 1급지 외의 지역, 3급지 공업지역 또는
+#     공업지역에 접한 지역. 안성시시설관리공단 홈페이지는 같은 표를 1급지(동·읍 단위)·
+#     2급지(면 단위)·3급지(공업지역)로 안내해 별표와 같은 값을 보인다.
+#   · 비고4: 사전 약정 없는 요금이 1일 주차권을 넘으면 1일 주차권을, 1일 주차권 합계가
+#     월 정기권을 넘으면 월 정기권을 단위요금으로 한다 — 계산기는 1일 주차권을 상한으로 쓴다.
+AS_FEES = {
+    "노상": {1: {"tier1": 500, "tier2": 2_000, "day": 8_000, "month": 80_000},
+             2: {"tier1": 200, "tier2": 1_000, "day": 4_000, "month": None}},
+    "노외": {1: {"tier1": 500, "tier2": 2_000, "day": 10_000, "month": 100_000},
+             2: {"tier1": 200, "tier2": 1_000, "day": 6_000, "month": 60_000},
+             3: {"tier1": 200, "tier2": 1_000, "day": 5_000, "month": 40_000}},
+}
+
+# 안성시시설관리공단이 위탁받아 운영하는 13곳(노외 12·노상 1) — 모두 카드결제 전용 유료 주차장이다
+#   (공단 ‘공영주차장 소개’ 운영현황, 2026-11-17 조회). 이름은 표준데이터 등록명에 맞춰 찾는다.
+AS_CORP_LOTS = {
+    "석정동공영주차장(건축물식)": ("석정동 공영주차장", 1),
+    "금산동 공영주차장": ("금산동 공영주차장", 1),
+    "공도저류지 공영주차장": ("공도저류지 공영주차장", 1),
+    "동본동공영주차장(건축물식)": ("동본동 공영주차장", 1),
+    "서인동공영주차장(건축물식)": ("서인동 공영주차장", 1),
+    "대덕 내리 공영주차장": ("대덕면 내리 공영주차장", 2),
+    "아양지구 제2공영주차장": ("아양지구 제2공영주차장", 1),
+    "안성맞춤대로2구간": ("안성맞춤2구간 노상공영주차장", 1),
+}
+
+# 공단이 운영하지만 표준데이터에 등록되지 않은 노외 5곳 — 공단 공영주차장 소개·공공데이터포털
+#   파일데이터(안성시시설관리공단_안성공영주차장정보, 12행, 2026-06-10)의 값으로 채운다.
+#   (지번, 도로명, 면수, 급지, 1일 주차권) — 좌표는 원자료에 없어 지도는 이름·주소 검색으로 연다.
+AS_EXTRA = (
+    ("안성맞춤공감센터 공영주차장", "경기도 안성시 낙원동 68-1", "경기도 안성시 장기로 107",
+     "낙원동", 67, 1),
+    ("아양지구 제3공영주차장", "경기도 안성시 옥산동 596", "", "옥산동", 65, 1),
+    ("대덕면 광덕 공영주차장", "경기도 안성시 대덕면 내리 322-12", "", "대덕면", 49, 2),
+    ("원곡면 공영주차장", "경기도 안성시 원곡면 외가천리 208", "", "원곡면", 86, 2),
+    ("안성 제2산업단지 공영주차장", "경기도 안성시 미양면 계륵리 80-13", "", "미양면", 288, 3),
+)
+
+# 표준데이터·공단 안내의 면수 차이(표준, 공단, 시 홈페이지) — 카드에 차이를 적는다.
+AS_SPACE_DIFF = {
+    "석정동공영주차장(건축물식)": (54, 47, 53),
+    "금산동 공영주차장": (19, 18, 18),
+    "공도저류지 공영주차장": (201, 199, None),
+    "동본동공영주차장(건축물식)": (87, 70, 76),
+    "서인동공영주차장(건축물식)": (74, 68, 74),
+    "대덕 내리 공영주차장": (48, 38, None),
+}
+
+# 시 홈페이지 노상주차장 현황(2026-11-17)과 표준데이터의 이름·면수 차이 — 품질 리포트에 남긴다.
+AS_STREET_DIFF = (
+    "혜산로 노상주차장(시 홈페이지, 44면) ↔ 아양로(표준데이터, 아양동 384, 44면) — 같은 구간으로 보임",
+    "명륜천 주차장(시 홈페이지, 68면, 장안면옥~보룡약국)은 표준데이터에 없음",
+    "안성맞춤대로1구간 22면(표준) ↔ 19면(시) · 안성맞춤대로2구간 19면(표준) ↔ 23면(시) · "
+    "비룡로 27면(표준) ↔ 19면(시) · 고수1로 35면(표준) ↔ 32면(시)",
+)
+
+# 안성시 ‘주차요금의 감면’(조례 제3조의2, 시 홈페이지 주차요금 면제표, 공단 이용요금 안내) —
+#   둘 이상의 감면사유에 해당하면 감면율이 높은 하나만 적용하고, 증명서를 제시해야 한다.
+AS_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "경형자동차(배기량 1,000cc 미만) — 조례 제3조의2④"},
+    {"label": "경증장애인·저공해차 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "장애 정도가 심하지 않은 장애인, 저공해자동차 표지 부착 차량(전기차는 최초 2시간 "
+             "전액 면제 가능), 우수자원봉사자(경기도·안성시), 병역명문가 예우대상자와 가족, "
+             "두 자녀 이상 가정 경기아이플러스카드 소지자"},
+    {"label": "중증장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": "장애 정도가 심한 장애인, 국가유공자·상이자, 고엽제후유증환자, 5·18민주유공자 — "
+             "본인 소유 차량을 직접 운전·동승한 경우 최초 1시간 면제, 그 뒤 50%"},
+    {"label": "차량부제·함께 타기 30%", "rate": 0.3, "exempt_min": 0,
+     "note": "자가용 승용차로 차량부제 운행·함께 타기 참여 스티커를 부착한 차량"},
+    {"label": "긴급·모범납세자 등 100% 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "긴급자동차, 모범납세자·경기도 유공납세자·성실납세자 주차스티커 부착 차량"
+             "(스티커 유효기간에 한정)"},
+]
+
+
+def as_dong_of(text: str):
+    """주소에서 안성시 법정동·읍·면을 뽑는다 — ‘경기도 안성시 {동·읍·면} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "안성시" and parts[2] in AS_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(AS_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def as_fee(kind: str, grade: int, pay: str = ""):
+    """안성시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    별표1은 ‘30분 미만 무료 → 2시간까지 30분당 500원(2급지 200원) → 2시간 초과 30분당
+    2,000원(1,000원)’ 구조다. 시간대 누진은 steps 로 적고, 무료 30분은 그 시간을 뺀
+    시간으로 계산하는 deduct_min 으로 넣는다(김포·이천과 같은 처리). 1일 주차권은 상한.
+    """
+    t = AS_FEES[kind][grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "std_grade": None,
+        "base_min": AS_BASE_MIN, "base_fee": t["tier1"],
+        "unit_min": AS_UNIT_MIN, "unit_fee": t["tier2"],
+        "steps": [{"until": 120, "unit_min": AS_UNIT_MIN, "unit_fee": t["tier1"]},
+                  {"until": None, "unit_min": AS_UNIT_MIN, "unit_fee": t["tier2"]}],
+        "steps_label": f"2시간까지 30분당 {t['tier1']:,}원",
+        "free_min": AS_FREE_MIN, "deduct_min": AS_FREE_MIN,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 주차권(비고4)",
+        "daily_hours": None, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": t["month"], "monthly_day": None, "monthly_night": None,
+        "monthly_all": t["month"], "monthly_label": None,
+        "pay": pay, "basis": f"「안성시 주차장 설치 및 관리조례」 별표1 {kind} {grade}급지",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def as_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_anseong():
+    """안성시 공영주차장을 표준데이터 + 안성시 주차장 조례 별표1 + 안성시시설관리공단 안내로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 안성시 범위를 벗어난 행은 제외(껍데기 행).
+      · 안성시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동·읍·면만 만든다.
+    요금은 조례 별표1의 급지 요금을 적용하고, 30분 미만 무료(비고3)를 deduct_min 으로 넣는다.
+    운영시간은 표준데이터 등록값을 쓰고, 공단이 2026-09-01부터 유료로 바꾼 안성맞춤2구간
+    노상주차장만 평일 09:00~18:00·주말·공휴일 무료로 바로잡는다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == AS_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified = [], [], [], []
+    card_no = street_no = 0
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                src="표준데이터", notice=None, tel="", mgmt="", lat=None, lng=None,
+                base_date="", free_days=None, free_note=None, detail_road=None,
+                kind="공영"):
+        nonlocal card_no, street_no
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": src,
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "안성시",
+            "dong": dong,
+            "dong_src": "지번주소" if r and as_dong_of((r.get("소재지지번주소") or "")) else
+                        ("도로명주소" if r and as_dong_of((r.get("소재지도로명주소") or "")) else
+                         ("공단 안내" if (not r and dong) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else kind,
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": detail_road,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "안성시시설관리공단",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "안성시",
+            "city_slug": "anseong",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (AS_BBOX[0] <= lat <= AS_BBOX[1]
+                                      and AS_BBOX[2] <= lng <= AS_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = as_dong_of(jibun) or as_dong_of(road)
+        street = ptype == "노상"
+        corp = AS_CORP_LOTS.get(name)
+        paid = (r.get("요금정보") or "").strip() in ("유료", "혼합")
+        if corp and not paid:
+            # 표준데이터가 ‘무료’로 등록한 아양지구 제2·안성맞춤2구간을 공단 운영(유료)에 맞춘다.
+            paid = True
+            reclassified.append(
+                (f"{name}: 표준데이터 요금정보 ‘{(r.get('요금정보') or '').strip() or '무료'}’ ↔ "
+                 f"안성시시설관리공단이 카드결제 전용 유료로 운영({corp[0]}) — 유료로 바로잡음"))
+        note_raw = (r.get("특기사항") or "")
+        win, oper, _closed = parse_schedule(r, note_raw)
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        notice = None
+        extra = []
+
+        # 안성맞춤2구간 노상주차장은 2026-09-01부터 공단이 유료 운영 — 평일 09:00~18:00,
+        #   토요일·일요일·공휴일 무료, 카드결제만 받는다(공단 홈페이지·안성뉴스 2026-08-26).
+        if name == "안성맞춤대로2구간":
+            win["weekday"] = {"open": True, "start": 9 * 60, "end": 18 * 60, "24h": False,
+                              "listed": True, "raw": ["09:00", "18:00"]}
+            win["sat"] = {"open": True, "start": 9 * 60, "end": 18 * 60, "24h": False,
+                          "listed": True, "raw": ["09:00", "18:00"]}
+            win["sun"] = dict(win["sat"])
+            oper = {"weekday": True, "sat": True, "sun": True}
+            free_days = {"sat": True, "sun": True}
+            hour_fixed.append(
+                f"{name}: 표준데이터 24시간·무료 등록 → 공단 안내 2026-09-01부터 유료"
+                f"(평일 09:00~18:00, 토·일·공휴일 무료, 카드결제)")
+            extra.append(
+                "안성시시설관리공단이 2026-09-01부터 유료로 운영합니다 — 평일 09:00~18:00에만 "
+                "요금을 받고 토요일·일요일·공휴일은 무료이며, 현금 없이 카드로만 결제합니다"
+                "(공단 홈페이지·안성뉴스 2026-08-26). 공단은 이 구간을 ‘안성맞춤2구간 "
+                "노상공영주차장’으로 안내합니다")
+        elif paid and street:
+            extra.append(
+                "조례 별표1 비고5는 노상주차장 운영시간을 하절기(4~10월) 08:00~20:00·"
+                "동절기(11~3월) 09:00~19:00으로 정하고, 시장이 주차수요·주민편익을 위해 "
+                "주차장별로 조정할 수 있습니다 — 표준데이터에는 24시간으로 등록되어 있어 "
+                "현장 안내를 확인하세요")
+
+        if paid:
+            kind = "노상" if street else "노외"
+            grade = to_int(r.get("급지구분")) or 1
+            grade = min(max(grade, 1), 3)     # 요금표는 1~3급지다
+            fee = as_fee(kind, grade, pay=(r.get("결제방법") or "").strip())
+            if corp:
+                fee["grade"] = corp[1]
+                grade = corp[1]
+                # 공단이 운영하는 13곳은 카드결제 전용이다(공단 운영현황) — 표준데이터 등록값과 다르다.
+                if fee["pay"] != "신용카드":
+                    if fee["pay"]:
+                        note_fixed.append(f"{name}: 표준데이터 결제방법 ‘{fee['pay']}’ ↔ "
+                                          f"공단 안내 카드결제 전용")
+                    fee["pay"] = "신용카드"
+            fee["std_grade"] = to_int(r.get("급지구분"))
+            daily = to_int(r.get("1일주차권요금"))
+            monthly_std = to_int(r.get("월정기권요금"))
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                          "base_fee": to_int(r.get("주차기본요금")),
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily, "monthly": monthly_std}
+            tbl = AS_FEES[kind][grade]
+            if fee["std"]["base_fee"] and fee["std"]["unit_fee"] and \
+                    (fee["std"]["base_fee"], fee["std"]["unit_fee"]) != (tbl["tier1"], tbl["tier2"]):
+                notice = ((notice + " · ") if notice else "") + \
+                    (f"표준데이터 등록요금은 기본 {fee['std']['base_min']}분 "
+                     f"{fee['std']['base_fee']:,}원·{fee['std']['unit_min']}분당 "
+                     f"{fee['std']['unit_fee']:,}원입니다 — 이 사이트는 조례 별표1 "
+                     f"{grade}급지 요금(2시간까지 30분당 {tbl['tier1']:,}원, 2시간 초과 30분당 "
+                     f"{tbl['tier2']:,}원)을 적용합니다")
+            if daily and daily != tbl["day"]:
+                note_fixed.append(f"{name}: 표준데이터 1일 주차권 {daily:,}원 ↔ 별표1 "
+                                  f"{kind} {grade}급지 {tbl['day']:,}원")
+            if monthly_std and monthly_std != (tbl["month"] or 0):
+                note_fixed.append(f"{name}: 표준데이터 월 정기권 {monthly_std:,}원 ↔ 별표1 "
+                                  f"{kind} {grade}급지 {tbl['month'] or 0:,}원")
+        else:
+            fee = as_free_fee()
+
+        sp = AS_SPACE_DIFF.get(name)
+        if sp and sp[0] != sp[1]:
+            space_diff.append(f"{name}: 표준데이터 {sp[0]}면 ↔ 공단 {sp[1]}면"
+                              + (f" ↔ 시 홈페이지 {sp[2]}면" if sp[2] else ""))
+            extra.append(f"안성시시설관리공단 안내는 {sp[1]}면입니다(표준데이터 등록 {sp[0]}면"
+                         + (f", 시 홈페이지 {sp[2]}면" if sp[2] else "") + ")")
+        if extra:
+            notice = " · ".join(([notice] if notice else []) + extra)
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=notice, tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "안성시시설관리공단"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    # 공단이 운영하지만 표준데이터에 없는 노외 5곳 — 공단 자료로 채운다.
+    for name, jibun, road, dong, spaces, grade in AS_EXTRA:
+        kind = "노외"
+        fee = as_fee(kind, grade, pay="신용카드")
+        win = {k: {"open": True, "start": 0, "end": 24 * 60, "24h": True, "listed": True,
+                   "raw": ["00:00", "23:59"]} for k in ("weekday", "sat", "sun")}
+        notice = ("안성시시설관리공단이 운영하는 주차장으로 표준데이터에는 등록되어 있지 않습니다"
+                  " — 공단 공영주차장 소개와 공공데이터포털 ‘안성시시설관리공단_안성공영주차장정보’"
+                  "(12행, 2026-06-10)의 급지·면수·요금입니다. 원자료에 좌표가 없어 지도는 "
+                  "이름·주소 검색으로 엽니다")
+        if name == "안성맞춤공감센터 공영주차장":
+            notice += " · 면수는 부설주차장을 포함한 값입니다(일반62·장애인2·전기차2·임산부1)"
+        add_lot(name, jibun, road, kind, spaces, dong, win,
+                {"weekday": True, "sat": True, "sun": True}, fee, src="안성시시설관리공단",
+                notice=notice, tel="031-677-6262", mgmt="안성시시설관리공단", lat=None, lng=None,
+                base_date="2026-06-10")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"aseo-{i:03d}" if l["list_mode"] == "card" else f"aseo-s{i:03d}"
+
+    quality = check_quality_anseong(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                    space_diff, note_fixed, reclassified)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(AS_ORD_TXT).strftime("%Y-%m-%d %H:%M")
+                           if AS_ORD_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "안성시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-15",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-17 16:05 (KST)",
+                    "note": ("경기도 안성시가 등록한 52행(노외 35·노상 17)을 읽었다. 이름·주소·"
+                             "구획수·급지·운영요일·운영시간·좌표·전화·관리번호·결제방법과 등록요금 "
+                             "출처로 썼다. 같은 관리번호·이름 중복은 없었고, 같은 지번에 둘 이상 "
+                             "등록된 노상 구간(남파로 1·2구간, 중앙로·장기로 2구간)은 이름·면수가 "
+                             "달라 그대로 두었다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": "안성시 주차장 설치 및 관리조례 [별표 1] 공영주차장 주차요금표",
+                    "org": "안성시(교통정책과, 031-678-2812) · 안성시시설관리공단 공영주차팀(031-677-6262)",
+                    "url": AS_ORDINANCE_URL,
+                    "file": AS_ORD_TXT.name,
+                    "sha256": sha256(AS_ORD_TXT) if AS_ORD_TXT.exists() else None,
+                    "license": "자치법규(공개)", "base_date": AS_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(AS_ORD_TXT),
+                    "note": ("노외 1급지 2시간까지 30분당 500원·2시간 초과 30분당 2,000원·1일 "
+                             "10,000원·월 정기권 100,000원, 2급지 200·1,000·6,000·60,000원, "
+                             "3급지 200·1,000·5,000·40,000원, 노상 1급지 500·2,000·8,000·"
+                             "80,000원, 노상 2급지 200·1,000·4,000원(정기권 없음)을 별표/서식 "
+                             "HWP에서 읽었다. 30분 미만 무료(비고3), 1일·월 주차권을 단위요금으로 "
+                             "하는 상한(비고4), 노상 운영시간 하절기 08:00~20:00·동절기 "
+                             "09:00~19:00(비고5), 전통시장 인근 노상의 30분 미만 무료·일요일 "
+                             "무료 운영(비고6)도 함께 읽었다."),
+                },
+                {
+                    "id": "news_fee", "name": "중앙신문 — 안성시, 공영주차장 무료시간 30분으로 확대·요금 체계 조정(2025.4.21 시행)",
+                    "org": "중앙신문(2025-04-09 보도)", "url": AS_NEWS_FEE_URL,
+                    "file": AS_NEWS_FEE_TXT.name if AS_NEWS_FEE_TXT.exists() else None,
+                    "sha256": sha256(AS_NEWS_FEE_TXT) if AS_NEWS_FEE_TXT.exists() else None,
+                    "license": "언론 보도(참고용)", "base_date": "2025-04-09",
+                    "rows_total": None, "fetched_at": _sync_time(AS_NEWS_FEE_TXT),
+                    "note": ("무료 주차시간을 10분에서 30분으로 넓히고, 2시간까지 30분당 500원·2시간 초과 "
+                             "30분당 2,000원으로 올리며 월 정기권을 60,000원에서 100,000원으로 인상한 "
+                             "개정안을 2025-04-21부터 적용한다는 것을 확인했다(대상 14개소 유료 "
+                             "노상·노외). 별표1 〈개정 2025.4.18.〉과 같은 내용이다."),
+                },
+                {
+                    "id": "corp_intro", "name": "안성시시설관리공단 공영주차장 소개(운영현황·주차장 현황)",
+                    "org": "안성시시설관리공단(031-672-1234)", "url": AS_CORP_URL,
+                    "file": AS_CORP_TXT.name if AS_CORP_TXT.exists() else None,
+                    "sha256": sha256(AS_CORP_TXT) if AS_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 13, "fetched_at": _sync_time(AS_CORP_TXT),
+                    "note": ("공단이 안성시에서 위탁받아 운영하는 공영주차장 13곳(노외 12·노상 1, "
+                             "1,053면)의 이름·주소·급지·면수를 확인했다 — 노외는 24시간, 노상"
+                             "(안성맞춤2구간, 서인동 121, 19면)은 평일 09:00~18:00·주말·공휴일 "
+                             "무료이고 모두 카드결제 전용이다."),
+                },
+                {
+                    "id": "corp_fee", "name": "안성시시설관리공단 주차장 이용요금·주차장 주요감면 안내",
+                    "org": "안성시시설관리공단(031-672-1234)", "url": AS_CORP_FEE_URL,
+                    "file": AS_CORP_FEE_TXT.name if AS_CORP_FEE_TXT.exists() else None,
+                    "sha256": sha256(AS_CORP_FEE_TXT) if AS_CORP_FEE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": None, "fetched_at": _sync_time(AS_CORP_FEE_TXT),
+                    "note": ("1급지(동·읍 단위) 30분 미만 무료·2시간까지 500원·2시간 초과 "
+                             "2,000원·1일 10,000원·월 100,000원, 2급지(면 단위) 200·1,000·"
+                             "6,000·60,000원, 3급지(공업지역) 200·1,000·5,000·40,000원과 감면표"
+                             "(100%·1시간 면제 후 50%·60%·50%·30%)를 조례 제3조의2와 대조했다."),
+                },
+                {
+                    "id": "corp_csv", "name": "안성시시설관리공단_안성공영주차장정보(공공데이터포털 15156880)",
+                    "org": "안성시시설관리공단 기획예산팀(070-8856-2339)",
+                    "url": AS_CORP_CSV_URL,
+                    "file": AS_CORP_CSV_TXT.name if AS_CORP_CSV_TXT.exists() else None,
+                    "sha256": sha256(AS_CORP_CSV_TXT) if AS_CORP_CSV_TXT.exists() else None,
+                    "license": "이용허락범위 제한 없음", "base_date": "2026-06-10",
+                    "rows_total": 12, "fetched_at": _sync_time(AS_CORP_CSV_TXT),
+                    "note": ("공단이 운영하는 노외 12곳의 급지·주차면수·운영시간·요금정보·기본 "
+                             "무료시간(30분 미만)·추가단위(30분)·1일 주차요금·결제방법을 확인해 "
+                             "표준데이터에 없는 5곳(안성맞춤공감센터·아양지구 제3·대덕면 광덕·"
+                             "원곡면·안성 제2산업단지)을 채웠다."),
+                },
+                {
+                    "id": "city_out", "name": "안성시청 공영주차장 현황(노외)·주차요금 안내",
+                    "org": "안성시청 교통정책과(031-678-2815)",
+                    "url": AS_CITY_OUT_URL,
+                    "file": AS_CITY_OUT_TXT.name if AS_CITY_OUT_TXT.exists() else None,
+                    "sha256": sha256(AS_CITY_OUT_TXT) if AS_CITY_OUT_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 27, "fetched_at": _sync_time(AS_CITY_OUT_TXT),
+                    "note": ("노외 공영주차장 27곳의 면수(계·주차대수·장애인·경차)·전기차 "
+                             "충전시설과 급지별 요금·감면표를 확인했다. 면수가 표준데이터와 다른 "
+                             "곳은 카드에 함께 적었다."),
+                },
+                {
+                    "id": "city_street", "name": "안성시청 공영주차장 현황(노상)",
+                    "org": "안성시청 교통정책과(031-678-2815)",
+                    "url": AS_CITY_ST_URL,
+                    "file": AS_CITY_ST_TXT.name if AS_CITY_ST_TXT.exists() else None,
+                    "sha256": sha256(AS_CITY_ST_TXT) if AS_CITY_ST_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 17, "fetched_at": _sync_time(AS_CITY_ST_TXT),
+                    "note": ("노상 공영주차장 17곳의 위치와 면수를 확인해 표준데이터와 대조했다 — "
+                             "혜산로(44면)는 표준데이터의 아양로로 보이고, 명륜천 주차장(68면)은 "
+                             "표준데이터에 없다. 안성맞춤대로1·2구간과 비룡로·고수1로는 면수가 다르다."),
+                },
+                {
+                    "id": "news_paid", "name": "안성뉴스 — 안성맞춤2구간 노상공영주차장, 9월 1일부터 유료 운영",
+                    "org": "안성뉴스(2026-08-26 보도)", "url": AS_NEWS_URL,
+                    "file": AS_NEWS_TXT.name if AS_NEWS_TXT.exists() else None,
+                    "sha256": sha256(AS_NEWS_TXT) if AS_NEWS_TXT.exists() else None,
+                    "license": "언론 보도(참고용)", "base_date": "2026-08-26",
+                    "rows_total": None, "fetched_at": _sync_time(AS_NEWS_TXT),
+                    "note": ("안성맞춤2구간 노상공영주차장(서인동 121)이 2026-09-01부터 유료로 "
+                             "바뀌어 평일 09:00~18:00 운영하고 주말·공휴일은 무료, 카드결제만 "
+                             "받는다는 것을 확인했다 — 표준데이터는 아직 무료·24시간으로 등록."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in AS_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "anseong_grade",
+            "unit_min": AS_UNIT_MIN,
+            "base_min": AS_BASE_MIN,
+            "free_min": AS_FREE_MIN,
+            "applies": AS_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "동·읍의 도시계획 지역", "tier1": 500, "tier2": 2_000,
+                 "day": 10_000, "month": 100_000, "lots": 0},
+                {"grade": 2, "where": "1급지 외의 지역(면)", "tier1": 200, "tier2": 1_000,
+                 "day": 6_000, "month": 60_000, "lots": 0},
+                {"grade": 3, "where": "공업지역 또는 공업지역에 접한 지역", "tier1": 200,
+                 "tier2": 1_000, "day": 5_000, "month": 40_000, "lots": 0},
+            ],
+            "street": [
+                {"grade": 1, "tier1": 500, "tier2": 2_000, "day": 8_000, "month": 80_000},
+                {"grade": 2, "tier1": 200, "tier2": 1_000, "day": 4_000, "month": None},
+            ],
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "grade": l["fee"].get("grade"),
+                 "free": l["fee"].get("free_min"), "unit": l["fee"].get("unit_fee"),
+                 "day": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "corp": {
+                "out": len([l for l in lots if l["fee"]["type"] == "유료" and l["ptype"] == "노외"]),
+                "st": len([l for l in lots if l["ptype"] == "노상" and l["fee"]["type"] == "유료"]),
+                "st_spaces": sum(l["spaces"] or 0 for l in lots
+                                 if l["ptype"] == "노상" and l["fee"]["type"] == "유료"),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                "corp_total": "공영주차장 13개소 1,053면(노외 12·노상 1, 공단 운영현황)",
+            },
+            "basis": ("「안성시 주차장 설치 및 관리조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({AS_ORDINANCE_NOTE}) · 안성시시설관리공단 주차장 이용요금 안내"
+                      "(2026-11-17) · 표준데이터 등록값(2026-10-15) 대조"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["안성시"] | {
+        "city": "안성시",
+        "weekend_free_pages": False,
+        "discounts": AS_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "anseong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_anseong(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                          note_fixed, reclassified):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_안성시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "특기사항_보정": note_fixed,
+        "요금구분_보정": reclassified,
+        "노상_자료차이": list(AS_STREET_DIFF),
+        "감면_출처": "「안성시 주차장 설치 및 관리조례」 제3조의2 · 안성시청 주차요금 면제표 · "
+                    "안성시시설관리공단 주차장 이용요금 안내",
+        "무료시간_출처": "조례 별표1 비고3(주차시간 30분 미만 무료)",
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
              "hanam": ["하남시"], "gunpo": ["군포시"],
-             "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"], "icheon": ["이천시"]}[args.city])
+             "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"],
+             "icheon": ["이천시"], "anseong": ["안성시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -11608,6 +12233,8 @@ def main():
         cities.append(build_osan())
     if "이천시" in want:
         cities.append(build_icheon())
+    if "안성시" in want:
+        cities.append(build_anseong())
 
     if args.city == "all":
         site = build_site_payload(cities)
