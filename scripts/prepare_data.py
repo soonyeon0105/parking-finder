@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시 + 오산시 + 이천시 + 안성시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시 + 오산시 + 이천시 + 안성시 + 양주시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -362,6 +362,8 @@ CITY_META = {
     "이천시": {"slug": "icheon", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "안성시": {"slug": "anseong", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "양주시": {"slug": "yangju", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -7222,7 +7224,10 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시"):
+        if q.get("민영_제외"):
+            lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
+                         f"공영주차장 파인더라 제외")
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -12175,13 +12180,685 @@ def check_quality_anseong(std_all, rows, lots, excluded, merged, hour_fixed, spa
         "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
     }
 
+# ---------------------------------------------------------------- 양주시 (T-03 Phase 22)
+YJ_PROVIDER = "경기도 양주시"
+# 양주시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+YJ_DISTRICTS = [("양주시", "yangju")]
+YJ_BBOX = (37.68, 37.97, 126.88, 127.16)   # 양주시 대략 경계(좌표 점검용)
+# 양주시 법정동·읍·면 — 표준데이터 지번주소의 세 번째 낱말이 지역 이름이다(‘경기도 양주시 덕정동 350-272’).
+#   행정동(양주1·2동, 회천1~4동)은 법정동 여러 개를 묶은 이름이라 주소에는 법정동이 나온다.
+YJ_DONGS = ("백석읍", "광적면", "은현면", "남면", "장흥면",
+            "유양동", "어둔동", "남방동", "마전동", "산북동",
+            "덕정동", "고암동", "봉양동", "회정동", "회암동", "회남동", "율정동", "옥정동",
+            "광사동", "고읍동", "만송동", "덕계동", "고읍리")
+
+YJ_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2108757"
+                    "&gubun=ELIS&conDatGubunCd=1")
+YJ_CORP_URL = "https://www.yjuc.or.kr/sub/content.asp?cIdx=22"
+YJ_PORTAL_URL = "https://parking.yjuc.or.kr/parking/list.do"
+YJ_PORTAL_AMT_URL = "https://parking.yjuc.or.kr/parking/parkingAmt.do"
+YJ_NEWS_URL = "https://www.shinailbo.co.kr/news/articleView.html?idxno=5018586"
+YJ_ORD_TXT = RAW / "yangju.law.go.kr_주차장조례_20261117.txt"
+YJ_ORD_ANNEX_TXT = RAW / "yangju.law.go.kr_주차장조례_별표1_20261117.txt"
+YJ_ORD_ANNEX_HWP = RAW / "yangju.law.go.kr_주차장조례_별표1_20261117.hwp"
+YJ_CORP_TXT = RAW / "yjuc.or.kr_공영주차장_20261117.txt"
+YJ_PORTAL_JSON = RAW / "parking.yjuc.or.kr_searchParkingList_20261117.json"
+YJ_NEWS_TXT = RAW / "shinailbo.co.kr_양주덕정역공영주차장_유료전환_20261117.txt"
+YJ_ORDINANCE_NOTE = ("공포 2026-02-02 · 경기도양주시조례 제1498호(일부개정) · "
+                     "별표1 〈개정 2021.8.2.〉")
+YJ_BASE_MIN = 30
+YJ_UNIT_MIN = 10
+YJ_FREE_MIN = 10
+
+# 양주시 공영주차장 요금 — 「양주시 주차장 조례」 [별표 1] 공영주차장 주차요금표
+#   (공포 2026-02-02, 경기도양주시조례 제1498호. 별표1 〈개정 2021.8.2.〉 HWP에서 표를 읽음).
+#   · 1급지: 최초 30분 이내 기본요금 600원 → 10분당 200원, 1일 주차권(선납) 7,000원, 월 정기권(선납) 60,000원
+#   · 2급지: 300원 → 10분당 100원, 1일 3,000원, 월 40,000원
+#   · 거주자 전용 주차구획: 주간(09:00~19:00) 20,000원 · 야간(19:00~익일 09:00) 20,000원 · 전일 30,000원
+#   · 최초 30분 미만은 기본요금, 다만 입차 후 최초 10분까지는 무료(별표1 아래 단서)
+#   · 비고2: 운영시간 주간 08:00~20:00 · 야간 20:00~익일 08:00(시장이 조정 가능)
+#   · 비고3: 야간·주말·공휴일 주차요금은 무료 — 무료운영 시간에 주차수요가 많으면 유료로 운영할 수 있다
+#   · 비고4: 1급지 = 국도·지방도·시도로부터 500미터 이내, 2급지 = 그 밖의 지역
+#   · 비고7: 16~36인승 승합·2.5~5톤 화물은 기준요금의 2배, 36인승 이상·5톤 이상은 3배
+YJ_FEES = {
+    1: {"base": 600, "unit": 200, "day": 7_000, "month": 60_000},
+    2: {"base": 300, "unit": 100, "day": 3_000, "month": 40_000},
+}
+# 장흥관광지 공영주차장(제1·2·7 등)은 급지 요금이 아니라 당일 정액이다 —
+#   경차 1,000원 · 소·중형 2,000원 · 대형 3,000원, 무인정산기 카드결제만(현금 불가).
+YJ_FLAT_DAY = 2_000
+YJ_FLAT_SHORT = 1_000
+YJ_FLAT_LONG = 3_000
+YJ_FLAT_LOTS = ("장흥관광지 제1주차장(하천변)", "장흥관광지 제2주차장(장흥관광지)",
+                "장흥관광지 제3주차장(효편의점)", "장흥관광지 제4주차장(선비촌)",
+                "장흥관광지 제5주차장(아시나요)", "장흥관광지(노상)")
+
+# 표준데이터 주차장명 → 양주도시공사 통합주차포털(parking.yjuc.or.kr) 주차장명.
+#   포털 ‘주차장검색’ 목록(2026-11-17 조회, 24곳 — 공영 18·부설 6)과 이름을 맞춘다.
+YJ_PORTAL_NAMES = {
+    "고읍저류지 공영주차장": "고읍저류지",
+    "광적 공영주차장": "광적(타워)",
+    "덕계공원 공영주차장": "덕계공원주차타워",
+    "덕계역(1) 공영주차장": "덕계역(1)",
+    "덕계역(2) 공영주차장": "덕계역(2)",
+    "덕계역(3) 공영주차장": "덕계역(3)",
+    "덕정역 공영주차장": "덕정역",
+    "화물자동차 공영주차장": "덕정화물자동차",
+    "옥정(2) 공영주차장": "옥정(2)",
+    "옥정(3) 공영주차장": "옥정(3)",
+    "마장호수 공영주차장": "마장호수편의시설",
+    "기산저수지(1) 공영주차장": "기산저수지(1)",
+    "기산저수지(2) 공영주차장": "기산저수지(2)",
+    "장흥관광지 제1주차장(하천변)": "장흥관광지(1)",
+    "장흥관광지 제2주차장(장흥관광지)": "장흥관광지(2)",
+    "장흥관광지 제4주차장(선비촌)": "장흥관광지(7)",
+    "광적가납 공영주차장": "광적가납",
+}
+
+# 양주도시공사 ‘공영주차장’ 안내(2026.10.31. 기준)의 주차면수 — 포털·표준데이터와 다른 곳이 있다.
+#   (이름: 공단 홈페이지 면수) 화물자동차 92면은 화물 66면 + 일반 26면이다.
+YJ_CORP_SPACES = {
+    "마장호수 공영주차장": 149, "광적 공영주차장": 74, "덕정주공상가 공영주차장": 31,
+    "화물자동차 공영주차장": 92, "광적가납 공영주차장": 31, "고읍저류지 공영주차장": 145,
+    "덕계공원 공영주차장": 145, "옥정(2) 공영주차장": 34, "옥정(3) 공영주차장": 25,
+    "덕계역(1) 공영주차장": 88, "덕계역(2) 공영주차장": 57, "덕계역(3) 공영주차장": 77,
+    "덕정역 공영주차장": 68, "장흥관광지 제1주차장(하천변)": 40,
+    "장흥관광지 제2주차장(장흥관광지)": 106, "장흥관광지 제4주차장(선비촌)": 40,
+    "기산저수지(1) 공영주차장": 45, "기산저수지(2) 공영주차장": 77,
+}
+
+# 양주시 ‘주차요금의 감면’(조례 제7조)과 양주도시공사의 주요 할인안내(2026.10.31. 기준) —
+#   둘 이상 해당하면 감면율이 높은 하나만 적용하고, 감면대상 차량은 증빙서류를 낸 때부터 적용한다.
+YJ_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·장애인·다자녀 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("경형자동차, 저공해자동차 표지 부착차량, 환경친화적 자동차, 장애인 자가운전·동승 차량, "
+              "경기 I-Plus 카드 등 다자녀증명 제시자, 승용차요일제 표지 차량(참여 요일 제외), "
+              "양주시 장기등 기증 예우대상자, 양주시민대상 수상자(수상일부터 2년), "
+              "병역명문가증 소지자, 임산부·미취학아동 동승 차량, "
+              "환승주차장(덕계역1·2·3·덕정역)에서 30분 이내 철도 환승 차량")},
+    {"label": "전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": ("전기자동차 충전시설이 설치된 공영주차장을 이용하는 전기자동차 — 최초 2시간 면제, "
+              "이후 발생요금 50% 감면(충전시설이 없는 주차장은 50%만 감면)")},
+    {"label": "국가유공자 등 4시간 면제 후 50%", "rate": 0.5, "exempt_min": 240,
+     "note": ("국가유공자·유족·가족, 5·18민주화운동 관련자·유족, 고엽제후유증환자·고엽제후유의증환자·"
+              "고엽제후유증 2세환자가 자가운전하는 차량(상이자 동승 포함) — 최초 4시간 면제, "
+              "4시간 초과분 50% 감면")},
+    {"label": "긴급·선거참여·모범납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차, 투표 당일 1회 선거참여자(투표참여 확인증), 공무수행 중인 관용차량, "
+              "국세청장·경기도지사·시장이 교부한 모범·유공·성실납세자 표지 부착 차량(유효기간 내)")},
+]
+
+
+def yj_dong_of(text: str):
+    """주소에서 양주시 법정동·읍·면을 뽑는다 — ‘경기도 양주시 {동·읍·면} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "양주시" and parts[2] in YJ_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(YJ_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def yj_fee(grade: int = 1, pay: str = "", *, monthly=None):
+    """양주시 공영주차장 시간 요금 → 사이트 공통 fee 객체(유료, 1일 주차권이 상한).
+
+    별표1은 ‘최초 30분 이내 기본요금 600원(1급지) → 10분당 200원’이고, 입차 후 최초 10분은
+    무료다(별표1 단서). 그래서 free_min=10, base 30분 600원, 10분 단위 200원으로 넣는다.
+    """
+    t = YJ_FEES[grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "std_grade": None,
+        "base_min": YJ_BASE_MIN, "base_fee": t["base"],
+        "unit_min": YJ_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": YJ_FREE_MIN, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 주차권(선납)",
+        "daily_hours": 24, "daily_fee": t["day"],
+        "prepaid_day": t["day"], "prepaid_weekend": None,
+        "monthly": t["month"] if monthly is None else monthly,
+        "monthly_day": None, "monthly_night": None,
+        "monthly_all": t["month"] if monthly is None else monthly, "monthly_label": None,
+        "pay": pay,
+        "basis": f"「양주시 주차장 조례」 별표1 {grade}급지 · 양주도시공사 요금안내",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yj_flat_fee(pay: str = "신용카드"):
+    """장흥관광지 공영주차장의 당일 정액(소·중형 2,000원) 요금 객체."""
+    return {
+        # 급지 요금이 아니라 당일 정액이라 급지를 두지 않는다.
+        "type": "유료", "raw_type": "혼합", "mixed": True,
+        "grade": None, "std_grade": None,
+        "base_min": 1440, "base_fee": YJ_FLAT_DAY,
+        "unit_min": 1440, "unit_fee": YJ_FLAT_DAY, "steps": None,
+        "free_min": None, "deduct_min": YJ_FREE_MIN,
+        "cap_fee": None, "cap_src": "양주도시공사 장흥관광지 요금(당일)",
+        "daily_hours": 24, "daily_fee": YJ_FLAT_DAY,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": pay,
+        "basis": "양주도시공사 장흥관광지 공영주차장 요금(경차 1,000·소·중형 2,000·대형 3,000원)",
+        "category": "tourist", "portal_free_now": False, "flat_day": True,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yj_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def load_yangju_portal():
+    """양주도시공사 통합주차포털 주차장 목록 스냅샷 → {포털 이름: 항목}."""
+    if not YJ_PORTAL_JSON.exists():
+        return {}
+    raw = json.loads(YJ_PORTAL_JSON.read_text())
+    out = {}
+    for d in raw.get("parkingList") or []:
+        name = (d.get("PARKING_NM") or "").strip()
+        if name:
+            out[name] = d
+    return out
+
+
+def yj_window(start, end):
+    """포털의 ‘시작~종료’ 문자열 → hours 셀.
+
+    포털은 요금을 받지 않는 요일에 00:00~00:00 을 넣는다. 그 값은 ‘그날은 요금을 받지
+    않는다(무료 개방)’는 뜻이라, 부르는 쪽에서 free_days 로 따로 표시한다.
+    """
+    s, e = parse_hm(start), parse_hm(end)
+    if s is None or e is None or (s == 0 and e == 0):
+        return None
+    if s == 0 and e == 23 * 60 + 59:
+        return {"open": True, "start": 0, "end": 24 * 60, "24h": True, "listed": True,
+                "raw": ["00:00", "24:00"]}
+    return {"open": True, "start": s, "end": e, "24h": False, "listed": True,
+            "raw": [fmt_time(start), fmt_time(end)]}
+
+
+def build_yangju():
+    """양주시 공영주차장을 표준데이터 + 양주시 주차장 조례 별표1 + 양주도시공사 자료로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 양주시 범위를 벗어난 행은 제외(껍데기 행).
+      · 이 사이트는 공영주차장 파인더라 민영 주차장(40행, 상가·건물·코레일네트웍스 등)은 넣지 않는다.
+      · 양주시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동·읍·면만 만든다.
+    요금은 조례 별표1(1급지 30분 600원·10분당 200원·1일 7,000원·월 60,000원, 최초 10분 무료)을
+    쓰고, 운영시간은 양주도시공사 통합주차포털의 주차장별 시간으로 바로잡는다(표준데이터는 모두
+    09:00~23:59 로만 등록). 포털이 요금을 받지 않는 요일(00:00~00:00)은 조례 별표1 비고3
+    (야간·주말·공휴일 무료)에 따라 무료 개방으로 표시한다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == YJ_PROVIDER]
+    portal = load_yangju_portal()
+    lots, excluded, merged, private = [], [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    portal_used = set()
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                src="표준데이터", notice=None, tel="", mgmt="", lat=None, lng=None,
+                base_date="", free_days=None, free_note=None, kind="공영"):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": src,
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "양주시",
+            "dong": dong,
+            "dong_src": "지번주소" if r and yj_dong_of((r.get("소재지지번주소") or "")) else
+                        ("도로명주소" if r and yj_dong_of((r.get("소재지도로명주소") or "")) else
+                         ("공단 안내" if (not r and dong) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else kind,
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "양주도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" and not fee.get("flat_day") else None,
+            "city": "양주시",
+            "city_slug": "yangju",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        if gubun == "민영":
+            # 공영주차장 파인더라 민영 주차장은 넣지 않는다(건물·상가·코레일네트웍스 등 40곳).
+            private.append({"name": name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (YJ_BBOX[0] <= lat <= YJ_BBOX[1] and YJ_BBOX[2] <= lng <= YJ_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = yj_dong_of(jibun) or yj_dong_of(road)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        free_days = {"sat": False, "sun": False}
+        notice_bits = []
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+
+        # 장흥관광지 공영주차장 — 급지 요금이 아니라 당일 정액(2,000원)이다.
+        if name in YJ_FLAT_LOTS:
+            fee = yj_flat_fee(pay="신용카드")
+            portal_name = YJ_PORTAL_NAMES.get(name)
+            p = portal.get(portal_name) if portal_name else None
+            if p:
+                portal_used.add(portal_name)
+                wk = yj_window(p.get("WDAYS_START_TM"), p.get("WDAYS_END_TM"))
+                we = yj_window(p.get("WEND_START_TM"), p.get("WEND_END_TM"))
+                he = yj_window(p.get("HEND_START_TM"), p.get("HEND_END_TM"))
+                if wk:
+                    win = {"weekday": wk, "sat": we or dict(wk), "sun": he or dict(wk)}
+                    oper = {"weekday": True, "sat": True, "sun": True}
+                    hour_fixed.append(f"{name}: 표준데이터 09:00~23:59 → 포털 운영시간 "
+                                      f"{wk['raw'][0]}~{wk['raw'][1]}(토·일·공휴일 포함)")
+            notice_bits.append(
+                "양주도시공사가 운영하는 장흥관광지 공영주차장입니다 — 급지 요금이 아니라 "
+                f"당일 정액이고, 경차 {YJ_FLAT_SHORT:,}원·소·중형차 {YJ_FLAT_DAY:,}원·"
+                f"대형차(2.5톤 이상 화물·16인승 이상 승합) {YJ_FLAT_LONG:,}원입니다. "
+                "무인정산기 카드결제만 되고 현금은 받지 않습니다")
+            if name in ("장흥관광지 제3주차장(효편의점)", "장흥관광지 제5주차장(아시나요)"):
+                notice_bits.append(
+                    "양주도시공사 홈페이지는 장흥관광지 제1·2·7 공영주차장만 따로 안내하고, "
+                    "표준데이터에는 제1~5주차장과 노상 구간이 등록되어 있습니다 — 같은 관광지 "
+                    "주차장으로 보아 당일 정액을 적용했습니다")
+        else:
+            paid = fee_type in ("유료", "혼합")
+            grade = to_int(r.get("급지구분")) or 1
+            grade = min(max(grade, 1), 2)     # 조례 별표1은 1·2급지다
+            portal_name = YJ_PORTAL_NAMES.get(name)
+            p = portal.get(portal_name) if portal_name else None
+            if p and not paid and (to_int(p.get("DFLT_AMT")) or 0) > 0:
+                # 표준데이터가 ‘무료’로 등록한 덕정역 공영주차장을 공단·포털(유료 운영)에 맞춘다.
+                paid = True
+                reclassified.append(
+                    f"{name}: 표준데이터 요금정보 ‘{fee_type or '무료'}’ ↔ 양주도시공사가 "
+                    f"2026-05-04부터 유료로 운영(포털 요금 10분 무료·30분 600원·1일 7,000원) — 유료로 바로잡음")
+                notice_bits.append(
+                    "2025년 10월부터 무료로 시범 운영하다 2026년 5월 4일부터 평일 주간에만 "
+                    "유료로 전환했습니다 — 평일 08:00~20:00에만 요금을 받고 야간·주말·공휴일은 "
+                    "무료로 개방하며, 덕정역 환승객은 50% 할인이 자동 적용됩니다"
+                    "(양주도시공사 공지 2026-04-29·신아일보 2026-05-07). 표준데이터에는 아직 무료로 등록")
+            if paid:
+                monthly = YJ_FEES[grade]["month"]
+                fee = yj_fee(grade, pay=pay, monthly=monthly)
+                fee["std_grade"] = to_int(r.get("급지구분"))
+                daily_std = to_int(r.get("1일주차권요금"))
+                month_std = to_int(r.get("월정기권요금"))
+                fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                              "base_fee": to_int(r.get("주차기본요금")),
+                              "unit_min": to_int(r.get("추가단위시간")),
+                              "unit_fee": to_int(r.get("추가단위요금")),
+                              "day": daily_std, "monthly": month_std}
+                if daily_std and daily_std != YJ_FEES[grade]["day"]:
+                    note_fixed.append(f"{name}: 표준데이터 1일 주차권 {daily_std:,}원 ↔ "
+                                      f"별표1 {grade}급지 {YJ_FEES[grade]['day']:,}원")
+                if p and month_std and not to_int(p.get("PERIOD_TICKET_AMT")):
+                    # 포털에 정기권 판매가 없는 주차장 — 조례 요금은 있으나 운영하지 않는다.
+                    month_diff.append(f"{name}: 표준데이터 월 정기권 {month_std or 0:,}원 ↔ "
+                                      f"포털 정기권 판매 없음(공단 안내 정기권 시행 주차장 아님)")
+            else:
+                fee = yj_free_fee()
+
+            if p:
+                portal_used.add(portal_name)
+                wk = yj_window(p.get("WDAYS_START_TM"), p.get("WDAYS_END_TM"))
+                we = yj_window(p.get("WEND_START_TM"), p.get("WEND_END_TM"))
+                he = yj_window(p.get("HEND_START_TM"), p.get("HEND_END_TM"))
+                if wk:
+                    # 포털은 요금을 받지 않는 요일에 00:00~00:00 을 넣는다 — 무료 개방.
+                    sat_free = we is None
+                    sun_free = he is None
+                    win = {"weekday": wk,
+                           "sat": (we or {"open": True, "start": 0, "end": 24 * 60, "24h": True,
+                                          "listed": True, "raw": ["00:00", "24:00"]}),
+                           "sun": (he or dict(we or {"open": True, "start": 0, "end": 24 * 60,
+                                                    "24h": True, "listed": True,
+                                                    "raw": ["00:00", "24:00"]}))}
+                    oper = {"weekday": True, "sat": True, "sun": True}
+                    free_days = {"sat": sat_free, "sun": sun_free}
+                    hour_fixed.append(
+                        f"{name}: 표준데이터 09:00~23:59 → 포털 평일 "
+                        f"{wk['raw'][0]}~{wk['raw'][1]}"
+                        + ("" if sat_free else f" · 토 {we['raw'][0]}~{we['raw'][1]}")
+                        + ("" if sun_free else f" · 공휴일 {he['raw'][0]}~{he['raw'][1]}"))
+                if paid and fee["type"] == "유료":
+                    when = ("평일 " + f"{wk['raw'][0]}~{wk['raw'][1]}" if wk else "평일 주간")
+                    if free_days["sat"] or free_days["sun"]:
+                        free_note = ("야간과 토요일·일요일·공휴일은 무료로 개방합니다 — "
+                                     f"{when}에만 요금을 받습니다(조례 별표1 비고2·3)")
+                    else:
+                        free_note = ("야간은 무료로 개방합니다 — "
+                                     f"{when}과 주말·공휴일에는 요금을 받습니다(조례 별표1 비고2·3)")
+            elif paid:
+                free_note = ("야간(20:00~08:00)과 토요일·일요일·공휴일은 무료로 개방합니다 — "
+                             "주간(08:00~20:00)에만 요금을 받습니다(조례 별표1 비고2·3)")
+            else:
+                free_note = None
+
+            if not paid:
+                free_days = {"sat": False, "sun": False}
+
+        sp = YJ_CORP_SPACES.get(name)
+        psp = to_int(p.get("CELL_CNT")) if p else None
+        if (sp and sp != spaces) or (psp and psp != spaces):
+            diff = f"{name}: 표준데이터 {spaces}면"
+            if psp and psp != spaces:
+                diff += f" ↔ 포털 {psp}면"
+            if sp and sp != spaces and sp != psp:
+                diff += f" ↔ 공단 {sp}면"
+            space_diff.append(diff)
+            bits = [f"표준데이터 등록면수 {spaces}면"]
+            if psp and psp != spaces:
+                bits.append(f"포털 {psp}면")
+            if sp and sp != spaces:
+                bits.append(f"양주도시공사 안내 {sp}면")
+            notice_bits.append("면수는 자료마다 다릅니다 — " + " · ".join(bits)
+                               + " (이 사이트는 등록면수를 씁니다)")
+        if name == "화물자동차 공영주차장":
+            notice_bits.append("양주도시공사 안내의 92면은 화물 66면과 일반 26면을 합한 값이고, "
+                               "표준데이터에는 일반면 26면만 등록되어 있습니다")
+        if name == "광적가납 공영주차장":
+            notice_bits.append("양주도시공사가 화물·승합·건설기계 정기권 주차장으로 운영합니다"
+                               "(24시간, 정기권은 통합예약서비스에서 신청)")
+        if name == "고읍(4) 공영주차장":
+            notice_bits.append("같은 부지(광사동 711)의 46면은 카라반·캠핑트레일러 전용 "
+                               "‘고읍 캠핑카’ 정기권 구역으로 양주도시공사가 운영합니다")
+        if name == "덕정 교각(1) 임시 공영주차장":
+            notice_bits.append("양주시청 교각(마전동 93-1) 부설주차장과 같은 곳으로 보이며, "
+                               "양주도시공사는 08:00~18:00 운영으로 안내합니다")
+        if street:
+            notice_bits.append("노상주차장은 조례 별표1 1급지 요금(30분 600원·10분당 200원·"
+                               "1일 7,000원)을 적용할 수 있고, 표준데이터에는 요금 구분이 "
+                               f"‘{fee_type or '무료'}’로 등록되어 있습니다")
+        if name == "덕정주공상가 공영주차장":
+            notice_bits.append("양주도시공사 홈페이지는 31면·운영시간 없음(24시간 개방)으로 "
+                               "안내합니다")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(notice_bits) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "양주도시공사"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    unused = sorted(set(portal) - portal_used)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"yj-{i:03d}" if l["list_mode"] == "card" else f"yj-s{i:03d}"
+
+    quality = check_quality_yangju(rows_all, rows_city, lots, excluded, merged, private,
+                                   hour_fixed, space_diff, note_fixed, reclassified,
+                                   month_diff, unused)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(YJ_PORTAL_JSON).strftime("%Y-%m-%d %H:%M")
+                           if YJ_PORTAL_JSON.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "양주시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-15",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-17 16:05 (KST)",
+                    "note": ("경기도 양주시가 등록한 89행(노외 78·노상 11)을 읽었다. 이 가운데 "
+                             "민영 40행(상가·건물·코레일네트웍스 등)은 공영주차장 파인더라 싣지 않고, "
+                             "공영 49행(노외 38·노상 11)을 이름·주소·구획수·급지·운영요일·좌표·전화·"
+                             "관리번호·결제방법 출처로 썼다. 운영시간은 모든 행이 09:00~23:59 로만 "
+                             "등록되어 있어 양주도시공사 포털의 주차장별 시간으로 바로잡았다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": "양주시 주차장 조례 [별표 1] 공영주차장 주차요금표",
+                    "org": "양주시청 차량관리과(031-8082-6623) · 양주도시공사 통합주차관제센터(031-828-9796~8)",
+                    "url": YJ_ORDINANCE_URL,
+                    "file": YJ_ORD_ANNEX_TXT.name if YJ_ORD_ANNEX_TXT.exists() else YJ_ORD_TXT.name,
+                    "sha256": (sha256(YJ_ORD_ANNEX_TXT) if YJ_ORD_ANNEX_TXT.exists()
+                               else sha256(YJ_ORD_TXT) if YJ_ORD_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": YJ_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(YJ_ORD_TXT),
+                    "note": ("국가법령정보센터 별표/서식 HWP(yangju.law.go.kr_주차장조례_별표1_20261117.hwp)에서 "
+                             "표를 읽어 정리본(txt)을 두었다. 1급지 최초 30분 이내 600원·10분당 200원·1일 주차권(선납) 7,000원·"
+                             "월 정기권(선납) 60,000원, 2급지 300·100·3,000·40,000원, 거주자 전용 "
+                             "주차구획 주간·야간 20,000원·전일 30,000원을 별표/서식 HWP에서 읽었다. "
+                             "같은 별표가 ‘최초 30분 미만은 기본요금, 다만 입차 후 최초 10분까지는 "
+                             "무료’, 운영시간 주간 08:00~20:00·야간 20:00~익일 08:00(비고2), "
+                             "‘야간·주말·공휴일 요금은 무료’(비고3), 1급지(국도·지방도·시도 500m "
+                             "이내)·2급지 구분(비고4), 차량 크기별 2배·3배(비고7)를 정하고 있다."),
+                },
+                {
+                    "id": "corp", "name": "양주도시공사 공영주차장 시설·이용안내(요금안내·주요 할인안내)",
+                    "org": "양주도시공사 통합주차관제센터(031-828-9796~8)",
+                    "url": YJ_CORP_URL,
+                    "file": YJ_CORP_TXT.name if YJ_CORP_TXT.exists() else None,
+                    "sha256": sha256(YJ_CORP_TXT) if YJ_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "2026-10-31 기준",
+                    "rows_total": 19, "fetched_at": _sync_time(YJ_CORP_TXT),
+                    "note": ("공영주차장 19곳(노외 18·노상 1)과 부설주차장 5곳의 평일·주말 운영시간과 "
+                             "면수를 확인했다 — 공영주차장 요금은 최초 10분 무료·10분초과 30분이내 "
+                             "600원·30분초과 10분당 200원·일일권(선납) 7,000원·월정기권(선납) "
+                             "60,000원이고, 장흥관광지 1·2·7은 당일 경차 1,000·소·중형 2,000·"
+                             "대형 3,000원(카드결제만)이다. 할인은 국가유공자 등 4시간 면제 뒤 "
+                             "50%, 전기차 2시간 면제 뒤 50%, 경차·저공해·장애인·다자녀 등 50%, "
+                             "긴급·선거참여 무료로 안내한다."),
+                },
+                {
+                    "id": "portal", "name": "양주도시공사 통합주차포털 주차장 목록(주차장검색)",
+                    "org": "양주도시공사 통합주차관제센터(031-828-9797~8)",
+                    "url": YJ_PORTAL_URL,
+                    "file": YJ_PORTAL_JSON.name if YJ_PORTAL_JSON.exists() else None,
+                    "sha256": sha256(YJ_PORTAL_JSON) if YJ_PORTAL_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": 24, "fetched_at": _sync_time(YJ_PORTAL_JSON),
+                    "note": ("공영 18곳·부설 6곳의 급지·면수·요금(무료시간 10분·기본 30분 600원·"
+                             "추가 10분 200원·일 최대 7,000원·월 60,000원)·평일/토요일/공휴일 "
+                             "운영시간을 주차장별로 읽어 표준데이터의 24시간·09:00~23:59 등록을 "
+                             "바로잡았다. 요금을 받지 않는 요일은 00:00~00:00 으로 등록되어 있어 "
+                             "조례 별표1 비고3에 따라 무료 개방으로 표시했다."),
+                },
+                {
+                    "id": "news", "name": "신아일보 — 양주, 덕정역 공영주차장 유료 전환 운영",
+                    "org": "신아일보(2026-05-07 보도)", "url": YJ_NEWS_URL,
+                    "file": YJ_NEWS_TXT.name if YJ_NEWS_TXT.exists() else None,
+                    "sha256": sha256(YJ_NEWS_TXT) if YJ_NEWS_TXT.exists() else None,
+                    "license": "언론 보도(참고용)", "base_date": "2026-05-07",
+                    "rows_total": None, "fetched_at": _sync_time(YJ_NEWS_TXT),
+                    "note": ("덕정역 공영주차장(68면)이 2026-05-04부터 평일 08:00~20:00에만 "
+                             "유료로 운영되고 야간·주말·공휴일은 무료로 개방한다는 것을 확인했다 — "
+                             "최초 30분 600원·이후 10분당 200원·1일 7,000원, 덕정역 환승 50% 할인은 "
+                             "정산 때 자동 차감. 표준데이터는 아직 무료로 등록되어 있다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in YJ_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "yangju_grade",
+            "unit_min": YJ_UNIT_MIN,
+            "base_min": YJ_BASE_MIN,
+            "free_min": YJ_FREE_MIN,
+            "applies": YJ_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "국도·지방도·시도로부터 500m 이내", "base": 600, "unit": 200,
+                 "day": 7_000, "month": 60_000, "lots": 0},
+                {"grade": 2, "where": "1급지 이외의 지역", "base": 300, "unit": 100,
+                 "day": 3_000, "month": 40_000, "lots": 0},
+            ],
+            "resident": {"day": 20_000, "night": 20_000, "all": 30_000,
+                         "day_hours": "09:00~19:00", "night_hours": "19:00~익일 09:00"},
+            "flat": {"amount": YJ_FLAT_DAY, "short": YJ_FLAT_SHORT, "long": YJ_FLAT_LONG,
+                     "lots": [l["name"] for l in lots if l["fee"].get("flat_day")]},
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "grade": l["fee"].get("grade"),
+                 "free": l["fee"].get("free_min"), "day": l["fee"].get("daily_fee"),
+                 "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "corp": {
+                "paid_out": len([l for l in lots if l["fee"]["type"] == "유료"
+                                 and l["ptype"] == "노외" and not l["fee"].get("flat_day")]),
+                "flat": len([l for l in lots if l["fee"].get("flat_day")]),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                "corp_total": ("공영주차장 19곳(노외 18·노상 1)과 부설주차장 5곳"
+                               "(공단 안내 2026.10.31. 기준)"),
+            },
+            "basis": ("「양주시 주차장 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({YJ_ORDINANCE_NOTE}) · 양주도시공사 요금안내(2026-10-31) · "
+                      "통합주차포털 주차장별 요금(2026-11-17 조회)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["양주시"] | {
+        "city": "양주시",
+        "weekend_free_pages": False,
+        "discounts": YJ_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "yangju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_yangju(std_all, rows, lots, excluded, merged, private, hour_fixed, space_diff,
+                         note_fixed, reclassified, month_diff, unused):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_양주시행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len(private),
+        "민영_행": private,
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "당일정액": [l["name"] for l in lots if l["fee"].get("flat_day")],
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "특기사항_보정": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "포털_미사용": unused,
+        "감면_출처": "「양주시 주차장 조례」 제7조 · 양주도시공사 주요 할인안내(2026-10-31)",
+        "무료시간_출처": "조례 별표1 단서(입차 후 최초 10분 무료)",
+        "주말무료_출처": "조례 별표1 비고3(야간·주말·공휴일 요금 무료) · 포털 요일별 운영시간",
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -12189,7 +12866,8 @@ def main():
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
              "hanam": ["하남시"], "gunpo": ["군포시"],
              "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"],
-             "icheon": ["이천시"], "anseong": ["안성시"]}[args.city])
+             "icheon": ["이천시"], "anseong": ["안성시"],
+             "yangju": ["양주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -12235,6 +12913,8 @@ def main():
         cities.append(build_icheon())
     if "안성시" in want:
         cities.append(build_anseong())
+    if "양주시" in want:
+        cities.append(build_yangju())
 
     if args.city == "all":
         site = build_site_payload(cities)
