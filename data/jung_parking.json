@@ -1,0 +1,7532 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 04:36",
+  "generated_at_iso": "2026-11-18T04:36:49+09:00",
+  "snapshot_at": "2026-11-18 04:36",
+  "region": {
+   "province": "서울특별시",
+   "city": "중구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 60,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "중구가 등록한 60행(노외 24·노상 36)을 읽었다. 서울은 요금을 5분 단위로 매기고, 급지구분(1~3급지)과 등록된 5분당 요금으로 계산한다. 요금·운영시간·급지·좌표는 주차장별 등록값을 그대로 썼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서울특별시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제7조 감면",
+    "org": "서울특별시 교통실 주차계획과(02-2133-2353)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413",
+    "file": "law.go.kr_서울특별시주차장조례_별표1_20261118.txt",
+    "sha256": "88c59b8e83c0bd75d2f0fd57028a9a57cf1038e9ce5f293c46f41bf5c6cc23b9",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 04:25 (KST)",
+    "note": "시영(서울시설공단) 공영주차장의 요금표다. 1~3급지로 나뉘고 1회 주차 5분당 노상 500·250·150원, 노외 400·250·150원, 1일주차권(노상·야간에 한함) 5,000·4,000·3,000원, 노외 1일 주차요금 28,000·18,000·10,000원, 월 정기권 전일 250,000·180,000·100,000원·야간 100,000·60,000·40,000원이다. 개별 주차장 요금은 급지 요금에 법정동 평균공시지가 변수를 곱해 정하고(서울글로벌센터 5분당 700원·종묘 400원), 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제7조는 장애인·국가유공자 등 80퍼센트, 경차·저공해 50퍼센트, 다둥이 50퍼센트, 전통시장 2시간 50퍼센트, 5·18·전기차 1시간 면제 뒤 50퍼센트, 모범납세자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「서울특별시 중구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표",
+    "org": "중구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2041757",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-05-23 · 서울특별시중구조례 제1836호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(자치구·구 시설관리공단) 주차장에 적용하는 조례로, 급지별 5분당 요금과 감면을 정한다. 중구는 노상·노외 요금이 다릅니다 — 조례 별표1은 노상 1급지 500원·노외 1급지 400원, 2급지 250원, 3급지 150원, 4급지 100원, 5급지 50원(5분당)입니다. 중구시설관리공단은 2025-04-01부터 시간주차 요금을 50원 올려 1급지 450원·2급지 300원·3급지 200원을 받고 (신당동공영은 250원), 1권역(시청 주변 7개소) 노상은 5분당 600원입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "중구 공영주차장 시간제 현황·요금 안내",
+    "org": "중구시설관리공단(02-2280-8360) · 구청 주차관리부서 · 시영은 서울시설공단",
+    "url": "https://www.e-junggu.or.kr/fmcs/139",
+    "file": "e-junggu.or.kr_공영주차장_시설현황_20261118.txt",
+    "sha256": "7441198c2a41ec1a04bf97b066540ebe251c406e3fd95ba4c7ada576c975559c",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-18",
+    "rows_total": 1,
+    "fetched_at": "2026-11-18 04:30 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·5분당 요금을 적은 표를 그대로 옮겨 두었다. 표준데이터와 면수·운영시간을 대조했고, 안내에만 있고 표준데이터에 없는 주차장은 요금표 페이지에 따로 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "중구",
+   "slug": "jung"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jung-001",
+   "mgmt_no": "101-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남산동 공영주차장",
+   "gu": "중구",
+   "dong": "남산동2가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 남산동2가 30-4",
+   "addr_road": "서울특별시 중구 퇴계로20길 24",
+   "road": null,
+   "spaces": 48,
+   "tel": "02-2280-8360",
+   "lat": 37.55923229,
+   "lng": 126.9855975,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 300원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 240000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 240000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 240000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-002",
+   "mgmt_no": "101-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동화동 공영주차장",
+   "gu": "중구",
+   "dong": "동화동",
+   "dong_src": "보정(명칭)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 다산로36가길 13",
+   "road": null,
+   "spaces": 229,
+   "tel": "02-2280-8360",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-003",
+   "mgmt_no": "101-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "손기정체육공원 공영주차장",
+   "gu": "중구",
+   "dong": "만리동2가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 만리동2가 6-1",
+   "addr_road": "서울특별시 중구 손기정로 101",
+   "road": null,
+   "spaces": 162,
+   "tel": "02-2280-8360",
+   "lat": 37.55592073,
+   "lng": 126.9645377,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-004",
+   "mgmt_no": "101-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서소문삼성생명뒤 공영주차장",
+   "gu": "중구",
+   "dong": "서소문동",
+   "dong_src": "보정(명칭·도로명주소(서소문로12길))",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 서소문로12길 26-1",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-2280-8360",
+   "lat": 37.56205777,
+   "lng": 126.9746238,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 450원으로 받습니다(2025-04-01부터 50원 인상) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-005",
+   "mgmt_no": "101-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다산동 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 432-24",
+   "addr_road": "서울특별시 중구 동호로15길 50",
+   "road": null,
+   "spaces": 85,
+   "tel": "02-2280-8360",
+   "lat": 37.55433289,
+   "lng": 127.0082945,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-006",
+   "mgmt_no": "101-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다산아트 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 432-612",
+   "addr_road": "서울특별시 중구 동호로17길 173",
+   "road": null,
+   "spaces": 75,
+   "tel": "02-2280-8360",
+   "lat": 37.55163335,
+   "lng": 127.0043894,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-007",
+   "mgmt_no": "101-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동대문",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 257-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 1092,
+   "tel": "02-2254-4901",
+   "lat": 37.567102,
+   "lng": 127.012141,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 360원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 360,
+    "unit_min": 5,
+    "unit_fee": 360,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 157000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 157000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 360,
+     "unit_min": 5,
+     "unit_fee": 360,
+     "day": 0,
+     "monthly": 157000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 360,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-008",
+   "mgmt_no": "101-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 381-27",
+   "addr_road": "서울특별시 중구 동호로12길 29",
+   "road": null,
+   "spaces": 31,
+   "tel": "02-2280-8360",
+   "lat": 37.55652714,
+   "lng": 127.0110209,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-009",
+   "mgmt_no": "101-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "버티 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 432-1693",
+   "addr_road": "서울특별시 중구 동호로17길 270",
+   "road": null,
+   "spaces": 91,
+   "tel": "02-2280-8360",
+   "lat": 37.54907253,
+   "lng": 127.0063049,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-010",
+   "mgmt_no": "101-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "새싹마을 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 386-66",
+   "addr_road": "서울특별시 중구 동호로12길 97",
+   "road": null,
+   "spaces": 12,
+   "tel": "02-2280-8360",
+   "lat": 37.559506,
+   "lng": 127.0120996,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 140,000원) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": "거주민 월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "거주민 월 정기권 전용 — 시간 주차요금 없음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-011",
+   "mgmt_no": "101-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성곽 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 432-2026",
+   "addr_road": "서울특별시 중구 동호로17길 201",
+   "road": null,
+   "spaces": 44,
+   "tel": "02-2280-8360",
+   "lat": 37.55052231,
+   "lng": 127.0048389,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-012",
+   "mgmt_no": "101-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신당동 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 300-6",
+   "addr_road": "서울특별시 중구 다산로33길 3",
+   "road": null,
+   "spaces": 75,
+   "tel": "02-2280-8360",
+   "lat": 37.56210861,
+   "lng": 127.014538,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 240000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 240000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 240000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-013",
+   "mgmt_no": "101-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신당사거리 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 110-1",
+   "addr_road": "서울특별시 중구 퇴계로 408",
+   "road": null,
+   "spaces": 45,
+   "tel": "02-2280-8360",
+   "lat": 37.56512167,
+   "lng": 127.0170048,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 300원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 240000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 240000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 240000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-014",
+   "mgmt_no": "101-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "약수동 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 349-234",
+   "addr_road": "서울특별시 중구 동호로8다길 22",
+   "road": null,
+   "spaces": 88,
+   "tel": "02-2280-8360",
+   "lat": 37.55224094,
+   "lng": 127.0133314,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-015",
+   "mgmt_no": "101-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청구 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 330-17",
+   "addr_road": "서울특별시 중구 다산로 174",
+   "road": null,
+   "spaces": 51,
+   "tel": "02-2280-8360",
+   "lat": 37.55897634,
+   "lng": 127.0134041,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 300원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 240000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 240000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 240000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-016",
+   "mgmt_no": "101-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충현 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 432-462",
+   "addr_road": "서울특별시 중구 동호로11나길 47",
+   "road": null,
+   "spaces": 108,
+   "tel": "02-2280-8360",
+   "lat": 37.55218254,
+   "lng": 127.0057006,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-017",
+   "mgmt_no": "101-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충현어린이공원 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 신당동 354-11",
+   "addr_road": "서울특별시 중구 동호로11나길 6",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-2280-8360",
+   "lat": 37.55265858,
+   "lng": 127.0080154,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 140,000원) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": "거주민 월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "거주민 월 정기권 전용 — 시간 주차요금 없음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-018",
+   "mgmt_no": "101-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "훈련원공원",
+   "gu": "중구",
+   "dong": "을지로5가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 을지로5가 40-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 873,
+   "tel": "02-3405-4597",
+   "lat": 37.56692913,
+   "lng": 127.0043893,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 550원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 550,
+    "unit_min": 5,
+    "unit_fee": 550,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 176000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 176000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 550,
+     "unit_min": 5,
+     "unit_fee": 550,
+     "day": 0,
+     "monthly": 176000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 550,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-019",
+   "mgmt_no": "101-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장충 공영주차장",
+   "gu": "중구",
+   "dong": "장충동2가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 장충동2가 193-39",
+   "addr_road": "서울특별시 중구 퇴계로50길 59",
+   "road": null,
+   "spaces": 106,
+   "tel": "02-2280-8360",
+   "lat": 37.5599708,
+   "lng": 127.001327,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-020",
+   "mgmt_no": "101-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "묵정공원지하 공영주차장",
+   "gu": "중구",
+   "dong": "충무로5가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 충무로5가 21",
+   "addr_road": "서울특별시 중구 퇴계로45길 32-12",
+   "road": null,
+   "spaces": 491,
+   "tel": "02-2280-8360",
+   "lat": 37.56368166,
+   "lng": 126.9998022,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 450원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 350000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 350000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 350000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-021",
+   "mgmt_no": "101-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "필동 공영주차장",
+   "gu": "중구",
+   "dong": "필동3가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 필동3가 62-12",
+   "addr_road": "서울특별시 중구 필동로 55",
+   "road": null,
+   "spaces": 47,
+   "tel": "02-2280-8360",
+   "lat": 37.55659948,
+   "lng": 126.9958721,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-022",
+   "mgmt_no": "101-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황학어린이공원 공영주차장",
+   "gu": "중구",
+   "dong": "황학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "서울특별시 중구 황학동 755",
+   "addr_road": "서울특별시 중구 다산로48길 33",
+   "road": null,
+   "spaces": 113,
+   "tel": "02-2280-8360",
+   "lat": 37.56748267,
+   "lng": 127.0180129,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 400원을 300원으로 받습니다(개별 조정) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 300,
+    "unit_min": 5,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 180000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 180000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 300,
+     "unit_min": 5,
+     "unit_fee": 300,
+     "day": 0,
+     "monthly": 180000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-023",
+   "mgmt_no": "101-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남산예장",
+   "gu": "중구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 퇴계로26길 36",
+   "road": null,
+   "spaces": 39,
+   "tel": "02-2290-7227",
+   "lat": 37.559809,
+   "lng": 126.9889387982,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 500원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-024",
+   "mgmt_no": "101-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성동고 공영주차장",
+   "gu": "중구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 퇴계로90길 17",
+   "road": null,
+   "spaces": 100,
+   "tel": "02-2280-8360",
+   "lat": 37.5641622,
+   "lng": 127.0223892,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 3급지 기준 150원을 200원으로 받습니다(2025-04-01부터 50원 인상) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 5,
+    "base_fee": 200,
+    "unit_min": 5,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 140000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 140000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 200,
+     "unit_min": 5,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 140000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s001",
+   "mgmt_no": "101-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남대문 화물",
+   "gu": "중구",
+   "dong": "남대문로4가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 남대문로 4가 24-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "",
+   "lat": 37.56101255,
+   "lng": 126.9779181,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 400원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 400,
+    "unit_min": 5,
+    "unit_fee": 400,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 400,
+     "unit_min": 5,
+     "unit_fee": 400,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s002",
+   "mgmt_no": "101-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "국제화재빌딩옆 공영주차장",
+   "gu": "중구",
+   "dong": "남대문로5가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 남대문로5가 143",
+   "addr_road": "서울특별시 중구 소월로 16",
+   "road": null,
+   "spaces": 12,
+   "tel": "02-2280-8360",
+   "lat": 37.55825725,
+   "lng": 126.9758167,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s003",
+   "mgmt_no": "101-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남대문피혁상가남측 공영주차장",
+   "gu": "중구",
+   "dong": "남대문로5가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 남대문로5가 1-1",
+   "addr_road": "서울특별시 중구 세종대로 23",
+   "road": null,
+   "spaces": 24,
+   "tel": "02-2280-8360",
+   "lat": 37.55909097,
+   "lng": 126.9738446,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s004",
+   "mgmt_no": "101-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남대문 시장",
+   "gu": "중구",
+   "dong": "남창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 남창동 51-4 일대",
+   "addr_road": "",
+   "road": null,
+   "spaces": 2,
+   "tel": "",
+   "lat": 37.559277,
+   "lng": 126.977703,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 관광버스 전용 구획입니다 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s005",
+   "mgmt_no": "101-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남대문 초입",
+   "gu": "중구",
+   "dong": "남창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 남창동 51-4 일대",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "",
+   "lat": 37.5598,
+   "lng": 126.9773,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 관광버스 전용 구획입니다 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s006",
+   "mgmt_no": "101-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남산공원 소파로",
+   "gu": "중구",
+   "dong": "남창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 남창동 205-107 일대",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "02-2290-6437",
+   "lat": 37.556118,
+   "lng": 126.978563,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s007",
+   "mgmt_no": "101-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한국관광공사옆 공영주차장",
+   "gu": "중구",
+   "dong": "다동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 다동 85-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2280-8360",
+   "lat": 37.56825208,
+   "lng": 126.9820958,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 600원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 600,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 600,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s008",
+   "mgmt_no": "101-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대림상가 공영주차장",
+   "gu": "중구",
+   "dong": "산림동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 산림동 200-2",
+   "addr_road": "서울특별시 중구 을지로19길 38",
+   "road": null,
+   "spaces": 47,
+   "tel": "02-2280-8360",
+   "lat": 37.56830414,
+   "lng": 126.9957273,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s009",
+   "mgmt_no": "101-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동국제강",
+   "gu": "중구",
+   "dong": "삼각동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 삼각동 111-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "",
+   "lat": 37.56725124,
+   "lng": 126.9835051,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 700원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 700,
+    "unit_min": 5,
+    "unit_fee": 700,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 700,
+     "unit_min": 5,
+     "unit_fee": 700,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s010",
+   "mgmt_no": "101-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서소문올리브타워옆 공영주차장",
+   "gu": "중구",
+   "dong": "서소문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 서소문동 135",
+   "addr_road": "서울특별시 중구 세종대로9길 41",
+   "road": null,
+   "spaces": 16,
+   "tel": "02-2280-8360",
+   "lat": 37.56135823,
+   "lng": 126.9729963,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s011",
+   "mgmt_no": "101-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조선호텔앞 공영주차장",
+   "gu": "중구",
+   "dong": "소공동",
+   "dong_src": "보정(도로명주소(소공로 102))",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 소공로 102",
+   "road": null,
+   "spaces": 4,
+   "tel": "02-2280-8360",
+   "lat": 37.56356416,
+   "lng": 126.9820902,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 1,500원으로 받습니다(개별 조정) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 1500,
+    "unit_min": 30,
+    "unit_fee": 1500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 1500,
+     "unit_min": 30,
+     "unit_fee": 1500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s012",
+   "mgmt_no": "101-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "해운센터앞 공영주차장",
+   "gu": "중구",
+   "dong": "소공동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 소공동 59",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "02-2280-8360",
+   "lat": 37.56316045,
+   "lng": 126.9807268,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 600원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 600,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 600,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s013",
+   "mgmt_no": "101-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이화여고앞 공영주차장",
+   "gu": "중구",
+   "dong": "순화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 순화동 1-1",
+   "addr_road": "서울특별시 중구 통일로4길 30",
+   "road": null,
+   "spaces": 13,
+   "tel": "02-2280-8360",
+   "lat": 37.56557732,
+   "lng": 126.9696417,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 250,
+    "unit_min": 5,
+    "unit_fee": 250,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 250,
+     "unit_min": 5,
+     "unit_fee": 250,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 250,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s014",
+   "mgmt_no": "101-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남평화시장앞 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 신당동 779",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "02-2280-8360",
+   "lat": 37.56867059,
+   "lng": 127.0110039,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s015",
+   "mgmt_no": "101-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "맑은내길 공영주차장",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 신당동 213-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "02-2280-8360",
+   "lat": 37.56921034,
+   "lng": 127.0121361,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s016",
+   "mgmt_no": "101-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계6(동평화)",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 신당동 217-118+서울시 종로구 창신동 436-91",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "",
+   "lat": 37.569582,
+   "lng": 127.013098,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s017",
+   "mgmt_no": "101-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계6(북)",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 신당동 217-118+서울시 종로구 창신동 436-91",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "",
+   "lat": 37.569971,
+   "lng": 127.011002,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s018",
+   "mgmt_no": "101-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계6(신평화)",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 신당동 217-118+서울시 종로구 창신동 436-91",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "",
+   "lat": 37.569577,
+   "lng": 127.011183,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s019",
+   "mgmt_no": "101-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계6(청평화)",
+   "gu": "중구",
+   "dong": "신당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 신당동 217-118+서울시 종로구 창신동 436-91",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "02-2252-8036",
+   "lat": 37.569599,
+   "lng": 127.015083,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 450원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 450,
+    "unit_min": 5,
+    "unit_fee": 450,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 450,
+     "unit_min": 5,
+     "unit_fee": 450,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 450,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s020",
+   "mgmt_no": "101-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "배오개길",
+   "gu": "중구",
+   "dong": "예관동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 예관동 22-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "02-2274-2009",
+   "lat": 37.56533866,
+   "lng": 126.9980128,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 680원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 680,
+    "unit_min": 5,
+    "unit_fee": 680,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 680,
+     "unit_min": 5,
+     "unit_fee": 680,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 680,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s021",
+   "mgmt_no": "101-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "마른내로",
+   "gu": "중구",
+   "dong": "오장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 오장동 69-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "02-2273-0006",
+   "lat": 37.56461446,
+   "lng": 127.0002701,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 620원으로 받습니다(공시지가 변수 반영) · 표준데이터 운영요일이 ‘평일’이라 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 표준데이터 운영요일이 ‘평일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 620,
+    "unit_min": 5,
+    "unit_fee": 620,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 620,
+     "unit_min": 5,
+     "unit_fee": 620,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 620,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s022",
+   "mgmt_no": "101-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "돈화문로",
+   "gu": "중구",
+   "dong": "을지로3가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 을지로3가 296-24(도로양쪽)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "02-2274-2009",
+   "lat": 37.56523043,
+   "lng": 126.9926255,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 810원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 810,
+    "unit_min": 5,
+    "unit_fee": 810,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 810,
+     "unit_min": 5,
+     "unit_fee": 810,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 810,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s023",
+   "mgmt_no": "101-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "을지로",
+   "gu": "중구",
+   "dong": "을지로3가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 을지로3가 282-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "02-2274-2009",
+   "lat": 37.56627504,
+   "lng": 126.99265,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 810원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 810,
+    "unit_min": 5,
+    "unit_fee": 810,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 810,
+     "unit_min": 5,
+     "unit_fee": 810,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 810,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s024",
+   "mgmt_no": "101-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼풍상가 공영주차장",
+   "gu": "중구",
+   "dong": "을지로4가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 을지로4가 310-68",
+   "addr_road": "서울특별시 중구 을지로 158",
+   "road": null,
+   "spaces": 26,
+   "tel": "02-2280-8360",
+   "lat": 37.56592767,
+   "lng": 126.9955905,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 1,500원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 1500,
+    "unit_min": 30,
+    "unit_fee": 1500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 1500,
+     "unit_min": 30,
+     "unit_fee": 1500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s025",
+   "mgmt_no": "101-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계5(평화시장)",
+   "gu": "중구",
+   "dong": "을지로6가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 을지로6가 17-442",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "02-2265-3531",
+   "lat": 37.569573,
+   "lng": 127.0078625,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 750원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 750,
+    "unit_min": 5,
+    "unit_fee": 750,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 750,
+     "unit_min": 5,
+     "unit_fee": 750,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 750,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s026",
+   "mgmt_no": "101-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "DDP동측(양쪽)",
+   "gu": "중구",
+   "dong": "을지로7가",
+   "dong_src": "보정(명칭(DDP·을지로7가 일대))",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 마장로 22",
+   "road": null,
+   "spaces": 20,
+   "tel": "02-2290-6437",
+   "lat": 37.5672655579,
+   "lng": 127.0121114623,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s027",
+   "mgmt_no": "101-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "마른내길",
+   "gu": "중구",
+   "dong": "인현동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 인현동1가 87-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "02-2274-2009",
+   "lat": 37.56428338,
+   "lng": 126.9943975,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 680원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 680,
+    "unit_min": 5,
+    "unit_fee": 680,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 680,
+     "unit_min": 5,
+     "unit_fee": 680,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 680,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s028",
+   "mgmt_no": "101-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "뉴국제호텔앞 공영주차장",
+   "gu": "중구",
+   "dong": "태평로1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 태평로1가 25-3",
+   "addr_road": "서울특별시 중구 세종대로22길 12",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-2280-8360",
+   "lat": 37.56794555,
+   "lng": 126.977968,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 600원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 600,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 600,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s029",
+   "mgmt_no": "101-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "코오롱빌딩옆 공영주차장",
+   "gu": "중구",
+   "dong": "태평로1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 태평로1가 82",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "02-2280-8360",
+   "lat": 37.56765598,
+   "lng": 126.9784324,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 600원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 600,
+    "unit_min": 5,
+    "unit_fee": 600,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 600,
+     "unit_min": 5,
+     "unit_fee": 600,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s030",
+   "mgmt_no": "101-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남산한옥마을",
+   "gu": "중구",
+   "dong": "필동2가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 필동2가 83-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "",
+   "lat": 37.560058,
+   "lng": 126.993161,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s031",
+   "mgmt_no": "101-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남산공원 소월로",
+   "gu": "중구",
+   "dong": "회현동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 회현동1가 100-115",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 37.55486,
+   "lng": 126.9798165281,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 관광버스 전용 구획입니다 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s032",
+   "mgmt_no": "101-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남산파출소",
+   "gu": "중구",
+   "dong": "회현동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 회현동1가 147-32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "",
+   "lat": 37.55508319,
+   "lng": 126.9818795,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 340원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 340,
+    "unit_min": 5,
+    "unit_fee": 340,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 340,
+     "unit_min": 5,
+     "unit_fee": 340,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 340,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s033",
+   "mgmt_no": "101-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "소파길노상",
+   "gu": "중구",
+   "dong": "회현동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 회현동1가 산 1-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "",
+   "lat": 37.55692491,
+   "lng": 126.984057,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "조례 2급지 기준 250원을 340원으로 받습니다(공시지가 변수 반영) · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 5,
+    "base_fee": 340,
+    "unit_min": 5,
+    "unit_fee": 340,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 340,
+     "unit_min": 5,
+     "unit_fee": 340,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 340,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s034",
+   "mgmt_no": "101-1-000029",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "소파로케이블카앞",
+   "gu": "중구",
+   "dong": "회현동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 회현동1가 산1-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 2,
+   "tel": "",
+   "lat": 37.55599161,
+   "lng": 126.9840636,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 관광버스 전용 구획입니다 · 시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s035",
+   "mgmt_no": "101-1-000030",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청계8가",
+   "gu": "중구",
+   "dong": "흥인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "서울특별시 중구 흥인동 162-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "02-2274-2009",
+   "lat": 37.56947694,
+   "lng": 127.0160616,
+   "base_date": "2026-05-15",
+   "manager": "서울시설공단",
+   "note": "",
+   "notice": "시영(서울시설공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 5,
+    "base_fee": 500,
+    "unit_min": 5,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 5,
+     "base_fee": 500,
+     "unit_min": 5,
+     "unit_fee": 500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "중구",
+   "city_slug": "jung"
+  },
+  {
+   "id": "jung-s036",
+   "mgmt_no": "101-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "진양상가 공영주차장",
+   "gu": "중구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "서울특별시 중구 퇴계로 41",
+   "road": null,
+   "spaces": 14,
+   "tel": "02-2280-8360",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-10-08",
+   "manager": "서울특별시 중구청",
+   "note": "",
+   "notice": "조례 1급지 기준 500원을 1,500원으로 받습니다(개별 조정) · 표준데이터 운영요일이 ‘평일+토요일’이라 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 구영(중구청 직영·위탁) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 1500,
+    "unit_min": 30,
+    "unit_fee": 1500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 1500,
+     "unit_min": 30,
+     "unit_fee": 1500,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(5분당)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 900,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "15:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1500,
+   "city": "중구",
+   "city_slug": "jung"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 04:36",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 60,
+  "원자료_중구행수": 60,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 24,
+  "노외_부설": {
+   "노외": 24
+  },
+  "노상_구간": 36,
+  "총_구획수": 4053,
+  "노상_구획수": 678,
+  "동별": {
+   "신당동": 13,
+   "동 미상": 2,
+   "남산동2가": 1,
+   "동화동": 1,
+   "만리동2가": 1,
+   "서소문동": 1,
+   "을지로5가": 1,
+   "장충동2가": 1,
+   "충무로5가": 1,
+   "필동3가": 1,
+   "황학동": 1
+  },
+  "동수": 10,
+  "동_미상": [
+   "남산예장",
+   "성동고 공영주차장"
+  ],
+  "동_보정": [
+   "동화동 공영주차장: 지번주소에 법정동이 없어 명칭을 근거로 동화동으로 두었습니다",
+   "서소문삼성생명뒤 공영주차장: 지번주소에 법정동이 없어 명칭·도로명주소(서소문로12길)을 근거로 서소문동으로 두었습니다",
+   "조선호텔앞 공영주차장: 지번주소에 법정동이 없어 도로명주소(소공로 102)을 근거로 소공동으로 두었습니다",
+   "DDP동측(양쪽): 지번주소에 법정동이 없어 명칭(DDP·을지로7가 일대)을 근거로 을지로7가으로 두었습니다"
+  ],
+  "동_근거": {
+   "지번주소": 20,
+   "보정(명칭)": 1,
+   "보정(명칭·도로명주소(서소문로12길))": 1,
+   "없음": 2
+  },
+  "요금구분": {
+   "유료": 52,
+   "미상": 2,
+   "무료": 6
+  },
+  "요금_미상": [
+   "새싹마을 공영주차장",
+   "충현어린이공원 공영주차장"
+  ],
+  "유료_노상": 30,
+  "유료_노외": 22,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "서소문삼성생명뒤 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "문화 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "진양상가 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "서소문올리브타워옆 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "한국관광공사옆 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "코오롱빌딩옆 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "남대문피혁상가남측 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "대림상가 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "국제화재빌딩옆 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "이화여고앞 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "뉴국제호텔앞 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "해운센터앞 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "삼풍상가 공영주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "마른내로: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
+   "마른내로: 운영요일 ‘평일’ → 일요일·공휴일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음"
+  ],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "동화동 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "성동고 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "황학어린이공원 공영주차장: 1급지 기준 400원 ↔ 등록 300원",
+   "다산아트 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "묵정공원지하 공영주차장: 1급지 기준 400원 ↔ 등록 450원",
+   "남산동 공영주차장: 2급지 기준 250원 ↔ 등록 300원",
+   "손기정체육공원 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "장충 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "서소문삼성생명뒤 공영주차장: 1급지 기준 400원 ↔ 등록 450원",
+   "버티 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "청구 공영주차장: 2급지 기준 250원 ↔ 등록 300원",
+   "다산동 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "필동 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "문화 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "약수동 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "성곽 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "신당사거리 공영주차장: 2급지 기준 250원 ↔ 등록 300원",
+   "충현 공영주차장: 3급지 기준 150원 ↔ 등록 200원",
+   "진양상가 공영주차장: 1급지 기준 500원 ↔ 등록 1,500원",
+   "조선호텔앞 공영주차장: 1급지 기준 500원 ↔ 등록 1,500원",
+   "한국관광공사옆 공영주차장: 1급지 기준 500원 ↔ 등록 600원",
+   "코오롱빌딩옆 공영주차장: 1급지 기준 500원 ↔ 등록 600원",
+   "뉴국제호텔앞 공영주차장: 1급지 기준 500원 ↔ 등록 600원",
+   "해운센터앞 공영주차장: 1급지 기준 500원 ↔ 등록 600원",
+   "삼풍상가 공영주차장: 1급지 기준 500원 ↔ 등록 1,500원",
+   "훈련원공원: 1급지 기준 400원 ↔ 등록 550원",
+   "소파길노상: 2급지 기준 250원 ↔ 등록 340원",
+   "남산파출소: 2급지 기준 250원 ↔ 등록 340원",
+   "남산예장: 2급지 기준 250원 ↔ 등록 500원",
+   "마른내길: 1급지 기준 500원 ↔ 등록 680원",
+   "청계5(평화시장): 1급지 기준 500원 ↔ 등록 750원",
+   "돈화문로: 1급지 기준 500원 ↔ 등록 810원",
+   "을지로: 1급지 기준 500원 ↔ 등록 810원",
+   "마른내로: 1급지 기준 500원 ↔ 등록 620원",
+   "배오개길: 1급지 기준 500원 ↔ 등록 680원",
+   "동대문: 1급지 기준 400원 ↔ 등록 360원",
+   "청계6(청평화): 1급지 기준 500원 ↔ 등록 450원",
+   "청계6(신평화): 1급지 기준 500원 ↔ 등록 450원",
+   "청계6(북): 1급지 기준 500원 ↔ 등록 450원",
+   "청계6(동평화): 1급지 기준 500원 ↔ 등록 450원",
+   "동국제강: 1급지 기준 500원 ↔ 등록 700원",
+   "남대문 화물: 2급지 기준 250원 ↔ 등록 400원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "동화동 공영주차장",
+   "진양상가 공영주차장"
+  ],
+  "감면_출처": "시영은 「서울특별시 주차장 설치 및 관리 조례」 제7조, 구영은 「서울특별시 중구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표(시행 2025-05-23 · 서울특별시중구조례 제1836호(일부개정))",
+  "무료시간_출처": "서울시·자치구 조례 별표1은 5분 단위로 요금을 매기고 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 특기사항의 ‘일요일+공휴일 무료개방’ 표기를 그대로 썼다(무료개방_표기)",
+  "일요일_무료표기": [
+   "서소문삼성생명뒤 공영주차장",
+   "문화 공영주차장",
+   "국제화재빌딩옆 공영주차장",
+   "남대문피혁상가남측 공영주차장",
+   "한국관광공사옆 공영주차장",
+   "대림상가 공영주차장",
+   "서소문올리브타워옆 공영주차장",
+   "해운센터앞 공영주차장",
+   "이화여고앞 공영주차장",
+   "마른내로",
+   "삼풍상가 공영주차장",
+   "뉴국제호텔앞 공영주차장",
+   "코오롱빌딩옆 공영주차장",
+   "진양상가 공영주차장"
+  ],
+  "무료개방_표기": [
+   "서소문삼성생명뒤 공영주차장",
+   "문화 공영주차장",
+   "국제화재빌딩옆 공영주차장",
+   "남대문피혁상가남측 공영주차장",
+   "한국관광공사옆 공영주차장",
+   "대림상가 공영주차장",
+   "서소문올리브타워옆 공영주차장",
+   "해운센터앞 공영주차장",
+   "이화여고앞 공영주차장",
+   "마른내로",
+   "삼풍상가 공영주차장",
+   "뉴국제호텔앞 공영주차장",
+   "코오롱빌딩옆 공영주차장",
+   "진양상가 공영주차장"
+  ],
+  "무료_요금구분": 6,
+  "무료_구획수": 60,
+  "평균_기본요금": 485,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "101-2-000004",
+   "101-2-000005",
+   "101-1-000026",
+   "101-1-000008",
+   "101-1-000017",
+   "101-1-000009",
+   "101-1-000015",
+   "101-1-000021",
+   "101-1-000020",
+   "101-1-000018",
+   "101-1-000024",
+   "101-1-000002",
+   "101-1-000006"
+  ],
+  "전화번호_없음": 12,
+  "데이터기준일": [
+   "2026-05-15",
+   "2026-10-08"
+  ],
+  "공단만_등록": [
+   "다동공원 제4(을지로1길 48, 15면, 1급지 5분당 450원, 평일 08:00~22:00·토요일 08:00~21:00·일요일(공휴일) 무료개방)"
+  ]
+ },
+ "fee_table": {
+  "style": "seoul_5min",
+  "unit_min": 5,
+  "applies": "2026-10-23",
+  "rows": [
+   {
+    "grade": 1,
+    "lots": 31,
+    "fee_min": 300,
+    "fee_max": 1500,
+    "unit_label": "300~1,500원",
+    "hour": 5400,
+    "two_hour": 10800,
+    "month_min": 157000,
+    "month_max": 350000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 400
+   },
+   {
+    "grade": 2,
+    "lots": 9,
+    "fee_min": 250,
+    "fee_max": 500,
+    "unit_label": "250~500원",
+    "hour": 3600,
+    "two_hour": 7200,
+    "month_min": 240000,
+    "month_max": 240000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 250
+   },
+   {
+    "grade": 3,
+    "lots": 12,
+    "fee_min": 200,
+    "fee_max": 200,
+    "unit_label": "200원",
+    "hour": 2400,
+    "two_hour": 4800,
+    "month_min": 140000,
+    "month_max": 140000,
+    "day_min": null,
+    "day_max": null,
+    "charter": 150
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 22
+   },
+   {
+    "group": "09:00~19:00",
+    "count": 11
+   },
+   {
+    "group": "09:00~20:00",
+    "count": 7
+   },
+   {
+    "group": "09:00~24:00",
+    "count": 4
+   },
+   {
+    "group": "09:00~21:00",
+    "count": 4
+   },
+   {
+    "group": "08:00~22:00",
+    "count": 2
+   },
+   {
+    "group": "06:00~23:59",
+    "count": 1
+   },
+   {
+    "group": "09:00~18:00",
+    "count": 1
+   }
+  ],
+  "notes": "중구는 노상·노외 요금이 다릅니다 — 조례 별표1은 노상 1급지 500원·노외 1급지 400원, 2급지 250원, 3급지 150원, 4급지 100원, 5급지 50원(5분당)입니다. 중구시설관리공단은 2025-04-01부터 시간주차 요금을 50원 올려 1급지 450원·2급지 300원·3급지 200원을 받고 (신당동공영은 250원), 1권역(시청 주변 7개소) 노상은 5분당 600원입니다",
+  "only_corp": [
+   "다동공원 제4(을지로1길 48, 15면, 1급지 5분당 450원, 평일 08:00~22:00·토요일 08:00~21:00·일요일(공휴일) 무료개방)"
+  ],
+  "corp": {
+   "paid": 52,
+   "free": 6,
+   "unknown": 2,
+   "street_paid": 30
+  },
+  "city_fees": {
+   "1": {
+    "street": 500,
+    "off": 400,
+    "street_day": 5000,
+    "off_day": 28000,
+    "month_all": 250000,
+    "month_night": 100000
+   },
+   "2": {
+    "street": 250,
+    "off": 250,
+    "street_day": 4000,
+    "off_day": 18000,
+    "month_all": 180000,
+    "month_night": 60000
+   },
+   "3": {
+    "street": 150,
+    "off": 150,
+    "street_day": 3000,
+    "off_day": 10000,
+    "month_all": 100000,
+    "month_night": 40000
+   }
+  },
+  "gu_fees": {
+   "street": {
+    "1": 500,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   },
+   "off": {
+    "1": 400,
+    "2": 250,
+    "3": 150,
+    "4": 100,
+    "5": 50
+   }
+  },
+  "basis": "「서울특별시 주차장 설치 및 관리 조례」 별표1(시행 2025-09-29 · 서울특별시조례 제9882호(타법개정) · 별표1 공영주차장 주차요금표(개정 2023. 12. 29.) · 제7조 주차요금의 감면 등) · 「서울특별시 중구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표(시행 2025-05-23 · 서울특별시중구조례 제1836호(일부개정)) · 전국주차장정보표준데이터(2026-10-23 기준) 등록요금"
+ },
+ "slug": "jung",
+ "province": "서울특별시",
+ "province_slug": "seoul",
+ "dong_page_min_lots": 3,
+ "city": "중구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "서울특별시장·구청장·국세청장이 교부한 성실납세증 표지를 부착한 차량 — 발행일부터 1년"
+  },
+  {
+   "label": "장애인·국가유공자 등 80%",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "장애인(표지 부착·등록증 제시), 국가유공자, 고엽제후유증 환자 80퍼센트"
+  },
+  {
+   "label": "경차·저공해·다둥이 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "1,000cc 미만 경차, 저공해자동차, 다둥이행복카드 소지자 50퍼센트(장기기증자 50·10퍼센트)"
+  },
+  {
+   "label": "5·18민주유공자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주유공자 증서를 소지한 본인 차량 — 1시간 면제, 초과분과 1일·월 정기권은 50퍼센트"
+  },
+  {
+   "label": "전통시장·요일제 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "전통시장 구매 영수증을 가진 차량(주변 100m 이내 주차장), 승용차 요일제 참여 차량(운휴일 준수) 30퍼센트"
+  },
+  {
+   "label": "중구 자원봉사자 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "중구 자원봉사센터장이 발급한 활동수첩(활동일부터 3개월) 소지자 20퍼센트"
+  }
+ ],
+ "realtime": false
+}

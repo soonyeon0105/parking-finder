@@ -360,14 +360,14 @@ if len(suwon_pages) != 38:
 # 2) 도시별 페이지 구성: 허브 1 + 구 1 + (주말 페이지) + 동 페이지(기준 이상) + (노상 페이지)
 for city in CITIES:
     slug = city["slug"]
-    hub = DIST / "parking" / "gyeonggi" / slug / "index.html"
+    hub = DIST / "parking" / (city.get("province_slug") or "gyeonggi") / slug / "index.html"
     if not hub.exists():
         fails.append(f"{city['city']}: 시 허브 없음")
         continue
     card_lots = [l for l in LOTS if l.get("city") == city["city"] and l.get("list_mode", "card") != "street"]
     street_lots = [l for l in LOTS if l.get("city") == city["city"] and l.get("list_mode") == "street"]
     for d in city["districts"]:
-        p = DIST / "parking" / "gyeonggi" / d["slug"] / "index.html"
+        p = DIST / "parking" / (city.get("province_slug") or "gyeonggi") / d["slug"] / "index.html"
         if not p.exists():
             fails.append(f"{city['city']} {d['name']}: 구 페이지 없음")
             continue
@@ -398,7 +398,7 @@ for city in CITIES:
                 cards_d = len(re.findall(r'class="card lot', hit.read_text()))
                 if cards_d != n:
                     fails.append(f"{slug_d}: 카드 {cards_d}장 vs {dong} {n}곳")
-    street_page = DIST / "parking" / "gyeonggi" / slug / "street-parking" / "index.html"
+    street_page = DIST / "parking" / (city.get("province_slug") or "gyeonggi") / slug / "street-parking" / "index.html"
     if bool(street_lots) != street_page.exists():
         fails.append(f"{city['city']}: 노상 페이지 존재 여부 불일치")
     if street_page.exists():
@@ -604,6 +604,19 @@ _others8 = set()
 for _k, _v in MIX.items():
     _others8.update(t for t in _v if t not in YJ_TOKENS)
 MIX["yangju"] = tuple(sorted(_others8))
+# 서울특별시 자치구(종로구·중구·용산구)는 자치구 하나가 지역 한 단위다 — 다른 지역 자료가
+# 섞이면 실패한다. (‘서울’은 도로·기관 이름에도 흔해 쓰지 않고, 구 단위 이름으로 좁힌다.)
+SEOUL_TOKENS = ("서울시설공단", "종로구시설관리공단", "중구시설관리공단", "용산구시설관리공단",
+                "종로구", "중구", "용산구")
+_seoul_outside = set()      # 서울 이외 지역 토큰(경기도 시·군)
+for _v in MIX.values():
+    _seoul_outside.update(t for t in _v if t not in SEOUL_TOKENS)
+for _k in list(MIX):
+    MIX[_k] = tuple(sorted(set(MIX[_k]) | set(SEOUL_TOKENS)))
+MIX["jongno"] = tuple(sorted(_seoul_outside | {"중구", "용산구", "중구시설관리공단", "용산구시설관리공단"}))
+MIX["jung"] = tuple(sorted(_seoul_outside | {"종로구", "용산구", "종로구시설관리공단", "용산구시설관리공단"}))
+MIX["yongsan"] = tuple(sorted(_seoul_outside | {"종로구", "중구", "종로구시설관리공단", "중구시설관리공단"}))
+
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -637,11 +650,11 @@ for p in pages:
 # 3-1) 시 페이지의 '가장 저렴한 곳' 표 링크(#lot-N)가 구 페이지의 같은 주차장 카드를 가리켜야 한다.
 #      (카드 번호는 구 페이지 정렬 순서이고, 표의 순위와 다르다)
 for city in CITIES:
-    hub = DIST / "parking" / "gyeonggi" / city["slug"] / "index.html"
+    hub = DIST / "parking" / (city.get("province_slug") or "gyeonggi") / city["slug"] / "index.html"
     if not hub.exists():
         continue
     for href, num, label in re.findall(r'<a href="\.\./([^"/]+)/#lot-(\d+)">([^<]+)</a>', hub.read_text()):
-        page = DIST / "parking" / "gyeonggi" / href / "index.html"
+        page = DIST / "parking" / (city.get("province_slug") or "gyeonggi") / href / "index.html"
         if not page.exists():
             fails.append(f"{city['city']}: 저렴한 곳 링크 대상 페이지 없음 {href}")
             continue
@@ -4010,6 +4023,106 @@ for _u in ("https://parking.9welfare.com/parking/gyeonggi/yeoncheon/",
            "https://parking.9welfare.com/parking/gyeonggi/yeoncheon/street-parking/"):
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"연천군 주소가 사이트맵에 없음: {_u}")
+
+# ---------------------------------------------------------------- 서울특별시 자치구 (T-03 Phase 30)
+#  서울은 자치구 하나를 도시 한 단위로 다룬다(경기도의 시·군과 같은 자리). 요금은 1구획
+#  ‘5분당’이고, 시영(서울시설공단)은 서울특별시 조례 별표1의 급지 요금에 공시지가 변수를 곱한다.
+from build_site import price_for as _pf  # noqa: E402
+
+SEOUL_EXPECT = {
+    # 자치구: (카드, 노상, 카드 3곳 이상 법정동 페이지)
+    "jongno": {"gu": "종로구", "cards": 8, "street": 24, "dong_pages": []},
+    "jung": {"gu": "중구", "cards": 24, "street": 36, "dong_pages": ["sindang-dong"]},
+    "yongsan": {"gu": "용산구", "cards": 20, "street": 6,
+                "dong_pages": ["hangangro3-ga", "hannam-dong"]},
+}
+_seoul_pages = 0
+for _slug, _exp in SEOUL_EXPECT.items():
+    _hub = DIST / "parking" / "seoul" / _slug / "index.html"
+    if not _hub.exists():
+        fails.append(f"서울 {_exp['gu']}: 자치구 페이지 없음")
+        continue
+    _seoul_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"서울 {_exp['gu']}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "서울특별시" not in _h:
+        fails.append(f"서울 {_exp['gu']}: breadcrumb 에 서울특별시 없음")
+    if "1급지 90분 무료" in _h:
+        fails.append(f"서울 {_exp['gu']}: 평택시 문구(1급지 90분 무료)가 남아 있음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2070413"' not in _h:
+        fails.append(f"서울 {_exp['gu']}: 서울특별시 조례 출처 링크 없음")
+    if "급지별 주차요금표" not in _h:
+        fails.append(f"서울 {_exp['gu']}: 급지별 주차요금표 없음")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"서울 {_exp['gu']}: 노상 페이지 없음")
+        else:
+            _seoul_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"서울 {_exp['gu']}: 노상 페이지 행이 구간 수보다 적음")
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"서울 {_exp['gu']}: {_d} 법정동 페이지 없음")
+        else:
+            _seoul_pages += 1
+    if "None" in _h or "nan" in _h:
+        fails.append(f"서울 {_exp['gu']}: 페이지에 None/nan 문자열")
+
+# 법정동 페이지는 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
+for _slug, _gu in (("jongno", "종로구"), ("jung", "중구"), ("yongsan", "용산구")):
+    _root = DIST / "parking" / "seoul" / _slug
+    if not _root.exists():
+        continue
+    _lots = [l for l in LOTS if l.get("city") == _gu and l.get("list_mode", "card") != "street"]
+    _want = {d for d, n in Counter(l["dong"] or UNKNOWN_DONG for l in _lots).items()
+             if d != UNKNOWN_DONG and n >= 3}
+    _have = {q.parent.name for q in _root.rglob("index.html")
+             if q.parent.parent == _root and q.parent.name not in ("street-parking",)}
+    _have.discard(_slug)
+    from build_site import dong_slug_map as _dsm  # noqa: E402
+    _map = _dsm(Counter(l["dong"] or UNKNOWN_DONG for l in _lots))
+    _want_slugs = {_map[d] for d in _want}
+    if _have != _want_slugs:
+        fails.append(f"서울 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 이상 {sorted(_want_slugs)}")
+
+# 계산 표본 — 5분당 요금·1일 주차권 상한·거주민 정기권 전용
+_seoul_by_name = {l["name"]: l for l in LOTS if l.get("city") in ("종로구", "중구", "용산구")}
+for _name, _min, _day, _want_state, _want in (
+        ("세종로", 60, "weekday", "paid", 5_160),        # 5분당 430원 × 12
+        ("세종로", 120, "weekday", "paid", 10_320),
+        ("종묘", 120, "weekday", "paid", 9_600),         # 5분당 400원
+        ("버티 공영주차장", 60, "weekday", "paid", 2_400),  # 5분당 200원
+        ("용산전자상가1", 120, "weekday", "paid", 6_000),  # 5분당 250원
+        ("용산전자상가1", 1440, "weekday", "paid", 21_000),  # 1일 주차권(14시간) 상한
+        ("신창동", 120, "weekday", "paid", 3_600),        # 5분당 150원
+        ("새싹마을 공영주차장", 120, "weekday", "unknown", None),  # 거주민 월정기 전용
+        ("장충단로(한남광장)", 120, "weekday", "free", None),
+):
+    _lot = _seoul_by_name.get(_name)
+    if not _lot:
+        fails.append(f"서울 표본 주차장 없음: {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r["state"] != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"서울 계산 불일치: {_name} {_min}분 → {_r} (기대 {_want_state}/{_want})")
+print(f"서울 자치구 검사 완료 ({len(SEOUL_EXPECT)}개 구 · 페이지 {_seoul_pages})")
+
+if "서울특별시" not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 서울특별시 지역 묶음 없음")
+for _u in ("https://parking.9welfare.com/parking/seoul/jongno/",
+           "https://parking.9welfare.com/parking/seoul/jongno/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/jung/",
+           "https://parking.9welfare.com/parking/seoul/jung/sindang-dong/",
+           "https://parking.9welfare.com/parking/seoul/jung/street-parking/",
+           "https://parking.9welfare.com/parking/seoul/yongsan/",
+           "https://parking.9welfare.com/parking/seoul/yongsan/hangangro3-ga/",
+           "https://parking.9welfare.com/parking/seoul/yongsan/hannam-dong/",
+           "https://parking.9welfare.com/parking/seoul/yongsan/street-parking/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"서울 주소가 사이트맵에 없음: {_u}")
 
 
 
