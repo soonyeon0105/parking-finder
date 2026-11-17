@@ -3459,6 +3459,165 @@ for _u in ("https://parking.9welfare.com/parking/gyeonggi/dongducheon/",
         fails.append(f"동두천시 주소가 사이트맵에 없음: {_u}")
 
 
+# ---------------------------------------------------------------- 과천시 (T-03 Phase 27)
+# 「과천시 주차장 조례」 [별표 1](시행 2025-01-01, 경기도과천시조례 제2081호)과 [별표 6] 감면,
+# 과천도시공사 공영주차장 현황·요금안내·시설운영시간(2026-11-17 조회):
+# 1구획 5분당 1급지 300원·2급지 250원·3급지 150원·4급지 100원, 5급지는 관내주민 70원·
+# 관내사업자·종사자·법인 150원·관외주민 300원, 1일 상한 28,000·24,000·14,000·7,000원
+# (5급지 7,000·14,000·28,000원), 최초 입차 후 5분 이내 출차 무료(비고9), 적용시간 09:00~19:00.
+gc_cards = [l for l in LOTS if l.get("city") == "과천시" and l.get("list_mode") == "card"]
+gc_paid = [l for l in gc_cards if l["fee"]["type"] == "유료"]
+gc_free = [l for l in gc_cards if l["fee"]["type"] == "무료"]
+gc_by = {l["name"]: l for l in gc_cards}
+gc_street = [l for l in LOTS if l.get("city") == "과천시" and l.get("list_mode") == "street"]
+gc_street_paid = [l for l in gc_street if l["fee"]["type"] == "유료"]
+gc_street_by = {l["name"]: l for l in gc_street}
+if not gc_cards:
+    fails.append("과천시 카드 데이터가 없음")
+# 구성: 카드 80곳(유료 25·무료 55) 1,544면 · 노상 21구간 982면(모두 유료)
+if len(gc_cards) != 80 or len(gc_paid) != 25 or len(gc_free) != 55:
+    fails.append(f"과천시 카드 구성이 다름: 카드 {len(gc_cards)} · 유료 {len(gc_paid)} · 무료 {len(gc_free)}")
+if sum(l["spaces"] or 0 for l in gc_cards) != 1544:
+    fails.append(f"과천시 카드 구획 합계가 다름: {sum(l['spaces'] or 0 for l in gc_cards)}")
+if len(gc_street) != 21 or sum(l["spaces"] or 0 for l in gc_street) != 982:
+    fails.append(f"과천시 노상 구간이 다름: {len(gc_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in gc_street)}면")
+if len(gc_street_paid) != 21:
+    fails.append(f"과천시 무료 노상 구간이 있음: {[l['name'] for l in gc_street if l['fee']['type'] != '유료'][:3]}")
+if len({l.get("dong") for l in gc_cards}) != 7 or any(not l.get("dong") for l in gc_cards):
+    fails.append(f"과천시 동 구성이 다름: {sorted({l.get('dong') for l in gc_cards})}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "과천시"):
+    fails.append("과천시에 민영 주차장이 실려 있음")
+_gc_dup = [k for k, v in Counter(l["name"] for l in gc_cards).items() if v > 1]
+if _gc_dup:
+    fails.append(f"과천시 카드 이름 중복: {_gc_dup[:3]}")
+_gc_q = next(c for c in CITIES if c["city"] == "과천시").get("quality") or {}
+if _gc_q.get("원자료_행수") != 101 or _gc_q.get("제외_행수") != 0:
+    fails.append(f"과천시 원자료 처리가 다름: {_gc_q.get('원자료_행수')}행 · 제외 {_gc_q.get('제외_행수')}")
+# 이름 보정 31건 — 표준데이터가 ‘공영노외주차장’으로만 등록한 소규모 주차장
+if len(_gc_q.get("이름_보정") or []) != 31:
+    fails.append(f"과천시 이름 보정이 31건이 아님: {len(_gc_q.get('이름_보정') or [])}")
+if not any(str(n).startswith("공영노외주차장(") for n in gc_by):
+    fails.append("과천시 ‘공영노외주차장(지번)’ 카드가 없음")
+# 면수 차이 11건(공단 현황과 표준데이터가 다른 곳) · 관리번호 중복 없음
+if len(_gc_q.get("면수_차이") or []) != 11:
+    fails.append(f"과천시 면수 차이가 11건이 아님: {len(_gc_q.get('면수_차이') or [])}")
+if _gc_q.get("관리번호_중복") or _gc_q.get("주소_보정") or _gc_q.get("이름중복"):
+    fails.append(f"과천시 원자료 이상: {_gc_q.get('관리번호_중복')} {_gc_q.get('주소_보정')}")
+# 급지 구성 — 카드 2급지 8·5급지 17, 노상 1급지 4·2급지 13·3급지 1·4급지 2·5급지 1
+_gc_card_grade = dict(Counter(l["fee"].get("grade") for l in gc_paid))
+if _gc_card_grade != {2: 8, 5: 17}:
+    fails.append(f"과천시 카드 급지 구성이 다름: {_gc_card_grade}")
+_gc_st_grade = dict(Counter(l["fee"].get("grade") for l in gc_street_paid))
+if _gc_st_grade != {1: 4, 2: 13, 3: 1, 4: 2, 5: 1}:
+    fails.append(f"과천시 노상 급지 구성이 다름: {_gc_st_grade}")
+# 요금 — 2급지 5분 250원·1일 24,000원·월 150,000원
+for _n in ("주차빌딩", "렉스타운 앞", "국민은행 앞(상이군경회)", "교보빌딩 앞(상이군경회)",
+           "그레이스호텔 앞", "코오롱 앞(기계식)", "중신교회 앞", "힐스테이트 과천청사역 앞"):
+    _l = gc_by.get(_n)
+    if not _l or (_l["fee"].get("grade"), _l["fee"].get("base_min"), _l["fee"].get("unit_fee"),
+                  _l["fee"].get("daily_fee"), _l["fee"].get("monthly")) != (2, 5, 250, 24000, 150000):
+        fails.append(f"과천시 {_n} 요금이 별표1 2급지와 다름")
+# 5급지 관외주민 300원·28,000원·120,000원 / 죽바위2-2는 관내주민 70원·7,000원·35,000원
+if gc_by.get("뒷골7") and (gc_by["뒷골7"]["fee"].get("unit_fee"), gc_by["뒷골7"]["fee"].get("daily_fee"),
+                           gc_by["뒷골7"]["fee"].get("monthly")) != (300, 28000, 120000):
+    fails.append("과천시 5급지 관외주민 요금이 별표1과 다름")
+if gc_by.get("죽바위2-2") and (gc_by["죽바위2-2"]["fee"].get("unit_fee"),
+                              gc_by["죽바위2-2"]["fee"].get("daily_fee"),
+                              gc_by["죽바위2-2"]["fee"].get("monthly")) != (70, 7000, 35000):
+    fails.append("과천시 죽바위2-2 관내주민 요금이 별표1과 다름")
+# 노상 — 1급지 300·28,000·110,000, 3급지 150·14,000·70,000, 4급지 100·7,000·50,000
+for _n, _want in (("광창교(5주차장 선바위역)", (1, 300, 28000, 110000)),
+                  ("관악산길", (3, 150, 14000, 70000)),
+                  ("궁말마을 입구(경마공원역)", (4, 100, 7000, 50000)),
+                  ("광창교 앞(삼부골)", (4, 100, 7000, 50000))):
+    _l = gc_street_by.get(_n)
+    if not _l or (_l["fee"].get("grade"), _l["fee"].get("unit_fee"),
+                  _l["fee"].get("daily_fee"), _l["fee"].get("monthly")) != _want:
+        fails.append(f"과천시 노상 {_n} 요금이 별표1과 다름")
+# 최초 5분 무료(비고9) — 유료 카드 모두 free_min 5
+for _l in gc_paid:
+    if _l["fee"].get("free_min") != 5 or _l["fee"].get("base_min") != 5:
+        fails.append(f"과천시 {_l['name']} 최초 5분 무료·5분 단위가 아님: {_l['fee'].get('free_min')}")
+        break
+# 계산 표본 — 별표1 본문으로 직접 계산한 값(2급지 5분 250원, 1일 상한 24,000원)
+for _n, _mins, _want in (("주차빌딩", 5, 0), ("주차빌딩", 10, 500), ("주차빌딩", 30, 1500),
+                         ("주차빌딩", 60, 3000), ("주차빌딩", 120, 6000), ("주차빌딩", 240, 12000),
+                         ("주차빌딩", 1440, 24000),
+                         ("뒷골7", 60, 3600), ("뒷골7", 120, 7200), ("뒷골7", 1440, 28000),
+                         ("죽바위2-2", 60, 840), ("죽바위2-2", 1440, 7000)):
+    _l = gc_by.get(_n)
+    if not _l:
+        fails.append(f"과천시 표본 주차장이 없음: {_n}")
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"과천시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 요일 — 상업지역 유료 카드는 일요일·공휴일 0원, 관악산길은 일요일에도 요금
+for _l in gc_paid:
+    if price_for(_l, 120, "sun")["state"] != "free":
+        fails.append(f"과천시 {_l['name']} 일요일 계산이 무료가 아님")
+if price_for(gc_street_by["관악산길"], 120, "sun").get("amount") != 3600:
+    fails.append("과천시 관악산길은 연중무휴(공휴일에도 3,600원)여야 함")
+if price_for(gc_street_by["북문노상주차장"], 120, "weekday")["state"] != "closed":
+    fails.append("과천시 북문노상주차장은 평일 휴무(무료 개방)여야 함")
+if price_for(gc_street_by["북문노상주차장"], 120, "sat").get("amount") != 7200:
+    fails.append("과천시 북문노상주차장 토요일 2시간이 7,200원이 아님")
+# 감면표 — 전액(1.0)·50%·2시간 면제(120분) 항목
+_gc_disc = next(c for c in CITIES if c["city"] == "과천시").get("discounts") or []
+if not any(d["rate"] == 1.0 for d in _gc_disc):
+    fails.append("과천시 감면표에 전액 감면 항목이 없음")
+if sum(1 for d in _gc_disc if d["rate"] == 0.5) < 4:
+    fails.append(f"과천시 감면표의 50% 항목이 적음: {len(_gc_disc)}")
+if not any(d.get("exempt_min") == 120 and d["rate"] == 0.5 for d in _gc_disc):
+    fails.append("과천시 감면표에 2시간 면제 뒤 50% 항목이 없음")
+if not any(d["rate"] == 0.2 for d in _gc_disc):
+    fails.append("과천시 감면표에 20% 항목이 없음")
+# 페이지 — 시 허브 · 동 7곳 · 노상
+_gc_root = DIST / "parking" / "gyeonggi" / "gwacheon"
+_gc_hub = _gc_root / "index.html"
+if not _gc_hub.exists():
+    fails.append("과천시 시 페이지 없음")
+else:
+    _gc_html = _gc_hub.read_text()
+    for label in ("과천시 급지별 주차요금표", "5분당", "1일 상한요금", "월 정기주차권",
+                  "관내주민", "관외주민", "최초 입차 후 5분 이내", "09:00~19:00",
+                  "2025-01-01", "02-504-7300", "과천시 공영주차장 80곳", "북문노상주차장"):
+        if label not in _gc_html:
+            fails.append(f"과천시 시 페이지에 {label} 없음")
+    if _gc_html.count('class="card lot') != len(gc_cards):
+        fails.append(f"과천시 시 페이지 카드 수 불일치({_gc_html.count(chr(34)+'card lot')} vs {len(gc_cards)})")
+    if "&lt;b&gt;" in _gc_html:
+        fails.append("과천시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _gc_html or "nan" in _gc_html:
+        fails.append("과천시 시 페이지에 None/nan 문자열이 보임")
+_gc_st_page = _gc_root / "street-parking" / "index.html"
+if not _gc_st_page.exists():
+    fails.append("과천시 노상 페이지 없음")
+else:
+    _gc_st = _gc_st_page.read_text()
+    for label in ("관악산길", "우리은행 옆", "21구간", "982면", "평일 4급지·경마일 1급지",
+                  "북문노상주차장은 평일 무료"):
+        if label not in _gc_st:
+            fails.append(f"과천시 노상 페이지에 {label} 없음")
+    if "&lt;b&gt;" in _gc_st:
+        fails.append("과천시 노상 페이지에 이스케이프된 <b> 태그가 보임")
+for _slug, _n in (("munwon-dong", 20), ("gwacheon-dong", 18), ("juam-dong", 13),
+                  ("byeolyang-dong", 12), ("jungang-dong", 7), ("burim-dong", 7),
+                  ("galhyeon-dong", 3)):
+    _p = _gc_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"과천시 동 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"과천시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/gwacheon/",
+           "https://parking.9welfare.com/parking/gyeonggi/gwacheon/street-parking/",
+           "https://parking.9welfare.com/parking/gyeonggi/gwacheon/munwon-dong/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"과천시 주소가 사이트맵에 없음: {_u}")
+
+
 
 print()
 if warns:

@@ -93,7 +93,10 @@ for pg in sorted((BASE / "dist").rglob("index.html")):
 street = [l for l in DATA["lots"] if l.get("list_mode") == "street"]
 street_free = [l for l in street if l["fee"]["type"] == "무료"]
 street_paid = [l for l in street if l["fee"]["type"] == "유료"]
-street_bad = [l["name"] for l in street_paid
+# 평일에는 요금을 받지 않는 구간(과천시 북문노상주차장 — 평일 무료 개방·토요일·공휴일만 유료)은
+#   평일 계산이 ‘휴무’로 나오는 것이 맞으므로 대조에서 뺀다.
+street_paid_wk = [l for l in street_paid if l["oper"].get("weekday")]
+street_bad = [l["name"] for l in street_paid_wk
               if price_for(l, 120, "weekday", 0.5)["state"] != "paid"]
 street_free_bad = [l["name"] for l in street_free
                    if price_for(l, 120, "weekday", 0.5)["state"] != "free"]

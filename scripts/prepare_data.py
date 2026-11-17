@@ -373,6 +373,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "동두천시": {"slug": "dongducheon", "province": "경기도", "province_slug": "gyeonggi",
               "dong_page_min_lots": 3},
+    "과천시": {"slug": "gwacheon", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7235,7 +7237,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -15665,12 +15667,743 @@ def check_quality_dongducheon(std_all, rows, lots, excluded, merged, hour_fixed,
     }
 
 
+# ---------------------------------------------------------------- 과천시 (T-03 Phase 27)
+GC_PROVIDER = "경기도 과천시"
+# 과천시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+GC_DISTRICTS = [("과천시", "gwacheon")]
+GC_BBOX = (37.40, 37.48, 126.97, 127.05)   # 과천시 대략 경계(좌표 점검용)
+# 과천시 법정동 — 주소의 ‘경기도 과천시 ○○동 번지’ 세 번째 낱말을 쓴다.
+#   행정동은 6개(중앙동·별양동·부림동·문원동·과천동·갈현동)이고, 법정동도 같은 이름을 쓴다.
+GC_UNIT_SUFFIX = ("동",)
+
+GC_ORDINANCE_URL = "https://law.go.kr/LSW/ordinInfoP.do?ordinSeq=2007623"
+GC_CORP_URL = "https://www.gcuc.or.kr/parking/second_menu.do?action=현황"
+GC_CORP_FEE_URL = "https://www.gcuc.or.kr/parking/second_menu.do?action=요금안내"
+GC_CORP_HOURS_URL = "https://www.gcuc.or.kr/fmcs/225"
+GC_CITY_FEE_URL = "https://www.gccity.go.kr/dept/contents.do?mId=0407010000"
+GC_CITY_URL = "https://www.gccity.go.kr/dept/contents.do?mId=0407020000"
+GC_ORD1 = RAW / "law.go.kr_주차장조례_별표1_20261117.hwpx"
+GC_ORD1_TXT = RAW / "law.go.kr_주차장조례_별표1_20261117.txt"
+GC_ORD6 = RAW / "law.go.kr_주차장조례_별표6_20261117.hwpx"
+GC_ORD6_TXT = RAW / "law.go.kr_주차장조례_별표6_20261117.txt"
+GC_CORP_TXT = RAW / "gcuc.or.kr_공영주차장현황_20261117.txt"
+GC_CORP_FEE_TXT = RAW / "gcuc.or.kr_공영주차장_요금안내_20261117.txt"
+GC_CORP_HOURS_TXT = RAW / "gcuc.or.kr_공영주차장_시설운영시간_20261117.txt"
+GC_CITY_FEE_TXT = RAW / "gccity.go.kr_공영주차장_주차요금표_20261117.txt"
+GC_CITY_TXT = RAW / "gccity.go.kr_공영주차장_현황_20261117.txt"
+GC_ORDINANCE_NOTE = ("시행 2025-01-01 · 경기도과천시조례 제2081호(일부개정) · "
+                     "별표1 공영주차장 주차요금표 · 별표6 감면·추가 요금표")
+GC_UNIT_MIN = 5            # 1구획 5분당 요금(별표1)
+GC_FREE_MIN = 5            # 별표1 비고9 — 최초 입차 후 5분 이내 출차 시 무료
+GC_CLOSE_MIN = 19 * 60     # 별표1 비고3 적용시간 09:00~19:00
+
+# 과천시 공영주차장 요금 — 「과천시 주차장 조례」 [별표 1] 공영주차장 주차요금표
+#   (시행 2025-01-01, 경기도과천시조례 제2081호, 별표1 HWPX의 표와 비고를 읽음).
+#   · 1급지: 1구획 5분당 300원 · 1일 상한 28,000원 · 월 정기 110,000원(경마공원 주변은 1+4급지 합산)
+#   · 2급지: 250원 · 24,000원 · 150,000원   (일반상업지역, 주차빌딩 포함)
+#   · 3급지: 150원 · 14,000원 · 70,000원    (관악산길 주차장)
+#   · 4급지: 100원 · 7,000원 · 50,000원     (경마장 주변 경마일 제외, 이면도로 노상)
+#   · 5급지: 관내주민 70원·7,000원·35,000원 / 관내사업자·종사자·법인 150원·14,000원·70,000원
+#            / 관외주민 300원·28,000원·120,000원
+#   · 비고3: 징수일 — 경마장 주변(경마일) 및 관악산길 주차장을 제외하고 법정 공휴일은 무료,
+#            적용시간 09:00~19:00
+#   · 비고4: 급지 구분(가. 1급지 경마장 주변(경마일) 나. 2급지 일반상업지역(주차빌딩 포함)
+#            다. 3급지 관악산길 라. 4급지 경마장 주변(경마일 제외)·이면도로 노상
+#            마. 5급지 중앙동 소공원, 그 외 1~4급지에 해당하지 않는 노상·노외)
+#   · 비고9: 5분 단위 산정, 5분 이하 주차시간은 5분으로 본다. 다만 최초 입차 후 5분 이내 출차 시 무료
+#   · 비고10: 월 정기 주차권은 총 주차면수의 50% 범위에서 발행   · 비고11: 10원 미만 절사
+GC_FEES = {
+    1: {"unit": 300, "day": 28_000, "month": 110_000, "where": "경마장 주변(경마일)"},
+    2: {"unit": 250, "day": 24_000, "month": 150_000, "where": "일반상업지역(주차빌딩 포함)"},
+    3: {"unit": 150, "day": 14_000, "month": 70_000, "where": "관악산길 주차장"},
+    4: {"unit": 100, "day": 7_000, "month": 50_000, "where": "경마장 주변(경마일 제외)·이면도로 노상"},
+}
+GC_G5 = {
+    "관내주민": {"unit": 70, "day": 7_000, "month": 35_000},
+    "관내사업자·종사자·법인": {"unit": 150, "day": 14_000, "month": 70_000},
+    "관외주민": {"unit": 300, "day": 28_000, "month": 120_000},
+}
+GC_G5_NOTE = ("가운데 관내주민 5분당 70원·1일 7,000원·월 35,000원, 관내사업자·종사자·법인 "
+              "등록차량 5분당 150원·1일 14,000원·월 70,000원입니다(주민등록증·사업자등록증 등 증빙 제시).")
+# 과천도시공사 홈페이지 ‘공영주차장 > 현황’(2026-11-17 조회)의 주차장별 급지·면수·유형·비고.
+#   표준데이터와 급지가 같고, 면수와 유형이 다른 곳은 카드에 차이를 적는다.
+GC_CORP_SPACES = {
+    "우리은행 옆": 18, "제일쇼핑 앞": 15, "새서울쇼핑 앞": 15, "이마트 앞": 16,
+    "2단지(은혜와진리교회) 앞": 10, "우체국 앞": 7, "벽산상가 앞": 8, "렉스타운 앞": 39,
+    "그레이스호텔 앞": 19, "골든타워 앞": 7, "주차빌딩": 81, "코오롱 앞(기계식)": 47,
+    "동성빌딩 주변": 31, "소방서 뒤": 22, "중앙빌딩": 15, "중앙동 소공원 주차장": 33,
+    "관악산길": 96, "교보빌딩 앞(상이군경회)": 41, "국민은행 앞(상이군경회)": 44,
+    "힐스테이트 과천청사역 앞": 37, "과천지구대 맞은편": 6,
+    "광창교(5주차장 선바위역)": 54, "북문노상주차장": 45,
+    "궁말마을 입구(경마공원역)": 172, "광창교 앞(삼부골)": 152,
+    "한내1": 9, "한내2": 7, "한내3": 19, "뒷골5": 17, "뒷골6": 34, "뒷골7": 55,
+    "찬우물1": 9, "찬우물2": 11, "찬우물3": 22, "죽바위2-2": 11, "문원공원마을 어린이집": 48,
+    "광창1": 48, "광창2": 7, "광창3": 8, "광창5": 15, "문원청계마을": 180,
+}
+GC_CORP_MERGED = {
+    "농협(경찰서옆) 앞": ("농협(KT)", 32, "KT(전화국) 앞"),
+    "우면산간(2,3주차장)": ("우면산간(2주차장)", 296, "우면산간(4 주차장)"),
+}
+# 공단이 ‘월정기 전용’으로 안내하는 주차장 — 시간 주차요금을 받지 않을 수 있다.
+GC_TICKET_ONLY = {"한내1", "한내2", "광창2", "광창3"}
+# 경마장 주변 — 급지가 경마일에 따라 달라진다(별표1 비고4 가목·라목).
+GC_RACE_DAY_LOTS = {"궁말마을 입구(경마공원역)", "광창교 앞(삼부골)"}
+GC_GRADE1_LOTS = {"우면산간(2,3주차장)", "우면산간(4 주차장)", "광창교(5주차장 선바위역)",
+                  "북문노상주차장"}
+# 요금을 받지 않는 날 — 공단 시설운영시간(2026-11-17)의 ‘휴무일’과 별표1 비고3.
+# 관악산길은 연중무휴(별표1 비고3의 징수일 예외) — 요일과 관계없이 요금을 받는다.
+GC_ALWAYS_PAID = {"관악산길"}
+# 표준데이터 지번주소가 비어 도로명주소만 있는 노상 3구간 — 공단 현황의 지번이 중앙동 40-14다.
+GC_DONG_FIX = {"중앙빌딩": "중앙동", "소방서 뒤": "중앙동", "동성빌딩 주변": "중앙동"}
+# 공단 현황의 지역 묶음 — 노상 표의 ‘도로·위치’ 열에 쓴다.
+GC_ROAD_GROUP = {
+    "별양동 상업지역": {"우리은행 옆", "제일쇼핑 앞", "새서울쇼핑 앞", "이마트 앞",
+                        "2단지(은혜와진리교회) 앞", "우체국 앞", "벽산상가 앞", "골든타워 앞"},
+    "중앙동 상업지역": {"동성빌딩 주변", "소방서 뒤", "중앙빌딩", "농협(경찰서옆) 앞",
+                        "KT(전화국) 앞", "과천지구대 맞은편"},
+    "관악산길": {"관악산길"},
+    "경마장 주변": {"우면산간(2,3주차장)", "우면산간(4 주차장)", "광창교(5주차장 선바위역)",
+                    "북문노상주차장", "광창교 앞(삼부골)", "궁말마을 입구(경마공원역)"},
+}
+GC_GENERIC_NAME = "공영노외주차장"
+
+# 과천시 주차요금 감면 — 「과천시 주차장 조례」 제3조제1항 [별표 6] 공영주차장 주차요금 감면·추가요금표.
+#   전액 감면: 장애 정도가 심한 장애인(운전·동승), 국가유공자(제4조제1항 제4·6·10·12·15호 및 제73조),
+#             고엽제후유증·후유의증 환자, 5·18민주화 부상자, 독립유공자(유족), 과천시 공무수행(관용) 차량
+#   50% 감면: 장애 정도가 심하지 않은 장애인(일 2시간까지 전액 면제), 1,000cc 미만 경형자동차,
+#             저공해·친환경 자동차 표지 부착 차량(전기차 충전 시 2시간까지 면제), 65세 이상 운전자
+#             (일 2시간까지 전액 면제), 18세 이하 자녀 1명 포함 2명 이상 다자녀 가정, 장기등 기증자 본인,
+#             병역명문가증 제시 차량, 국가유공자 유족증 제시 차량
+#   20% 감면: 승용차 부제·요일제·자가용 함께 타기 참여차량, 장기등 인체조직 기증희망 등록자 본인
+#   기타: 유공납세자 인증 차량 1년간 면제, 화물하역구간 화물자동차 20분까지 면제,
+#         공공시설 방문 확인증 발급 차량 30분까지 면제, 우수자원봉사자 2시간까지 면제
+#   ※ 2종류 이상 해당하면 면제율이 높은 하나만 적용. 경마장 주변(경마일)에는 감면을 적용하지 않는다
+#     (상위 법령에 의한 면제는 적용). 증빙서류를 제시해야 한다.
+GC_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "장애인(심한)·국가유공자·5·18·독립유공자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("장애의 정도가 심한 장애인이 운전하거나 동승한 차량, 국가유공자(제4조제1항 "
+              "제4·6·10·12·15호 및 제73조), 고엽제후유증·후유의증 환자, 5·18민주화 부상자, "
+              "독립유공자(유족), 과천시 공무수행(관용) 차량 — 전액 감면")},
+    {"label": "유공납세자·화물하역·공공시설 방문 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("유공납세자 인증 차량(1년), 화물하역구간 화물자동차(20분까지), 동주민센터·경찰서·"
+              "소방서·도서관 방문 확인증 발급 차량(30분까지), 우수자원봉사자(2시간까지)")},
+    {"label": "장애인(경증) 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "장애의 정도가 심하지 않은 장애인이 운전하거나 동승한 차량 — 일 2시간까지 전액 면제 뒤 50%"},
+    {"label": "65세 이상 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "65세 이상 운전자 — 일 2시간까지 전액 면제 뒤 50%"},
+    {"label": "전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "전기자동차 충전 시 2시간까지 면제, 그 뒤 50%(저공해·친환경 표지 차량)"},
+    {"label": "경차·저공해·다자녀·장기기증·병역명문가·유족 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("1,000cc 미만 경형자동차, 저공해·친환경 표지 차량, 18세 이하 자녀 1명을 포함한 "
+              "2명 이상 다자녀 가정, 장기등 기증자 본인, 병역명문가증·국가유공자 유족증 제시 차량 — 50%")},
+    {"label": "승용차 부제·요일제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "승용차 부제·요일제 운행·자가용 함께 타기 참여차량, 장기등 인체조직 기증희망 등록자 — 20%"},
+]
+
+
+def gc_dong_of(text: str):
+    """주소에서 과천시 법정동을 뽑는다 — ‘경기도 과천시 ○○동 번지’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "과천시":
+        cand = parts[2]
+        if cand.endswith(GC_UNIT_SUFFIX) and not cand.endswith(("로동", "가동")):
+            return cand
+    return None
+
+
+def gc_window(start, end):
+    h1, m1 = divmod(int(start), 60)
+    h2, m2 = divmod(int(end), 60)
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [f"{h1:02d}:{m1:02d}", f"{h2:02d}:{m2:02d}"]}
+
+
+def gc_fee(*, grade: int = None, g5: str = "관외주민", monthly=None, pay="",
+           ticket_only: bool = False):
+    """과천시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    별표1은 1구획 5분당 요금이고 1일 상한요금이 시간 요금의 상한이다. 최초 입차 후 5분 이내
+    출차하면 무료이므로 free_min=5로 넣는다(6분 이상이면 5분 단위로 올림).
+    """
+    common = {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "steps": None, "steps_label": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 상한요금",
+        "daily_hours": None, "prepaid_day": None, "prepaid_weekend": None,
+        "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": pay, "category": None, "portal_free_now": False,
+        "flat_day": False, "ticket_only": ticket_only, "std": None,
+    }
+    if grade in GC_FEES:
+        t = GC_FEES[grade]
+        return {**common,
+                "grade": grade, "grade_label": f"{grade}급지",
+                "base_min": GC_UNIT_MIN, "base_fee": t["unit"],
+                "unit_min": GC_UNIT_MIN, "unit_fee": t["unit"],
+                "free_min": GC_FREE_MIN,
+                "daily_fee": t["day"], "monthly": monthly,
+                "basis": (f"「과천시 주차장 조례」 별표1 {grade}급지({t['where']}) — "
+                          f"1구획 5분당 {t['unit']:,}원 · 1일 상한 {t['day']:,}원"
+                          + (f" · 월 정기 {monthly:,}원" if monthly else ""))}
+    t = GC_G5[g5]
+    return {**common,
+            "grade": 5, "grade_label": f"5급지 {g5}",
+            "base_min": GC_UNIT_MIN, "base_fee": t["unit"],
+            "unit_min": GC_UNIT_MIN, "unit_fee": t["unit"],
+            "free_min": GC_FREE_MIN,
+            "daily_fee": t["day"], "monthly": monthly,
+            "monthly_label": f"{g5} 월 정기",
+            "basis": (f"「과천시 주차장 조례」 별표1 5급지 {g5} — "
+                      f"1구획 5분당 {t['unit']:,}원 · 1일 상한 {t['day']:,}원"
+                      + (f" · 월 정기 {monthly:,}원" if monthly else ""))}
+
+
+def gc_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_gwacheon():
+    """과천시 공영주차장을 표준데이터 + 과천시 주차장 조례 별표1·별표6 + 과천도시공사 현황으로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 과천시 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 101행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 과천시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    요금은 조례 별표1을 쓰고, 급지·면수·운영시간은 과천도시공사 공영주차장 현황으로 대조한다
+    (표준데이터는 유료 행도 급지와 5분당 요금만 등록되어 있어 운영시간이 24시간으로 되어 있다).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GC_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    addr_fixed, dup_mgmt, no_ticket, name_fixed = [], [], [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, dong_src, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None, road_group=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "과천시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": road_group if street else None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "과천도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["free_min"] if fee["type"] == "유료" else None),
+            "city": "과천시",
+            "city_slug": "gwacheon",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (GC_BBOX[0] <= lat <= GC_BBOX[1] and GC_BBOX[2] <= lng <= GC_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = gc_dong_of(jibun) or gc_dong_of(road) or GC_DONG_FIX.get(name)
+        dong_src = ("지번주소" if gc_dong_of(jibun) else
+                    ("도로명주소" if gc_dong_of(road) else
+                     ("공단현황" if name in GC_DONG_FIX else "없음")))
+        # 표준데이터에 개별 이름 없이 ‘공영노외주차장’으로만 등록된 소규모 주차장 —
+        #   주소의 지번을 붙여 구분한다(이름이 같아 카드가 뒤섞이는 것을 막는다).
+        registered_name = name
+        if name == GC_GENERIC_NAME:
+            tail = " ".join(jibun.split()[2:]) or (road or "").strip()
+            name = f"{GC_GENERIC_NAME}({tail})"
+            name_fixed.append(f"{jibun}: ‘{GC_GENERIC_NAME}’ → ‘{name}’")
+
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        std_grade = (r.get("급지구분") or "").strip()
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        paid = fee_type in ("유료", "혼합")
+        grade = to_int(std_grade)
+        road_group = next((g for g, names in GC_ROAD_GROUP.items() if name in names), None)
+
+        if paid:
+            if name in GC_GRADE1_LOTS:
+                g = 1
+            elif grade == 5:
+                g = None
+            elif grade in GC_FEES:
+                g = grade
+            else:
+                g = 2
+            g5 = None
+            if g is None:
+                # 5급지는 관내주민·관내사업자·관외주민 세 갈래다 — 표준데이터에 등록된 5분당
+                # 요금(70·150·300원)으로 어느 갈래인지 고른다(죽바위2-2·과천지구대 맞은편은 관내주민).
+                std_unit = to_int(r.get("추가단위요금")) or 0
+                g5 = next((who for who, t in GC_G5.items() if t["unit"] == std_unit), "관외주민")
+            monthly = to_int(r.get("월정기권요금")) or (
+                GC_G5[g5]["month"] if g5 else GC_FEES[g]["month"])
+            fee = gc_fee(grade=g, g5=g5, monthly=monthly, pay=pay,
+                         ticket_only=name in GC_TICKET_ONLY)
+            fee["std_grade"] = std_grade or None
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            base_min_std = to_int(r.get("주차기본시간"))
+            base_fee_std = to_int(r.get("주차기본요금"))
+            fee["std"] = {"base_min": base_min_std, "base_fee": base_fee_std,
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily_std, "monthly": month_std}
+            std_tuple = (base_min_std, base_fee_std, to_int(r.get("추가단위요금")) or 0)
+            want_tuple = (GC_UNIT_MIN, fee["base_fee"], fee["unit_fee"])
+            if std_tuple != want_tuple:
+                note_fixed.append(
+                    f"{name}: 표준데이터 기본 {base_min_std or '-'}분 {base_fee_std or 0:,}원·"
+                    f"추가 {to_int(r.get('추가단위시간')) or '-'}분 {to_int(r.get('추가단위요금')) or 0:,}원 "
+                    f"↔ 조례 별표1 {GC_UNIT_MIN}분 {fee['base_fee']:,}원·{GC_UNIT_MIN}분당 {fee['unit_fee']:,}원")
+            if daily_std and daily_std != fee["daily_fee"]:
+                note_fixed.append(f"{name}: 표준데이터 1일 {daily_std:,}원 ↔ 별표1 {fee['daily_fee']:,}원")
+            if month_std and month_std != (fee["monthly"] or 0):
+                month_diff.append(f"{name}: 표준데이터 월정기 {month_std:,}원 ↔ 적용 {fee['monthly'] or 0:,}원")
+
+            # 급지 안내 — 별표1 비고4의 구역 설명을 카드에 적는다.
+            if g:
+                notice_bits.append(
+                    f"「과천시 주차장 조례」 별표1 {g}급지({GC_FEES[g]['where']}) 요금입니다 — "
+                    f"1구획 5분당 {GC_FEES[g]['unit']:,}원, 1일 상한 {GC_FEES[g]['day']:,}원, "
+                    f"월 정기 {GC_FEES[g]['month']:,}원")
+            else:
+                if g5 == "관외주민":
+                    notice_bits.append(
+                        f"별표1 5급지 관외주민 요금(5분당 {GC_G5[g5]['unit']:,}원·1일 상한 "
+                        f"{GC_G5[g5]['day']:,}원·월 정기 {GC_G5[g5]['month']:,}원)으로 계산합니다. " + GC_G5_NOTE)
+                else:
+                    notice_bits.append(
+                        f"별표1 5급지 {g5} 요금입니다 — 5분당 {GC_G5[g5]['unit']:,}원, 1일 상한 "
+                        f"{GC_G5[g5]['day']:,}원, 월 정기 {GC_G5[g5]['month']:,}원"
+                        + ("(표준데이터에 관내주민 요금으로 등록되어 있습니다)"
+                           if g5 == "관내주민" else "")
+                        + ". 관외주민은 5분당 300원·1일 28,000원·월 120,000원입니다")
+            if name in GC_RACE_DAY_LOTS:
+                notice_bits.append(
+                    "경마일에는 1급지 요금(5분당 300원·1일 28,000원)이 적용됩니다 — 표준데이터 특기사항 "
+                    "‘평일 4급지+경마일 1급지’, 조례 별표1 비고4 가목·라목")
+            if name in ("우면산간(2,3주차장)", "우면산간(4 주차장)", "광창교(5주차장 선바위역)"):
+                notice_bits.append(
+                    "조례 별표1 비고4 가목의 1급지(경마장 주변·경마일) 요금입니다. 경마일이 아닌 날은 "
+                    "같은 비고 라목의 4급지(5분당 100원·1일 7,000원) 요금이 적용되므로, 경마일이 아닌 "
+                    "날의 요금은 현장 안내를 확인하세요")
+            notice_bits.append(
+                "최초 입차 후 5분 이내 출차하면 무료이고, 5분이 지나면 5분 단위로 올림해 계산합니다"
+                "(별표1 비고9·비고11 — 10원 미만 절사)")
+            # 요금을 받는 시간 — 별표1 비고3(09:00~19:00)과 공단 시설운영시간(2026-11-17 조회)
+            if name == "북문노상주차장":
+                win = {"weekday": {"open": False, "start": 0, "end": 0, "24h": False,
+                                   "listed": False, "raw": ["-", "-"]},
+                       "sat": gc_window(9 * 60, GC_CLOSE_MIN),
+                       "sun": gc_window(9 * 60, GC_CLOSE_MIN)}
+                oper = {"weekday": False, "sat": True, "sun": True}
+                free_days = {"sat": False, "sun": True}
+                hour_fixed.append(
+                    f"{name}: 표준데이터 평일 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                    "공단 안내 토요일·공휴일 09:00~19:00(평일 무료 개방)")
+                notice_bits.append(
+                    "평일에는 요금을 받지 않고(무료 개방), 토요일·공휴일에만 1급지 요금을 받습니다"
+                    "(표준데이터 특기사항 ‘평일 무료+주말 1급지’·운영요일 ‘토요일+공휴일’). 계산기는 "
+                    "평일을 휴무로 표시하니, 평일 이용은 현장 안내를 확인하세요")
+            else:
+                win = {"weekday": gc_window(9 * 60, GC_CLOSE_MIN),
+                       "sat": gc_window(9 * 60, GC_CLOSE_MIN),
+                       "sun": gc_window(9 * 60, GC_CLOSE_MIN)}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                if name in GC_ALWAYS_PAID:
+                    free_days = {"sat": False, "sun": False}
+                    notice_bits.append(
+                        "관악산길 주차장은 연중무휴로 별표1 비고3의 공휴일 무료 예외에 들어 "
+                        "일요일·공휴일에도 09:00~19:00 요금을 받습니다(공단 현황 ‘연중무휴’)")
+                else:
+                    free_days = {"sat": False, "sun": True}
+                    notice_bits.append(
+                        "요금을 받는 시간은 09:00~19:00이고, 일요일·공휴일은 무료입니다"
+                        "(별표1 비고3 ‘경마장 주변(경마일) 및 관악산길 주차장을 제외하고 법정 공휴일은 무료’, "
+                        "공단 시설운영시간)")
+                if (parse_hm(r.get("평일운영시작시각")), parse_hm(r.get("평일운영종료시각"))) != (9 * 60, GC_CLOSE_MIN):
+                    hour_fixed.append(
+                        f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                        "별표1 비고3·공단 시설운영시간 09:00~19:00")
+            if r.get("월정기권요금") and name in GC_TICKET_ONLY:
+                notice_bits.append(
+                    "공단은 이 주차장을 ‘월정기 전용’으로 안내합니다 — 시간 주차요금은 받지 않을 수 있으니 "
+                    "현장에서 확인하세요(표준데이터에는 5분당 요금이 등록되어 있습니다)")
+            if name == "중앙동 소공원 주차장":
+                notice_bits.append(
+                    "평일 07:30~09:00에는 입출차가 제한됩니다(공단 시설운영시간). 월 정기권은 일부만 판매합니다")
+            if name == "코오롱 앞(기계식)":
+                notice_bits.append(
+                    "기계식 주차장이라 운영시간(09:00~19:00) 밖에는 입출차가 되지 않습니다"
+                    "(공단 현황 ‘시간외 입출차 불가’)")
+            if name in ("교보빌딩 앞(상이군경회)", "국민은행 앞(상이군경회)"):
+                notice_bits.append("상이군경회가 위탁 운영하는 주차장입니다(공단 현황)")
+            if name == "문원청계마을":
+                notice_bits.append(
+                    "같은 지번(문원동 150-8)에 과천시가 등록한 무료 ‘공영노외주차장(문원동 150-8)’ "
+                    "42면이 따로 있습니다(표준데이터 두 행) — 서로 다른 주차면으로 보고 둘 다 실었습니다")
+            if name == "문원공원마을 어린이집":
+                notice_bits.append(
+                    "공단 현황에는 급지가 적혀 있지 않고(급지 ‘-’), 표준데이터는 5급지로 등록했습니다 — "
+                    "요금은 5급지 관외주민 기준으로 계산합니다")
+        else:
+            fee = gc_free_fee()
+            if street:
+                notice_bits.append(
+                    "과천시가 노상주차장을 무료로 등록했습니다(조례 별표1에는 노상·노외 같은 급지 "
+                    "요금표가 있습니다)")
+            if name.startswith(GC_GENERIC_NAME + "("):
+                notice_bits.append(
+                    "공공데이터 표준데이터에 개별 이름 없이 ‘공영노외주차장’으로만 등록된 주차장입니다 — "
+                    "주소의 지번을 붙여 구분했습니다")
+            if registered_name == "나대지주차장(市)":
+                notice_bits.append("나대지를 임시 공영주차장으로 쓰는 곳입니다(표준데이터 등록 이름 그대로)")
+            if registered_name.startswith("한계주자창"):
+                notice_bits.append("표준데이터 표기가 ‘한계주자창(남태령지구)’입니다(‘주차장’의 오기로 보입니다)")
+            if registered_name == "문원동 버스차고지":
+                notice_bits.append("버스 차고지 부지에 마련된 공영주차장입니다(공휴일 운영시간 없음)")
+
+        spec = (r.get("특기사항") or "").strip()
+        if spec:
+            spec = spec.replace("50퍼센트", "50%")
+            spec = re.sub(r"\s*\+\s*", " · ", spec)
+            notice_bits.append(f"표준데이터 특기사항: {spec}")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, dong_src, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "과천도시공사"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note, road_group=road_group)
+
+    # 공단 현황과 면수가 다른 곳 — 등록면수를 쓰고 카드에 차이를 적는다.
+    by_name = {l["name"]: l for l in lots}
+    for name, corp_spaces in GC_CORP_SPACES.items():
+        lot = by_name.get(name)
+        if not lot or lot["spaces"] == corp_spaces:
+            continue
+        space_diff.append(f"{name}: 표준데이터 {lot['spaces']}면 ↔ 공단 {corp_spaces}면")
+        extra = (f"과천도시공사 공영주차장 현황의 면수는 {corp_spaces}면입니다(표준데이터 등록면수 "
+                 f"{lot['spaces']}면과 다릅니다)")
+        lot["notice"] = " · ".join(x for x in [lot.get("notice"), extra] if x)
+    for name, (corp_name, total, other) in GC_CORP_MERGED.items():
+        lot = by_name.get(name)
+        other_lot = by_name.get(other)
+        if not lot:
+            continue
+        have = (lot["spaces"] or 0) + ((other_lot["spaces"] or 0) if other_lot else 0)
+        if have == total:
+            extra = (f"공단은 {corp_name} {total}면으로 안내합니다(표준데이터는 "
+                     + ("두 행 " if other_lot else "한 행 ")
+                     + f"{have}면" + (f" — {name} {lot['spaces']}면 + {other} "
+                                      f"{other_lot['spaces']}면" if other_lot else "") + ")")
+            lot["notice"] = " · ".join(x for x in [lot.get("notice"), extra] if x)
+
+    for no, cnt in Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no")).items():
+        if cnt > 1:
+            names = "·".join(l["name"] for l in lots if l.get("mgmt_no") == no)
+            dup_mgmt.append(f"관리번호 {no}가 {names} 두 곳에 같은 값으로 등록되어 있습니다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"gc-{i:03d}" if l["list_mode"] == "card" else f"gc-s{i:03d}"
+
+    quality = check_quality_gwacheon(rows_all, rows_city, lots, excluded, merged,
+                                     hour_fixed, space_diff, note_fixed, reclassified,
+                                     month_diff, addr_fixed, dup_mgmt, no_ticket, name_fixed)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "과천시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-23",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 과천시가 등록한 101행(노외 80·노상 21)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다. 요금 구분은 유료 46행(노외 25·노상 21)과 "
+                             "무료 55행(모두 노외)인데, 유료 노외 25행의 급지는 2급지 8·5급지 17이고 "
+                             "노상 21행은 1급지 4·2급지 13·3급지 1·4급지 2·5급지 1이다. 노외 80행 가운데 "
+                             "31행은 개별 이름 없이 ‘공영노외주차장’으로만 등록되어 있어 주소의 지번을 "
+                             "붙여 구분했다. 주차구획수가 비어 있는 껍데기 행은 없었다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": "「과천시 주차장 조례」 [별표 1] 공영주차장 주차요금표 · [별표 6] 감면·추가 요금표",
+                    "org": "과천시청 건설도시국 교통과(02-3677-2899 · 02-3677-2897)",
+                    "url": GC_ORDINANCE_URL,
+                    "file": GC_ORD1.name if GC_ORD1.exists() else GC_ORD1_TXT.name,
+                    "sha256": (sha256(GC_ORD1) if GC_ORD1.exists()
+                               else sha256(GC_ORD1_TXT) if GC_ORD1_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": GC_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(GC_ORD1_TXT),
+                    "note": ("국가법령정보센터 자치법규 별표 HWPX를 내려받아 표 셀과 비고를 읽어 정리본(txt)을 "
+                             "두었다. 1구획 5분당 1급지 300원·2급지 250원·3급지 150원·4급지 100원, 5급지는 "
+                             "관내주민 70원·관내사업자·종사자·법인 150원·관외주민 300원이고, 1일 상한요금은 "
+                             "급지별 28,000·24,000·14,000·7,000원(5급지 7,000·14,000·28,000원), 월 정기권은 "
+                             "110,000(※)·150,000·70,000·50,000원(5급지 35,000·70,000·120,000원)이다. 비고3은 "
+                             "징수일(경마장 주변(경마일)·관악산길 제외 법정 공휴일 무료)과 적용시간 "
+                             "09:00~19:00, 비고4는 급지(1급지 경마장 주변 경마일, 2급지 일반상업지역, 3급지 "
+                             "관악산길, 4급지 경마장 주변 경마일 제외·이면도로 노상, 5급지 중앙동 소공원과 "
+                             "그 밖의 노상·노외), 비고9는 5분 단위 산정과 최초 입차 후 5분 이내 출차 무료, "
+                             "비고10은 월 정기권 50% 범위다. 별표6은 전액 감면 6종, 50% 감면 8종(장애인·65세 "
+                             "이상은 일 2시간 전액 면제), 20% 감면 2종, 기타 4종을 정한다."),
+                },
+                {
+                    "id": "corp", "name": "과천도시공사 공영주차장 현황·요금안내·시설운영시간",
+                    "org": "과천도시공사 주차관리부(02-504-7300 · parking@gcuc.or.kr)",
+                    "url": GC_CORP_URL,
+                    "file": GC_CORP_TXT.name if GC_CORP_TXT.exists() else None,
+                    "sha256": sha256(GC_CORP_TXT) if GC_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 44, "fetched_at": _sync_time(GC_CORP_TXT),
+                    "note": ("공영주차장 44곳(노외·노상)을 지역 묶음(별양동·중앙동 상업지역, 경마장 주변, "
+                             "기타지역)으로 나누어 주차장명·주소·면수·유형·급지·비고를 적고, 운영시간 "
+                             "09:00~19:00과 ‘경마장 주변(경마일) 및 관악산길 주차장을 제외하고 법정 공휴일은 "
+                             "무료’를 안내한다. 경마장 주변 북문노외(1주차장) 398면은 운영종료(2025.10.)로 "
+                             "적혀 있고, 한내1·2와 광창2·3은 ‘월정기 전용’, 코오롱 앞(기계식)은 ‘시간외 입출차 "
+                             "불가’, 교보빌딩·국민은행 앞은 ‘상이군경회 위탁’이다. 요금안내는 별표1 요금표와 "
+                             "함께 5분 이하 5분 산정·최초 입차 후 5분 이내 출차 무료, 운영종료 2시간 이내 "
+                             "주차 차량의 사전주차요금 징수를 적는다. 시설운영시간은 주차장별 평일·주말 "
+                             "09:00~19:00과 휴무일(중앙동·별양동 상업지역과 우체국 앞·별양동 기계식은 일요일, "
+                             "관악산길·찬우물·중앙동 소공원은 없음)을 적는다."),
+                },
+                {
+                    "id": "city", "name": "과천시 홈페이지 공영주차장 주차요금표·현황",
+                    "org": "과천시 교통과(02-3677-2897)",
+                    "url": GC_CITY_URL,
+                    "file": GC_CITY_TXT.name if GC_CITY_TXT.exists() else None,
+                    "sha256": sha256(GC_CITY_TXT) if GC_CITY_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 33, "fetched_at": _sync_time(GC_CITY_TXT),
+                    "note": ("주차요금표는 과천도시공사 요금안내와 같은 별표1 값이고, 급지 설명도 같다. "
+                             "현황 표는 유료운영 공영주차장의 총계를 2,092면(일반 2,035·장애 31·다자녀 "
+                             "임산부 13·경차 7)으로 적지만 화면에 올라온 항목(별양동 165 + 상이군경회 61 + "
+                             "중앙동·관악산길 188 + 경마장 1,117 + 뒷골 104)을 더하면 1,635면이라, 찬우물·"
+                             "한내·광창·문원동 주차장은 표에 빠져 있다. 그래서 면수·급지는 공단 현황과 "
+                             "표준데이터로 대조했다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GC_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "gwacheon_grade",
+            "unit_min": GC_UNIT_MIN,
+            "free_min": GC_FREE_MIN,
+            "applies": GC_ORDINANCE_NOTE,
+            "off": [
+                {"grade": g, "where": GC_FEES[g]["where"], "unit": GC_FEES[g]["unit"],
+                 "day": GC_FEES[g]["day"], "month": GC_FEES[g]["month"], "lots": 0}
+                for g in (1, 2, 3, 4)],
+            "g5": [
+                {"who": who, "unit": t["unit"], "day": t["day"], "month": t["month"], "lots": 0}
+                for who, t in GC_G5.items()],
+            "windows": [
+                {"group": "상업지역·경마장 주변 유료 주차장(노상·노외)",
+                 "hours": "월~일 09:00~19:00", "free": "일요일·공휴일 무료"},
+                {"group": "관악산길 주차장(3급지)",
+                 "hours": "연중무휴 09:00~19:00", "free": "공휴일에도 요금을 받음(별표1 비고3 예외)"},
+                {"group": "북문노상주차장",
+                 "hours": "토요일·공휴일 09:00~19:00", "free": "평일 무료 개방"},
+                {"group": "월정기 전용(한내1·2, 광창2·3)",
+                 "hours": "공단 안내 참조", "free": "시간 주차요금은 받지 않을 수 있음"},
+            ],
+            "monthly_note": ("월 정기 주차권은 총 주차면수의 50% 범위에서 발행하며(별표1 비고10), "
+                             "경마공원 주변은 경마일·비경마일을 합산해 1급지와 4급지 금액을 더해 계산합니다(※)."),
+            "corp": {
+                "paid_out": len([l for l in lots if l["list_mode"] == "card"
+                                 and l["fee"]["type"] == "유료"]),
+                "free_out": len([l for l in lots if l["list_mode"] == "card"
+                                 and l["fee"]["type"] == "무료"]),
+                "street": len([l for l in lots if l["list_mode"] == "street"]),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade") or l["fee"].get("grade_label"),
+                 "free": l["fee"].get("free_min"), "unit": l["fee"].get("unit_fee"),
+                 "base": l["fee"].get("base_fee"),
+                 "day": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「과천시 주차장 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({GC_ORDINANCE_NOTE}) · [별표 6] 감면·추가 요금표 · "
+                      "과천도시공사 공영주차장 현황·요금안내·시설운영시간(2026-11-17 확인)"),
+        },
+    }
+    # 급지 요금표의 ‘이 사이트 유료 주차장’은 카드로 실은 곳만 센다(노상은 노상 페이지에서 센다).
+    card_paid = Counter(l["fee"].get("grade") for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload["fee_table"]["g5"][list(GC_G5).index("관외주민")]["lots"] = card_paid.get(5, 0)
+    payload.update(CITY_META["과천시"] | {
+        "city": "과천시",
+        "weekend_free_pages": False,
+        "discounts": GC_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "gwacheon_parking.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_gwacheon(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                           note_fixed, reclassified, month_diff, addr_fixed, dup_mgmt,
+                           no_ticket, name_fixed=None):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_과천시행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "5급지_관외": len([l for l in paid if l["fee"].get("grade") == 5
+                          and l["fee"].get("monthly_label") == "관외주민 월 정기"]),
+        "정기권_판매": sorted(l["name"] for l in paid if l["fee"].get("monthly")),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "주소_보정": addr_fixed,
+        "관리번호_중복": dup_mgmt,
+        "1일권_없음": no_ticket,
+        "이름_보정": name_fixed or [],
+        "감면_출처": ("「과천시 주차장 조례」 [별표 6] 공영주차장 주차요금 감면·추가 요금표 · "
+                     "과천도시공사 요금감면대상 안내"),
+        "무료시간_출처": "별표1 비고9(5분 단위 산정, 최초 입차 후 5분 이내 출차 시 무료)",
+        "주말무료_출처": ("별표1 비고3(경마장 주변(경마일)·관악산길 제외 법정 공휴일 무료) · "
+                          "과천도시공사 시설운영시간(중앙동·별양동 상업지역과 우체국 앞 휴무일 일요일)"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -15681,7 +16414,8 @@ def main():
              "icheon": ["이천시"], "anseong": ["안성시"],
              "yangju": ["양주시"], "pocheon": ["포천시"], "uiwang": ["의왕시"],
              "yeoju": ["여주시"],
-             "dongducheon": ["동두천시"]}[args.city])
+             "dongducheon": ["동두천시"],
+             "gwacheon": ["과천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -15737,6 +16471,8 @@ def main():
         cities.append(build_yeoju())
     if "동두천시" in want:
         cities.append(build_dongducheon())
+    if "과천시" in want:
+        cities.append(build_gwacheon())
 
     if args.city == "all":
         site = build_site_payload(cities)
