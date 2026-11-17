@@ -1,0 +1,8350 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 07:15",
+  "generated_at_iso": "2026-11-18T07:15:44+09:00",
+  "snapshot_at": "2026-11-18 07:15",
+  "region": {
+   "province": "인천광역시",
+   "city": "계양구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 73,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "계양구로 등록된 행 73행을 읽어 노외·부설 58곳과 노상 10구간을 실었다. 요금은 등록된 30분 기본요금·15분 추가요금을 그대로 쓰고, 5시간 이상이면 전일주차요금을 상한으로 적용했다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「인천광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조의2 감면",
+    "org": "인천광역시 교통안전과(032-440-3925)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2177551",
+    "file": "incheon.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "93f34a3c273584a9a752a5581a061d84e09737ececda4e1e49b6a06b816c63b1",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-10-08 · 인천광역시조례 제7804호(일부개정) · 별표1 공영주차장 주차요금표(개정 2013. 5. 27.) · 제4조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 06:26 (KST)",
+    "note": "시영(인천시설공단) 공영주차장의 요금표다. 1~4급지로 나뉘고 1회 주차는 최초 30분까지 1,000·600·400·300원, 30분 뒤 15분마다 500·300·200·150원이며, 전일주차권은 10,000·6,000·4,000·3,000원, 월 정기 자유이용권은 100,000·60,000·40,000·30,000원이다. 비고2는 1일 5시간 이상 주차하면 전일주차요금으로 징수하도록 정한다. 제4조의2는 국가유공자·장애인 등 80퍼센트(최초 1시간 면제), 경차 60퍼센트, 승용차부제 50퍼센트, 저공해·환경친화 50퍼센트, 다자녀 50퍼센트, 임산부 100퍼센트, 65세 이상 50퍼센트(최초 1시간 면제), 모범납세자·자원봉사자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「인천광역시 계양구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조 감면",
+    "org": "계양구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2174961",
+    "file": "gyeyang.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "f166ade7385d014d2d2134ca8a570523bb26a0d0fa5fef16d4ad394f0aaf9ef3",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-10-02 · 인천광역시계양구조례 제1734호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청·구 시설관리공단) 주차장에 적용하는 조례다. 계양구는 별표1의 1~4급지 요금(최초 30분 기본요금 + 15분마다 추가)을 쓰고, 5시간 이상 주차하면 전일주차요금을 받습니다. ‘월정기전용’ 주차장은 배정 차량만 월 정기권으로 이용하고, 화물 차고지(서운동·계양IC)는 화물자동차 전용입니다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "계양구",
+   "slug": "gyeyang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gyeyang-001",
+   "mgmt_no": "167-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경인교대 환승",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 969-9",
+   "addr_road": "인천광역시 계양구 계양대로163번길 3 (계산동)",
+   "road": null,
+   "spaces": 84,
+   "tel": "032-262-7715",
+   "lat": 37.5384274672,
+   "lng": 126.7220611622,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-002",
+   "mgmt_no": "167-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산1",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 1060",
+   "addr_road": "인천광역시 계양구 계양문화로 111",
+   "road": null,
+   "spaces": 202,
+   "tel": "032-579-2701",
+   "lat": 37.540710226,
+   "lng": 126.7367574,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-003",
+   "mgmt_no": "167-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산2 공영주차장",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 1079-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 266,
+   "tel": "032-262-7715",
+   "lat": 37.5363270576,
+   "lng": 126.7373591777,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-004",
+   "mgmt_no": "167-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산3",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 1079-1",
+   "addr_road": "인천광역시 계양구 계산새로 88",
+   "road": null,
+   "spaces": 161,
+   "tel": "032-579-2701",
+   "lat": 37.5370533052,
+   "lng": 126.7377592,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-005",
+   "mgmt_no": "167-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산동 302-1",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동302-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "032-262-7715",
+   "lat": 37.5367334435,
+   "lng": 126.7289749357,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "17:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-006",
+   "mgmt_no": "167-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산동 957-12",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 957-12",
+   "addr_road": "인천광역시 계양구 계산천동로7번길 4 (계산동)",
+   "road": null,
+   "spaces": 19,
+   "tel": "032-262-7715",
+   "lat": 37.5392814408,
+   "lng": 126.7234846828,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-007",
+   "mgmt_no": "167-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산동 959-10",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 959-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "032-262-7715",
+   "lat": 37.5401534601,
+   "lng": 126.7248385202,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-008",
+   "mgmt_no": "167-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산동 964-10",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 964-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "032-262-7715",
+   "lat": 37.5383342101,
+   "lng": 126.7264194839,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-009",
+   "mgmt_no": "167-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산체육공원지하",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 907-1",
+   "addr_road": "인천광역시 계양구 주부토로 570 (계산동)",
+   "road": null,
+   "spaces": 215,
+   "tel": "032-262-7715",
+   "lat": 37.5450443863,
+   "lng": 126.7289984872,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-010",
+   "mgmt_no": "167-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양구청 부설",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 1079-1",
+   "addr_road": "인천광역시 계양구 계산새로 88 (계산동)",
+   "road": null,
+   "spaces": 529,
+   "tel": "032-262-7715",
+   "lat": 37.5374405602,
+   "lng": 126.7377600729,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-011",
+   "mgmt_no": "167-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양대로140번길",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 988-27",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "032-262-7715",
+   "lat": 37.5366105753,
+   "lng": 126.7235594372,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-012",
+   "mgmt_no": "167-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양산",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 905",
+   "addr_road": "인천광역시 계양구 계양산로102번길 4 (계산동)",
+   "road": null,
+   "spaces": 179,
+   "tel": "032-262-7715",
+   "lat": 37.5473016368,
+   "lng": 126.7265684501,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-013",
+   "mgmt_no": "167-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고양골 공영주차장",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 780-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "032-262-7715",
+   "lat": 37.5409596563,
+   "lng": 126.7174800815,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-014",
+   "mgmt_no": "167-3-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화회관 부설",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "인천광역시 계양구 계산동 724",
+   "addr_road": "인천광역시 계양구 계양산로35번길 11 (계산동)",
+   "road": null,
+   "spaces": 119,
+   "tel": "032-262-7715",
+   "lat": 37.5460788776,
+   "lng": 126.7181311531,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일+토요일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-015",
+   "mgmt_no": "167-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화회관길",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 724-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "032-262-7715",
+   "lat": 37.5465919984,
+   "lng": 126.7187763673,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일+토요일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-016",
+   "mgmt_no": "167-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산아래쉼터 공영주차장",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 931-53",
+   "addr_road": "인천광역시 계양구 하느재로5번길 5 (계산동)",
+   "road": null,
+   "spaces": 16,
+   "tel": "032-262-7715",
+   "lat": 37.5439105188,
+   "lng": 126.7243048245,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-017",
+   "mgmt_no": "167-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "욕은지길1",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 944-12",
+   "addr_road": "인천광역시 계양구 어사대로 4 (계산동)",
+   "road": null,
+   "spaces": 9,
+   "tel": "032-262-7715",
+   "lat": 37.542921043,
+   "lng": 126.7244587368,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-018",
+   "mgmt_no": "167-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "욕은지길2",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 계산동 953-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "032-262-7715",
+   "lat": 37.542720676,
+   "lng": 126.7249719009,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-019",
+   "mgmt_no": "167-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양역 공영주차장",
+   "gu": "계양구",
+   "dong": "귤현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 귤현동 451-264",
+   "addr_road": "인천광역시 계양구 다남로 24 (귤현동)",
+   "road": null,
+   "spaces": 15,
+   "tel": "032-262-7715",
+   "lat": 37.5716093704,
+   "lng": 126.7360234007,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-020",
+   "mgmt_no": "167-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "굴재공원(구 귤현동2)",
+   "gu": "계양구",
+   "dong": "귤현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 귤현동 499-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "032-262-7715",
+   "lat": 37.5682097033,
+   "lng": 126.7490822012,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-021",
+   "mgmt_no": "167-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "귤현 공영주차장",
+   "gu": "계양구",
+   "dong": "귤현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 귤현동 529-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "032-262-7715",
+   "lat": 37.5693389081,
+   "lng": 126.7449666329,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(40,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 3급지 기준은 최초 30분 400원·15분마다 200원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 40,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-022",
+   "mgmt_no": "167-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "샘터공원(구 귤현동3)",
+   "gu": "계양구",
+   "dong": "귤현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 귤현동 509-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "032-262-7715",
+   "lat": 37.5680421169,
+   "lng": 126.7451717031,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-023",
+   "mgmt_no": "167-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안골공원(구 귤현동1)",
+   "gu": "계양구",
+   "dong": "귤현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 귤현동 486-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "032-262-7715",
+   "lat": 37.5700656646,
+   "lng": 126.7466663696,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-024",
+   "mgmt_no": "167-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다남공원3",
+   "gu": "계양구",
+   "dong": "다남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 다남동 1-16",
+   "addr_road": "인천광역시 계양구 다남동 1-16",
+   "road": null,
+   "spaces": 35,
+   "tel": "032-579-2701",
+   "lat": 37.5742082567,
+   "lng": 126.7290075616,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-025",
+   "mgmt_no": "167-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양IC 화물 차고지",
+   "gu": "계양구",
+   "dong": "동양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 동양동 26-3",
+   "addr_road": "인천광역시 계양구 벌말로 371 (동양동)",
+   "road": null,
+   "spaces": 430,
+   "tel": "032-262-7715",
+   "lat": 37.5638661626,
+   "lng": 126.7688147374,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(84,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 84,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-026",
+   "mgmt_no": "167-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모텡이공원(구 동양동2)",
+   "gu": "계양구",
+   "dong": "동양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 동양동 607-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "032-262-7715",
+   "lat": 37.5618974366,
+   "lng": 126.7548954528,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-027",
+   "mgmt_no": "167-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서녁공원(구 동양동3)",
+   "gu": "계양구",
+   "dong": "동양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 동양동 620-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "032-262-7715",
+   "lat": 37.5608956705,
+   "lng": 126.7580985387,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-028",
+   "mgmt_no": "167-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양지말공원(구 동양동1)",
+   "gu": "계양구",
+   "dong": "동양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 동양동 593-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "032-262-7715",
+   "lat": 37.5634004429,
+   "lng": 126.75433854,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-029",
+   "mgmt_no": "167-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방축 공영주차장",
+   "gu": "계양구",
+   "dong": "방축동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 방축동 113",
+   "addr_road": "",
+   "road": null,
+   "spaces": 102,
+   "tel": "032-262-7715",
+   "lat": 37.5507956895,
+   "lng": 126.7394870746,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-030",
+   "mgmt_no": "167-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양산 전통시장(노외)",
+   "gu": "계양구",
+   "dong": "병방동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 병방동 413",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "032-262-7715",
+   "lat": 37.5481746811,
+   "lng": 126.7407392598,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-031",
+   "mgmt_no": "167-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "병방동 양촌 주차장",
+   "gu": "계양구",
+   "dong": "병방동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 병방동 82-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "032-262-7715",
+   "lat": 37.5486790272,
+   "lng": 126.7447382054,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(40,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 3급지 기준은 최초 30분 400원·15분마다 200원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 40,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-032",
+   "mgmt_no": "167-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉오대로 894번길",
+   "gu": "계양구",
+   "dong": "서운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 서운동 235",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "032-262-7715",
+   "lat": 37.5283415979,
+   "lng": 126.7481350229,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(60,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 2급지 기준은 최초 30분 600원·15분마다 300원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 60,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-033",
+   "mgmt_no": "167-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서운동 공영 차고지",
+   "gu": "계양구",
+   "dong": "서운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 서운동 139-4",
+   "addr_road": "인천광역시 계양구 아나지로 529-1 (서운동)",
+   "road": null,
+   "spaces": 127,
+   "tel": "032-262-7715",
+   "lat": 37.5265515135,
+   "lng": 126.7517131116,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 배정 차량만 월 정기권(84,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 84000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 84000,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 84,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-034",
+   "mgmt_no": "167-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서운산업단지 공영주차장",
+   "gu": "계양구",
+   "dong": "서운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 서운동 210-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 127,
+   "tel": "032-262-7715",
+   "lat": 37.5359138044,
+   "lng": 126.754106753,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-035",
+   "mgmt_no": "167-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용종",
+   "gu": "계양구",
+   "dong": "용종동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 용종동 224-1",
+   "addr_road": "인천광역시 계양구 용마루1길 2 (용종동)",
+   "road": null,
+   "spaces": 37,
+   "tel": "032-262-7715",
+   "lat": 37.5429066687,
+   "lng": 126.7428221178,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 720,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-036",
+   "mgmt_no": "167-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아라파크웨이 공영주차장",
+   "gu": "계양구",
+   "dong": "임학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 임학동 3-9",
+   "addr_road": "인천광역시 계양구 계양산로 165",
+   "road": null,
+   "spaces": 98,
+   "tel": "032-579-2701",
+   "lat": 37.5477676023,
+   "lng": 126.7340907378,
+   "base_date": "2026-04-27",
+   "manager": "인천광역시 인천시설공단",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-037",
+   "mgmt_no": "167-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임학",
+   "gu": "계양구",
+   "dong": "임학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 임학동 222-1",
+   "addr_road": "인천광역시 계양구 화산로 15 (임학동)",
+   "road": null,
+   "spaces": 65,
+   "tel": "032-262-7715",
+   "lat": 37.5487696632,
+   "lng": 126.7351610944,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(40,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 3급지 기준은 최초 30분 400원·15분마다 200원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 40,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-038",
+   "mgmt_no": "167-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임학골(구 학산길)",
+   "gu": "계양구",
+   "dong": "임학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 임학동 46-32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "032-262-7715",
+   "lat": 37.5445845011,
+   "lng": 126.7337745256,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(40,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 3급지 기준은 최초 30분 400원·15분마다 200원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 40,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-039",
+   "mgmt_no": "167-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계산4",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 903",
+   "addr_road": "인천광역시 계양구 도두리로6번길 23",
+   "road": null,
+   "spaces": 362,
+   "tel": "032-579-2701",
+   "lat": 37.53188825,
+   "lng": 126.7350489,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-040",
+   "mgmt_no": "167-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "목수천",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 710",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "032-262-7715",
+   "lat": 37.5247560525,
+   "lng": 126.7334300474,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 720,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-041",
+   "mgmt_no": "167-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉오대로(구 봉오대로691번길)",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 862-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "032-262-7715",
+   "lat": 37.5311948187,
+   "lng": 126.725580039,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(40,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 3급지 기준은 최초 30분 400원·15분마다 200원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 40,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-042",
+   "mgmt_no": "167-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "작전동 71-5",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 68-2",
+   "addr_road": "인천광역시 계양구 주부토로448번길 13-25 (작전동)",
+   "road": null,
+   "spaces": 7,
+   "tel": "032-262-7715",
+   "lat": 37.5337330204,
+   "lng": 126.7307038281,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-043",
+   "mgmt_no": "167-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "작전동 852-7",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 852-28",
+   "addr_road": "인천광역시 계양구 계양대로 139 (작전동)",
+   "road": null,
+   "spaces": 14,
+   "tel": "032-262-7715",
+   "lat": 37.5362722,
+   "lng": 126.7222182854,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "배정 차량만 월 정기권(40,000원)으로 이용하는 주차장이라 시간 주차 요금은 현장에서 확인해야 합니다 · 조례 별표1 3급지 기준은 최초 30분 400원·15분마다 200원입니다(시간 주차를 받는 경우) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드+계좌",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "basis": "정기권 전용 — 월 정기권 40,000원"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-044",
+   "mgmt_no": "167-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "작전동 854-1",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 854-2",
+   "addr_road": "인천광역시 계양구 계양대로 114 (작전동)",
+   "road": null,
+   "spaces": 15,
+   "tel": "032-262-7715",
+   "lat": 37.5340149603,
+   "lng": 126.7230368578,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-045",
+   "mgmt_no": "167-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "작전서운 공영주차장",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 679-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 81,
+   "tel": "032-262-7715",
+   "lat": 37.5265357032,
+   "lng": 126.7395612589,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-046",
+   "mgmt_no": "167-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "작전시장전용 주차장",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 작전동 854-11",
+   "addr_road": "인천광역시 계양구 봉오대로677번길 23 (작전동)",
+   "road": null,
+   "spaces": 21,
+   "tel": "032-262-7715",
+   "lat": 37.5329137291,
+   "lng": 126.7239085928,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-047",
+   "mgmt_no": "167-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계양대교 북단(하부)",
+   "gu": "계양구",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 장기동 107-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "032-262-7715",
+   "lat": 37.575023164,
+   "lng": 126.7372672547,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-048",
+   "mgmt_no": "167-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다남공원1",
+   "gu": "계양구",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 장기동 155-340",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "032-262-7715",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-049",
+   "mgmt_no": "167-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장터공원(구 장기동3)",
+   "gu": "계양구",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 장기동 144-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "032-262-7715",
+   "lat": 37.5794253839,
+   "lng": 126.7373951483,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-050",
+   "mgmt_no": "167-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황어장터(구 장기동1)",
+   "gu": "계양구",
+   "dong": "장기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 장기동 139",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "032-262-7715",
+   "lat": 37.5787112679,
+   "lng": 126.7355658807,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-051",
+   "mgmt_no": "167-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아라파크웨이",
+   "gu": "계양구",
+   "dong": "평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 평동 35-23",
+   "addr_road": "인천광역시 계양구 평동 35-23",
+   "road": null,
+   "spaces": 98,
+   "tel": "032-579-2701",
+   "lat": 37.5826586,
+   "lng": 126.77233,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-052",
+   "mgmt_no": "167-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마장로",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 효성동 186-13",
+   "addr_road": "인천광역시 계양구 마장로 567 (효성동)",
+   "road": null,
+   "spaces": 18,
+   "tel": "032-262-7715",
+   "lat": 37.5288112728,
+   "lng": 126.7049670796,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-053",
+   "mgmt_no": "167-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "샛별(구 평화의길)",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 효성동 665-21",
+   "addr_road": "인천광역시 계양구 봉오대로569번길 1-2 (효성동)",
+   "road": null,
+   "spaces": 37,
+   "tel": "032-262-7715",
+   "lat": 37.5308899215,
+   "lng": 126.7116242914,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 720,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-054",
+   "mgmt_no": "167-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효성남 공영주차장",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 효성동 293-8",
+   "addr_road": "인천광역시 계양구 봉오대로628번길 16 (효성동)",
+   "road": null,
+   "spaces": 48,
+   "tel": "032-262-7715",
+   "lat": 37.5291272875,
+   "lng": 126.7178769656,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일 이용은 현장에서 확인하세요 · 운영요일이 ‘평일’로 등록되어 일요일·공휴일 이용은 현장에서 확인하세요 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-055",
+   "mgmt_no": "167-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효성동 273-17",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 효성동 273-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "032-262-7715",
+   "lat": 37.5262021867,
+   "lng": 126.7115798903,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-056",
+   "mgmt_no": "167-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효성동 681",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 효성동 681",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "032-262-7715",
+   "lat": 37.5288197764,
+   "lng": 126.7149436021,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-057",
+   "mgmt_no": "167-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효성동 81",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 계양구 효성동 81",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "032-262-7715",
+   "lat": 37.5323731496,
+   "lng": 126.7094207598,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-058",
+   "mgmt_no": "167-3-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효성수영장 부설",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "인천광역시 계양구 효성동 324-1",
+   "addr_road": "인천광역시 계양구 안남로 483 (효성동)",
+   "road": null,
+   "spaces": 96,
+   "tel": "032-262-7715",
+   "lat": 37.5264947622,
+   "lng": 126.7105894827,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s001",
+   "mgmt_no": "167-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계산복개천(상)",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 계산동 1035",
+   "addr_road": "",
+   "road": null,
+   "spaces": 106,
+   "tel": "032-262-7715",
+   "lat": 37.540233389,
+   "lng": 126.7222400088,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 운영요일이 ‘평일’로 등록되어 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s002",
+   "mgmt_no": "167-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계산복개천(시장전용)",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 계산동 1035",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "032-262-7715",
+   "lat": 37.540233389,
+   "lng": 126.7222400088,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 10,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 15,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 15,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s003",
+   "mgmt_no": "167-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계산복개천(하)",
+   "gu": "계양구",
+   "dong": "계산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 계산동 1035",
+   "addr_road": "",
+   "road": null,
+   "spaces": 165,
+   "tel": "032-262-7715",
+   "lat": 37.540233389,
+   "lng": 126.7222400088,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "운영요일이 ‘평일’로 등록되어 토요일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 운영요일이 ‘평일’로 등록되어 일요일·공휴일에는 요금을 받지 않습니다(무료 개방, 현장 확인) · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s004",
+   "mgmt_no": "167-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계양산 전통시장(노상)",
+   "gu": "계양구",
+   "dong": "병방동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 병방동 413",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "032-262-7715",
+   "lat": 37.5481746811,
+   "lng": 126.7407392598,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 600,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "20:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s005",
+   "mgmt_no": "167-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "작전역 환승 동쪽(남측)",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 작전동 887",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "032-262-7715",
+   "lat": 37.5298981938,
+   "lng": 126.7257395253,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s006",
+   "mgmt_no": "167-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "작전역 환승 동쪽(북측)",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 작전동 885",
+   "addr_road": "",
+   "road": null,
+   "spaces": 123,
+   "tel": "032-262-7715",
+   "lat": 37.5308089276,
+   "lng": 126.7254380201,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s007",
+   "mgmt_no": "167-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "작전역 환승 서쪽(남측)",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 작전동 877",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "032-262-7715",
+   "lat": 37.529939024,
+   "lng": 126.7217014826,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s008",
+   "mgmt_no": "167-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "작전역 환승 서쪽(북측)",
+   "gu": "계양구",
+   "dong": "작전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 작전동 876",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "032-262-7715",
+   "lat": 37.5307125309,
+   "lng": 126.7216986946,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ],
+     "note_closed": true
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": true,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s009",
+   "mgmt_no": "167-1-000046",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "명현쌈지",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 효성동 665-38",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "032-262-7715",
+   "lat": 37.5317301167,
+   "lng": 126.7118374753,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  },
+  {
+   "id": "gyeyang-s010",
+   "mgmt_no": "167-1-000056",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "효성동 쌈지",
+   "gu": "계양구",
+   "dong": "효성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 계양구 효성동 172-19,20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "032-262-7715",
+   "lat": 37.5294950123,
+   "lng": 126.7073324521,
+   "base_date": "2026-05-21",
+   "manager": "인천광역시 계양구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(계양구시설관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계양구",
+   "city_slug": "gyeyang"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 07:15",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 73,
+  "원자료_계양구행수": 73,
+  "구별": "계양구",
+  "원자료_받은행수": 73,
+  "민영_제외": 1,
+  "제외_행수": 1,
+  "제외_행": [
+   {
+    "name": "인천교통공사 계양역 부설주차장",
+    "reason": "민영 주차장(공영 아님)"
+   }
+  ],
+  "중복제거_행수": 4,
+  "중복제거_행": [
+   {
+    "name": "다남공원3 공영주차장",
+    "addr": "인천광역시 계양구 다남동 1-16",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "계산4 공영주차장",
+    "addr": "인천광역시 계양구 작전동 903",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "계산3 공영주차장",
+    "addr": "인천광역시 계양구 계산동 1075",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "계산1 공영주차장",
+    "addr": "인천광역시 계양구 계산동 1060",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   }
+  ],
+  "총_주차장": 58,
+  "노외_부설": {
+   "노외": 56,
+   "부설": 2
+  },
+  "노상_구간": 10,
+  "총_구획수": 4311,
+  "노상_구획수": 663,
+  "동별": {
+   "계산동": 18,
+   "작전동": 8,
+   "효성동": 7,
+   "귤현동": 5,
+   "동양동": 4,
+   "장기동": 4,
+   "서운동": 3,
+   "임학동": 3,
+   "병방동": 2,
+   "다남동": 1,
+   "방축동": 1,
+   "용종동": 1,
+   "평동": 1
+  },
+  "동수": 13,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 58
+  },
+  "요금구분": {
+   "유료": 36,
+   "미상": 15,
+   "무료": 17
+  },
+  "요금_미상": [
+   "계산동 957-12",
+   "계산동 959-10",
+   "계산동 964-10",
+   "계양대로140번길",
+   "욕은지길1",
+   "욕은지길2",
+   "귤현 공영주차장",
+   "계양IC 화물 차고지",
+   "병방동 양촌 주차장",
+   "봉오대로 894번길",
+   "서운동 공영 차고지",
+   "임학",
+   "임학골(구 학산길)",
+   "봉오대로(구 봉오대로691번길)",
+   "작전동 852-7"
+  ],
+  "유료_노상": 8,
+  "유료_노외": 26,
+  "유료_부설": 2,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "귤현 공영주차장: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "서운동 공영 차고지: 요금 정보가 비어 있어 ‘요금 정보 없음’으로 두었습니다",
+   "계양IC 화물 차고지: 요금 정보가 비어 있어 ‘요금 정보 없음’으로 두었습니다",
+   "작전동 852-7: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "임학골(구 학산길): 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "임학: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "봉오대로(구 봉오대로691번길): 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "병방동 양촌 주차장: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "욕은지길2: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산",
+   "욕은지길1: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산",
+   "봉오대로 894번길: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산",
+   "계양대로140번길: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산",
+   "계산동 964-10: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산",
+   "계산동 959-10: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산",
+   "계산동 957-12: 표준데이터에 시간 요금이 없어 조례 별표1 2급지 30분 600원·15분 300원으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "다남공원1"
+  ],
+  "감면_출처": "시영은 「인천광역시 주차장 설치 및 관리 조례」 제4조의2, 구영은 「인천광역시 계양구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조 감면(시행 2026-10-02 · 인천광역시계양구조례 제1734호(일부개정))",
+  "무료시간_출처": "인천시·구 조례 별표1은 최초 30분을 기본요금으로 받고 별도의 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항의 표기를 그대로 썼다",
+  "무료개방_표기": [
+   "계산복개천(상)",
+   "계산복개천(하)"
+  ],
+  "무료_요금구분": 17,
+  "무료_구획수": 261,
+  "평균_기본요금": 533,
+  "토요일_미운영": 9,
+  "일공휴일_미운영": 18,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "167-2-000003",
+   "167-2-000002",
+   "167-2-000004",
+   "167-2-000034",
+   "167-2-000033"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-27",
+   "2026-05-21",
+   "2026-09-01"
+  ],
+  "구청안내_주차장": []
+ },
+ "fee_table": {
+  "style": "incheon_grade",
+  "unit_min": 15,
+  "base_min": 30,
+  "applies": "2026-05-21",
+  "rows": [
+   {
+    "grade": 1,
+    "label": null,
+    "lots": 1,
+    "fee_min": 1000,
+    "fee_max": 1000,
+    "base_label": "1,000원",
+    "unit_label": "500원",
+    "hour": 2000,
+    "two_hour": 4000,
+    "day": 10000,
+    "month": 100000,
+    "month_min": null,
+    "month_max": null
+   },
+   {
+    "grade": 2,
+    "label": null,
+    "lots": 21,
+    "fee_min": 600,
+    "fee_max": 600,
+    "base_label": "600원",
+    "unit_label": "300원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 60000,
+    "month_min": 40000,
+    "month_max": 60000
+   },
+   {
+    "grade": 3,
+    "label": null,
+    "lots": 14,
+    "fee_min": 400,
+    "fee_max": 400,
+    "base_label": "400원",
+    "unit_label": "200원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 4000,
+    "month": 40000,
+    "month_min": 40000,
+    "month_max": 40000
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 15
+   },
+   {
+    "group": "08:00~21:00",
+    "count": 5
+   },
+   {
+    "group": "10:00~20:00",
+    "count": 3
+   },
+   {
+    "group": "12:00~19:00",
+    "count": 3
+   },
+   {
+    "group": "11:00~20:00",
+    "count": 3
+   },
+   {
+    "group": "10:00~17:00",
+    "count": 2
+   },
+   {
+    "group": "08:00~20:00",
+    "count": 2
+   },
+   {
+    "group": "11:00~18:00",
+    "count": 2
+   },
+   {
+    "group": "09:00~20:00",
+    "count": 1
+   }
+  ],
+  "notes": "계양구는 별표1의 1~4급지 요금(최초 30분 기본요금 + 15분마다 추가)을 쓰고, 5시간 이상 주차하면 전일주차요금을 받습니다. ‘월정기전용’ 주차장은 배정 차량만 월 정기권으로 이용하고, 화물 차고지(서운동·계양IC)는 화물자동차 전용입니다",
+  "flat_n": 0,
+  "corp": {
+   "paid": 28,
+   "free": 17,
+   "unknown": 15,
+   "street_paid": 8,
+   "street": 10
+  },
+  "table": {
+   "1": {
+    "base": 1000,
+    "unit": 500,
+    "day": 10000,
+    "month": 100000
+   },
+   "2": {
+    "base": 600,
+    "unit": 300,
+    "day": 6000,
+    "month": 60000
+   },
+   "3": {
+    "base": 400,
+    "unit": 200,
+    "day": 4000,
+    "month": 40000
+   },
+   "4": {
+    "base": 300,
+    "unit": 150,
+    "day": 3000,
+    "month": 30000
+   }
+  },
+  "reorg": null,
+  "basis": "「인천광역시 주차장 설치 및 관리 조례」 별표1(시행 2026-10-08 · 인천광역시조례 제7804호(일부개정) · 별표1 공영주차장 주차요금표(개정 2013. 5. 27.) · 제4조의2 주차요금의 감면) · 「인천광역시 계양구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조 감면(시행 2026-10-02 · 인천광역시계양구조례 제1734호(일부개정)) · 전국주차장정보표준데이터 등록요금"
+ },
+ "slug": "gyeyang",
+ "province": "인천광역시",
+ "province_slug": "incheon",
+ "dong_page_min_lots": 3,
+ "city": "계양구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "국가유공자·장애인 등 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "국가유공자·장애인·고엽제후유의증·5·18부상자·보훈보상대상자·병역명문가·의사상자·장기기증자가 직접 운전(장애정도가 심하면 대리운전) — 50퍼센트, 1회 최초 1시간 면제"
+  },
+  {
+   "label": "경차·이륜 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 별표 1의 경형자동차와 이륜자동차 60퍼센트"
+  },
+  {
+   "label": "요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「인천광역시 승용차요일제 지원 조례」 참여 차량 50퍼센트(월 정기주차 제외)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해·환경친화적 자동차 50퍼센트(전기차 충전 주차는 최초 1시간 면제)"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 수도권전철로 갈아탄 것이 확인된 차량 50퍼센트"
+  },
+  {
+   "label": "카드결제·주차쿠폰 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "교통카드로 요금을 지급하거나 주차쿠폰으로 이용하는 경우 20퍼센트(월 정기주차권 제외)"
+  },
+  {
+   "label": "모범납세자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범·성실납세자로서 성실납세증 표지를 부착한 차량 — 1년간 면제"
+  },
+  {
+   "label": "임산부 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "구에 주민등록을 둔 임산부가 직접 운전하거나 동승하고 산모수첩 등 증명자료를 제시 — 100퍼센트"
+  },
+  {
+   "label": "아이모아 50%·3자녀 100%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "아이모아카드 소지자 50퍼센트, 구 주민등록 거주자로서 자녀가 셋 이상이면 100퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제",
+   "rate": 1.0,
+   "exempt_min": 60,
+   "note": "구청장이 지정한 주차장에서 전통시장 주차권을 소지한 고객 — 최초 1시간 면제"
+  },
+  {
+   "label": "자원봉사자 3시간 면제",
+   "rate": 1.0,
+   "exempt_min": 180,
+   "note": "「계양구 자원봉사활동 지원 조례」 자원봉사자 감면증표 부착 차량 — 1일 3시간 이내 면제"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "국가유공자·장애인 등 80%",
+   "rate": 0.8,
+   "exempt_min": 60,
+   "note": "국가유공자(상이 1~7급)·장애인·고엽제후유(의)증·5·18부상자·보훈보상대상자·병역명문가가 본인 차를 직접 운전(중증 장애는 동승·대리운전) — 80퍼센트, 1회 주차의 경우 최초 1시간 면제"
+  },
+  {
+   "label": "경차·이륜 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 별표1의 경형자동차와 이륜자동차 60퍼센트"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「인천광역시 승용차부제 지원 조례」 참여 차량 50퍼센트(월 정기주차는 30퍼센트)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차(표지 부착)·환경친화적 자동차 50퍼센트 — 전기차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 우대카드 소지자, 18세 이하 자녀를 둔 2자녀 이상 가구원(주민등록등본 등 제시) 50퍼센트"
+  },
+  {
+   "label": "임산부 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "인천시에 주민등록을 둔 임산부가 탑승하고 산모수첩 등 증명자료를 제시한 차량 100퍼센트"
+  },
+  {
+   "label": "65세 이상 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "인천시에 주민등록을 둔 65세 이상이 직접 운전하고 운전면허증을 제시 — 최초 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "모범납세자·자원봉사자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지를 붙인 차량, 시장이 발급한 자원봉사자증으로 자원봉사활동을 위해 주차한 차량 — 1년간 면제"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 수도권전철로 환승한 것이 확인된 차량 50퍼센트"
+  },
+  {
+   "label": "승용차공동이용 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 지정한 승용차공동이용 자동차가 월 정기권을 받아 주차하는 경우 50퍼센트"
+  }
+ ],
+ "realtime": false
+}

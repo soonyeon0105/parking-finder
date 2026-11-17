@@ -4390,6 +4390,24 @@ INCHEON_EXPECT = {
                             "songhyeon-dong", "songrim-dong", "yulmok-dong"], "ordin": "2153259"},
     "영종구": {"slug": "yeongjong", "cards": 15, "street": 6,
             "dong_pages": ["eulwang-dong", "muui-dong", "unseo-dong"], "ordin": "2145273"},
+    # T-03 Phase 36 — 인천 2군·9구 완주
+    "부평구": {"slug": "bupyeong", "cards": 76, "street": 7,
+            "dong_pages": ["bugae-dong", "bupyeong-dong", "cheongcheon-dong", "galsan-dong",
+                           "samsan-dong", "sangok-dong", "sipjeong-dong"], "ordin": "2175921"},
+    "계양구": {"slug": "gyeyang", "cards": 58, "street": 10,
+            "dong_pages": ["dongyang-dong", "gyesan-dong", "gyulhyeon-dong", "hyoseong-dong",
+                           "imhak-dong", "jakjeon-dong", "janggi-dong", "seoun-dong"],
+            "ordin": "2174961"},
+    "서해구": {"slug": "seohae", "cards": 13, "street": 4,
+            "dong_pages": ["gajeong-dong", "seoknam-dong"], "ordin": "2177991"},
+    "검단구": {"slug": "geomdan", "cards": 14, "street": 1,
+            "dong_pages": ["dangha-dong", "majeon-dong", "oryu-dong"], "ordin": "2142573"},
+    "강화군": {"slug": "ganghwa", "cards": 59, "street": 2,
+            "dong_pages": ["ganghwa-eup", "gilsang-myeon", "hwado-myeon", "samsan-myeon",
+                           "seonwon-myeon"], "ordin": "2071593"},
+    "옹진군": {"slug": "ongjin", "cards": 46, "street": 1,
+            "dong_pages": ["baengnyeong-myeon", "bukdo-myeon", "deokjeok-myeon", "jawol-myeon",
+                           "yeongheung-myeon", "yeonpyeong-myeon"], "ordin": "1808489"},
 }
 _inc_pages = 0
 for _gu, _exp in INCHEON_EXPECT.items():
@@ -4406,14 +4424,17 @@ for _gu, _exp in INCHEON_EXPECT.items():
         fails.append(f"인천 {_gu}: breadcrumb 에 인천광역시 없음")
     if "1급지 90분 무료" in _h:
         fails.append(f"인천 {_gu}: 평택시 문구(1급지 90분 무료)가 남아 있음")
-    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2177551"' not in _h:
+    # 군(강화·옹진)은 군영 주차장만 있어 인천광역시 조례(시영) 링크를 달지 않고 군 조례만 적는다.
+    if _gu not in ("강화군", "옹진군") and \
+            'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2177551"' not in _h:
         fails.append(f"인천 {_gu}: 인천광역시 조례 출처 링크 없음")
     if f"ordinSeq={_exp['ordin']}" not in _h:
         fails.append(f"인천 {_gu}: 구 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
     if 'href=""' in _h:
         fails.append(f"인천 {_gu}: 빈 링크(href=\"\")가 있음")
-    if "급지별 주차요금표" not in _h:
-        fails.append(f"인천 {_gu}: 급지별 주차요금표 없음")
+    if (_gu not in ("강화군", "옹진군") and "급지별 주차요금표" not in _h) or \
+            (_gu in ("강화군", "옹진군") and "공영주차장 주차요금표" not in _h):
+        fails.append(f"인천 {_gu}: 주차요금표 없음")
     if "5시간 이상" not in _h:
         fails.append(f"인천 {_gu}: 5시간 이상 전일주차요금 안내 없음")
     _street = _hub.parent / "street-parking" / "index.html"
@@ -4465,7 +4486,59 @@ for _name, _min, _want_state, _want in (
     _r = _pf(_lot, _min, "weekday")
     if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
         fails.append(f"인천 계산 불일치: {_name} {_min}분 → {_r} (기대 {_want_state}/{_want})")
-print(f"인천광역시 구 검사 완료 ({len(INCHEON_EXPECT)}개 구 · 페이지 {_inc_pages})")
+
+# ---------------------------------------------------------------- 인천 2군·9구 완주 (T-03 Phase 36)
+#  부평·계양·서해·검단구와 강화·옹진군 — 강화군은 급지 없이 30분 600원(최초 5분 무료)에
+#  관광지 1일 2,000원 정액, 옹진군은 1급지 30분 1,000원(등록값은 30분당 500원 추가), 검단구는
+#  표준데이터에 행이 없어 구청·공단 안내를 썼다.
+_inc36_by_name = {l["name"]: l for l in LOTS if l.get("city") in
+                  ("부평구", "계양구", "서해구", "검단구", "강화군", "옹진군")}
+for _name, _min, _day, _want_state, _want in (
+        ("부평시장", 120, "weekday", "paid", 2400),          # 2급지 600 + 300×6
+        ("부평시장", 300, "weekday", "paid", 6000),          # 5시간 → 전일주차요금 상한
+        ("갈월산", 120, "weekday", "unknown", None),         # 월 정기권 전용 → 요금 미상
+        ("계산1", 120, "weekday", "paid", 2400),             # 계양구 2급지
+        ("청라노을 주차장", 1440, "weekday", "paid", 6000),   # 서해구 24시간 최대 6,000원
+        ("석남2주차장", 120, "sun", "free", None),            # 서해구 노상 주말·공휴일 무료
+        ("검단3", 120, "sun", "free", None),                 # 검단구 노상 주말·공휴일 무료
+        ("검단1", 1440, "weekday", "paid", 6000),            # 검단구 2급지 24시간 상한
+        ("마전동 908-3 주차장", 120, "weekday", "free", None),  # 구청 무료 주차장
+        ("남문 공영주차장", 5, "weekday", "free", None),       # 강화군 최초 5분 무료
+        ("남문 공영주차장", 120, "weekday", "paid", 2400),     # 30분 600 + 300×6
+        ("길상면 온수리 공영주차장", 1440, "weekday", "paid", 2000),   # 강화군 관광지 1일 정액
+        ("장경리주차장A", 120, "weekday", "paid", 2500),      # 옹진군 1,000 + 500×3(30분 단위)
+):
+    _lot = _inc36_by_name.get(_name)
+    if not _lot:
+        fails.append(f"인천 Phase 36 표본 주차장 없음: {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"인천 Phase 36 계산 불일치: {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 구·군 페이지 문구 — 군은 ‘읍·면’, 검단구는 구청·공단 안내를 출처로 적어야 한다.
+_inc36_texts = {
+    "ganghwa": ("읍·면", "읍·면별", "관광지 주차장", "1구획 1일 2,000원", "ganghwa-eup"),
+    "ongjin": ("읍·면", "1급지", "무료", "yeongheung-myeon"),
+    "geomdan": ("검단구청 공영주차장 현황", "검단구시설관리공단", "서해구", "2급지"),
+    "seohae": ("서해구시설관리공단", "24시간", "2급지"),
+    "bupyeong": ("부평구시설관리공단", "월 정기권", "4급지"),
+    "gyeyang": ("계양구시설관리공단", "월정기전용", "환승"),
+}
+for _slug, _needles in _inc36_texts.items():
+    _hp = DIST / "parking" / "incheon" / _slug / "index.html"
+    if not _hp.exists():
+        fails.append(f"인천 Phase 36 페이지 없음: {_slug}")
+        continue
+    _t = _hp.read_text()
+    for _n in _needles:
+        if _n not in _t:
+            fails.append(f"인천 Phase 36 {_slug}: 문구 ‘{_n}’ 없음")
+    if _leaked_nan(_t):
+        fails.append(f"인천 Phase 36 {_slug}: 페이지에 None/nan 문자열")
+
+print(f"인천광역시 구·군 검사 완료 ({len(INCHEON_EXPECT)}개 구·군 · 페이지 {_inc_pages}·Phase 36 6개 구·군)")
 
 if 'id="incheon"' not in (DIST / "index.html").read_text():
     fails.append("랜딩에 인천광역시 지역 묶음(#incheon) 없음")
@@ -4481,7 +4554,24 @@ for _u in ("https://parking.9welfare.com/parking/incheon/michuhol/",
            "https://parking.9welfare.com/parking/incheon/jemulpo/hwasu-dong/",
            "https://parking.9welfare.com/parking/incheon/jemulpo/street-parking/",
            "https://parking.9welfare.com/parking/incheon/yeongjong/",
-           "https://parking.9welfare.com/parking/incheon/yeongjong/unseo-dong/"):
+           "https://parking.9welfare.com/parking/incheon/yeongjong/unseo-dong/",
+           "https://parking.9welfare.com/parking/incheon/bupyeong/",
+           "https://parking.9welfare.com/parking/incheon/bupyeong/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/bupyeong/bupyeong-dong/",
+           "https://parking.9welfare.com/parking/incheon/gyeyang/",
+           "https://parking.9welfare.com/parking/incheon/gyeyang/gyesan-dong/",
+           "https://parking.9welfare.com/parking/incheon/gyeyang/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/seohae/",
+           "https://parking.9welfare.com/parking/incheon/seohae/seoknam-dong/",
+           "https://parking.9welfare.com/parking/incheon/geomdan/",
+           "https://parking.9welfare.com/parking/incheon/geomdan/majeon-dong/",
+           "https://parking.9welfare.com/parking/incheon/geomdan/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/ganghwa/",
+           "https://parking.9welfare.com/parking/incheon/ganghwa/ganghwa-eup/",
+           "https://parking.9welfare.com/parking/incheon/ganghwa/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/ongjin/",
+           "https://parking.9welfare.com/parking/incheon/ongjin/yeongheung-myeon/",
+           "https://parking.9welfare.com/parking/incheon/ongjin/street-parking/"):
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"인천 주소가 사이트맵에 없음: {_u}")
 
