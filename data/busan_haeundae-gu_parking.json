@@ -1,0 +1,5417 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 08:10",
+  "generated_at_iso": "2026-11-18T08:10:34+09:00",
+  "snapshot_at": "2026-11-18 08:10",
+  "region": {
+   "province": "부산광역시",
+   "city": "해운대구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 166,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "해운대구로 등록된 행 166행(노외·부설 160·노상 6)을 읽어 노외·부설 34곳과 노상 6구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 10분 단위 요금과 1일 주차요금을 그대로 계산한다. 부산시설공단이 직접 운영하는 17곳은 표준데이터에 없어 공단 통합주차포털의 면수·급지·요금을 더했다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「부산광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제3조의2 감면",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2029885",
+    "file": "busan.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "3198af7edba3d6900d621faf219cb28b95962c3ad14a35c3bedb756068ca45c0",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:25 (KST)",
+    "note": "시영(부산시설공단) 공영주차장에 적용하는 요금표다. 1급지(가)·1급지(나)·2~4급지로 나뉘고 1구획 10분마다 700·500·300·200·100원이며, 1일 주차는 21,000·15,000·8,000·4,700·2,400원, 월 주차는 주간 220,000·160,000·90,000·50,000·30,000원·야간 90,000·80,000·70,000·40,000·22,000원이다(3급지는 환승 35,000·비환승 50,000원). 1일·월 주차는 노외주차장과 주간 2~4급지 노상주차장에만 받고, 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제3조의2는 장애인·국가유공자 등 1시간 면제 뒤 50퍼센트, 경차·환경친화·저공해 50퍼센트, 다자녀·임산부 50퍼센트, 전통시장 1시간 면제, 승용차부제 50퍼센트, 모범납세자 1년 면제, 환승 50퍼센트, 상가 할인권 30퍼센트 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「부산광역시 해운대구 주차장 설치 및 관리 조례」 제4조 주차요금·제4조의2 감면(시 조례 별표1 준용)",
+    "org": "해운대구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2124269",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-04-20 · 부산광역시해운대구조례 제1796호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 해운대구 조례 제4조는 공영주차장 요금을 시 조례 별표1로 정하고, 제4조의2가 우수납세자 1년 면제·병역명문가 50퍼센트·착한 임대인 50퍼센트를 따로 정한 뒤 나머지는 시 조례 제3조의2를 준용합니다. 부산광역시 급지구분 고시는 우1~3동·중1동·좌1·2동을 1급지(나)(10분 500원)로 두고, 표준데이터는 좌동·우동 주차장을 2급지(300원), 반송·반여·재송동 주차장을 4급지(100원)로 등록하고 있습니다. 해운대구가 등록한 1일 주차권 요금은 노외 2,400~15,000원입니다."
+   },
+   {
+    "id": "city_fee_page",
+    "name": "부산광역시 분야별 통합 ‘주차요금’·감면 안내",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.busan.go.kr/depart/parkinfo0201",
+    "file": "busan.go.kr_주차요금_감면_20261118.txt",
+    "sha256": "9fb7422a2b9cd9de7900e00a8f80b513295fb7a42991cc3d6e0cf861ba177c41",
+    "license": "공공누리 제1유형",
+    "base_date": "최근 업데이트 2025-10-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:27 (KST)",
+    "note": "급지별 요금표와 감면 대상·비율을 조례와 같은 내용으로 싣고 있다(2026-11-18 확인). 표준데이터와 다른 값은 이 표·조례와 대조해 카드에 차이를 적었다."
+   },
+   {
+    "id": "corp_portal",
+    "name": "부산시설공단 통합주차포털 직영 주차장 목록·요금",
+    "org": "부산시설공단(051-860-7700)",
+    "url": "https://bsparking.bisco.or.kr/searchparking",
+    "file": "bsparking.bisco.or.kr_공영주차장_전체목록_20261118.json",
+    "sha256": "4dfa0cb61c78b3e40f8a5ea9b98c665cfae732feea8e22ee24092cff560b7359",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "2026-11-18 확인",
+    "rows_total": 17,
+    "fetched_at": "2026-11-18 08:10 (KST)",
+    "note": "부산시설공단이 직접 운영하는 공영주차장 53곳 전체 내려받기에서 이 구의 17곳을 더했다. 주차면수·급지·10분 요금·1일 주차요금·월 정기권·무료시간(10분)·좌표를 포털 값 그대로 썼고, 포털에 지번 없이 도로명만 있거나 주소가 빈 곳은 지번·법정동을 지도(카카오맵) 장소 정보로 확인해 카드 비고에 근거를 적었다. 화물차고지(노포·회동)와 화물자동차 전용(감천항로)은 일반 승용차용이 아니라 뺐다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "부산 해운대구",
+   "slug": "haeundae-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "haeundae-gu-001",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "반송1, 3동 공영",
+   "gu": "부산 해운대구",
+   "dong": "반송동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반송동 205-2806",
+   "addr_road": "",
+   "road": null,
+   "spaces": 152,
+   "tel": "051-860-7735",
+   "lat": 35.219446,
+   "lng": 129.153934,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영, 운영시간(09:00~19:00)에만 요금을 받습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-002",
+   "mgmt_no": "138-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반송1동 제1공영",
+   "gu": "부산 해운대구",
+   "dong": "반송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반송동745-13",
+   "addr_road": "부산광역시 해운대구 반송순환로 24 (반송동)",
+   "road": null,
+   "spaces": 301,
+   "tel": "051-749-4882",
+   "lat": 35.22081459,
+   "lng": 129.146627,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-003",
+   "mgmt_no": "138-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반송1동 제2공영",
+   "gu": "부산 해운대구",
+   "dong": "반송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반송동259-86",
+   "addr_road": "부산광역시 해운대구 반송순환로 164 (반송동)",
+   "road": null,
+   "spaces": 154,
+   "tel": "051-749-4882",
+   "lat": 35.22497776,
+   "lng": 129.1515028,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-004",
+   "mgmt_no": "138-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반송2동 공영",
+   "gu": "부산 해운대구",
+   "dong": "반송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반송동 303",
+   "addr_road": "부산광역시 해운대구 윗반송로 26",
+   "road": null,
+   "spaces": 290,
+   "tel": "051-749-4882",
+   "lat": 35.22964675,
+   "lng": 129.1518458,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-005",
+   "mgmt_no": "138-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반송2동 운봉 공영",
+   "gu": "부산 해운대구",
+   "dong": "반송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반송동 621-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "051-749-4882",
+   "lat": 35.23250093,
+   "lng": 129.1457464,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-006",
+   "mgmt_no": "138-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반여2동 제1공영",
+   "gu": "부산 해운대구",
+   "dong": "반여동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반여동1291-1509",
+   "addr_road": "부산광역시 해운대구 재반로211번길 62 (반여동)",
+   "road": null,
+   "spaces": 264,
+   "tel": "051-749-4882",
+   "lat": 35.19571685,
+   "lng": 129.1273916,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-007",
+   "mgmt_no": "138-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반여2동 제2공영",
+   "gu": "부산 해운대구",
+   "dong": "반여동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반여동1291-940",
+   "addr_road": "부산광역시 해운대구 재반로184번길 31 (반여동)",
+   "road": null,
+   "spaces": 232,
+   "tel": "051-749-4882",
+   "lat": 35.19424621,
+   "lng": 129.1323064,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-008",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "반여2배수지",
+   "gu": "부산 해운대구",
+   "dong": "반여동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "부산광역시 해운대구 재반로212번길 60",
+   "road": null,
+   "spaces": 111,
+   "tel": "051-860-7738",
+   "lat": 35.19465,
+   "lng": 129.133211,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 포털에 도로명주소만 공개되어 법정동은 도로 위치(반여동)로 적었습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-009",
+   "mgmt_no": "138-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반여3동 중앙공영",
+   "gu": "부산 해운대구",
+   "dong": "반여동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "부산광역시 해운대구 재반로264(반여동)",
+   "road": null,
+   "spaces": 213,
+   "tel": "051-749-4882",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-010",
+   "mgmt_no": "138-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반여4동 공영",
+   "gu": "부산 해운대구",
+   "dong": "반여동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반여동620-14",
+   "addr_road": "부산광역시 해운대구 삼어로91번길 97",
+   "road": null,
+   "spaces": 109,
+   "tel": "051-749-4882",
+   "lat": 35.20918836,
+   "lng": 129.1159308,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-011",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "반여도서관 앞",
+   "gu": "부산 해운대구",
+   "dong": "반여동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 반여동 1575-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 312,
+   "tel": "051-860-7756",
+   "lat": 35.202129,
+   "lng": 129.133592,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-012",
+   "mgmt_no": "138-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정 중앙 공영",
+   "gu": "부산 해운대구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 송정동 711-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 144,
+   "tel": "051-749-4885",
+   "lat": 35.17985694,
+   "lng": 129.2005259,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "기타급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-013",
+   "mgmt_no": "138-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽도공원",
+   "gu": "부산 해운대구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 송정동 288-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "051-749-4882",
+   "lat": 35.18102448,
+   "lng": 129.2054768,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "기타급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-014",
+   "mgmt_no": "138-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "APEC 나루공원 공영",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동 1494",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "051-749-4885",
+   "lat": 35.16790825,
+   "lng": 129.1273173,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-015",
+   "mgmt_no": "138-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동백 공영",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동1151-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "051-749-4882",
+   "lat": 35.15793728,
+   "lng": 129.1532207,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 15,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "기타급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-016",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "동백사거리",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우1동 1437",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "051-860-7719",
+   "lat": 35.1575767,
+   "lng": 129.1516566,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-017",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "부산기계공고 후문",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동 471 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "051-860-7757",
+   "lat": 35.1654,
+   "lng": 129.1558,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-018",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "요트경기장 앞 1구역",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동 1419",
+   "addr_road": "",
+   "road": null,
+   "spaces": 231,
+   "tel": "051-746-1960",
+   "lat": 35.163499,
+   "lng": 129.138627,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 포털에 도로명(해운대해변로 43)만 공개되어 지번은 지도 정보(우동 1419)로 확인했습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4700,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4700,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-019",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "요트경기장 앞 2구역(대형)",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동 1419",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "051-746-1960",
+   "lat": 35.163281,
+   "lng": 129.139141,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 대형 차량 구역입니다 — 지번은 1구역과 같은 우동 1419입니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4700,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4700,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-020",
+   "mgmt_no": "138-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해리단길공영주차장",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동 524-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 74,
+   "tel": "051-749-4882",
+   "lat": 35.1636178328,
+   "lng": 129.1574507637,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-021",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "해운대광장",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 우동 620-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 164,
+   "tel": "051-860-7715",
+   "lat": 35.15942,
+   "lng": 129.1602,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 포털에 도로명(해운대해변로 264)만 공개되어 지번은 지도 정보(우동 620-26)로 확인했습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-022",
+   "mgmt_no": "138-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "재송2동 공영",
+   "gu": "부산 해운대구",
+   "dong": "재송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 재송동1042-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 114,
+   "tel": "051-749-4882",
+   "lat": 35.19228343,
+   "lng": 129.1267189,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-023",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "해운대 센텀시티",
+   "gu": "부산 해운대구",
+   "dong": "재송동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 재송동 680-2 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 83,
+   "tel": "051-860-7755",
+   "lat": 35.17689394287876,
+   "lng": 129.126635257237,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-024",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "대우1차아파트 앞",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 좌동 1486-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 76,
+   "tel": "051-860-7789",
+   "lat": 35.1676471,
+   "lng": 129.1784924,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1나",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": 240000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-025",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "두산위브 뒤",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 좌동 1474",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "051-860-7737",
+   "lat": 35.167796,
+   "lng": 129.175858,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1나",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": 240000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-026",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "장산역 1번",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 좌동 1467-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "051-860-7710",
+   "lat": 35.170479,
+   "lng": 129.176431,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1나",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": 240000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-027",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "장산역 2번",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 좌동 1479-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 104,
+   "tel": "051-860-7714",
+   "lat": 35.1690272,
+   "lng": 129.1774062,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1나",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": 240000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-028",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "좌1동",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 좌동 1461-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "051-860-7732",
+   "lat": 35.171976,
+   "lng": 129.175408,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1나",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": 240000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-029",
+   "mgmt_no": "138-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문탠로드관광 공영",
+   "gu": "부산 해운대구",
+   "dong": "중동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 중동974-1",
+   "addr_road": "부산광역시 해운대구 달맞이길 64",
+   "road": null,
+   "spaces": 98,
+   "tel": "051-749-4885",
+   "lat": 35.16098302,
+   "lng": 129.1715271,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-030",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "미포공영",
+   "gu": "부산 해운대구",
+   "dong": "중동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 중동 1778-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 97,
+   "tel": "051-860-7733",
+   "lat": 35.161675,
+   "lng": 129.170088,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 포털에 도로명(달맞이길)만 공개되어 지번은 지도 정보(중동 1778-2)로 확인했습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-031",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "중동역",
+   "gu": "부산 해운대구",
+   "dong": "중동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "부산광역시 해운대구 해운대로 731",
+   "road": null,
+   "spaces": 167,
+   "tel": "051-860-7718",
+   "lat": 35.167077752598345,
+   "lng": 129.17018583252286,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 포털에 도로명주소만 공개되어 법정동은 역 위치(중동)로 적었습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-032",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "중동이마트 옆",
+   "gu": "부산 해운대구",
+   "dong": "중동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 중동 1768-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "051-860-7736",
+   "lat": 35.1653836,
+   "lng": 129.1679889,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4700,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4700,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-033",
+   "mgmt_no": "138-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청사포 공영",
+   "gu": "부산 해운대구",
+   "dong": "중동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 중동553",
+   "addr_road": "",
+   "road": null,
+   "spaces": 113,
+   "tel": "051-749-4885",
+   "lat": 35.1619382,
+   "lng": 129.1917743,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-034",
+   "mgmt_no": "138-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해월정 달맞이길 공영",
+   "gu": "부산 해운대구",
+   "dong": "중동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 해운대구 중동산42-20",
+   "addr_road": "부산광역시 해운대구 달맞이길 190 (중동)",
+   "road": null,
+   "spaces": 52,
+   "tel": "051-749-4882",
+   "lat": 35.15768031,
+   "lng": 129.1825416,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "기타급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-s001",
+   "mgmt_no": "138-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "송정 광어골 노상 공영",
+   "gu": "부산 해운대구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 해운대구 송정동462",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "051-749-4882",
+   "lat": 35.17553721,
+   "lng": 129.1962056,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-s002",
+   "mgmt_no": "138-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "송정호안도로 노상 공영",
+   "gu": "부산 해운대구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 해운대구 송정동288-44",
+   "addr_road": "",
+   "road": null,
+   "spaces": 168,
+   "tel": "051-749-4882",
+   "lat": 35.18056289,
+   "lng": 129.2050866,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "기타급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-s003",
+   "mgmt_no": "138-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동백공원공영주차장",
+   "gu": "부산 해운대구",
+   "dong": "우동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 해운대구 우동721",
+   "addr_road": "부산광역시 해운대구 동백로 90",
+   "road": null,
+   "spaces": 127,
+   "tel": "051-749-4885",
+   "lat": 35.15401381,
+   "lng": 129.1510145,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "기타급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-s004",
+   "mgmt_no": "138-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대천공원공영주차장",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 해운대구 좌동1384",
+   "addr_road": "부산광역시 해운대구 양운로 199",
+   "road": null,
+   "spaces": 78,
+   "tel": "051-749-4882",
+   "lat": 35.17881234,
+   "lng": 129.1679709,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 90,000원을 함께 적었습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4700,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4700,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-s005",
+   "mgmt_no": "138-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "좌3동 신도 노상 공영",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 해운대구 좌동1341-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "051-749-4882",
+   "lat": 35.17085105,
+   "lng": 129.1663429,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 90,000원을 함께 적었습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4700,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4700,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  },
+  {
+   "id": "haeundae-gu-s006",
+   "mgmt_no": "138-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "해운대교육지원청주변 노상 공영",
+   "gu": "부산 해운대구",
+   "dong": "좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 해운대구 좌동 1290, 1407-6번지",
+   "addr_road": "부산광역시 해운대구 세실로 137 (좌동)",
+   "road": null,
+   "spaces": 34,
+   "tel": "051-749-4882",
+   "lat": 35.17688155,
+   "lng": 129.1759429,
+   "base_date": "2026-04-17",
+   "manager": "부산광역시 해운대구청",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 해운대구",
+   "city_slug": "haeundae-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 08:10",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 166,
+  "원자료_해운대구행수": 166,
+  "원자료_받은행수": 183,
+  "구별": "해운대구",
+  "민영_제외": 143,
+  "제외_행수": 143,
+  "제외_행": [
+   {
+    "name": "길병원주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "기장주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "금수주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "글로리아주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "구해운대역주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "광장주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "고래사어묵주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "경화주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "개미집전용주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "개미주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "강남주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "k주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "IS프라자 근린상가주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "5994주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "24시주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "1박2일주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "대천주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "대영주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "대성주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "대성주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "대교주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "달맞이주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "누리주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "반여주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "반여주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "반여동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "반송주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "반송주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "민수주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "미포주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "미진유통주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "미진마트주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "미소주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "문명주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "리베라세이브존주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "롯데주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "두리주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "동일주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "동백주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "동백가든주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "동남주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "더베이주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "세중주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "세명주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "선수촌주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "선경주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "서목주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "상하이주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "삼절주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "삼원주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "삼성주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "삼성주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "빅스주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "부일주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "부산익스프레스주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "온천주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "오반장주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "예원주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "여인천하주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "에이원원룸주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "양지주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "암소갈비주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "알천애프앤비",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "알리주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "신해운대주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "신촌주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "신리주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "신도시주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "송정주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "송정주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "송정주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "송정바다주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "송민주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "센텀힐주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "센텀Q주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "조은주차빌딩주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "조방주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "제타호텔부설주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "제일주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "재송동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "장터주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "장산주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "장산주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "일품한우주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "일승주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "이비스주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "은화요양병원주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "유진주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "유로주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "원도주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "우일주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "우양주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "상월우동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "왕자주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "진영주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "지에스타임즈스테이션센텀필주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "중동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "조이박주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "하나주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "프로미카윈드주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "포트주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "태양주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "태성주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "코리아주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "카카오T해운대파킹",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "청도주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "한양주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "한라주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "하이파킹주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해천주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운대푸르지오주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운대비치주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운대블루주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운대미포주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운대구청주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해우주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해수주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해수주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해송주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "요한파킹주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "강변주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "해운대백병원임시주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "중동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "송정",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "중동주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "센텀병원주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "W주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "파킹오피스 해운대점",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "비치주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "동남주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "신신주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "태양주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "미포주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "흥안인더스트리",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "현대주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "향토주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "행운주차장",
+    "reason": "민영 주차장(공영 아님)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 34,
+  "노외_부설": {
+   "노외": 34
+  },
+  "노상_구간": 6,
+  "총_구획수": 4359,
+  "노상_구획수": 525,
+  "동별": {
+   "우동": 8,
+   "반여동": 6,
+   "중동": 6,
+   "반송동": 5,
+   "좌동": 5,
+   "송정동": 2,
+   "재송동": 2
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "공단 안내": 17,
+   "지번주소": 17
+  },
+  "요금구분": {
+   "유료": 40
+  },
+  "요금_미상": [],
+  "유료_노상": 6,
+  "유료_노외": 34,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "반여3동 중앙공영"
+  ],
+  "감면_출처": "시영은 「부산광역시 주차장 설치 및 관리 조례」 제3조의2, 구영은 「부산광역시 해운대구 주차장 설치 및 관리 조례」 제4조 주차요금·제4조의2 감면(시 조례 별표1 준용)(시행 2026-04-20 · 부산광역시해운대구조례 제1796호(일부개정))",
+  "무료시간_출처": "부산광역시·구 조례 별표1은 10분 단위로 요금을 매기고 별도의 최초 무료시간을 두지 않는다. 부산시설공단이 직접 운영하는 주차장만 포털 안내대로 최초 10분을 무료로 두었다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항과 구청 안내(부산진구 주례초등학교 주말 무료, 서구 조례 제10조의2 노상 일요일·공휴일 무료)를 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 258,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "138-2-000005",
+   "138-2-000016"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17",
+   "2026-11-18"
+  ],
+  "공단안내_주차장": [
+   "반송1, 3동 공영",
+   "반여2배수지",
+   "반여도서관 앞",
+   "동백사거리",
+   "부산기계공고 후문",
+   "요트경기장 앞 1구역",
+   "요트경기장 앞 2구역(대형)",
+   "해운대광장",
+   "해운대 센텀시티",
+   "대우1차아파트 앞",
+   "두산위브 뒤",
+   "장산역 1번",
+   "장산역 2번",
+   "좌1동",
+   "미포공영",
+   "중동역",
+   "중동이마트 옆"
+  ]
+ },
+ "fee_table": {
+  "style": "busan_grade",
+  "unit_min": 10,
+  "applies": "2025-04-16",
+  "rows": [
+   {
+    "grade": "1가",
+    "label": "1급지(가)",
+    "lots": 0,
+    "unit_label": "700원",
+    "hour": 4200,
+    "two_hour": 8400,
+    "day": 21000,
+    "month": 310000,
+    "charter": 700,
+    "charter_day": 21000
+   },
+   {
+    "grade": "1나",
+    "label": "1급지(나)",
+    "lots": 5,
+    "unit_label": "500원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "day": 15000,
+    "month": 240000,
+    "charter": 500,
+    "charter_day": 15000
+   },
+   {
+    "grade": "2",
+    "label": "2급지",
+    "lots": 11,
+    "unit_label": "300원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "day": 8000,
+    "month": 160000,
+    "charter": 300,
+    "charter_day": 8000
+   },
+   {
+    "grade": "3",
+    "label": "3급지",
+    "lots": 5,
+    "unit_label": "200원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 4700,
+    "month": 90000,
+    "charter": 200,
+    "charter_day": 4700
+   },
+   {
+    "grade": "4",
+    "label": "4급지",
+    "lots": 13,
+    "unit_label": "100원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 2400,
+    "month": 52000,
+    "charter": 100,
+    "charter_day": 2400
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 16
+   },
+   {
+    "group": "00:01~23:59",
+    "count": 15
+   },
+   {
+    "group": "09:00~22:00",
+    "count": 6
+   },
+   {
+    "group": "09:00~19:00",
+    "count": 1
+   },
+   {
+    "group": "06:00~22:00",
+    "count": 1
+   },
+   {
+    "group": "09:00~20:00",
+    "count": 1
+   }
+  ],
+  "notes": "해운대구 조례 제4조는 공영주차장 요금을 시 조례 별표1로 정하고, 제4조의2가 우수납세자 1년 면제·병역명문가 50퍼센트·착한 임대인 50퍼센트를 따로 정한 뒤 나머지는 시 조례 제3조의2를 준용합니다. 부산광역시 급지구분 고시는 우1~3동·중1동·좌1·2동을 1급지(나)(10분 500원)로 두고, 표준데이터는 좌동·우동 주차장을 2급지(300원), 반송·반여·재송동 주차장을 4급지(100원)로 등록하고 있습니다. 해운대구가 등록한 1일 주차권 요금은 노외 2,400~15,000원입니다",
+  "corp": {
+   "paid": 34,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 6,
+   "corp": 17
+  },
+  "basis": "「부산광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면) · 「부산광역시 해운대구 주차장 설치 및 관리 조례」 제4조 주차요금·제4조의2 감면(시 조례 별표1 준용)(시행 2026-04-20 · 부산광역시해운대구조례 제1796호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "haeundae-gu",
+ "province": "부산광역시",
+ "province_slug": "busan",
+ "dong_page_min_lots": 3,
+ "city": "부산 해운대구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트(시조례 준용)"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차·환경친화적·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전통시장 이용사실 확인 자료 제출 — 1시간 면제, 추가 1시간 50퍼센트"
+  },
+  {
+   "label": "우수납세자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "「부산광역시 해운대구 성실납세자 등 지원에 관한 조례」 우수납세자 — 인정일부터 1년간 면제(해운대구 조례 제4조의2제2호)"
+  },
+  {
+   "label": "병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 해운대구 병역명문가 예우 및 지원조례」 예우대상자와 가족 — 50퍼센트(제4조의2제3호)"
+  },
+  {
+   "label": "착한 임대인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 해운대구 지역상권 젠트리피케이션 방지 및 상생협력에 관한 조례」 착한 임대인 — 50퍼센트(제4조의2제4호)"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차부제 참여 자동차 50퍼센트(월 주차 20퍼센트)"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장 환승 확인 차 50퍼센트"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인(등록)·독립유공자·상이자·5·18민주화운동부상자·고엽제후유의증 대상자가 자기 소유나 1년 이상 임차한 차를 직접 운전(또는 운전하게)한 경우 — 1시간까지 면제, 1시간 초과와 1일·월 주차는 50퍼센트 경감"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "배기량 1,000cc 미만 경형자동차, 환경친화적 자동차 표지 부착 차, 저공해자동차 표지 부착 차 50퍼센트 — 전기자동차가 충전을 위해 주차하면 1시간까지 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 가족사랑카드에 등재된 비사업용 승용·승합(12인승 이하)·소형화물자동차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지를 붙이고 임산부가 탑승한 차에 산모수첩 등 증명자료를 제시하면 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "시장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하면 1시간까지 면제하고 추가 1시간은 50퍼센트 경감"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 승용차부제 지원 조례」 참여 자동차 50퍼센트(월 주차는 20퍼센트)"
+  },
+  {
+   "label": "모범납세자·우수기업인 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "우수납세자·성실납세자(1년), 우수기업인(3년), 향토기업 차 1대, 사회공헌장·효행자·모범노동자(3년), 시무형유산 보유자·공예명장·병역명문가·우수 자원봉사자·장기기증자 50~100퍼센트 — 조례 제3조의2"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 환승한 것이 확인되거나 근거자료를 낸 차 50퍼센트(월 주차는 별표1 요금)"
+  },
+  {
+   "label": "상가 할인권 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "공영주차장 인근 상가와 사전협약이 있고 상가 이용 확인증(할인권)을 제시하면 30퍼센트"
+  }
+ ],
+ "realtime": false
+}

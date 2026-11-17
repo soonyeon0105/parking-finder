@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-18 07:15",
-  "generated_at_iso": "2026-11-18T07:15:44+09:00",
-  "snapshot_at": "2026-11-18 07:15",
+  "generated_at": "2026-11-18 08:10",
+  "generated_at_iso": "2026-11-18T08:10:34+09:00",
+  "snapshot_at": "2026-11-18 08:10",
   "region": {
    "province": "인천광역시",
    "city": "남동구"
@@ -20,7 +20,7 @@
     "rows_total": 18994,
     "rows_city": 250,
     "fetched_at": "2026-11-16 22:03 (KST)",
-    "note": "남동구로 등록된 행 250행을 읽어 노외·부설 114곳과 노상 22구간을 실었다. 요금은 등록된 30분 기본요금·15분 추가요금을 그대로 쓰고, 5시간 이상이면 전일주차요금을 상한으로 적용했다."
+    "note": "남동구로 등록된 행 250행을 읽어 노외·부설 113곳과 노상 22구간을 실었다. 요금은 등록된 30분 기본요금·15분 추가요금을 그대로 쓰고, 5시간 이상이면 전일주차요금을 상한으로 적용했다."
    },
    {
     "id": "city_ordinance",
@@ -4252,125 +4252,6 @@
   },
   {
    "id": "namdong-037",
-   "mgmt_no": "165-2-000001",
-   "src": "표준데이터",
-   "list_mode": "card",
-   "name": "문화예술회관부설주차장",
-   "gu": "남동구",
-   "dong": "구월동",
-   "dong_src": "지번주소",
-   "kind": "공영",
-   "ptype": "노외",
-   "addr_jibun": "인천광역시 남동구 구월동 1408",
-   "addr_road": "인천광역시 남동구 예술로 149",
-   "road": null,
-   "spaces": 779,
-   "tel": "032-446-2701",
-   "lat": 37.44758892,
-   "lng": 126.7000558,
-   "base_date": "2026-04-27",
-   "manager": "인천광역시 인천시설공단",
-   "note": "",
-   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단) 주차장",
-   "fee": {
-    "grade": 2,
-    "grade_label": "2급지",
-    "std_grade": 2,
-    "base_min": 30,
-    "base_fee": 600,
-    "unit_min": 15,
-    "unit_fee": 300,
-    "steps": null,
-    "steps_label": null,
-    "free_min": null,
-    "deduct_min": null,
-    "cap_fee": null,
-    "cap_src": null,
-    "daily_hours": null,
-    "daily_fee": 6000,
-    "prepaid_day": null,
-    "prepaid_weekend": null,
-    "monthly": 60000,
-    "monthly_day": null,
-    "monthly_night": null,
-    "monthly_all": 60000,
-    "monthly_label": "월 정기권",
-    "category": null,
-    "std": {
-     "base_min": 30,
-     "base_fee": 600,
-     "unit_min": 15,
-     "unit_fee": 300,
-     "day": 6000,
-     "monthly": 60000
-    },
-    "type": "유료",
-    "raw_type": "유료",
-    "mixed": false,
-    "pay": "신용카드",
-    "portal_free_now": false,
-    "flat_day": false,
-    "ticket_only": false,
-    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
-   },
-   "oper": {
-    "weekday": true,
-    "sat": true,
-    "sun": true
-   },
-   "hours": {
-    "weekday": {
-     "open": true,
-     "start": 0,
-     "end": 1440,
-     "24h": true,
-     "listed": true,
-     "raw": [
-      "00:00",
-      "24:00"
-     ]
-    },
-    "sat": {
-     "open": true,
-     "start": 0,
-     "end": 1440,
-     "24h": true,
-     "listed": true,
-     "raw": [
-      "00:00",
-      "24:00"
-     ]
-    },
-    "sun": {
-     "open": true,
-     "start": 0,
-     "end": 1440,
-     "24h": true,
-     "listed": true,
-     "raw": [
-      "00:00",
-      "24:00"
-     ]
-    }
-   },
-   "free_days": {
-    "sat": false,
-    "sun": false
-   },
-   "free_window": null,
-   "free_hour_note": null,
-   "closed_from_note": false,
-   "disabled_area": "Y",
-   "capa_detail": null,
-   "portal_name": null,
-   "realtime": null,
-   "udc_id": null,
-   "price_key": 600,
-   "city": "남동구",
-   "city_slug": "namdong"
-  },
-  {
-   "id": "namdong-038",
    "mgmt_no": "165-2-000035",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4489,7 +4370,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-039",
+   "id": "namdong-038",
    "mgmt_no": "165-2-000037",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4608,7 +4489,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-040",
+   "id": "namdong-039",
    "mgmt_no": "165-2-000025",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4727,7 +4608,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-041",
+   "id": "namdong-040",
    "mgmt_no": "165-3-000030",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4846,7 +4727,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-042",
+   "id": "namdong-041",
    "mgmt_no": "165-2-000002",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4965,7 +4846,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-043",
+   "id": "namdong-042",
    "mgmt_no": "165-2-000037",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5084,7 +4965,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-044",
+   "id": "namdong-043",
    "mgmt_no": "165-2-000044",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5203,7 +5084,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-045",
+   "id": "namdong-044",
    "mgmt_no": "165-2-000024",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5322,7 +5203,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-046",
+   "id": "namdong-045",
    "mgmt_no": "165-2-000075",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5441,7 +5322,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-047",
+   "id": "namdong-046",
    "mgmt_no": "165-2-000036",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5560,7 +5441,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-048",
+   "id": "namdong-047",
    "mgmt_no": "165-2-000031",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5679,7 +5560,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-049",
+   "id": "namdong-048",
    "mgmt_no": "165-2-000117",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5798,7 +5679,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-050",
+   "id": "namdong-049",
    "mgmt_no": "165-2-000110",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5917,7 +5798,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-051",
+   "id": "namdong-050",
    "mgmt_no": "165-2-000111",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6036,7 +5917,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-052",
+   "id": "namdong-051",
    "mgmt_no": "165-2-000071",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6155,7 +6036,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-053",
+   "id": "namdong-052",
    "mgmt_no": "165-2-000054",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6274,7 +6155,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-054",
+   "id": "namdong-053",
    "mgmt_no": "165-2-000036",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6393,7 +6274,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-055",
+   "id": "namdong-054",
    "mgmt_no": "165-2-000021",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6512,7 +6393,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-056",
+   "id": "namdong-055",
    "mgmt_no": "165-2-000019",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6631,7 +6512,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-057",
+   "id": "namdong-056",
    "mgmt_no": "165-2-000014",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6750,7 +6631,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-058",
+   "id": "namdong-057",
    "mgmt_no": "165-2-000015",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6869,7 +6750,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-059",
+   "id": "namdong-058",
    "mgmt_no": "165-2-000135",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6988,7 +6869,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-060",
+   "id": "namdong-059",
    "mgmt_no": "165-2-000136",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7107,7 +6988,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-061",
+   "id": "namdong-060",
    "mgmt_no": "165-2-000137",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7226,7 +7107,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-062",
+   "id": "namdong-061",
    "mgmt_no": "165-2-000128",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7338,7 +7219,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-063",
+   "id": "namdong-062",
    "mgmt_no": "165-2-000129",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7450,7 +7331,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-064",
+   "id": "namdong-063",
    "mgmt_no": "165-2-000016",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7569,7 +7450,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-065",
+   "id": "namdong-064",
    "mgmt_no": "165-2-000017",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7688,7 +7569,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-066",
+   "id": "namdong-065",
    "mgmt_no": "165-2-000018",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7807,7 +7688,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-067",
+   "id": "namdong-066",
    "mgmt_no": "165-2-000112",
    "src": "표준데이터",
    "list_mode": "card",
@@ -7926,7 +7807,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-068",
+   "id": "namdong-067",
    "mgmt_no": "165-2-000072",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8038,7 +7919,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-069",
+   "id": "namdong-068",
    "mgmt_no": "165-2-000100",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8150,7 +8031,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-070",
+   "id": "namdong-069",
    "mgmt_no": "165-2-000029",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8269,7 +8150,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-071",
+   "id": "namdong-070",
    "mgmt_no": "165-2-000079",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8381,7 +8262,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-072",
+   "id": "namdong-071",
    "mgmt_no": "165-2-000080",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8493,7 +8374,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-073",
+   "id": "namdong-072",
    "mgmt_no": "165-2-000081",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8605,7 +8486,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-074",
+   "id": "namdong-073",
    "mgmt_no": "165-2-000011",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8724,7 +8605,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-075",
+   "id": "namdong-074",
    "mgmt_no": "165-2-000014",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8843,7 +8724,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-076",
+   "id": "namdong-075",
    "mgmt_no": "165-2-000026",
    "src": "표준데이터",
    "list_mode": "card",
@@ -8962,7 +8843,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-077",
+   "id": "namdong-076",
    "mgmt_no": "165-2-000051",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9081,7 +8962,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-078",
+   "id": "namdong-077",
    "mgmt_no": "165-2-000106",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9193,7 +9074,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-079",
+   "id": "namdong-078",
    "mgmt_no": "165-2-000119",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9312,7 +9193,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-080",
+   "id": "namdong-079",
    "mgmt_no": "165-2-000043",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9431,7 +9312,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-081",
+   "id": "namdong-080",
    "mgmt_no": "165-2-000082",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9543,7 +9424,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-082",
+   "id": "namdong-081",
    "mgmt_no": "165-2-000083",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9655,7 +9536,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-083",
+   "id": "namdong-082",
    "mgmt_no": "165-2-000084",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9767,7 +9648,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-084",
+   "id": "namdong-083",
    "mgmt_no": "165-2-000085",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9879,7 +9760,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-085",
+   "id": "namdong-084",
    "mgmt_no": "165-2-000086",
    "src": "표준데이터",
    "list_mode": "card",
@@ -9991,7 +9872,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-086",
+   "id": "namdong-085",
    "mgmt_no": "165-2-000087",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10103,7 +9984,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-087",
+   "id": "namdong-086",
    "mgmt_no": "165-2-000104",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10215,7 +10096,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-088",
+   "id": "namdong-087",
    "mgmt_no": "165-2-000105",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10327,7 +10208,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-089",
+   "id": "namdong-088",
    "mgmt_no": "165-2-000074",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10439,7 +10320,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-090",
+   "id": "namdong-089",
    "mgmt_no": "165-2-000049",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10558,7 +10439,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-091",
+   "id": "namdong-090",
    "mgmt_no": "165-2-000131",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10677,7 +10558,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-092",
+   "id": "namdong-091",
    "mgmt_no": "165-2-000132",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10796,7 +10677,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-093",
+   "id": "namdong-092",
    "mgmt_no": "165-2-000133",
    "src": "표준데이터",
    "list_mode": "card",
@@ -10915,7 +10796,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-094",
+   "id": "namdong-093",
    "mgmt_no": "165-2-000134",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11034,7 +10915,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-095",
+   "id": "namdong-094",
    "mgmt_no": "165-2-000046",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11153,7 +11034,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-096",
+   "id": "namdong-095",
    "mgmt_no": "165-2-000047",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11272,7 +11153,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-097",
+   "id": "namdong-096",
    "mgmt_no": "165-2-000048",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11391,7 +11272,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-098",
+   "id": "namdong-097",
    "mgmt_no": "165-2-000026",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11510,7 +11391,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-099",
+   "id": "namdong-098",
    "mgmt_no": "165-2-000034",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11629,7 +11510,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-100",
+   "id": "namdong-099",
    "mgmt_no": "165-2-000027",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11748,7 +11629,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-101",
+   "id": "namdong-100",
    "mgmt_no": "165-2-000028",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11867,7 +11748,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-102",
+   "id": "namdong-101",
    "mgmt_no": "165-2-000109",
    "src": "표준데이터",
    "list_mode": "card",
@@ -11986,7 +11867,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-103",
+   "id": "namdong-102",
    "mgmt_no": "165-2-000056",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12105,7 +11986,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-104",
+   "id": "namdong-103",
    "mgmt_no": "165-2-000094",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12224,7 +12105,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-105",
+   "id": "namdong-104",
    "mgmt_no": "165-2-000095",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12343,7 +12224,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-106",
+   "id": "namdong-105",
    "mgmt_no": "165-2-000096",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12462,7 +12343,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-107",
+   "id": "namdong-106",
    "mgmt_no": "165-2-000097",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12581,7 +12462,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-108",
+   "id": "namdong-107",
    "mgmt_no": "165-2-000098",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12700,7 +12581,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-109",
+   "id": "namdong-108",
    "mgmt_no": "165-2-000099",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12819,7 +12700,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-110",
+   "id": "namdong-109",
    "mgmt_no": "165-2-000088",
    "src": "표준데이터",
    "list_mode": "card",
@@ -12931,7 +12812,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-111",
+   "id": "namdong-110",
    "mgmt_no": "165-2-000032",
    "src": "표준데이터",
    "list_mode": "card",
@@ -13050,7 +12931,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-112",
+   "id": "namdong-111",
    "mgmt_no": "165-2-000091",
    "src": "표준데이터",
    "list_mode": "card",
@@ -13169,7 +13050,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-113",
+   "id": "namdong-112",
    "mgmt_no": "165-2-000092",
    "src": "표준데이터",
    "list_mode": "card",
@@ -13288,7 +13169,7 @@
    "city_slug": "namdong"
   },
   {
-   "id": "namdong-114",
+   "id": "namdong-113",
    "mgmt_no": "165-2-000093",
    "src": "표준데이터",
    "list_mode": "card",
@@ -15914,7 +15795,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-18 07:15",
+  "generated_at": "2026-11-18 08:10",
   "원자료_전국행수": 18994,
   "원자료_행수": 250,
   "원자료_남동구행수": 250,
@@ -15923,7 +15804,7 @@
   "민영_제외": 0,
   "제외_행수": 0,
   "제외_행": [],
-  "중복제거_행수": 114,
+  "중복제거_행수": 115,
   "중복제거_행": [
    {
     "name": "모래마을제5호(정기차량전용)",
@@ -16608,19 +16489,25 @@
     "addr": "인천광역시 남동구 논현동 613-9",
     "base_date": "2026-04-27",
     "kept": "2026-09-01"
+   },
+   {
+    "name": "문화예술회관부설주차장",
+    "addr": "인천광역시 남동구 구월동 1408",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
    }
   ],
-  "총_주차장": 114,
+  "총_주차장": 113,
   "노외_부설": {
-   "노외": 112,
+   "노외": 111,
    "부설": 2
   },
   "노상_구간": 22,
-  "총_구획수": 8259,
+  "총_구획수": 7480,
   "노상_구획수": 1150,
   "동별": {
    "만수동": 34,
-   "구월동": 29,
+   "구월동": 28,
    "간석동": 19,
    "논현동": 14,
    "서창동": 6,
@@ -16693,12 +16580,12 @@
    "서창4호: 지번주소의 행정동 ‘서창2동’을 법정동 서창동으로 묶었습니다"
   ],
   "동_근거": {
-   "지번주소": 62,
+   "지번주소": 61,
    "지번주소(행정동→법정동)": 52
   },
   "요금구분": {
    "무료": 44,
-   "유료": 89,
+   "유료": 88,
    "미상": 3
   },
   "요금_미상": [
@@ -16707,7 +16594,7 @@
    "간석초등학교(부설)(정기차량전용)"
   ],
   "유료_노상": 7,
-  "유료_노외": 81,
+  "유료_노외": 80,
   "유료_부설": 1,
   "운영시간_보정": [],
   "등록값_차이": [
@@ -16731,14 +16618,13 @@
   "무료개방_표기": [],
   "무료_요금구분": 44,
   "무료_구획수": 1075,
-  "평균_기본요금": 494,
+  "평균_기본요금": 493,
   "토요일_미운영": 1,
   "일공휴일_미운영": 1,
   "주소_없음": [],
   "이름중복": [],
   "관리번호중복": [
    "165-2-000016",
-   "165-2-000001",
    "165-2-000037",
    "165-2-000036",
    "165-2-000014",
@@ -16776,7 +16662,7 @@
    {
     "grade": 2,
     "label": null,
-    "lots": 16,
+    "lots": 15,
     "fee_min": 600,
     "fee_max": 1000,
     "base_label": "600원",
@@ -16807,7 +16693,7 @@
   "windows": [
    {
     "group": "24시간",
-    "count": 81
+    "count": 80
    },
    {
     "group": "09:00~18:00",
@@ -16829,7 +16715,7 @@
   "notes": "남동구 별표1은 1~3급지가 시 조례와 같고 4급지만 15분당 100원으로 조금 낮습니다. 남동구도시관리공단 주차장은 정기권(월 40,000원·1급지 100,000원)과 시간 주차를 함께 받고, 이름에 ‘정기차량전용’이 붙은 곳은 배정 차량만 이용합니다",
   "flat_n": 0,
   "corp": {
-   "paid": 82,
+   "paid": 81,
    "free": 44,
    "unknown": 3,
    "street_paid": 7,

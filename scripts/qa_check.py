@@ -4381,7 +4381,7 @@ INCHEON_EXPECT = {
     "연수구": {"slug": "yeonsu", "cards": 46, "street": 19,
             "dong_pages": ["cheonghak-dong", "dongchun-dong", "ongnyeon-dong", "songdo-dong",
                            "yeonsu-dong"], "ordin": "2153091"},
-    "남동구": {"slug": "namdong", "cards": 114, "street": 22,
+    "남동구": {"slug": "namdong", "cards": 113, "street": 22,
             "dong_pages": ["ganseok-dong", "guwol-dong", "jangsu-dong", "mansu-dong",
                            "namchon-dong", "nonhyeon-dong", "seochang-dong"], "ordin": "2153147"},
     "제물포구": {"slug": "jemulpo", "cards": 91, "street": 111,
@@ -4594,6 +4594,22 @@ BUSAN_EXPECT = {
                  "ordin": "1953375"},
     "부산 부산진구": {"slug": "busanjin-gu", "cards": 5, "street": 7,
                   "dong_pages": ["bujeon-dong"], "ordin": "2078387"},
+    # T-03 Phase 38 — 부산 6개 구(동래·남·해운대·사하·금정·연제)
+    "부산 동래구": {"slug": "dongnae-gu", "cards": 16, "street": 0,
+                 "dong_pages": ["myeongryun-dong", "oncheon-dong"], "ordin": "2101535"},
+    "부산 남구": {"slug": "nam-gu", "cards": 7, "street": 1,
+               "dong_pages": ["yongho-dong"], "ordin": "2182099"},
+    "부산 해운대구": {"slug": "haeundae-gu", "cards": 34, "street": 6,
+                  "dong_pages": ["bansong-dong", "banyeo-dong", "jung-dong", "jwa-dong", "u-dong"],
+                  "ordin": "2124269"},
+    "부산 사하구": {"slug": "saha-gu", "cards": 21, "street": 12,
+                 "dong_pages": ["dadae-dong", "gamcheon-dong", "goejeong-dong", "hadan-dong",
+                                "jangrim-dong", "sinpyeong-dong"], "ordin": "2128377"},
+    "부산 금정구": {"slug": "geumjeong-gu", "cards": 31, "street": 3,
+                 "dong_pages": ["bugok-dong", "cheongryong-dong", "guseo-dong", "seo-dong"],
+                 "ordin": "2082771"},
+    "부산 연제구": {"slug": "yeonje-gu", "cards": 11, "street": 3,
+                 "dong_pages": ["yeonsan-dong"], "ordin": "2158003"},
 }
 _bus_pages = 0
 for _gu, _exp in BUSAN_EXPECT.items():
@@ -4665,6 +4681,26 @@ for _city, _name, _min, _day, _want_state, _want in (
         ("부산 부산진구", "유원오피스텔 뒤", 120, "weekday", "paid", 8400),     # 1급지(가) 700×12
         ("부산 부산진구", "주례초등학교", 120, "sun", "free", None),            # 주말 무료 개방
         ("부산 부산진구", "부전복개도로1", 120, "weekday", "paid", 8400),       # 공단 1급지(가)
+        # T-03 Phase 38 — 동래·남·해운대·사하·금정·연제구
+        ("부산 동래구", "사적공원공영주차장", 120, "weekday", "paid", 1200),      # 4급지 100×12
+        ("부산 동래구", "사적공원공영주차장", 240, "weekday", "paid", 2400),      # 4급지 1일 상한
+        ("부산 동래구", "차밭골소규모공영주차장", 60, "weekday", "paid", 3000),   # 1급지(나) 500×6
+        ("부산 동래구", "온천장 무료개방 공영주차장", 120, "weekday", "free", None),
+        ("부산 동래구", "동래역", 60, "weekday", "paid", 1500),                 # 공단 최초 10분 무료
+        ("부산 동래구", "동래역", 1440, "weekday", "paid", 8000),               # 1일 주차 8,000원
+        ("부산 남구", "오륙도수변공원 공영주차장", 120, "weekday", "paid", 3600),  # 2급지 300×12
+        ("부산 남구", "오륙도수변공원 공영주차장", 1440, "weekday", "paid", 8000),
+        ("부산 남구", "백운포체육공원앞공영주차장", 120, "weekday", "paid", 1200),  # 노상 4급지
+        ("부산 해운대구", "장산역 1번", 120, "weekday", "paid", 5500),           # 1급지(나)·10분 무료
+        ("부산 해운대구", "반송1동 제1공영", 60, "weekday", "paid", 600),         # 4급지 100×6
+        ("부산 해운대구", "송정호안도로 노상 공영", 120, "weekday", "paid", 3600),  # 급지 ‘기타’ 등록요금
+        ("부산 사하구", "을숙도 공영주차장", 120, "weekday", "paid", 1200),
+        ("부산 사하구", "하단역", 120, "weekday", "paid", 3300),                # 공단 2급지·10분 무료
+        ("부산 금정구", "오륜동공영주차장", 120, "weekday", "free", None),
+        ("부산 금정구", "부산대역(남측)", 120, "weekday", "paid", 3300),
+        ("부산 금정구", "서2동공영주차장(기계식주차장)", 120, "weekday", "paid", 1200),  # 3급지 등록 100원
+        ("부산 연제구", "연일시장공영주차장", 120, "weekday", "paid", 6000),      # 1급지(나) 500×12
+        ("부산 연제구", "황령산봉수대공영주차장", 120, "weekday", "free", None),
 ):
     _lot = _bus_by_key.get((_city, _name))
     if not _lot:
@@ -4682,6 +4718,12 @@ _bus_texts = {
     "dong-gu": ("국민체육문예센터", "33구간", "좌천동", "수정공원상로"),
     "yeongdo-gu": ("태종대유원지부설주차장", "영선대로 지하 공영", "11구간", "중리산"),
     "busanjin-gu": ("주례초등학교", "부전복개도로", "부전동", "7구간"),
+    "dongnae-gu": ("온천1동", "다회헌혈자", "동래역", "유료 노상 구간이 없습니다"),
+    "nam-gu": ("남구 토박이", "이기대", "10분으로 계산", "오륙도"),
+    "haeundae-gu": ("민영 주차장", "장산역", "기타(가변급지 2~3)", "6구간"),
+    "saha-gu": ("을숙도문화회관", "12구간", "몰운대", "하단역"),
+    "geumjeong-gu": ("서2동공영", "부산대역", "범어사상마", "3구간"),
+    "yeonje-gu": ("연산4·5동", "황령산봉수대", "3구간", "연일시장"),
 }
 for _slug, _needles in _bus_texts.items():
     _hp = DIST / "parking" / "busan" / _slug / "index.html"
@@ -4713,7 +4755,24 @@ for _u in ("https://parking.9welfare.com/parking/busan/jung-gu/",
            "https://parking.9welfare.com/parking/busan/yeongdo-gu/street-parking/",
            "https://parking.9welfare.com/parking/busan/busanjin-gu/",
            "https://parking.9welfare.com/parking/busan/busanjin-gu/bujeon-dong/",
-           "https://parking.9welfare.com/parking/busan/busanjin-gu/street-parking/"):
+           "https://parking.9welfare.com/parking/busan/busanjin-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/dongnae-gu/",
+           "https://parking.9welfare.com/parking/busan/dongnae-gu/oncheon-dong/",
+           "https://parking.9welfare.com/parking/busan/nam-gu/",
+           "https://parking.9welfare.com/parking/busan/nam-gu/yongho-dong/",
+           "https://parking.9welfare.com/parking/busan/nam-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/haeundae-gu/",
+           "https://parking.9welfare.com/parking/busan/haeundae-gu/jung-dong/",
+           "https://parking.9welfare.com/parking/busan/haeundae-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/saha-gu/",
+           "https://parking.9welfare.com/parking/busan/saha-gu/hadan-dong/",
+           "https://parking.9welfare.com/parking/busan/saha-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/geumjeong-gu/",
+           "https://parking.9welfare.com/parking/busan/geumjeong-gu/seo-dong/",
+           "https://parking.9welfare.com/parking/busan/geumjeong-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/yeonje-gu/",
+           "https://parking.9welfare.com/parking/busan/yeonje-gu/yeonsan-dong/",
+           "https://parking.9welfare.com/parking/busan/yeonje-gu/street-parking/"):
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"부산 주소가 사이트맵에 없음: {_u}")
 
