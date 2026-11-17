@@ -2934,6 +2934,179 @@ if "parking.9welfare.com/parking/gyeonggi/pocheon/" not in (DIST / "sitemap.xml"
     fails.append("포천시 주소가 사이트맵에 없음")
 
 
+# ---------------------------------------------------------------- 의왕시 (T-03 Phase 24)
+# 「의왕시 주차장설치 및 관리 조례」 [별표 1](시행 2026-05-07, 경기도의왕시조례 제2336호 · 별표1·별표2
+# 〈개정 2025.9.30.〉)과 의왕도시공사 공영주차장 요금안내(2026-11-17 확인): 1~3급지(30분 800·600·500원,
+# 이후 10분당 300·200·200원, 1일 8,000·6,000·5,000원, 월 85,000·50,000·40,000원)와 행락지(1시간 1,000 /
+# 3시간 2,000 / 6시간 3,000 / 9시간 4,000 / 9시간 초과 5,000원, 월 45,000원)로 나뉜다. 조례 별표2
+# 제1호 마목은 ‘10분 미만 이용차량’을 전액 면제한다.
+uw_cards = [l for l in LOTS if l.get("city") == "의왕시" and l.get("list_mode") == "card"]
+uw_paid = [l for l in uw_cards if l["fee"]["type"] == "유료"]
+uw_free = [l for l in uw_cards if l["fee"]["type"] == "무료"]
+uw_by = {l["name"]: l for l in uw_cards}
+uw_street = [l for l in LOTS if l.get("city") == "의왕시" and l.get("list_mode") == "street"]
+uw_street_paid = [l for l in uw_street if l["fee"]["type"] == "유료"]
+uw_all_paid = [l for l in LOTS if l.get("city") == "의왕시" and l["fee"]["type"] == "유료"]
+uw_park = [l for l in uw_cards if l["fee"].get("grade_label") == "행락지"]
+if not uw_cards:
+    fails.append("의왕시 카드 데이터가 없음")
+# 구성: 카드 27곳(유료 22·무료 5) 2,970면 · 노상 28구간 704면(유료 3·무료 25) · 유료 25곳
+if len(uw_cards) != 27 or len(uw_paid) != 22 or len(uw_free) != 5:
+    fails.append(f"의왕시 카드 구성이 다름: 카드 {len(uw_cards)} · 유료 {len(uw_paid)} · 무료 {len(uw_free)}")
+if sum(l["spaces"] or 0 for l in uw_cards) != 2970:
+    fails.append(f"의왕시 노외 구획 합계가 다름: {sum(l['spaces'] or 0 for l in uw_cards)}")
+if len(uw_street) != 28 or sum(l["spaces"] or 0 for l in uw_street) != 704:
+    fails.append(f"의왕시 노상 구간이 다름: {len(uw_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in uw_street)}면")
+if len(uw_street_paid) != 3 or len(uw_all_paid) != 25:
+    fails.append(f"의왕시 유료 주차장이 다름: 노상 {len(uw_street_paid)} · 전체 {len(uw_all_paid)}")
+if len({l.get("dong") for l in uw_cards}) != 9 or any(not l.get("dong") for l in uw_cards):
+    fails.append(f"의왕시 동 구성이 다름: {sorted({l.get('dong') for l in uw_cards})}")
+_uw_dup = [k for k, v in Counter(l["name"] for l in uw_cards).items() if v > 1]
+if _uw_dup:
+    fails.append(f"의왕시 카드 이름 중복: {_uw_dup[:3]}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "의왕시"):
+    fails.append("의왕시에 민영 주차장이 실려 있음")
+_uw_q = next(c for c in CITIES if c["city"] == "의왕시").get("quality") or {}
+if _uw_q.get("원자료_행수") != 55 or _uw_q.get("제외_행수") != 0:
+    fails.append(f"의왕시 원자료 처리가 다름: {_uw_q.get('원자료_행수')}행 · 제외 {_uw_q.get('제외_행수')}")
+# 행락지 7곳 — 조례 별표1 비고7의 목록과 같아야 한다
+_uw_park_names = sorted(l["name"] for l in uw_park)
+if _uw_park_names != sorted(["백운호수제방 공영주차장", "왕송호수 공영주차장", "청계산 공영주차장",
+                             "왕송호수공원 공영주차장", "무민공원 공영주차장",
+                             "백운호수제1공영주차장", "백운호수제2공영주차장"]):
+    fails.append(f"의왕시 행락지 목록이 별표1 비고7과 다름: {_uw_park_names}")
+for _l in uw_park:
+    _b = _l["fee"].get("bands") or []
+    if [_x["amount"] for _x in _b] != [1000, 2000, 3000, 4000, 5000]:
+        fails.append(f"의왕시 행락지 구간 요금이 다름: {_l['name']} "
+                     f"{[_x['amount'] for _x in _b]}")
+    if _l["fee"].get("daily_fee") != 5000 or _l["fee"].get("monthly") not in (None, 45000):
+        fails.append(f"의왕시 행락지 1일·월 요금이 다름: {_l['name']} "
+                     f"{_l['fee'].get('daily_fee')}/{_l['fee'].get('monthly')}")
+# 급지 요금 — 1급지 800·300·8,000, 2급지 600·200·6,000, 3급지 500·200·5,000
+_uw_grade_expect = {1: (800, 300, 8000, 85000), 2: (600, 200, 6000, 50000), 3: (500, 200, 5000, 40000)}
+for _l in uw_all_paid:
+    _f = _l["fee"]
+    if _f.get("grade_label"):
+        continue
+    _want = _uw_grade_expect.get(_f.get("grade"))
+    if not _want:
+        fails.append(f"의왕시 급지 없는 유료 주차장: {_l['name']} {_f.get('grade')}")
+        continue
+    # 정기권을 받지 않는 주차장은 월 정기권이 비어 있다(공사 안내에 ‘정기권 불가’).
+    if (_f.get("base_min"), _f.get("base_fee"), _f.get("unit_min"), _f.get("unit_fee"),
+            _f.get("daily_fee")) != (30, _want[0], 10, _want[1], _want[2]) \
+            or _f.get("monthly") not in (None, _want[3]):
+        fails.append(f"의왕시 요금이 조례 별표1과 다름: {_l['name']} "
+                     f"{_f.get('base_fee')}/{_f.get('unit_fee')}/{_f.get('daily_fee')}/{_f.get('monthly')}")
+    if _f.get("free_min") != 10:
+        fails.append(f"의왕시 {_l['name']}의 최초 10분 무료 표기가 없음: {_f.get('free_min')}")
+# 요금구분 보정 3건 — 고천문화공원(2026-05 유료 전환)·백운호수공원 제1·2(행락지)
+if len(_uw_q.get("요금구분_보정") or []) != 3:
+    fails.append(f"의왕시 요금구분 보정이 3건이 아님: {_uw_q.get('요금구분_보정')}")
+if uw_by.get("고천문화공원 공영주차장", {}).get("fee", {}).get("type") != "유료":
+    fails.append("의왕시 고천문화공원이 유료로 바로잡히지 않음")
+for _n in ("백운호수제1공영주차장", "백운호수제2공영주차장"):
+    if uw_by.get(_n, {}).get("fee", {}).get("grade_label") != "행락지":
+        fails.append(f"의왕시 {_n}이 행락지로 바로잡히지 않음")
+# 면수 차이 3건 · 무료 개방 8곳(야간 5곳·주말 8곳)
+if len(_uw_q.get("면수_차이") or []) != 3:
+    fails.append(f"의왕시 면수 차이가 3건이 아님: {len(_uw_q.get('면수_차이') or [])}")
+if len(_uw_q.get("야간무료_주차장") or []) != 5 or len(_uw_q.get("주말무료_주차장") or []) != 8:
+    fails.append(f"의왕시 무료 개방 주차장 수가 다름: 야간 {len(_uw_q.get('야간무료_주차장') or [])} · "
+                 f"주말 {len(_uw_q.get('주말무료_주차장') or [])}")
+# 계산 표본 — 별표1(최초 10분 무료·30분 기본·10분당, 행락지 구간)로 직접 계산한 값
+for _n, _mins, _want in (("내손 제1공영주차장", 10, 0), ("내손 제1공영주차장", 11, 600),
+                         ("내손 제1공영주차장", 30, 600), ("내손 제1공영주차장", 60, 1200),
+                         ("내손 제1공영주차장", 120, 2400), ("내손 제1공영주차장", 1440, 6000),
+                         ("고천주민센터 공영주차장", 120, 3500),
+                         ("계원대학로 제2 공영주차장", 60, 1700),
+                         ("왕송고가하부 공영주차장", 120, 2300),
+                         ("청계산 공영주차장", 60, 1000), ("청계산 공영주차장", 120, 2000),
+                         ("청계산 공영주차장", 180, 2000), ("청계산 공영주차장", 181, 3000),
+                         ("청계산 공영주차장", 360, 3000), ("청계산 공영주차장", 541, 5000),
+                         ("청계산 공영주차장", 1440, 5000)):
+    _l = uw_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"의왕시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 주말·야간 무료 개방 — 청계산은 토·일 0원, 내손 1은 주말에도 2,400원, 내손주차빌딩은 08:00~20:00만 유료
+for _n, _day, _want in (("청계산 공영주차장", "sat", "free"), ("청계산 공영주차장", "sun", "free"),
+                        ("내손 제1공영주차장", "sat", 2400), ("내손 제1공영주차장", "sun", 2400)):
+    _l = uw_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, 120, _day)
+    if _want == "free" and _r["state"] != "free":
+        fails.append(f"의왕시 {_n} {_day} 계산이 무료가 아님: {_r}")
+    if isinstance(_want, int) and _r.get("amount") != _want:
+        fails.append(f"의왕시 {_n} {_day} 계산이 {_want:,}원이 아님: {_r}")
+_uw_bill = uw_by.get("내손체육공원 주차빌딩")
+if _uw_bill:
+    _wk = _uw_bill["hours"]["weekday"]
+    if (_wk["start"], _wk["end"]) != (8 * 60, 20 * 60):
+        fails.append(f"의왕시 내손주차빌딩의 유료 시간이 08:00~20:00이 아님: {_wk['raw']}")
+    if not (_uw_bill["free_days"].get("sat") and _uw_bill["free_days"].get("sun")):
+        fails.append("의왕시 내손주차빌딩의 주말·공휴일 무료 표기 없음")
+# 감면표 — 별표2(2시간 면제 뒤 50%·50%·환승 경차 60%·행락지 30%·요일제 20%·100%)
+_uw_disc = next(c for c in CITIES if c["city"] == "의왕시").get("discounts") or []
+for _ex in (120,):
+    if not any(d["rate"] == 0.5 and d.get("exempt_min") == _ex for d in _uw_disc):
+        fails.append(f"의왕시 감면표에 {_ex}분 면제 뒤 50%가 없음")
+for _rate in (0.5, 0.6, 0.3, 0.2, 1.0):
+    if not any(d["rate"] == _rate for d in _uw_disc):
+        fails.append(f"의왕시 감면표에 {int(_rate * 100)}% 감면이 없음")
+# 페이지 — 시 허브·동 3곳·노상
+_uw_root = DIST / "parking" / "gyeonggi" / "uiwang"
+_uw_hub = _uw_root / "index.html"
+if not _uw_hub.exists():
+    fails.append("의왕시 시 페이지 없음")
+else:
+    _uw_html = _uw_hub.read_text()
+    for label in ("의왕시 급지별 주차요금표", "최초 30분", "10분당", "1일 주차권", "월 정기권",
+                  "행락지", "1시간 초과 3시간 이내", "9시간 초과", "의왕도시공사",
+                  "고천문화공원", "백운호수공원 제1", "10분 미만", "031-8086-7440",
+                  "거주자 전용 주차구획", "야간 20:00~익일 08:00"):
+        if label not in _uw_html:
+            fails.append(f"의왕시 시 페이지에 {label} 없음")
+    if _uw_html.count('class="card lot') != len(uw_cards):
+        fails.append(f"의왕시 시 페이지 카드 수 불일치({_uw_html.count(chr(34)+'card lot')} vs {len(uw_cards)})")
+    if "&lt;b&gt;" in _uw_html:
+        fails.append("의왕시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _uw_html or "nan" in _uw_html:
+        fails.append("의왕시 시 페이지에 None/nan 문자열이 보임")
+_uw_st_page = _uw_root / "street-parking" / "index.html"
+if not _uw_st_page.exists():
+    fails.append("의왕시 노상 페이지 없음")
+else:
+    _uw_st = _uw_st_page.read_text()
+    for label in ("왕곡천복개", "서울외곽순환하부", "오전천복개", "무료 25곳", "토·일요일"):
+        if label not in _uw_st:
+            fails.append(f"의왕시 노상 페이지에 {label} 없음")
+    if "&lt;b&gt;" in _uw_st:
+        fails.append("의왕시 노상 페이지에 이스케이프된 <b> 태그가 보임")
+for _slug, _n in (("naeson-dong", 9), ("hakui-dong", 7), ("sam-dong", 3)):
+    _p = _uw_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"의왕시 동 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"의왕시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+for _slug in ("gocheon-dong", "cheonggye-dong", "wanggok-dong", "wolam-dong", "chopyeong-dong",
+              "poil-dong"):
+    if (_uw_root / _slug / "index.html").exists():
+        fails.append(f"의왕시 카드 3곳 미만인 동 페이지가 만들어짐: {_slug}")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/uiwang/",
+           "https://parking.9welfare.com/parking/gyeonggi/uiwang/street-parking/",
+           "https://parking.9welfare.com/parking/gyeonggi/uiwang/naeson-dong/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"의왕시 주소가 사이트맵에 없음: {_u}")
+
+
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")

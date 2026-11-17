@@ -127,13 +127,20 @@
     if (f.deduct_min && minutes <= f.deduct_min) {
       return { state: 'free', deducted: true, deduct_min: f.deduct_min };
     }
-    if (!f.unit_min || f.unit_fee === null) {
+    if (!(f.bands && f.bands.length) && (!f.unit_min || f.unit_fee === null)) {
       return { state: 'unknown' };
     }
     // 그 시간만큼 주차했을 때의 요금과 1일 상한 적용 여부
     function rawCharge(mins) {
       var raw;
-      if (f.steps && f.steps.length) {
+      if (f.bands && f.bands.length) {
+        // 구간 요금(의왕시 행락지) — 머문 시간이 속한 구간의 금액을 받는다.
+        raw = f.bands[f.bands.length - 1].amount;
+        for (var j = 0; j < f.bands.length; j++) {
+          var b = f.bands[j];
+          if (b.until === null || b.until === undefined || mins <= b.until) { raw = b.amount; break; }
+        }
+      } else if (f.steps && f.steps.length) {
         // 시간대별 누진 할증 (예: 안양시 — 1시간까지 10분당 300원, 2시간까지 600원 …)
         var unit = f.unit_min || 10, t = f.base_min;
         raw = f.base_fee;

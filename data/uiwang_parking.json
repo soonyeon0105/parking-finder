@@ -1,0 +1,7306 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 17:58",
+  "generated_at_iso": "2026-11-17T17:58:32+09:00",
+  "snapshot_at": "2026-11-17 17:58",
+  "region": {
+   "province": "경기도",
+   "city": "의왕시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-23",
+    "rows_total": 18994,
+    "rows_city": 55,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "경기도 의왕시가 등록한 55행(노외 27·노상 28)을 읽었다. 모두 주차장구분이 ‘공영’이라 민영 주차장은 없다. 요금 구분은 유료 22행(노외 19·노상 3)과 무료 33행이지만, 고천문화공원(2026-05 유료 전환)과 백운호수공원 제1·2(조례 별표1 비고7 행락지)는 유료로 바로잡았다. 주차구획수가 비어 있거나 좌표가 빠진 껍데기 행은 없어 55행을 모두 실었다."
+   },
+   {
+    "id": "ordinance",
+    "name": "의왕시 주차장설치 및 관리 조례 [별표 1] 공영주차장 주차요금표 · [별표 2] 공영주차장 주차요금 감면기준",
+    "org": "의왕시청 교통정책과(031-345-3311) · 의왕도시공사 통합관제실(031-8086-7440)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2153459&gubun=ELIS&conDatGubunCd=1",
+    "file": "uiwang.law.go.kr_주차장조례_별표1_20261117.hwpx",
+    "sha256": "bc793e0b699c25656d53b6411c1f7542da73599735f3f0d5049d8be6b4fde7fa",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-05-07 · 경기도의왕시조례 제2336호(일부개정) · 별표1·별표2 〈개정 2025.9.30.〉",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 17:45 (KST)",
+    "note": "국가법령정보센터 별표/서식 HWPX를 내려받아 표 셀을 읽어 정리본(txt)을 두었다. 노상 1급지 최초 30분 800원·이후 10분당 300원·1일 주차권 8,000원·월 정기권 85,000원(2급지 600·200·6,000·50,000원, 3급지 500·200·5,000·40,000원)이고, 노외는 같은 1회 요금에 야간 정기권 (1급지 60,000·2급지 45,000·3급지 35,000원)을 더 둔다. 행락지 주차장은 1시간 이내 1,000 / 3시간 이내 2,000 / 6시간 이내 3,000 / 9시간 이내 4,000 / 9시간 초과 5,000원, 월 정기권 45,000(야간 40,000)원이다. 별표2는 전액면제(긴급·관용·유공납세자·10분 미만 이용), 50% 감면(장애인·국가유공자 등은 2시간 면제 뒤), 30% 감면(의왕시 거주자 행락지), 20% 감면(요일제)을 정한다."
+   },
+   {
+    "id": "corp",
+    "name": "의왕도시공사 공영주차장 요금안내(직영·위탁주차장, 노상주차장, 무료공영주차장)",
+    "org": "의왕도시공사 통합관제실(031-8086-7440)",
+    "url": "https://www.uuc.or.kr/base/contents/view?contentsNo=26&menuLevel=3&menuNo=45",
+    "file": "uuc.or.kr_공영주차장_요금안내_20261117.txt",
+    "sha256": "64bcb9a2c1cd598bc8fe7b9b488b8f6eefddf56636f79236fa7b3bba57d8c832",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 23,
+    "fetched_at": "2026-11-17 17:45 (KST)",
+    "note": "직영·위탁주차장 23곳(노외·부설)과 노상주차장 2곳, 동별 무료 노상주차장을 급지·면수·요금·정기권·무료개방과 함께 싣고 있다. 급지는 1급지(고천주민센터·계원대학로 제2·서울외곽순환하부·왕곡천복개), 2급지(내손 1~4·내손주차빌딩·갈미·의왕역·고천지구·고천문화공원·백운커뮤니티·오전천복개), 3급지(산빛근린·왕송고가하부), 행락지(백운제방·왕송호수·왕송호수공원·청계산·무민공원)로 나뉜다. 유료 주차장 가운데 내손주차빌딩·의왕역·고천주민센터·백운커뮤니티 주차타워·서울외곽순환하부는 ‘야간 20:00~익일 08:00·주말·공휴일 무료 개방’, 청계산은 ‘주말·공휴일 무료 개방’을 적고, 노상 왕곡천복개·오전천복개는 휴무일란에 ‘토·일요일, 공휴일(무료운영)’이라고 적는다. 백운호수공원 제1·2와 내손공용청사는 이 목록에 없다."
+   },
+   {
+    "id": "disc",
+    "name": "의왕도시공사 교통시설 감면안내",
+    "org": "의왕도시공사 통합관제실(031-8086-7440)",
+    "url": "https://www.uuc.or.kr/base/contents/view?contentsNo=131&menuLevel=3&menuNo=127",
+    "file": "uuc.or.kr_감면안내_20261117.txt",
+    "sha256": "f8cb8fab1aef4b8c6da9f0185e2f796e38d9bf1ba8cb72e48782d6c49e911533",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 22,
+    "fetched_at": "2026-11-17 17:45 (KST)",
+    "note": "감면대상·증빙서류·할인율을 표로 정리해 두었다. 조례 별표2와 같은 내용이며, 행락지 목록을 ‘백운호수, 청계산, 왕송호수, 자연학습공원, 무민공원, 백운호수 공원1·2 등’으로 적어 백운호수공원 제1·2가 행락지 주차장임을 뒷받침한다. 환승 경차 60%, 저공해 1종·플러그인하이브리드 2시간 면제 뒤 50%, 의왕시 거주자 행락지 30%를 함께 적고 있다."
+   },
+   {
+    "id": "news",
+    "name": "시민일보 — 의왕시, 고천문화공원 공영주차장 운영 개시",
+    "org": "시민일보(2026-03-30 보도)",
+    "url": "https://siminilbo.co.kr/news/newsview.php?ncode=1160274638630509",
+    "file": "siminilbo.co.kr_고천문화공원_공영주차장_개시_20261117.txt",
+    "sha256": "bc975eac888ea73a2ae301183bcd19565773bb1a77bf146f460fc28fe6a88727",
+    "license": "언론 보도(참고용)",
+    "base_date": "2026-03-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 17:45 (KST)",
+    "note": "고천문화공원 공영주차장(100면, 문화공원로 27)을 2026-04-01 정식 운영하고 4월 한 달 무료 시범 운영 뒤 5월부터 유료로 전환한다고 보도했다 — 표준데이터가 ‘무료’로 남아 있는 이유를 설명한다."
+   },
+   {
+    "id": "sys",
+    "name": "의왕시 통합주차정보시스템(서비스 일시 중단 안내)",
+    "org": "의왕시 교통정책과",
+    "url": "https://parking.uiwang.go.kr/",
+    "file": "uiwang.go.kr_통합주차정보시스템_중단_20261117.txt",
+    "sha256": "8361951954c20f73c72ddaaed318b5ee873c884138c1fd8a2f5be5c9263e3f12",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "조회 2026-11-17",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 17:45 (KST)",
+    "note": "2026-11-17 조회 시 실시간 주차정보 대신 ‘주차정보 서비스 일시 중단 안내’ 페이지만 열려, 실시간 잔여면수는 연동하지 않았다(realtime: false)."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "의왕시",
+   "slug": "uiwang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "uw-001",
+   "mgmt_no": "226-2-000084",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고천문화공원 공영주차장",
+   "gu": "의왕시",
+   "dong": "고천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 고천동 100-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "031-8086-7469",
+   "lat": 37.34180105,
+   "lng": 126.9713681,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "2026년 4월 1일 정식 운영을 시작해 4월 한 달은 무료로 시범 운영하고 5월부터 유료로 전환했습니다(시민일보 2026-03-30) — 공공데이터 표준데이터에는 아직 ‘무료’로 등록되어 있습니다 · 「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 의왕시민이 이용할 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-002",
+   "mgmt_no": "226-2-000082",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고천지구 공영주차장",
+   "gu": "의왕시",
+   "dong": "고천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 고천동 114-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "031-8086-7469",
+   "lat": 37.342331,
+   "lng": 126.9707875,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 타지역 시민도 신청할 수 있습니다 · 표준데이터 등록면수는 85면이고, 의왕도시공사 안내는 99면입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-003",
+   "mgmt_no": "226-2-000080",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갈미어린이공원 공영주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 806",
+   "addr_road": "경기도 의왕시 오리나무1길 13(내손동)",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-8086-7469",
+   "lat": 37.37526656,
+   "lng": 126.9688645,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 의왕시민만 신청할 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-004",
+   "mgmt_no": "226-2-000083",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계원대학로 제2 공영주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 745",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-8086-7469",
+   "lat": 37.37972687,
+   "lng": 126.9736243,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노외 요금입니다 — 최초 30분 800원, 이후 10분당 300원, 1일 주차권 8,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다 · 의왕도시공사 요금안내에는 ‘계원대학로 제2공영주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노외 (최초 30분 800원 · 이후 10분당 300원 · 1일 8,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 85000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 800,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-005",
+   "mgmt_no": "226-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "글로벌인재센터옆",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 724",
+   "addr_road": "경기도 의왕시 복지로 36",
+   "road": null,
+   "spaces": 64,
+   "tel": "031-8086-7469",
+   "lat": 37.382234,
+   "lng": 126.976921,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-006",
+   "mgmt_no": "226-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내손 제1공영주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 709",
+   "addr_road": "경기도 의왕시 내손순환로 58",
+   "road": null,
+   "spaces": 76,
+   "tel": "031-8086-7469",
+   "lat": 37.383625,
+   "lng": 126.977702,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 타지역 시민도 신청할 수 있습니다 · 의왕도시공사 요금안내에는 ‘내손제1공영주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-007",
+   "mgmt_no": "226-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내손 제2공영주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 844-5",
+   "addr_road": "경기도 의왕시 민백길 4",
+   "road": null,
+   "spaces": 68,
+   "tel": "031-8086-7469",
+   "lat": 37.386028,
+   "lng": 126.973424,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 의왕시민만 6개월 단위 추첨제 · 의왕도시공사 요금안내에는 ‘내손제2공영주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-008",
+   "mgmt_no": "226-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내손 제3공영주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 846-1",
+   "addr_road": "경기도 의왕시 내손중앙로 46-9",
+   "road": null,
+   "spaces": 151,
+   "tel": "031-8086-7469",
+   "lat": 37.38548384,
+   "lng": 126.9792538,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 의왕시민(주변에서 상가를 운영하는 타지역 시민 포함) · 의왕도시공사 요금안내에는 ‘내손제3공영주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-009",
+   "mgmt_no": "226-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내손 제4공영주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 710-20",
+   "addr_road": "경기도 의왕시 내손중앙로 45-8",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-8086-7469",
+   "lat": 37.38693266,
+   "lng": 126.9812378,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다 · 의왕도시공사 요금안내에는 ‘내손제4공영주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-010",
+   "mgmt_no": "226-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내손체육공원 주차빌딩",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 666",
+   "addr_road": "경기도 의왕시 내손순환로 139",
+   "road": null,
+   "spaces": 164,
+   "tel": "031-8086-7469",
+   "lat": 37.386975,
+   "lng": 126.984169,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 내손주차빌딩 — 정기주차(주·야간) 50,000원 · 의왕도시공사 요금안내에는 ‘내손주차빌딩’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 야간 20:00~익일 08:00·토요일·일요일·공휴일은 무료로 개방합니다 — 요금은 08:00~20:00에만 받습니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-011",
+   "mgmt_no": "226-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "민방위교육장 주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 내손동 713-15",
+   "addr_road": "경기도 의왕시 내손중앙로 44",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-8086-7469",
+   "lat": 37.386601,
+   "lng": 126.980555,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-012",
+   "mgmt_no": "226-2-000076",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부곡시장길 공영주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 삼동 192-475",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-8086-7469",
+   "lat": 37.31830407,
+   "lng": 126.9534428,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-013",
+   "mgmt_no": "226-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕송고가하부 공영주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 삼동 428-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-8086-7469",
+   "lat": 37.3266602,
+   "lng": 126.9487458,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 3급지 노외 요금입니다 — 최초 30분 500원, 이후 10분당 200원, 1일 주차권 5,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 3급지 노외 (최초 30분 500원 · 이후 10분당 200원 · 1일 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-014",
+   "mgmt_no": "226-2-000079",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의왕역 공영주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 삼동 460-83",
+   "addr_road": "경기도 의왕시 한백이길 7",
+   "road": null,
+   "spaces": 237,
+   "tel": "031-8086-7469",
+   "lat": 37.3223356,
+   "lng": 126.9493223,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다 · 의왕도시공사 요금안내에는 ‘의왕역공영주차장’이라는 이름으로 적혀 있습니다 · 공사 요금안내에 ‘야간주차 시간은 22:00부터 익일 08:00까지’와 ‘무료개방: 야간 20:00~익일 08:00’이 함께 적혀 있어 야간 기준이 서로 다릅니다 — 이 사이트는 20:00부터 무료로 계산합니다(현장 확인 권장)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 야간 20:00~익일 08:00·토요일·일요일·공휴일은 무료로 개방합니다 — 요금은 08:00~20:00에만 받습니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-015",
+   "mgmt_no": "226-2-000075",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고천주민센터 공영주차장",
+   "gu": "의왕시",
+   "dong": "왕곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 왕곡동 598",
+   "addr_road": "경기도 의왕시 사천로 11",
+   "road": null,
+   "spaces": 86,
+   "tel": "031-8086-7469",
+   "lat": 37.34580156,
+   "lng": 126.976896,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노외 요금입니다 — 최초 30분 800원, 이후 10분당 300원, 1일 주차권 8,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다 · 표준데이터 등록면수는 86면이고, 의왕도시공사 안내는 85면입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노외 (최초 30분 800원 · 이후 10분당 300원 · 1일 8,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 85000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 야간 20:00~익일 08:00·토요일·일요일·공휴일은 무료로 개방합니다 — 요금은 08:00~20:00에만 받습니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 800,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-016",
+   "mgmt_no": "226-2-000072",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕송호수공원 공영주차장",
+   "gu": "의왕시",
+   "dong": "월암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 월암동 543-3",
+   "addr_road": "경기도 의왕시 왕송못동로 307",
+   "road": null,
+   "spaces": 438,
+   "tel": "031-8086-7469",
+   "lat": 37.307106,
+   "lng": 126.953146,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원, 월 정기권 45,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 행락지 주차장 월 정기권 45,000원(승용차만, 화물 불가) · 화물차·버스는 평일만 주차할 수 있습니다(주말 주차 불가)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 45000,
+    "monthly_label": "행락지 정기권",
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 45000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-017",
+   "mgmt_no": "226-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양지편마을 공영주차장",
+   "gu": "의왕시",
+   "dong": "청계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 청계동 856-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-8086-7469",
+   "lat": 37.393378,
+   "lng": 126.997799,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-018",
+   "mgmt_no": "226-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청계산 공영주차장",
+   "gu": "의왕시",
+   "dong": "청계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 청계동 77",
+   "addr_road": "",
+   "road": null,
+   "spaces": 145,
+   "tel": "031-8086-7469",
+   "lat": 37.40581364,
+   "lng": 127.0252718,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다 · 의왕도시공사 요금안내에는 ‘청계산공영주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 45000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 토요일·일요일·공휴일은 무료로 개방합니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-019",
+   "mgmt_no": "226-2-000073",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕송호수 공영주차장",
+   "gu": "의왕시",
+   "dong": "초평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 초평동 12-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "031-8086-7469",
+   "lat": 37.318345,
+   "lng": 126.945771,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원, 월 정기권 45,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 행락지 주차장 월 정기권 45,000원, 타지역 시민도 신청할 수 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 45000,
+    "monthly_label": "행락지 정기권",
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 45000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-020",
+   "mgmt_no": "226-2-000081",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산빛근린공원 공영주차장",
+   "gu": "의왕시",
+   "dong": "포일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 포일동 654",
+   "addr_road": "경기도 의왕시 이미로 34",
+   "road": null,
+   "spaces": 154,
+   "tel": "031-8086-7469",
+   "lat": 37.39916474,
+   "lng": 126.9880194,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 3급지 노외 요금입니다 — 최초 30분 500원, 이후 10분당 200원, 1일 주차권 5,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 3,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 3급지 노외 (최초 30분 500원 · 이후 10분당 200원 · 1일 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-021",
+   "mgmt_no": "226-2-000087",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무민공원 공영주차장",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 512-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 88,
+   "tel": "031-8086-7469",
+   "lat": 37.37715119,
+   "lng": 127.0065242,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원, 월 정기권 45,000원. 조례 별표2로 10분 미만 이용은 무료입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 45000,
+    "monthly_label": "행락지 정기권",
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 45000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-022",
+   "mgmt_no": "226-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운커뮤니티센터 주차타워",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 1135",
+   "addr_road": "경기도 의왕시 백운중앙로 78",
+   "road": null,
+   "spaces": 60,
+   "tel": "031-8086-7469",
+   "lat": 37.37014745,
+   "lng": 127.0082079,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권 50,000원, 의왕시민만 신청할 수 있습니다 · 의왕도시공사 요금안내에는 ‘백운커뮤니티 주차타워’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노외 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 야간 20:00~익일 08:00·토요일·일요일·공휴일은 무료로 개방합니다 — 요금은 08:00~20:00에만 받습니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-023",
+   "mgmt_no": "226-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운호수교각 공영주차장",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 597-4",
+   "addr_road": "경기도 의왕시 의일로 25",
+   "road": null,
+   "spaces": 92,
+   "tel": "031-8086-7469",
+   "lat": 37.37435046,
+   "lng": 127.006204,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "화물차 전용 주차장이라 일반 승용차는 이용할 수 없습니다 — 의왕도시공사는 화물차 월 정기·차고지 요금만 안내하고, 위 시간 요금은 표준데이터 등록값입니다 · 화물차 전용 주차장 — 1년 단위 추첨제, 화물차 월 정기주차 소형(1톤 이하) 45,000·중형 90,000·대형 135,000원 · 의왕도시공사 요금안내에는 ‘백운교각주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "화물차 전용",
+    "std_grade": "기타",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "표준데이터 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 45000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "표준데이터 등록 요금(60분 1,000원 · 이후 120분마다 1,000원 · 1일 5,000원 · 월 45,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 45000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-024",
+   "mgmt_no": "226-2-000085",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운호수제1공영주차장",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 408",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "031-8086-7469",
+   "lat": 37.38366402,
+   "lng": 127.00725,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "조례 별표1 비고7이 행락지 주차장으로 지정한 곳입니다 — 현장 안내판도 1시간 1,000원~9시간 초과 5,000원의 행락지 요금을 적고 있고, 공공데이터 표준데이터에는 아직 ‘무료’로 등록되어 있습니다 · 「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원, 월 정기권 45,000원. 조례 별표2로 10분 미만 이용은 무료입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 45000,
+    "monthly_label": "행락지 정기권",
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-025",
+   "mgmt_no": "226-2-000086",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운호수제2공영주차장",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 478-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "031-8086-7469",
+   "lat": 37.38349466,
+   "lng": 127.0104079,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "조례 별표1 비고7이 행락지 주차장으로 지정한 곳입니다 — 현장 안내판도 1시간 1,000원~9시간 초과 5,000원의 행락지 요금을 적고 있고, 공공데이터 표준데이터에는 아직 ‘무료’로 등록되어 있습니다 · 「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원, 월 정기권 45,000원. 조례 별표2로 10분 미만 이용은 무료입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 45000,
+    "monthly_label": "행락지 정기권",
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-026",
+   "mgmt_no": "226-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운호수제방 공영주차장",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 341-8",
+   "addr_road": "경기도 의왕시 백운로 526",
+   "road": null,
+   "spaces": 473,
+   "tel": "031-8086-7469",
+   "lat": 37.383213,
+   "lng": 127.000759,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원, 월 정기권 45,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 행락지 주차장 월 정기권 45,000원 — 승용차 정기권은 상황실 문의, 버스·캠핑카·버스운전원 승용차는 1년 단위 추첨제 · 의왕도시공사 요금안내에는 ‘백운제방주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "행락지",
+    "std_grade": "행락지",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "bands": [
+     {
+      "until": 60,
+      "amount": 1000
+     },
+     {
+      "until": 180,
+      "amount": 2000
+     },
+     {
+      "until": 360,
+      "amount": 3000
+     },
+     {
+      "until": 540,
+      "amount": 4000
+     },
+     {
+      "until": null,
+      "amount": 5000
+     }
+    ],
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 행락지 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 45000,
+    "monthly_day": null,
+    "monthly_night": 40000,
+    "monthly_all": 45000,
+    "monthly_label": "행락지 정기권",
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · 3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · 9시간 초과 5,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 45000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-027",
+   "mgmt_no": "226-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학현마을 공동주차장",
+   "gu": "의왕시",
+   "dong": "학의동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 의왕시 학의동 156-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-8086-7469",
+   "lat": 37.389892,
+   "lng": 127.013989,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s028",
+   "mgmt_no": "226-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "맑은내1길 노상주차장",
+   "gu": "의왕시",
+   "dong": "고천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 고천동 478-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-8086-7469",
+   "lat": 37.355142,
+   "lng": 126.9645297,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s029",
+   "mgmt_no": "226-1-000032",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사그내4길 노상주차장",
+   "gu": "의왕시",
+   "dong": "고천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 고천동 269",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-8086-7469",
+   "lat": 37.3483882,
+   "lng": 126.9767215,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s030",
+   "mgmt_no": "226-1-000080",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "오전천복개1",
+   "gu": "의왕시",
+   "dong": "고천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 고천동 306-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 77,
+   "tel": "031-8086-7469",
+   "lat": 37.34982087,
+   "lng": 126.9753641,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노상 요금입니다 — 최초 30분 600원, 이후 10분당 200원, 1일 주차권 6,000원, 월 정기권 50,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 노상 2급지 월 정기권 50,000원(조례 별표1) · 의왕도시공사 요금안내에는 ‘오전천복개 공영주차장’이라는 이름으로 적혀 있습니다 · 유료 노상주차장은 토요일·일요일·공휴일에 무료로 운영합니다(의왕도시공사 요금안내 휴무일란)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 2급지 노상 (최초 30분 600원 · 이후 10분당 200원 · 1일 6,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 토요일·일요일·공휴일은 무료로 개방합니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s031",
+   "mgmt_no": "226-1-000076",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "내손공원길 노상주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 713-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "031-8086-7469",
+   "lat": 37.38642789,
+   "lng": 126.9844564,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s032",
+   "mgmt_no": "226-1-000072",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "내손순환로 노상주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 713-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-8086-7469",
+   "lat": 37.38768991,
+   "lng": 126.9842064,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s033",
+   "mgmt_no": "226-1-000065",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "내손중앙2길 노상주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 713-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "031-8086-7469",
+   "lat": 37.38642789,
+   "lng": 126.9844564,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s034",
+   "mgmt_no": "226-1-000070",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "내손중앙로2 노상주차장",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 843",
+   "addr_road": "경기도 의왕시 내손순환로 4(내손동)",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-8086-7469",
+   "lat": 37.38814078,
+   "lng": 126.9746193,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s035",
+   "mgmt_no": "226-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서울외곽순환고속도로하부",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 746",
+   "addr_road": "경기도 의왕시 계원대학로 2",
+   "road": null,
+   "spaces": 70,
+   "tel": "031-8086-7469",
+   "lat": 37.379775,
+   "lng": 126.971633,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 30분 800원, 이후 10분당 300원, 1일 주차권 8,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 정기권을 받지 않습니다 · 표준데이터 등록면수는 70면이고, 의왕도시공사 안내는 66면입니다 · 의왕도시공사 요금안내에는 ‘서울외곽순환하부주차장’이라는 이름으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노상 (최초 30분 800원 · 이후 10분당 300원 · 1일 8,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 85000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 야간 20:00~익일 08:00·토요일·일요일·공휴일은 무료로 개방합니다 — 요금은 08:00~20:00에만 받습니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 800,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s036",
+   "mgmt_no": "226-1-000061",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이면도로 주차장(678-12)",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 678-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-8086-7469",
+   "lat": 37.384646,
+   "lng": 126.982805,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s037",
+   "mgmt_no": "226-1-000062",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이면도로 주차장(681-11)",
+   "gu": "의왕시",
+   "dong": "내손동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 내손동 681-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-8086-7469",
+   "lat": 37.385479,
+   "lng": 126.981793,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s038",
+   "mgmt_no": "226-1-000041",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부곡중앙남1길 노상주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 삼동 160-148",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "031-8086-7469",
+   "lat": 37.31879635,
+   "lng": 126.9504789,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s039",
+   "mgmt_no": "226-1-000071",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부곡중앙로 노상주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 삼동 208-2",
+   "addr_road": "경기도 의왕시 부곡중앙로 51",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-8086-7469",
+   "lat": 37.32133935,
+   "lng": 126.9547145,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s040",
+   "mgmt_no": "226-1-000064",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부곡중앙북4길 노상주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 삼동 192-171",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "031-8086-7469",
+   "lat": 37.32256593,
+   "lng": 126.9518815,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s041",
+   "mgmt_no": "226-1-000066",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부곡초등3길 노상주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 삼동 146-130",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "031-8086-7469",
+   "lat": 37.31741124,
+   "lng": 126.9530746,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s042",
+   "mgmt_no": "226-1-000075",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한백이길 노상주차장",
+   "gu": "의왕시",
+   "dong": "삼동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 삼동 460-83",
+   "addr_road": "경기도 의왕시 한백이길 7(삼동)",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-8086-7469",
+   "lat": 37.3223356,
+   "lng": 126.9493223,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s043",
+   "mgmt_no": "226-1-000050",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "경수대로391번길 노상주차장",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 122-1",
+   "addr_road": "경기도 의왕시 경수대로391번길 7",
+   "road": null,
+   "spaces": 54,
+   "tel": "031-8086-7469",
+   "lat": 37.358747,
+   "lng": 126.963923,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s044",
+   "mgmt_no": "226-1-000049",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "등칙골길 노상주차장",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 350-1",
+   "addr_road": "경기도 의왕시 등칙골길 28(오전동)",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-8086-7469",
+   "lat": 37.35203705,
+   "lng": 126.9755771,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s045",
+   "mgmt_no": "226-1-000068",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "맑은내길 노상주차장",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 150-24",
+   "addr_road": "경기도 의왕시 맑은내길 67(오전동)",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-8086-7469",
+   "lat": 37.35632928,
+   "lng": 126.9627934,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s046",
+   "mgmt_no": "226-1-000063",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "오전동 자투리주차장",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 345-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "031-8086-7469",
+   "lat": 37.35110383,
+   "lng": 126.9754654,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s047",
+   "mgmt_no": "226-1-000047",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "오전로 노상주차장",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 862",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "031-8086-7469",
+   "lat": 37.35443569,
+   "lng": 126.9757039,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s048",
+   "mgmt_no": "226-1-000042",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "오전천복개2",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 374-1",
+   "addr_road": "경기도 의왕시 오전천로29",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-8086-7469",
+   "lat": 37.35027993,
+   "lng": 126.976795,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s049",
+   "mgmt_no": "226-1-000048",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "찬우물1길 노상주차장",
+   "gu": "의왕시",
+   "dong": "오전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 오전동 844",
+   "addr_road": "경기도 의왕시 찬우물1길 32",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-8086-7469",
+   "lat": 37.354386,
+   "lng": 126.970692,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s050",
+   "mgmt_no": "226-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "왕곡천복개주차장",
+   "gu": "의왕시",
+   "dong": "왕곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 왕곡동 594",
+   "addr_road": "경기도 의왕시 왕곡로16",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-8086-7469",
+   "lat": 37.346728,
+   "lng": 126.976186,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 30분 800원, 이후 10분당 300원, 1일 주차권 8,000원, 월 정기권 85,000원. 조례 별표2로 10분 미만 이용은 무료입니다 · 노상 1급지 월 정기권 85,000원(조례 별표1) · 의왕도시공사 요금안내에는 ‘왕곡천복개 공영주차장’이라는 이름으로 적혀 있습니다 · 유료 노상주차장은 토요일·일요일·공휴일에 무료로 운영합니다(의왕도시공사 요금안내 휴무일란)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차권",
+    "daily_hours": null,
+    "daily_fee": 8000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 85000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 85000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「의왕시 주차장설치 및 관리 조례」 별표1 1급지 노상 (최초 30분 800원 · 이후 10분당 300원 · 1일 8,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 85000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "의왕도시공사 요금안내: 토요일·일요일·공휴일은 무료로 개방합니다. 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 정산은 현장 안내를 확인하세요.",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 800,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s051",
+   "mgmt_no": "226-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "위인로 노상주차장",
+   "gu": "의왕시",
+   "dong": "왕곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 왕곡동 600",
+   "addr_road": "경기도 의왕시 위인로 18",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-8086-7469",
+   "lat": 37.344287,
+   "lng": 126.978142,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s052",
+   "mgmt_no": "226-1-000078",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "철도박물관로 노상주차장",
+   "gu": "의왕시",
+   "dong": "월암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 월암동 380-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "031-8086-7469",
+   "lat": 37.31319435,
+   "lng": 126.952682,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s053",
+   "mgmt_no": "226-1-000067",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "왕송못서길1 노상주차장",
+   "gu": "의왕시",
+   "dong": "초평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 초평동 278-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "031-8086-7469",
+   "lat": 37.31152596,
+   "lng": 126.9440928,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s054",
+   "mgmt_no": "226-1-000069",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "왕송못서길2 노상주차장",
+   "gu": "의왕시",
+   "dong": "초평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 초평동 583-30",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-8086-7469",
+   "lat": 37.30350771,
+   "lng": 126.9425322,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  },
+  {
+   "id": "uw-s055",
+   "mgmt_no": "226-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "흥안대로 434번길 노상주차장",
+   "gu": "의왕시",
+   "dong": "포일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 의왕시 포일동 537-1",
+   "addr_road": "경기도 의왕시 흥안대로434번길 77",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-8086-7469",
+   "lat": 37.392149,
+   "lng": 126.979709,
+   "base_date": "2026-04-23",
+   "manager": "의왕도시공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "bands": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의왕시",
+   "city_slug": "uiwang"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 17:58",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 55,
+  "원자료_의왕시행수": 55,
+  "원자료_전체행수": 55,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 27,
+  "노외_부설": {
+   "노외": 27
+  },
+  "노상_구간": 28,
+  "총_구획수": 2970,
+  "노상_구획수": 704,
+  "동별": {
+   "내손동": 9,
+   "학의동": 7,
+   "삼동": 3,
+   "고천동": 2,
+   "청계동": 2,
+   "왕곡동": 1,
+   "월암동": 1,
+   "초평동": 1,
+   "포일동": 1
+  },
+  "동수": 9,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 27
+  },
+  "요금구분": {
+   "유료": 25,
+   "무료": 30
+  },
+  "요금_미상": [],
+  "급지별": {
+   "2": 11,
+   "1": 4,
+   "3": 2
+  },
+  "행락지_주차장": [
+   "왕송호수공원 공영주차장",
+   "청계산 공영주차장",
+   "왕송호수 공영주차장",
+   "무민공원 공영주차장",
+   "백운호수제1공영주차장",
+   "백운호수제2공영주차장",
+   "백운호수제방 공영주차장"
+  ],
+  "행락지_출처": "「의왕시 주차장설치 및 관리 조례」 별표1 비고7 · 의왕도시공사 감면안내(행락지 목록에 백운호수 공원1·2 포함)",
+  "표준데이터_급지": {
+   "행락지": 7,
+   "기타": 1
+  },
+  "유료_노상": 3,
+  "유료_노외": 22,
+  "운영시간_보정": [
+   "왕곡천복개주차장: 표준데이터 평일 09:00~20:00 → 의왕도시공사 요금안내의 무료 개방(토요일·일요일·공휴일)을 반영",
+   "서울외곽순환고속도로하부: 표준데이터 평일 09:00~20:00 → 의왕도시공사 요금안내의 무료 개방(야간 20:00~익일 08:00·토요일·일요일·공휴일)을 반영",
+   "의왕역 공영주차장: 표준데이터 평일 08:00~20:00 → 의왕도시공사 요금안내의 무료 개방(야간 20:00~익일 08:00·토요일·일요일·공휴일)을 반영",
+   "고천주민센터 공영주차장: 표준데이터 평일 08:00~22:00 → 의왕도시공사 요금안내의 무료 개방(야간 20:00~익일 08:00·토요일·일요일·공휴일)을 반영",
+   "청계산 공영주차장: 표준데이터 평일 00:00~23:59 → 의왕도시공사 요금안내의 무료 개방(토요일·일요일·공휴일)을 반영",
+   "내손체육공원 주차빌딩: 표준데이터 평일 00:00~23:59 → 의왕도시공사 요금안내의 무료 개방(야간 20:00~익일 08:00·토요일·일요일·공휴일)을 반영",
+   "백운커뮤니티센터 주차타워: 표준데이터 평일 00:00~23:59 → 의왕도시공사 요금안내의 무료 개방(야간 20:00~익일 08:00·토요일·일요일·공휴일)을 반영",
+   "오전천복개1: 표준데이터 평일 09:00~20:00 → 의왕도시공사 요금안내의 무료 개방(토요일·일요일·공휴일)을 반영"
+  ],
+  "면수_차이": [
+   "서울외곽순환고속도로하부: 표준데이터 70면 ↔ 의왕도시공사 66면",
+   "고천지구 공영주차장: 표준데이터 85면 ↔ 의왕도시공사 99면",
+   "고천주민센터 공영주차장: 표준데이터 86면 ↔ 의왕도시공사 85면"
+  ],
+  "등록값_차이": [],
+  "요금구분_보정": [
+   "백운호수제2공영주차장: 표준데이터 요금정보 ‘무료’ ↔ 지금은 행락지 요금을 받는 주차장 — 유료로 바로잡음",
+   "백운호수제1공영주차장: 표준데이터 요금정보 ‘무료’ ↔ 지금은 행락지 요금을 받는 주차장 — 유료로 바로잡음",
+   "고천문화공원 공영주차장: 표준데이터 요금정보 ‘무료’ ↔ 지금은 2급지 요금을 받는 주차장 — 유료로 바로잡음"
+  ],
+  "정기권_차이": [],
+  "야간무료_주차장": [
+   "서울외곽순환고속도로하부",
+   "의왕역 공영주차장",
+   "고천주민센터 공영주차장",
+   "내손체육공원 주차빌딩",
+   "백운커뮤니티센터 주차타워"
+  ],
+  "주말무료_주차장": [
+   "왕곡천복개주차장",
+   "서울외곽순환고속도로하부",
+   "의왕역 공영주차장",
+   "고천주민센터 공영주차장",
+   "청계산 공영주차장",
+   "내손체육공원 주차빌딩",
+   "백운커뮤니티센터 주차타워",
+   "오전천복개1"
+  ],
+  "급지_보정": [],
+  "결제_보정": [
+   "왕곡천복개주차장: 표준데이터 결제방법 ‘현금’ ↔ 의왕도시공사 ‘신용카드·후불교통신용카드만(현금 결제 불가)’",
+   "서울외곽순환고속도로하부: 표준데이터 결제방법 ‘현금’ ↔ 의왕도시공사 ‘신용카드·후불교통신용카드만(현금 결제 불가)’",
+   "백운호수제2공영주차장: 표준데이터 결제방법 ‘없음’ ↔ 의왕도시공사 ‘신용카드·후불교통신용카드만(현금 결제 불가)’",
+   "백운호수제1공영주차장: 표준데이터 결제방법 ‘없음’ ↔ 의왕도시공사 ‘신용카드·후불교통신용카드만(현금 결제 불가)’",
+   "고천문화공원 공영주차장: 표준데이터 결제방법 ‘없음’ ↔ 의왕도시공사 ‘신용카드·후불교통신용카드만(현금 결제 불가)’"
+  ],
+  "급지_없음_보정": [],
+  "행락지_지정": [
+   "무민공원 공영주차장",
+   "백운호수제2공영주차장",
+   "백운호수제1공영주차장",
+   "왕송호수 공영주차장",
+   "왕송호수공원 공영주차장",
+   "청계산 공영주차장",
+   "백운호수제방 공영주차장"
+  ],
+  "감면_출처": "「의왕시 주차장설치 및 관리 조례」 별표2(제5조제1항) · 의왕도시공사 감면안내",
+  "무료시간_출처": "조례 별표2 제1호 마목(10분 미만 공영주차장 이용차량 전액 면제)",
+  "주말무료_출처": "의왕도시공사 요금안내 각주(내손주차빌딩·의왕역·고천주민센터·백운커뮤니티 주차타워·서울외곽순환하부 ‘야간 20:00~익일 08:00, 주말, 공휴일’ / 청계산 ‘주말, 공휴일’ / 노상 왕곡천복개·오전천복개 휴무일 ‘토·일요일, 공휴일(무료운영)’·조례 별표1 비고2",
+  "일요일_무료표기": [
+   "내손체육공원 주차빌딩",
+   "의왕역 공영주차장",
+   "고천주민센터 공영주차장",
+   "청계산 공영주차장",
+   "백운커뮤니티센터 주차타워",
+   "오전천복개1",
+   "서울외곽순환고속도로하부",
+   "왕곡천복개주차장"
+  ],
+  "무료개방_표기": [
+   "내손체육공원 주차빌딩",
+   "의왕역 공영주차장",
+   "고천주민센터 공영주차장",
+   "청계산 공영주차장",
+   "백운커뮤니티센터 주차타워",
+   "오전천복개1",
+   "서울외곽순환고속도로하부",
+   "왕곡천복개주차장"
+  ],
+  "무료_요금구분": 30,
+  "무료_구획수": 657,
+  "평균_기본요금": 752,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-23"
+  ]
+ },
+ "fee_table": {
+  "style": "uiwang_grade",
+  "base_min": 30,
+  "unit_min": 10,
+  "free_min": 10,
+  "applies": "시행 2026-05-07 · 경기도의왕시조례 제2336호(일부개정) · 별표1·별표2 〈개정 2025.9.30.〉",
+  "off": [
+   {
+    "grade": 1,
+    "where": "상업지역",
+    "base": 800,
+    "unit": 300,
+    "day": 8000,
+    "month": 85000,
+    "night": 60000,
+    "lots": 2
+   },
+   {
+    "grade": 2,
+    "where": "공업지역·주거지역",
+    "base": 600,
+    "unit": 200,
+    "day": 6000,
+    "month": 50000,
+    "night": 45000,
+    "lots": 10
+   },
+   {
+    "grade": 3,
+    "where": "개발제한구역을 포함한 자연녹지지역",
+    "base": 500,
+    "unit": 200,
+    "day": 5000,
+    "month": 40000,
+    "night": 35000,
+    "lots": 2
+   }
+  ],
+  "street": [
+   {
+    "grade": 1,
+    "base": 800,
+    "unit": 300,
+    "day": 8000,
+    "month": 85000,
+    "night": null
+   },
+   {
+    "grade": 2,
+    "base": 600,
+    "unit": 200,
+    "day": 6000,
+    "month": 50000,
+    "night": null
+   },
+   {
+    "grade": 3,
+    "base": 500,
+    "unit": 200,
+    "day": 5000,
+    "month": 40000,
+    "night": null
+   }
+  ],
+  "park": {
+   "bands": [
+    {
+     "until": 60,
+     "amount": 1000
+    },
+    {
+     "until": 180,
+     "amount": 2000
+    },
+    {
+     "until": 360,
+     "amount": 3000
+    },
+    {
+     "until": 540,
+     "amount": 4000
+    },
+    {
+     "until": null,
+     "amount": 5000
+    }
+   ],
+   "month": 45000,
+   "night": 40000,
+   "free_min": 10,
+   "lots": 7
+  },
+  "paid_window": {
+   "weekday": "09:00~20:00",
+   "weekend": "09:00~18:00",
+   "free": "일요일·공휴일 무료 원칙(노외·행락지는 요금 부과 가능)"
+  },
+  "corp": {
+   "paid": 25,
+   "free": 30,
+   "free_spaces": 657,
+   "night_free": 5,
+   "weekend_free": 8
+  },
+  "lots": [
+   {
+    "name": "고천문화공원 공영주차장",
+    "dong": "고천동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "고천지구 공영주차장",
+    "dong": "고천동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "갈미어린이공원 공영주차장",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "계원대학로 제2 공영주차장",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 1,
+    "grade_label": null,
+    "free": 10,
+    "base": 800,
+    "base_min": 30,
+    "unit": 300,
+    "unit_min": 10,
+    "day": 8000,
+    "month": null
+   },
+   {
+    "name": "내손 제1공영주차장",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "내손 제2공영주차장",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "내손 제3공영주차장",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "내손 제4공영주차장",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": null
+   },
+   {
+    "name": "내손체육공원 주차빌딩",
+    "dong": "내손동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "왕송고가하부 공영주차장",
+    "dong": "삼동",
+    "ptype": "노외",
+    "grade": 3,
+    "grade_label": null,
+    "free": 10,
+    "base": 500,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 5000,
+    "month": null
+   },
+   {
+    "name": "의왕역 공영주차장",
+    "dong": "삼동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": null
+   },
+   {
+    "name": "고천주민센터 공영주차장",
+    "dong": "왕곡동",
+    "ptype": "노외",
+    "grade": 1,
+    "grade_label": null,
+    "free": 10,
+    "base": 800,
+    "base_min": 30,
+    "unit": 300,
+    "unit_min": 10,
+    "day": 8000,
+    "month": null
+   },
+   {
+    "name": "왕송호수공원 공영주차장",
+    "dong": "월암동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "청계산 공영주차장",
+    "dong": "청계동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": null
+   },
+   {
+    "name": "왕송호수 공영주차장",
+    "dong": "초평동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "산빛근린공원 공영주차장",
+    "dong": "포일동",
+    "ptype": "노외",
+    "grade": 3,
+    "grade_label": null,
+    "free": 10,
+    "base": 500,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 5000,
+    "month": null
+   },
+   {
+    "name": "무민공원 공영주차장",
+    "dong": "학의동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "백운커뮤니티센터 주차타워",
+    "dong": "학의동",
+    "ptype": "노외",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "백운호수교각 공영주차장",
+    "dong": "학의동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "화물차 전용",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 120,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "백운호수제1공영주차장",
+    "dong": "학의동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "백운호수제2공영주차장",
+    "dong": "학의동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "백운호수제방 공영주차장",
+    "dong": "학의동",
+    "ptype": "노외",
+    "grade": null,
+    "grade_label": "행락지",
+    "free": 10,
+    "base": 1000,
+    "base_min": 60,
+    "unit": 1000,
+    "unit_min": 60,
+    "day": 5000,
+    "month": 45000
+   },
+   {
+    "name": "오전천복개1",
+    "dong": "고천동",
+    "ptype": "노상",
+    "grade": 2,
+    "grade_label": null,
+    "free": 10,
+    "base": 600,
+    "base_min": 30,
+    "unit": 200,
+    "unit_min": 10,
+    "day": 6000,
+    "month": 50000
+   },
+   {
+    "name": "서울외곽순환고속도로하부",
+    "dong": "내손동",
+    "ptype": "노상",
+    "grade": 1,
+    "grade_label": null,
+    "free": 10,
+    "base": 800,
+    "base_min": 30,
+    "unit": 300,
+    "unit_min": 10,
+    "day": 8000,
+    "month": null
+   },
+   {
+    "name": "왕곡천복개주차장",
+    "dong": "왕곡동",
+    "ptype": "노상",
+    "grade": 1,
+    "grade_label": null,
+    "free": 10,
+    "base": 800,
+    "base_min": 30,
+    "unit": 300,
+    "unit_min": 10,
+    "day": 8000,
+    "month": 85000
+   }
+  ],
+  "basis": "「의왕시 주차장설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표(시행 2026-05-07 · 경기도의왕시조례 제2336호(일부개정) · 별표1·별표2 〈개정 2025.9.30.〉) · 의왕도시공사 공영주차장 요금안내(2026-11-17 확인)"
+ },
+ "slug": "uiwang",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "의왕시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "장애인·국가유공자 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "「장애인복지법」 제2조에 따른 장애인이 직접 운전 또는 탑승하고 장애인 자동차 표지를 부착한 자동차, 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자 및 그 유족, 고엽제후유의증 등 대상자 및 그 유족, 5·18민주유공자 및 그 유족, 「의왕시 기업활동 촉진 및 투자유치 지원 조례」에 따른 우수기업 대표자 — 1일 1회 주차에 한해 최초 2시간 면제, 2시간 초과분 50% 감면"
+  },
+  {
+   "label": "경차·다자녀·경로우대 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차(1,000cc 미만), 기초생활수급자 소유 차량, 한부모 가족 차량, 18세 이하 자녀가 있는 다자녀 가정, 「의왕시 병역명문가 예우에 관한 조례」에 따른 예우 대상자, 만 65세 이상 경로우대(1회 주차), 전통시장 이용자(1회 2시간 이내), 우수자원봉사자(1회 2시간 이내), 임산부 자동차 표지 발급 차량, 장기복무 제대군인, 저공해 2·3종 표지 부착 차량 — 50% 감면"
+  },
+  {
+   "label": "저공해 1종·플러그인하이브리드 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "「대기환경보전법」에 따른 저공해 자동차 가운데 제1종 저공해 자동차 표지 부착 차량과 플러그인하이브리드 차량 — 최초 2시간 무료, 초과분 50% 감면"
+  },
+  {
+   "label": "환승 경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환승을 목적으로 환승주차장에 주차하는 경차 — 환승목적 증명서류 제시자"
+  },
+  {
+   "label": "의왕시 거주자 행락지 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "의왕시 거주자가 행락지 주차장(백운호수·청계산·왕송호수·자연학습공원·무민공원·백운호수공원 제1·2 등)을 이용하는 경우 1회 주차에 한해 30% 감면 — 거주지 증명서 제시. 왕송호수·왕송호수공원 주차장을 야영장·레저시설 이용을 위해 주차한 경우와 주거지역·녹지지역 노외주차장 반경 50m 이내 거주 주민(정기권)도 30%입니다"
+  },
+  {
+   "label": "요일제 운행 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "승용차 부제(요일제 등) 운행차량과 자가용 함께 타기 참여 차량 — 지방자치단체장의 확인필증을 부착한 자동차, 20% 감면"
+  },
+  {
+   "label": "긴급·관용·유공납세자 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 공무수행(관용) 자동차, 외교사절 및 그 수행자의 공무수행 (관용) 자동차, 모범·유공납세자 인증표지 부착 차량 1대(교부일로부터 1년), 공공청사 부설주차장 민원인(1시간)·위원회 참석위원·문화강좌 수강생(3시간) — 면제"
+  }
+ ],
+ "realtime": false
+}

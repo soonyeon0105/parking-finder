@@ -367,6 +367,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "포천시": {"slug": "pocheon", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "의왕시": {"slug": "uiwang", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7229,7 +7231,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -13425,13 +13427,839 @@ def check_quality_pocheon(std_all, rows, lots, excluded, merged, hour_fixed, spa
     }
 
 
+# ---------------------------------------------------------------- 의왕시 (T-03 Phase 24)
+UW_PROVIDER = "경기도 의왕시"
+# 의왕시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+UW_DISTRICTS = [("의왕시", "uiwang")]
+UW_BBOX = (37.28, 37.44, 126.92, 127.06)   # 의왕시 대략 경계(좌표 점검용)
+# 의왕시 법정동 — 주소의 ‘경기도 의왕시 ○○동 번지’ 세 번째 낱말을 쓴다.
+#   의왕시는 읍·면이 없고 12개 법정동(고천·이·왕곡·오전·학의·내손·포일·청계·이동·삼·월암·초평)으로
+#   이루어지며, 행정동은 고천동·부곡동·오전동·내손1동·내손2동·청계동 6개다.
+UW_UNIT_SUFFIX = ("동",)
+# 표준데이터에 실제로 주소가 올라온 지역(품질 리포트의 동별 집계와 같은 값이 된다).
+
+UW_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2153459"
+                    "&gubun=ELIS&conDatGubunCd=1")
+UW_CORP_URL = "https://www.uuc.or.kr/base/contents/view?contentsNo=26&menuLevel=3&menuNo=45"
+UW_DISC_URL = "https://www.uuc.or.kr/base/contents/view?contentsNo=131&menuLevel=3&menuNo=127"
+UW_NEWS_URL = "https://siminilbo.co.kr/news/newsview.php?ncode=1160274638630509"
+UW_SYS_URL = "https://parking.uiwang.go.kr/"
+UW_ORD_ANNEX1_HWP = RAW / "uiwang.law.go.kr_주차장조례_별표1_20261117.hwpx"
+UW_ORD_ANNEX1_TXT = RAW / "uiwang.law.go.kr_주차장조례_별표1_20261117.txt"
+UW_ORD_ANNEX2_HWP = RAW / "uiwang.law.go.kr_주차장조례_별표2_20261117.hwpx"
+UW_ORD_ANNEX2_TXT = RAW / "uiwang.law.go.kr_주차장조례_별표2_20261117.txt"
+UW_CORP_TXT = RAW / "uuc.or.kr_공영주차장_요금안내_20261117.txt"
+UW_DISC_TXT = RAW / "uuc.or.kr_감면안내_20261117.txt"
+UW_NEWS_TXT = RAW / "siminilbo.co.kr_고천문화공원_공영주차장_개시_20261117.txt"
+UW_SYS_TXT = RAW / "uiwang.go.kr_통합주차정보시스템_중단_20261117.txt"
+UW_ORDINANCE_NOTE = ("시행 2026-05-07 · 경기도의왕시조례 제2336호(일부개정) · "
+                     "별표1·별표2 〈개정 2025.9.30.〉")
+UW_BASE_MIN = 30
+UW_UNIT_MIN = 10
+UW_FREE_MIN = 10
+
+# 의왕시 공영주차장 요금 — 「의왕시 주차장설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표
+#   (시행 2026-05-07, 경기도의왕시조례 제2336호 · 별표1 〈개정 2025.9.30.〉, 별표/서식 HWPX에서 표를 읽음).
+#   · 노상: 1급지 최초 30분 800원·이후 10분당 300원·1일 주차권 8,000원·월 정기권(전일) 85,000원
+#           2급지 600·200·6,000·50,000원 / 3급지 500·200·5,000·40,000원
+#   · 노외: 노상과 같은 1회 요금에 월 정기권(야간)을 더 둔다 — 1급지 60,000·2급지 45,000·3급지 35,000원
+#   · 거주자 전용 주차구획: 주간(07:00~19:00) 25,000·야간(19:00~익일 07:00) 20,000·전일 35,000원
+#   · 행락지 주차장: 1시간 이내 1,000 / 1시간 초과 3시간 이내 2,000 / 3시간 초과 6시간 이내 3,000 /
+#     6시간 초과 9시간 이내 4,000 / 9시간 초과(1일 주차권) 5,000원, 월 정기권 전일 45,000·야간 40,000원
+#   · 비고2: 주간은 평일 09:00~20:00, 토·일·공휴일 09:00~18:00이고 나머지는 야간. 일요일·공휴일은
+#     무료가 원칙이나 노외주차장·행락지 주차장은 야간·일요일·공휴일에도 요금을 받을 수 있다.
+#   · 비고3: 상업지역 1급지, 공업·주거지역 2급지, 개발제한구역 포함 자연녹지지역 3급지.
+#   · 비고5: 15~25인승·2.5~5톤 2배, 25인승 초과·5톤 초과 3배(행락지 관광 목적 버스는 전액 면제).
+#   · 비고6: 1일 1회 주차요금이 1일 주차권보다 많으면 1일 주차권 요금으로 징수.
+#   · 비고7: 행락지 주차장 = 백운호수제방·왕송호수·청계산·왕송호수공원·무민공원·백운호수공원 제1·제2.
+UW_FEES = {
+    (1, "노상"): {"base": 800, "unit": 300, "day": 8_000, "month": 85_000, "night": None},
+    (2, "노상"): {"base": 600, "unit": 200, "day": 6_000, "month": 50_000, "night": None},
+    (3, "노상"): {"base": 500, "unit": 200, "day": 5_000, "month": 40_000, "night": None},
+    (1, "노외"): {"base": 800, "unit": 300, "day": 8_000, "month": 85_000, "night": 60_000},
+    (2, "노외"): {"base": 600, "unit": 200, "day": 6_000, "month": 50_000, "night": 45_000},
+    (3, "노외"): {"base": 500, "unit": 200, "day": 5_000, "month": 40_000, "night": 35_000},
+}
+# 행락지 주차장의 구간 요금 — 총 주차시간이 속한 구간의 금액을 받는다(누진이 아니라 구간 합계).
+UW_PARK_BANDS = [
+    {"until": 60, "amount": 1_000},      # 1시간 이내
+    {"until": 180, "amount": 2_000},     # 1시간 초과 3시간 이내
+    {"until": 360, "amount": 3_000},     # 3시간 초과 6시간 이내
+    {"until": 540, "amount": 4_000},     # 6시간 초과 9시간 이내
+    {"until": None, "amount": 5_000},    # 9시간 초과(1일 주차권)
+]
+UW_PARK_MONTH = 45_000
+UW_PARK_NIGHT = 40_000
+
+# 의왕도시공사가 요금을 받는 시간과 무료 개방 — 요금안내 표의 각주(2026-11-17 조회).
+#   · 내손주차빌딩(표준데이터 이름 ‘내손체육공원 주차빌딩’)·의왕역·고천주민센터·백운커뮤니티 주차타워·
+#     서울외곽순환하부: ‘무료개방 : 야간 20:00~익일 08:00, 주말, 공휴일’
+#   · 청계산: ‘무료개방: 주말, 공휴일’ / 유료 노상(왕곡천복개·오전천복개): 휴무일 ‘토·일요일,
+#     공휴일(무료운영)’
+#   · 그 밖의 유료 주차장은 무료 개방 각주가 없어 24시간 같은 요금을 받는다(조례 비고2가 노외·행락지
+#     주차장의 야간·일요일·공휴일 요금 부과를 허용한다).
+UW_FREE_OPEN = {
+    "내손체육공원 주차빌딩": {"night": (20 * 60, 8 * 60), "weekend": True},
+    "의왕역 공영주차장": {"night": (20 * 60, 8 * 60), "weekend": True},
+    "고천주민센터 공영주차장": {"night": (20 * 60, 8 * 60), "weekend": True},
+    "백운커뮤니티센터 주차타워": {"night": (20 * 60, 8 * 60), "weekend": True},
+    "서울외곽순환고속도로하부": {"night": (20 * 60, 8 * 60), "weekend": True},
+    "청계산 공영주차장": {"night": None, "weekend": True},
+    "왕곡천복개주차장": {"night": None, "weekend": True},
+    "오전천복개1": {"night": None, "weekend": True},
+}
+# 의왕도시공사 요금안내가 적은 급지 — 표준데이터의 급지구분과 대조한다(모두 같다).
+UW_CORP_GRADE = {
+    "고천주민센터 공영주차장": 1, "계원대학로 제2 공영주차장": 1,
+    "서울외곽순환고속도로하부": 1, "왕곡천복개주차장": 1,
+    "내손체육공원 주차빌딩": 2, "내손 제1공영주차장": 2, "내손 제2공영주차장": 2,
+    "내손 제3공영주차장": 2, "내손 제4공영주차장": 2, "갈미어린이공원 공영주차장": 2,
+    "의왕역 공영주차장": 2, "고천지구 공영주차장": 2, "백운커뮤니티센터 주차타워": 2,
+    "오전천복개1": 2, "고천문화공원 공영주차장": 2,
+    "산빛근린공원 공영주차장": 3, "왕송고가하부 공영주차장": 3,
+}
+# 의왕도시공사가 ‘(화물차 전용)’으로만 안내하는 주차장 — 급지가 없어 조례 별표1의 급지 요금을
+#   적용할 수 없다. 표준데이터에 등록된 값(60분 1,000원·120분마다 1,000원·1일 5,000원·
+#   월 45,000원)을 그대로 쓴다(공사는 화물차 월 정기·차고지 요금만 안내한다).
+UW_SPECIAL = {
+    "백운호수교각 공영주차장": {"label": "화물차 전용", "base_min": 60, "base_fee": 1_000,
+                             "unit_min": 120, "unit_fee": 1_000, "day": 5_000, "month": 45_000},
+}
+# 의왕도시공사 요금안내가 적은 주차장별 면수 가운데 표준데이터와 다른 곳.
+UW_CORP_SPACES = {
+    "고천지구 공영주차장": 99,          # 표준 85면
+    "서울외곽순환고속도로하부": 66,     # 표준 70면
+    "고천주민센터 공영주차장": 85,      # 표준 86면
+}
+# 표준데이터 이름 → 의왕도시공사 요금안내의 주차장 이름(카드에 함께 적는다).
+UW_CORP_NAME = {
+    "내손체육공원 주차빌딩": "내손주차빌딩",
+    "서울외곽순환고속도로하부": "서울외곽순환하부주차장",
+    "백운호수교각 공영주차장": "백운교각주차장",
+    "백운호수제방 공영주차장": "백운제방주차장",
+    "왕곡천복개주차장": "왕곡천복개 공영주차장",
+    "오전천복개1": "오전천복개 공영주차장",
+    "의왕역 공영주차장": "의왕역공영주차장",
+    "내손 제1공영주차장": "내손제1공영주차장",
+    "내손 제2공영주차장": "내손제2공영주차장",
+    "내손 제3공영주차장": "내손제3공영주차장",
+    "내손 제4공영주차장": "내손제4공영주차장",
+    "갈미어린이공원 공영주차장": "갈미어린이공원 공영주차장",
+    "산빛근린공원 공영주차장": "산빛근린공원 공영주차장",
+    "백운커뮤니티센터 주차타워": "백운커뮤니티 주차타워",
+    "계원대학로 제2 공영주차장": "계원대학로 제2공영주차장",
+    "청계산 공영주차장": "청계산공영주차장",
+}
+# 조례 별표1 비고7이 정한 행락지 주차장.
+UW_PARK_LOTS = {
+    "백운호수제방 공영주차장", "왕송호수 공영주차장", "청계산 공영주차장",
+    "왕송호수공원 공영주차장", "무민공원 공영주차장",
+    "백운호수제1공영주차장", "백운호수제2공영주차장",
+}
+# 표준데이터가 ‘무료’로 등록했지만 지금은 요금을 받는 주차장.
+#   · 고천문화공원: 2026-04-01 정식 운영, 4월 한 달 무료 시범 운영 뒤 5월부터 유료 전환(시민일보
+#     2026-03-30). 의왕도시공사 요금안내는 2급지(30분 600원·10분당 200원·1일 6,000원·월 50,000원).
+#   · 백운호수공원 제1·2: 조례 별표1 비고7이 행락지 주차장으로 지정하고, 현장 안내판도 행락지
+#     요금(1시간 1,000원~9시간 초과 5,000원)을 적고 있다. 의왕도시공사 감면안내도 행락지 목록에
+#     ‘백운호수 공원1·2’를 넣었다.
+UW_RECLASSIFIED = {
+    "고천문화공원 공영주차장": "2급지",
+    "백운호수제1공영주차장": "행락지",
+    "백운호수제2공영주차장": "행락지",
+}
+# 월 정기권 — 조례 별표1의 금액과 의왕도시공사 요금안내의 신청 조건.
+UW_MONTHLY = {
+    "내손체육공원 주차빌딩": (50_000, "내손주차빌딩 — 정기주차(주·야간) 50,000원"),
+    "내손 제1공영주차장": (50_000, "정기권 50,000원, 타지역 시민도 신청할 수 있습니다"),
+    "내손 제2공영주차장": (50_000, "정기권 50,000원, 의왕시민만 6개월 단위 추첨제"),
+    "내손 제3공영주차장": (50_000, "정기권 50,000원, 의왕시민(주변에서 상가를 운영하는 타지역 시민 포함)"),
+    "내손 제4공영주차장": (None, "정기권을 받지 않습니다"),
+    "갈미어린이공원 공영주차장": (50_000, "정기권 50,000원, 의왕시민만 신청할 수 있습니다"),
+    "산빛근린공원 공영주차장": (None, "정기권을 받지 않습니다"),
+    "왕송고가하부 공영주차장": (None, "정기권을 받지 않습니다"),
+    "계원대학로 제2 공영주차장": (None, "정기권을 받지 않습니다"),
+    "의왕역 공영주차장": (None, "정기권을 받지 않습니다"),
+    "고천주민센터 공영주차장": (None, "정기권을 받지 않습니다"),
+    "백운커뮤니티센터 주차타워": (50_000, "정기권 50,000원, 의왕시민만 신청할 수 있습니다"),
+    "고천지구 공영주차장": (50_000, "정기권 50,000원, 타지역 시민도 신청할 수 있습니다"),
+    "고천문화공원 공영주차장": (50_000, "정기권 50,000원, 의왕시민이 이용할 수 있습니다"),
+    "왕송호수 공영주차장": (45_000, "행락지 주차장 월 정기권 45,000원, 타지역 시민도 신청할 수 있습니다"),
+    "왕송호수공원 공영주차장": (45_000, "행락지 주차장 월 정기권 45,000원(승용차만, 화물 불가)"),
+    "백운호수제방 공영주차장": (45_000, "행락지 주차장 월 정기권 45,000원 — 승용차 정기권은 상황실 문의, "
+                                        "버스·캠핑카·버스운전원 승용차는 1년 단위 추첨제"),
+    "청계산 공영주차장": (None, "정기권을 받지 않습니다"),
+    "백운호수교각 공영주차장": (45_000, "화물차 전용 주차장 — 1년 단위 추첨제, 화물차 월 정기주차 "
+                                        "소형(1톤 이하) 45,000·중형 90,000·대형 135,000원"),
+    "서울외곽순환고속도로하부": (None, "정기권을 받지 않습니다"),
+    "왕곡천복개주차장": (85_000, "노상 1급지 월 정기권 85,000원(조례 별표1)"),
+    "오전천복개1": (50_000, "노상 2급지 월 정기권 50,000원(조례 별표1)"),
+}
+
+# 의왕시 주차요금 감면 — 「의왕시 주차장설치 및 관리 조례」 [별표 2](제5조제1항 관련)와
+#   의왕도시공사 ‘감면안내’(2026-11-17 확인). 감면은 중복 적용하지 않고(공통사항 1) 증빙서류를
+#   낸 때부터 적용한다.
+UW_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "장애인·국가유공자 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": ("「장애인복지법」 제2조에 따른 장애인이 직접 운전 또는 탑승하고 장애인 자동차 표지를 "
+              "부착한 자동차, 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자 및 "
+              "그 유족, 고엽제후유의증 등 대상자 및 그 유족, 5·18민주유공자 및 그 유족, "
+              "「의왕시 기업활동 촉진 및 투자유치 지원 조례」에 따른 우수기업 대표자 — "
+              "1일 1회 주차에 한해 최초 2시간 면제, 2시간 초과분 50% 감면")},
+    {"label": "경차·다자녀·경로우대 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("경형자동차(1,000cc 미만), 기초생활수급자 소유 차량, 한부모 가족 차량, 18세 이하 자녀가 "
+              "있는 다자녀 가정, 「의왕시 병역명문가 예우에 관한 조례」에 따른 예우 대상자, 만 65세 이상 "
+              "경로우대(1회 주차), 전통시장 이용자(1회 2시간 이내), 우수자원봉사자(1회 2시간 이내), "
+              "임산부 자동차 표지 발급 차량, 장기복무 제대군인, 저공해 2·3종 표지 부착 차량 — 50% 감면")},
+    {"label": "저공해 1종·플러그인하이브리드 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": ("「대기환경보전법」에 따른 저공해 자동차 가운데 제1종 저공해 자동차 표지 부착 차량과 "
+              "플러그인하이브리드 차량 — 최초 2시간 무료, 초과분 50% 감면")},
+    {"label": "환승 경차 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "환승을 목적으로 환승주차장에 주차하는 경차 — 환승목적 증명서류 제시자"},
+    {"label": "의왕시 거주자 행락지 30%", "rate": 0.3, "exempt_min": 0,
+     "note": ("의왕시 거주자가 행락지 주차장(백운호수·청계산·왕송호수·자연학습공원·무민공원·"
+              "백운호수공원 제1·2 등)을 이용하는 경우 1회 주차에 한해 30% 감면 — 거주지 증명서 제시. "
+              "왕송호수·왕송호수공원 주차장을 야영장·레저시설 이용을 위해 주차한 경우와 주거지역·"
+              "녹지지역 노외주차장 반경 50m 이내 거주 주민(정기권)도 30%입니다")},
+    {"label": "요일제 운행 20%", "rate": 0.2, "exempt_min": 0,
+     "note": ("승용차 부제(요일제 등) 운행차량과 자가용 함께 타기 참여 차량 — 지방자치단체장의 "
+              "확인필증을 부착한 자동차, 20% 감면")},
+    {"label": "긴급·관용·유공납세자 등 100%", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차, 국가·지방자치단체 공무수행(관용) 자동차, 외교사절 및 그 수행자의 공무수행 "
+              "(관용) 자동차, 모범·유공납세자 인증표지 부착 차량 1대(교부일로부터 1년), "
+              "공공청사 부설주차장 민원인(1시간)·위원회 참석위원·문화강좌 수강생(3시간) — 면제")},
+]
+
+
+def uw_dong_of(text: str):
+    """주소에서 의왕시 법정동을 뽑는다 — ‘경기도 의왕시 {동} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "의왕시":
+        cand = parts[2]
+        if cand.endswith("동") and not cand.endswith(("로동", "가동")):
+            return cand
+    return None
+
+
+def uw_fee(ptype: str = "노외", grade: int = 1, pay: str = "", *,
+           monthly=None, month_note="", park=False):
+    """의왕시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    급지 요금은 ‘최초 30분 기본요금 + 이후 10분당’ 구조이고, 조례 별표2 제1호 마목이
+    ‘10분 미만 이용차량’을 전액 면제하므로 free_min=10을 둔다(10분까지 0원, 11~30분 기본요금).
+    행락지 주차장은 시간 구간별 금액(bands)이라 base 1시간 1,000원을 두고 bands가 계산을 맡는다.
+    """
+    if park:
+        return {
+            "type": "유료", "raw_type": "유료", "mixed": False,
+            "grade": None, "grade_label": "행락지", "std_grade": "행락지",
+            "base_min": 60, "base_fee": 1_000,
+            "unit_min": 60, "unit_fee": 1_000,
+            "bands": [dict(b) for b in UW_PARK_BANDS],
+            "steps": None, "steps_label": None,
+            "free_min": UW_FREE_MIN, "deduct_min": None,
+            "cap_fee": None, "cap_src": "조례 별표1 행락지 1일 주차권",
+            "daily_hours": None, "daily_fee": 5_000,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": UW_PARK_MONTH if monthly is None else monthly,
+            "monthly_day": None, "monthly_night": UW_PARK_NIGHT,
+            "monthly_all": UW_PARK_MONTH if monthly is None else monthly,
+            "monthly_label": "행락지 정기권",
+            "pay": pay,
+            "basis": ("「의왕시 주차장설치 및 관리 조례」 별표1 행락지 주차장(1시간 이내 1,000원 · "
+                      "3시간 이내 2,000원 · 6시간 이내 3,000원 · 9시간 이내 4,000원 · "
+                      "9시간 초과 5,000원)"),
+            "category": None, "portal_free_now": False, "flat_day": False,
+            "ticket_only": False, "std": None,
+        }
+    t = UW_FEES[(grade, ptype)]
+    month = t["month"] if monthly is None else monthly
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "grade_label": None, "std_grade": None,
+        "base_min": UW_BASE_MIN, "base_fee": t["base"],
+        "unit_min": UW_UNIT_MIN, "unit_fee": t["unit"],
+        "bands": None, "steps": None, "steps_label": None,
+        "free_min": UW_FREE_MIN, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 주차권",
+        "daily_hours": None, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": month, "monthly_day": None, "monthly_night": t["night"],
+        "monthly_all": month, "monthly_label": month_note or None,
+        "pay": pay,
+        "basis": (f"「의왕시 주차장설치 및 관리 조례」 별표1 {grade}급지 {ptype} "
+                  f"(최초 {UW_BASE_MIN}분 {t['base']:,}원 · 이후 {UW_UNIT_MIN}분당 {t['unit']:,}원 · "
+                  f"1일 {t['day']:,}원)"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def uw_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "bands": None, "steps": None, "steps_label": None,
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def uw_hm(m: int) -> str:
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def uw_window(start, end):
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [uw_hm(start), uw_hm(end)]}
+
+
+def build_uiwang():
+    """의왕시 공영주차장을 표준데이터 + 의왕시 조례 별표1·2 + 의왕도시공사 요금안내로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 의왕시 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 55행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 의왕시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다.
+    요금은 조례 별표1(급지별 30분 기본·10분당 요율, 행락지 구간 요금)을 쓰고, 무료 개방은
+    의왕도시공사 요금안내 각주(야간 20:00~08:00·주말·공휴일)를 따른다(표준데이터는 유료 행도
+    00:00~23:59로 등록되어 있다).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == UW_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    night_free, weekend_free, grade_from_corp, park_from_rule, std_grade_diff = [], [], [], [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "의왕시",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and uw_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and uw_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "의왕도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["base_fee"] if fee["type"] == "유료" else None),
+            "city": "의왕시",
+            "city_slug": "uiwang",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (UW_BBOX[0] <= lat <= UW_BBOX[1] and UW_BBOX[2] <= lng <= UW_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = uw_dong_of(jibun) or uw_dong_of(road)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        std_grade = (r.get("급지구분") or "").strip()
+        grade = to_int(std_grade)
+        if grade:
+            grade = min(max(grade, 1), 3)
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        monthly, month_note = UW_MONTHLY.get(name, (None, ""))
+        corp_name = UW_CORP_NAME.get(name)
+
+        paid = fee_type in ("유료", "혼합") or name in UW_RECLASSIFIED
+        park = name in UW_PARK_LOTS
+        if fee_type not in ("유료", "혼합") and name in UW_RECLASSIFIED:
+            want = UW_RECLASSIFIED[name]
+            reclassified.append(
+                f"{name}: 표준데이터 요금정보 ‘{fee_type or '무료'}’ ↔ 지금은 {want} 요금을 받는 "
+                f"주차장 — 유료로 바로잡음")
+            if name == "고천문화공원 공영주차장":
+                notice_bits.append(
+                    "2026년 4월 1일 정식 운영을 시작해 4월 한 달은 무료로 시범 운영하고 "
+                    "5월부터 유료로 전환했습니다(시민일보 2026-03-30) — 공공데이터 표준데이터에는 "
+                    "아직 ‘무료’로 등록되어 있습니다")
+                grade = 2
+            else:
+                notice_bits.append(
+                    "조례 별표1 비고7이 행락지 주차장으로 지정한 곳입니다 — 현장 안내판도 1시간 "
+                    "1,000원~9시간 초과 5,000원의 행락지 요금을 적고 있고, 공공데이터 표준데이터에는 "
+                    "아직 ‘무료’로 등록되어 있습니다")
+                park_from_rule.append(name)
+        if park and fee_type in ("유료", "혼합"):
+            park_from_rule.append(name)
+        special = UW_SPECIAL.get(name)
+        if paid and not park and not special:
+            if not grade:
+                grade = 2      # 급지가 비어 있는 유료 행(고천문화공원)은 2급지로 본다
+                std_grade_diff.append(f"{name}: 표준데이터 급지구분 ‘{std_grade or '없음'}’ ↔ "
+                                      f"의왕도시공사 요금안내 2급지")
+            corp_grade = UW_CORP_GRADE.get(name)
+            if corp_grade and corp_grade != grade:
+                grade_from_corp.append(
+                    f"{name}: 표준데이터 {grade}급지 ↔ 의왕도시공사 요금안내 {corp_grade}급지 — "
+                    f"공사 안내를 따름")
+                grade = corp_grade
+
+        if paid and special:
+            fee = uw_free_fee()
+            fee.update({
+                "type": "유료", "raw_type": "유료",
+                "grade": None, "grade_label": special["label"], "std_grade": std_grade or None,
+                "base_min": special["base_min"], "base_fee": special["base_fee"],
+                "unit_min": special["unit_min"], "unit_fee": special["unit_fee"],
+                "free_min": UW_FREE_MIN, "daily_fee": special["day"],
+                "monthly": monthly if monthly is not None else special["month"],
+                "monthly_all": monthly if monthly is not None else special["month"],
+                "monthly_label": None, "pay": pay,
+                "cap_src": "표준데이터 1일 주차권",
+                "basis": ("표준데이터 등록 요금(60분 1,000원 · 이후 120분마다 1,000원 · "
+                          "1일 5,000원 · 월 45,000원)"),
+                "std": {"base_min": to_int(r.get("주차기본시간")),
+                        "base_fee": to_int(r.get("주차기본요금")),
+                        "unit_min": to_int(r.get("추가단위시간")),
+                        "unit_fee": to_int(r.get("추가단위요금")),
+                        "day": to_int(r.get("1일주차권요금")),
+                        "monthly": to_int(r.get("월정기권요금"))},
+            })
+            notice_bits.append(
+                "화물차 전용 주차장이라 일반 승용차는 이용할 수 없습니다 — 의왕도시공사는 화물차 "
+                "월 정기·차고지 요금만 안내하고, 위 시간 요금은 표준데이터 등록값입니다")
+            if month_note:
+                notice_bits.append(month_note)
+        elif paid:
+            fee = uw_fee(ptype, grade or 2, pay=pay, monthly=monthly, park=park)
+            if name in UW_MONTHLY and UW_MONTHLY[name][0] is None:
+                # 정기권을 받지 않는 주차장 — 조례의 월 정기권 금액을 카드에 띄우지 않는다.
+                fee["monthly"] = fee["monthly_all"] = fee["monthly_night"] = None
+                fee["monthly_label"] = None
+            month_txt = f", 월 정기권 {fee['monthly']:,}원" if fee["monthly"] else ""
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            applied_std = (r.get("1일주차권요금적용시간") or "").strip()
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                          "base_fee": to_int(r.get("주차기본요금")),
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily_std, "monthly": month_std}
+            want_day = 5_000 if park else UW_FEES[(grade or 2, ptype)]["day"]
+            want_month = (UW_PARK_MONTH if park else UW_FEES[(grade or 2, ptype)]["month"])
+            if daily_std and daily_std != want_day:
+                note_fixed.append(
+                    f"{name}: 표준데이터 1일주차권요금 {daily_std:,}원 ↔ 조례 별표1 "
+                    f"{'행락지' if park else f'{grade}급지 {ptype}'} 1일 {want_day:,}원")
+            if month_std and want_month and month_std != want_month:
+                month_diff.append(f"{name}: 표준데이터 월정기권 {month_std:,}원 ↔ 조례 별표1 "
+                                  f"{'행락지' if park else f'{ptype} {grade}급지'} {want_month:,}원")
+            # 무료 개방(야간·주말·공휴일) — 의왕도시공사 요금안내 각주
+            fo = UW_FREE_OPEN.get(name)
+            if fo:
+                if fo.get("weekend"):
+                    free_days = {"sat": True, "sun": True}
+                    weekend_free.append(name)
+                bits = []
+                night = fo.get("night")
+                if night:
+                    s, e = night
+                    # 요금을 받는 시간은 무료 개방의 반대편(08:00~20:00)이다 — 운영일은 그대로 연다.
+                    win = {"weekday": uw_window(e, s), "sat": uw_window(e, s), "sun": uw_window(e, s)}
+                    night_free.append(name)
+                    bits.append(f"야간 {uw_hm(s)}~익일 {uw_hm(e)}")
+                if fo.get("weekend"):
+                    bits.append("토요일·일요일·공휴일")
+                oper = {"weekday": True, "sat": True, "sun": True}
+                free_note = ("의왕도시공사 요금안내: " + "·".join(bits) + "은 무료로 개방합니다")
+                if night:
+                    free_note += f" — 요금은 {uw_hm(night[1])}~{uw_hm(night[0])}에만 받습니다"
+                free_note += (". 계산기는 머문 시간만으로 계산해 무료 시간을 빼지 않으니, 실제 "
+                              "정산은 현장 안내를 확인하세요.")
+                hour_fixed.append(
+                    f"{name}: 표준데이터 평일 {r.get('평일운영시작시각') or ''}~"
+                    f"{r.get('평일운영종료시각') or ''} → 의왕도시공사 요금안내의 무료 개방"
+                    f"({'·'.join(bits)})을 반영")
+            notice_bits.append(
+                f"「의왕시 주차장설치 및 관리 조례」 별표1 "
+                + ("행락지 주차장 요금입니다 — 1시간 이내 1,000원, 1시간 초과 3시간 이내 "
+                   "2,000원, 3~6시간 3,000원, 6~9시간 4,000원, 9시간 초과(1일 주차권) 5,000원"
+                   if park else
+                   f"{grade}급지 {ptype} 요금입니다 — 최초 30분 {fee['base_fee']:,}원, 이후 "
+                   f"10분당 {fee['unit_fee']:,}원, 1일 주차권 {fee['daily_fee']:,}원")
+                + month_txt
+                + ". 조례 별표2로 10분 미만 이용은 무료입니다")
+            if month_note:
+                notice_bits.append(month_note)
+            if name in UW_CORP_SPACES and UW_CORP_SPACES[name] != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 의왕도시공사 "
+                                  f"{UW_CORP_SPACES[name]}면")
+                notice_bits.append(
+                    f"표준데이터 등록면수는 {spaces}면이고, 의왕도시공사 안내는 "
+                    f"{UW_CORP_SPACES[name]}면입니다")
+        else:
+            fee = uw_free_fee()
+            if name in UW_CORP_SPACES and UW_CORP_SPACES[name] != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 의왕도시공사 "
+                                  f"{UW_CORP_SPACES[name]}면")
+
+        # 무료로 개방하는 요일은 운영 칸을 열어 둔다 — 표준데이터가 유료 노상의 공휴일을
+        #   00:00~00:00(휴무)으로 등록한 곳(왕곡천복개·오전천복개)이 ‘휴무’로 보이지 않게 한다.
+        for _k in ("sat", "sun"):
+            if free_days.get(_k) and not win[_k]["open"]:
+                win[_k] = dict(win["weekday"], open=True, listed=True)
+        if corp_name and corp_name != name:
+            notice_bits.append(f"의왕도시공사 요금안내에는 ‘{corp_name}’이라는 이름으로 적혀 있습니다")
+        if name == "왕송호수공원 공영주차장":
+            notice_bits.append("화물차·버스는 평일만 주차할 수 있습니다(주말 주차 불가)")
+        if name == "의왕역 공영주차장":
+            notice_bits.append(
+                "공사 요금안내에 ‘야간주차 시간은 22:00부터 익일 08:00까지’와 ‘무료개방: 야간 "
+                "20:00~익일 08:00’이 함께 적혀 있어 야간 기준이 서로 다릅니다 — 이 사이트는 "
+                "20:00부터 무료로 계산합니다(현장 확인 권장)")
+
+        if street and name in ("왕곡천복개주차장", "오전천복개1"):
+            notice_bits.append("유료 노상주차장은 토요일·일요일·공휴일에 무료로 운영합니다"
+                               "(의왕도시공사 요금안내 휴무일란)")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "의왕도시공사"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    # 결제 방법 — 의왕도시공사는 모든 주차장에서 신용카드·후불교통신용카드만 받는다(현금 결제 불가).
+    #   표준데이터가 ‘현금’으로 등록한 유료 노상 2곳(왕곡천복개·서울외곽순환하부)을 바로잡는다.
+    pay_fixed = []
+    for l in lots:
+        if l["fee"]["type"] != "유료":
+            continue
+        if (l["fee"].get("pay") or "") != "신용카드":
+            pay_fixed.append(f"{l['name']}: 표준데이터 결제방법 ‘{l['fee'].get('pay') or '없음'}’ ↔ "
+                             f"의왕도시공사 ‘신용카드·후불교통신용카드만(현금 결제 불가)’")
+            l["fee"]["pay"] = "신용카드"
+
+    # 이름이 같은 노상 구간(표준데이터가 같은 이름으로 두 줄 등록한 ‘이면도로 주차장’ 2곳)은
+    #   지번을 덧붙여 구분한다.
+    dup_names = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    for l in lots:
+        if l["name"] in dup_names:
+            jibun = (l["addr_jibun"] or "").split()
+            if jibun:
+                l["name"] = f"{l['name']}({jibun[-1]})"
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"uw-{i:03d}" if l["list_mode"] == "card" else f"uw-s{i:03d}"
+
+    quality = check_quality_uiwang(rows_all, rows_city, lots, excluded, merged,
+                                   hour_fixed, space_diff, note_fixed, reclassified,
+                                   month_diff, night_free, weekend_free, grade_from_corp,
+                                   park_from_rule, std_grade_diff, pay_fixed)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "의왕시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-23",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 의왕시가 등록한 55행(노외 27·노상 28)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다. 요금 구분은 유료 22행(노외 19·노상 3)과 "
+                             "무료 33행이지만, 고천문화공원(2026-05 유료 전환)과 백운호수공원 "
+                             "제1·2(조례 별표1 비고7 행락지)는 유료로 바로잡았다. 주차구획수가 비어 "
+                             "있거나 좌표가 빠진 껍데기 행은 없어 55행을 모두 실었다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": ("의왕시 주차장설치 및 관리 조례 [별표 1] 공영주차장 주차요금표 · "
+                             "[별표 2] 공영주차장 주차요금 감면기준"),
+                    "org": "의왕시청 교통정책과(031-345-3311) · 의왕도시공사 통합관제실(031-8086-7440)",
+                    "url": UW_ORDINANCE_URL,
+                    "file": UW_ORD_ANNEX1_HWP.name if UW_ORD_ANNEX1_HWP.exists() else UW_ORD_ANNEX1_TXT.name,
+                    "sha256": (sha256(UW_ORD_ANNEX1_HWP) if UW_ORD_ANNEX1_HWP.exists()
+                               else sha256(UW_ORD_ANNEX1_TXT) if UW_ORD_ANNEX1_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": UW_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(UW_ORD_ANNEX1_TXT),
+                    "note": ("국가법령정보센터 별표/서식 HWPX를 내려받아 표 셀을 읽어 정리본(txt)을 "
+                             "두었다. 노상 1급지 최초 30분 800원·이후 10분당 300원·1일 주차권 "
+                             "8,000원·월 정기권 85,000원(2급지 600·200·6,000·50,000원, 3급지 "
+                             "500·200·5,000·40,000원)이고, 노외는 같은 1회 요금에 야간 정기권 "
+                             "(1급지 60,000·2급지 45,000·3급지 35,000원)을 더 둔다. 행락지 주차장은 "
+                             "1시간 이내 1,000 / 3시간 이내 2,000 / 6시간 이내 3,000 / 9시간 이내 "
+                             "4,000 / 9시간 초과 5,000원, 월 정기권 45,000(야간 40,000)원이다. "
+                             "별표2는 전액면제(긴급·관용·유공납세자·10분 미만 이용), 50% 감면"
+                             "(장애인·국가유공자 등은 2시간 면제 뒤), 30% 감면(의왕시 거주자 행락지), "
+                             "20% 감면(요일제)을 정한다."),
+                },
+                {
+                    "id": "corp", "name": "의왕도시공사 공영주차장 요금안내(직영·위탁주차장, 노상주차장, 무료공영주차장)",
+                    "org": "의왕도시공사 통합관제실(031-8086-7440)",
+                    "url": UW_CORP_URL,
+                    "file": UW_CORP_TXT.name if UW_CORP_TXT.exists() else None,
+                    "sha256": sha256(UW_CORP_TXT) if UW_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 23, "fetched_at": _sync_time(UW_CORP_TXT),
+                    "note": ("직영·위탁주차장 23곳(노외·부설)과 노상주차장 2곳, 동별 무료 노상주차장을 "
+                             "급지·면수·요금·정기권·무료개방과 함께 싣고 있다. 급지는 1급지(고천주민센터·"
+                             "계원대학로 제2·서울외곽순환하부·왕곡천복개), 2급지(내손 1~4·내손주차빌딩·"
+                             "갈미·의왕역·고천지구·고천문화공원·백운커뮤니티·오전천복개), 3급지"
+                             "(산빛근린·왕송고가하부), 행락지(백운제방·왕송호수·왕송호수공원·청계산·"
+                             "무민공원)로 나뉜다. 유료 주차장 가운데 내손주차빌딩·의왕역·고천주민센터·"
+                             "백운커뮤니티 주차타워·서울외곽순환하부는 ‘야간 20:00~익일 08:00·주말·"
+                             "공휴일 무료 개방’, 청계산은 ‘주말·공휴일 무료 개방’을 적고, 노상 "
+                             "왕곡천복개·오전천복개는 휴무일란에 ‘토·일요일, 공휴일(무료운영)’이라고 "
+                             "적는다. 백운호수공원 제1·2와 내손공용청사는 이 목록에 없다."),
+                },
+                {
+                    "id": "disc", "name": "의왕도시공사 교통시설 감면안내",
+                    "org": "의왕도시공사 통합관제실(031-8086-7440)",
+                    "url": UW_DISC_URL,
+                    "file": UW_DISC_TXT.name if UW_DISC_TXT.exists() else None,
+                    "sha256": sha256(UW_DISC_TXT) if UW_DISC_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 22, "fetched_at": _sync_time(UW_DISC_TXT),
+                    "note": ("감면대상·증빙서류·할인율을 표로 정리해 두었다. 조례 별표2와 같은 내용이며, "
+                             "행락지 목록을 ‘백운호수, 청계산, 왕송호수, 자연학습공원, 무민공원, "
+                             "백운호수 공원1·2 등’으로 적어 백운호수공원 제1·2가 행락지 주차장임을 "
+                             "뒷받침한다. 환승 경차 60%, 저공해 1종·플러그인하이브리드 2시간 면제 뒤 "
+                             "50%, 의왕시 거주자 행락지 30%를 함께 적고 있다."),
+                },
+                {
+                    "id": "news", "name": "시민일보 — 의왕시, 고천문화공원 공영주차장 운영 개시",
+                    "org": "시민일보(2026-03-30 보도)", "url": UW_NEWS_URL,
+                    "file": UW_NEWS_TXT.name if UW_NEWS_TXT.exists() else None,
+                    "sha256": sha256(UW_NEWS_TXT) if UW_NEWS_TXT.exists() else None,
+                    "license": "언론 보도(참고용)", "base_date": "2026-03-30",
+                    "rows_total": None, "fetched_at": _sync_time(UW_NEWS_TXT),
+                    "note": ("고천문화공원 공영주차장(100면, 문화공원로 27)을 2026-04-01 정식 운영하고 "
+                             "4월 한 달 무료 시범 운영 뒤 5월부터 유료로 전환한다고 보도했다 — "
+                             "표준데이터가 ‘무료’로 남아 있는 이유를 설명한다."),
+                },
+                {
+                    "id": "sys", "name": "의왕시 통합주차정보시스템(서비스 일시 중단 안내)",
+                    "org": "의왕시 교통정책과", "url": UW_SYS_URL,
+                    "file": UW_SYS_TXT.name if UW_SYS_TXT.exists() else None,
+                    "sha256": sha256(UW_SYS_TXT) if UW_SYS_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지", "base_date": "조회 2026-11-17",
+                    "rows_total": None, "fetched_at": _sync_time(UW_SYS_TXT),
+                    "note": ("2026-11-17 조회 시 실시간 주차정보 대신 ‘주차정보 서비스 일시 중단 안내’ "
+                             "페이지만 열려, 실시간 잔여면수는 연동하지 않았다(realtime: false)."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in UW_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "uiwang_grade",
+            "base_min": UW_BASE_MIN,
+            "unit_min": UW_UNIT_MIN,
+            "free_min": UW_FREE_MIN,
+            "applies": UW_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "상업지역", "base": 800, "unit": 300, "day": 8_000,
+                 "month": 85_000, "night": 60_000, "lots": 0},
+                {"grade": 2, "where": "공업지역·주거지역", "base": 600, "unit": 200, "day": 6_000,
+                 "month": 50_000, "night": 45_000, "lots": 0},
+                {"grade": 3, "where": "개발제한구역을 포함한 자연녹지지역", "base": 500, "unit": 200,
+                 "day": 5_000, "month": 40_000, "night": 35_000, "lots": 0},
+            ],
+            "street": [
+                {"grade": 1, "base": 800, "unit": 300, "day": 8_000, "month": 85_000, "night": None},
+                {"grade": 2, "base": 600, "unit": 200, "day": 6_000, "month": 50_000, "night": None},
+                {"grade": 3, "base": 500, "unit": 200, "day": 5_000, "month": 40_000, "night": None},
+            ],
+            "park": {"bands": [dict(b) for b in UW_PARK_BANDS], "month": UW_PARK_MONTH,
+                     "night": UW_PARK_NIGHT, "free_min": UW_FREE_MIN,
+                     "lots": len([l for l in lots if l["fee"].get("grade_label") == "행락지"])},
+            "paid_window": {"weekday": "09:00~20:00", "weekend": "09:00~18:00",
+                            "free": "일요일·공휴일 무료 원칙(노외·행락지는 요금 부과 가능)"},
+            "corp": {
+                "paid": len([l for l in lots if l["fee"]["type"] == "유료"]),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                "night_free": len(night_free),
+                "weekend_free": len(weekend_free),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade"), "grade_label": l["fee"].get("grade_label"),
+                 "free": l["fee"].get("free_min"), "base": l["fee"].get("base_fee"),
+                 "base_min": l["fee"].get("base_min"),
+                 "unit": l["fee"].get("unit_fee"), "unit_min": l["fee"].get("unit_min"),
+                 "day": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「의왕시 주차장설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({UW_ORDINANCE_NOTE}) · 의왕도시공사 공영주차장 요금안내(2026-11-17 확인)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["의왕시"] | {
+        "city": "의왕시",
+        "weekend_free_pages": False,
+        "discounts": UW_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "uiwang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_uiwang(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                         note_fixed, reclassified, month_diff, night_free, weekend_free,
+                         grade_from_corp, park_from_rule, std_grade_diff, pay_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    park = [l for l in lots if l["fee"].get("grade_label") == "행락지"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_의왕시행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "행락지_주차장": [l["name"] for l in park],
+        "행락지_출처": ("「의왕시 주차장설치 및 관리 조례」 별표1 비고7 · 의왕도시공사 감면안내"
+                        "(행락지 목록에 백운호수 공원1·2 포함)"),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "야간무료_주차장": night_free,
+        "주말무료_주차장": weekend_free,
+        "급지_보정": grade_from_corp,
+        "결제_보정": pay_fixed,
+        "급지_없음_보정": std_grade_diff,
+        "행락지_지정": park_from_rule,
+        "감면_출처": "「의왕시 주차장설치 및 관리 조례」 별표2(제5조제1항) · 의왕도시공사 감면안내",
+        "무료시간_출처": "조례 별표2 제1호 마목(10분 미만 공영주차장 이용차량 전액 면제)",
+        "주말무료_출처": ("의왕도시공사 요금안내 각주(내손주차빌딩·의왕역·고천주민센터·백운커뮤니티 "
+                          "주차타워·서울외곽순환하부 ‘야간 20:00~익일 08:00, 주말, 공휴일’ / 청계산 "
+                          "‘주말, 공휴일’ / 노상 왕곡천복개·오전천복개 휴무일 ‘토·일요일, 공휴일"
+                          "(무료운영)’·조례 별표1 비고2"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -13440,7 +14268,7 @@ def main():
              "hanam": ["하남시"], "gunpo": ["군포시"],
              "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"],
              "icheon": ["이천시"], "anseong": ["안성시"],
-             "yangju": ["양주시"], "pocheon": ["포천시"]}[args.city])
+             "yangju": ["양주시"], "pocheon": ["포천시"], "uiwang": ["의왕시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -13490,6 +14318,8 @@ def main():
         cities.append(build_yangju())
     if "포천시" in want:
         cities.append(build_pocheon())
+    if "의왕시" in want:
+        cities.append(build_uiwang())
 
     if args.city == "all":
         site = build_site_payload(cities)

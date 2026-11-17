@@ -38,7 +38,7 @@ def js_price(lot, minutes, day, rate, exempt=0):
     payload = {"oper": lot["oper"], "free_days": lot["free_days"],
                "fee": {k: lot["fee"].get(k) for k in ("type", "base_min", "base_fee", "unit_min",
                                                       "unit_fee", "daily_hours", "daily_fee",
-                                                      "steps", "free_min", "cap_fee", "deduct_min")}}
+                                                      "steps", "bands", "free_min", "cap_fee", "deduct_min")}}
     ctx.eval(f"var LOT = {json.dumps(payload, ensure_ascii=False)};")
     r = ctx.eval(f"JSON.stringify(priceFor(LOT, {minutes}, {json.dumps(day)}, {rate}, {exempt}))")
     return json.loads(r)
