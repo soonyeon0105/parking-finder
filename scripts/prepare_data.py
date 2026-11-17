@@ -369,6 +369,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "의왕시": {"slug": "uiwang", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "여주시": {"slug": "yeoju", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7231,7 +7233,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -14254,12 +14256,732 @@ def check_quality_uiwang(std_all, rows, lots, excluded, merged, hour_fixed, spac
 
 
 # ---------------------------------------------------------------- main
+# ---------------------------------------------------------------- 여주시 (T-03 Phase 25)
+YEOJU_PROVIDER = "경기도 여주시"
+# 여주시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+YEOJU_DISTRICTS = [("여주시", "yeoju")]
+YEOJU_BBOX = (37.10, 37.50, 127.40, 127.80)   # 여주시 대략 경계(좌표 점검용)
+# 여주시 법정동·읍·면 — 주소의 ‘경기도 여주시 ○○동|○○읍|○○면 번지’ 세 번째 낱말을 쓴다.
+#   여주시는 1읍(가남읍) 8면(점동·세종대왕·흥천·금사·산북·대신·북내·강천)과
+#   여흥동·중앙동·오학동 3개 행정동(법정동 홍문동·창동·상동·하동·현암동·오학동 등)으로 이루어진다.
+YEOJU_UNIT_SUFFIX = ("읍", "면", "동")
+
+YEOJU_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2049793"
+                    "&gubun=ELIS&conDatGubunCd=1")
+YEOJU_HALL_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1997205"
+                   "&gubun=ELIS&conDatGubunCd=0")
+YEOJU_CORP_URL = "https://yeojuuc.or.kr/sub1/parking/public.do"
+YEOJU_HALL_URL = "https://yeojuuc.or.kr/sub1/parking/cityhall.do"
+YEOJU_ORD_HWP = RAW / "yeoju.law.go.kr_주차장조례_20261117.hwp"
+YEOJU_ORD_TXT = RAW / "yeoju.law.go.kr_주차장조례_별표5_20261117.txt"
+YEOJU_HALL_HWP = RAW / "yeoju.law.go.kr_공공청사부설주차장조례_20261117.hwp"
+YEOJU_HALL_TXT = RAW / "yeoju.law.go.kr_공공청사부설주차장조례_별표1_20261117.txt"
+YEOJU_CORP_TXT = RAW / "yeojuuc.or.kr_공영주차장_20261117.txt"
+YEOJU_HALLP_TXT = RAW / "yeojuuc.or.kr_시청부설주차장_20261117.txt"
+YEOJU_ORDINANCE_NOTE = ("시행 2025-06-30 · 경기도여주시조례 제1434호(일부개정) · "
+                     "별표5·별표6 〈개정 2025.6.30.〉")
+YEOJU_HALL_NOTE = ("시행 2024-12-18 · 경기도여주시조례 제1399호(일부개정) · "
+                "별표1 〈개정 2024.12.18.〉")
+YEOJU_BASE_MIN = 60
+YEOJU_UNIT_MIN = 10
+YEOJU_FREE_MIN = 60
+
+# 여주시 공영주차장 요금 — 「여주시 주차장 조례」 [별표 5] 공영주차장 주차요금표
+#   (시행 2025-06-30, 경기도여주시조례 제1434호 · 별표5〈개정 2025.6.30.〉, 조례 HWP의 표를 읽음).
+#   · 1급지: 최초 60분 이내 무료 → 60분 초과 시 10분마다 200원 · 1일 주차요금 6,000원 ·
+#     월 정기 주차요금 60,000원
+#   · 2급지: 최초 60분 이내 무료 → 10분마다 100원 · 1일 3,000원 · 월 40,000원
+#   · 비고1: 여주한글시장 공영주차장과 노상주차장(시청삼거리~홍문현대교차로 구간)만 1일·월 요금을
+#     빼고 1구획당 요금기준(60분 무료·10분당 200원)만 적용한다.
+#   · 비고2: 1급지 = 동 및 읍지역 도시계획구역, 2급지 = 1급지 이외의 지역 — 여주 유료 주차장은
+#     모두 동·읍 지역이라 전부 1급지다.
+#   · 비고5: 최초 60분 이하 무료, 60분 초과분 계산에서 10분 미만은 10분으로 본다.
+#   · 비고6: 1일 주차요금·월 정기요금이 시간 요금의 상한이 된다.
+#   · 제9조(징수시간): 평일 10:00~19:00, 토요일 10:00~15:00, 일요일·공휴일 무료.
+YEOJU_FEES = {
+    1: {"unit": 200, "day": 6_000, "month": 60_000},
+    2: {"unit": 100, "day": 3_000, "month": 40_000},
+}
+# 「여주시 공공청사 부설주차장 관리 운영 조례」 [별표 1](시행 2024-12-18, 제1399호) — 시청부설주차장
+#   최초 40분까지 무료 → 40분 초과 1시간 이내 500원 → 1시간 초과 시 10분마다 300원.
+#   유료 운영시간은 평일 09:00~18:30이고, 1일·월 주차권은 두지 않는다(제3조의2).
+YEOJU_HALL_FEE = {"free_min": 40, "base_min": 60, "base_fee": 500, "unit_min": 10, "unit_fee": 300}
+# 요금을 받는 시간 — 여주도시공사 공영주차장 안내의 ‘유료 운영시간’(2026-11-17 조회).
+#   · 한글·창동·여흥동 노외주차장: 월~일 08:00~19:00 (휴무: 공휴일)
+#   · 하동·하동제일시장·가남읍1·가남읍2: 월~금 10:00~19:00 (휴무: 토·일, 공휴일)
+#   · 노상주차장: 월~금 10:00~19:00 (휴무: 토·일, 공휴일)
+#   공사 표의 ‘휴무’는 요금을 받지 않는 날이라는 뜻이라 무료 개방으로 옮겼다(조례 제9조 3호도
+#   일요일·공휴일을 무료로 정한다). 공사 표는 공휴일 칸이 따로 없어 일요일과 함께 무료로 둔다.
+YEOJU_HOURS_A = {"한글시장 주차장", "창동공영주차장(주차타워)", "여흥동 공영주차장"}
+YEOJU_HOURS_B = {"하동 공영주차장", "하동제일시장", "가남읍 1공영주차장", "가남읍 2공영주차장"}
+YEOJU_HOURS_WEEKDAY = {"시민회관공영주차장"}      # 표준데이터 평일 10:00~19:00 · 토·공휴일 휴무
+YEOJU_HALL_NAME = "시청부설주차장"
+# 표준데이터가 ‘무료’로 등록했지만 여주도시공사가 유료로 운영하는 주차장.
+#   공사 안내의 유료 운영시간 표에 ‘하동, 하동제일주차장, 가남읍1, 가남읍2: 월~금 10:00~19:00’이
+#   들어 있고, 이용요금도 같은 표(60분 무료·10분당 200원·1일 6,000원)를 쓴다.
+YEOJU_RECLASSIFIED = {"가남읍 1공영주차장", "가남읍 2공영주차장"}
+# 1일·월 주차요금을 받지 않는 주차장(조례 별표5 비고1) — 한글시장 공영주차장과 세종로 노상 구간
+#   (시청삼거리~홍문현대교차로)이다. 공사 안내도 ‘한글시장주차장 및 노상주차장(시청삼거리~홍문현대교차로)
+#   1일 주차권 폐지’라고 적는다.
+YEOJU_NO_DAY_TICKET_STREET = "세종로("
+# 여주도시공사가 따로 안내하는 주차장별 면수(2026-11-17 조회) — 표준데이터와 다른 곳이 있다.
+YEOJU_CORP_SPACES = {
+    "한글시장 주차장": 173,          # 표준 184면
+    "창동공영주차장(주차타워)": 193,  # 표준 209면
+    "여흥동 공영주차장": 415,        # 표준 423면
+    "하동 공영주차장": 53,           # 표준 56면
+    "하동제일시장": 262,             # 표준 119면
+    "가남읍 1공영주차장": 70,        # 표준 71면
+    "가남읍 2공영주차장": 47,        # 표준 48면
+    "시청부설주차장": 83,            # 표준 93면
+}
+# 표준데이터 이름 → 여주도시공사 안내의 주차장 이름(카드에 함께 적는다).
+YEOJU_CORP_NAME = {
+    "한글시장 주차장": "한글시장주차장",
+    "창동공영주차장(주차타워)": "창동타워주차장",
+    "여흥동 공영주차장": "여흥동공영주차장",
+    "하동 공영주차장": "하동공영주차장",
+    "하동제일시장": "하동제일시장주차장",
+    "가남읍 1공영주차장": "가남읍1주차장",
+    "가남읍 2공영주차장": "가남읍2주차장",
+}
+# 여주도시공사 노상주차장 안내의 구간·면수(2026-11-17 조회) — 표준데이터는 세종로를 11개 구간으로,
+#   공사는 좌·우 10개 구간으로 나누고 강변·청심로 2개 구간을 더한다(경찰서·여흥동주민센터는 미운영).
+YEOJU_CORP_STREET = {"세종로": (10, 142), "강변로": (1, 80), "청심로": (2, 32)}
+#   여흥로(여흥동사무소~여흥초교 후문) 구간은 공사 안내의 ‘여흥동주민센터 13면(미운영)’과 같은 곳으로 보여
+#   구간 안내를 붙이지 않았다(표준데이터에만 유료 구간으로 등록).
+
+# 여주시 주차요금 감면 — 「여주시 주차장 조례」 [별표 6](제6조제1항 관련)과 여주도시공사 감면안내.
+#   22개 항목을 계산기에서 고를 수 있는 갈래로 묶었다. 감면은 중복 적용하지 않고 비율이 높은
+#   하나만 적용하며, 감면 대상자는 면제시간을 넘긴 시간의 요금을 계산할 때 ‘최초 60분 무료’를
+#   적용하지 않는다(조례 제6조④, 2025.6.30. 신설).
+YEOJU_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "국가유공자 6시간 면제 후 50%", "rate": 0.5, "exempt_min": 360,
+     "note": ("국가유공자 증서 소지자가 본인 자동차를 직접 운전하거나 장애 정도가 심해 동승하고 "
+              "타인에게 대리운전을 맡긴 경우(수권유족 포함) — 1일 1회 6시간 면제 뒤 50%")},
+    {"label": "장애인(심한)·5·18·고엽제·참전 등 3시간 면제 후 50%", "rate": 0.5, "exempt_min": 180,
+     "note": ("장애 정도가 심한 장애인, 5·18민주화운동부상자, 고엽제후유의증 환자, 참전유공자, "
+              "만 75세 이상 여주시 거주 고령노인(본인 운전), 새마을지도자·새마을부녀지도자, "
+              "이장·통장, 대한노인회 여주시지회장·분회장·마을별 노인회장, 장기기증자·기증희망자와 "
+              "법정 유가족 1인, 임산부 — 3시간 면제 뒤 50%")},
+    {"label": "경차·저공해·다자녀·병역명문가 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("경형자동차(1,000cc 미만), 환경친화적 자동차(전기차 제외), 저공해자동차 표지 부착 차량, "
+              "2자녀(막내 만 18세 이하) 이상 다자녀세대, 부양세대 등록 차량, 병역명문가 차량, "
+              "장애 정도가 심하지 않은 장애인 — 50%")},
+    {"label": "전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "환경친화적 자동차 가운데 전기차 — 최초 2시간 면제 뒤 50%(별표6 제15호)"},
+    {"label": "전통시장 상인·고객 2시간 면제", "rate": 0.0, "exempt_min": 120,
+     "note": ("「전통시장 및 상점가 육성을 위한 특별법」 제19조제1항에 따른 주차장에서 상인·고객이 "
+              "주차하는 경우 — 2시간 면제(영수증 등 구입 증빙 제시). 한글시장·하동제일시장 카드 참고")},
+    {"label": "자가용 부제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "국가·자치단체장이 발행한 자가용 부제 및 함께타기 표지부착 차량 — 20% 감면"},
+    {"label": "긴급·성실납세자 등 100%", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차, 성실납세자·유공납세자 인증서 교부일부터 1년(표지·인증서 부착 차량) — 면제. "
+              "시청부설주차장은 민원업무·의정활동·청사 유지보수 방문 차량도 해당 부서 확인으로 면제")},
+]
+
+
+def _yeoju_fix_unit(unit: str):
+    """주소의 지역 이름을 바로잡는다 — 표준데이터가 ‘가납읍’으로 잘못 적은 행이 있다(가남읍)."""
+    if unit == "가납읍":
+        return "가남읍"
+    return unit
+
+
+def yeoju_dong_of(text: str, fixes=None):
+    """주소에서 여주시 법정동·읍·면을 뽑는다 — ‘경기도 여주시 {동|읍|면} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "여주시":
+        cand = parts[2]
+        if cand.endswith(YEOJU_UNIT_SUFFIX) and not cand.endswith(("로동", "가동")):
+            fixed = _yeoju_fix_unit(cand)
+            if fixes is not None and fixed != cand:
+                fixes.append(f"{text}: 주소의 ‘{cand}’을 ‘{fixed}’으로 바로잡음"
+                             f"(가남읍 태평리 일대 — 같은 읍의 다른 주차장 주소와 대조)")
+            return fixed
+    return None
+
+
+def yeoju_fee(grade: int = 1, pay: str = "", *, no_day_ticket: bool = False, basis_extra: str = ""):
+    """여주시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    별표5는 ‘최초 60분 무료 → 60분 초과 시 10분마다 200원’이므로 기본요금 0원·무료 60분·
+    10분당 200원으로 넣는다(60분까지 0원, 61~70분 200원, 90분 600원).
+    """
+    t = YEOJU_FEES[grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "grade_label": None, "std_grade": None,
+        "base_min": YEOJU_BASE_MIN, "base_fee": 0,
+        "unit_min": YEOJU_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": YEOJU_FREE_MIN, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표5 1일 주차요금",
+        "daily_hours": None,
+        "daily_fee": None if no_day_ticket else t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None if no_day_ticket else t["month"],
+        "monthly_day": None, "monthly_night": None,
+        "monthly_all": None if no_day_ticket else t["month"], "monthly_label": None,
+        "pay": pay,
+        "basis": (f"「여주시 주차장 조례」 별표5 {grade}급지(최초 {YEOJU_FREE_MIN}분 무료 · "
+                  f"{YEOJU_UNIT_MIN}분당 {t['unit']:,}원"
+                  + ("" if no_day_ticket else f" · 1일 {t['day']:,}원 · 월 {t['month']:,}원")
+                  + f"){basis_extra}"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yeoju_hall_fee(pay: str = ""):
+    """시청부설주차장 요금 — 공공청사 부설주차장 조례 별표1(40분 무료 → 1시간 500원 → 10분당 300원)."""
+    f = YEOJU_HALL_FEE
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": None, "grade_label": "청사 부설", "std_grade": None,
+        "base_min": f["base_min"], "base_fee": f["base_fee"],
+        "unit_min": f["unit_min"], "unit_fee": f["unit_fee"],
+        "steps": None, "steps_label": None,
+        "free_min": f["free_min"], "deduct_min": None,
+        "cap_fee": None, "cap_src": None,
+        "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None,
+        "monthly_all": None, "monthly_label": None,
+        "pay": pay,
+        "basis": ("「여주시 공공청사 부설주차장 관리 운영 조례」 별표1(최초 40분 무료 · "
+                  "40분 초과 1시간 이내 500원 · 1시간 초과 10분당 300원)"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yeoju_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yeoju_hm(m: int) -> str:
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def yeoju_window(start, end):
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [yeoju_hm(start), yeoju_hm(end)]}
+
+
+def build_yeoju():
+    """여주시 공영주차장을 표준데이터 + 여주시 조례 별표5·6 + 여주도시공사 안내로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 여주시 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 40행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 여주시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동·읍·면만 만든다.
+    요금은 조례 별표5(최초 60분 무료 → 10분당 200원, 1일 6,000원, 월 60,000원)를 쓰고,
+    운영시간은 여주도시공사 ‘유료 운영시간’으로 정리한다(표준데이터는 유료 행도 00:00~23:59로
+    등록되어 있다).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == YEOJU_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    addr_fixed, dup_mgmt, no_ticket, hall_note = [], [], [], []
+
+    # 같은 지번에 무료·유료로 두 번 등록된 행은 유료 행만 남긴다(시흥시와 같은 규칙).
+    by_jibun = defaultdict(list)
+    for r in rows_city:
+        key = re.sub(r"\s+", "", (r.get("소재지지번주소") or ""))
+        if key:
+            by_jibun[key].append(r)
+    drop = set()
+    for key, rows in by_jibun.items():
+        paid_rows = [r for r in rows if (r.get("요금정보") or "").strip() in ("유료", "혼합")]
+        free_rows = [r for r in rows if (r.get("요금정보") or "").strip() == "무료"]
+        if paid_rows and free_rows and len(rows) == len(paid_rows) + len(free_rows):
+            for r in free_rows:
+                drop.add(id(r))
+                merged.append({
+                    "kept": (paid_rows[0].get("주차장명") or "").strip(),
+                    "dropped": (r.get("주차장명") or "").strip(),
+                    "reason": (f"같은 지번({(r.get('소재지지번주소') or '').strip()})에 유료·무료로 두 번 등록 — "
+                               f"유료로 운영하는 ‘{(paid_rows[0].get('주차장명') or '').strip()}’만 실었다"),
+                })
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "여주시",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and yeoju_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and yeoju_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "여주도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["free_min"] if fee["type"] == "유료" else None),
+            "city": "여주시",
+            "city_slug": "yeoju",
+        })
+
+    for r in rows_city:
+        if id(r) in drop:
+            continue
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (YEOJU_BBOX[0] <= lat <= YEOJU_BBOX[1] and YEOJU_BBOX[2] <= lng <= YEOJU_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        if "가납읍" in jibun:
+            jibun = jibun.replace("가납읍", "가남읍")
+            if not any("가납읍" in x for x in addr_fixed):
+                addr_fixed.append(f"{name}: 지번주소의 ‘가납읍’을 ‘가남읍’으로 바로잡음"
+                                  f"(가남읍 태평리 일대 — 같은 읍의 다른 주차장 주소와 대조)")
+        dong = yeoju_dong_of(jibun, addr_fixed) or yeoju_dong_of(road, addr_fixed)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        std_grade = (r.get("급지구분") or "").strip()
+        grade = to_int(std_grade) or 1
+        grade = min(max(grade, 1), 2)
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        is_hall = name == YEOJU_HALL_NAME
+        corp_name = YEOJU_CORP_NAME.get(name)
+
+        paid = fee_type in ("유료", "혼합") or name in YEOJU_RECLASSIFIED
+        if fee_type not in ("유료", "혼합") and name in YEOJU_RECLASSIFIED:
+            reclassified.append(
+                f"{name}: 표준데이터 요금정보 ‘{fee_type or '무료'}’ ↔ 여주도시공사가 유료로 운영"
+                f"(유료 운영시간 표에 10:00~19:00, 이용요금 60분 무료·10분당 200원·1일 6,000원) — 유료로 바로잡음")
+            notice_bits.append(
+                "공공데이터 표준데이터에는 ‘무료’로 등록되어 있지만, 여주도시공사가 "
+                "월~금 10:00~19:00 유료로 운영합니다(60분 무료·10분당 200원·1일 6,000원)")
+
+        if paid and is_hall:
+            fee = yeoju_hall_fee(pay)
+            win = {"weekday": yeoju_window(9 * 60, 18 * 60 + 30),
+                   "sat": yeoju_window(9 * 60, 18 * 60 + 30),
+                   "sun": yeoju_window(9 * 60, 18 * 60 + 30)}
+            oper = {"weekday": True, "sat": True, "sun": True}
+            free_days = {"sat": True, "sun": True}
+            free_note = ("토요일·일요일·공휴일은 청사 휴무일로 무료(개방하지 않음)입니다 — "
+                         "유료 운영시간은 평일 09:00~18:30입니다")
+            hour_fixed.append(
+                f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                f"공공청사 부설주차장 조례 제3조의2 평일 09:00~18:30")
+            notice_bits.append(
+                "「여주시 공공청사 부설주차장 관리 운영 조례」 별표1 요금입니다 — 최초 40분까지 무료, "
+                "40분 초과 1시간 이내 500원, 1시간 초과 시 10분마다 300원(1일·월 주차권 없음)")
+            notice_bits.append(
+                "민원업무·의정활동·청사 유지보수 등 업무로 방문한 차량은 해당 부서 확인으로 면제됩니다"
+                "(별표2 제2~4호)")
+            hall_note.append(name)
+        elif paid:
+            no_day_ticket = (name == "한글시장 주차장" or (street and name.startswith(YEOJU_NO_DAY_TICKET_STREET)))
+            fee = yeoju_fee(grade, pay=pay, no_day_ticket=no_day_ticket)
+            if no_day_ticket:
+                no_ticket.append(name)
+                notice_bits.append(
+                    "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 "
+                    "1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 "
+                    "‘1일 주차권 폐지’를 안내 합니다")
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            base_min_std = to_int(r.get("주차기본시간"))
+            base_fee_std = to_int(r.get("주차기본요금"))
+            fee["std"] = {"base_min": base_min_std, "base_fee": base_fee_std,
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily_std, "monthly": month_std}
+            want = YEOJU_FEES[grade]
+            if fee_type in ("유료", "혼합") and (
+                    (base_min_std, base_fee_std) != (YEOJU_BASE_MIN, 0) or
+                    (to_int(r.get("추가단위요금")) or 0) != want["unit"]):
+                note_fixed.append(
+                    f"{name}: 표준데이터 기본 {base_min_std or '-'}분 {base_fee_std or 0:,}원·"
+                    f"추가 {to_int(r.get('추가단위시간')) or '-'}분 "
+                    f"{to_int(r.get('추가단위요금')) or 0:,}원 ↔ 조례 별표5 {grade}급지 "
+                    f"최초 {YEOJU_BASE_MIN}분 무료·{YEOJU_UNIT_MIN}분당 {want['unit']:,}원"
+                    f"(2025-06-30 개정 전 등록값)")
+            if not no_day_ticket and month_std and month_std != want["month"]:
+                month_diff.append(f"{name}: 표준데이터 월정기권 {month_std:,}원 ↔ 별표5 "
+                                  f"{grade}급지 {want['month']:,}원")
+            if not no_day_ticket and daily_std and daily_std != want["day"]:
+                note_fixed.append(f"{name}: 표준데이터 1일주차권요금 {daily_std:,}원 ↔ 별표5 "
+                                  f"{grade}급지 1일 {want['day']:,}원")
+            # 요금을 받는 시간 — 여주도시공사 유료 운영시간 표
+            if name in YEOJU_HOURS_A:
+                win = {"weekday": yeoju_window(8 * 60, 19 * 60),
+                       "sat": yeoju_window(8 * 60, 19 * 60),
+                       "sun": yeoju_window(8 * 60, 19 * 60)}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                free_days = {"sat": False, "sun": True}
+                free_note = ("여주도시공사 안내: 월~일 08:00~19:00에 요금을 받고, 공휴일은 휴무(무료)입니다. "
+                             "조례 제9조 3호는 일요일·공휴일을 무료로 정하고 있어 일요일·공휴일은 무료로 계산합니다"
+                             " — 일요일은 현장 안내를 확인하세요")
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                    f"여주도시공사 월~일 08:00~19:00(공휴일 휴무)")
+            else:
+                start, end = (9 * 60, 18 * 60 + 30) if is_hall else (10 * 60, 19 * 60)
+                win = {"weekday": yeoju_window(start, end),
+                       "sat": yeoju_window(start, end),
+                       "sun": yeoju_window(start, end)}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                free_days = {"sat": True, "sun": True}
+                if name in YEOJU_HOURS_B:
+                    free_note = ("여주도시공사 안내: 하동·하동제일시장·가남읍1·가남읍2는 월~금 "
+                                 "10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다")
+                elif name in YEOJU_HOURS_WEEKDAY:
+                    free_note = ("여주도시공사 유료 주차장 목록에는 없고 표준데이터에만 평일 "
+                                 "10:00~19:00 유료로 등록되어 있습니다 — 토요일·일요일·공휴일은 "
+                                 "요금을 받지 않습니다(현장 확인 권장)")
+                else:
+                    free_note = ("여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 "
+                                 "토요일·일요일·공휴일은 휴무(무료)입니다")
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                    f"여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)")
+            notice_bits.append(
+                f"「여주시 주차장 조례」 별표5 {grade}급지 요금입니다 — 최초 {YEOJU_FREE_MIN}분 무료, "
+                f"60분이 지나면 {YEOJU_UNIT_MIN}분마다 {want['unit']:,}원"
+                + ("" if no_day_ticket else f", 1일 주차요금 {want['day']:,}원, 월 정기 {want['month']:,}원"))
+            if (r.get("특기사항") or "").strip():
+                notice_bits.append((r.get("특기사항") or "").strip().replace("50퍼센트", "50%"))
+            if name in YEOJU_CORP_SPACES and YEOJU_CORP_SPACES[name] != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 여주도시공사 {YEOJU_CORP_SPACES[name]}면")
+                notice_bits.append(
+                    f"표준데이터 등록면수는 {spaces}면이고, 여주도시공사 안내는 "
+                    f"{YEOJU_CORP_SPACES[name]}면입니다")
+            if name == "시민회관공영주차장":
+                notice_bits.append(
+                    "여주도시공사 공영주차장 안내의 유료 주차장 8곳에는 들어 있지 않고, 표준데이터에만 "
+                    "유료(평일 10:00~19:00)로 등록되어 있습니다 — 현장 확인 권장")
+        else:
+            fee = yeoju_free_fee()
+            # 무료 주차장은 표준데이터의 운영시간을 그대로 쓴다(대부분 24시간).
+
+        if street and paid:
+            corp = YEOJU_CORP_STREET.get((name or "").split("(")[0])
+            if corp:
+                segs, seg_spaces = corp
+                notice_bits.append(
+                    f"여주도시공사는 이 도로의 노상주차장을 {segs}개 구간 {seg_spaces}면으로 안내합니다"
+                    f"(표준데이터는 구간을 도로별로 나누어 등록)")
+        if corp_name and corp_name != name:
+            notice_bits.append(f"여주도시공사 안내에는 ‘{corp_name}’으로 적혀 있습니다")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "여주도시공사"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    # 관리번호가 같은 행이 둘(현암동·오학동 공영주차장이 237-2-000018) — 이름이 달라 그대로 두고 기록만 한다.
+    for no, cnt in Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no")).items():
+        if cnt > 1:
+            names = "·".join(l["name"] for l in lots if l.get("mgmt_no") == no)
+            dup_mgmt.append(f"관리번호 {no}가 {names} 두 곳에 같은 값으로 등록되어 있습니다(이름·주소·좌표가 달라 그대로 실음)")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"yju-{i:03d}" if l["list_mode"] == "card" else f"yju-s{i:03d}"
+
+    quality = check_quality_yeoju(rows_all, rows_city, lots, excluded, merged,
+                                  hour_fixed, space_diff, note_fixed, reclassified,
+                                  month_diff, addr_fixed, dup_mgmt, no_ticket)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "여주시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-13",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 여주시가 등록한 40행(노외 23·노상 16·부설 1)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다. 요금 구분은 유료 23행(노외 6·노상 16·부설 1)과 "
+                             "무료 17행이지만, 표준데이터가 ‘무료’로 등록한 가남읍 1·2공영주차장은 "
+                             "여주도시공사가 유료로 운영해 유료로 바로잡았다. 또 상동 357에 같은 지번으로 "
+                             "무료(보건소옆무료주차장)·유료(여흥동 공영주차장) 두 번 등록된 1행은 유료 행만 "
+                             "남겼다. 주차구획수가 비어 있는 껍데기 행은 없었다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": ("여주시 주차장 조례 [별표 5] 공영주차장 주차요금표 · "
+                             "[별표 6] 주차요금 감면대상 및 비율"),
+                    "org": "여주시청 교통과(031-887-3357) · 여주도시공사 공영주차장(031-880-4031~2)",
+                    "url": YEOJU_ORDINANCE_URL,
+                    "file": YEOJU_ORD_HWP.name if YEOJU_ORD_HWP.exists() else YEOJU_ORD_TXT.name,
+                    "sha256": (sha256(YEOJU_ORD_HWP) if YEOJU_ORD_HWP.exists()
+                               else sha256(YEOJU_ORD_TXT) if YEOJU_ORD_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": YEOJU_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(YEOJU_ORD_TXT),
+                    "note": ("국가법령정보센터 자치법규 HWP를 내려받아 표 셀을 읽어 정리본(txt)을 두었다. "
+                             "1급지 최초 60분 무료·60분 초과 시 10분마다 200원·1일 주차요금 6,000원·"
+                             "월 정기 60,000원, 2급지 100·3,000·40,000원이고, 비고1은 여주한글시장 "
+                             "공영주차장과 노상(시청삼거리~홍문현대교차로)에 1일·월 요금을 적용하지 "
+                             "않는다. 비고5는 최초 60분 이하 무료·10분 미만은 10분으로, 비고6은 1일·월 "
+                             "요금을 상한으로 정한다. 제9조는 평일 10:00~19:00·토요일 10:00~15:00·"
+                             "일요일·공휴일 무료를 징수시간으로 정한다. 별표6은 22개 감면 항목이다."),
+                },
+                {
+                    "id": "hall", "name": ("여주시 공공청사 부설주차장 관리 운영 조례 "
+                                           "[별표 1] 주차장 주차요금표 · [별표 2] 감면"),
+                    "org": "여주시청 총무과(031-887-2610)",
+                    "url": YEOJU_HALL_ORD_URL,
+                    "file": YEOJU_HALL_HWP.name if YEOJU_HALL_HWP.exists() else YEOJU_HALL_TXT.name,
+                    "sha256": (sha256(YEOJU_HALL_HWP) if YEOJU_HALL_HWP.exists()
+                               else sha256(YEOJU_HALL_TXT) if YEOJU_HALL_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": YEOJU_HALL_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(YEOJU_HALL_TXT),
+                    "note": ("시청부설주차장에 적용하는 별도 조례다. 최초 40분까지 무료, 40분 초과 1시간 "
+                             "이내 500원, 1시간 초과 시 10분마다 300원이고(단위시간 미만은 10분으로), "
+                             "유료 운영시간은 평일 09:00~18:30이다. 별표2는 민원업무·의정활동·청사 "
+                             "유지보수 방문 차량의 면제를 포함해 24개 항목을 정한다."),
+                },
+                {
+                    "id": "corp", "name": "여주도시공사 공영주차장 안내(주차장 소개·유료 운영시간·이용요금·감면)",
+                    "org": "여주도시공사 공영주차장(031-880-4031~2)",
+                    "url": YEOJU_CORP_URL,
+                    "file": YEOJU_CORP_TXT.name if YEOJU_CORP_TXT.exists() else None,
+                    "sha256": sha256(YEOJU_CORP_TXT) if YEOJU_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 22, "fetched_at": _sync_time(YEOJU_CORP_TXT),
+                    "note": ("노상주차장 14개 구간(경찰서·여흥동주민센터 2곳은 미운영)과 노외주차장 8곳의 "
+                             "면수, 유료 운영시간(한글·창동·여흥동 월~일 08:00~19:00, 하동·하동제일·"
+                             "가남읍1·2 월~금 10:00~19:00, 노상 월~금 10:00~19:00, 공휴일 휴무), 이용요금"
+                             "(최초 60분 무료·10분마다 200원·1일 6,000원)과 ‘한글시장 및 노상(시청삼거리~"
+                             "홍문현대교차로) 1일 주차권 폐지’를 적고 있다. 감면은 조례 별표6과 같은 22개 "
+                             "항목이다."),
+                },
+                {
+                    "id": "hallp", "name": "여주도시공사 시청부설주차장 안내(이용시간·이용요금·면수)",
+                    "org": "여주도시공사 공영주차장(031-880-4031~2)",
+                    "url": YEOJU_HALL_URL,
+                    "file": YEOJU_HALLP_TXT.name if YEOJU_HALLP_TXT.exists() else None,
+                    "sha256": sha256(YEOJU_HALLP_TXT) if YEOJU_HALLP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 1, "fetched_at": _sync_time(YEOJU_HALLP_TXT),
+                    "note": ("시청부설주차장은 월~금 09:00~18:30(토·일·공휴일 휴무), 최초 40분 무료·"
+                             "40분 초과 1시간 이내 500원·1시간 초과 10분마다 300원, 82면(일반 63·장애인 5·"
+                             "임산부·어르신 2·경차 7·버스 1·전기차 4)이다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in YEOJU_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "yeoju_grade",
+            "base_min": YEOJU_BASE_MIN,
+            "unit_min": YEOJU_UNIT_MIN,
+            "free_min": YEOJU_FREE_MIN,
+            "applies": YEOJU_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "동 및 읍지역 도시계획구역", "unit": 200, "day": 6_000,
+                 "month": 60_000, "lots": 0},
+                {"grade": 2, "where": "1급지 이외의 지역", "unit": 100, "day": 3_000,
+                 "month": 40_000, "lots": 0},
+            ],
+            "hall": {"name": YEOJU_HALL_NAME, "free_min": YEOJU_HALL_FEE["free_min"],
+                     "base_fee": YEOJU_HALL_FEE["base_fee"], "unit_fee": YEOJU_HALL_FEE["unit_fee"],
+                     "window": "평일 09:00~18:30", "spaces": 93, "applies": YEOJU_HALL_NOTE},
+            "windows": [
+                {"group": "한글시장·창동타워·여흥동 공영", "hours": "월~일 08:00~19:00",
+                 "free": "공휴일 휴무(무료)"},
+                {"group": "하동·하동제일시장·가남읍1·가남읍2", "hours": "월~금 10:00~19:00",
+                 "free": "토·일·공휴일 휴무(무료)"},
+                {"group": "노상주차장", "hours": "월~금 10:00~19:00",
+                 "free": "토·일·공휴일 휴무(무료)"},
+                {"group": "시청부설주차장", "hours": "평일 09:00~18:30",
+                 "free": "토·일·공휴일 휴무(무료)"},
+            ],
+            "no_ticket": sorted(no_ticket),
+            "corp": {
+                "paid_out": len([l for l in lots if l["list_mode"] == "card"
+                                 and l["fee"]["type"] == "유료"]),
+                "free_out": len([l for l in lots if l["list_mode"] == "card"
+                                 and l["fee"]["type"] == "무료"]),
+                "street": len([l for l in lots if l["list_mode"] == "street"]),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade") or l["fee"].get("grade_label"),
+                 "free": l["fee"].get("free_min"), "unit": l["fee"].get("unit_fee"),
+                 "base": l["fee"].get("base_fee"),
+                 "day": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「여주시 주차장 조례」 [별표 5] 공영주차장 주차요금표"
+                      f"({YEOJU_ORDINANCE_NOTE}) · 「여주시 공공청사 부설주차장 관리 운영 조례」 [별표 1]"
+                      f"({YEOJU_HALL_NOTE}) · 여주도시공사 공영주차장 안내(2026-11-17 확인)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["여주시"] | {
+        "city": "여주시",
+        "weekend_free_pages": False,
+        "discounts": YEOJU_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "yeoju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_yeoju(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                        note_fixed, reclassified, month_diff, addr_fixed, dup_mgmt, no_ticket):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_여주시행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "주소_보정": addr_fixed,
+        "관리번호_중복": dup_mgmt,
+        "1일권_없음": no_ticket,
+        "감면_출처": ("「여주시 주차장 조례」 별표6(제6조제1항) · 여주도시공사 감면안내 · "
+                      "「여주시 공공청사 부설주차장 관리 운영 조례」 별표2(청사 부설)"),
+        "무료시간_출처": "조례 별표5 공영주차장 주차요금표(최초 60분 이내 무료) · 청사 부설주차장 조례 별표1(최초 40분)",
+        "주말무료_출처": ("여주도시공사 유료 운영시간(휴무: 공휴일 / 토·일·공휴일) · "
+                          "조례 제9조 3호(일요일·공휴일 무료)"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -14268,7 +14990,8 @@ def main():
              "hanam": ["하남시"], "gunpo": ["군포시"],
              "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"],
              "icheon": ["이천시"], "anseong": ["안성시"],
-             "yangju": ["양주시"], "pocheon": ["포천시"], "uiwang": ["의왕시"]}[args.city])
+             "yangju": ["양주시"], "pocheon": ["포천시"], "uiwang": ["의왕시"],
+             "yeoju": ["여주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -14320,6 +15043,8 @@ def main():
         cities.append(build_pocheon())
     if "의왕시" in want:
         cities.append(build_uiwang())
+    if "여주시" in want:
+        cities.append(build_yeoju())
 
     if args.city == "all":
         site = build_site_payload(cities)

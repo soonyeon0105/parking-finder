@@ -3105,6 +3105,188 @@ for _u in ("https://parking.9welfare.com/parking/gyeonggi/uiwang/",
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"의왕시 주소가 사이트맵에 없음: {_u}")
 
+# ---------------------------------------------------------------- 여주시 (T-03 Phase 25)
+# 「여주시 주차장 조례」 [별표 5](시행 2025-06-30, 경기도여주시조례 제1434호 · 별표5〈개정 2025.6.30.〉)와
+#「여주시 공공청사 부설주차장 관리 운영 조례」 [별표 1](시행 2024-12-18, 제1399호), 여주도시공사 공영주차장
+# 안내(2026-11-17 확인): 1급지 최초 60분 무료·10분당 200원·1일 6,000원·월 60,000원(2급지 100·3,000·40,000),
+# 한글시장·세종로 노상은 별표5 비고1로 1일·월 요금 없음, 시청부설은 40분 무료·1시간 500원·10분당 300원.
+yj_cards = [l for l in LOTS if l.get("city") == "여주시" and l.get("list_mode") == "card"]
+yj_paid = [l for l in yj_cards if l["fee"]["type"] == "유료"]
+yj_free = [l for l in yj_cards if l["fee"]["type"] == "무료"]
+yj_by = {l["name"]: l for l in yj_cards}
+yj_street = [l for l in LOTS if l.get("city") == "여주시" and l.get("list_mode") == "street"]
+yj_street_paid = [l for l in yj_street if l["fee"]["type"] == "유료"]
+yj_all_paid = [l for l in LOTS if l.get("city") == "여주시" and l["fee"]["type"] == "유료"]
+yj_hall = [l for l in yj_cards if l["fee"].get("grade_label") == "청사 부설"]
+if not yj_cards:
+    fails.append("여주시 카드 데이터가 없음")
+# 구성: 카드 23곳(유료 9·무료 14) 2,326면 · 노상 16구간 351면(모두 유료) · 유료 25곳
+if len(yj_cards) != 23 or len(yj_paid) != 9 or len(yj_free) != 14:
+    fails.append(f"여주시 카드 구성이 다름: 카드 {len(yj_cards)} · 유료 {len(yj_paid)} · 무료 {len(yj_free)}")
+if sum(l["spaces"] or 0 for l in yj_cards) != 2326:
+    fails.append(f"여주시 카드 구획 합계가 다름: {sum(l['spaces'] or 0 for l in yj_cards)}")
+if len(yj_street) != 16 or sum(l["spaces"] or 0 for l in yj_street) != 351:
+    fails.append(f"여주시 노상 구간이 다름: {len(yj_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in yj_street)}면")
+if len(yj_street_paid) != 16 or len(yj_all_paid) != 25:
+    fails.append(f"여주시 유료 주차장이 다름: 노상 {len(yj_street_paid)} · 전체 {len(yj_all_paid)}")
+if len({l.get("dong") for l in yj_cards}) != 12 or any(not l.get("dong") for l in yj_cards):
+    fails.append(f"여주시 동 구성이 다름: {sorted({l.get('dong') for l in yj_cards})}")
+_yj_dup = [k for k, v in Counter(l["name"] for l in yj_cards).items() if v > 1]
+if _yj_dup:
+    fails.append(f"여주시 카드 이름 중복: {_yj_dup[:3]}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "여주시"):
+    fails.append("여주시에 민영 주차장이 실려 있음")
+_yj_q = next(c for c in CITIES if c["city"] == "여주시").get("quality") or {}
+if _yj_q.get("원자료_행수") != 40 or _yj_q.get("제외_행수") != 0:
+    fails.append(f"여주시 원자료 처리가 다름: {_yj_q.get('원자료_행수')}행 · 제외 {_yj_q.get('제외_행수')}")
+# 같은 지번(상동 357) 무료·유료 중복 1행은 유료 행만 남긴다
+if _yj_q.get("중복제거_행수") != 1 or not any(
+        m.get("dropped") == "보건소옆무료주차장" for m in (_yj_q.get("중복제거_행") or [])):
+    fails.append(f"여주시 같은 지번 중복 정리가 다름: {_yj_q.get('중복제거_행')}")
+if "보건소옆무료주차장" in yj_by or "여흥동 공영주차장" not in yj_by:
+    fails.append("여주시 상동 357 중복 행이 유료 행으로 정리되지 않음")
+# 요금구분 보정 2건 — 가남읍 1·2공영주차장(공사 유료 운영)
+if len(_yj_q.get("요금구분_보정") or []) != 2:
+    fails.append(f"여주시 요금구분 보정이 2건이 아님: {_yj_q.get('요금구분_보정')}")
+for _n in ("가남읍 1공영주차장", "가남읍 2공영주차장"):
+    if yj_by.get(_n, {}).get("fee", {}).get("type") != "유료":
+        fails.append(f"여주시 {_n}이 유료로 바로잡히지 않음")
+# 1일·월 요금을 받지 않는 12곳 — 한글시장 + 세종로 11구간(별표5 비고1)
+_yj_nt = _yj_q.get("1일권_없음") or []
+if len(_yj_nt) != 12 or "한글시장 주차장" not in _yj_nt or \
+        len([n for n in _yj_nt if n.startswith("세종로(")]) != 11:
+    fails.append(f"여주시 1일권 없는 주차장이 다름: {_yj_nt}")
+for _n in _yj_nt:
+    _l = yj_by.get(_n) or next((x for x in yj_street if x["name"] == _n), None)
+    if not _l:
+        continue
+    if _l["fee"].get("daily_fee") is not None or _l["fee"].get("monthly") is not None:
+        fails.append(f"여주시 {_n}에 1일·월 요금이 남아 있음")
+# 급지 요금 — 1급지 최초 60분 무료·10분당 200원·1일 6,000원·월 60,000원
+for _l in yj_all_paid:
+    _f = _l["fee"]
+    if _f.get("grade_label") == "청사 부설":
+        continue
+    if (_f.get("grade"), _f.get("free_min"), _f.get("base_fee"), _f.get("unit_min"), _f.get("unit_fee")) != \
+            (1, 60, 0, 10, 200):
+        fails.append(f"여주시 요금이 조례 별표5와 다름: {_l['name']} {_f.get('grade')}/"
+                     f"{_f.get('free_min')}/{_f.get('base_fee')}/{_f.get('unit_fee')}")
+    if _l["name"] not in _yj_nt and (_f.get("daily_fee") != 6000 or _f.get("monthly") != 60000):
+        fails.append(f"여주시 1일·월 요금이 다름: {_l['name']} {_f.get('daily_fee')}/{_f.get('monthly')}")
+# 시청부설주차장 — 공공청사 부설주차장 조례 별표1
+if len(yj_hall) != 1:
+    fails.append(f"여주시 시청부설주차장 카드가 1곳이 아님: {[l['name'] for l in yj_hall]}")
+else:
+    _h = yj_hall[0]["fee"]
+    if (_h.get("free_min"), _h.get("base_min"), _h.get("base_fee"), _h.get("unit_min"), _h.get("unit_fee")) != \
+            (40, 60, 500, 10, 300):
+        fails.append(f"여주시 시청부설 요금이 별표1과 다름: {_h.get('free_min')}/{_h.get('base_fee')}/"
+                     f"{_h.get('unit_fee')}")
+    if _h.get("daily_fee") is not None or _h.get("monthly") is not None:
+        fails.append("여주시 시청부설에 1일·월 요금이 붙어 있음")
+    _hw = yj_hall[0]["hours"]["weekday"]
+    if (_hw["start"], _hw["end"]) != (9 * 60, 18 * 60 + 30):
+        fails.append(f"여주시 시청부설 유료 시간이 09:00~18:30이 아님: {_hw['raw']}")
+# 면수 차이 7건 · 주소 보정 1건(가납읍 → 가남읍) · 관리번호 중복 2건
+if len(_yj_q.get("면수_차이") or []) != 7:
+    fails.append(f"여주시 면수 차이가 7건이 아님: {len(_yj_q.get('면수_차이') or [])}")
+if len(_yj_q.get("주소_보정") or []) != 1 or "가납읍" not in (_yj_q.get("주소_보정") or [""])[0]:
+    fails.append(f"여주시 주소 보정이 다름: {_yj_q.get('주소_보정')}")
+if len(_yj_q.get("관리번호_중복") or []) != 2:
+    fails.append(f"여주시 관리번호 중복 기록이 2건이 아님: {_yj_q.get('관리번호_중복')}")
+# 계산 표본 — 별표5·별표1로 직접 계산한 값
+for _n, _mins, _want in (("하동 공영주차장", 30, 0), ("하동 공영주차장", 60, 0),
+                         ("하동 공영주차장", 61, 200), ("하동 공영주차장", 70, 200),
+                         ("하동 공영주차장", 90, 600), ("하동 공영주차장", 120, 1200),
+                         ("하동 공영주차장", 1440, 6000),
+                         ("한글시장 주차장", 120, 1200), ("한글시장 주차장", 1440, 27600),
+                         ("시청부설주차장", 40, 0), ("시청부설주차장", 41, 500),
+                         ("시청부설주차장", 60, 500), ("시청부설주차장", 70, 800),
+                         ("시청부설주차장", 120, 2300)):
+    _l = yj_by.get(_n)
+    if not _l:
+        fails.append(f"여주시 표본 주차장이 없음: {_n}")
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"여주시 요금 계산이 조례와 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 요금을 받는 시간 — 하동·하동제일·가남읍1·2·시민회관·노상은 토·일 무료, 한글·창동·여흥동은 일요일만 무료
+for _n, _day, _want in (("하동 공영주차장", "sat", "free"), ("하동 공영주차장", "sun", "free"),
+                        ("여흥동 공영주차장", "sun", "free"), ("여흥동 공영주차장", "sat", 1200),
+                        ("시청부설주차장", "sat", "free"), ("한글시장 주차장", "weekday", 1200)):
+    _l = yj_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, 120, _day)
+    if _want == "free" and _r["state"] != "free":
+        fails.append(f"여주시 {_n} {_day} 계산이 무료가 아님: {_r}")
+    if isinstance(_want, int) and _r.get("amount") != _want:
+        fails.append(f"여주시 {_n} {_day} 계산이 {_want:,}원이 아님: {_r}")
+_yj_by_hours = yj_by.get("하동 공영주차장")
+if _yj_by_hours:
+    _wk = _yj_by_hours["hours"]["weekday"]
+    if (_wk["start"], _wk["end"]) != (10 * 60, 19 * 60):
+        fails.append(f"여주시 하동 유료 시간이 10:00~19:00이 아님: {_wk['raw']}")
+_yj_yeo = yj_by.get("여흥동 공영주차장")
+if _yj_yeo:
+    _wk = _yj_yeo["hours"]["weekday"]
+    if (_wk["start"], _wk["end"]) != (8 * 60, 19 * 60):
+        fails.append(f"여주시 여흥동 유료 시간이 08:00~19:00이 아님: {_wk['raw']}")
+# 감면표 — 별표6(6시간 면제 뒤 50%·3시간 면제 뒤 50%·2시간 면제·50%·20%·100%)
+_yj_disc = next(c for c in CITIES if c["city"] == "여주시").get("discounts") or []
+for _ex in (360, 180, 120):
+    if not any(d.get("exempt_min") == _ex for d in _yj_disc):
+        fails.append(f"여주시 감면표에 {_ex}분 면제 항목이 없음")
+for _rate in (0.5, 0.2, 1.0):
+    if not any(d["rate"] == _rate for d in _yj_disc):
+        fails.append(f"여주시 감면표에 {int(_rate * 100)}% 감면이 없음")
+# 페이지 — 시 허브·동 4곳·노상
+_yj_root = DIST / "parking" / "gyeonggi" / "yeoju"
+_yj_hub = _yj_root / "index.html"
+if not _yj_hub.exists():
+    fails.append("여주시 시 페이지 없음")
+else:
+    _yj_html = _yj_hub.read_text()
+    for label in ("여주시 급지별 주차요금표", "최초 60분", "10분당", "1일 주차요금", "월 정기요금",
+                  "시청부설주차장", "가남읍", "1일 주차권 폐지", "031-880-4031", "40분 초과 1시간 이내",
+                  "여주도시공사", "2025-06-30"):
+        if label not in _yj_html:
+            fails.append(f"여주시 시 페이지에 {label} 없음")
+    if _yj_html.count('class="card lot') != len(yj_cards):
+        fails.append(f"여주시 시 페이지 카드 수 불일치({_yj_html.count(chr(34)+'card lot')} vs {len(yj_cards)})")
+    if "&lt;b&gt;" in _yj_html:
+        fails.append("여주시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _yj_html or "nan" in _yj_html:
+        fails.append("여주시 시 페이지에 None/nan 문자열이 보임")
+    if "기본 30분 500원" in _yj_html or "최초 30분 500원" in _yj_html:
+        fails.append("여주시 시 페이지에 개정 전 요금(30분 500원)이 남아 있음")
+_yj_st_page = _yj_root / "street-parking" / "index.html"
+if not _yj_st_page.exists():
+    fails.append("여주시 노상 페이지 없음")
+else:
+    _yj_st = _yj_st_page.read_text()
+    for label in ("세종로", "강변로", "청심로", "여흥로", "16구간", "1일·월 주차요금이 없"):
+        if label not in _yj_st:
+            fails.append(f"여주시 노상 페이지에 {label} 없음")
+    if "&lt;b&gt;" in _yj_st:
+        fails.append("여주시 노상 페이지에 이스케이프된 <b> 태그가 보임")
+for _slug, _n in (("ganam-eup", 3), ("ha-dong", 3), ("hyeonam-dong", 3), ("hongmun-dong", 3)):
+    _p = _yj_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"여주시 동 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"여주시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+for _slug in ("sang-dong", "chang-dong", "samgyo-dong", "ohak-dong", "jeombong-dong",
+              "cheonsong-dong", "buknae-myeon", "sejongdaewang-myeon"):
+    if (_yj_root / _slug / "index.html").exists():
+        fails.append(f"여주시 카드 3곳 미만인 동·읍·면 페이지가 만들어짐: {_slug}")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/yeoju/",
+           "https://parking.9welfare.com/parking/gyeonggi/yeoju/street-parking/",
+           "https://parking.9welfare.com/parking/gyeonggi/yeoju/hongmun-dong/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"여주시 주소가 사이트맵에 없음: {_u}")
 
 
 print()

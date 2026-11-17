@@ -1,0 +1,5249 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 18:25",
+  "generated_at_iso": "2026-11-17T18:25:09+09:00",
+  "snapshot_at": "2026-11-17 18:25",
+  "region": {
+   "province": "경기도",
+   "city": "여주시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-13",
+    "rows_total": 18994,
+    "rows_city": 40,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "경기도 여주시가 등록한 40행(노외 23·노상 16·부설 1)을 읽었다. 모두 주차장구분이 ‘공영’이라 민영 주차장은 없다. 요금 구분은 유료 23행(노외 6·노상 16·부설 1)과 무료 17행이지만, 표준데이터가 ‘무료’로 등록한 가남읍 1·2공영주차장은 여주도시공사가 유료로 운영해 유료로 바로잡았다. 또 상동 357에 같은 지번으로 무료(보건소옆무료주차장)·유료(여흥동 공영주차장) 두 번 등록된 1행은 유료 행만 남겼다. 주차구획수가 비어 있는 껍데기 행은 없었다."
+   },
+   {
+    "id": "ordinance",
+    "name": "여주시 주차장 조례 [별표 5] 공영주차장 주차요금표 · [별표 6] 주차요금 감면대상 및 비율",
+    "org": "여주시청 교통과(031-887-3357) · 여주도시공사 공영주차장(031-880-4031~2)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2049793&gubun=ELIS&conDatGubunCd=1",
+    "file": "yeoju.law.go.kr_주차장조례_20261117.hwp",
+    "sha256": "bc4c28e9d65d0fc2f211f5e7b07e179c84bf67004405e13cf75a30ec2408f22f",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-06-30 · 경기도여주시조례 제1434호(일부개정) · 별표5·별표6 〈개정 2025.6.30.〉",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 18:12 (KST)",
+    "note": "국가법령정보센터 자치법규 HWP를 내려받아 표 셀을 읽어 정리본(txt)을 두었다. 1급지 최초 60분 무료·60분 초과 시 10분마다 200원·1일 주차요금 6,000원·월 정기 60,000원, 2급지 100·3,000·40,000원이고, 비고1은 여주한글시장 공영주차장과 노상(시청삼거리~홍문현대교차로)에 1일·월 요금을 적용하지 않는다. 비고5는 최초 60분 이하 무료·10분 미만은 10분으로, 비고6은 1일·월 요금을 상한으로 정한다. 제9조는 평일 10:00~19:00·토요일 10:00~15:00·일요일·공휴일 무료를 징수시간으로 정한다. 별표6은 22개 감면 항목이다."
+   },
+   {
+    "id": "hall",
+    "name": "여주시 공공청사 부설주차장 관리 운영 조례 [별표 1] 주차장 주차요금표 · [별표 2] 감면",
+    "org": "여주시청 총무과(031-887-2610)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1997205&gubun=ELIS&conDatGubunCd=0",
+    "file": "yeoju.law.go.kr_공공청사부설주차장조례_20261117.hwp",
+    "sha256": "a45dfff5e05c521aa40d0663d33bc0f04006e8815adad282ec83b8fff7db217b",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2024-12-18 · 경기도여주시조례 제1399호(일부개정) · 별표1 〈개정 2024.12.18.〉",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 18:12 (KST)",
+    "note": "시청부설주차장에 적용하는 별도 조례다. 최초 40분까지 무료, 40분 초과 1시간 이내 500원, 1시간 초과 시 10분마다 300원이고(단위시간 미만은 10분으로), 유료 운영시간은 평일 09:00~18:30이다. 별표2는 민원업무·의정활동·청사 유지보수 방문 차량의 면제를 포함해 24개 항목을 정한다."
+   },
+   {
+    "id": "corp",
+    "name": "여주도시공사 공영주차장 안내(주차장 소개·유료 운영시간·이용요금·감면)",
+    "org": "여주도시공사 공영주차장(031-880-4031~2)",
+    "url": "https://yeojuuc.or.kr/sub1/parking/public.do",
+    "file": "yeojuuc.or.kr_공영주차장_20261117.txt",
+    "sha256": "c1e98a57fc41092832f6da3f098b274b27d9a7fcf2f4307ef18d94c93aee736d",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 22,
+    "fetched_at": "2026-11-17 18:12 (KST)",
+    "note": "노상주차장 14개 구간(경찰서·여흥동주민센터 2곳은 미운영)과 노외주차장 8곳의 면수, 유료 운영시간(한글·창동·여흥동 월~일 08:00~19:00, 하동·하동제일·가남읍1·2 월~금 10:00~19:00, 노상 월~금 10:00~19:00, 공휴일 휴무), 이용요금(최초 60분 무료·10분마다 200원·1일 6,000원)과 ‘한글시장 및 노상(시청삼거리~홍문현대교차로) 1일 주차권 폐지’를 적고 있다. 감면은 조례 별표6과 같은 22개 항목이다."
+   },
+   {
+    "id": "hallp",
+    "name": "여주도시공사 시청부설주차장 안내(이용시간·이용요금·면수)",
+    "org": "여주도시공사 공영주차장(031-880-4031~2)",
+    "url": "https://yeojuuc.or.kr/sub1/parking/cityhall.do",
+    "file": "yeojuuc.or.kr_시청부설주차장_20261117.txt",
+    "sha256": "e44cc2b74b307a3ac8cbaf878260e2ba61b1b5baa90ea758ec245be145d568d9",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 1,
+    "fetched_at": "2026-11-17 18:12 (KST)",
+    "note": "시청부설주차장은 월~금 09:00~18:30(토·일·공휴일 휴무), 최초 40분 무료·40분 초과 1시간 이내 500원·1시간 초과 10분마다 300원, 82면(일반 63·장애인 5·임산부·어르신 2·경차 7·버스 1·전기차 4)이다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "여주시",
+   "slug": "yeoju"
+  }
+ ],
+ "lots": [
+  {
+   "id": "yju-001",
+   "mgmt_no": "237-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가남읍 1공영주차장",
+   "gu": "여주시",
+   "dong": "가남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 가남읍 태평리 146-3",
+   "addr_road": "경기도 여주시 가남읍 태평중앙2길 11-5",
+   "road": null,
+   "spaces": 71,
+   "tel": "031-887-2234",
+   "lat": 37.20266626,
+   "lng": 127.5443944,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": "공공데이터 표준데이터에는 ‘무료’로 등록되어 있지만, 여주도시공사가 월~금 10:00~19:00 유료로 운영합니다(60분 무료·10분당 200원·1일 6,000원) · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 표준데이터 등록면수는 71면이고, 여주도시공사 안내는 70면입니다 · 여주도시공사 안내에는 ‘가남읍1주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 하동·하동제일시장·가남읍1·가남읍2는 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-002",
+   "mgmt_no": "237-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가남읍 2공영주차장",
+   "gu": "여주시",
+   "dong": "가남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 가남읍 태평리 146-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-887-2234",
+   "lat": 37.20257533,
+   "lng": 127.5448305,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": "공공데이터 표준데이터에는 ‘무료’로 등록되어 있지만, 여주도시공사가 월~금 10:00~19:00 유료로 운영합니다(60분 무료·10분당 200원·1일 6,000원) · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 표준데이터 등록면수는 48면이고, 여주도시공사 안내는 47면입니다 · 여주도시공사 안내에는 ‘가남읍2주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 하동·하동제일시장·가남읍1·가남읍2는 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-003",
+   "mgmt_no": "237-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가남태평공영주차장",
+   "gu": "여주시",
+   "dong": "가남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 가남읍 태평리 175-13",
+   "addr_road": "경기도 여주시 가남읍 태평2길 26",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-887-2234",
+   "lat": 37.20386091,
+   "lng": 127.5457742,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-004",
+   "mgmt_no": "237-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북내공영주차장",
+   "gu": "여주시",
+   "dong": "북내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 북내면 당우리 192-4",
+   "addr_road": "경기도 여주시 북내면 당전로 5",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-887-2234",
+   "lat": 37.32758624,
+   "lng": 127.6816178,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-005",
+   "mgmt_no": "237-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼교동 공영주차장",
+   "gu": "여주시",
+   "dong": "삼교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 삼교동 459-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-887-2234",
+   "lat": 37.24523474,
+   "lng": 127.6517604,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-006",
+   "mgmt_no": "237-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상동공영주차장",
+   "gu": "여주시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 상동 141-2",
+   "addr_road": "경기도 여주시 청심로 233-7",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-887-2234",
+   "lat": 37.29486965,
+   "lng": 127.6454405,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-007",
+   "mgmt_no": "237-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여흥동 공영주차장",
+   "gu": "여주시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 상동 357",
+   "addr_road": "경기도 여주시 여흥로160번길 16",
+   "road": null,
+   "spaces": 423,
+   "tel": "031-880-4008",
+   "lat": 37.29457207,
+   "lng": 127.6395096,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 표준데이터 등록면수는 423면이고, 여주도시공사 안내는 415면입니다 · 여주도시공사 안내에는 ‘여흥동공영주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 월~일 08:00~19:00에 요금을 받고, 공휴일은 휴무(무료)입니다. 조례 제9조 3호는 일요일·공휴일을 무료로 정하고 있어 일요일·공휴일은 무료로 계산합니다 — 일요일은 현장 안내를 확인하세요",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-008",
+   "mgmt_no": "237-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "능서면사무소앞",
+   "gu": "여주시",
+   "dong": "세종대왕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 세종대왕면 번도리 500-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-887-2234",
+   "lat": 37.29988215,
+   "lng": 127.5733658,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-009",
+   "mgmt_no": "237-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종대왕릉역공영주차장",
+   "gu": "여주시",
+   "dong": "세종대왕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 세종대왕면 신지리 717-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "031-887-2234",
+   "lat": 37.29215802,
+   "lng": 127.5731124,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-010",
+   "mgmt_no": "237-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오학동 공영주차장",
+   "gu": "여주시",
+   "dong": "오학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 오학동 288",
+   "addr_road": "",
+   "road": null,
+   "spaces": 152,
+   "tel": "031-887-2234",
+   "lat": 37.30800204,
+   "lng": 127.6436828,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-011",
+   "mgmt_no": "237-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부영아파트 건너편상가앞",
+   "gu": "여주시",
+   "dong": "점봉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 점봉동 429-39",
+   "addr_road": "",
+   "road": null,
+   "spaces": 200,
+   "tel": "031-887-2234",
+   "lat": 37.26570682,
+   "lng": 127.6396314,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-012",
+   "mgmt_no": "237-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창동공영주차장(주차타워)",
+   "gu": "여주시",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 창동 138-7",
+   "addr_road": "경기도 여주시 세종로40번길 25",
+   "road": null,
+   "spaces": 209,
+   "tel": "031-880-4008",
+   "lat": 37.29529194,
+   "lng": 127.6334528,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 표준데이터 등록면수는 209면이고, 여주도시공사 안내는 193면입니다 · 여주도시공사 안내에는 ‘창동타워주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 월~일 08:00~19:00에 요금을 받고, 공휴일은 휴무(무료)입니다. 조례 제9조 3호는 일요일·공휴일을 무료로 정하고 있어 일요일·공휴일은 무료로 계산합니다 — 일요일은 현장 안내를 확인하세요",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-013",
+   "mgmt_no": "237-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한글시장 주차장",
+   "gu": "여주시",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 창동 46",
+   "addr_road": "경기도 여주시 여흥로109번길 17",
+   "road": null,
+   "spaces": 184,
+   "tel": "031-880-4008",
+   "lat": 37.29727326,
+   "lng": 127.6360458,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 시장상가 이용시 2시간 무료 할인권 배부+경차 50% 할인 · 표준데이터 등록면수는 184면이고, 여주도시공사 안내는 173면입니다 · 여주도시공사 안내에는 ‘한글시장주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 월~일 08:00~19:00에 요금을 받고, 공휴일은 휴무(무료)입니다. 조례 제9조 3호는 일요일·공휴일을 무료로 정하고 있어 일요일·공휴일은 무료로 계산합니다 — 일요일은 현장 안내를 확인하세요",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-014",
+   "mgmt_no": "237-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신륵사관광단지주차장",
+   "gu": "여주시",
+   "dong": "천송동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 천송동 294-3",
+   "addr_road": "경기도 여주시 신륵사길 13-1",
+   "road": null,
+   "spaces": 346,
+   "tel": "031-887-2234",
+   "lat": 37.29959686,
+   "lng": 127.6555388,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-015",
+   "mgmt_no": "237-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "놀이터옆 주차장",
+   "gu": "여주시",
+   "dong": "하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 하동 413-10",
+   "addr_road": "경기도 여주시 소양로27번길 5",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-887-2234",
+   "lat": 37.29646573,
+   "lng": 127.6294962,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-016",
+   "mgmt_no": "237-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하동 공영주차장",
+   "gu": "여주시",
+   "dong": "하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 하동 405-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "031-880-4008",
+   "lat": 37.29614796,
+   "lng": 127.631644,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 표준데이터 등록면수는 56면이고, 여주도시공사 안내는 53면입니다 · 여주도시공사 안내에는 ‘하동공영주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 하동·하동제일시장·가남읍1·가남읍2는 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-017",
+   "mgmt_no": "237-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하동제일시장",
+   "gu": "여주시",
+   "dong": "하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 하동 190-3",
+   "addr_road": "경기도 여주시 여흥로69번길 26-10",
+   "road": null,
+   "spaces": 119,
+   "tel": "031-880-4008",
+   "lat": 37.29861406,
+   "lng": 127.6328031,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 시장상가 이용시 2시간 무료 할인권 배부+경차 50% 할인 · 표준데이터 등록면수는 119면이고, 여주도시공사 안내는 262면입니다 · 여주도시공사 안내에는 ‘하동제일시장주차장’으로 적혀 있습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 하동·하동제일시장·가남읍1·가남읍2는 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-018",
+   "mgmt_no": "237-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법무지구 도시개발 주차장",
+   "gu": "여주시",
+   "dong": "현암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 현암동 667-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-887-2234",
+   "lat": 37.31247007,
+   "lng": 127.632118,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-019",
+   "mgmt_no": "237-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아이파크 앞 공영주차장",
+   "gu": "여주시",
+   "dong": "현암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 현암동 703",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-887-2234",
+   "lat": 37.31078389,
+   "lng": 127.6341501,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-020",
+   "mgmt_no": "237-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "현암동 공영주차장",
+   "gu": "여주시",
+   "dong": "현암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 현암동 179-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "031-887-2234",
+   "lat": 37.30901866,
+   "lng": 127.639758,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-021",
+   "mgmt_no": "237-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종대왕동상옆(터미널사거리)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 홍문동 232-4",
+   "addr_road": "경기도 여주시 소양로 107",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-887-2234",
+   "lat": 37.29049186,
+   "lng": 127.6342056,
+   "base_date": "2026-10-13",
+   "manager": "경기도 여주시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-022",
+   "mgmt_no": "237-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시민회관공영주차장",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 여주시 홍문동 72-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "031-880-4008",
+   "lat": 37.29462119,
+   "lng": 127.6370012,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 여주도시공사 공영주차장 안내의 유료 주차장 8곳에는 들어 있지 않고, 표준데이터에만 유료(평일 10:00~19:00)로 등록되어 있습니다 — 현장 확인 권장",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 유료 주차장 목록에는 없고 표준데이터에만 평일 10:00~19:00 유료로 등록되어 있습니다 — 토요일·일요일·공휴일은 요금을 받지 않습니다(현장 확인 권장)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-023",
+   "mgmt_no": "237-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시청부설주차장",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경기도 여주시 홍문동 4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "031-880-4008",
+   "lat": 37.29821379,
+   "lng": 127.6366244,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 공공청사 부설주차장 관리 운영 조례」 별표1 요금입니다 — 최초 40분까지 무료, 40분 초과 1시간 이내 500원, 1시간 초과 시 10분마다 300원(1일·월 주차권 없음) · 민원업무·의정활동·청사 유지보수 등 업무로 방문한 차량은 해당 부서 확인으로 면제됩니다(별표2 제2~4호)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "청사 부설",
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 40,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "basis": "「여주시 공공청사 부설주차장 관리 운영 조례」 별표1(최초 40분 무료 · 40분 초과 1시간 이내 500원 · 1시간 초과 10분당 300원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일은 청사 휴무일로 무료(개방하지 않음)입니다 — 유료 운영시간은 평일 09:00~18:30입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 40,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s024",
+   "mgmt_no": "237-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "여흥로(여흥동사무소 ～ 여흥초교 후문)",
+   "gu": "여주시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 상동 281-13",
+   "addr_road": "경기도 여주시 여흥로 151-2",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-880-4008",
+   "lat": 37.2954738,
+   "lng": 127.6403127,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s025",
+   "mgmt_no": "237-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청심로(상리정미소 ～ KT)",
+   "gu": "여주시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 상동 315-3",
+   "addr_road": "경기도 여주시 청심로 204",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-880-4008",
+   "lat": 37.2953525,
+   "lng": 127.6420461,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 2개 구간 32면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s026",
+   "mgmt_no": "237-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청심로(코아인테리어 ～ 상리정미소)",
+   "gu": "여주시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 상동 271-2",
+   "addr_road": "경기도 여주시 청심로 186",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-880-4008",
+   "lat": 37.29646503,
+   "lng": 127.6405433,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 2개 구간 32면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s027",
+   "mgmt_no": "237-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(문구나라 ～ 코렉스자전거)",
+   "gu": "여주시",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 창동 161-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-880-4008",
+   "lat": 37.29269872,
+   "lng": 127.6355282,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s028",
+   "mgmt_no": "237-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(샘터식당 ～ 제중약국)",
+   "gu": "여주시",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 창동 42-2",
+   "addr_road": "경기도 여주시 청심로 146",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-880-4008",
+   "lat": 37.2978845,
+   "lng": 127.6362501,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s029",
+   "mgmt_no": "237-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(중앙시장입구 ～ 안경박사)",
+   "gu": "여주시",
+   "dong": "창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 창동 42-2",
+   "addr_road": "경기도 여주시 청심로 146",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-880-4008",
+   "lat": 37.2978845,
+   "lng": 127.6362501,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s030",
+   "mgmt_no": "237-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "강변로(상점가 앞)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 5-3",
+   "addr_road": "경기도 여주시 청심로 155-16",
+   "road": null,
+   "spaces": 79,
+   "tel": "031-880-4008",
+   "lat": 37.298232,
+   "lng": 127.6380443,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 1개 구간 80면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s031",
+   "mgmt_no": "237-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(경찰서 민원실 앞)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 216-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-880-4008",
+   "lat": 37.29330378,
+   "lng": 127.6357877,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s032",
+   "mgmt_no": "237-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(구법원입구 ～ 홍문현대(아) 앞)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 217-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-880-4008",
+   "lat": 37.29257702,
+   "lng": 127.6357294,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s033",
+   "mgmt_no": "237-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(국민은행 ～ 구법원입구)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 227",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-880-4008",
+   "lat": 37.29324255,
+   "lng": 127.6359097,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s034",
+   "mgmt_no": "237-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(기아자동차 ～ 백악관웨딩홀)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 290",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-880-4008",
+   "lat": 37.2906526,
+   "lng": 127.634977,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s035",
+   "mgmt_no": "237-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(김밥나라 ～ 현대의료기)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 216-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-880-4008",
+   "lat": 37.29330378,
+   "lng": 127.6357877,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s036",
+   "mgmt_no": "237-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(시청앞 ～ 농협)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 15-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-880-4008",
+   "lat": 37.29718729,
+   "lng": 127.6369498,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s037",
+   "mgmt_no": "237-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(여주홈마트 ～ 터미널)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 219-1",
+   "addr_road": "경기도 여주시 세종로 67",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-880-4008",
+   "lat": 37.29188971,
+   "lng": 127.6360842,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s038",
+   "mgmt_no": "237-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세종로(우리은행 앞)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 72-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-880-4008",
+   "lat": 37.29493135,
+   "lng": 127.6366953,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "조례 별표5 비고1에 따라 이 주차장은 1일 주차요금과 월 정기 주차요금을 받지 않고 1구획당 요금기준(60분 무료·10분당 200원)만 적용합니다 — 여주도시공사도 ‘1일 주차권 폐지’를 안내 합니다 · 「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 10개 구간 142면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  },
+  {
+   "id": "yju-s039",
+   "mgmt_no": "237-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청심로(시청옆)",
+   "gu": "여주시",
+   "dong": "홍문동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 여주시 홍문동 5-7",
+   "addr_road": "경기도 여주시 청심로 155-12",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-880-4008",
+   "lat": 37.29805462,
+   "lng": 127.6379386,
+   "base_date": "2026-10-13",
+   "manager": "여주도시공사",
+   "note": "",
+   "notice": "「여주시 주차장 조례」 별표5 1급지 요금입니다 — 최초 60분 무료, 60분이 지나면 10분마다 200원, 1일 주차요금 6,000원, 월 정기 60,000원 · 경차 50% 할인 · 여주도시공사는 이 도로의 노상주차장을 2개 구간 32면으로 안내합니다(표준데이터는 구간을 도로별로 나누어 등록)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표5 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「여주시 주차장 조례」 별표5 1급지(최초 60분 무료 · 10분당 200원 · 1일 6,000원 · 월 60,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "여주도시공사 안내: 노상주차장은 월~금 10:00~19:00에만 요금을 받고 토요일·일요일·공휴일은 휴무(무료)입니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "여주시",
+   "city_slug": "yeoju"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 18:25",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 40,
+  "원자료_여주시행수": 40,
+  "원자료_전체행수": 40,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 1,
+  "중복제거_행": [
+   {
+    "kept": "여흥동 공영주차장",
+    "dropped": "보건소옆무료주차장",
+    "reason": "같은 지번(경기도 여주시 상동 357)에 유료·무료로 두 번 등록 — 유료로 운영하는 ‘여흥동 공영주차장’만 실었다"
+   }
+  ],
+  "총_주차장": 23,
+  "노외_부설": {
+   "노외": 22,
+   "부설": 1
+  },
+  "노상_구간": 16,
+  "총_구획수": 2326,
+  "노상_구획수": 351,
+  "동별": {
+   "가남읍": 3,
+   "하동": 3,
+   "현암동": 3,
+   "홍문동": 3,
+   "상동": 2,
+   "세종대왕면": 2,
+   "창동": 2,
+   "북내면": 1,
+   "삼교동": 1,
+   "오학동": 1,
+   "점봉동": 1,
+   "천송동": 1
+  },
+  "동수": 12,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 23
+  },
+  "요금구분": {
+   "유료": 25,
+   "무료": 14
+  },
+  "요금_미상": [],
+  "급지별": {
+   "1": 24
+  },
+  "표준데이터_급지": {},
+  "유료_노상": 16,
+  "유료_노외": 8,
+  "유료_부설": 1,
+  "운영시간_보정": [
+   "시청부설주차장: 표준데이터 09:00~18:30 → 공공청사 부설주차장 조례 제3조의2 평일 09:00~18:30",
+   "가남읍 2공영주차장: 표준데이터 00:00~23:59 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "여흥동 공영주차장: 표준데이터 08:00~22:00 → 여주도시공사 월~일 08:00~19:00(공휴일 휴무)",
+   "하동 공영주차장: 표준데이터 08:00~22:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "가남읍 1공영주차장: 표준데이터 00:00~23:59 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "하동제일시장: 표준데이터 00:00~23:59 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "한글시장 주차장: 표준데이터 08:00~22:00 → 여주도시공사 월~일 08:00~19:00(공휴일 휴무)",
+   "시민회관공영주차장: 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "창동공영주차장(주차타워): 표준데이터 08:00~22:00 → 여주도시공사 월~일 08:00~19:00(공휴일 휴무)",
+   "청심로(상리정미소 ～ KT): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "청심로(코아인테리어 ～ 상리정미소): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "청심로(시청옆): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "여흥로(여흥동사무소 ～ 여흥초교 후문): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(구법원입구 ～ 홍문현대(아) 앞): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(김밥나라 ～ 현대의료기): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(샘터식당 ～ 제중약국): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(경찰서 민원실 앞): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(중앙시장입구 ～ 안경박사): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(여주홈마트 ～ 터미널): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(국민은행 ～ 구법원입구): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(시청앞 ～ 농협): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(우리은행 앞): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(기아자동차 ～ 백악관웨딩홀): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "세종로(문구나라 ～ 코렉스자전거): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)",
+   "강변로(상점가 앞): 표준데이터 10:00~19:00 → 여주도시공사 월~금 10:00~19:00(토·일·공휴일 휴무)"
+  ],
+  "면수_차이": [
+   "가남읍 2공영주차장: 표준데이터 48면 ↔ 여주도시공사 47면",
+   "여흥동 공영주차장: 표준데이터 423면 ↔ 여주도시공사 415면",
+   "하동 공영주차장: 표준데이터 56면 ↔ 여주도시공사 53면",
+   "가남읍 1공영주차장: 표준데이터 71면 ↔ 여주도시공사 70면",
+   "하동제일시장: 표준데이터 119면 ↔ 여주도시공사 262면",
+   "한글시장 주차장: 표준데이터 184면 ↔ 여주도시공사 173면",
+   "창동공영주차장(주차타워): 표준데이터 209면 ↔ 여주도시공사 193면"
+  ],
+  "등록값_차이": [
+   "여흥동 공영주차장: 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "하동 공영주차장: 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "하동제일시장: 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "한글시장 주차장: 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "시민회관공영주차장: 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "창동공영주차장(주차타워): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "청심로(상리정미소 ～ KT): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "청심로(코아인테리어 ～ 상리정미소): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "청심로(시청옆): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "여흥로(여흥동사무소 ～ 여흥초교 후문): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(구법원입구 ～ 홍문현대(아) 앞): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(김밥나라 ～ 현대의료기): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(샘터식당 ～ 제중약국): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(경찰서 민원실 앞): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(중앙시장입구 ～ 안경박사): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(여주홈마트 ～ 터미널): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(국민은행 ～ 구법원입구): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(시청앞 ～ 농협): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(우리은행 앞): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(기아자동차 ～ 백악관웨딩홀): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "세종로(문구나라 ～ 코렉스자전거): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)",
+   "강변로(상점가 앞): 표준데이터 기본 30분 500원·추가 10분 200원 ↔ 조례 별표5 1급지 최초 60분 무료·10분당 200원(2025-06-30 개정 전 등록값)"
+  ],
+  "요금구분_보정": [
+   "가남읍 2공영주차장: 표준데이터 요금정보 ‘무료’ ↔ 여주도시공사가 유료로 운영(유료 운영시간 표에 10:00~19:00, 이용요금 60분 무료·10분당 200원·1일 6,000원) — 유료로 바로잡음",
+   "가남읍 1공영주차장: 표준데이터 요금정보 ‘무료’ ↔ 여주도시공사가 유료로 운영(유료 운영시간 표에 10:00~19:00, 이용요금 60분 무료·10분당 200원·1일 6,000원) — 유료로 바로잡음"
+  ],
+  "정기권_차이": [],
+  "주소_보정": [
+   "가남읍 2공영주차장: 지번주소의 ‘가납읍’을 ‘가남읍’으로 바로잡음(가남읍 태평리 일대 — 같은 읍의 다른 주차장 주소와 대조)"
+  ],
+  "관리번호_중복": [
+   "관리번호 237-2-000018가 현암동 공영주차장·오학동 공영주차장 두 곳에 같은 값으로 등록되어 있습니다(이름·주소·좌표가 달라 그대로 실음)",
+   "관리번호 237-2-000017가 여흥동 공영주차장·하동 공영주차장 두 곳에 같은 값으로 등록되어 있습니다(이름·주소·좌표가 달라 그대로 실음)"
+  ],
+  "1일권_없음": [
+   "한글시장 주차장",
+   "세종로(구법원입구 ～ 홍문현대(아) 앞)",
+   "세종로(김밥나라 ～ 현대의료기)",
+   "세종로(샘터식당 ～ 제중약국)",
+   "세종로(경찰서 민원실 앞)",
+   "세종로(중앙시장입구 ～ 안경박사)",
+   "세종로(여주홈마트 ～ 터미널)",
+   "세종로(국민은행 ～ 구법원입구)",
+   "세종로(시청앞 ～ 농협)",
+   "세종로(우리은행 앞)",
+   "세종로(기아자동차 ～ 백악관웨딩홀)",
+   "세종로(문구나라 ～ 코렉스자전거)"
+  ],
+  "감면_출처": "「여주시 주차장 조례」 별표6(제6조제1항) · 여주도시공사 감면안내 · 「여주시 공공청사 부설주차장 관리 운영 조례」 별표2(청사 부설)",
+  "무료시간_출처": "조례 별표5 공영주차장 주차요금표(최초 60분 이내 무료) · 청사 부설주차장 조례 별표1(최초 40분)",
+  "주말무료_출처": "여주도시공사 유료 운영시간(휴무: 공휴일 / 토·일·공휴일) · 조례 제9조 3호(일요일·공휴일 무료)",
+  "일요일_무료표기": [
+   "가남읍 1공영주차장",
+   "가남읍 2공영주차장",
+   "여흥동 공영주차장",
+   "창동공영주차장(주차타워)",
+   "한글시장 주차장",
+   "하동 공영주차장",
+   "하동제일시장",
+   "시민회관공영주차장",
+   "시청부설주차장",
+   "여흥로(여흥동사무소 ～ 여흥초교 후문)",
+   "청심로(상리정미소 ～ KT)",
+   "청심로(코아인테리어 ～ 상리정미소)",
+   "세종로(문구나라 ～ 코렉스자전거)",
+   "세종로(샘터식당 ～ 제중약국)",
+   "세종로(중앙시장입구 ～ 안경박사)",
+   "강변로(상점가 앞)",
+   "세종로(경찰서 민원실 앞)",
+   "세종로(구법원입구 ～ 홍문현대(아) 앞)",
+   "세종로(국민은행 ～ 구법원입구)",
+   "세종로(기아자동차 ～ 백악관웨딩홀)",
+   "세종로(김밥나라 ～ 현대의료기)",
+   "세종로(시청앞 ～ 농협)",
+   "세종로(여주홈마트 ～ 터미널)",
+   "세종로(우리은행 앞)",
+   "청심로(시청옆)"
+  ],
+  "무료개방_표기": [
+   "가남읍 1공영주차장",
+   "가남읍 2공영주차장",
+   "여흥동 공영주차장",
+   "창동공영주차장(주차타워)",
+   "한글시장 주차장",
+   "하동 공영주차장",
+   "하동제일시장",
+   "시민회관공영주차장",
+   "시청부설주차장",
+   "여흥로(여흥동사무소 ～ 여흥초교 후문)",
+   "청심로(상리정미소 ～ KT)",
+   "청심로(코아인테리어 ～ 상리정미소)",
+   "세종로(문구나라 ～ 코렉스자전거)",
+   "세종로(샘터식당 ～ 제중약국)",
+   "세종로(중앙시장입구 ～ 안경박사)",
+   "강변로(상점가 앞)",
+   "세종로(경찰서 민원실 앞)",
+   "세종로(구법원입구 ～ 홍문현대(아) 앞)",
+   "세종로(국민은행 ～ 구법원입구)",
+   "세종로(기아자동차 ～ 백악관웨딩홀)",
+   "세종로(김밥나라 ～ 현대의료기)",
+   "세종로(시청앞 ～ 농협)",
+   "세종로(여주홈마트 ～ 터미널)",
+   "세종로(우리은행 앞)",
+   "청심로(시청옆)"
+  ],
+  "무료_요금구분": 14,
+  "무료_구획수": 1098,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "237-2-000017",
+   "237-2-000018"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-13"
+  ]
+ },
+ "fee_table": {
+  "style": "yeoju_grade",
+  "base_min": 60,
+  "unit_min": 10,
+  "free_min": 60,
+  "applies": "시행 2025-06-30 · 경기도여주시조례 제1434호(일부개정) · 별표5·별표6 〈개정 2025.6.30.〉",
+  "off": [
+   {
+    "grade": 1,
+    "where": "동 및 읍지역 도시계획구역",
+    "unit": 200,
+    "day": 6000,
+    "month": 60000,
+    "lots": 8
+   },
+   {
+    "grade": 2,
+    "where": "1급지 이외의 지역",
+    "unit": 100,
+    "day": 3000,
+    "month": 40000,
+    "lots": 0
+   }
+  ],
+  "hall": {
+   "name": "시청부설주차장",
+   "free_min": 40,
+   "base_fee": 500,
+   "unit_fee": 300,
+   "window": "평일 09:00~18:30",
+   "spaces": 93,
+   "applies": "시행 2024-12-18 · 경기도여주시조례 제1399호(일부개정) · 별표1 〈개정 2024.12.18.〉"
+  },
+  "windows": [
+   {
+    "group": "한글시장·창동타워·여흥동 공영",
+    "hours": "월~일 08:00~19:00",
+    "free": "공휴일 휴무(무료)"
+   },
+   {
+    "group": "하동·하동제일시장·가남읍1·가남읍2",
+    "hours": "월~금 10:00~19:00",
+    "free": "토·일·공휴일 휴무(무료)"
+   },
+   {
+    "group": "노상주차장",
+    "hours": "월~금 10:00~19:00",
+    "free": "토·일·공휴일 휴무(무료)"
+   },
+   {
+    "group": "시청부설주차장",
+    "hours": "평일 09:00~18:30",
+    "free": "토·일·공휴일 휴무(무료)"
+   }
+  ],
+  "no_ticket": [
+   "세종로(경찰서 민원실 앞)",
+   "세종로(구법원입구 ～ 홍문현대(아) 앞)",
+   "세종로(국민은행 ～ 구법원입구)",
+   "세종로(기아자동차 ～ 백악관웨딩홀)",
+   "세종로(김밥나라 ～ 현대의료기)",
+   "세종로(문구나라 ～ 코렉스자전거)",
+   "세종로(샘터식당 ～ 제중약국)",
+   "세종로(시청앞 ～ 농협)",
+   "세종로(여주홈마트 ～ 터미널)",
+   "세종로(우리은행 앞)",
+   "세종로(중앙시장입구 ～ 안경박사)",
+   "한글시장 주차장"
+  ],
+  "corp": {
+   "paid_out": 9,
+   "free_out": 14,
+   "street": 16
+  },
+  "lots": [
+   {
+    "name": "가남읍 1공영주차장",
+    "dong": "가남읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "가남읍 2공영주차장",
+    "dong": "가남읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "여흥동 공영주차장",
+    "dong": "상동",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "창동공영주차장(주차타워)",
+    "dong": "창동",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "한글시장 주차장",
+    "dong": "창동",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "하동 공영주차장",
+    "dong": "하동",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "하동제일시장",
+    "dong": "하동",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "시민회관공영주차장",
+    "dong": "홍문동",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "시청부설주차장",
+    "dong": "홍문동",
+    "ptype": "부설",
+    "grade": "청사 부설",
+    "free": 40,
+    "unit": 300,
+    "base": 500,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "여흥로(여흥동사무소 ～ 여흥초교 후문)",
+    "dong": "상동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "청심로(상리정미소 ～ KT)",
+    "dong": "상동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "청심로(코아인테리어 ～ 상리정미소)",
+    "dong": "상동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "세종로(문구나라 ～ 코렉스자전거)",
+    "dong": "창동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(샘터식당 ～ 제중약국)",
+    "dong": "창동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(중앙시장입구 ～ 안경박사)",
+    "dong": "창동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "강변로(상점가 앞)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   },
+   {
+    "name": "세종로(경찰서 민원실 앞)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(구법원입구 ～ 홍문현대(아) 앞)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(국민은행 ～ 구법원입구)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(기아자동차 ～ 백악관웨딩홀)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(김밥나라 ～ 현대의료기)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(시청앞 ～ 농협)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(여주홈마트 ～ 터미널)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "세종로(우리은행 앞)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": null,
+    "month": null
+   },
+   {
+    "name": "청심로(시청옆)",
+    "dong": "홍문동",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 200,
+    "base": 0,
+    "day": 6000,
+    "month": 60000
+   }
+  ],
+  "basis": "「여주시 주차장 조례」 [별표 5] 공영주차장 주차요금표(시행 2025-06-30 · 경기도여주시조례 제1434호(일부개정) · 별표5·별표6 〈개정 2025.6.30.〉) · 「여주시 공공청사 부설주차장 관리 운영 조례」 [별표 1](시행 2024-12-18 · 경기도여주시조례 제1399호(일부개정) · 별표1 〈개정 2024.12.18.〉) · 여주도시공사 공영주차장 안내(2026-11-17 확인)"
+ },
+ "slug": "yeoju",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "여주시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "국가유공자 6시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 360,
+   "note": "국가유공자 증서 소지자가 본인 자동차를 직접 운전하거나 장애 정도가 심해 동승하고 타인에게 대리운전을 맡긴 경우(수권유족 포함) — 1일 1회 6시간 면제 뒤 50%"
+  },
+  {
+   "label": "장애인(심한)·5·18·고엽제·참전 등 3시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 180,
+   "note": "장애 정도가 심한 장애인, 5·18민주화운동부상자, 고엽제후유의증 환자, 참전유공자, 만 75세 이상 여주시 거주 고령노인(본인 운전), 새마을지도자·새마을부녀지도자, 이장·통장, 대한노인회 여주시지회장·분회장·마을별 노인회장, 장기기증자·기증희망자와 법정 유가족 1인, 임산부 — 3시간 면제 뒤 50%"
+  },
+  {
+   "label": "경차·저공해·다자녀·병역명문가 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차(1,000cc 미만), 환경친화적 자동차(전기차 제외), 저공해자동차 표지 부착 차량, 2자녀(막내 만 18세 이하) 이상 다자녀세대, 부양세대 등록 차량, 병역명문가 차량, 장애 정도가 심하지 않은 장애인 — 50%"
+  },
+  {
+   "label": "전기차 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "환경친화적 자동차 가운데 전기차 — 최초 2시간 면제 뒤 50%(별표6 제15호)"
+  },
+  {
+   "label": "전통시장 상인·고객 2시간 면제",
+   "rate": 0.0,
+   "exempt_min": 120,
+   "note": "「전통시장 및 상점가 육성을 위한 특별법」 제19조제1항에 따른 주차장에서 상인·고객이 주차하는 경우 — 2시간 면제(영수증 등 구입 증빙 제시). 한글시장·하동제일시장 카드 참고"
+  },
+  {
+   "label": "자가용 부제·함께타기 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "국가·자치단체장이 발행한 자가용 부제 및 함께타기 표지부착 차량 — 20% 감면"
+  },
+  {
+   "label": "긴급·성실납세자 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 성실납세자·유공납세자 인증서 교부일부터 1년(표지·인증서 부착 차량) — 면제. 시청부설주차장은 민원업무·의정활동·청사 유지보수 방문 차량도 해당 부서 확인으로 면제"
+  }
+ ],
+ "realtime": false
+}
