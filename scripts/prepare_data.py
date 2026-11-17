@@ -378,6 +378,11 @@ CITY_META = {
     # 가평군 — 자치구·시가 아닌 군이라 슬러그는 gapyeong, 경로는 /parking/gyeonggi/gapyeong/.
     "가평군": {"slug": "gapyeong", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    # 양평군·연천군 — 경기도의 마지막 두 군. 경로는 /parking/gyeonggi/yangpyeong/·/yeoncheon/.
+    "양평군": {"slug": "yangpyeong", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "연천군": {"slug": "yeoncheon", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7244,7 +7249,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군", "양평군", "연천군"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -17055,12 +17060,1027 @@ def check_quality_gapyeong(std_all, rows, lots, excluded, merged, hour_fixed, sp
 
 
 
+# ---------------------------------------------------------------- 양평군 (T-03 Phase 29)
+YP_PROVIDER = "경기도 양평군"
+# 양평군은 읍·면 아래 ‘리’가 있지만 표준데이터 주소의 지역 낱말은 읍·면이다.
+#   자치구가 없어 군 페이지가 계산기·목록 페이지를 겸하고, 그 아래 읍·면 페이지를 둔다.
+YP_DISTRICTS = [("양평군", "yangpyeong")]
+YP_BBOX = (37.38, 37.66, 127.27, 127.74)   # 양평군 대략 경계(좌표 점검용)
+YP_UNIT_SUFFIX = ("읍", "면")
+
+YP_ORDINANCE_URL = "https://law.go.kr/LSW/ordinInfoP.do?ordinSeq=2087065"
+YP_ORD1 = RAW / "law.go.kr_양평군주차장조례_별표1_20261118.hwp"
+YP_ORD1_TXT = RAW / "law.go.kr_양평군주차장조례_별표1_20261118.txt"
+YP_ORD2_TXT = RAW / "law.go.kr_양평군주차장조례_별표2_20261118.txt"
+YP_ORDINANCE_NOTE = ("시행 2025-11-17 · 경기도양평군조례 제3209호(일부개정) · "
+                     "별표1 공영주차장 요금 · 별표2 주차요금 감면 대상 및 비율")
+YP_BASE_MIN = 30            # 별표1 ‘최초 30분까지’ + 비고6(30분 미만은 30분으로 본다)
+YP_UNIT_MIN = 10            # 30분 초과 시부터 매 10분마다
+YP_UNIT_UNTIL = 120         # 2시간까지 10분당 200원(1급지)
+YP_SUMMER = (8 * 60, 19 * 60)      # 4월~10월 08:00~19:00
+YP_WINTER = (9 * 60, 18 * 60)      # 11월~3월 09:00~18:00
+
+# 양평군 공영주차장 요금 — 「양평군 주차장 조례」 [별표 1] 공영주차장 요금
+#   (시행 2025-11-17, 경기도양평군조례 제3209호, 별표1 HWP의 표와 비고를 읽음).
+#   · 노상·노외 같은 표: 1급 지역 최초 30분 600원 → 2시간까지 매 10분 200원 → 2시간 초과 매 10분 300원,
+#     야간 면제, 1일주차권 7,000원, 월 정기권 70,000원.
+#   · 2급 지역: 30분 300원 → 100원 → 200원, 야간 면제, 1일 5,000원, 월 50,000원.
+#   · 비고1: 주간 운영시간 4월~10월 08:00~19:00, 11월~3월 09:00~18:00, 그 밖의 시간은 야간.
+#     공휴일·야간은 무료 운영(철도하부 양평시장 주차장은 민속 5일 장날과 휴일이 겹치면 주간과 같이 징수).
+#   · 비고2: 1급 지역 = 도시지역, 2급 지역 = 그 밖의 지역(군수가 지정).
+#   · 비고6: 최초 주차시간이 30분 미만이면 30분으로 보고, 30분 초과부터 매 10분마다 추가요금.
+#   · 비고8: 사전 약정 없는 요금이 1일 주차요금을 넘으면 1일 요금을, 1일 요금 합계가 월 정기권을
+#     넘으면 월 정기권 금액을 단위요금으로 한다.
+YP_FEES = {
+    1: {"base": 600, "unit": 200, "unit_over": 300, "day": 7_000, "month": 70_000,
+        "where": "도시지역"},
+    2: {"base": 300, "unit": 100, "unit_over": 200, "day": 5_000, "month": 50_000,
+        "where": "1급 지역 외 관내 지역"},
+}
+# 표준데이터 좌표 보정 — 양평군이 등록한 51행 가운데 43행의 위·경도가 주소와 맞지 않아
+#   (같은 좌표가 다른 읍·면 주차장에 겹치거나 20km 넘게 떨어진 값) 주소(지번)로 다시 찾은 좌표를 쓴다.
+#   좌표 출처: 카카오맵 주소 지오코딩(2026-11-18 조회). 아래 값은 ‘경기도 양평군 ’을 뺀 지번주소다.
+YP_COORD_FIX = {
+    "강하면 운심리 1": (37.497121, 127.414027),          # 강하체육공원
+    "강하면 운심리 28-1": (37.496292, 127.4125),         # 강하주차장
+    "강하면 운심리 9-1": (37.495987, 127.415174),        # 강하주민자치센터
+    "양평읍 대흥리 505-11": (37.487392, 127.542782),     # 양평공사 사무실 주차장
+    "지평면 지평리 581-2": (37.474474, 127.639261),      # 지평면사무소 주차장
+    "강상면 송학리 179-2": (37.481072, 127.478972),      # 강상면 다목적체육관 주차장
+    "강상면 송학리 42-1": (37.480547, 127.477544),       # 강상다목적복지회관 주차장
+    "서종면 문호리 922-4": (37.592878, 127.34873),       # 서종문화체육공원(공영)
+    "서종면 문호리 353-1": (37.602476, 127.353783),      # 노인회관(부설)
+    "서종면 문호리 1100": (37.599418, 127.350852),       # 게이트 볼장(공영)·문호리 버스 종점 주차장
+    "서종면 문호리 766-1": (37.606703, 127.34873),       # 서종면사무소(부설)
+    "양서면 용담리 540-6": (37.543286, 127.32339),       # 양서면사무소 청사 주차장·청사 부설주차장
+    "양평읍 양근리 658": (37.48663, 127.493641),         # 양평읍 공영주차장
+    "청운면 용두리 717-4": (37.553522, 127.708695),      # 청운용두시장 주차장
+    "청운면 용두리 628": (37.556529, 127.711038),        # 복지회관 주차장
+    "단월면 보룡리 343-2": (37.538505, 127.67298),       # 단월면사무소 주차장
+    "옥천면 용천리319-7": (37.529622, 127.500299),       # 사나사주차장
+    "옥천면 옥천리 762": (37.518982, 127.456964),        # 옥천수공원
+    "옥천면 옥천리 779": (37.522083, 127.45842),         # 옥천면다목적복지회관
+    "옥천면 옥천리 771": (37.520157, 127.456528),        # 옥천레포츠공원
+    "옥천면 옥천리 865-17": (37.518181, 127.456366),     # 옥천면사무소
+    "용문면 중원리 607-8": (37.548734, 127.620113),      # 중원계곡 주차장
+    "용문면 마룡리 692-5": (37.494456, 127.606189),      # 용문생활체육공원 주차장
+    "용문면 다문리 1055": (37.488703, 127.599669),       # 용문다목적청사 주차장
+    "옥천면 옥천리903-15": (37.509179, 127.449312),      # 환경사업소 청사 주차장
+    "양평읍 백안리 산 45-7": (37.510838, 127.53302),     # 양평 쉬자파크주차장
+    "양평읍 공흥리 316-10": (37.493483, 127.503691),     # 정원산림과·교통과 주차장
+    "양평읍 양근리 542": (37.497454, 127.484922),        # 평생학습센터주차장,체육관 주차장
+    "용문면 다문리 798-1": (37.480817, 127.590085),      # 용문천년시장 제2공영주차장
+    "용문면 다문리 717-6": (37.483661, 127.592156),      # 용문천년시장 제1공영주차장
+    "용문면 신점리 525-2": (37.545523, 127.582838),      # 용문산관광지 주차장
+    "개군면 하자포리 426": (37.426269, 127.537817),      # 개군면 노상주차장
+    "양서면 양수리 769-2": (37.536719, 127.316929),      # 두물머리제5·양수3리 공영주차장
+    "양서면 양수리 787-4": (37.536867, 127.31748),       # 두물머리제4공영주차장
+    "양서면 양수리 1137": (37.543489, 127.320089),       # 두물머리제3공영주차장
+    "양서면 양수리 1157": (37.541706, 127.319332),       # 두물머리제2공영주차장
+    "양서면 양수리 1147": (37.54272, 127.319708),        # 두물머리제1공영주차장
+    "양서면 양수리 1001": (37.544961, 127.320916),       # 양수시장공영주차장
+    "양서면 용담리 246-5": (37.544706, 127.328642),      # 용담제2공영주차장
+    "양서면 용담리 507-10": (37.54258, 127.325335),      # 용담제1공영주차장
+    "용문면 다문리 344-2": (37.486742, 127.595764),      # 용문공영주차장
+    "양평읍 양근리 811": (37.498331, 127.486561),        # 양근지구 공영주차장
+    "양평읍 오빈리 100-1": (37.505456, 127.476327),      # 오빈역 철도부지 주차장
+}
+# 표준데이터에 같은 이름·같은 지번으로 두 번 등록된 행(좌표만 다름) — 한 곳으로 합친다.
+YP_DUP_KEYS = {("지평면사무소 주차장", "경기도 양평군 지평면 지평리 581-2")}
+
+# 양평군 주차요금 감면 — 「양평군 주차장 조례」 별표2(시행 2025-11-17).
+#   · 전액 면제: 긴급자동차, 국가·지방자치단체 공무수행 차량, 외교사절·수행자 공무수행 차량
+#   · 최초 3시간 전액 면제 뒤 50%: 장애 정도가 심한 장애인, 국가유공자, 고엽제후유의증,
+#     5·18민주유공자(운전·동승), 성실·유공납세자(표지 발급일부터 1년)
+#   · 최초 2시간 전액 면제 뒤 50%: 경기도 주소 18세 이하 자녀 1명 포함 2명 이상 자녀 가정
+#   · 최초 2시간 무료: 환경친화적 자동차 가운데 전기차 충전 시(당일 충전 영수증)
+#   · 최초 1시간 면제: 전통시장·상권활성화구역에 있거나 이웃한 지정 공영주차장
+#   · 50%: 경차, 저공해·환경친화적 자동차, 경증장애인, 군 거주 75세 이상 고령운전자,
+#     병역명문가, 우수자원봉사자, 장기복무 제대군인, 장기·인체조직 기증자, 환승 목적 월 정기권
+#   · 20%: 군 시책(요일제·10부제·차 함께 타기) 참여 차량, 주차권 100매 이상 미리 구매한 상인 등
+#   · 선거 투표자는 선거일부터 1개월간 1일 주차요금 범위에서 1회 면제(월 정기권 제외)
+YP_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "긴급·공무수행·외교사절 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차(소방·구급 등), 국가·지방자치단체 소속 공무수행 차량, 외교사절 및 수행자의 "
+              "공무수행 차량 — 전액 면제")},
+    {"label": "중증장애인·국가유공자 등 3시간 면제", "rate": 1.0, "exempt_min": 180,
+     "note": ("장애 정도가 심한 장애인, 국가유공자, 고엽제후유의증 환자, 5·18민주유공자(운전·동승), "
+              "성실·유공납세자(표지 발급일부터 1년) — 최초 3시간 전액 면제, 3시간 초과분은 50% 감면")},
+    {"label": "다자녀가정 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": ("경기도에 주소를 둔 18세 이하 자녀 1명을 포함한 2명 이상 자녀를 둔 가정 — 최초 2시간 "
+              "전액 면제, 2시간 초과분은 50% 감면(경기아이플러스 카드 등 증명)")},
+    {"label": "전기차 충전 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": ("환경친화적 자동차 가운데 전기차 충전시설에서 충전한 경우(당일 충전 영수증 제시) — "
+              "최초 2시간 무료")},
+    {"label": "전통시장 인근 1시간 면제", "rate": 1.0, "exempt_min": 60,
+     "note": ("전통시장·상권활성화구역에 있거나 이웃한 공영주차장 가운데 군이 지정한 곳을 이용하는 "
+              "상인·고객 — 최초 1시간 면제")},
+    {"label": "경차·저공해·경증장애인 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("경형자동차, 저공해·환경친화적 자동차(표지 부착), 장애 정도가 심하지 않은 장애인, "
+              "군에 사는 75세 이상 고령운전자, 병역명문가, 우수자원봉사자(연 100시간 이상), "
+              "장기복무 제대군인, 장기·인체조직 기증자·기증희망자, 환승 목적 월 정기권 구매자 — 50%")},
+    {"label": "시책 참여·주차권 100매 구매 20%", "rate": 0.2, "exempt_min": 0,
+     "note": ("군이 추진하는 요일제·10부제·차량 함께 타기 등에 참여하는 차량(표지 부착)과 공영주차장 "
+              "인근 상인 등이 주차권을 100매 이상 미리 구매한 경우 — 20%")},
+]
+
+
+def yp_dong_of(text: str):
+    """주소에서 양평군 읍·면을 뽑는다 — ‘경기도 양평군 ○○읍|○○면 번지’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "양평군":
+        cand = parts[2]
+        if cand.endswith(YP_UNIT_SUFFIX):
+            return cand
+    return None
+
+
+def yp_hm(m: int) -> str:
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def yp_window(start, end):
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [yp_hm(start), yp_hm(end)]}
+
+
+def yp_fee(grade: int = 1, ptype: str = "노외", pay: str = ""):
+    """양평군 공영주차장 시간 요금 → 사이트 공통 fee 객체.
+
+    별표1은 ‘최초 30분 600원(1급 지역) → 2시간까지 매 10분 200원 → 2시간 초과 매 10분 300원’이다.
+    그래서 기본 30분 600원에 steps(2시간까지 200원·그 뒤 300원)를 넣는다.
+    """
+    t = YP_FEES[grade]
+    return {
+        "type": "유료", "raw_type": "혼합", "mixed": True,
+        "grade": grade, "grade_label": f"{grade}급지", "std_grade": None,
+        "base_min": YP_BASE_MIN, "base_fee": t["base"],
+        "unit_min": YP_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": [{"until": YP_UNIT_UNTIL, "unit_fee": t["unit"]},
+                  {"until": None, "unit_fee": t["unit_over"]}],
+        "steps_label": (f"2시간까지 {YP_UNIT_MIN}분당 {t['unit']:,}원 → "
+                        f"2시간 초과 {YP_UNIT_MIN}분당 {t['unit_over']:,}원"),
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일주차권",
+        "daily_hours": 24, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": t["month"], "monthly_day": None, "monthly_night": None,
+        "monthly_all": t["month"], "monthly_label": None, "pay": pay,
+        "basis": (f"「양평군 주차장 조례」 별표1 {grade}급 지역 {ptype} "
+                  f"(최초 30분 {t['base']:,}원 · 2시간까지 {YP_UNIT_MIN}분당 {t['unit']:,}원 · "
+                  f"2시간 초과 {YP_UNIT_MIN}분당 {t['unit_over']:,}원 · "
+                  f"1일주차권 {t['day']:,}원 · 월 정기 {t['month']:,}원)"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yp_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_yangpyeong():
+    """양평군 공영주차장을 표준데이터 + 양평군 주차장 조례 별표1·별표2로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 양평군 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 51행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 같은 이름·같은 지번으로 두 번 등록된 1행은 한 곳으로 합친다(좌표만 달랐다).
+      · 표준데이터 좌표가 주소와 맞지 않는 43행은 지번주소로 다시 찾은 좌표를 쓴다(YP_COORD_FIX).
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 읍·면 페이지는 카드가 3곳 이상인 읍·면만 만든다(빈 페이지 방지).
+    요금은 조례 별표1(1급 지역 30분 600원 → 2시간까지 10분당 200원 → 2시간 초과 10분당 300원,
+    일일 7,000원·월 70,000원)을 쓰고, 요금 적용시간은 별표1 비고1(4~10월 08:00~19:00,
+    11~3월 09:00~18:00, 공휴일·야간 무료)로 정리한다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == YP_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, note_fixed, reclassified, grade_fixed = [], [], [], []
+    coord_fixed, space_diff, name_dup = [], [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "양평군",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and yp_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and yp_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "양평군청 교통과 교통지도팀",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["base_fee"] if fee["type"] == "유료" else None),
+            "city": "양평군",
+            "city_slug": "yangpyeong",
+        })
+
+    seen_dup = set()
+    for r in rows_city:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        if (std_name, jibun) in YP_DUP_KEYS:
+            key = (std_name, jibun)
+            if key in seen_dup:
+                merged.append(f"{std_name}({jibun}): 같은 이름·지번 중복 행 제거")
+                continue
+            seen_dup.add(key)
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (YP_BBOX[0] <= lat <= YP_BBOX[1] and YP_BBOX[2] <= lng <= YP_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+
+        # 좌표 보정 — 지번주소로 다시 찾은 좌표가 있으면 그 값을 쓴다.
+        key = jibun.replace(YP_PROVIDER + " ", "")
+        fix = YP_COORD_FIX.get(key)
+        if fix:
+            def _hav(a, b, c, d):
+                p1, p2 = math.radians(a), math.radians(c)
+                dp, dl = p2 - p1, math.radians(d - b)
+                h = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+                return 2 * 6371000 * math.asin(math.sqrt(h))
+            dist = round(_hav(lat, lng, fix[0], fix[1]))
+            if dist > 300:
+                coord_fixed.append(f"{std_name}: 원자료 좌표({lat:.5f}, {lng:.5f})가 주소와 {dist:,}m "
+                                   f"떨어져 지번주소 지오코딩 좌표({fix[0]:.5f}, {fix[1]:.5f})로 보정")
+                lat, lng = fix
+
+        dong = yp_dong_of(jibun) or yp_dong_of(road)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        std_grade = (r.get("급지구분") or "").strip()
+        grade = min(max(to_int(std_grade) or 1, 1), 2)     # 조례 별표1은 1·2급 지역이다
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+
+        paid = fee_type in ("유료", "혼합")
+        if paid:
+            fee = yp_fee(grade=grade, ptype=ptype, pay=pay)
+            fee["std_grade"] = std_grade or None
+            base_min_std = to_int(r.get("주차기본시간"))
+            base_fee_std = to_int(r.get("주차기본요금"))
+            unit_min_std = to_int(r.get("추가단위시간"))
+            unit_fee_std = to_int(r.get("추가단위요금"))
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            fee["std"] = {"base_min": base_min_std, "base_fee": base_fee_std,
+                          "unit_min": unit_min_std, "unit_fee": unit_fee_std,
+                          "day": daily_std, "monthly": month_std}
+            if base_fee_std and base_fee_std != fee["base_fee"]:
+                note_fixed.append(f"{std_name}: 표준데이터 기본 {base_min_std}분 {base_fee_std:,}원 ↔ "
+                                  f"별표1 {grade}급 지역 최초 {YP_BASE_MIN}분 {fee['base_fee']:,}원")
+            if unit_fee_std and (unit_min_std, unit_fee_std) != (YP_UNIT_MIN, fee["unit_fee"]):
+                note_fixed.append(
+                    f"{std_name}: 표준데이터 추가 {unit_min_std or '-'}분 {unit_fee_std:,}원 ↔ 별표1 2시간까지 "
+                    f"{YP_UNIT_MIN}분당 {fee['unit_fee']:,}원·2시간 초과 {YP_FEE_OVER(grade):,}원(2시간 초과 "
+                    f"요율로 등록된 값입니다)")
+            if daily_std and daily_std != fee["daily_fee"]:
+                note_fixed.append(f"{std_name}: 표준데이터 1일 {daily_std:,}원 ↔ 별표1 "
+                                  f"{fee['daily_fee']:,}원")
+            if month_std and month_std != (fee["monthly"] or 0):
+                note_fixed.append(f"{std_name}: 표준데이터 월정기 {month_std:,}원 ↔ 별표1 "
+                                  f"{grade}급 지역 {fee['monthly']:,}원")
+            if std_grade and to_int(std_grade) != grade:
+                grade_fixed.append(f"{std_name}: 표준데이터 급지 ‘{std_grade}’ → 별표1 {grade}급 지역")
+            # 요금 적용시간은 별표1 비고1 — 11~3월 09:00~18:00, 4~10월 08:00~19:00. 지금은 동절기다.
+            win = {"weekday": yp_window(*YP_WINTER), "sat": yp_window(*YP_WINTER),
+                   "sun": yp_window(*YP_WINTER)}
+            oper = {"weekday": True, "sat": True, "sun": True}
+            free_days = {"sat": False, "sun": True}      # 공휴일(일요일 포함)은 무료 운영
+            free_note = ("주간 운영시간에만 요금을 받습니다 — 11월~3월 09:00~18:00, 4월~10월 "
+                         "08:00~19:00이고 그 밖의 시간(야간)과 공휴일은 무료입니다(별표1 비고1)")
+            hour_fixed.append(
+                f"{std_name}: 표준데이터 {r.get('평일운영시작시각') or ''}~"
+                f"{r.get('평일운영종료시각') or ''} → 별표1 비고1 주간 운영시간 "
+                f"11~3월 09:00~18:00·4~10월 08:00~19:00(야간·공휴일 무료)")
+            notice_bits.append(
+                f"「양평군 주차장 조례」 별표1 {grade}급 지역({YP_FEES[grade]['where']}) 요금입니다 — "
+                f"최초 {YP_BASE_MIN}분 {fee['base_fee']:,}원, 2시간까지 {YP_UNIT_MIN}분마다 "
+                f"{fee['unit_fee']:,}원, 2시간 초과 {YP_UNIT_MIN}분마다 {YP_FEE_OVER(grade):,}원, "
+                f"1일주차권 {fee['daily_fee']:,}원, 월 정기권 {fee['monthly']:,}원")
+            notice_bits.append(
+                "일요일·공휴일과 야간에는 요금을 받지 않습니다(별표1 비고1-나). 철도하부공간 양평시장 "
+                "주차장만 민속 5일 장날과 휴일이 겹치면 주간과 같이 징수합니다")
+            notice_bits.append(
+                "표준데이터에는 추가요금이 10분당 300원으로 등록되어 있는데, 별표1은 2시간까지 10분당 "
+                "200원이고 2시간을 넘긴 뒤에 300원입니다 — 이 사이트는 별표1로 계산합니다")
+        else:
+            fee = yp_free_fee()
+            notice_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+            if fee_type and fee_type != "무료":
+                reclassified.append(f"{std_name}: 요금정보 ‘{fee_type}’ → 무료로 실음")
+
+        add_lot(std_name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "양평군청 교통과 교통지도팀"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"yp-{i:03d}" if l["list_mode"] == "card" else f"yp-s{i:03d}"
+
+    quality = check_quality_yangpyeong(rows_all, rows_city, lots, excluded, merged,
+                                       hour_fixed, note_fixed, reclassified, grade_fixed,
+                                       coord_fixed)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "양평군"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-23",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 양평군이 등록한 51행(부설 32·노외 16·노상 3)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다. 요금 구분은 혼합 5행(노외 4·노상 2 — "
+                             "양평시장·양평시장타워·용문공영·양근천제방·양평타워식노외)과 무료 46행이다. "
+                             "‘혼합’은 주간 운영시간에만 요금을 받는 운영 방식이다. 급지는 1급지 30행·"
+                             "2급지 21행이고, 요금을 받는 5행은 모두 1급지다. 같은 이름·같은 지번으로 "
+                             "두 번 등록된 지평면사무소 주차장 1행과, 위·경도가 주소와 맞지 않는 43행의 "
+                             "좌표를 확인해 보정했다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": ("「양평군 주차장 조례」 [별표 1] 공영주차장 요금 · [별표 2] 주차요금 감면 "
+                             "대상 및 비율"),
+                    "org": "양평군청 교통과 교통지도팀(031-770-3761)",
+                    "url": YP_ORDINANCE_URL,
+                    "file": YP_ORD1.name if YP_ORD1.exists() else YP_ORD1_TXT.name,
+                    "sha256": (sha256(YP_ORD1) if YP_ORD1.exists()
+                               else sha256(YP_ORD1_TXT) if YP_ORD1_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": YP_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(YP_ORD1_TXT),
+                    "note": ("국가법령정보센터 자치법규 별표 HWP를 내려받아 표 셀과 비고를 읽어 정리본"
+                             "(txt)을 두었다. 별표1은 노상·노외 같은 표로 1급 지역 최초 30분 600원·"
+                             "2시간까지 매 10분 200원·2시간 초과 매 10분 300원·야간 면제·1일주차권 "
+                             "7,000원·월 정기권 70,000원이고, 2급 지역은 300원·100원·200원·면제·"
+                             "5,000원·50,000원이다. 비고1은 주간 운영시간을 4~10월 08:00~19:00, "
+                             "11~3월 09:00~18:00으로 정하고 그 밖의 시간을 야간으로 보며 공휴일·야간을 "
+                             "무료로 정한다. 비고6은 30분 미만을 30분으로 보고 30분 초과부터 매 10분마다 "
+                             "추가요금을 받는다고 정한다. 별표2는 전액 면제 3종, 최초 3시간 면제 뒤 50% "
+                             "5종, 다자녀 2시간 면제, 전기차 충전 2시간 무료, 전통시장 1시간 면제, 50% "
+                             "9종, 20% 2종, 투표자 1회 면제를 정한다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in YP_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "yangpyeong_grade",
+            "base_min": YP_BASE_MIN,
+            "unit_min": YP_UNIT_MIN,
+            "unit_until": YP_UNIT_UNTIL,
+            "paid_window": {"start": yp_hm(YP_WINTER[0]), "end": yp_hm(YP_WINTER[1]),
+                            "summer": {"start": yp_hm(YP_SUMMER[0]), "end": yp_hm(YP_SUMMER[1])}},
+            "open_hours": "24시간(요금은 주간 운영시간에만)",
+            "rows": [
+                {"grade": 1, "where": "도시지역(양평읍·양서면 등 시가지)",
+                 "base": YP_FEES[1]["base"], "unit": YP_FEES[1]["unit"],
+                 "unit_over": YP_FEES[1]["unit_over"],
+                 "day": YP_FEES[1]["day"], "month": YP_FEES[1]["month"]},
+                {"grade": 2, "where": "1급 지역 외 관내 지역",
+                 "base": YP_FEES[2]["base"], "unit": YP_FEES[2]["unit"],
+                 "unit_over": YP_FEES[2]["unit_over"],
+                 "day": YP_FEES[2]["day"], "month": YP_FEES[2]["month"]},
+            ],
+            "corp": {
+                "paid": len([l for l in lots if l["fee"]["type"] == "유료"]),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade"), "base": l["fee"].get("base_fee"),
+                 "unit": l["fee"].get("unit_fee"), "day": l["fee"].get("daily_fee"),
+                 "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「양평군 주차장 조례」 [별표 1] 공영주차장 요금"
+                      f"({YP_ORDINANCE_NOTE}) · 별표1 비고1 주간 운영시간 · "
+                      "양평군청 교통과 교통지도팀(031-770-3761)"),
+        },
+    }
+    payload.update(CITY_META["양평군"] | {
+        "city": "양평군",
+        "weekend_free_pages": False,
+        "discounts": YP_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "yangpyeong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def YP_FEE_OVER(grade: int) -> int:
+    """2시간을 넘긴 뒤의 10분당 요금(1급 300원·2급 200원)."""
+    return YP_FEES[grade]["unit_over"]
+
+
+def check_quality_yangpyeong(std_all, rows, lots, excluded, merged, hour_fixed, note_fixed,
+                             reclassified, grade_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_양평군행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": hour_fixed,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "급지_보정": grade_fixed,
+        "좌표_보정": coord_fixed,
+        "면수_차이": [],
+        "감면_출처": "「양평군 주차장 조례」 별표2 주차요금 감면 대상 및 비율(시행 2025-11-17)",
+        "무료시간_출처": ("없음 — 별표1은 최초 30분부터 600원(1급 지역)을 받고 무료 시간을 두지 않는다. "
+                          "야간·공휴일 무료 운영만 별표1 비고1이 정한다"),
+        "주말무료_출처": ("별표1 비고1-나 — 공휴일 및 야간은 무료 운영(일요일은 「관공서의 공휴일에 관한 "
+                          "규정」에 따른 공휴일). 토요일은 유료이고 표준데이터도 평일+토요일 09:00~18:00으로 "
+                          "등록되어 있다"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len(paid))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
+# ---------------------------------------------------------------- 연천군 (T-03 Phase 29)
+YC_PROVIDER = "경기도 연천군"
+# 연천군도 자치구가 없어 군 페이지가 계산기·목록 페이지를 겸하고, 그 아래 읍·면 페이지를 둔다.
+YC_DISTRICTS = [("연천군", "yeoncheon")]
+YC_BBOX = (37.93, 38.30, 126.85, 127.25)   # 연천군 대략 경계(좌표 점검용)
+YC_UNIT_SUFFIX = ("읍", "면")
+
+YC_ORDINANCE_URL = "https://law.go.kr/LSW/ordinInfoP.do?ordinSeq=2178663"
+YC_ORD1_TXT = RAW / "law.go.kr_연천군주차장조례_별표1_20261118.txt"
+YC_COUNTY_TXT = RAW / "yeoncheon.go.kr_공영주차장_안내_20261118.txt"
+YC_COUNTY_URL = "https://www.yeoncheon.go.kr/www/contents.do?key=3300"
+YC_ORDINANCE_NOTE = ("시행 2026-10-13 · 경기도연천군조례 제4147호(일부개정) · "
+                     "별표1 공영주차장 요금표 · 제3조의2 주차요금의 감면")
+YC_BASE_MIN = 30
+YC_UNIT_MIN = 10
+YC_PAID_START = 9 * 60      # 별표1 운영 시간: 월~금요일 09:00~18:00(동·하절기 같다)
+YC_PAID_END = 18 * 60
+
+# 연천군 공영주차장 요금 — 「연천군 주차장 설치조례」 [별표 1] 공영주차장 요금표
+#   (〈개정 2018. 5. 2.〉, 시행 2026-10-13 조례 제4147호 별표1을 읽음).
+#   · 노상: 최초 30분 600원 → 30분 초과 시 10분마다 300원 · 1일(선납) 7,000원 ·
+#     월 정기권(선납) 80,000원 · 선납권 100매 단위 매당 30분 480,000원.
+#   · 노외: 최초 30분 400원 → 30분 초과 시 10분마다 100원 · 1일 4,000원 · 월 정기권 50,000원.
+#   · 운영 시간: 동절기(10월~2월)·하절기(3월~9월) 모두 월~금요일 09:00~18:00.
+#   · 비고1: 주차시간이 10분 미만이면 10분으로 본다. 비고4: 월 정기권은 주차구역별 주차면 수의
+#     20%를 넘을 수 없다(군수가 따로 정하는 범위 안에서 조정 가능).
+YC_FEES = {
+    "노상": {"base": 600, "unit": 300, "day": 7_000, "month": 80_000, "prepaid": 480_000},
+    "노외": {"base": 400, "unit": 100, "day": 4_000, "month": 50_000, "prepaid": None},
+}
+# 연천군청 공영주차장 안내(15개소)와 표준데이터가 다른 면수 — 카드에 군청 면수를 함께 적는다.
+YC_COUNTY_SPACES = {
+    "전곡문화체육센터 주차장": 54,      # 군청 ‘전곡읍사무소 앞’ 54면
+    "(구)전곡읍사무소 주차장": 58,
+    "신서면 고대산 공영주차장": 153,
+    "전곡역 공영주차장": 55,
+}
+# 군청 안내에만 있고 표준데이터에는 없는 주차장(좌표가 없어 카드로 만들지 않는다).
+YC_COUNTY_ONLY = [
+    ("연천공영터미널 환승주차장", "연천읍 연천역로 29", 114, "무료"),
+    ("연천역 남측주차장", "연천읍 차탄리 34-526", 33, "무료"),
+    ("연천역 북측주차장", "연천읍 차탄리 34-377", 63, "무료"),
+    ("연천역망곡산주차장", "연천읍 차탄리 34-567", 45, "무료"),
+    ("전곡3리 공영주차장", "전곡읍 425-1", 96, "유료"),
+]
+# 군청은 유료로 적었지만 표준데이터는 무료로 등록된 곳 — 카드에 차이를 적는다.
+YC_COUNTY_PAID_DIFF = {"전곡역 공영주차장": 55, "전곡노상공영주차장": 141}
+
+YC_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "긴급자동차·성실납세자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차(소방·구급 등)는 면제, 국세청장·경기도지사·군수가 교부한 성실납세자증 "
+              "표지(스티커)를 부착한 차량은 1년간 면제할 수 있습니다")},
+    {"label": "장애인·국가유공자 등 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": ("장애 정도가 심한 장애인, 국가유공자·6·18자유상이자, 5·18민주화운동부상자, "
+              "고엽제후유의증 환자, 특수임무유공자와 유족, 군 병사 및 병사를 동반한 면회객, "
+              "환경친화적 자동차 — 최초 2시간 면제, 2시간 초과분은 50퍼센트 경감")},
+    {"label": "경차·저공해·다자녀 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("경형자동차, 저공해자동차(표지 부착), 선거 투표확인증 제시(선거일 후 3개월), "
+              "다자녀가정 우대(경기 I-plus) 카드, 장애 정도가 심하지 않은 장애인, 경로우대 대상자 "
+              "자가운전 차량, 임산부(모자보건수첩 등), 승용차 요일제 표지 부착 차량 — 50퍼센트")},
+]
+
+
+def yc_dong_of(text: str):
+    """주소에서 연천군 읍·면을 뽑는다 — ‘경기도 연천군 ○○읍|○○면 번지’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "연천군":
+        cand = parts[2]
+        if cand.endswith(YC_UNIT_SUFFIX):
+            return cand
+    return None
+
+
+def yc_hm(m: int) -> str:
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def yc_window(start=YC_PAID_START, end=YC_PAID_END):
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [yc_hm(start), yc_hm(end)]}
+
+
+def yc_fee(ptype: str = "노외", pay: str = "", grade_label=None):
+    """연천군 공영주차장 시간 요금 → 사이트 공통 fee 객체.
+
+    별표1은 노상·노외를 나눠 최초 30분 기본요금 뒤 10분 단위로 받는다(노외 400원·100원,
+    노상 600원·300원). 급지 구분이 없어 grade 는 비우고 grade_label 에 ‘노외’·‘노상’을 적는다.
+    """
+    key = "노상" if ptype == "노상" else "노외"
+    t = YC_FEES[key]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": None, "grade_label": key, "std_grade": None,
+        "base_min": YC_BASE_MIN, "base_fee": t["base"],
+        "unit_min": YC_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 주차요금(선납)",
+        "daily_hours": 24, "daily_fee": t["day"],
+        "prepaid_day": t["day"], "prepaid_weekend": None,
+        "monthly": t["month"], "monthly_day": None, "monthly_night": None,
+        "monthly_all": t["month"], "monthly_label": None, "pay": pay,
+        "basis": (f"「연천군 주차장 설치조례」 별표1 {key}주차장 "
+                  f"(최초 {YC_BASE_MIN}분 {t['base']:,}원 · {YC_UNIT_MIN}분마다 {t['unit']:,}원 · "
+                  f"1일 {t['day']:,}원 · 월 정기 {t['month']:,}원)"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def yc_free_fee():
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_yeoncheon():
+    """연천군 공영주차장을 표준데이터 + 연천군 주차장 설치조례 별표1·제3조의2 + 군청 안내로 추출한다.
+
+    · 표준데이터 10행은 모두 공영(민영 없음)이다 — 노외 8행·노상 2행, 유료 2행(전곡재래시장·
+      전곡 전통시장)과 무료 8행.
+    · 연천군은 급지 구분이 없고 노상·노외 요금만 다르다(노외 30분 400원·10분당 100원).
+    · 유료 주차장 운영은 월~금 09:00~18:00이고, 무료 주차장은 표준데이터의 운영시간을 그대로 쓴다.
+    · 카드가 3곳 이상인 읍·면만 페이지를 만든다 — 표준데이터 기준으로 전곡읍만 해당한다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == YC_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, note_fixed, space_diff, paid_diff = [], [], [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "연천군",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and yc_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and yc_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "연천군청 경제교통과 교통지도담당",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["base_fee"] if fee["type"] == "유료" else None),
+            "city": "연천군",
+            "city_slug": "yeoncheon",
+        })
+
+    for r in rows_city:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (YC_BBOX[0] <= lat <= YC_BBOX[1] and YC_BBOX[2] <= lng <= YC_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = yc_dong_of(jibun) or yc_dong_of(road)
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+
+        paid = fee_type in ("유료", "혼합")
+        if paid:
+            fee = yc_fee(ptype=ptype, pay=pay)
+            base_min_std = to_int(r.get("주차기본시간"))
+            base_fee_std = to_int(r.get("주차기본요금"))
+            unit_min_std = to_int(r.get("추가단위시간"))
+            unit_fee_std = to_int(r.get("추가단위요금"))
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            fee["std"] = {"base_min": base_min_std, "base_fee": base_fee_std,
+                          "unit_min": unit_min_std, "unit_fee": unit_fee_std,
+                          "day": daily_std, "monthly": month_std}
+            if base_min_std and base_min_std != fee["base_min"]:
+                note_fixed.append(f"{std_name}: 표준데이터 기본 {base_min_std}분 ↔ 별표1 "
+                                  f"{fee['base_min']}분")
+            if base_fee_std and base_fee_std != fee["base_fee"]:
+                note_fixed.append(f"{std_name}: 표준데이터 기본요금 {base_fee_std:,}원 ↔ 별표1 "
+                                  f"{fee['base_fee']:,}원")
+            if unit_fee_std and (unit_min_std, unit_fee_std) != (YC_UNIT_MIN, fee["unit_fee"]):
+                note_fixed.append(f"{std_name}: 표준데이터 추가 {unit_min_std or '-'}분 "
+                                  f"{unit_fee_std:,}원 ↔ 별표1 {YC_UNIT_MIN}분당 {fee['unit_fee']:,}원")
+            if daily_std and daily_std != fee["daily_fee"]:
+                note_fixed.append(f"{std_name}: 표준데이터 1일 {daily_std:,}원 ↔ 별표1 "
+                                  f"{fee['daily_fee']:,}원")
+            if month_std and month_std != (fee["monthly"] or 0):
+                note_fixed.append(f"{std_name}: 표준데이터 월정기 {month_std:,}원 ↔ 별표1 "
+                                  f"{fee['monthly']:,}원")
+            # 유료 운영시간은 별표1 운영 시간(월~금 09:00~18:00)이다.
+            win = {"weekday": yc_window(), "sat": {"open": False, "start": None, "end": None,
+                                                   "24h": False, "listed": False, "raw": []},
+                   "sun": {"open": False, "start": None, "end": None, "24h": False,
+                           "listed": False, "raw": []}}
+            oper = {"weekday": True, "sat": False, "sun": False}
+            free_note = ("유료 운영은 월~금요일 09:00~18:00입니다(별표1 운영 시간) — 토요일·일요일과 "
+                         "18:00 이후는 운영하지 않습니다")
+            hour_fixed.append(
+                f"{std_name}: 표준데이터 {r.get('평일운영시작시각') or ''}~"
+                f"{r.get('평일운영종료시각') or ''} → 별표1 운영 시간 월~금 09:00~18:00")
+            notice_bits.append(
+                f"「연천군 주차장 설치조례」 별표1 {fee['grade_label']}주차장 요금입니다 — 최초 "
+                f"{YC_BASE_MIN}분 {fee['base_fee']:,}원, 그 뒤 {YC_UNIT_MIN}분마다 "
+                f"{fee['unit_fee']:,}원, 1일 주차요금(선납) {fee['daily_fee']:,}원, 월 정기권 "
+                f"{fee['monthly']:,}원")
+            notice_bits.append(
+                "유료 운영은 월~금요일 09:00~18:00입니다(별표1 운영 시간). 토요일·일요일은 운영하지 "
+                "않고, 야간은 무료로 개방합니다")
+        else:
+            fee = yc_free_fee()
+            notice_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+
+        if std_name in YC_COUNTY_SPACES and YC_COUNTY_SPACES[std_name] != spaces:
+            space_diff.append(f"{std_name}: 표준데이터 {spaces}면 ↔ 연천군청 안내 "
+                              f"{YC_COUNTY_SPACES[std_name]}면")
+            notice_bits.append(
+                f"연천군청 공영주차장 안내의 면수는 {YC_COUNTY_SPACES[std_name]}면입니다(표준데이터 "
+                f"등록면수 {spaces}면과 다릅니다)")
+        if std_name in YC_COUNTY_PAID_DIFF:
+            paid_diff.append(f"{std_name}: 표준데이터 무료 ↔ 연천군청 안내 유료"
+                             f"({YC_COUNTY_PAID_DIFF[std_name]}면)")
+            notice_bits.append(
+                "연천군청 공영주차장 안내는 이곳을 유료"
+                f"({YC_COUNTY_PAID_DIFF[std_name]}면, 운영 연천군시설관리공단)로 적습니다 — "
+                "표준데이터는 무료로 등록되어 있어 현장 안내를 확인하세요")
+
+        add_lot(std_name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "연천군청 경제교통과 교통지도담당"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"yc-{i:03d}" if l["list_mode"] == "card" else f"yc-s{i:03d}"
+
+    quality = check_quality_yeoncheon(rows_all, rows_city, lots, excluded, merged,
+                                      hour_fixed, note_fixed, space_diff, paid_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "연천군"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-23",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 연천군이 등록한 10행(노외 8·노상 2)을 읽었다. 모두 공영이고, 요금 "
+                             "구분은 유료 2행(전곡재래시장·전곡 전통시장)·무료 8행이다. 급지구분은 10행 "
+                             "모두 ‘기타’라 조례 별표1의 노상·노외 구분만 적용한다. 관리기관은 10행 모두 "
+                             "경기도 연천군 시설관리공단이다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": ("「연천군 주차장 설치조례」 [별표 1] 공영주차장 요금표 · "
+                             "제3조의2 주차요금의 감면"),
+                    "org": "연천군청 경제교통과 교통지도담당(031-839-2292)",
+                    "url": YC_ORDINANCE_URL,
+                    "file": YC_ORD1_TXT.name if YC_ORD1_TXT.exists() else None,
+                    "sha256": sha256(YC_ORD1_TXT) if YC_ORD1_TXT.exists() else None,
+                    "license": "자치법규(공개)", "base_date": YC_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(YC_ORD1_TXT),
+                    "note": ("국가법령정보센터 자치법규 별표1(〈개정 2018. 5. 2.〉)과 제3조의2를 읽어 "
+                             "정리본(txt)을 두었다. 별표1은 노상주차장 최초 30분 600원·30분 초과 시 "
+                             "10분마다 300원·1일(선납) 7,000원·월 정기권(선납) 80,000원·선납권 100매 "
+                             "단위 매당 30분 480,000원, 노외주차장 최초 30분 400원·10분마다 100원·1일 "
+                             "4,000원·월 정기권 50,000원으로 정한다. 운영 시간은 동·하절기 모두 월~금요일 "
+                             "09:00~18:00이다. 비고1은 10분 미만을 10분으로 보고, 비고4는 월 정기권을 "
+                             "주차면 수의 20%로 제한한다. 제3조의2는 긴급자동차·성실납세자 면제, "
+                             "장애인·국가유공자·5·18·고엽제·특수임무유공자·군 병사·면회객·환경친화적 "
+                             "자동차의 최초 2시간 면제와 50% 경감, 경차·저공해·다자녀·경로우대·임산부·"
+                             "요일제 등 50% 경감을 정한다(2026-10-13 개정)."),
+                },
+                {
+                    "id": "county", "name": "연천군청 공영주차장 안내(15개소)",
+                    "org": "연천군청 경제교통과 교통지도담당(031-839-2292) · "
+                           "유료 운영 연천군시설관리공단(070-4953-0533)",
+                    "url": YC_COUNTY_URL,
+                    "file": YC_COUNTY_TXT.name if YC_COUNTY_TXT.exists() else None,
+                    "sha256": sha256(YC_COUNTY_TXT) if YC_COUNTY_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+                    "base_date": "조회 2026-11-18",
+                    "rows_total": 15, "fetched_at": _sync_time(YC_COUNTY_TXT),
+                    "note": ("공영주차장 15개소를 주차장명·소재지·운영(무료/유료)·주차면수로 적는다. "
+                             "유료는 전곡역(55면)·전곡노외(11면)·전곡 전통시장(125면)·전곡읍 노상 유료 "
+                             "구간(141면)·전곡3리(96면)이다. 연천공영터미널 환승주차장(114면), 연천역 "
+                             "남측(33면)·북측(63면)·망곡산(45면), 전곡3리(96면)는 표준데이터에 없고 "
+                             "좌표도 없어 카드로 만들지 않았다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in YC_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "yeoncheon_dual",
+            "base_min": YC_BASE_MIN,
+            "unit_min": YC_UNIT_MIN,
+            "paid_window": {"start": yc_hm(YC_PAID_START), "end": yc_hm(YC_PAID_END)},
+            "open_hours": "유료 주차장 월~금 09:00~18:00",
+            "rows": [
+                {"ptype": "노상", "base": YC_FEES["노상"]["base"], "unit": YC_FEES["노상"]["unit"],
+                 "day": YC_FEES["노상"]["day"], "month": YC_FEES["노상"]["month"],
+                 "prepaid": YC_FEES["노상"]["prepaid"]},
+                {"ptype": "노외", "base": YC_FEES["노외"]["base"], "unit": YC_FEES["노외"]["unit"],
+                 "day": YC_FEES["노외"]["day"], "month": YC_FEES["노외"]["month"],
+                 "prepaid": None},
+            ],
+            "corp": {
+                "paid": len([l for l in lots if l["fee"]["type"] == "유료"]),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                "county_only": [f"{n}({a}, {s}면, {t})" for n, a, s, t in YC_COUNTY_ONLY],
+            },
+            "basis": ("「연천군 주차장 설치조례」 [별표 1] 공영주차장 요금표"
+                      f"({YC_ORDINANCE_NOTE}) · 연천군청 공영주차장 안내(2026-11-18 조회)"),
+        },
+    }
+    payload.update(CITY_META["연천군"] | {
+        "city": "연천군",
+        "weekend_free_pages": False,
+        "discounts": YC_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "yeoncheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_yeoncheon(std_all, rows, lots, excluded, merged, hour_fixed, note_fixed,
+                            space_diff, paid_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_연천군행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": hour_fixed,
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "요금구분_차이": paid_diff,
+        "좌표_보정": [],
+        "감면_출처": "「연천군 주차장 설치조례」 제3조의2 주차요금의 감면(2026-10-13 개정)",
+        "무료시간_출처": ("없음 — 별표1은 최초 30분부터 요금을 받고 무료 시간을 두지 않는다. 무료 주차장은 "
+                          "표준데이터 요금 구분이 ‘무료’인 곳이다(군청 안내도 무료로 적는다)"),
+        "주말무료_출처": ("별표1 운영 시간이 월~금요일 09:00~18:00이라 유료 주차장은 토요일·일요일에 "
+                          "운영하지 않는다"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len(paid))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "군청만_등록": [f"{n}({a}, {s}면, {t})" for n, a, s, t in YC_COUNTY_ONLY],
+    }
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군", "양평군", "연천군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -17073,7 +18093,9 @@ def main():
              "yeoju": ["여주시"],
              "dongducheon": ["동두천시"],
              "gwacheon": ["과천시"],
-             "gapyeong": ["가평군"]}[args.city])
+             "gapyeong": ["가평군"],
+             "yangpyeong": ["양평군"],
+             "yeoncheon": ["연천군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -17133,6 +18155,10 @@ def main():
         cities.append(build_gwacheon())
     if "가평군" in want:
         cities.append(build_gapyeong())
+    if "양평군" in want:
+        cities.append(build_yangpyeong())
+    if "연천군" in want:
+        cities.append(build_yeoncheon())
 
     if args.city == "all":
         site = build_site_payload(cities)

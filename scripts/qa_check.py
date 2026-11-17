@@ -3777,6 +3777,242 @@ for _u in ("https://parking.9welfare.com/parking/gyeonggi/gapyeong/",
         fails.append(f"가평군 주소가 사이트맵에 없음: {_u}")
 
 
+# ---------------------------------------------------------------- 양평군 (T-03 Phase 29)
+# 「양평군 주차장 조례」 [별표 1] 공영주차장 요금·[별표 2] 감면(시행 2025-11-17, 경기도양평군조례 제3209호):
+#   노상·노외 같은 표 — 1급 지역 최초 30분 600원 → 2시간까지 10분당 200원 → 2시간 초과 10분당 300원,
+#   야간 면제, 1일주차권 7,000원·월 정기 70,000원(2급 지역 300·100·200, 5,000·50,000원).
+#   주간 운영시간 11~3월 09:00~18:00·4~10월 08:00~19:00, 공휴일·야간 무료(비고1).
+yp_cards = [l for l in LOTS if l.get("city") == "양평군" and l.get("list_mode") == "card"]
+yp_paid = [l for l in yp_cards if l["fee"]["type"] == "유료"]
+yp_free = [l for l in yp_cards if l["fee"]["type"] == "무료"]
+yp_by = {l["name"]: l for l in yp_cards}
+yp_street = [l for l in LOTS if l.get("city") == "양평군" and l.get("list_mode") == "street"]
+yp_street_by = {l["name"]: l for l in yp_street}
+if not yp_cards:
+    fails.append("양평군 카드 데이터가 없음")
+# 구성: 카드 47곳(유료 3·무료 44) 4,935면 · 노상 3구간 197면(유료 2·무료 1)
+if len(yp_cards) != 47 or len(yp_paid) != 3 or len(yp_free) != 44:
+    fails.append(f"양평군 카드 구성이 다름: 카드 {len(yp_cards)} · 유료 {len(yp_paid)} · 무료 {len(yp_free)}")
+if sum(l["spaces"] or 0 for l in yp_cards) != 4935:
+    fails.append(f"양평군 카드 구획 합계가 다름: {sum(l['spaces'] or 0 for l in yp_cards)}")
+if len(yp_street) != 3 or sum(l["spaces"] or 0 for l in yp_street) != 197:
+    fails.append(f"양평군 노상 구간이 다름: {len(yp_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in yp_street)}면")
+if len([l for l in yp_street if l["fee"]["type"] == "유료"]) != 2:
+    fails.append(f"양평군 유료 노상 구간 수가 다름: {[l['name'] for l in yp_street]}")
+_yp_dongs = {l.get("dong") for l in yp_cards}
+if _yp_dongs != {"양평읍", "강상면", "강하면", "서종면", "양서면", "옥천면", "용문면", "청운면", "단월면", "지평면"} \
+        or any(not l.get("dong") for l in yp_cards):
+    fails.append(f"양평군 읍·면 구성이 다름: {sorted(_yp_dongs)}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "양평군"):
+    fails.append("양평군에 민영 주차장이 실려 있음")
+if [k for k, v in Counter(l["name"] for l in yp_cards).items() if v > 1]:
+    fails.append("양평군 카드 이름 중복이 있음")
+_yp_q = next(c for c in CITIES if c["city"] == "양평군").get("quality") or {}
+if _yp_q.get("원자료_행수") != 51 or _yp_q.get("제외_행수") != 0:
+    fails.append(f"양평군 원자료 처리가 다름: {_yp_q.get('원자료_행수')}행 · 제외 {_yp_q.get('제외_행수')}")
+if _yp_q.get("중복제거_행수") != 1:
+    fails.append(f"양평군 중복 제거가 1행이 아님: {_yp_q.get('중복제거_행수')}")
+# 표준데이터 좌표 보정 42행 — 위·경도가 주소와 300m 넘게 떨어진 행
+if len(_yp_q.get("좌표_보정") or []) != 42:
+    fails.append(f"양평군 좌표 보정이 42행이 아님: {len(_yp_q.get('좌표_보정') or [])}")
+if _yp_q.get("관리번호_중복") or _yp_q.get("이름중복") or _yp_q.get("좌표_없음"):
+    fails.append(f"양평군 원자료 이상: {_yp_q.get('관리번호_중복')} {_yp_q.get('이름중복')}")
+if _yp_q.get("요금구분") != {"무료": 45, "유료": 5}:
+    fails.append(f"양평군 요금 구분이 다름: {_yp_q.get('요금구분')}")
+# 요금 — 1급 지역: 30분 600원·10분당 200원(2시간까지)·2시간 초과 10분당 300원·일 7,000·월 70,000
+for _l in yp_paid:
+    _f = _l["fee"]
+    if (_f.get("grade"), _f.get("base_min"), _f.get("base_fee"), _f.get("unit_min"),
+            _f.get("unit_fee"), _f.get("daily_fee"), _f.get("monthly")) != (1, 30, 600, 10, 200, 7000, 70000):
+        fails.append(f"양평군 {_l['name']} 요금이 별표1 1급 지역과 다름: {_f.get('grade')} "
+                     f"{_f.get('base_min')}/{_f.get('base_fee')}/{_f.get('unit_fee')}")
+        break
+    if [s["unit_fee"] for s in (_f.get("steps") or [])] != [200, 300]:
+        fails.append(f"양평군 {_l['name']} 2시간 초과 요율이 다름: {_f.get('steps')}")
+        break
+# 계산 표본 — 별표1(30분 600원 → 2시간까지 10분당 200원 → 2시간 초과 10분당 300원, 일일 상한 7,000원)
+for _n, _mins, _want in (("양평시장공영주차장", 30, 600), ("양평시장공영주차장", 60, 1200),
+                         ("양평시장공영주차장", 120, 2400), ("양평시장공영주차장", 130, 2700),
+                         ("양평시장공영주차장", 180, 4200), ("양평시장공영주차장", 240, 6000),
+                         ("양평시장공영주차장", 300, 7000), ("양평시장공영주차장", 1440, 7000),
+                         ("양근천제방주차장", 120, 2400)):
+    _l = yp_by.get(_n) or yp_street_by.get(_n)
+    if not _l:
+        fails.append(f"양평군 표본 주차장이 없음: {_n}")
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"양평군 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 요일 — 일요일·공휴일은 무료(비고1-나), 토요일은 평일과 같은 요금
+for _l in yp_paid:
+    if price_for(_l, 120, "sat").get("amount") != price_for(_l, 120, "weekday").get("amount"):
+        fails.append(f"양평군 {_l['name']} 토요일 계산이 평일과 다름")
+        break
+    if price_for(_l, 120, "sun")["state"] != "free":
+        fails.append(f"양평군 {_l['name']} 일요일이 무료가 아님")
+        break
+for _l in yp_free:
+    if any(price_for(_l, 120, _d)["state"] != "free" for _d in ("weekday", "sat", "sun")):
+        fails.append(f"양평군 무료 주차장 {_l['name']}이 무료로 계산되지 않음")
+        break
+# 감면표 — 전액(1.0)·3시간 면제(180분)·2시간 면제(120분)·1시간 면제(60분)·50%·20%
+_yp_disc = next(c for c in CITIES if c["city"] == "양평군").get("discounts") or []
+if not any(d["rate"] == 1.0 and not d.get("exempt_min") for d in _yp_disc):
+    fails.append("양평군 감면표에 전액 면제 항목이 없음")
+if not any(d["rate"] == 1.0 and d.get("exempt_min") == 180 for d in _yp_disc):
+    fails.append("양평군 감면표에 최초 3시간 면제 항목이 없음")
+if not any(d["rate"] == 1.0 and d.get("exempt_min") == 120 for d in _yp_disc):
+    fails.append("양평군 감면표에 최초 2시간 면제 항목이 없음")
+if not any(d["rate"] == 1.0 and d.get("exempt_min") == 60 for d in _yp_disc):
+    fails.append("양평군 감면표에 전통시장 1시간 면제 항목이 없음")
+if sum(1 for d in _yp_disc if d["rate"] == 0.5) < 1 or not any(d["rate"] == 0.2 for d in _yp_disc):
+    fails.append("양평군 감면표에 50%·20% 항목이 없음")
+# 페이지 — 군 허브 · 읍·면 6곳 · 노상
+_yp_root = DIST / "parking" / "gyeonggi" / "yangpyeong"
+_yp_hub = _yp_root / "index.html"
+if not _yp_hub.exists():
+    fails.append("양평군 군 페이지 없음")
+else:
+    _yp_html = _yp_hub.read_text()
+    for label in ("양평군 급지별 주차요금표", "최초 30분", "2시간까지", "2시간 초과", "일일주차권",
+                  "월 정기권", "7,000원", "70,000원", "09:00~18:00", "08:00~19:00", "2025-11-17",
+                  "031-770-3761", "양평군 공영주차장 47곳", "양평군 주말·공휴일 운영",
+                  "양평시장공영주차장", "두물머리제5공영주차장"):
+        if label not in _yp_html:
+            fails.append(f"양평군 군 페이지에 {label} 없음")
+    if _yp_html.count('class="card lot') != len(yp_cards):
+        fails.append(f"양평군 군 페이지 카드 수 불일치({_yp_html.count(chr(34) + 'card lot')} vs {len(yp_cards)})")
+    if "&lt;b&gt;" in _yp_html:
+        fails.append("양평군 군 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _yp_html or "nan" in _yp_html:
+        fails.append("양평군 군 페이지에 None/nan 문자열이 보임")
+_yp_st_page = _yp_root / "street-parking" / "index.html"
+if not _yp_st_page.exists():
+    fails.append("양평군 노상 페이지 없음")
+else:
+    _yp_st = _yp_st_page.read_text()
+    for label in ("양근천제방주차장", "양평타워식노외주차장", "개군면 노상주차장", "197면"):
+        if label not in _yp_st:
+            fails.append(f"양평군 노상 페이지에 {label} 없음")
+for _slug, _n in (("yangpyeong-eup", 9), ("yangseo-myeon", 11), ("yongmun-myeon", 7),
+                  ("okcheon-myeon", 6), ("seojong-myeon", 5), ("gangha-myeon", 3)):
+    _p = _yp_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"양평군 읍·면 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"양평군 {_slug} 카드 수 불일치({_p.read_text().count(chr(34) + 'card lot')} ≠ {_n})")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/yangpyeong/",
+           "https://parking.9welfare.com/parking/gyeonggi/yangpyeong/street-parking/",
+           "https://parking.9welfare.com/parking/gyeonggi/yangpyeong/yangpyeong-eup/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"양평군 주소가 사이트맵에 없음: {_u}")
+
+
+# ---------------------------------------------------------------- 연천군 (T-03 Phase 29)
+# 「연천군 주차장 설치조례」 [별표 1](〈개정 2018. 5. 2.〉, 시행 2026-10-13 조례 제4147호):
+#   노외 최초 30분 400원·10분당 100원·1일(선납) 4,000원·월 50,000원,
+#   노상 600원·300원·7,000원·80,000원, 유료 운영은 월~금 09:00~18:00.
+yc_cards = [l for l in LOTS if l.get("city") == "연천군" and l.get("list_mode") == "card"]
+yc_paid = [l for l in yc_cards if l["fee"]["type"] == "유료"]
+yc_free = [l for l in yc_cards if l["fee"]["type"] == "무료"]
+yc_by = {l["name"]: l for l in yc_cards}
+yc_street = [l for l in LOTS if l.get("city") == "연천군" and l.get("list_mode") == "street"]
+if not yc_cards:
+    fails.append("연천군 카드 데이터가 없음")
+# 구성: 카드 8곳(유료 2·무료 6) 467면 · 노상 2구간 397면(모두 무료)
+if len(yc_cards) != 8 or len(yc_paid) != 2 or len(yc_free) != 6:
+    fails.append(f"연천군 카드 구성이 다름: 카드 {len(yc_cards)} · 유료 {len(yc_paid)} · 무료 {len(yc_free)}")
+if sum(l["spaces"] or 0 for l in yc_cards) != 467:
+    fails.append(f"연천군 카드 구획 합계가 다름: {sum(l['spaces'] or 0 for l in yc_cards)}")
+if len(yc_street) != 2 or sum(l["spaces"] or 0 for l in yc_street) != 397:
+    fails.append(f"연천군 노상 구간이 다름: {len(yc_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in yc_street)}면")
+if any(l["fee"]["type"] != "무료" for l in yc_street):
+    fails.append("연천군 노상 구간에 유료가 있음(표준데이터는 모두 무료)")
+if {l.get("dong") for l in yc_cards} != {"전곡읍", "신서면"}:
+    fails.append(f"연천군 읍·면 구성이 다름: {sorted({l.get('dong') for l in yc_cards})}")
+_yc_q = next(c for c in CITIES if c["city"] == "연천군").get("quality") or {}
+if _yc_q.get("원자료_행수") != 10 or _yc_q.get("제외_행수") != 0:
+    fails.append(f"연천군 원자료 처리가 다름: {_yc_q.get('원자료_행수')}행 · 제외 {_yc_q.get('제외_행수')}")
+if _yc_q.get("요금구분") != {"무료": 8, "유료": 2}:
+    fails.append(f"연천군 요금 구분이 다름: {_yc_q.get('요금구분')}")
+if len(_yc_q.get("면수_차이") or []) != 4:
+    fails.append(f"연천군 군청 안내 면수 차이가 4건이 아님: {len(_yc_q.get('면수_차이') or [])}")
+if len(_yc_q.get("요금구분_차이") or []) != 2:
+    fails.append(f"연천군 군청 안내 요금 구분 차이가 2건이 아님: {_yc_q.get('요금구분_차이')}")
+if _yc_q.get("좌표_없음") or _yc_q.get("이름중복"):
+    fails.append(f"연천군 원자료 이상: {_yc_q.get('좌표_없음')} {_yc_q.get('이름중복')}")
+# 요금 — 노외 30분 400원·10분당 100원·1일 4,000원·월 50,000원(급지 없음)
+for _l in yc_paid:
+    _f = _l["fee"]
+    if (_f.get("base_min"), _f.get("base_fee"), _f.get("unit_min"),
+            _f.get("unit_fee"), _f.get("daily_fee"), _f.get("monthly")) != (30, 400, 10, 100, 4000, 50000):
+        fails.append(f"연천군 {_l['name']} 요금이 별표1 노외와 다름: {_f.get('base_fee')}/{_f.get('unit_fee')}")
+        break
+for _n, _mins, _want in (("전곡 전통시장 공영주차장", 30, 400), ("전곡 전통시장 공영주차장", 60, 700),
+                         ("전곡 전통시장 공영주차장", 120, 1300), ("전곡 전통시장 공영주차장", 180, 1900),
+                         ("전곡 전통시장 공영주차장", 1440, 4000),
+                         ("전곡재래시장 주차장", 120, 1300)):
+    _l = yc_by.get(_n)
+    if not _l:
+        fails.append(f"연천군 표본 주차장이 없음: {_n}")
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"연천군 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 유료 주차장은 토·일 미운영(별표1 운영 시간 월~금)
+for _l in yc_paid:
+    for _d in ("sat", "sun"):
+        if price_for(_l, 120, _d)["state"] != "closed":
+            fails.append(f"연천군 {_l['name']} {_d}이 휴무가 아님")
+            break
+for _l in yc_free:
+    if any(price_for(_l, 120, _d)["state"] != "free" for _d in ("weekday", "sat", "sun")):
+        fails.append(f"연천군 무료 주차장 {_l['name']}이 무료로 계산되지 않음")
+        break
+# 감면표 — 전액(1.0)·2시간 면제(120분)·50%
+_yc_disc = next(c for c in CITIES if c["city"] == "연천군").get("discounts") or []
+if not any(d["rate"] == 1.0 and not d.get("exempt_min") for d in _yc_disc):
+    fails.append("연천군 감면표에 전액 면제 항목이 없음")
+if not any(d["rate"] == 1.0 and d.get("exempt_min") == 120 for d in _yc_disc):
+    fails.append("연천군 감면표에 최초 2시간 면제 항목이 없음")
+if sum(1 for d in _yc_disc if d["rate"] == 0.5) < 1:
+    fails.append("연천군 감면표에 50% 항목이 없음")
+# 페이지 — 군 허브 · 전곡읍 · 노상
+_yc_root = DIST / "parking" / "gyeonggi" / "yeoncheon"
+_yc_hub = _yc_root / "index.html"
+if not _yc_hub.exists():
+    fails.append("연천군 군 페이지 없음")
+else:
+    _yc_html = _yc_hub.read_text()
+    for label in ("연천군 노상·노외 주차요금표", "최초 30분", "10분당", "1일(선납)", "월 정기권(선납)",
+                  "4,000원", "50,000원", "80,000원", "월~금요일", "2026-10-13", "031-839-2292",
+                  "070-4953-0533", "연천군 공영주차장 8곳", "연천군 주말·공휴일 운영",
+                  "전곡 전통시장 공영주차장", "전곡재래시장 주차장", "1,300원"):
+        if label not in _yc_html:
+            fails.append(f"연천군 군 페이지에 {label} 없음")
+    if _yc_html.count('class="card lot') != len(yc_cards):
+        fails.append(f"연천군 군 페이지 카드 수 불일치({_yc_html.count(chr(34) + 'card lot')} vs {len(yc_cards)})")
+    if "&lt;b&gt;" in _yc_html:
+        fails.append("연천군 군 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _yc_html or "nan" in _yc_html:
+        fails.append("연천군 군 페이지에 None/nan 문자열이 보임")
+_yc_eup = _yc_root / "jeongok-eup" / "index.html"
+if not _yc_eup.exists():
+    fails.append("연천군 전곡읍 페이지 없음")
+elif _yc_eup.read_text().count('class="card lot') != 7:
+    fails.append(f"연천군 전곡읍 카드 수 불일치({_yc_eup.read_text().count(chr(34) + 'card lot')} ≠ 7)")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/yeoncheon/",
+           "https://parking.9welfare.com/parking/gyeonggi/yeoncheon/jeongok-eup/",
+           "https://parking.9welfare.com/parking/gyeonggi/yeoncheon/street-parking/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"연천군 주소가 사이트맵에 없음: {_u}")
+
+
+
 
 print()
 if warns:
