@@ -4369,6 +4369,124 @@ for _u in ("https://parking.9welfare.com/parking/seoul/jongno/",
         fails.append(f"서울 주소가 사이트맵에 없음: {_u}")
 
 
+# ---------------------------------------------------------------- 인천광역시 구 (T-03 Phase 35)
+#  인천은 2026-07-01 개편으로 2군·9구다 — 중구·동구는 폐지되어 제물포구(중구 내륙+동구)와
+#  영종구(중구 섬지역)가 되었다. 요금은 1구획 ‘최초 30분 기본 + 15분마다’이고 5시간 이상이면
+#  전일주차요금이 상한이다.
+INCHEON_EXPECT = {
+    # 구: (슬러그, 카드, 노상, 카드 3곳 이상 법정동 페이지, 구영 조례 ordinSeq)
+    "미추홀구": {"slug": "michuhol", "cards": 109, "street": 53,
+             "dong_pages": ["dohwa-dong", "gwangyo-dong", "hakik-dong", "juan-dong",
+                            "munhak-dong", "sungui-dong", "yonghyeon-dong"], "ordin": "2162449"},
+    "연수구": {"slug": "yeonsu", "cards": 46, "street": 19,
+            "dong_pages": ["cheonghak-dong", "dongchun-dong", "ongnyeon-dong", "songdo-dong",
+                           "yeonsu-dong"], "ordin": "2153091"},
+    "남동구": {"slug": "namdong", "cards": 114, "street": 22,
+            "dong_pages": ["ganseok-dong", "guwol-dong", "jangsu-dong", "mansu-dong",
+                           "namchon-dong", "nonhyeon-dong", "seochang-dong"], "ordin": "2153147"},
+    "제물포구": {"slug": "jemulpo", "cards": 91, "street": 111,
+             "dong_pages": ["bukseongdong1-ga", "dowon-dong", "hangdong7-ga", "hwapyeong-dong",
+                            "hwasu-dong", "manseok-dong", "nae-dong", "sinheungdong2-ga",
+                            "songhyeon-dong", "songrim-dong", "yulmok-dong"], "ordin": "2153259"},
+    "영종구": {"slug": "yeongjong", "cards": 15, "street": 6,
+            "dong_pages": ["eulwang-dong", "muui-dong", "unseo-dong"], "ordin": "2145273"},
+}
+_inc_pages = 0
+for _gu, _exp in INCHEON_EXPECT.items():
+    _slug = _exp["slug"]
+    _hub = DIST / "parking" / "incheon" / _slug / "index.html"
+    if not _hub.exists():
+        fails.append(f"인천 {_gu}: 구 페이지 없음")
+        continue
+    _inc_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"인천 {_gu}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "인천광역시" not in _h:
+        fails.append(f"인천 {_gu}: breadcrumb 에 인천광역시 없음")
+    if "1급지 90분 무료" in _h:
+        fails.append(f"인천 {_gu}: 평택시 문구(1급지 90분 무료)가 남아 있음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2177551"' not in _h:
+        fails.append(f"인천 {_gu}: 인천광역시 조례 출처 링크 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"인천 {_gu}: 구 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if 'href=""' in _h:
+        fails.append(f"인천 {_gu}: 빈 링크(href=\"\")가 있음")
+    if "급지별 주차요금표" not in _h:
+        fails.append(f"인천 {_gu}: 급지별 주차요금표 없음")
+    if "5시간 이상" not in _h:
+        fails.append(f"인천 {_gu}: 5시간 이상 전일주차요금 안내 없음")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"인천 {_gu}: 노상 페이지 없음")
+        else:
+            _inc_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"인천 {_gu}: 노상 페이지 행이 구간 수보다 적음")
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"인천 {_gu}: {_d} 법정동 페이지 없음")
+        else:
+            _inc_pages += 1
+    if _leaked_nan(_h):
+        fails.append(f"인천 {_gu}: 페이지에 None/nan 문자열")
+
+# 법정동 페이지는 카드 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
+for _gu, _exp in INCHEON_EXPECT.items():
+    _root = DIST / "parking" / "incheon" / _exp["slug"]
+    if not _root.exists():
+        continue
+    _lots = [l for l in LOTS if l.get("city") == _gu and l.get("list_mode", "card") != "street"]
+    _want = {d for d, n in Counter(l["dong"] or UNKNOWN_DONG for l in _lots).items()
+             if d != UNKNOWN_DONG and n >= 3}
+    _have = {q.parent.name for q in _root.rglob("index.html")
+             if q.parent.parent == _root and q.parent.name not in ("street-parking",)}
+    _have.discard(_exp["slug"])
+    from build_site import dong_slug_map as _dsm  # noqa: E402
+    _map = _dsm({l["dong"]: [1] for l in _lots if l.get("dong")})
+    _slugs_expected = {_map[d] for d in _want if d in _map}
+    if _have != _slugs_expected:
+        fails.append(f"인천 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 이상 {sorted(_slugs_expected)}")
+
+# 표본 요금 계산 — 30분 기본 + 15분마다, 5시간 이상은 전일주차요금 상한.
+_inc_by_name = {l["name"]: l for l in LOTS if l.get("city") in INCHEON_EXPECT}
+for _name, _min, _want_state, _want in (
+        ("제물포남광장", 120, "paid", 1600),      # 미추홀 3급지 400 + 200×6
+        ("제물포남광장", 300, "paid", 4000),      # 5시간 → 전일주차요금 상한
+        ("을왕리", 120, "paid", 1600),            # 영종구청 안내 3급지
+        ("넙디1", 120, "free", None),             # 무료 주차장
+):
+    _lot = _inc_by_name.get(_name)
+    if not _lot:
+        fails.append(f"인천 표본 주차장 없음: {_name}")
+        continue
+    _r = _pf(_lot, _min, "weekday")
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"인천 계산 불일치: {_name} {_min}분 → {_r} (기대 {_want_state}/{_want})")
+print(f"인천광역시 구 검사 완료 ({len(INCHEON_EXPECT)}개 구 · 페이지 {_inc_pages})")
+
+if 'id="incheon"' not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 인천광역시 지역 묶음(#incheon) 없음")
+for _u in ("https://parking.9welfare.com/parking/incheon/michuhol/",
+           "https://parking.9welfare.com/parking/incheon/michuhol/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/michuhol/juan-dong/",
+           "https://parking.9welfare.com/parking/incheon/yeonsu/",
+           "https://parking.9welfare.com/parking/incheon/yeonsu/songdo-dong/",
+           "https://parking.9welfare.com/parking/incheon/namdong/",
+           "https://parking.9welfare.com/parking/incheon/namdong/guwol-dong/",
+           "https://parking.9welfare.com/parking/incheon/namdong/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/jemulpo/",
+           "https://parking.9welfare.com/parking/incheon/jemulpo/hwasu-dong/",
+           "https://parking.9welfare.com/parking/incheon/jemulpo/street-parking/",
+           "https://parking.9welfare.com/parking/incheon/yeongjong/",
+           "https://parking.9welfare.com/parking/incheon/yeongjong/unseo-dong/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"인천 주소가 사이트맵에 없음: {_u}")
+
+
+
 
 
 print()

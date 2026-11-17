@@ -1,0 +1,2824 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 06:43",
+  "generated_at_iso": "2026-11-18T06:43:59+09:00",
+  "snapshot_at": "2026-11-18 06:43",
+  "region": {
+   "province": "인천광역시",
+   "city": "영종구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 13,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "영종구로 등록된 행 13행을 읽어 노외·부설 15곳과 노상 6구간을 실었다. 개편 전 중구·동구가 등록한 행은 지번주소의 법정동으로 제물포구·영종구에 나눠 넣었고, 개편 뒤 같은 주차장이 다시 등록된 행은 새 등록만 남겼다. 요금은 등록된 30분 기본요금·15분 추가요금을 그대로 쓰고, 5시간 이상이면 전일주차요금을 상한으로 적용했다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「인천광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조의2 감면",
+    "org": "인천광역시 교통안전과(032-440-3925)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2177551",
+    "file": "incheon.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "93f34a3c273584a9a752a5581a061d84e09737ececda4e1e49b6a06b816c63b1",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-10-08 · 인천광역시조례 제7804호(일부개정) · 별표1 공영주차장 주차요금표(개정 2013. 5. 27.) · 제4조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 06:26 (KST)",
+    "note": "시영(인천시설공단) 공영주차장의 요금표다. 1~4급지로 나뉘고 1회 주차는 최초 30분까지 1,000·600·400·300원, 30분 뒤 15분마다 500·300·200·150원이며, 전일주차권은 10,000·6,000·4,000·3,000원, 월 정기 자유이용권은 100,000·60,000·40,000·30,000원이다. 비고2는 1일 5시간 이상 주차하면 전일주차요금으로 징수하도록 정한다. 제4조의2는 국가유공자·장애인 등 80퍼센트(최초 1시간 면제), 경차 60퍼센트, 승용차부제 50퍼센트, 저공해·환경친화 50퍼센트, 다자녀 50퍼센트, 임산부 100퍼센트, 65세 이상 50퍼센트(최초 1시간 면제), 모범납세자·자원봉사자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「인천광역시 영종구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금 · 제4조 감면",
+    "org": "영종구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2145273",
+    "file": "yeongjong.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "4de261a49d49af32b3e02b2b39ac3fb3e055feaf6f66fee2e99093ec0d86df1a",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-07-01 · 인천광역시영종구조례 제215호(제정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청·구 시설관리공단) 주차장에 적용하는 조례다. 영종구는 2026-07-01 폐지된 중구의 섬지역(영종·운서·용유·무의·북도)을 맡은 구로, 조례도 그날 제정됐습니다. 영종구청이 공개한 공영주차장 현황(노외 11곳·노상 4구간)을 표준데이터와 함께 실었고, 넙디 1~4·하늘도시 중심상가 노상은 무료, 바닷가·영종역 주차장은 3급지 요금입니다."
+   },
+   {
+    "id": "gu_portal",
+    "name": "영종구청 공영주차장 현황(노외·노상)",
+    "org": "인천광역시 영종구청 교통행정과 교통시설팀(032-760-6817)",
+    "url": "https://www.yeongjong.go.kr/main/life/open_parking/list.do",
+    "file": "yeongjong.go.kr_공영주차장_현황_20261118.txt",
+    "sha256": "3c4bf02dd76f26a6eefc5840e6a7b02e84a8a51cad7894ca3c474c16c59967b6",
+    "license": "공공누리 제1유형",
+    "base_date": "최종업데이트 2026-08-27",
+    "rows_total": 15,
+    "fetched_at": "2026-11-18 06:29 (KST)",
+    "note": "주차장명·위치·급지·면수·운영시간·관리기관과 요금표·할인제도를 그대로 옮겨 두었다. 표준데이터에 없는 15곳(노외 11·노상 4)을 이 표에서 더했다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "영종구",
+   "slug": "yeongjong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "yeongjong-001",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "무의(광명항)",
+   "gu": "영종구",
+   "dong": "무의동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 무의동 50-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 145,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-002",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "무의대교",
+   "gu": "영종구",
+   "dong": "무의동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 무의동 산 10-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-003",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "무의지소",
+   "gu": "영종구",
+   "dong": "무의동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 무의동 180-73",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-004",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "하나개해수욕장",
+   "gu": "영종구",
+   "dong": "무의동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 무의동 198-1",
+   "addr_road": "인천광역시 영종구 하나개로 129",
+   "road": null,
+   "spaces": 171,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-005",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "넙디1",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2851-3",
+   "addr_road": "인천광역시 영종구 넙디로31번길 36",
+   "road": null,
+   "spaces": 17,
+   "tel": "032-760-6818",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 영종구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(영종구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-006",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "넙디2",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2855-1",
+   "addr_road": "인천광역시 영종구 넙디로66번길 14",
+   "road": null,
+   "spaces": 26,
+   "tel": "032-760-6818",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 영종구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(영종구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-007",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "넙디3",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2931-2",
+   "addr_road": "인천광역시 영종구 운서3로 24",
+   "road": null,
+   "spaces": 17,
+   "tel": "032-760-6818",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 영종구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(영종구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-008",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "넙디4",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2930-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "032-760-6818",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 영종구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(영종구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-009",
+   "mgmt_no": "161-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "눈돌마을",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2772-2",
+   "addr_road": "인천광역시 영종구 신도시남로 28",
+   "road": null,
+   "spaces": 46,
+   "tel": "032-751-7847",
+   "lat": 37.49272936,
+   "lng": 126.4844783912,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 10,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-010",
+   "mgmt_no": "161-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운서1",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2802-4",
+   "addr_road": "인천광역시 영종구 신도시남로 142번길",
+   "road": null,
+   "spaces": 38,
+   "tel": "032-751-7847",
+   "lat": 37.494173,
+   "lng": 126.491607,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 10,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 10000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-011",
+   "mgmt_no": "161-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운서역",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 1427-27",
+   "addr_road": "인천광역시 영종구 흰바위로59번길 26",
+   "road": null,
+   "spaces": 1024,
+   "tel": "032-751-7847",
+   "lat": 37.4927846022,
+   "lng": 126.4936663,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-012",
+   "mgmt_no": "161-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "은골1",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 운서동 2705-3",
+   "addr_road": "인천광역시 영종구 은골로 42",
+   "road": null,
+   "spaces": 29,
+   "tel": "032-751-7847",
+   "lat": 37.4963519,
+   "lng": 126.4917032,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-013",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "선녀바위해변",
+   "gu": "영종구",
+   "dong": "을왕동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 을왕동 678-180",
+   "addr_road": "",
+   "road": null,
+   "spaces": 203,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-014",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "왕산",
+   "gu": "영종구",
+   "dong": "을왕동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 을왕동 306-5",
+   "addr_road": "인천광역시 영종구 용유서로423번길 4",
+   "road": null,
+   "spaces": 197,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-015",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "card",
+   "name": "을왕리",
+   "gu": "영종구",
+   "dong": "을왕동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 영종구 을왕동 714",
+   "addr_road": "",
+   "road": null,
+   "spaces": 138,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-s001",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "street",
+   "name": "영종역 남부",
+   "gu": "영종구",
+   "dong": "운북동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 영종구 운북동 464",
+   "addr_road": "",
+   "road": null,
+   "spaces": 102,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-s002",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "street",
+   "name": "영종역 제2",
+   "gu": "영종구",
+   "dong": "운북동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 영종구 운북동 477-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 404,
+   "tel": "032-850-1472",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 제물포구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(제물포구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-s003",
+   "mgmt_no": "161-1-000172",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영종역일원(노상) 공영주차장",
+   "gu": "영종구",
+   "dong": "운북동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 중구 운북동 464",
+   "addr_road": "",
+   "road": null,
+   "spaces": 103,
+   "tel": "032-763-8146",
+   "lat": 37.510818,
+   "lng": 126.5241062,
+   "base_date": "2026-04-16",
+   "manager": "인천광역시 중구청",
+   "note": "",
+   "notice": "구영(중구청 직영) 주차장 · 노상 구간이라 전일주차권이 없습니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-s004",
+   "mgmt_no": "161-1-000173",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "공항신도시 공영주차장",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 중구 운서동 2818",
+   "addr_road": "",
+   "road": null,
+   "spaces": 224,
+   "tel": "032-763-8146",
+   "lat": 37.49428854,
+   "lng": 126.481847,
+   "base_date": "2026-04-16",
+   "manager": "인천광역시 중구청",
+   "note": "",
+   "notice": "조례 2급지 기준 600원을 400원으로 받습니다 · 구영(중구청 직영) 주차장 · 노상 구간이라 전일주차권이 없습니다",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 0,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-s005",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "street",
+   "name": "공항신도시 노상",
+   "gu": "영종구",
+   "dong": "운서동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "인천광역시 영종구 흰바위로27번길",
+   "road": null,
+   "spaces": 133,
+   "tel": "032-760-6818",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 영종구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(영종구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  },
+  {
+   "id": "yeongjong-s006",
+   "mgmt_no": "",
+   "src": "구청 안내",
+   "list_mode": "street",
+   "name": "하늘도시 중심상가 노상",
+   "gu": "영종구",
+   "dong": "중산동",
+   "dong_src": "구청 안내",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "인천광역시 영종구 하늘별빛로65번길",
+   "road": null,
+   "spaces": 67,
+   "tel": "032-760-6818",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-27",
+   "manager": "인천광역시 영종구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터에 없어 영종구청 공영주차장 현황(2026-08-27)의 면수·급지를 썼습니다 · 구영(영종구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영종구",
+   "city_slug": "yeongjong"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 06:43",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 13,
+  "원자료_영종구행수": 13,
+  "구별": "영종구",
+  "원자료_받은행수": 28,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 7,
+  "중복제거_행": [
+   {
+    "name": "눈돌마을",
+    "addr": "인천광역시 중구 운서동 2772-2",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "은골1",
+    "addr": "인천광역시 중구 운서동 2705-3",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "운서역",
+    "addr": "인천광역시 중구 운서동 1427-27",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "운서1",
+    "addr": "인천광역시 중구 운서동 2802-4",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "무의(광명항) 공영주차장",
+    "addr": "인천광역시 중구 무의동 50-18",
+    "base_date": "2026-04-16",
+    "kept": "2026-08-27"
+   },
+   {
+    "name": "왕산 공영주차장",
+    "addr": "인천광역시 중구 을왕동 776-14",
+    "base_date": "2026-04-16",
+    "kept": "2026-08-27"
+   },
+   {
+    "name": "을왕리 공영주차장",
+    "addr": "인천광역시 중구 을왕동 711-3",
+    "base_date": "2026-04-16",
+    "kept": "2026-08-27"
+   }
+  ],
+  "총_주차장": 15,
+  "노외_부설": {
+   "노외": 15
+  },
+  "노상_구간": 6,
+  "총_구획수": 2189,
+  "노상_구획수": 1033,
+  "동별": {
+   "운서동": 8,
+   "무의동": 4,
+   "을왕동": 3
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "구청 안내": 11,
+   "지번주소": 4
+  },
+  "요금구분": {
+   "유료": 16,
+   "무료": 5
+  },
+  "요금_미상": [],
+  "유료_노상": 5,
+  "유료_노외": 11,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "무의(광명항): 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "왕산: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "을왕리: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "무의지소: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "무의대교: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "하나개해수욕장: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "선녀바위해변: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "공항신도시 노상: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "영종역 제2: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산",
+   "영종역 남부: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "공항신도시 공영주차장: 2급지 기준 600원 ↔ 등록 400원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "무의(광명항)",
+   "무의대교",
+   "무의지소",
+   "하나개해수욕장",
+   "넙디1",
+   "넙디2",
+   "넙디3",
+   "넙디4",
+   "선녀바위해변",
+   "왕산",
+   "을왕리",
+   "영종역 남부",
+   "영종역 제2",
+   "공항신도시 노상",
+   "하늘도시 중심상가 노상"
+  ],
+  "감면_출처": "시영은 「인천광역시 주차장 설치 및 관리 조례」 제4조의2, 구영은 「인천광역시 영종구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금 · 제4조 감면(시행 2026-07-01 · 인천광역시영종구조례 제215호(제정))",
+  "무료시간_출처": "인천시·구 조례 별표1은 최초 30분을 기본요금으로 받고 별도의 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항의 표기를 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 5,
+  "무료_구획수": 151,
+  "평균_기본요금": 412,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16",
+   "2026-08-27",
+   "2026-09-01"
+  ],
+  "구청안내_주차장": [
+   "무의(광명항)",
+   "무의대교",
+   "무의지소",
+   "하나개해수욕장",
+   "넙디1",
+   "넙디2",
+   "넙디3",
+   "넙디4",
+   "선녀바위해변",
+   "왕산",
+   "을왕리",
+   "영종역 남부",
+   "영종역 제2",
+   "공항신도시 노상",
+   "하늘도시 중심상가 노상"
+  ]
+ },
+ "fee_table": {
+  "style": "incheon_grade",
+  "unit_min": 15,
+  "base_min": 30,
+  "applies": "2026-08-27",
+  "rows": [
+   {
+    "grade": 2,
+    "lots": 2,
+    "fee_min": 400,
+    "fee_max": 600,
+    "base_label": "600원",
+    "unit_label": "300원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 60000,
+    "month_min": null,
+    "month_max": null
+   },
+   {
+    "grade": 3,
+    "lots": 14,
+    "fee_min": 400,
+    "fee_max": 400,
+    "base_label": "400원",
+    "unit_label": "200원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 4000,
+    "month": 40000,
+    "month_min": 40000,
+    "month_max": 40000
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 16
+   }
+  ],
+  "notes": "영종구는 2026-07-01 폐지된 중구의 섬지역(영종·운서·용유·무의·북도)을 맡은 구로, 조례도 그날 제정됐습니다. 영종구청이 공개한 공영주차장 현황(노외 11곳·노상 4구간)을 표준데이터와 함께 실었고, 넙디 1~4·하늘도시 중심상가 노상은 무료, 바닷가·영종역 주차장은 3급지 요금입니다",
+  "corp": {
+   "paid": 11,
+   "free": 5,
+   "unknown": 0,
+   "street_paid": 5,
+   "street": 6
+  },
+  "table": {
+   "1": {
+    "base": 1000,
+    "unit": 500,
+    "day": 10000,
+    "month": 100000
+   },
+   "2": {
+    "base": 600,
+    "unit": 300,
+    "day": 6000,
+    "month": 60000
+   },
+   "3": {
+    "base": 400,
+    "unit": 200,
+    "day": 4000,
+    "month": 40000
+   },
+   "4": {
+    "base": 300,
+    "unit": 150,
+    "day": 3000,
+    "month": 30000
+   }
+  },
+  "reorg": true,
+  "basis": "「인천광역시 주차장 설치 및 관리 조례」 별표1(시행 2026-10-08 · 인천광역시조례 제7804호(일부개정) · 별표1 공영주차장 주차요금표(개정 2013. 5. 27.) · 제4조의2 주차요금의 감면) · 「인천광역시 영종구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금 · 제4조 감면(시행 2026-07-01 · 인천광역시영종구조례 제215호(제정)) · 전국주차장정보표준데이터 등록요금"
+ },
+ "slug": "yeongjong",
+ "province": "인천광역시",
+ "province_slug": "incheon",
+ "dong_page_min_lots": 3,
+ "city": "영종구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "국가유공자·장애인 등 80%",
+   "rate": 0.8,
+   "exempt_min": 60,
+   "note": "국가유공자·장애인·고엽제후유(의)증·5·18부상자·보훈보상대상자·병역명문가가 증서를 제시 — 80퍼센트, 1회 최초 1시간 면제"
+  },
+  {
+   "label": "경차·이륜 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차와 이륜자동차 60퍼센트"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차요일제 전자인증표를 붙인 차량 50퍼센트(월 정기주차 제외)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차·환경친화적 자동차 50퍼센트 — 전기차 충전 주차는 최초 1시간 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "아이모아카드 소지자, 2자녀 이상 다자녀가정 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부가 탑승하고 모자보건수첩(산모수첩) 등 증명자료를 제시한 차량 50퍼센트"
+  },
+  {
+   "label": "모범납세자·자원봉사자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지를 붙인 차량, 자원봉사자증으로 자원봉사활동을 위해 주차한 차량 — 1년간 면제"
+  },
+  {
+   "label": "주차쿠폰 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "주차쿠폰을 이용하는 경우 30퍼센트"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 수도권전철로 환승한 차량 50퍼센트"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "국가유공자·장애인 등 80%",
+   "rate": 0.8,
+   "exempt_min": 60,
+   "note": "국가유공자(상이 1~7급)·장애인·고엽제후유(의)증·5·18부상자·보훈보상대상자·병역명문가가 본인 차를 직접 운전(중증 장애는 동승·대리운전) — 80퍼센트, 1회 주차의 경우 최초 1시간 면제"
+  },
+  {
+   "label": "경차·이륜 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 별표1의 경형자동차와 이륜자동차 60퍼센트"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「인천광역시 승용차부제 지원 조례」 참여 차량 50퍼센트(월 정기주차는 30퍼센트)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차(표지 부착)·환경친화적 자동차 50퍼센트 — 전기차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 우대카드 소지자, 18세 이하 자녀를 둔 2자녀 이상 가구원(주민등록등본 등 제시) 50퍼센트"
+  },
+  {
+   "label": "임산부 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "인천시에 주민등록을 둔 임산부가 탑승하고 산모수첩 등 증명자료를 제시한 차량 100퍼센트"
+  },
+  {
+   "label": "65세 이상 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "인천시에 주민등록을 둔 65세 이상이 직접 운전하고 운전면허증을 제시 — 최초 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "모범납세자·자원봉사자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지를 붙인 차량, 시장이 발급한 자원봉사자증으로 자원봉사활동을 위해 주차한 차량 — 1년간 면제"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 수도권전철로 환승한 것이 확인된 차량 50퍼센트"
+  },
+  {
+   "label": "승용차공동이용 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 지정한 승용차공동이용 자동차가 월 정기권을 받아 주차하는 경우 50퍼센트"
+  }
+ ],
+ "realtime": false
+}

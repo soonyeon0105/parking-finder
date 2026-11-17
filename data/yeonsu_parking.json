@@ -1,0 +1,7859 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 06:43",
+  "generated_at_iso": "2026-11-18T06:43:59+09:00",
+  "snapshot_at": "2026-11-18 06:43",
+  "region": {
+   "province": "인천광역시",
+   "city": "연수구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 77,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "연수구로 등록된 행 77행을 읽어 노외·부설 46곳과 노상 19구간을 실었다. 요금은 등록된 30분 기본요금·15분 추가요금을 그대로 쓰고, 5시간 이상이면 전일주차요금을 상한으로 적용했다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「인천광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조의2 감면",
+    "org": "인천광역시 교통안전과(032-440-3925)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2177551",
+    "file": "incheon.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "93f34a3c273584a9a752a5581a061d84e09737ececda4e1e49b6a06b816c63b1",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-10-08 · 인천광역시조례 제7804호(일부개정) · 별표1 공영주차장 주차요금표(개정 2013. 5. 27.) · 제4조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 06:26 (KST)",
+    "note": "시영(인천시설공단) 공영주차장의 요금표다. 1~4급지로 나뉘고 1회 주차는 최초 30분까지 1,000·600·400·300원, 30분 뒤 15분마다 500·300·200·150원이며, 전일주차권은 10,000·6,000·4,000·3,000원, 월 정기 자유이용권은 100,000·60,000·40,000·30,000원이다. 비고2는 1일 5시간 이상 주차하면 전일주차요금으로 징수하도록 정한다. 제4조의2는 국가유공자·장애인 등 80퍼센트(최초 1시간 면제), 경차 60퍼센트, 승용차부제 50퍼센트, 저공해·환경친화 50퍼센트, 다자녀 50퍼센트, 임산부 100퍼센트, 65세 이상 50퍼센트(최초 1시간 면제), 모범납세자·자원봉사자 1년 면제 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「인천광역시 연수구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제5조 감면",
+    "org": "연수구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2153091",
+    "file": "yeonsu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "ba59f07345a79ce64a8dbaceac560cedfbd766e692e7b05ac65a745d69545032",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-04-07 · 인천광역시연수구조례 제1664호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청·구 시설관리공단) 주차장에 적용하는 조례다. 연수구는 별표1의 1~4급지 요금(최초 30분 기본요금 + 15분마다 추가)을 쓰고, 5시간 이상 주차하면 전일주차요금을 받습니다. 노외 공영주차장에서 15분 이내에 나가면 요금이 면제됩니다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "연수구",
+   "slug": "yeonsu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "yeonsu-001",
+   "mgmt_no": "164-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "능허리주차장",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 동춘동 1115-7",
+   "addr_road": "인천광역시 연수구 동곡재로49번길",
+   "road": null,
+   "spaces": 22,
+   "tel": "032-830-8073",
+   "lat": 37.414148,
+   "lng": 126.671955,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-002",
+   "mgmt_no": "164-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동춘교하부공간주차장",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 동춘동 산 32-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "032-830-8073",
+   "lat": 37.413007,
+   "lng": 126.663995,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-003",
+   "mgmt_no": "164-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동춘동",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 동춘동 935-1",
+   "addr_road": "인천광역시 연수구 앵고개로 246번길 7-14",
+   "road": null,
+   "spaces": 225,
+   "tel": "032-579-2701",
+   "lat": 37.407747,
+   "lng": 126.6714018751,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-004",
+   "mgmt_no": "164-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동춘동 820-59번지 쌈지공영주차장",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 동춘동 820-59",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "032-749-8753",
+   "lat": 37.416413,
+   "lng": 126.655851,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-005",
+   "mgmt_no": "164-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "컨벤시아교 하부 공영주차장",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 동춘동 719-51",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "032-749-8754",
+   "lat": 37.40574848,
+   "lng": 126.6586397,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-006",
+   "mgmt_no": "164-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "두리공원",
+   "gu": "연수구",
+   "dong": "선학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 선학동 365-2",
+   "addr_road": "인천광역시 연수구 비류대로 541번길 14-7",
+   "road": null,
+   "spaces": 36,
+   "tel": "032-579-2701",
+   "lat": 37.4241697727,
+   "lng": 126.6956155581,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-007",
+   "mgmt_no": "164-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선학동공영주차장",
+   "gu": "연수구",
+   "dong": "선학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 선학동 365-1",
+   "addr_road": "인천광역시 연수구 비류대로541번길 14-7",
+   "road": null,
+   "spaces": 34,
+   "tel": "032-830-8073",
+   "lat": 37.424089,
+   "lng": 126.695464,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-008",
+   "mgmt_no": "164-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송도동 공영주차장",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 16-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 107,
+   "tel": "032-830-8073",
+   "lat": 37.40389303,
+   "lng": 126.6423119,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 칸이 비어 있음"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-009",
+   "mgmt_no": "164-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송도컨벤시아 주차장",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "인천광역시 연수구 송도동6-1",
+   "addr_road": "인천광역시 연수구 센트럴로 123",
+   "road": null,
+   "spaces": 1157,
+   "tel": "032-210-1114",
+   "lat": 37.3881431,
+   "lng": 126.645553,
+   "base_date": "2026-10-12",
+   "manager": "인천관광공사",
+   "note": "",
+   "notice": "조례 2급지 기준 600원을 1,000원으로 받습니다 · 5시간 이상 주차하면 전일주차요금 10,000원을 받습니다(그 금액이 상한) · 인천관광공사 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 1000,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 10000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 100000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 1000,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "할인권+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-010",
+   "mgmt_no": "164-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제10공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 21-61",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "032-579-2701",
+   "lat": 37.395726,
+   "lng": 126.648553,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-011",
+   "mgmt_no": "164-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제11공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 21-63",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "032-579-2701",
+   "lat": 37.395373,
+   "lng": 126.648183,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-012",
+   "mgmt_no": "164-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제12공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 21-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "032-579-2701",
+   "lat": 37.396918,
+   "lng": 126.646865,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-013",
+   "mgmt_no": "164-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제13공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 21-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "032-579-2701",
+   "lat": 37.396523,
+   "lng": 126.646455,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-014",
+   "mgmt_no": "164-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제14공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 22-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "032-579-2701",
+   "lat": 37.393805,
+   "lng": 126.645404,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-015",
+   "mgmt_no": "164-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 9-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 278,
+   "tel": "032-579-2701",
+   "lat": 37.37971682,
+   "lng": 126.6450403,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-016",
+   "mgmt_no": "164-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 7-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "032-579-2701",
+   "lat": 37.386388,
+   "lng": 126.651064,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-017",
+   "mgmt_no": "164-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 7-31",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "032-579-2701",
+   "lat": 37.385129,
+   "lng": 126.649749,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-018",
+   "mgmt_no": "164-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제4공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 8-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 72,
+   "tel": "032-579-2701",
+   "lat": 37.385323,
+   "lng": 126.643226,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-019",
+   "mgmt_no": "164-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제5공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 10-32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "032-579-2701",
+   "lat": 37.381351,
+   "lng": 126.640221,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-020",
+   "mgmt_no": "164-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제6공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 11-98",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "032-579-2701",
+   "lat": 37.378758,
+   "lng": 126.643067,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-021",
+   "mgmt_no": "164-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제7공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 11-106",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "032-579-2701",
+   "lat": 37.375934,
+   "lng": 126.645094,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-022",
+   "mgmt_no": "164-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제8공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 10-111",
+   "addr_road": "",
+   "road": null,
+   "spaces": 82,
+   "tel": "032-579-2701",
+   "lat": 37.379901,
+   "lng": 126.637623,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-023",
+   "mgmt_no": "164-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제9공영주차장(송도)",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 송도동 20-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "032-579-2701",
+   "lat": 37.398059,
+   "lng": 126.650078,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-024",
+   "mgmt_no": "164-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "늘봄공원",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 603",
+   "addr_road": "인천광역시 연수구 샘말로 37-7",
+   "road": null,
+   "spaces": 63,
+   "tel": "032-579-2701",
+   "lat": 37.41319988,
+   "lng": 126.678246515,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-025",
+   "mgmt_no": "164-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맛고을길 임시주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 603-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "032-830-8073",
+   "lat": 37.413068,
+   "lng": 126.678625,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-026",
+   "mgmt_no": "164-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문학장미공원주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 137-3",
+   "addr_road": "인천광역시 연수구 함박안로 27",
+   "road": null,
+   "spaces": 105,
+   "tel": "032-440-5953",
+   "lat": 37.42663104,
+   "lng": 126.6778444,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 월미공원사업소",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-027",
+   "mgmt_no": "164-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "샘말공원",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 622",
+   "addr_road": "인천광역시 연수구 샘말로 68-5",
+   "road": null,
+   "spaces": 72,
+   "tel": "032-579-2701",
+   "lat": 37.4143626028,
+   "lng": 126.6806284549,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-028",
+   "mgmt_no": "164-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연수 벚꽃로 공영주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 591-2",
+   "addr_road": "인천광역시 연수구 벚꽃로 123",
+   "road": null,
+   "spaces": 117,
+   "tel": "032-830-8073",
+   "lat": 37.417025,
+   "lng": 126.679501,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-029",
+   "mgmt_no": "164-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연수3동 공영주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 532-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 167,
+   "tel": "032-830-8073",
+   "lat": 37.422757,
+   "lng": 126.697429,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-030",
+   "mgmt_no": "164-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연수역 주차장(환승주차장)",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 587-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 121,
+   "tel": "02-788-5097",
+   "lat": 37.418616,
+   "lng": 126.678183,
+   "base_date": "2026-04-21",
+   "manager": "한국철도공사",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 한국철도공사 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-031",
+   "mgmt_no": "164-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연수역북부공영주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 587",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "032-830-8073",
+   "lat": 37.419094,
+   "lng": 126.677368,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-032",
+   "mgmt_no": "164-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원인재역 주차장(환승주차장)",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 585",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "02-788-5097",
+   "lat": 37.413431,
+   "lng": 126.686533,
+   "base_date": "2026-04-21",
+   "manager": "한국철도공사",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 한국철도공사 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-033",
+   "mgmt_no": "164-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함박마을",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 연수동 514",
+   "addr_road": "인천광역시 연수구 함박안로 62번길 73",
+   "road": null,
+   "spaces": 128,
+   "tel": "032-579-2701",
+   "lat": 37.4261971453,
+   "lng": 126.6827891675,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-034",
+   "mgmt_no": "164-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송도역 주차장(환승주차장)",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 옥련동 293-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 158,
+   "tel": "02-788-5097",
+   "lat": 37.429218,
+   "lng": 126.654847,
+   "base_date": "2026-04-21",
+   "manager": "한국철도공사",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 한국철도공사 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 60000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 60000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-035",
+   "mgmt_no": "164-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시립박물관주변",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 옥련동 415",
+   "addr_road": "인천광역시 연수구 청량로 165",
+   "road": null,
+   "spaces": 24,
+   "tel": "032-579-2701",
+   "lat": 37.4218346,
+   "lng": 126.6524034,
+   "base_date": "2026-09-01",
+   "manager": "인천시설공단 상가주차사업단(주차(운영/시설)팀)",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시영(인천시설공단 상가주차사업단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-036",
+   "mgmt_no": "164-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥련동공영주차장(1)",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 옥련동 340-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "032-830-8073",
+   "lat": 37.425263,
+   "lng": 126.655194,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-037",
+   "mgmt_no": "164-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥련동공영주차장(2)",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 옥련동 163-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "032-830-8073",
+   "lat": 37.42743378,
+   "lng": 126.6477781,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-038",
+   "mgmt_no": "164-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인천상륙작전기념관주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 옥련동 405-55",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "032-832-0915",
+   "lat": 37.420334,
+   "lng": 126.653991,
+   "base_date": "2026-04-21",
+   "manager": "상륙작전기념관",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-039",
+   "mgmt_no": "164-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥륜사 주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 옥련동 567-28",
+   "addr_road": "인천광역시 연수구 청량로70번길 40-17",
+   "road": null,
+   "spaces": 40,
+   "tel": "032-830-8073",
+   "lat": 37.41679033,
+   "lng": 126.6593583,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-040",
+   "mgmt_no": "164-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연수역남부공영주차장",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 466",
+   "addr_road": "",
+   "road": null,
+   "spaces": 170,
+   "tel": "032-830-8073",
+   "lat": 37.419359,
+   "lng": 126.675835,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-041",
+   "mgmt_no": "164-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학공영주차장",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 170",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "032-830-8073",
+   "lat": 37.42668059,
+   "lng": 126.6669175,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "표준데이터에 시간 요금이 없어 조례 별표1의 3급지 요금으로 계산합니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-042",
+   "mgmt_no": "164-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학공영주차장(2)",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 90-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 108,
+   "tel": "032-830-8073",
+   "lat": 37.427204,
+   "lng": 126.662712,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-043",
+   "mgmt_no": "164-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학공영주차장(3)",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 571-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "032-830-8073",
+   "lat": 37.424116,
+   "lng": 126.665134,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-044",
+   "mgmt_no": "164-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동 560-5번지 쌈지공영주차장",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 560-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "032-749-8753",
+   "lat": 37.426324,
+   "lng": 126.662715,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-045",
+   "mgmt_no": "164-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동 쌈지(임시)주차장",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 521-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "032-749-8753",
+   "lat": 37.429168,
+   "lng": 126.663171,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-046",
+   "mgmt_no": "164-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동공영주차장(4)",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "인천광역시 연수구 청학동 79-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "032-830-8073",
+   "lat": 37.427141,
+   "lng": 126.664411,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 4,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": 3,
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 4000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": "월 정기권",
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s001",
+   "mgmt_no": "164-1-000060",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동춘동 노상 공영주차장",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 동춘동 959-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 124,
+   "tel": "032-830-8073",
+   "lat": 37.40721336,
+   "lng": 126.6718422,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s002",
+   "mgmt_no": "164-1-000062",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "봉재산로36번길 일원 노상주차장",
+   "gu": "연수구",
+   "dong": "동춘동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 동춘동 1150-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "032-749-8754",
+   "lat": 37.408772,
+   "lng": 126.6649537,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s003",
+   "mgmt_no": "164-1-000063",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "송도1동 행정복지센터 일원 노상주차장",
+   "gu": "연수구",
+   "dong": "송도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 송도동 3-33",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "032-749-8754",
+   "lat": 37.391226,
+   "lng": 126.652211,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s004",
+   "mgmt_no": "164-1-000047",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "그린타워주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 연수동 611-14",
+   "addr_road": "인천광역시 연수구 용담로125번길 26",
+   "road": null,
+   "spaces": 49,
+   "tel": "032-749-8754",
+   "lat": 37.415099,
+   "lng": 126.679605,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s005",
+   "mgmt_no": "164-1-000059",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "문남공원 일원 주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 연수동 643-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "032-749-8754",
+   "lat": 37.42215122,
+   "lng": 126.676739,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s006",
+   "mgmt_no": "164-1-000052",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연수동 함박마을 주변 주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 연수동 513-2",
+   "addr_road": "인천광역시 연수구 함박안로62번길 84",
+   "road": null,
+   "spaces": 314,
+   "tel": "032-749-8754",
+   "lat": 37.425836,
+   "lng": 126.683511,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s007",
+   "mgmt_no": "164-1-000058",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "함박로 주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 연수동 638",
+   "addr_road": "인천광역시 연수구 비류대로 461-2",
+   "road": null,
+   "spaces": 96,
+   "tel": "032-749-8754",
+   "lat": 37.424135,
+   "lng": 126.685974,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s008",
+   "mgmt_no": "164-1-000057",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "함박뫼로 50번길 일원 주차장",
+   "gu": "연수구",
+   "dong": "연수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 연수동 644",
+   "addr_road": "인천광역시 연수구 함박뫼로50번길 81-2",
+   "road": null,
+   "spaces": 60,
+   "tel": "032-749-8754",
+   "lat": 37.41932876,
+   "lng": 126.677347,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s009",
+   "mgmt_no": "164-1-000049",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "박물관길 주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 산 85-153",
+   "addr_road": "인천광역시 연수구 청량로160번길",
+   "road": null,
+   "spaces": 44,
+   "tel": "032-749-8754",
+   "lat": 37.420646,
+   "lng": 126.653922,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s010",
+   "mgmt_no": "164-1-000046",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상륙작전기념관주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 588",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "032-749-8754",
+   "lat": 37.41803897,
+   "lng": 126.6509022,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s011",
+   "mgmt_no": "164-1-000050",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "송도로타리주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 548-3",
+   "addr_road": "인천광역시 연수구 능허대로 199",
+   "road": null,
+   "spaces": 15,
+   "tel": "032-749-8754",
+   "lat": 37.418305,
+   "lng": 126.650527,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s012",
+   "mgmt_no": "164-1-000056",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥련동 백산1차아파트 주변 주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 634-1",
+   "addr_road": "인천광역시 연수구 독배로40번길 18",
+   "road": null,
+   "spaces": 11,
+   "tel": "032-749-8754",
+   "lat": 37.424224,
+   "lng": 126.646247,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s013",
+   "mgmt_no": "164-1-000055",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥련동 송학둥지아파트 주변 주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 118-43",
+   "addr_road": "인천광역시 연수구 비류대로144번길 14",
+   "road": null,
+   "spaces": 32,
+   "tel": "032-749-8754",
+   "lat": 37.42924938,
+   "lng": 126.6490593,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s014",
+   "mgmt_no": "164-1-000051",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥련동 재래시장주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 634-2",
+   "addr_road": "인천광역시 연수구 독배로40번길",
+   "road": null,
+   "spaces": 39,
+   "tel": "032-830-8073",
+   "lat": 37.424227,
+   "lng": 126.644869,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구 시설안전관리공단",
+   "note": "",
+   "notice": "5시간 이상 주차하면 전일주차요금 6,000원을 받습니다(그 금액이 상한) · 구영(연수구시설안전관리공단) 주차장",
+   "fee": {
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 15,
+    "unit_fee": 300,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": 6000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 0
+    },
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "pay": "현금+신용카드",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "표준데이터 등록요금(30분 기본·15분 추가)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s015",
+   "mgmt_no": "164-1-000054",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥련동 호불사 주변 주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 346",
+   "addr_road": "인천광역시 연수구 청룡로29번길 2",
+   "road": null,
+   "spaces": 26,
+   "tel": "032-749-8754",
+   "lat": 37.424114,
+   "lng": 126.657879,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s016",
+   "mgmt_no": "164-1-000048",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥련동복개천주차장",
+   "gu": "연수구",
+   "dong": "옥련동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 옥련동 528-1",
+   "addr_road": "인천광역시 연수구 대암로 33",
+   "road": null,
+   "spaces": 125,
+   "tel": "032-749-8754",
+   "lat": 37.418449,
+   "lng": 126.653199,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s017",
+   "mgmt_no": "164-1-000053",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청학동 안골마을 주변 주차장",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 청학동 42-10",
+   "addr_road": "인천광역시 연수구 비류대로239번길 55",
+   "road": null,
+   "spaces": 586,
+   "tel": "032-749-8754",
+   "lat": 37.429322,
+   "lng": 126.661941,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s018",
+   "mgmt_no": "164-1-000064",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청학로 일원 노상주차장",
+   "gu": "연수구",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "인천광역시 연수구 청학동 585",
+   "addr_road": "",
+   "road": null,
+   "spaces": 84,
+   "tel": "032-749-8754",
+   "lat": 37.4290651,
+   "lng": 126.663555,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  },
+  {
+   "id": "yeonsu-s019",
+   "mgmt_no": "164-1-000061",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥련동 호불사 입구 주변 주차장",
+   "gu": "연수구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "인천광역시 연수구 청룡로 46",
+   "road": null,
+   "spaces": 23,
+   "tel": "032-749-8754",
+   "lat": 37.423259,
+   "lng": 126.6573906,
+   "base_date": "2026-04-21",
+   "manager": "인천광역시 연수구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(연수구청 직영) 주차장",
+   "fee": {
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "category": null,
+    "std": null,
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "pay": "무료",
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "연수구",
+   "city_slug": "yeonsu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 06:43",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 77,
+  "원자료_연수구행수": 77,
+  "구별": "연수구",
+  "원자료_받은행수": 77,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 12,
+  "중복제거_행": [
+   {
+    "name": "시립박물관주변",
+    "addr": "인천광역시 연수구 옥련동 418-9",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "시립박물관주변주차장",
+    "addr": "인천광역시 연수구 옥련동 418-9",
+    "base_date": "2026-04-21",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "함박마을",
+    "addr": "인천광역시 연수구 연수동 514",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "함박마을공영주차장",
+    "addr": "인천광역시 연수구 연수동 514",
+    "base_date": "2026-04-21",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "두리공원",
+    "addr": "인천광역시 연수구 선학동 365-2",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "두리공원주차장",
+    "addr": "인천광역시 연수구 선학동 365-2",
+    "base_date": "2026-04-21",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "샘말공원",
+    "addr": "인천광역시 연수구 연수동 622",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "샘말공원지하주차장",
+    "addr": "인천광역시 연수구 연수동 622",
+    "base_date": "2026-04-21",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "동춘동",
+    "addr": "인천광역시 연수구 동춘동 935-1",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "동춘동 공영주차장",
+    "addr": "인천광역시 연수구 동춘동 935-1",
+    "base_date": "2026-04-21",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "늘봄공원",
+    "addr": "인천광역시 연수구 연수동 603",
+    "base_date": "2026-04-27",
+    "kept": "2026-09-01"
+   },
+   {
+    "name": "늘봄공원지하주차장",
+    "addr": "인천광역시 연수구 연수동 603",
+    "base_date": "2026-04-21",
+    "kept": "2026-09-01"
+   }
+  ],
+  "총_주차장": 46,
+  "노외_부설": {
+   "노외": 45,
+   "부설": 1
+  },
+  "노상_구간": 19,
+  "총_구획수": 4351,
+  "노상_구획수": 1740,
+  "동별": {
+   "송도동": 16,
+   "연수동": 10,
+   "청학동": 7,
+   "옥련동": 6,
+   "동춘동": 5,
+   "선학동": 2
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 46
+  },
+  "요금구분": {
+   "무료": 43,
+   "유료": 21,
+   "미상": 1
+  },
+  "요금_미상": [
+   "송도동 공영주차장"
+  ],
+  "유료_노상": 2,
+  "유료_노외": 18,
+  "유료_부설": 1,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "송도동 공영주차장: 요금 정보가 비어 있어 ‘요금 정보 없음’으로 두었습니다",
+   "청학공영주차장: 표준데이터에 시간 요금이 없어 조례 별표1 3급지 30분 400원·15분 200원으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "송도컨벤시아 주차장: 2급지 기준 600원 ↔ 등록 1,000원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「인천광역시 주차장 설치 및 관리 조례」 제4조의2, 구영은 「인천광역시 연수구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제5조 감면(시행 2025-04-07 · 인천광역시연수구조례 제1664호(일부개정))",
+  "무료시간_출처": "인천시·구 조례 별표1은 최초 30분을 기본요금으로 받고 별도의 최초 무료시간을 두지 않는다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항의 표기를 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 43,
+  "무료_구획수": 2911,
+  "평균_기본요금": 505,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "164-2-000020",
+   "164-2-000022",
+   "164-2-000005"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-21",
+   "2026-09-01",
+   "2026-10-12"
+  ],
+  "구청안내_주차장": []
+ },
+ "fee_table": {
+  "style": "incheon_grade",
+  "unit_min": 15,
+  "base_min": 30,
+  "applies": "2026-04-21",
+  "rows": [
+   {
+    "grade": 2,
+    "lots": 9,
+    "fee_min": 600,
+    "fee_max": 1000,
+    "base_label": "600원",
+    "unit_label": "300원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 60000,
+    "month_min": 60000,
+    "month_max": 100000
+   },
+   {
+    "grade": 3,
+    "lots": 12,
+    "fee_min": 400,
+    "fee_max": 400,
+    "base_label": "400원",
+    "unit_label": "200원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 4000,
+    "month": 40000,
+    "month_min": 40000,
+    "month_max": 40000
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 19
+   },
+   {
+    "group": "00:00~19:00",
+    "count": 2
+   }
+  ],
+  "notes": "연수구는 별표1의 1~4급지 요금(최초 30분 기본요금 + 15분마다 추가)을 쓰고, 5시간 이상 주차하면 전일주차요금을 받습니다. 노외 공영주차장에서 15분 이내에 나가면 요금이 면제됩니다",
+  "corp": {
+   "paid": 19,
+   "free": 43,
+   "unknown": 1,
+   "street_paid": 2,
+   "street": 19
+  },
+  "table": {
+   "1": {
+    "base": 1000,
+    "unit": 500,
+    "day": 10000,
+    "month": 100000
+   },
+   "2": {
+    "base": 600,
+    "unit": 300,
+    "day": 6000,
+    "month": 60000
+   },
+   "3": {
+    "base": 400,
+    "unit": 200,
+    "day": 4000,
+    "month": 40000
+   },
+   "4": {
+    "base": 300,
+    "unit": 150,
+    "day": 3000,
+    "month": 30000
+   }
+  },
+  "reorg": false,
+  "basis": "「인천광역시 주차장 설치 및 관리 조례」 별표1(시행 2026-10-08 · 인천광역시조례 제7804호(일부개정) · 별표1 공영주차장 주차요금표(개정 2013. 5. 27.) · 제4조의2 주차요금의 감면) · 「인천광역시 연수구 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제5조 감면(시행 2025-04-07 · 인천광역시연수구조례 제1664호(일부개정)) · 전국주차장정보표준데이터 등록요금"
+ },
+ "slug": "yeonsu",
+ "province": "인천광역시",
+ "province_slug": "incheon",
+ "dong_page_min_lots": 3,
+ "city": "연수구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "국가유공자·장애인 등 80%",
+   "rate": 0.8,
+   "exempt_min": 60,
+   "note": "국가유공자(상이 1~7급)·장애인·고엽제후유(의)증·5·18부상자·보훈보상대상자·병역명문가 — 80퍼센트, 1회 최초 1시간 면제"
+  },
+  {
+   "label": "경차·이륜 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차와 이륜자동차 60퍼센트"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차요일제 참여 차량 50퍼센트(월 정기주차는 30퍼센트)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차(표지 부착)·환경친화적 자동차 50퍼센트 — 전기차 충전 주차는 최초 1시간 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "아이모아카드 소지자, 2자녀 이상 다자녀가구 가구원 50퍼센트"
+  },
+  {
+   "label": "임산부 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "구에 주민등록을 둔 임산부가 탑승한 차량, 인천시 거주 임산부가 산모수첩을 제시한 차량 100퍼센트"
+  },
+  {
+   "label": "65세 이상 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "65세 이상이 직접 운전하고 운전면허증을 제시 — 최초 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "모범납세자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지를 붙인 차량 — 발급일부터 1년간 면제"
+  },
+  {
+   "label": "자원봉사자 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "시장이 발급한 자원봉사자증을 가진 연수구 주민 20퍼센트(발급일부터 2년)"
+  },
+  {
+   "label": "전통시장 30분 면제",
+   "rate": 1.0,
+   "exempt_min": 30,
+   "note": "구청장이 지정한 전통시장 인접 공영주차장에서 전통시장 주차권을 제시 — 최초 30분 면제"
+  },
+  {
+   "label": "장기기증 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "장기기증자·기증희망자 증서를 제시한 차량 50퍼센트"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 전철로 환승한 확인을 받은 차량 50퍼센트"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "국가유공자·장애인 등 80%",
+   "rate": 0.8,
+   "exempt_min": 60,
+   "note": "국가유공자(상이 1~7급)·장애인·고엽제후유(의)증·5·18부상자·보훈보상대상자·병역명문가가 본인 차를 직접 운전(중증 장애는 동승·대리운전) — 80퍼센트, 1회 주차의 경우 최초 1시간 면제"
+  },
+  {
+   "label": "경차·이륜 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 별표1의 경형자동차와 이륜자동차 60퍼센트"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「인천광역시 승용차부제 지원 조례」 참여 차량 50퍼센트(월 정기주차는 30퍼센트)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차(표지 부착)·환경친화적 자동차 50퍼센트 — 전기차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 우대카드 소지자, 18세 이하 자녀를 둔 2자녀 이상 가구원(주민등록등본 등 제시) 50퍼센트"
+  },
+  {
+   "label": "임산부 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "인천시에 주민등록을 둔 임산부가 탑승하고 산모수첩 등 증명자료를 제시한 차량 100퍼센트"
+  },
+  {
+   "label": "65세 이상 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "인천시에 주민등록을 둔 65세 이상이 직접 운전하고 운전면허증을 제시 — 최초 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "모범납세자·자원봉사자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증 표지를 붙인 차량, 시장이 발급한 자원봉사자증으로 자원봉사활동을 위해 주차한 차량 — 1년간 면제"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 수도권전철로 환승한 것이 확인된 차량 50퍼센트"
+  },
+  {
+   "label": "승용차공동이용 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 지정한 승용차공동이용 자동차가 월 정기권을 받아 주차하는 경우 50퍼센트"
+  }
+ ],
+ "realtime": false
+}
