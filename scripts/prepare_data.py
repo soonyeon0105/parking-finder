@@ -345,6 +345,9 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "파주시": {"slug": "paju", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    # 광주시(경기도) — 광주광역시와 다른 도시다. 슬러그는 gwangju, 경로는 /parking/gyeonggi/gwangju/.
+    "광주시": {"slug": "gwangju", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7204,7 +7207,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -7260,18 +7263,468 @@ def build_site_payload(cities):
     }
 
 
+# ---------------------------------------------------------------- 광주시 (T-03 Phase 14)
+GWANGJU_PROVIDER = "경기도 광주시"
+# 광주시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고 그 아래 읍·면·동 페이지를 둔다.
+GWANGJU_DISTRICTS = [("광주시", "gwangju")]
+GWANGJU_BBOX = (37.29, 37.50, 127.10, 127.45)   # 광주시 대략 경계(좌표 점검용)
+# 광주시 법정동(동지역)과 읍·면 — 표준데이터 주소 세 번째 낱말이 지역 이름이다.
+#   (행정동 경안동·송정동·광남동·탄벌동·신현동·능평동·오포1~2동은 법정동 여러 개를 묶은 이름이라
+#    주소에는 법정동이 나온다. 오포읍은 2015년 폐지되어 법정동 문형동·매산동·양벌동 등으로 적힌다.)
+GWANGJU_DONGS = ("경안동", "송정동", "역동", "유동", "직동", "신현동", "목동", "문형동",
+                 "고산동", "장지동", "중대동", "매산동", "양벌동", "탄벌동", "삼동",
+                 "쌍령동", "회덕동", "목현동", "갈평동", "능평동", "추자동", "태전동",
+                 "초월읍", "곤지암읍", "퇴촌면", "남종면", "남한산성면", "도척면")
+
+GWANGJU_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111313"
+GWANGJU_PORTAL_URL = "https://parking.gumc.or.kr/html/about/about_05"
+GWANGJU_PORTAL_HOME = "https://parking.gumc.or.kr/html/main"
+GWANGJU_PORTAL_LIST = "https://parking.gumc.or.kr/html/about/about_02"
+GWANGJU_ANNEX1_TXT = RAW / "gwangju_ordinance_20260223_별표1.txt"
+GWANGJU_ANNEX2_TXT = RAW / "gwangju_ordinance_20260223_별표2.txt"
+GWANGJU_PORTAL_TXT = RAW / "parking.gumc.or.kr_요금안내_20261117.txt"
+GWANGJU_ORDINANCE_NOTE = "시행 2026-02-23 (경기도광주시조례 제1757호, 일부개정)"
+
+# 광주시 공영주차장 요금 — 「광주시 주차장 설치 및 관리 조례」 제5조제1항 별표1,
+#   광주도시관리공사 통합주차관리 포털 ‘요금안내’(2026-11-17 확인).
+#   · 최초 30분 기본요금 뒤 10분 단위로 붙는다(1급지 30분 800원·10분당 300원).
+#   · 1일 주차요금이 상한이다(1급지 7,000원·2급지 5,000원).
+#   · 월 정기권은 주·야간·주간·야간 세 가지다(1급지 70,000·50,000·40,000원).
+#   · 노상·노외가 같은 급지 요금표를 쓴다(별표1·포털 요금표에 구분이 없다).
+#   · 급지: 1급지 = 동지역, 2급지 = 1급지를 제외한 기타 지역 및 환승주차장.
+GWANGJU_FEES = {
+    1: {"base_min": 30, "base_fee": 800, "unit_min": 10, "unit_fee": 300, "day": 7_000,
+        "month_day": 50_000, "month_night": 40_000, "month_all": 70_000},
+    2: {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200, "day": 5_000,
+        "month_day": 40_000, "month_night": 20_000, "month_all": 50_000},
+}
+# 포털 요금표 ‘※ 최초 10분 미만(회차) 무료’ — 10분 이내에 나가면 요금이 없다.
+GWANGJU_FREE_MIN = 10
+# 정기권 할인(포털 ‘공영주차장 정기권 할인 요금표’, 조례 제6조) — 감면 대상 차량의 정기권 금액.
+GWANGJU_MONTHLY_DISCOUNT = {
+    "50": {1: {"month_all": 35_000, "month_day": 25_000, "month_night": 20_000},
+           2: {"month_all": 25_000, "month_day": 20_000, "month_night": 10_000}},
+    "60": {1: {"month_all": 28_000, "month_day": 20_000, "month_night": 16_000},
+           2: {"month_all": 20_000, "month_day": 16_000, "month_night": 8_000}},
+}
+# 「광주시 주차장 설치 및 관리 조례」 제6조·별표2(2026-02-23 시행)와
+#   광주도시관리공사 통합주차관리 포털 ‘공영주차장 요금 감면’(2026-11-17 확인).
+#   · 표에 적힌 ‘감면율이 높은 하나만’ 적용한다(제6조②).
+#   · 전기차는 조례 별표2가 ‘최초 1시간 면제 뒤 50%’, 포털은 ‘최초 2시간 면제 뒤 50%’로
+#     안내가 달라, 계산은 조례(1시간)를 따르고 카드에 차이를 적는다.
+GWANGJU_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·경증장애인 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "경형자동차, 장애의 정도가 심하지 않은 장애인의 자가운전 차량"},
+    {"label": "저공해·임산부·다자녀 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "저공해자동차, 임산부 탑승 차량, 다자녀(경기아이플러스), 75세 이상 고령노인, 우수자원봉사자, 장기기증자, 병역명문가, 명예시민, 승용차요일제"},
+    {"label": "전기차 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": "환경친화적 자동차 표지 부착 전기차 — 조례 별표2 기준(포털은 최초 2시간 면제로 안내)"},
+    {"label": "국가유공자 4시간 면제 후 50%", "rate": 0.5, "exempt_min": 240,
+     "note": "국가유공자·유족, 5·18민주유공자·유족(본인 소유 차량 직접 운전·동승)"},
+    {"label": "중증장애인·성실납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "장애의 정도가 심한 장애인(자가운전·동승), 모범·유공·성실납세자 확인증 부착 차량(1년), 긴급·공무수행 차량"},
+]
+# 포털 ‘공영주차장 정보’가 유료로 안내하는 주차장 — 표준데이터(기준일 2026-04-17)는 무료로 등록했다.
+#   · 두 자료가 어긋나므로 표준데이터의 무료 표기를 따르되 카드에 포털 안내를 함께 적는다.
+GWANGJU_PORTAL_PAID_ONLY = {"곤지암역세권 공영주차장": "2급지", "경안동 (구) 약수터 공영주차장": "1급지"}
+# 포털 급지 명단(2026-11-17) — 표준데이터 급지와 맞는지 확인하는 데 쓴다.
+GWANGJU_PORTAL_GRADES = {
+    1: ("경안동", "경안시장", "역동", "송정동 마을", "양벌동", "광주시호국보훈공원",
+        "신현행정문화체육센터", "경안동 (구) 약수터"),
+    2: ("곤지암배수펌프장", "상번천리", "광주역세권", "경안배수펌프장", "곤지암 제1",
+        "곤지암역세권", "광주역 환승"),
+}
+
+
+def gwangju_dong_of(text: str):
+    """주소에서 광주시 법정동·읍·면을 뽑는다.
+
+    표준데이터 지번주소는 ‘경기도 광주시 {동·읍·면} {번지}’ 꼴이라 세 번째 낱말이 지역 이름이다.
+    꼴이 다르면 법정동 목록에서 찾는다(이름이 서로 겹치지 않는다).
+    """
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "광주시" and parts[2].endswith(("동", "읍", "면")):
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(GWANGJU_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def gwangju_fee(grade: int, *, daily_hours=24):
+    """광주시 요금 구조 → 사이트 공통 fee 객체(유료)."""
+    t = GWANGJU_FEES[grade]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False, "grade": grade, "std_grade": None,
+        "base_min": t["base_min"], "base_fee": t["base_fee"],
+        "unit_min": t["unit_min"], "unit_fee": t["unit_fee"], "steps": None,
+        # 포털 ‘최초 10분 미만(회차) 무료’ — 10분 이내 출차는 0원, 그 뒤에는 기본요금부터 붙는다.
+        "free_min": GWANGJU_FREE_MIN, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": daily_hours, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": t["month_all"],
+        "monthly_day": t["month_day"], "monthly_night": t["month_night"], "monthly_all": t["month_all"],
+        "pay": "", "basis": None, "category": None, "portal_free_now": False,
+        "flat_day": False,
+    }
+
+
+def gwangju_free_fee():
+    return {"type": "무료", "raw_type": "무료", "mixed": False, "grade": None, "std_grade": None,
+            "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+            "steps": None, "free_min": None, "deduct_min": None, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None, "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+            "pay": "", "basis": "요금 구분 ‘무료’", "category": None, "portal_free_now": False,
+            "std": None}
+
+
+def build_gwangju():
+    """광주시 공영주차장을 표준데이터 + 조례 별표1 + 광주도시관리공사 포털로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 광주시 범위를 벗어난 행은 제외(껍데기 행).
+      · 광주시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 읍·면·동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 읍·면·동 페이지는 카드가 3곳 이상인 지역만 만든다.
+    요금은 조례 별표1(1~2급지, 30분 기본 뒤 10분 단위, 1일 상한)과 포털의 ‘최초 10분 미만 무료’를 적용하고,
+    운영시간은 표준데이터대로 24시간(연중)이다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GWANGJU_PROVIDER]
+    lots, excluded, merged, hour_fixed, grade_fixed, fee_diff = [], [], [], [], [], []
+    portal_paid_diff = []
+    seen = {}
+    card_no = street_no = 0
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        # 같은 주차장이 두 행으로 등록된 곳 — 지번·유형·면수가 같거나 이름·유형이 같으면 한 곳으로 묶는다.
+        jibun_key = re.sub(r"\s", "", jibun)
+        # 이름은 띄어쓰기만 지우고 괄호 숫자를 살린다 — ‘송정동 임시(1)’과 ‘송정동 임시(2)’는 다른 주차장이다.
+        name_key = re.sub(r"\s+", "", name)
+        dup_key = None
+        if jibun_key and ("지번", jibun_key, ptype, spaces) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif name_key and ("이름", name_key, ptype) in seen:
+            dup_key = ("이름", name_key, ptype)
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and name_key:
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", name_key, ptype)] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (GWANGJU_BBOX[0] <= lat <= GWANGJU_BBOX[1]
+                                      and GWANGJU_BBOX[2] <= lng <= GWANGJU_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = gwangju_dong_of(jibun) or gwangju_dong_of(road)
+        dong_src = "지번주소" if gwangju_dong_of(jibun) else ("도로명주소" if gwangju_dong_of(road) else "없음")
+        note = (r.get("특기사항") or "").strip()
+        pay = (r.get("요금정보") or "").strip()
+        std_grade = to_int(r.get("급지구분"))
+        street = ptype == "노상"
+
+        win, oper, closed_note = parse_schedule(r, note)
+        if not street:
+            closed_note = False
+        # 표준데이터가 24시간(00:00~23:59)으로 등록한 것을 그대로 쓰고, 24시간이 아니면 사실을 남긴다.
+        if not all(win[k]["open"] and win[k]["24h"] for k in ("weekday", "sat", "sun")):
+            hour_fixed.append(f"{name}: 표준데이터 운영시간 {r.get('운영요일') or '—'} "
+                              f"{r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''}")
+
+        base_fee_reg = to_int(r.get("주차기본요금"))
+        grade = std_grade if std_grade in (1, 2) else ({800: 1, 500: 2}.get(base_fee_reg or 0, 1))
+        if std_grade not in (1, 2) and base_fee_reg:
+            grade_fixed.append(f"{name}: 표준데이터 급지 없음 → 등록 기본요금 {base_fee_reg:,}원으로 {grade}급지 판정")
+        if grade == 2 and dong and not dong.endswith(("읍", "면")) and \
+                name not in ("광주역세권 공영주차장", "경안배수펌프장 공영주차장"):
+            grade_fixed.append(f"{name}: 동지역({dong})인데 2급지로 등록(조례 1급지 원칙, 시장이 조정 가능)")
+
+        notice = None
+        if name in GWANGJU_PORTAL_PAID_ONLY:
+            portal_paid_diff.append(f"{name}: 표준데이터 무료 ↔ 포털 유료({GWANGJU_PORTAL_PAID_ONLY[name]})")
+            notice = (f"광주도시관리공사 통합주차관리 포털은 이 주차장을 유료"
+                      f"({GWANGJU_PORTAL_PAID_ONLY[name]})로 안내합니다 — 표준데이터(기준일 "
+                      f"{r.get('데이터기준일자') or '2026-04-17'})는 무료로 등록되어 있어, 현장 요금 표지를 확인하세요")
+
+        if street:
+            street_no += 1
+            lot_id = f"gj-s{street_no:03d}"
+            if pay == "무료":
+                fee = gwangju_free_fee()
+                fee["grade"] = grade
+            else:
+                fee = gwangju_fee(grade)
+                reg_day = to_int(r.get("1일주차권요금"))
+                if reg_day:
+                    fee["daily_fee"] = reg_day
+                fee["basis"] = f"「광주시 주차장 설치 및 관리 조례」 별표1 노상 {grade}급지"
+        else:
+            card_no += 1
+            lot_id = f"gj-{card_no:03d}"
+            if pay == "무료":
+                fee = gwangju_free_fee()
+                fee["grade"] = grade
+            else:
+                fee = gwangju_fee(grade)
+                fee["basis"] = (f"「광주시 주차장 설치 및 관리 조례」 별표1 노외 {grade}급지 · "
+                                f"광주도시관리공사 통합주차관리 요금안내(2026-11-17)")
+                std_month = to_int(r.get("월정기권요금"))
+                if std_month and std_month != fee["monthly"]:
+                    fee["monthly"] = std_month
+                    fee_diff.append(f"{name}: 등록 월정기권 {std_month:,}원 ↔ 조례 "
+                                    f"{GWANGJU_FEES[grade]['month_all']:,}원")
+
+        fee["std_grade"] = std_grade
+        fee["pay"] = (r.get("결제방법") or "").strip()
+        fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                      "base_fee": base_fee_reg,
+                      "unit_min": to_int(r.get("추가단위시간")),
+                      "unit_fee": to_int(r.get("추가단위요금")),
+                      "day": to_int(r.get("1일주차권요금")),
+                      "monthly": to_int(r.get("월정기권요금"))}
+        if pay != "무료" and fee["std"]["base_fee"]:
+            want = GWANGJU_FEES[grade]
+            if (fee["std"]["base_min"], fee["std"]["base_fee"]) != (want["base_min"], want["base_fee"]):
+                fee_diff.append(f"{name}: 등록 {fee['std']['base_min']}분 {fee['std']['base_fee']}원 ↔ "
+                                f"적용 {want['base_min']}분 {want['base_fee']}원({grade}급지)")
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": mgmt,
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "광주시",
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip() or "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": (re.match(r"^([가-힣0-9]+(?:대로|로|길))", name).group(1)
+                     if street and re.match(r"^([가-힣0-9]+(?:대로|로|길))", name) else None),
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": ("최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다"
+                               if fee["type"] == "유료" else None),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "광주시",
+            "city_slug": "gwangju",
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"gj-{i:03d}" if l["list_mode"] == "card" else f"gj-s{i:03d}"
+
+    quality = check_quality_gwangju(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                    grade_fixed, fee_diff, portal_paid_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(GWANGJU_PORTAL_TXT).strftime("%Y-%m-%d %H:%M")
+                           if GWANGJU_PORTAL_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "광주시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-17",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 광주시가 등록한 55행(노외 45·노상 10, 유료 12·무료 43)을 읽었다. "
+                             "이름·주소·운영시간·좌표·전화·관리번호와 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "portal", "name": "광주도시관리공사 통합주차관리 요금안내",
+                    "org": "광주도시관리공사",
+                    "url": GWANGJU_PORTAL_URL,
+                    "file": GWANGJU_PORTAL_TXT.name if GWANGJU_PORTAL_TXT.exists() else None,
+                    "sha256": sha256(GWANGJU_PORTAL_TXT) if GWANGJU_PORTAL_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GWANGJU_PORTAL_TXT),
+                    "note": ("1~2급지 요금표(30분 800·500원, 10분당 300·200원, 1일 7,000·5,000원, "
+                             "월 정기권 주·야간·주간·야간), ‘최초 10분 미만(회차) 무료’, 급지별 주차장 명단, "
+                             "정기권 할인(50·60%)과 요금 감면 표, 주차 할인권·거주자우선주차 요금 확인용. "
+                             "같은 포털의 ‘공영주차장 정보’에서 유료 15곳·무료 39곳과 주차장별 면수·급지·24시간 운영을 "
+                             "대조했다(경안배수펌프장 240면·2급지 일치)."),
+                },
+                {
+                    "id": "ordinance", "name": "광주시 주차장 설치 및 관리 조례 (제5조·제6조, 별표1·별표2)",
+                    "org": "광주시",
+                    "url": GWANGJU_ORDINANCE_URL,
+                    "file": GWANGJU_ANNEX1_TXT.name if GWANGJU_ANNEX1_TXT.exists() else None,
+                    "sha256": sha256(GWANGJU_ANNEX1_TXT) if GWANGJU_ANNEX1_TXT.exists() else None,
+                    "license": "자치법규(공개)",
+                    "base_date": GWANGJU_ORDINANCE_NOTE,
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GWANGJU_ANNEX1_TXT),
+                    "note": ("공영주차장 주차요금표(별표1: 노상·노외 1~2급지, 최초 30분·10분당·1일 주차권·"
+                             "월 정기권 주간·야간·주야간, 주간 4~10월 08:00~20:00·11~3월 09:00~19:30, "
+                             "1급지 동지역·2급지 기타 지역 및 환승주차장)와 요금 감면(별표2: 긴급·공무수행·"
+                             "중증장애인 면제, 경차·경증장애인 60%, 저공해·임산부·다자녀·75세 이상 50%, "
+                             "국가유공자 4시간 면제 후 50%, 전기차 1시간 면제 후 50%) 원문."),
+                },
+                {
+                    "id": "annex2", "name": "광주시 주차장 설치 및 관리 조례 [별표 2] 감면대상 및 감면기준",
+                    "org": "광주시",
+                    "url": GWANGJU_ORDINANCE_URL,
+                    "file": GWANGJU_ANNEX2_TXT.name if GWANGJU_ANNEX2_TXT.exists() else None,
+                    "sha256": sha256(GWANGJU_ANNEX2_TXT) if GWANGJU_ANNEX2_TXT.exists() else None,
+                    "license": "자치법규(공개)",
+                    "base_date": GWANGJU_ORDINANCE_NOTE,
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GWANGJU_ANNEX2_TXT),
+                    "note": ("감면 24개 항목의 감면율과 확인(증빙) 방법. 감면이 겹치면 감면율이 높은 하나만 "
+                             "적용한다(제6조②)."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GWANGJU_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "gwangju_grade",
+            "unit_min": 10,
+            "base_min": 30,
+            "day_hours": 24,
+            "free_min": GWANGJU_FREE_MIN,
+            "applies": GWANGJU_ORDINANCE_NOTE + " · 2026-11-17 포털 확인",
+            "off": [{"grade": g, **t, "lots": 0} for g, t in sorted(GWANGJU_FEES.items())],
+            "street": [{"grade": g, **t} for g, t in sorted(GWANGJU_FEES.items())],
+            "monthly_discount": GWANGJU_MONTHLY_DISCOUNT,
+            "grade_targets": {"1": "동지역", "2": "동지역 밖 읍·면과 환승주차장"},
+            "grade_lots_1": ["경안동", "경안시장", "역동", "송정동 마을", "양벌동", "광주시호국보훈공원",
+                             "신현행정문화체육센터", "경안동 (구) 약수터"],
+            "grade_lots_2": ["곤지암배수펌프장", "상번천리", "광주역세권", "경안배수펌프장", "곤지암 제1",
+                             "곤지암역세권", "광주역 환승"],
+            "basis": ("「광주시 주차장 설치 및 관리 조례」 제5조제1항 별표1 · 광주도시관리공사 "
+                      "통합주차관리 요금안내(2026-11-17 확인)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["광주시"] | {
+        "city": "광주시",
+        "weekend_free_pages": False,
+        "discounts": GWANGJU_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "gwangju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_gwangju(std_all, rows, lots, excluded, merged, hour_fixed, grade_fixed,
+                          fee_diff, portal_paid_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_광주시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"]["std_grade"] for l in paid if l["fee"].get("std_grade"))),
+        "10분무료_적용": len([l for l in paid if l["fee"].get("free_min")]),
+        "운영시간_보정": hour_fixed,
+        "급지_보정": grade_fixed,
+        "등록값_차이": fee_diff,
+        "포털_유료_차이": portal_paid_diff,
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
-             "gimpo": ["김포시"], "paju": ["파주시"]}[args.city])
+             "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -7301,6 +7754,8 @@ def main():
         cities.append(build_gimpo())
     if "파주시" in want:
         cities.append(build_paju())
+    if "광주시" in want:
+        cities.append(build_gwangju())
 
     if args.city == "all":
         site = build_site_payload(cities)

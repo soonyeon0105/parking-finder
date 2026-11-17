@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 12:18",
+  "generated_at": "2026-11-17 12:37",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -91,6 +91,12 @@
    {
     "city": "파주시",
     "slug": "paju",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "광주시",
+    "slug": "gwangju",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -643,6 +649,48 @@
     "fetched_at": "2026-11-17 12:07 (KST)",
     "note": "주차요금(별표1)·감면 조항 원문. 중증장애인·국가유공자 등은 최초 2시간 면제 후 50%, 경차·저공해·임산부·다자녀·경증장애인은 50%, 성실납세자는 1년 면제, 감면이 겹치면 감면율이 높은 하나만 적용(제3조의3). 2026-10-08 개정(제2428호)은 2027-01-01 시행이라, 요금은 2026-11-17 현재 포털 게시값을 썼다.",
     "city": "파주시"
+   },
+   {
+    "id": "portal",
+    "name": "광주도시관리공사 통합주차관리 요금안내",
+    "org": "광주도시관리공사",
+    "url": "https://parking.gumc.or.kr/html/about/about_05",
+    "file": "parking.gumc.or.kr_요금안내_20261117.txt",
+    "sha256": "8d9b9e97760135373be4786b57a5fa239d52add2492bc1bb81f713b272b0fb49",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 12:27 (KST)",
+    "note": "1~2급지 요금표(30분 800·500원, 10분당 300·200원, 1일 7,000·5,000원, 월 정기권 주·야간·주간·야간), ‘최초 10분 미만(회차) 무료’, 급지별 주차장 명단, 정기권 할인(50·60%)과 요금 감면 표, 주차 할인권·거주자우선주차 요금 확인용. 같은 포털의 ‘공영주차장 정보’에서 유료 15곳·무료 39곳과 주차장별 면수·급지·24시간 운영을 대조했다(경안배수펌프장 240면·2급지 일치).",
+    "city": "광주시"
+   },
+   {
+    "id": "ordinance",
+    "name": "광주시 주차장 설치 및 관리 조례 (제5조·제6조, 별표1·별표2)",
+    "org": "광주시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111313",
+    "file": "gwangju_ordinance_20260223_별표1.txt",
+    "sha256": "c9f3007431190a8ef4a24746b7a69abd633ad2dad73c1cb754075b14c4cd8f2e",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-02-23 (경기도광주시조례 제1757호, 일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 12:24 (KST)",
+    "note": "공영주차장 주차요금표(별표1: 노상·노외 1~2급지, 최초 30분·10분당·1일 주차권·월 정기권 주간·야간·주야간, 주간 4~10월 08:00~20:00·11~3월 09:00~19:30, 1급지 동지역·2급지 기타 지역 및 환승주차장)와 요금 감면(별표2: 긴급·공무수행·중증장애인 면제, 경차·경증장애인 60%, 저공해·임산부·다자녀·75세 이상 50%, 국가유공자 4시간 면제 후 50%, 전기차 1시간 면제 후 50%) 원문.",
+    "city": "광주시"
+   },
+   {
+    "id": "annex2",
+    "name": "광주시 주차장 설치 및 관리 조례 [별표 2] 감면대상 및 감면기준",
+    "org": "광주시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111313",
+    "file": "gwangju_ordinance_20260223_별표2.txt",
+    "sha256": "527046e52c22bb5a8f2bb32217bb16cf2f643f5a0a0745d21bd1382476ce5961",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-02-23 (경기도광주시조례 제1757호, 일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 12:24 (KST)",
+    "note": "감면 24개 항목의 감면율과 확인(증빙) 방법. 감면이 겹치면 감면율이 높은 하나만 적용한다(제6조②).",
+    "city": "광주시"
    }
   ]
  },
@@ -671,7 +719,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -898,7 +946,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1085,7 +1133,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -1279,7 +1327,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -1418,7 +1466,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -1605,7 +1653,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -1772,7 +1820,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -1991,7 +2039,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -2196,7 +2244,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -2430,7 +2478,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -3165,7 +3213,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -3528,7 +3576,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -3808,7 +3856,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4055,7 +4103,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 12:18",
+    "generated_at": "2026-11-17 12:37",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -4320,6 +4368,241 @@
     ],
     "tourist_day": 2000,
     "basis": "「파주시 주차장 설치 및 관리 조례」 제3조제1항 별표1 · 파주시 통합주차 포털 주차요금안내(2026-11-17 확인) · 주차장별 기본시간·무료시간은 포털 등록값"
+   }
+  },
+  {
+   "city": "광주시",
+   "slug": "gwangju",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "광주시",
+     "slug": "gwangju"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 12:37",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 55,
+    "원자료_광주시행수": 55,
+    "제외_행수": 0,
+    "제외_행": [],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 45,
+    "노외_부설": {
+     "노외": 45
+    },
+    "노상_구간": 10,
+    "총_구획수": 2781,
+    "노상_구획수": 154,
+    "동별": {
+     "송정동": 8,
+     "역동": 8,
+     "경안동": 7,
+     "곤지암읍": 6,
+     "남한산성면": 3,
+     "초월읍": 3,
+     "양벌동": 2,
+     "장지동": 2,
+     "탄벌동": 2,
+     "도척면": 1,
+     "신현동": 1,
+     "중대동": 1,
+     "퇴촌면": 1
+    },
+    "동수": 13,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 45
+    },
+    "요금구분": {
+     "무료": 43,
+     "유료": 12
+    },
+    "요금_미상": [],
+    "급지별": {
+     "1": 7,
+     "2": 5
+    },
+    "표준데이터_급지": {
+     "1": 7,
+     "2": 5
+    },
+    "10분무료_적용": 12,
+    "운영시간_보정": [],
+    "급지_보정": [
+     "오포우림아파트 앞 노상주차장: 동지역(문형동)인데 2급지로 등록(조례 1급지 원칙, 시장이 조정 가능)",
+     "도담이 노상주차장: 동지역(매산동)인데 2급지로 등록(조례 1급지 원칙, 시장이 조정 가능)"
+    ],
+    "등록값_차이": [],
+    "포털_유료_차이": [
+     "경안동 (구) 약수터 공영주차장: 표준데이터 무료 ↔ 포털 유료(1급지)",
+     "곤지암역세권 공영주차장: 표준데이터 무료 ↔ 포털 유료(2급지)"
+    ],
+    "평균_기본요금": 675,
+    "무료_요금구분": 43,
+    "무료개방_표기": [],
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [],
+    "주소_없음": [],
+    "이름중복": [],
+    "관리번호중복": [],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-04-17"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "경차·경증장애인 60%",
+     "rate": 0.6,
+     "exempt_min": 0,
+     "note": "경형자동차, 장애의 정도가 심하지 않은 장애인의 자가운전 차량"
+    },
+    {
+     "label": "저공해·임산부·다자녀 등 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "저공해자동차, 임산부 탑승 차량, 다자녀(경기아이플러스), 75세 이상 고령노인, 우수자원봉사자, 장기기증자, 병역명문가, 명예시민, 승용차요일제"
+    },
+    {
+     "label": "전기차 1시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 60,
+     "note": "환경친화적 자동차 표지 부착 전기차 — 조례 별표2 기준(포털은 최초 2시간 면제로 안내)"
+    },
+    {
+     "label": "국가유공자 4시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 240,
+     "note": "국가유공자·유족, 5·18민주유공자·유족(본인 소유 차량 직접 운전·동승)"
+    },
+    {
+     "label": "중증장애인·성실납세자 100%",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "장애의 정도가 심한 장애인(자가운전·동승), 모범·유공·성실납세자 확인증 부착 차량(1년), 긴급·공무수행 차량"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "gwangju_grade",
+    "unit_min": 10,
+    "base_min": 30,
+    "day_hours": 24,
+    "free_min": 10,
+    "applies": "시행 2026-02-23 (경기도광주시조례 제1757호, 일부개정) · 2026-11-17 포털 확인",
+    "off": [
+     {
+      "grade": 1,
+      "base_min": 30,
+      "base_fee": 800,
+      "unit_min": 10,
+      "unit_fee": 300,
+      "day": 7000,
+      "month_day": 50000,
+      "month_night": 40000,
+      "month_all": 70000,
+      "lots": 7
+     },
+     {
+      "grade": 2,
+      "base_min": 30,
+      "base_fee": 500,
+      "unit_min": 10,
+      "unit_fee": 200,
+      "day": 5000,
+      "month_day": 40000,
+      "month_night": 20000,
+      "month_all": 50000,
+      "lots": 5
+     }
+    ],
+    "street": [
+     {
+      "grade": 1,
+      "base_min": 30,
+      "base_fee": 800,
+      "unit_min": 10,
+      "unit_fee": 300,
+      "day": 7000,
+      "month_day": 50000,
+      "month_night": 40000,
+      "month_all": 70000
+     },
+     {
+      "grade": 2,
+      "base_min": 30,
+      "base_fee": 500,
+      "unit_min": 10,
+      "unit_fee": 200,
+      "day": 5000,
+      "month_day": 40000,
+      "month_night": 20000,
+      "month_all": 50000
+     }
+    ],
+    "monthly_discount": {
+     "50": {
+      "1": {
+       "month_all": 35000,
+       "month_day": 25000,
+       "month_night": 20000
+      },
+      "2": {
+       "month_all": 25000,
+       "month_day": 20000,
+       "month_night": 10000
+      }
+     },
+     "60": {
+      "1": {
+       "month_all": 28000,
+       "month_day": 20000,
+       "month_night": 16000
+      },
+      "2": {
+       "month_all": 20000,
+       "month_day": 16000,
+       "month_night": 8000
+      }
+     }
+    },
+    "grade_targets": {
+     "1": "동지역",
+     "2": "동지역 밖 읍·면과 환승주차장"
+    },
+    "grade_lots_1": [
+     "경안동",
+     "경안시장",
+     "역동",
+     "송정동 마을",
+     "양벌동",
+     "광주시호국보훈공원",
+     "신현행정문화체육센터",
+     "경안동 (구) 약수터"
+    ],
+    "grade_lots_2": [
+     "곤지암배수펌프장",
+     "상번천리",
+     "광주역세권",
+     "경안배수펌프장",
+     "곤지암 제1",
+     "곤지암역세권",
+     "광주역 환승"
+    ],
+    "basis": "「광주시 주차장 설치 및 관리 조례」 제5조제1항 별표1 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17 확인)"
    }
   }
  ],
@@ -189739,6 +190022,6288 @@
    "price_key": null,
    "city": "파주시",
    "city_slug": "paju"
+  },
+  {
+   "id": "gj-001",
+   "mgmt_no": "234-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경안1지구 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 424",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-762-1020",
+   "lat": 37.41249394,
+   "lng": 127.2610466,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-002",
+   "mgmt_no": "234-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경안동 (구) 약수터 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 224-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "031-762-1020",
+   "lat": 37.4064038485,
+   "lng": 127.2468113356,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": "광주도시관리공사 통합주차관리 포털은 이 주차장을 유료(1급지)로 안내합니다 — 표준데이터(기준일 2026-04-17)는 무료로 등록되어 있어, 현장 요금 표지를 확인하세요",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-003",
+   "mgmt_no": "234-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경안동 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 30-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 109,
+   "tel": "031-762-1020",
+   "lat": 37.40941753,
+   "lng": 127.2590095,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-004",
+   "mgmt_no": "234-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경안배수펌프장 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 14-1",
+   "addr_road": "경기도 광주시 파발로 51",
+   "road": null,
+   "spaces": 240,
+   "tel": "031-762-1020",
+   "lat": 37.41134548,
+   "lng": 127.2618373,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 20000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-005",
+   "mgmt_no": "234-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경안시장 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 33-37",
+   "addr_road": "경기도 광주시 중앙로 103-5",
+   "road": null,
+   "spaces": 202,
+   "tel": "031-762-1020",
+   "lat": 37.40879655,
+   "lng": 127.257694,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-006",
+   "mgmt_no": "234-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주시호국보훈공원 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 40",
+   "addr_road": "",
+   "road": null,
+   "spaces": 200,
+   "tel": "031-762-1020",
+   "lat": 37.40782556,
+   "lng": 127.2537387,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-007",
+   "mgmt_no": "234-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "목현천둔치 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 경안동 103-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 229,
+   "tel": "031-762-1020",
+   "lat": 37.41409063,
+   "lng": 127.2555745,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-008",
+   "mgmt_no": "234-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곤지암 공영주차장",
+   "gu": "광주시",
+   "dong": "곤지암읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 곤지암읍 곤지암리 555",
+   "addr_road": "",
+   "road": null,
+   "spaces": 112,
+   "tel": "031-762-1020",
+   "lat": 37.35127663,
+   "lng": 127.3427071,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-009",
+   "mgmt_no": "234-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곤지암 제1공영주차장",
+   "gu": "광주시",
+   "dong": "곤지암읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 곤지암읍 곤지암리 445-27",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "031-762-1020",
+   "lat": 37.34891091,
+   "lng": 127.339854,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 20000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-010",
+   "mgmt_no": "234-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곤지암둔치 공영주차장",
+   "gu": "광주시",
+   "dong": "곤지암읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 곤지암읍 곤지암리 453-231",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-762-1020",
+   "lat": 37.34998974,
+   "lng": 127.3369569,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-011",
+   "mgmt_no": "234-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곤지암배수펌프장 공영주차장",
+   "gu": "광주시",
+   "dong": "곤지암읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 곤지암읍 곤지암리 453-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-762-1020",
+   "lat": 37.35055475,
+   "lng": 127.3374932,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 20000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-012",
+   "mgmt_no": "234-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곤지암역세권 공영주차장",
+   "gu": "광주시",
+   "dong": "곤지암읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 곤지암읍 곤지암리 643",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "031-762-1020",
+   "lat": 37.3512566023,
+   "lng": 127.3445315896,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": "광주도시관리공사 통합주차관리 포털은 이 주차장을 유료(2급지)로 안내합니다 — 표준데이터(기준일 2026-04-17)는 무료로 등록되어 있어, 현장 요금 표지를 확인하세요",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-013",
+   "mgmt_no": "234-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신촌리 공영주차장",
+   "gu": "광주시",
+   "dong": "곤지암읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 곤지암읍 신촌리 133",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "031-762-1020",
+   "lat": 37.32833752,
+   "lng": 127.3938366,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-014",
+   "mgmt_no": "234-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광지원리 교량 하부 공영주차장",
+   "gu": "광주시",
+   "dong": "남한산성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 남한산성면 광지원리 184-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-762-1020",
+   "lat": 37.46440231,
+   "lng": 127.250235,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-015",
+   "mgmt_no": "234-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상번천리 공영주차장",
+   "gu": "광주시",
+   "dong": "남한산성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 남한산성면 상번천리 836",
+   "addr_road": "",
+   "road": null,
+   "spaces": 141,
+   "tel": "031-762-1020",
+   "lat": 37.44814148,
+   "lng": 127.2624065,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 20000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-016",
+   "mgmt_no": "234-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오전리 임시 공영주차장",
+   "gu": "광주시",
+   "dong": "남한산성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 남한산성면 오전리 308-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "031-762-1020",
+   "lat": 37.4557742783,
+   "lng": 127.2291065765,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-017",
+   "mgmt_no": "234-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궁평리 임시 공영주차장",
+   "gu": "광주시",
+   "dong": "도척면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 도척면 궁평리 297-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-762-1020",
+   "lat": 37.33834184,
+   "lng": 127.3226349,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-018",
+   "mgmt_no": "234-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동 마을 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 581",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-762-1020",
+   "lat": 37.41622156,
+   "lng": 127.25337,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-019",
+   "mgmt_no": "234-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동 임시(1) 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 631",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-762-1020",
+   "lat": 37.4245580453,
+   "lng": 127.2562864629,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-020",
+   "mgmt_no": "234-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동 임시(2) 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 657",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-762-1020",
+   "lat": 37.4222080218,
+   "lng": 127.2560224253,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-021",
+   "mgmt_no": "234-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동(경화여고 진입로) 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 76-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-762-1020",
+   "lat": 37.41604441,
+   "lng": 127.2624953,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-022",
+   "mgmt_no": "234-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동(광주고교 진입로) 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 507-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-762-1020",
+   "lat": 37.41408142,
+   "lng": 127.2627961,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-023",
+   "mgmt_no": "234-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동(구)우시장 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 101-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-762-1020",
+   "lat": 37.41491316,
+   "lng": 127.2584013,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-024",
+   "mgmt_no": "234-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정동(현대아파트뒤) 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 108-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-762-1020",
+   "lat": 37.41671885,
+   "lng": 127.2579775,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-025",
+   "mgmt_no": "234-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정지구 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 송정동 695",
+   "addr_road": "",
+   "road": null,
+   "spaces": 89,
+   "tel": "031-762-1020",
+   "lat": 37.42002703,
+   "lng": 127.2570753,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-026",
+   "mgmt_no": "234-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신현행정문화체육센터 공영주차장",
+   "gu": "광주시",
+   "dong": "신현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 신현동 594-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 138,
+   "tel": "031-762-1020",
+   "lat": 37.3652352398,
+   "lng": 127.1588036,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-027",
+   "mgmt_no": "234-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양벌2동 공영주차장",
+   "gu": "광주시",
+   "dong": "양벌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 양벌동 351-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "031-762-1020",
+   "lat": 37.37821381,
+   "lng": 127.260592,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-028",
+   "mgmt_no": "234-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양벌동 공영주차장",
+   "gu": "광주시",
+   "dong": "양벌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 양벌동 1055",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-762-1020",
+   "lat": 37.37087769,
+   "lng": 127.2469166,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-029",
+   "mgmt_no": "234-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주역세권 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 401",
+   "addr_road": "경기도 광주시 광주역4로 15",
+   "road": null,
+   "spaces": 100,
+   "tel": "031-762-1020",
+   "lat": 37.40025141,
+   "lng": 127.2532569,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": 40000,
+    "monthly_night": 20000,
+    "monthly_all": 50000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 2급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-030",
+   "mgmt_no": "234-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주역세권 임시(3) 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 348-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-762-1020",
+   "lat": 37.4057833809,
+   "lng": 127.2553619045,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-031",
+   "mgmt_no": "234-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주역세권 임시(4) 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 356-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-762-1020",
+   "lat": 37.4042706078,
+   "lng": 127.2554665554,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-032",
+   "mgmt_no": "234-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주역세권 임시(5) 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 277",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "031-762-1020",
+   "lat": 37.4063486122,
+   "lng": 127.2499259945,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-033",
+   "mgmt_no": "234-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주역세권 임시(6) 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 407-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-762-1020",
+   "lat": 37.4065320068,
+   "lng": 127.2508361249,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-034",
+   "mgmt_no": "234-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역동 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 27-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 103,
+   "tel": "031-762-1020",
+   "lat": 37.40590994,
+   "lng": 127.2599482,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 10,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": 24,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 50000,
+    "monthly_night": 40000,
+    "monthly_all": 70000,
+    "pay": "신용카드",
+    "basis": "「광주시 주차장 설치 및 관리 조례」 별표1 노외 1급지 · 광주도시관리공사 통합주차관리 요금안내(2026-11-17)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "최초 10분 미만(회차)은 무료입니다 — 24시간 운영, 요금은 10분 단위로 붙습니다",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-035",
+   "mgmt_no": "234-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2 광주역세권 임시 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 340-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-762-1020",
+   "lat": 37.40747587,
+   "lng": 127.2540133,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-036",
+   "mgmt_no": "234-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3광주역세권 임시 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 역동 340",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-762-1020",
+   "lat": 37.4071693388,
+   "lng": 127.2535668928,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-037",
+   "mgmt_no": "234-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장지동 임시1 공영주차장",
+   "gu": "광주시",
+   "dong": "장지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 장지동 3-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-762-1020",
+   "lat": 37.40004,
+   "lng": 127.243639,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-038",
+   "mgmt_no": "234-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장지동 임시2 공영주차장",
+   "gu": "광주시",
+   "dong": "장지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 장지동 3-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-762-1020",
+   "lat": 37.399389,
+   "lng": 127.244339,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-039",
+   "mgmt_no": "234-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중대동 임시공영주차장",
+   "gu": "광주시",
+   "dong": "중대동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 중대동 210-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-762-1020",
+   "lat": 37.40873225,
+   "lng": 127.2155605,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-040",
+   "mgmt_no": "234-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곤지암생활체육공원 공영주차장",
+   "gu": "광주시",
+   "dong": "초월읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 초월읍 늑현리 193-53",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-762-1020",
+   "lat": 37.36129181,
+   "lng": 127.3198302,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-041",
+   "mgmt_no": "234-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대쌍령리 공영주차장",
+   "gu": "광주시",
+   "dong": "초월읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 초월읍 대쌍령리 11-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "031-762-1020",
+   "lat": 37.3839575,
+   "lng": 127.2997765,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-042",
+   "mgmt_no": "234-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍동4지구 노외주차장",
+   "gu": "광주시",
+   "dong": "초월읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 초월읍 쌍동리 146-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-762-1020",
+   "lat": 37.3673360438,
+   "lng": 127.3017182076,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-043",
+   "mgmt_no": "234-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주경찰서앞 공영주차장",
+   "gu": "광주시",
+   "dong": "탄벌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 탄벌동 547-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-762-1020",
+   "lat": 37.40905119,
+   "lng": 127.2395952,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-044",
+   "mgmt_no": "234-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주금강교회 공유주차장",
+   "gu": "광주시",
+   "dong": "탄벌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 탄벌동 368-2",
+   "addr_road": "경기도 광주시 탄벌길 85",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-762-1020",
+   "lat": 37.4207468,
+   "lng": 127.2381327,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-045",
+   "mgmt_no": "234-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관음리 임시 공영주차장",
+   "gu": "광주시",
+   "dong": "퇴촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광주시 퇴촌면 관음리 796-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-762-1020",
+   "lat": 37.4546713622,
+   "lng": 127.3375608007,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s046",
+   "mgmt_no": "234-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "탄탄병원 인근 공영주차장",
+   "gu": "광주시",
+   "dong": "경안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 경안동 33-60",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "031-762-1020",
+   "lat": 37.40962976,
+   "lng": 127.256929,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s047",
+   "mgmt_no": "234-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "도담이 노상주차장",
+   "gu": "광주시",
+   "dong": "매산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 매산동 산156",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-762-1020",
+   "lat": 37.35974644,
+   "lng": 127.2450185,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s048",
+   "mgmt_no": "234-1-000036",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "문형동 공영주차장",
+   "gu": "광주시",
+   "dong": "문형동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 문형동 산10-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-762-1020",
+   "lat": 37.352496,
+   "lng": 127.2143198,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s049",
+   "mgmt_no": "234-1-000046",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "오포우림아파트 앞 노상주차장",
+   "gu": "광주시",
+   "dong": "문형동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 문형동 827",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "031-762-1020",
+   "lat": 37.351463607,
+   "lng": 127.2070728318,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 2,
+    "std_grade": 2,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s050",
+   "mgmt_no": "234-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "송정동 크로바쇼핑 인근 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 송정동 548-30",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "031-762-1020",
+   "lat": 37.41861912,
+   "lng": 127.2574734,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s051",
+   "mgmt_no": "234-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "하남21세기자동차학원 앞 공영주차장",
+   "gu": "광주시",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 송정동 488",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-762-1020",
+   "lat": 37.43328652,
+   "lng": 127.2623216,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s052",
+   "mgmt_no": "234-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "다샘장앞 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 역동 22-53",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-762-1020",
+   "lat": 37.4084176,
+   "lng": 127.2593257432,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s053",
+   "mgmt_no": "234-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "역동로(신영아트빌) 공영주차장",
+   "gu": "광주시",
+   "dong": "역동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 역동 136-9",
+   "addr_road": "",
+   "road": "역동로",
+   "spaces": 17,
+   "tel": "031-762-1020",
+   "lat": 37.4029164,
+   "lng": 127.2554477,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s054",
+   "mgmt_no": "234-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동보 및 두진아파트 앞 공영주차장",
+   "gu": "광주시",
+   "dong": "탄벌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 탄벌동 52-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "031-762-1020",
+   "lat": 37.41496839,
+   "lng": 127.250359,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
+  },
+  {
+   "id": "gj-s055",
+   "mgmt_no": "234-1-000041",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "태전6지구 노상주차장",
+   "gu": "광주시",
+   "dong": "태전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광주시 태전동 702-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-762-1020",
+   "lat": 37.3815511088,
+   "lng": 127.2296319271,
+   "base_date": "2026-04-17",
+   "manager": "광주도시관리공사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주시",
+   "city_slug": "gwangju"
   }
  ]
 }

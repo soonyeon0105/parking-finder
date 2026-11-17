@@ -453,9 +453,10 @@ UIJEONGBU_TOKENS = ("의정부", "의정부도시공사", "의정부시청")
 GIMPO_TOKENS = ("김포", "김포도시관리공사", "김포시청", "김포 스마트 주차포털")
 # 파주시는 자치구가 없다 — 다른 도시 페이지에 파주 자료가 섞이면 실패.
 PAJU_TOKENS = ("파주", "파주시청", "파주도시관광공사", "파주파킹", "파주시 통합주차 포털")
+GWANGJU_TOKENS = ("광주", "광주시청", "광주도시관리공사", "통합주차관리", "광주시 주차장 설치 및 관리 조례")
 for _k in list(MIX):
     MIX[_k] = (MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS + SIHEUNG_TOKENS
-               + UIJEONGBU_TOKENS + GIMPO_TOKENS + PAJU_TOKENS)
+               + UIJEONGBU_TOKENS + GIMPO_TOKENS + PAJU_TOKENS + GWANGJU_TOKENS)
 MIX["namyangju"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
@@ -517,6 +518,17 @@ MIX["goyang"] = (
     "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
     "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
     "만안구", "동안구", "원미구", "소사구", "오정구",
+)
+# 광주시(경기도) 페이지에는 다른 도시 자료가 섞이면 실패(광주는 구가 없다).
+MIX["gwangju"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
+    "안산", "안산도시공사", "시흥", "시흥도시공사", "시흥공영주차", "의정부", "의정부도시공사",
+    "김포", "김포도시관리공사", "파주", "파주도시관광공사", "파주파킹",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
 )
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -1654,6 +1666,107 @@ else:
     pj_rows = len(re.findall(r"<tr><td>", pj_street_page.read_text()))
     if pj_rows < len(pj_street):
         fails.append(f"파주시 노상 페이지 행 {pj_rows} < 구간 {len(pj_street)}")
+
+# 광주시(경기도): 「광주시 주차장 설치 및 관리 조례」 제5조제1항 별표1(시행 2026-02-23)
+#   · 1급지 30분 800원·10분당 300원·1일 7,000원, 2급지 500·200·5,000원.
+#   · 포털(광주도시관리공사 통합주차관리)의 ‘최초 10분 미만(회차) 무료’를 적용(free_min=10).
+#   · 노상·노외 같은 요금표, 유료 12곳(1급지 7·2급지 5), 나머지 43곳과 노상 10구간은 무료.
+GJ_FEES = {1: (800, 300, 7000), 2: (500, 200, 5000)}
+gj_cards = [l for l in LOTS if l.get("city") == "광주시" and l.get("list_mode") == "card"]
+gj_street = [l for l in LOTS if l.get("city") == "광주시" and l.get("list_mode") == "street"]
+if not gj_cards:
+    fails.append("광주시 카드 데이터가 없음")
+gj_paid = [l for l in gj_cards if l["fee"]["type"] == "유료"]
+gj_free = [l for l in gj_cards if l["fee"]["type"] == "무료"]
+gj_bad = []
+for l in gj_paid:
+    g = l["fee"]["grade"]
+    f = l["fee"]
+    if g not in GJ_FEES:
+        gj_bad.append(f'{l["name"]}(급지 {g})')
+        continue
+    base, unit, day = GJ_FEES[g]
+    if (f["base_min"], f["base_fee"], f["unit_min"], f["unit_fee"], f.get("daily_fee"),
+            f.get("free_min")) != (30, base, 10, unit, day, 10):
+        gj_bad.append(f'{l["name"]}(요금 {f["base_min"]}분 {f["base_fee"]}원·{f["unit_fee"]}원·'
+                      f'일 {f.get("daily_fee")}·최초 {f.get("free_min")}분)')
+if gj_bad:
+    fails.append(f"광주시 유료 주차장 요금이 조례 별표1과 다름 {len(gj_bad)}곳 {gj_bad[:3]}")
+# 계산 결과: 10분은 무료(회차), 30분 기본요금, 2시간 3,500·2,300원, 24시간은 1일 주차요금 상한.
+gj_price_bad = []
+for l in gj_paid:
+    base, unit, day = GJ_FEES[l["fee"]["grade"]]
+    want2h = base + 9 * unit
+    for mins, want in ((10, "free"), (30, base), (120, want2h), (1440, day)):
+        r = _pf(l, mins, "weekday")
+        if want == "free":
+            if r.get("state") != "free":
+                gj_price_bad.append(f'{l["name"]} {mins}분 {r}')
+        elif r.get("state") != "paid" or r.get("amount") != want:
+            gj_price_bad.append(f'{l["name"]} {mins}분 {r} ≠ {want}')
+if gj_price_bad:
+    fails.append(f"광주시 요금 계산이 조례·포털 값과 다름 {len(gj_price_bad)}건 {gj_price_bad[:3]}")
+# 감면: 경차·경증장애인 60%, 국가유공자 4시간(240분) 면제, 중증장애인·성실납세자 100%.
+gj_disc = {d["label"]: (d["rate"], d.get("exempt_min") or 0) for d in
+           next(c for c in CITIES if c["city"] == "광주시").get("discounts") or []}
+if (gj_disc.get("경차·경증장애인 60%") or (None,))[0] != 0.6:
+    fails.append("광주시 감면표에 경차·경증장애인 60%가 없음")
+if (gj_disc.get("국가유공자 4시간 면제 후 50%") or (None, None))[1] != 240:
+    fails.append("광주시 감면표의 국가유공자 면제 시간이 240분이 아님")
+if (gj_disc.get("중증장애인·성실납세자 100%") or (None,))[0] != 1.0:
+    fails.append("광주시 감면표에 중증장애인·성실납세자 100%가 없음")
+gj_sv = [l for l in gj_paid if l["name"] == "경안시장 공영주차장"]
+if not gj_sv or _pf(gj_sv[0], 120, "weekday").get("amount") != 3500:
+    fails.append("경안시장(1급지) 2시간 요금이 3,500원이 아님")
+gj_grades = Counter(l["fee"]["grade"] for l in gj_paid)
+if dict(gj_grades) != {1: 7, 2: 5}:
+    fails.append(f"광주시 유료 급지 구성이 다름: {dict(gj_grades)} ≠ {{1: 7, 2: 5}}")
+if len(gj_paid) != 12:
+    fails.append(f"광주시 유료 주차장이 12곳이 아님: {len(gj_paid)}곳")
+if len(gj_free) != 33:
+    fails.append(f"광주시 무료 노외 주차장이 33곳이 아님: {len(gj_free)}곳")
+if len(gj_cards) != 45 or len(gj_street) != 10:
+    fails.append(f"광주시 카드·노상 구성이 다름: 카드 {len(gj_cards)} · 노상 {len(gj_street)}")
+if len([l for l in gj_street if l["fee"]["type"] != "무료"]):
+    fails.append("광주시 노상 10구간이 모두 무료가 아님")
+if len([l for l in gj_cards if not l.get("dong")]):
+    fails.append("광주시 카드에 읍·면·동이 없는 주차장이 있음")
+gj_dup = [k for k, v in Counter(l["name"] for l in gj_cards).items() if v > 1]
+if gj_dup:
+    fails.append(f"광주시 카드 이름 중복: {gj_dup[:3]}")
+if [l["name"] for l in gj_cards if l["name"] in ("송정동 임시(1) 공영주차장", "송정동 임시(2) 공영주차장")].__len__() != 2:
+    fails.append("광주시 ‘송정동 임시(1)·(2)’가 한 곳으로 묶임(이름 중복 제거 오류)")
+gj_root = DIST / "parking" / "gyeonggi" / "gwangju"
+gj_hub = gj_root / "index.html"
+if not gj_hub.exists():
+    fails.append("광주시 시 페이지 없음")
+else:
+    gj_html = gj_hub.read_text()
+    for label in ("광주시 급지별 주차요금표", "1급지", "2급지", "10분당", "최초 10분", "월 정기권",
+                  "평일 2시간 기준 가장 저렴한 곳", 'class="calc', "노상주차장", "경안시장 공영주차장"):
+        if label not in gj_html:
+            fails.append(f"광주시 시 페이지에 {label} 없음")
+    if gj_html.count('class="card lot') != len(gj_cards):
+        fails.append(f"광주시 시 페이지 카드 수 불일치({gj_html.count(chr(34)+'card lot')} vs {len(gj_cards)})")
+    if "광주광역시 주차장" in gj_html:
+        fails.append("광주시 페이지에 광주광역시 자료가 섞임")
+    if "경기도 광주시" not in gj_html:
+        fails.append("광주시 페이지에 ‘경기도 광주시’ 표기가 없음(광주광역시와 구분)")
+gj_dong_pages = sorted(q.parent.name for q in gj_root.rglob("index.html")
+                       if q.parent.parent == gj_root and q.parent.name != "street-parking")
+gj_expect = sorted(__import__("build_site").dong_slug(d)
+                   for d, n in Counter(l.get("dong") for l in gj_cards if l.get("dong")).items() if n >= 3)
+if gj_dong_pages != gj_expect:
+    fails.append(f"광주시 읍·면·동 페이지 구성이 다름: {gj_dong_pages} ≠ {gj_expect}")
+if not gj_dong_pages:
+    fails.append("광주시 읍·면·동 페이지가 없음")
+gj_street_page = gj_root / "street-parking" / "index.html"
+if not gj_street_page.exists():
+    fails.append("광주시 노상주차장 페이지 없음(street-parking)")
+else:
+    gj_rows = len(re.findall(r"<tr><td>", gj_street_page.read_text()))
+    if gj_rows < len(gj_street):
+        fails.append(f"광주시 노상 페이지 행 {gj_rows} < 구간 {len(gj_street)}")
 
 print()
 if warns:
