@@ -279,4 +279,11 @@
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/osan/osan-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/osan/won-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/osan/cheonghak-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/gwango-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/majang-myeon/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/sindun-myeon/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/jungri-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/changjeon-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/icheon/street-parking/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

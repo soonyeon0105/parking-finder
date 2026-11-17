@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시 + 구리시 + 오산시 + 이천시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -357,6 +357,8 @@ CITY_META = {
     "구리시": {"slug": "guri", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "오산시": {"slug": "osan", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "이천시": {"slug": "icheon", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -7217,7 +7219,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -10944,20 +10946,625 @@ def check_quality_osan(std_all, rows, lots, excluded, merged, hour_fixed, space_
     }
 
 
+# ---------------------------------------------------------------- 이천시 (T-03 Phase 20)
+IC_PROVIDER = "경기도 이천시"
+# 이천시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+IC_DISTRICTS = [("이천시", "icheon")]
+IC_BBOX = (37.09, 37.36, 127.30, 127.64)   # 이천시 대략 경계(좌표 점검용)
+# 이천시 법정 동·읍·면 — 표준데이터 지번주소의 세 번째 낱말이 지역 이름이다.
+#   (행정동 증포동은 중리동·증일동·안흥동 등 여러 법정동을 묶은 이름이라 주소에는 법정동이 적힌다.)
+IC_DONGS = ("관고동", "대월면", "마장면", "모가면", "부발읍", "사음동", "송정동", "신둔면",
+            "안흥동", "증일동", "중리동", "창전동", "장호원읍", "백사면", "호명면")
+
+IC_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2040013"
+                    "&gubun=ELIS&conDatGubunCd=1")
+IC_PORTAL_FEE_URL = "https://parking.2000fmc.or.kr/parkfeeinformation"
+IC_PORTAL_DISC_URL = "https://parking.2000fmc.or.kr/parkfeereduction"
+IC_FAQ_URL = "https://2000fmc.or.kr/ic-kr/bbs/i-79/list.do"
+IC_NOTICE_URL = "https://parking.2000fmc.or.kr/noticeview?atclId=6029"
+IC_ORD_TXT = RAW / "icheon.law.go.kr_주차장조례_20261117.txt"
+IC_ORD_HWP = RAW / "icheon.law.go.kr_주차장조례_별표1_20261117.hwp"
+IC_PORTAL_FEE_TXT = RAW / "parking.2000fmc.or.kr_공영주차장_요금안내_20261117.txt"
+IC_PORTAL_DISC_TXT = RAW / "parking.2000fmc.or.kr_공영주차장_감면안내_20261117.txt"
+IC_FAQ_TXT = RAW / "2000fmc.or.kr_공영주차장_자주묻는질문_20261117.txt"
+IC_NOTICE_TXT = RAW / "parking.2000fmc.or.kr_남천상가_보수공사안내_20261117.txt"
+IC_ORDINANCE_NOTE = ("공포 2025-05-16 · 경기도이천시조례 제2224호(일부개정) · "
+                     "별표1 〈개정 2025.5.16.〉")
+IC_BASE_MIN = 30
+IC_UNIT_MIN = 10
+
+# 이천시 공영주차장 요금 — 「이천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표
+#   (공포 2025-05-16, 경기도이천시조례 제2224호. 별표/서식 HWP에서 표를 읽음)의 값이다.
+#   이천스마트주차포털(parking.2000fmc.or.kr/parkfeeinformation)의 주차장별 무료시간·요금과
+#   표준데이터 등록값이 같은 숫자다 — 세 자료로 대조했다.
+#   · 노상 1급지: 최초 30분 600원 → 10분당 250원, 1일 최대 7,000원, 월 정기권 없음
+#   · 노외 1급지: 최초 30분 600원 → 10분당 250원, 1일 최대 7,000원,
+#     월 정기권 주간 60,000·야간 36,000·주야간 70,000원
+#   · 노외 2급지: 최초 30분 500원 → 10분당 200원, 1일 최대 5,000원,
+#     월 정기권 주간 50,000·야간 30,000·주야간 60,000원
+#   · 노외 3급지: 최초 30분 400원 → 10분당 150원, 1일 최대 4,000원,
+#     월 정기권 주간 30,000·야간 20,000·주야간 40,000원
+#   · 별표 비고: 주차장에 입차 후 10분까지는 무료 회차할 수 있다.
+#   · 별표 6라: 1급지 상업지역, 2급지 주거·공업·녹지지역, 3급지 도시지역 외 지역.
+#     표준데이터가 4급지로 등록한 곳은 무료 주차장뿐이라 요금표 급지(1~3급지)와 겹치지 않는다.
+IC_FEES = {
+    "노상": {1: {"base": 600, "unit": 250, "day": 7_000, "month": None},
+             2: {"base": 500, "unit": 200, "day": 5_500, "month": (50_000, 30_000, None)},
+             3: {"base": 400, "unit": 150, "day": 4_500, "month": (40_000, 24_000, None)}},
+    "노외": {1: {"base": 600, "unit": 250, "day": 7_000, "month": (60_000, 36_000, 70_000)},
+             2: {"base": 500, "unit": 200, "day": 5_000, "month": (50_000, 30_000, 60_000)},
+             3: {"base": 400, "unit": 150, "day": 4_000, "month": (30_000, 20_000, 40_000)}},
+}
+
+# 주차장별 실제 적용 무료시간 — 이천스마트주차포털 이용안내(2026-11-17)의 값.
+#   표준데이터에는 무료시간이 등록되어 있지 않아(free_min 없음) 포털 값을 fee.free_min 으로 넣는다.
+#   나머지 유료 주차장은 최초 30분이 기본요금이고, 입차 후 10분은 무료 회차(별표 비고)다.
+IC_FREE_MIN = {
+    "창전동 임시 공영주차장": 30, "남천상가주차장": 30, "공설운동장공영주차장": 30,
+    "마장택지지구 공영주차장1": 60, "마장택지지구 공영주차장2": 60,
+    "서희청소년문화센터공영주차장": 120, "택시쉼터공영주차장": 60,
+}
+
+# 월 정기권 운영 주차장 — 포털 자주묻는 질문(2026-06-16): 북샛말·택시쉼터·서희청소년문화센터·
+#   공설운동장·사동리 5곳만 운영하고 그 밖의 주차장은 미운영이다. 조례 별표1에는 급지별
+#   정기권이 있으므로, 정기권 미운영 주차장은 정기권을 비워 두고 차이를 품질 리포트에 남긴다.
+IC_MONTHLY_LOTS = ("북샛말공영주차장", "택시쉼터공영주차장", "서희청소년문화센터공영주차장",
+                   "공설운동장공영주차장", "사동리 제1공영주차장")
+
+# 포털 ‘공단 운영 시설’의 면수(FAQ, 2026-06-16 게시) — 표준데이터 등록면수와 다른 곳을 적는다.
+#   공설운동장 464면(표준데이터 466면), 북샛말 176면(표준데이터 177면) — 등록면수를 쓰고 카드에 적는다.
+IC_SPACE_DIFF = {"공설운동장공영주차장": 464, "북샛말공영주차장": 176,
+                 "중리천로공영주차장": 33}
+
+# 이천시시설관리공단이 운영하는 유료 노외 10곳·노상 유인 31구간 이외의 무료 주차장은 시가
+#   직접 운영한다(관리기관명 ‘경기도 이천시청’, 전화 031-644-2333).
+IC_CORP = "이천시시설관리공단"
+
+# 이천시 ‘주차요금의 감면’(조례 별표1 세부사항 바목, 주차포털 감면안내 2026-11-17) —
+#   이중감면은 하지 않고, 감면은 납부(출차) 시 대상임을 증명한 경우에 한다.
+IC_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·다자녀 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형자동차(1,000cc 미만), 저공해자동차 표지 부착 차량, 2자녀 이상 다자녀, "
+             "임산부, 65세 이상 경로우대자 본인 운전, 자원봉사활동 차량, 병역명문가, "
+             "기초수급자·차상위계층 자가운전, 장애정도가 심하지 않은 장애인"},
+    {"label": "저공해1종·우수자원봉사자 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": "제1종 저공해자동차(전기·수소·태양광), 경기도·이천시 우수자원봉사자 — "
+             "최초 1시간 면제 뒤 50%"},
+    {"label": "중증장애인 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "장애정도가 심한 장애인 본인 운전·동승(대리운전 포함) 차량 — "
+             "최초 2시간 면제 뒤 50%"},
+    {"label": "국가유공자 등 4시간 면제 후 50%", "rate": 0.5, "exempt_min": 240,
+     "note": "국가유공자·유족, 참전유공자, 고엽제후유의증환자, 5·18민주화운동부상자, "
+             "의사상자(유족증 포함) — 최초 4시간 면제 뒤 50%"},
+    {"label": "승용차 요일제 30%", "rate": 0.3, "exempt_min": 0,
+     "note": "승용차 요일제 및 함께 타기 표지부착 차량(1일 주차권·월 정기권은 감면 없음)"},
+    {"label": "긴급·공무·명예시민 등 100% 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "긴급자동차(노상에 한함), 교통약자이동지원센터·장애인심부름센터·콜승합차 차량, "
+             "군부대 관용차량, 명예시민증·이천인증 소지자 본인 운전·동승 차량, "
+             "모범·유공·성실납세자 인증 차량(유효기간), 국가·지방자치단체 공무수행 자동차, "
+             "65세 이상 국가보훈대상자 자가운전 차량"},
+]
+
+
+def ic_dong_of(text: str):
+    """주소에서 이천시 법정동·읍·면을 뽑는다 — ‘경기도 이천시 {동·읍·면} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "이천시" and parts[2] in IC_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(IC_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def ic_fee(kind: str, grade: int, free_min=None):
+    """이천시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    별표1은 최초 30분 기본요금 + 30분 초과 시 10분마다 요금이다. 주차포털이
+    최초 무료시간(30분·1시간·2시간)을 안내하는 곳은 free_min 으로 넣어 계산기가
+    그 시간까지 0원으로 계산한다(입차 후 10분 무료 회차는 별표 비고).
+    """
+    t = IC_FEES[kind][grade]
+    month = t["month"]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "std_grade": None,
+        "base_min": IC_BASE_MIN, "base_fee": t["base"],
+        "unit_min": IC_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": free_min, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": None, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": month[2] if kind == "노외" else None,
+        "monthly_day": month[0] if month else None,
+        "monthly_night": month[1] if month else None,
+        "monthly_all": month[2] if month else None,
+        "monthly_label": "주야간" if kind == "노외" else None,
+        "pay": "", "basis": f"「이천시 주차장 설치 및 관리 조례」 별표1 {kind} {grade}급지",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def ic_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def _ic_strip_num(name: str) -> str:
+    """노상 구간 이름 앞의 구간 번호(‘1-1 ’)를 떼어 낸다."""
+    return re.sub(r"^\d+-\d+\s+", "", name or "").strip()
+
+
+def _ic_rank(r: dict):
+    """같은 주차장이 두 번 등록된 행 가운데 어느 쪽을 쓸지 정한다.
+
+    표준데이터가 같은 주차장을 두 세트로 등록했다 — 구간 번호가 붙은 이름에
+    운영시간 10:00~19:00·무료시간 없이, 번호 없는 이름에 09:00~18:00·1일권 적용
+    5시간으로. 요금은 두 세트가 같으므로 무료시간·운영시간이 등록된 쪽을 쓴다.
+    """
+    return (0 if re.match(r"^\d+-\d+ ", r["주차장명"]) else 1,
+            0 if r["요금정보"] == "혼합" else 1,
+            0 if r["평일운영시작시각"] == "09:00" else 1)
+
+
+def build_icheon():
+    """이천시 공영주차장을 표준데이터 + 이천시 주차장 조례 별표1 + 이천스마트주차포털로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 이천시 범위를 벗어난 행은 제외(껍데기 행).
+      · 이천시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다.
+      · 표준데이터는 같은 주차장을 두 세트로 등록했다(구간 번호 붙은 이름 10:00~19:00 / 번호 없는
+        이름 09:00~18:00) — 같은 관리번호·주소·요금이면 한 카드로 묶는다.
+    요금은 조례 별표1의 급지 요금을 적용하고, 무료시간은 이천스마트주차포털 이용안내의
+    주차장별 값(표준데이터에는 무료시간이 없다)을 넣는다. 운영시간은 표준데이터 등록값을 쓴다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == IC_PROVIDER]
+    lots, excluded, merged, hour_fixed, space_diff, note_fixed = [], [], [], [], [], []
+    ticket_diff, disc_note = [], []
+    card_no = street_no = 0
+
+    # --- 중복 등록 정리: 같은 관리번호에 주차장유형·이름(번호 제외)까지 같은 행은 하나로 묶는다.
+    buckets = defaultdict(list)
+    for r in rows_city:
+        buckets[(re.sub(r"\s", "", r["주차장관리번호"]), r["주차장유형"],
+                 _ic_strip_num(r["주차장명"]))].append(r)
+    rows_one = []
+    for _k, grp in buckets.items():
+        grp = sorted(grp, key=_ic_rank)
+        rows_one.append(grp[0])
+        if len(grp) > 1:
+            merged.append(f"{grp[0]['주차장명']}({grp[0]['주차장관리번호']}) ← "
+                          f"{' / '.join(r['주차장명'] for r in grp[1:])} — 같은 주차장 두 세트 등록")
+    # --- 주소+구획수가 같으면 다른 관리번호라도 같은 주차장이다(설봉공원입구 무료/유료 등).
+    final_rows, seen_addr, seen_nm = [], {}, {}
+    for r in sorted(rows_one, key=_ic_rank):
+        key_a = (r["주차장유형"], re.sub(r"\s", "", r["소재지지번주소"] or ""), r["주차구획수"])
+        key_b = (r["주차장유형"], re.sub(r"\s", "", r["소재지지번주소"] or ""),
+                 _ic_strip_num(r["주차장명"]))
+        prev = seen_addr.get(key_a) or seen_nm.get(key_b)
+        if prev is not None:
+            merged.append(f"{prev['주차장명']}({prev['주차장관리번호']}) ↔ "
+                          f"{r['주차장명']}({r['주차장관리번호']}) — 같은 주소·구획, 유료 등록값을 씀")
+            continue
+        seen_addr[key_a] = r
+        seen_nm[key_b] = r
+        final_rows.append(r)
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                src="표준데이터", notice=None, tel="", mgmt="", lat=None, lng=None,
+                base_date="", free_days=None, free_note=None, detail_road=None):
+        nonlocal card_no, street_no
+        street = ptype == "노상"
+        fee["pay"] = (r.get("결제방법") or "").strip() if r else ""
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": src,
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "이천시",
+            "dong": dong,
+            "dong_src": "지번주소" if r and ic_dong_of((r.get("소재지지번주소") or "")) else
+                        ("도로명주소" if r and ic_dong_of((r.get("소재지도로명주소") or "")) else "없음"),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": detail_road,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or IC_CORP,
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "이천시",
+            "city_slug": "icheon",
+        })
+
+    for r in final_rows:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (IC_BBOX[0] <= lat <= IC_BBOX[1]
+                                      and IC_BBOX[2] <= lng <= IC_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = ic_dong_of(jibun) or ic_dong_of(road)
+        street = ptype == "노상"
+        paid = (r.get("요금정보") or "").strip() == "혼합"
+        note_raw = (r.get("특기사항") or "")
+        win, oper, _closed = parse_schedule(r, note_raw)
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        notice = None
+
+        # 운영요일·시간 — 표준데이터는 유료 노상을 평일만(토·공휴일 00:00~00:00 미운영)으로
+        #   등록했지만, 주차포털은 ‘토·일요일 및 공휴일 무료운영’이라 무료 개방으로 바로잡는다.
+        if paid and street:
+            if not oper["sat"] or not oper["sun"]:
+                hour_fixed.append(f"{name}: 표준데이터 토·공휴일 미운영(00:00~00:00) → "
+                                  f"주차포털 안내 토·일요일·공휴일 무료 개방")
+            oper = {k: True for k in ("weekday", "sat", "sun")}
+            free_days = {"sat": True, "sun": True}
+            # 터미널(8-2)만 주말에도 24시간 유료다(주차포털) — 요일 무료 표기를 되돌린다.
+            if name == "8-2 터미널공영":
+                free_days = {"sat": False, "sun": False}
+
+        if paid:
+            grade = to_int(r.get("급지구분")) or 1
+            grade = min(grade, 3)     # 요금표는 1~3급지다(4급지 등록 행은 모두 무료 주차장)
+            kind = "노상" if street else "노외"
+            fee = ic_fee(kind, grade)
+            fee["std_grade"] = to_int(r.get("급지구분"))
+            daily = to_int(r.get("1일주차권요금"))
+            monthly_std = to_int(r.get("월정기권요금"))
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                          "base_fee": to_int(r.get("주차기본요금")),
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily, "monthly": monthly_std}
+            # 표준데이터 등록값과 별표1이 같은지 점검해 다른 부분을 남긴다.
+            tbl = IC_FEES[kind][grade]
+            if (fee["std"]["base_fee"], fee["std"]["unit_fee"]) != (tbl["base"], tbl["unit"]):
+                notice = ((notice + " · ") if notice else "") + \
+                    (f"표준데이터 등록요금은 기본 {fee['std']['base_min']}분 "
+                     f"{fee['std']['base_fee']}원·10분당 {fee['std']['unit_fee']}원입니다 — "
+                     f"이 사이트는 조례 별표1 {grade}급지 요금을 적용합니다")
+            # 무료시간 — 표준데이터에는 없고 주차포털 이용안내에만 있다.
+            #   ‘최초 N분 무료 → 이후 10분당 요금’이므로 그 시간을 뺀 요금으로 계산하는
+            #   deduct_min 방식(김포시 1시간 무료와 같은 처리)을 쓴다.
+            free_min = IC_FREE_MIN.get(name)
+            if free_min:
+                fee["free_min"] = free_min
+                fee["deduct_min"] = free_min
+                note_fixed.append(f"{name}: 주차포털 안내 최초 {free_min}분 무료"
+                                  f"(표준데이터 무료시간 미등록)")
+            # 월 정기권 — 별표1에는 급지별로 있지만 공단은 5곳에서만 운영한다.
+            if name not in IC_MONTHLY_LOTS:
+                if fee["monthly"] or fee["monthly_day"] or fee["monthly_night"]:
+                    ticket_diff.append(
+                        f"{name}: 조례 별표1 월 정기권(주야간 {tbl['month'][2]:,}원)이 있으나 "
+                        f"공단 FAQ는 이 주차장의 월 정기권을 미운영이라 안내해 비웠다")
+                fee["monthly"] = fee["monthly_day"] = fee["monthly_night"] = fee["monthly_all"] = None
+                fee["monthly_label"] = None
+            elif monthly_std and monthly_std != fee["monthly"]:
+                ticket_diff.append(f"{name}: 표준데이터 월 정기권 {monthly_std:,}원"
+                                   f"(별표1 주야간 {fee['monthly']:,}원)")
+        else:
+            fee = ic_free_fee()
+
+        # 주차장별 안내 — 요금 구조와 현장 사정을 카드에 적는다.
+        extra = []
+        if name == "8-2 터미널공영":
+            extra.append("터미널 앞 노상주차장(8-2)만 토요일·일요일·공휴일에도 24시간 유료로 "
+                         "운영합니다(주차포털). 나머지 유료 노상 구간은 평일 09:00~18:00에만 "
+                         "요금을 받고 주말·공휴일은 무료입니다")
+            free_days = {"sat": False, "sun": False}
+            hour_fixed.append(f"{name}: 표준데이터 공휴일 미운영(00:00~00:00) → "
+                              f"주차포털 안내 24시간 유료 운영")
+        if name in ("공설운동장공영주차장", "북샛말공영주차장", "서희청소년문화센터공영주차장",
+                    "택시쉼터공영주차장", "사동리 제1공영주차장"):
+            extra.append("월 정기권을 운영하는 5개 주차장 가운데 한 곳입니다 — "
+                         "이천시스마트주차포털(parking.2000fmc.or.kr)에서 신청합니다(공단 FAQ)")
+        if name == "남천상가주차장":
+            extra.append("지하 2층 보수공사로 2026-11-23~12-14에 지하 2층 전면 폐쇄 "
+                         "(11-23~12-4는 출입·주차 불가)가 예정되어 있습니다(주차포털 공지, "
+                         "공사 일정은 현장 여건에 따라 변경될 수 있습니다)")
+        if name in ("마장택지지구 공영주차장1", "마장택지지구 공영주차장2"):
+            extra.append("기본요금이 최초 60분 500원으로 등록되어 있어(표준데이터·포털 요금표) "
+                         "1시간까지 500원이고, 이후 10분당 200원입니다. 주차포털 안내 표는 "
+                         "‘최초 1시간 무료’로 적습니다 — 이 사이트는 등록요금으로 계산합니다")
+            fee["free_min"] = None
+            fee["deduct_min"] = None
+            fee["base_min"] = 60
+        if name in IC_SPACE_DIFF and IC_SPACE_DIFF[name] != spaces:
+            space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 공단 FAQ {IC_SPACE_DIFF[name]}면")
+            notice = ((notice + " · ") if notice else "") + \
+                f"이천시시설관리공단 안내는 {IC_SPACE_DIFF[name]}면입니다(표준데이터 {spaces}면)"
+        if extra:
+            notice = " · ".join(([notice] if notice else []) + extra)
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=notice, tel=(r.get("전화번호") or "").strip(),
+                mgmt=(r.get("관리기관명") or "").strip() or IC_CORP,
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"ich-{i:03d}" if l["list_mode"] == "card" else f"ich-s{i:03d}"
+
+    quality = check_quality_icheon(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                   space_diff, note_fixed, ticket_diff)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(IC_PORTAL_FEE_TXT).strftime("%Y-%m-%d %H:%M")
+                           if IC_PORTAL_FEE_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "이천시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-13",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 이천시가 등록한 115행(노상 82·노외 33)을 읽었다. 이름·주소·구획수·"
+                             "급지·운영요일·운영시간·좌표·전화·관리번호·결제방법과 등록요금 출처로 썼다. "
+                             "같은 주차장이 두 세트로 등록된 행(구간 번호 붙은 이름 10:00~19:00 / "
+                             "번호 없는 이름 09:00~18:00)과 다른 관리번호의 같은 주소 행을 묶었다."),
+                },
+                {
+                    "id": "ordinance", "name": "이천시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 주차요금표",
+                    "org": "이천시(교통정책과) · 이천시시설관리공단 주차사업팀(031-635-2070)",
+                    "url": IC_ORDINANCE_URL,
+                    "file": IC_ORD_TXT.name,
+                    "sha256": sha256(IC_ORD_TXT) if IC_ORD_TXT.exists() else None,
+                    "license": "자치법규(공개)", "base_date": IC_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(IC_ORD_TXT),
+                    "note": ("노상 1급지 최초 30분 600원·10분당 250원·1일 최대 7,000원(정기권 없음), "
+                             "노외 1급지 600·250·7,000원·월 정기권 주야간 70,000원, 2급지 500·200·"
+                             "5,000원·60,000원, 3급지 400·150·4,000원·40,000원을 별표/서식 HWP에서 "
+                             "읽었다. 입차 후 10분 무료 회차, 급지(1급지 상업지역·2급지 주거·공업·"
+                             "녹지지역·3급지 도시지역 외), 감면(중증장애인 2시간·유공자 4시간 면제 후 "
+                             "50% 등), 정기권 주간 08:00~20:00·야간 18:30~익일 08:00도 함께 읽었다."),
+                },
+                {
+                    "id": "portal_fee", "name": "이천스마트주차포털 주차장 이용안내(주차요금·운영시간)",
+                    "org": "이천시시설관리공단 주차사업팀(031-635-2070)", "url": IC_PORTAL_FEE_URL,
+                    "file": IC_PORTAL_FEE_TXT.name if IC_PORTAL_FEE_TXT.exists() else None,
+                    "sha256": sha256(IC_PORTAL_FEE_TXT) if IC_PORTAL_FEE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": None, "fetched_at": _sync_time(IC_PORTAL_FEE_TXT),
+                    "note": ("주차장별 최초 무료시간(창전동 임시·남천상가 30분, 공설운동장 30분, "
+                             "마장 1·2·택시쉼터 1시간, 서희청소년문화센터 2시간)과 노상 유료 구간의 "
+                             "평일 09:00~18:00 유료·주말 무료 운영, 터미널(8-2)만 24시간 유료인 "
+                             "것을 확인했다. 1일 최대요금은 노상 1급지 7,000원·노외 2급지 5,000원·"
+                             "3급지 4,000원이다."),
+                },
+                {
+                    "id": "portal_disc", "name": "이천스마트주차포털 주차요금 감면안내",
+                    "org": "이천시시설관리공단 주차사업팀(031-635-2070)", "url": IC_PORTAL_DISC_URL,
+                    "file": IC_PORTAL_DISC_TXT.name if IC_PORTAL_DISC_TXT.exists() else None,
+                    "sha256": sha256(IC_PORTAL_DISC_TXT) if IC_PORTAL_DISC_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": None, "fetched_at": _sync_time(IC_PORTAL_DISC_TXT),
+                    "note": ("100% 감면(긴급자동차·명예시민증·모범납세자 등), 중증장애인 2시간 면제 "
+                             "후 50%, 국가유공자·참전유공자·고엽제·5·18부상자·의사상자 4시간 면제 "
+                             "후 50%, 우수자원봉사자·1종 저공해 1시간 면제 후 50%, 경차·다자녀·"
+                             "임산부·경로우대 등 50%, 요일제 30%, 투표확인증 2,000원 감면을 "
+                             "확인했다. 이중감면은 하지 않는다."),
+                },
+                {
+                    "id": "portal_faq", "name": "이천시시설관리공단 자주묻는 질문(요금·운영시간·월정기권)",
+                    "org": "이천시시설관리공단 주차사업팀(031-635-2070)", "url": IC_FAQ_URL,
+                    "file": IC_FAQ_TXT.name if IC_FAQ_TXT.exists() else None,
+                    "sha256": sha256(IC_FAQ_TXT) if IC_FAQ_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "게시 2026-06-16",
+                    "rows_total": None, "fetched_at": _sync_time(IC_FAQ_TXT),
+                    "note": ("공단 운영 노상 유인 31구간·노외 10개소와 급지별 배정(1급지 노상 "
+                             "전구간·중리천로·남천상가·창전동 임시, 2급지 북샛말·서희청소년·"
+                             "공설운동장·마장 1·2·사동리, 3급지 택시쉼터), 월 정기권 운영 5곳"
+                             "(북샛말·택시쉼터·서희청소년·공설운동장·사동리)과 감면표를 확인했다."),
+                },
+                {
+                    "id": "portal_notice", "name": "이천스마트주차포털 공지 — 남천상가 지하 2층 보수공사 안내",
+                    "org": "이천시시설관리공단 주차사업팀(031-635-2070)", "url": IC_NOTICE_URL,
+                    "file": IC_NOTICE_TXT.name if IC_NOTICE_TXT.exists() else None,
+                    "sha256": sha256(IC_NOTICE_TXT) if IC_NOTICE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)", "base_date": "조회 2026-11-17",
+                    "rows_total": None, "fetched_at": _sync_time(IC_NOTICE_TXT),
+                    "note": ("남천상가 공영주차장 지하 2층 보수공사(2026-11-23~12-14, 11-23~12-4 "
+                             "지하 2층 전면 폐쇄)를 확인해 카드에 적었다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in IC_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "icheon_grade",
+            "unit_min": IC_UNIT_MIN,
+            "base_min": IC_BASE_MIN,
+            "applies": IC_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "상업지역", "base": 600, "unit": 250, "day": 7_000,
+                 "month": 70_000, "lots": 0},
+                {"grade": 2, "where": "주거지역·공업지역·녹지지역", "base": 500, "unit": 200,
+                 "day": 5_000, "month": 60_000, "lots": 0},
+                {"grade": 3, "where": "도시지역 외 지역", "base": 400, "unit": 150,
+                 "day": 4_000, "month": 40_000, "lots": 0},
+            ],
+            "street": [
+                {"grade": 1, "base": 600, "unit": 250, "day": 7_000},
+            ],
+            "special": [
+                {"name": "창전동 임시·남천상가(노외 1급지)", "free": 30,
+                 "tiers": "30분 무료 → 10분당 250원", "day": 7_000, "month": None},
+                {"name": "공설운동장(노외 2급지)", "free": 30,
+                 "tiers": "30분 무료 → 10분당 200원", "day": 5_000, "month": 60_000},
+                {"name": "마장 제1·2(노외 2급지)", "free": 60,
+                 "tiers": "1시간 무료 → 10분당 200원", "day": 5_000, "month": None},
+                {"name": "서희청소년문화센터(노외 2급지)", "free": 120,
+                 "tiers": "2시간 무료 → 10분당 200원", "day": 5_000, "month": 60_000},
+                {"name": "택시쉼터(노외 3급지)", "free": 60,
+                 "tiers": "1시간 무료 → 10분당 150원", "day": 4_000, "month": 40_000},
+            ],
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "grade": l["fee"].get("grade"),
+                 "free": l["fee"].get("free_min"), "unit": l["fee"].get("unit_fee"),
+                 "day": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "corp": {"out": len([l for l in lots if l["fee"]["type"] == "유료" and l["ptype"] == "노외"]),
+                     "st": len([l for l in lots if l["ptype"] == "노상" and l["fee"]["type"] == "유료"]),
+                     "st_spaces": sum(l["spaces"] or 0 for l in lots
+                                      if l["ptype"] == "노상" and l["fee"]["type"] == "유료"),
+                     "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                     "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                     "corp_total": "노상 유인 31구간·노외 10개소 2,137면(공단 FAQ)"},
+            "basis": ("「이천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({IC_ORDINANCE_NOTE}) · 이천스마트주차포털 주차장 이용안내(2026-11-17) · "
+                      "표준데이터 등록값(2026-10-13) 대조"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["이천시"] | {
+        "city": "이천시",
+        "weekend_free_pages": False,
+        "discounts": IC_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "icheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_icheon(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                         note_fixed, ticket_diff):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_이천시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "특기사항_보정": note_fixed,
+        "정기권_차이": ticket_diff,
+        "감면_출처": "「이천시 주차장 설치 및 관리 조례」 별표1 세부사항 바목 · "
+                    "이천스마트주차포털 감면안내",
+        "무료시간_출처": "이천스마트주차포털 주차장 이용안내(표준데이터 무료시간 미등록)",
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
              "hanam": ["하남시"], "gunpo": ["군포시"],
-             "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"]}[args.city])
+             "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"], "icheon": ["이천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -10999,6 +11606,8 @@ def main():
         cities.append(build_guri())
     if "오산시" in want:
         cities.append(build_osan())
+    if "이천시" in want:
+        cities.append(build_icheon())
 
     if args.city == "all":
         site = build_site_payload(cities)

@@ -575,6 +575,15 @@ _others5 = set()
 for _k, _v in MIX.items():
     _others5.update(t for t in _v if t not in OS_TOKENS)
 MIX["osan"] = tuple(sorted(_others5))
+# 이천시도 자치구가 없다 — 다른 도시 페이지에 이천 자료가 섞이면 실패.
+#   (‘이천시’ ‘이천시시설관리공단’처럼 시 단위 이름과 이천스마트주차포털로 좁힌다.)
+IC_TOKENS = ("이천시", "이천시시설관리공단", "이천스마트주차포털", "설봉공원")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + IC_TOKENS
+_others6 = set()
+for _k, _v in MIX.items():
+    _others6.update(t for t in _v if t not in IC_TOKENS)
+MIX["icheon"] = tuple(sorted(_others6))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -2372,6 +2381,129 @@ for _slug, _n in (("osan-dong", 9), ("won-dong", 8), ("gwol-dong", 6), ("sucheon
     elif _p.read_text().count('class="card lot') != _n:
         fails.append(f"오산시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
 
+
+# ---------------------------------------------------------------- 이천시 (T-03 Phase 20)
+# 「이천시 주차장 설치 및 관리 조례」 [별표 1](공포 2025-05-16, 경기도이천시조례 제2224호)과
+# 이천스마트주차포털 이용안내(2026-11-17): 노외 1급지 30분 600원·10분당 250원·1일 7,000원,
+# 2급지 500·200·5,000원, 3급지 400·150·4,000원, 노상 1급지 600·250·7,000원.
+ic_cards = [l for l in LOTS if l.get("city") == "이천시" and l.get("list_mode") == "card"]
+ic_paid = [l for l in ic_cards if l["fee"]["type"] == "유료"]
+ic_free = [l for l in ic_cards if l["fee"]["type"] == "무료"]
+ic_by = {l["name"]: l for l in ic_cards}
+if not ic_cards:
+    fails.append("이천시 카드 데이터가 없음")
+# 구성: 카드 28곳(유료 11·무료 17) · 구획 3,537면 · 노상 52구간 1,976면
+if len(ic_cards) != 28 or len(ic_paid) != 11 or len(ic_free) != 17:
+    fails.append(f"이천시 카드 구성이 다름: 카드 {len(ic_cards)} · 유료 {len(ic_paid)} · 무료 {len(ic_free)}")
+if sum(l["spaces"] or 0 for l in ic_cards) != 3537:
+    fails.append(f"이천시 구획 합계가 다름: {sum(l['spaces'] or 0 for l in ic_cards)}")
+ic_street = [l for l in LOTS if l.get("city") == "이천시" and l.get("list_mode") == "street"]
+if len(ic_street) != 52 or sum(l["spaces"] or 0 for l in ic_street) != 1976:
+    fails.append(f"이천시 노상 구간이 다름: {len(ic_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in ic_street)}면")
+if len({l.get("dong") for l in ic_cards}) != 11 or any(not l.get("dong") for l in ic_cards):
+    fails.append(f"이천시 동 구성이 다름: {sorted({l.get('dong') for l in ic_cards})}")
+_ic_dup = [k for k, v in Counter(l["name"] for l in ic_cards).items() if v > 1]
+if _ic_dup:
+    fails.append(f"이천시 카드 이름 중복: {_ic_dup[:3]}")
+# 급지·요금 — 별표1 값(무료시간은 주차포털 이용안내)
+_IC_FEE = {"중리천로공영주차장": (1, None, 600, 250, 7000, None),
+           "남천상가주차장": (1, 30, 600, 250, 7000, None),
+           "창전동 임시 공영주차장": (1, 30, 600, 250, 7000, None),
+           "북샛말공영주차장": (2, None, 500, 200, 5000, 60000),
+           "사동리 제1공영주차장": (2, None, 500, 200, 5000, 60000),
+           "공설운동장공영주차장": (2, 30, 500, 200, 5000, 60000),
+           "서희청소년문화센터공영주차장": (2, 120, 500, 200, 5000, 60000),
+           "마장택지지구 공영주차장1": (2, None, 500, 200, 5000, None),
+           "택시쉼터공영주차장": (3, 60, 400, 150, 4000, 40000)}
+for _n, (_g, _free, _base, _unit, _day, _month) in _IC_FEE.items():
+    _l = ic_by.get(_n)
+    if not _l:
+        fails.append(f"이천시 카드에 {_n} 없음")
+        continue
+    _f = _l["fee"]
+    if (_f.get("grade"), _f.get("free_min"), _f.get("base_fee"), _f.get("unit_fee"),
+            _f.get("daily_fee"), _f.get("monthly")) != (_g, _free, _base, _unit, _day, _month):
+        fails.append(f"이천시 요금이 별표1과 다름: {_n} {_f.get('grade')}/{_f.get('free_min')}/"
+                     f"{_f.get('base_fee')}/{_f.get('unit_fee')}/{_f.get('daily_fee')}/{_f.get('monthly')}")
+# 마장 제1·2는 기본요금이 최초 60분 500원이다(표준데이터 등록값).
+for _n in ("마장택지지구 공영주차장1", "마장택지지구 공영주차장2"):
+    _l = ic_by.get(_n)
+    if _l and (_l["fee"]["base_min"], _l["fee"]["base_fee"]) != (60, 500):
+        fails.append(f"이천시 {_n} 기본요금이 60분 500원이 아님: "
+                     f"{_l['fee']['base_min']}/{_l['fee']['base_fee']}")
+# 노상은 전부 1급지요, 주말·공휴일 무료 개방(터미널 8-2 제외).
+for _l in ic_street:
+    if _l["fee"]["type"] == "유료":
+        if _l["fee"].get("grade") != 1:
+            fails.append(f"이천시 유료 노상 {_l['name']}이 1급지가 아님")
+        if _l["name"] == "8-2 터미널공영":
+            if _l["free_days"].get("sat") or _l["free_days"].get("sun"):
+                fails.append("이천시 터미널 8-2가 주말 무료로 표기됨")
+        elif not (_l["free_days"].get("sat") and _l["free_days"].get("sun")):
+            fails.append(f"이천시 유료 노상 {_l['name']}의 주말 무료 표기 없음")
+# 계산 표본 — 별표1·포털 무료시간으로 직접 계산한 값
+for _n, _mins, _want in (("중리천로공영주차장", 30, 600), ("중리천로공영주차장", 120, 2850),
+                         ("중리천로공영주차장", 600, 7000), ("남천상가주차장", 30, 0),
+                         ("남천상가주차장", 120, 2100), ("북샛말공영주차장", 120, 2300),
+                         ("북샛말공영주차장", 480, 5000), ("공설운동장공영주차장", 30, 0),
+                         ("공설운동장공영주차장", 120, 1700), ("서희청소년문화센터공영주차장", 120, 0),
+                         ("서희청소년문화센터공영주차장", 180, 1100), ("택시쉼터공영주차장", 60, 0),
+                         ("택시쉼터공영주차장", 120, 850), ("마장택지지구 공영주차장1", 60, 500),
+                         ("마장택지지구 공영주차장1", 120, 1700)):
+    _l = ic_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"이천시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 감면표 — 조례 별표1(중증장애인 2시간·유공자 4시간 면제 후 50%, 요일제 30%, 100% 면제)
+_ic_disc = next(c for c in CITIES if c["city"] == "이천시").get("discounts") or []
+if not any(d["rate"] == 0.5 and d.get("exempt_min") == 120 for d in _ic_disc):
+    fails.append("이천시 감면표에 중증장애인 2시간 면제 후 50%가 없음")
+if not any(d["rate"] == 0.5 and d.get("exempt_min") == 240 for d in _ic_disc):
+    fails.append("이천시 감면표에 국가유공자 4시간 면제 후 50%가 없음")
+if not any(d["rate"] == 0.3 for d in _ic_disc):
+    fails.append("이천시 감면표에 승용차 요일제 30%가 없음")
+if not any(d["rate"] == 1.0 for d in _ic_disc):
+    fails.append("이천시 감면표에 100% 면제 대상이 없음")
+# 품질 리포트 — 두 세트 등록 35행, 정기권 차이, 면수 차이
+_ic_q = next(c for c in CITIES if c["city"] == "이천시").get("quality") or {}
+if len(_ic_q.get("중복제거_행") or []) != 35:
+    fails.append(f"이천시 두 세트 등록 정리가 35행이 아님: {len(_ic_q.get('중복제거_행') or [])}")
+if len(_ic_q.get("정기권_차이") or []) != 9:
+    fails.append(f"이천시 월 정기권 차이가 9건이 아님: {len(_ic_q.get('정기권_차이') or [])}")
+ic_root = DIST / "parking" / "gyeonggi" / "icheon"
+ic_hub = ic_root / "index.html"
+if not ic_hub.exists():
+    fails.append("이천시 시 페이지 없음")
+else:
+    ic_html = ic_hub.read_text()
+    for label in ("이천시 급지별 주차요금표", "노외주차장", "노상주차장", "1급지", "2급지",
+                  "1일 최대요금", "최초 무료시간이 있는 주차장", "평일 2시간 기준 가장 저렴한 곳",
+                  'class="calc', "이천시시설관리공단", "상업지역", "경기도 이천시", "무료 회차",
+                  "터미널 앞 노상주차장", "남천상가", "월 정기권"):
+        if label not in ic_html:
+            fails.append(f"이천시 시 페이지에 {label} 없음")
+    if ic_html.count('class="card lot') != len(ic_cards):
+        fails.append(f"이천시 시 페이지 카드 수 불일치({ic_html.count(chr(34)+'card lot')} vs {len(ic_cards)})")
+    if "&lt;b&gt;" in ic_html:
+        fails.append("이천시 시 페이지에 이스케이프된 <b> 태그가 보임")
+ic_dong_pages = sorted(q.parent.name for q in ic_root.rglob("index.html") if q.parent.parent == ic_root)
+for _slug in ("changjeon-dong", "gwango-dong", "jungri-dong", "sindun-myeon", "majang-myeon"):
+    if _slug not in ic_dong_pages:
+        fails.append(f"이천시 동 페이지 없음: {_slug}")
+for _slug, _n in (("changjeon-dong", 5), ("gwango-dong", 4), ("jungri-dong", 3),
+                  ("sindun-myeon", 3), ("majang-myeon", 5), ("bubal-eup", 2),
+                  ("janghowon-eup", 2)):
+    _p = ic_root / _slug / "index.html"
+    if not _p.exists():
+        if _n >= 3:      # 카드 3곳 이상인 동·읍·면만 페이지를 만든다(빈 페이지 방지)
+            fails.append(f"이천시 동 페이지 없음: {_slug}")
+        continue
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"이천시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
 
 print()
 if warns:
