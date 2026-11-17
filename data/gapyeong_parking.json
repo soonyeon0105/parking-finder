@@ -1,0 +1,6221 @@
+{
+ "meta": {
+  "generated_at": "2026-11-17 19:24",
+  "generated_at_iso": "2026-11-17T19:24:24+09:00",
+  "snapshot_at": "2026-11-17 19:24",
+  "region": {
+   "province": "경기도",
+   "city": "가평군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 49,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "경기도 가평군이 등록한 49행(노외 40·노상 9)을 읽었다. 모두 주차장구분이 ‘공영’이라 민영 주차장은 없다. 요금 구분은 혼합 23행(노외 14·노상 9), 유료 1행(운악산), 무료 25행(모두 노외)이다 — ‘혼합’은 최초 1시간(또는 2시간) 무료 뒤 30분마다 요금을 받는 운영 방식이다. 급지는 1급지 42행·2급지 7행(무료 4·운악산 1)이다. 노외 40행 가운데 28행은 개별 이름 없이 ‘가평읍 임시공영주차장(1)’·‘자투리주차장(2)’·‘무료 공영주차장(4)’처럼 번호로만 등록되어 있어, 군청 공영주차장 안내의 이름으로 적었다. 주차구획수가 비어 있는 껍데기 행은 없었다."
+   },
+   {
+    "id": "ordinance",
+    "name": "「가평군 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금 · 제4조 감면 · 제10조 관리·운영",
+    "org": "가평군청 건설도시국 교통과(031-580-2074)",
+    "url": "https://law.go.kr/LSW/ordinInfoP.do?ordinSeq=2039645",
+    "file": "law.go.kr_가평군주차장조례_별표1_20261117.hwp",
+    "sha256": "49346721cf788310595e4d473a4e5ce4757cd835b98c4a5b386ad99d961793fa",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-05-19 · 경기도가평군조례 제3303호(일부개정) · 별표1 공영주차장 주차요금",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 19:10 (KST)",
+    "note": "국가법령정보센터 자치법규 별표 HWP를 내려받아 표 셀과 비고를 읽어 정리본(txt)을 두었다. 노상·노외 같은 표로 1급지 최초 1시간 무료·30분마다 500원·일일주차권 5,000원·월 정기권 50,000원, 2급지 무료·300원·3,000원·30,000원이고, 공원시설·휴양지·유원지 노외주차장은 승용차·승합차·화물차(4톤 이하) 일일 2,000원(월 1급지 50,000·2급지 30,000원), 버스(관광버스)·화물차(4톤 이상) 4,000원(월 90,000·50,000원), 정기버스 무료다. 비고2는 1급지를 도시지역, 2급지를 그 밖의 관내 전 지역으로 정하고, 비고3은 금액을 상한으로 두며, 비고5는 공원·휴양지·유원지 주차장의 선불 징수를 허용한다. 제4조는 전액 면제 5종과 2시간 이내 면제 6종(장애인·국가유공자·고엽제·5·18·전기차·전통시장), 50% 감면 6종과 요일제 20%를 정한다. 제10조①은 운영시간을 연중 24시간, 주차요금 적용시간을 09:00~18:00으로 정하고(2025-05-19 전문개정), ②는 토요일·공휴일에 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게 한다."
+   },
+   {
+    "id": "city",
+    "name": "가평군청 공영주차장 안내(요금·감면·유료 25개소·무료 26개소)",
+    "org": "가평군청 교통지도팀(031-580-2075)",
+    "url": "https://www.gp.go.kr/portal/contents.do?key=2506",
+    "file": "gp.go.kr_공영주차장_20261117.txt",
+    "sha256": "4e62a968a273c5a0b8707ebade64bc1c91ac3814ea2cf13fa8d5ab6399bccd1c",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "수정 2026-08-31 · 조회 2026-11-17",
+    "rows_total": 51,
+    "fetched_at": "2026-11-17 19:11 (KST)",
+    "note": "유료 공영주차장 25개소(노상 9·노외 16)와 무료 공영주차장 26개소를 주차장명·소재지·주차면수로 적고, 요금 체계(노상·노외 모두 최초 1시간 무료·1시간 초과 30분마다 500원·일일 최대 5,000원·월정기 50,000원)와 ‘최초 2시간 무료’ 5곳(가평읍 10구간·청평면 1·2구역·조종면·조종면 임시·레일바이크), 감면대상 표를 싣는다. 이 가운데 문화로(한석봉체육관 맞은편) 공영주차장(대곡리 301-1, 24면)과 투썸플레이스 옆 주차장(신천리 574-9, 20면)은 표준데이터에 없고 좌표도 없어 카드로 만들지 않았다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "가평군",
+   "slug": "gapyeong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gap-001",
+   "mgmt_no": "239-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가평감자탕 옆 자투리주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 대곡리 255-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "031-580-2075",
+   "lat": 37.825892,
+   "lng": 127.512159,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘자투리주차장(2)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-002",
+   "mgmt_no": "239-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가평고등학교 앞 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 대곡리 95-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-580-2075",
+   "lat": 37.818487,
+   "lng": 127.514695,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(7)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-003",
+   "mgmt_no": "239-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가평역 뒤 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 달전리 601",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-580-2075",
+   "lat": 37.814714,
+   "lng": 127.509545,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(4)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-004",
+   "mgmt_no": "239-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가평역 옆 자투리주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 달전리 581",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-580-2075",
+   "lat": 37.813346,
+   "lng": 127.510194,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘자투리주차장(1)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-005",
+   "mgmt_no": "239-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가평역세권 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 달전리 445",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-580-2075",
+   "lat": 37.813219,
+   "lng": 127.511974,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-006",
+   "mgmt_no": "239-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가평읍 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 461-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-580-2075",
+   "lat": 37.830606,
+   "lng": 127.512024,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 무인으로 운영하는 주차장입니다(가평군청 안내)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-007",
+   "mgmt_no": "239-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "기록관 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 495-37",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-580-2075",
+   "lat": 37.830176,
+   "lng": 127.510312,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(1)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-008",
+   "mgmt_no": "239-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "레일바이크 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 395-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "031-580-2075",
+   "lat": 37.82897059,
+   "lng": 127.515853614,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 120분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, 그 뒤 30분마다 500원입니다 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 120분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-009",
+   "mgmt_no": "239-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "블루핀아파트 옆 자투리주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 767-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "031-580-2075",
+   "lat": 37.837187,
+   "lng": 127.508008,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘자투리주차장(3)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-010",
+   "mgmt_no": "239-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수도측량 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 468-36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-580-2075",
+   "lat": 37.82923,
+   "lng": 127.512227,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(5)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-011",
+   "mgmt_no": "239-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어린이음악놀이터 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 대곡리 163-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-580-2075",
+   "lat": 37.8262659353,
+   "lng": 127.5136,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-012",
+   "mgmt_no": "239-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내10리 마을회관 앞 자투리주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 969-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "031-580-2075",
+   "lat": 37.839084,
+   "lng": 127.50502,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘자투리주차장(4)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-013",
+   "mgmt_no": "239-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정명힐탑빌라 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 780-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-580-2075",
+   "lat": 37.836202,
+   "lng": 127.507147,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(6)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-014",
+   "mgmt_no": "239-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "준일주택 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 426-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-580-2075",
+   "lat": 37.831657,
+   "lng": 127.515009,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(2)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-015",
+   "mgmt_no": "239-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한국국토정보공사 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 488-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-580-2075",
+   "lat": 37.8294,
+   "lng": 127.5112661752,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(8)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-016",
+   "mgmt_no": "239-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한국전력 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 616",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-580-2075",
+   "lat": 37.833645,
+   "lng": 127.509865,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 표준데이터 등록명은 ‘가평읍 임시공영주차장(3)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-017",
+   "mgmt_no": "239-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도대리 공영주차장",
+   "gu": "가평군",
+   "dong": "북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 북면 도대리 661",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "031-580-2075",
+   "lat": 37.927431,
+   "lng": 127.492673,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘무료 공영주차장(5)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-018",
+   "mgmt_no": "239-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도마치고개 공영주차장",
+   "gu": "가평군",
+   "dong": "북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 북면 적목리 592-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-580-2075",
+   "lat": 38.0408591102,
+   "lng": 127.4508737386,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-019",
+   "mgmt_no": "239-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백둔리 공영주차장",
+   "gu": "가평군",
+   "dong": "북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 북면 백둔리 371-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-580-2075",
+   "lat": 37.902596,
+   "lng": 127.457147,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘무료 공영주차장(6)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-020",
+   "mgmt_no": "239-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "적목리 공영주차장",
+   "gu": "가평군",
+   "dong": "북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 북면 적목리 산1-44",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "031-580-2075",
+   "lat": 38.0187209319,
+   "lng": 127.4426741282,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-021",
+   "mgmt_no": "239-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미원초 앞 공영주차장",
+   "gu": "가평군",
+   "dong": "설악면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 설악면 신천리 492-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "031-580-2075",
+   "lat": 37.678829,
+   "lng": 127.491629,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘설악면 임시공영주차장(2)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-022",
+   "mgmt_no": "239-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설악면 공영주차장",
+   "gu": "가평군",
+   "dong": "설악면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 설악면 신천리 115-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "031-580-2075",
+   "lat": 37.677992,
+   "lng": 127.494179,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-023",
+   "mgmt_no": "239-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천원교회 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "설악면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 설악면 신천리 438-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-580-2075",
+   "lat": 37.678915,
+   "lng": 127.490109,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘설악면 임시공영주차장(1)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-024",
+   "mgmt_no": "239-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "바빈스커피 앞 공영주차장",
+   "gu": "가평군",
+   "dong": "조종면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 조종면 현리 277-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-580-2075",
+   "lat": 37.820462,
+   "lng": 127.349654,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘무료 공영주차장(3)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-025",
+   "mgmt_no": "239-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복개천 쌈지공원 공영주차장",
+   "gu": "가평군",
+   "dong": "조종면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 조종면 현리 547-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-580-2075",
+   "lat": 37.821448,
+   "lng": 127.350356,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 가평군청 공영주차장 안내의 면수는 59면입니다(표준데이터 등록면수 40면과 다릅니다) · 표준데이터 등록명은 ‘무료 공영주차장(4)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-026",
+   "mgmt_no": "239-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상판리 공영주차장",
+   "gu": "가평군",
+   "dong": "조종면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 조종면 상판리 565",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-580-2075",
+   "lat": 37.9227345557,
+   "lng": 127.3939454742,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘무료 공영주차장(2)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-027",
+   "mgmt_no": "239-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운악산 공영주차장",
+   "gu": "가평군",
+   "dong": "조종면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 조종면 운악리 452-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 319,
+   "tel": "031-580-2075",
+   "lat": 37.86425,
+   "lng": 127.348703,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "공원시설·휴양지·유원지 노외주차장이라 시간 요금 없이 일일주차권을 받습니다 — 승용차·승합차·화물차(4톤 이하) 2,000원, 버스(관광버스)·화물차(4톤 이상) 4,000원, 정기버스 무료(별표1·비고5 선불 징수 가능) · 월 정기권은 조례 별표1의 2급지 값 30,000원인데, 표준데이터에는 1급지 값 50,000원으로 등록되어 있습니다 · 경차는 50% 할인됩니다(표준데이터 특기사항·조례 제4조③1) · 표준데이터 등록명은 ‘운악산 주차장’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": "2급지(공원·휴양지·유원지)",
+    "std_grade": "2",
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권(공원·휴양지·유원지)",
+    "daily_hours": 24,
+    "daily_fee": 2000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 30000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 30000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 공원시설·휴양지·유원지 노외주차장 일일주차권 승용차·승합차·화물차(4톤 이하) 2,000원",
+    "category": "tourist",
+    "portal_free_now": false,
+    "flat_day": true,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-028",
+   "mgmt_no": "239-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "조종면 공영주차장",
+   "gu": "가평군",
+   "dong": "조종면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 조종면 현리 410-46",
+   "addr_road": "",
+   "road": null,
+   "spaces": 77,
+   "tel": "031-580-2075",
+   "lat": 37.817188,
+   "lng": 127.350043,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 120분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, 그 뒤 30분마다 500원입니다 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 가평군청 공영주차장 안내의 면수는 55면입니다(표준데이터 등록면수 77면과 다릅니다)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 120분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-029",
+   "mgmt_no": "239-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "조종면 임시 공영주차장",
+   "gu": "가평군",
+   "dong": "조종면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 조종면 현리 413-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-580-2075",
+   "lat": 37.8163713382,
+   "lng": 127.3488538325,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 120분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, 그 뒤 30분마다 500원입니다 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다 · 표준데이터 등록명은 ‘조종면 임시공영주차장’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 120분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-030",
+   "mgmt_no": "239-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "365할인마트 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 79-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-580-2075",
+   "lat": 37.736006,
+   "lng": 127.417864,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘청평면 임시공영주차장(1)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-031",
+   "mgmt_no": "239-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가나커피 앞 자투리주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 79-72",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "031-580-2075",
+   "lat": 37.735126,
+   "lng": 127.417841,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘자투리주차장(5)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-032",
+   "mgmt_no": "239-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "나루마트 뒤 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 627-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "031-580-2075",
+   "lat": 37.733169,
+   "lng": 127.413478,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘무료 공영주차장(1)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-033",
+   "mgmt_no": "239-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "당구장 옆 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 357-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-580-2075",
+   "lat": 37.7375649093,
+   "lng": 127.423554,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘청평면 임시공영주차장(5)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-034",
+   "mgmt_no": "239-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마을회관 앞 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 356",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-580-2075",
+   "lat": 37.738375,
+   "lng": 127.423278,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘청평면 임시공영주차장(4)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-035",
+   "mgmt_no": "239-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상천역 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 상천리 1254-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "031-580-2075",
+   "lat": 37.769568,
+   "lng": 127.452592,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-036",
+   "mgmt_no": "239-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청우원룸 앞 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 319-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-580-2075",
+   "lat": 37.739169,
+   "lng": 127.422919,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘청평면 임시공영주차장(2)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-037",
+   "mgmt_no": "239-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청평면 공영주차장(1구역)",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 455-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "031-580-2075",
+   "lat": 37.7368975007,
+   "lng": 127.4176567293,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 120분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, 그 뒤 30분마다 500원입니다 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 120분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-038",
+   "mgmt_no": "239-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청평면 공영주차장(2구역)",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 79-133",
+   "addr_road": "",
+   "road": null,
+   "spaces": 165,
+   "tel": "031-580-2075",
+   "lat": 37.7341610687,
+   "lng": 127.4182030944,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 120분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, 그 뒤 30분마다 500원입니다 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 120분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-039",
+   "mgmt_no": "239-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청평역 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 121-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-580-2075",
+   "lat": 37.735197,
+   "lng": 127.424674,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-040",
+   "mgmt_no": "239-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한라빌라 앞 공영주차장",
+   "gu": "가평군",
+   "dong": "청평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 가평군 청평면 청평리 633-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-580-2075",
+   "lat": 37.731831,
+   "lng": 127.411538,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 표준데이터 등록명은 ‘청평면 임시공영주차장(3)’입니다 — 가평군청 안내의 이름으로 적었습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s041",
+   "mgmt_no": "239-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 10구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 409-3",
+   "addr_road": "경기도 가평군 가평읍 보납로 34",
+   "road": "기사식당~장터해장국",
+   "spaces": 18,
+   "tel": "031-580-2075",
+   "lat": 37.832231,
+   "lng": 127.511921,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 120분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, 그 뒤 30분마다 500원입니다(표준데이터는 이 구간을 최초 60분 무료로 등록해 두었습니다) · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 120,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 120분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s042",
+   "mgmt_no": "239-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 1구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 329-9",
+   "addr_road": "경기도 가평군 가평읍 석봉로 136",
+   "road": "보인빌라~오리보양식",
+   "spaces": 30,
+   "tel": "031-580-2075",
+   "lat": 37.827614,
+   "lng": 127.511738,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s043",
+   "mgmt_no": "239-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 3구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 613-3",
+   "addr_road": "경기도 가평군 가평읍 석봉로 199",
+   "road": "가평군청~영화해물찜",
+   "spaces": 27,
+   "tel": "031-580-2075",
+   "lat": 37.832774,
+   "lng": 127.509701,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s044",
+   "mgmt_no": "239-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 4구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 635-1",
+   "addr_road": "경기도 가평군 가평읍 석봉로 214",
+   "road": "이모네식당~광고물협회",
+   "spaces": 27,
+   "tel": "031-580-2075",
+   "lat": 37.834078,
+   "lng": 127.509718,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s045",
+   "mgmt_no": "239-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 5구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 738-8",
+   "addr_road": "경기도 가평군 가평읍 석봉로 234",
+   "road": "가평J족발~가평카센터",
+   "spaces": 21,
+   "tel": "031-580-2075",
+   "lat": 37.835727,
+   "lng": 127.509045,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s046",
+   "mgmt_no": "239-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 6구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 363-1",
+   "addr_road": "경기도 가평군 가평읍 가화로 76-1",
+   "road": "송원막국수~국수사랑",
+   "spaces": 21,
+   "tel": "031-580-2075",
+   "lat": 37.835727,
+   "lng": 127.509045,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s047",
+   "mgmt_no": "239-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 7구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 478-14",
+   "addr_road": "경기도 가평군 가평읍 연인길 4",
+   "road": "인천집~가평철물",
+   "spaces": 15,
+   "tel": "031-580-2075",
+   "lat": 37.826688,
+   "lng": 127.515237,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s048",
+   "mgmt_no": "239-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 8구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 464-5",
+   "addr_road": "경기도 가평군 가평읍 보납로18번길 4",
+   "road": "국제광고~지역농협",
+   "spaces": 12,
+   "tel": "031-580-2075",
+   "lat": 37.828568,
+   "lng": 127.513849,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  },
+  {
+   "id": "gap-s049",
+   "mgmt_no": "239-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가평읍 노상주차장 9구간",
+   "gu": "가평군",
+   "dong": "가평읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 가평군 가평읍 읍내리 618-5",
+   "addr_road": "경기도 가평군 가평읍 가화로 143",
+   "road": "세븐일레븐~휴대폰매점",
+   "spaces": 10,
+   "tel": "031-580-2075",
+   "lat": 37.830525,
+   "lng": 127.512494,
+   "base_date": "2026-04-17",
+   "manager": "경기도 가평군청",
+   "note": "",
+   "notice": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지(도시지역) 요금입니다 — 최초 60분 무료, 그 뒤 30분마다 500원, 일일주차권 5,000원, 월 정기권 50,000원 · 토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 60,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 일일주차권",
+    "daily_hours": 24,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "basis": "「가평군 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 60분 무료 · 30분당 500원 · 일일주차권 5,000원 · 월 정기 50,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — 18:00~익일 09:00은 무료입니다(조례 제10조①)",
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 60,
+   "city": "가평군",
+   "city_slug": "gapyeong"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-17 19:24",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 49,
+  "원자료_가평군행수": 49,
+  "원자료_전체행수": 49,
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 40,
+  "노외_부설": {
+   "노외": 40
+  },
+  "노상_구간": 9,
+  "총_구획수": 1853,
+  "노상_구획수": 181,
+  "동별": {
+   "가평읍": 16,
+   "청평면": 11,
+   "조종면": 6,
+   "북면": 4,
+   "설악면": 3
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_근거": {
+   "지번주소": 40
+  },
+  "요금구분": {
+   "무료": 25,
+   "유료": 24
+  },
+  "요금_미상": [],
+  "급지별": {
+   "1": 23,
+   "2": 1
+  },
+  "표준데이터_급지": {
+   "1": 23,
+   "2": 1
+  },
+  "유료_노상": 9,
+  "유료_노외": 15,
+  "유료_부설": 0,
+  "2시간무료": 6,
+  "일일권_정액": [
+   "운악산 공영주차장"
+  ],
+  "정기권_판매": [
+   "가평역세권 공영주차장",
+   "가평읍 공영주차장",
+   "가평읍 노상주차장 10구간",
+   "가평읍 노상주차장 1구간",
+   "가평읍 노상주차장 3구간",
+   "가평읍 노상주차장 4구간",
+   "가평읍 노상주차장 5구간",
+   "가평읍 노상주차장 6구간",
+   "가평읍 노상주차장 7구간",
+   "가평읍 노상주차장 8구간",
+   "가평읍 노상주차장 9구간",
+   "기록관 옆 공영주차장",
+   "레일바이크 공영주차장",
+   "설악면 공영주차장",
+   "수도측량 옆 공영주차장",
+   "어린이음악놀이터 옆 공영주차장",
+   "운악산 공영주차장",
+   "조종면 공영주차장",
+   "조종면 임시 공영주차장",
+   "청평면 공영주차장(1구역)",
+   "청평면 공영주차장(2구역)",
+   "청평역 공영주차장",
+   "한국국토정보공사 옆 공영주차장",
+   "한국전력 옆 공영주차장"
+  ],
+  "운영시간_보정": [
+   "가평역세권 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "청평면 공영주차장(2구역): 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "한국국토정보공사 옆 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "청평면 공영주차장(1구역): 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "어린이음악놀이터 옆 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "조종면 임시 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "수도측량 옆 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "한국전력 옆 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "기록관 옆 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "조종면 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "청평역 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "설악면 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "레일바이크 공영주차장: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 10구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 9구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 8구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 7구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 6구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 5구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 4구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 3구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)",
+   "가평읍 노상주차장 1구간: 표준데이터 00:00~23:59 → 조례 제10조① 주차요금 적용시간 09:00~18:00(운영은 연중 24시간)"
+  ],
+  "면수_차이": [
+   "복개천 쌈지공원 공영주차장: 표준데이터 40면 ↔ 군청 안내 59면",
+   "조종면 공영주차장: 표준데이터 77면 ↔ 군청 안내 55면"
+  ],
+  "등록값_차이": [],
+  "요금구분_보정": [],
+  "정기권_차이": [
+   "운악산 공영주차장: 표준데이터 월정기 50,000원 ↔ 별표1 2급지 30,000원(1급지 값으로 등록됨)"
+  ],
+  "이름_보정": [
+   "가평읍 읍내리 488-2: 표준데이터 ‘가평읍 임시공영주차장(8)’ → 군청 안내 ‘한국국토정보공사 옆 공영주차장’",
+   "청평면 청평리 79-72: 표준데이터 ‘자투리주차장(5)’ → 군청 안내 ‘가나커피 앞 자투리주차장’",
+   "가평읍 읍내리 969-2: 표준데이터 ‘자투리주차장(4)’ → 군청 안내 ‘읍내10리 마을회관 앞 자투리주차장’",
+   "가평읍 읍내리 767-3: 표준데이터 ‘자투리주차장(3)’ → 군청 안내 ‘블루핀아파트 옆 자투리주차장’",
+   "가평읍 대곡리 255-5: 표준데이터 ‘자투리주차장(2)’ → 군청 안내 ‘가평감자탕 옆 자투리주차장’",
+   "가평읍 달전리 581: 표준데이터 ‘자투리주차장(1)’ → 군청 안내 ‘가평역 옆 자투리주차장’",
+   "북면 백둔리 371-6: 표준데이터 ‘무료 공영주차장(6)’ → 군청 안내 ‘백둔리 공영주차장’",
+   "북면 도대리 661: 표준데이터 ‘무료 공영주차장(5)’ → 군청 안내 ‘도대리 공영주차장’",
+   "조종면 현리 547-24: 표준데이터 ‘무료 공영주차장(4)’ → 군청 안내 ‘복개천 쌈지공원 공영주차장’",
+   "조종면 현리 277-6: 표준데이터 ‘무료 공영주차장(3)’ → 군청 안내 ‘바빈스커피 앞 공영주차장’",
+   "조종면 상판리 565: 표준데이터 ‘무료 공영주차장(2)’ → 군청 안내 ‘상판리 공영주차장’",
+   "청평면 청평리 627-9: 표준데이터 ‘무료 공영주차장(1)’ → 군청 안내 ‘나루마트 뒤 공영주차장’",
+   "조종면 현리 413-7: 표준데이터 ‘조종면 임시공영주차장’ → 군청 안내 ‘조종면 임시 공영주차장’",
+   "청평면 청평리 357-20: 표준데이터 ‘청평면 임시공영주차장(5)’ → 군청 안내 ‘당구장 옆 공영주차장’",
+   "청평면 청평리 356: 표준데이터 ‘청평면 임시공영주차장(4)’ → 군청 안내 ‘마을회관 앞 공영주차장’",
+   "청평면 청평리 633-8: 표준데이터 ‘청평면 임시공영주차장(3)’ → 군청 안내 ‘한라빌라 앞 공영주차장’",
+   "청평면 청평리 319-10: 표준데이터 ‘청평면 임시공영주차장(2)’ → 군청 안내 ‘청우원룸 앞 공영주차장’",
+   "청평면 청평리 79-11: 표준데이터 ‘청평면 임시공영주차장(1)’ → 군청 안내 ‘365할인마트 옆 공영주차장’",
+   "설악면 신천리 492-8: 표준데이터 ‘설악면 임시공영주차장(2)’ → 군청 안내 ‘미원초 앞 공영주차장’",
+   "설악면 신천리 438-2: 표준데이터 ‘설악면 임시공영주차장(1)’ → 군청 안내 ‘천원교회 옆 공영주차장’",
+   "가평읍 대곡리 95-2: 표준데이터 ‘가평읍 임시공영주차장(7)’ → 군청 안내 ‘가평고등학교 앞 공영주차장’",
+   "가평읍 읍내리 780-1: 표준데이터 ‘가평읍 임시공영주차장(6)’ → 군청 안내 ‘정명힐탑빌라 옆 공영주차장’",
+   "가평읍 읍내리 468-36: 표준데이터 ‘가평읍 임시공영주차장(5)’ → 군청 안내 ‘수도측량 옆 공영주차장’",
+   "가평읍 달전리 601: 표준데이터 ‘가평읍 임시공영주차장(4)’ → 군청 안내 ‘가평역 뒤 공영주차장’",
+   "가평읍 읍내리 616: 표준데이터 ‘가평읍 임시공영주차장(3)’ → 군청 안내 ‘한국전력 옆 공영주차장’",
+   "가평읍 읍내리 426-17: 표준데이터 ‘가평읍 임시공영주차장(2)’ → 군청 안내 ‘준일주택 옆 공영주차장’",
+   "가평읍 읍내리 495-37: 표준데이터 ‘가평읍 임시공영주차장(1)’ → 군청 안내 ‘기록관 옆 공영주차장’",
+   "조종면 운악리 452-1: 표준데이터 ‘운악산 주차장’ → 군청 안내 ‘운악산 공영주차장’"
+  ],
+  "급지_보정": [],
+  "무료시간_보정": [
+   "가평읍 노상주차장 10구간: 표준데이터 최초 60분 무료 ↔ 군청 안내 최초 120분 무료(군청 값 적용)"
+  ],
+  "군청만_등록": [
+   "문화로(한석봉체육관 맞은편) 공영주차장(가평읍 대곡리 301-1, 24면, 유료)",
+   "투썸플레이스 옆 주차장(설악면 신천리 574-9, 20면, 무료)"
+  ],
+  "감면_출처": "「가평군 주차장 설치 및 관리 조례」 제4조 · 가평군청 감면대상 안내",
+  "무료시간_출처": "별표1(최초 1시간 이내 무료) · 군청 안내 ‘최초 2시간 무료’ 5곳",
+  "주말무료_출처": "없음 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에도 주말 무료 개방 표기가 없다",
+  "일요일_무료표기": [],
+  "무료개방_표기": [],
+  "무료_요금구분": 25,
+  "무료_구획수": 743,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "좌표_없음": [],
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17"
+  ]
+ },
+ "fee_table": {
+  "style": "gapyeong_grade",
+  "unit_min": 30,
+  "free_min": 60,
+  "free2_min": 120,
+  "paid_window": {
+   "start": "09:00",
+   "end": "18:00"
+  },
+  "open_hours": "연중 24시간",
+  "rows": [
+   {
+    "grade": 1,
+    "where": "도시지역(가평읍 시가지 등)",
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "grade": 2,
+    "where": "1급지 외 관내 전 지역",
+    "free": 60,
+    "unit": 300,
+    "day": 3000,
+    "month": 30000
+   }
+  ],
+  "park": {
+   "car": 2000,
+   "bus": 4000,
+   "month1": 50000,
+   "month2": 30000,
+   "month_bus1": 90000,
+   "month_bus2": 50000
+  },
+  "corp": {
+   "paid": 24,
+   "free": 25,
+   "free_spaces": 743,
+   "free2": [
+    "가평읍 노상주차장 10구간",
+    "레일바이크 공영주차장",
+    "조종면 공영주차장",
+    "조종면 임시 공영주차장",
+    "청평면 공영주차장(1구역)",
+    "청평면 공영주차장(2구역)"
+   ]
+  },
+  "lots": [
+   {
+    "name": "가평역세권 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "기록관 옆 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "레일바이크 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 120,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "수도측량 옆 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "어린이음악놀이터 옆 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "한국국토정보공사 옆 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "한국전력 옆 공영주차장",
+    "dong": "가평읍",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "설악면 공영주차장",
+    "dong": "설악면",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "운악산 공영주차장",
+    "dong": "조종면",
+    "ptype": "노외",
+    "grade": 2,
+    "free": null,
+    "unit": 2000,
+    "day": 2000,
+    "month": 30000
+   },
+   {
+    "name": "조종면 공영주차장",
+    "dong": "조종면",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 120,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "조종면 임시 공영주차장",
+    "dong": "조종면",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 120,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "청평면 공영주차장(1구역)",
+    "dong": "청평면",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 120,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "청평면 공영주차장(2구역)",
+    "dong": "청평면",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 120,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "청평역 공영주차장",
+    "dong": "청평면",
+    "ptype": "노외",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 10구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 120,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 1구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 3구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 4구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 5구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 6구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 7구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 8구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   },
+   {
+    "name": "가평읍 노상주차장 9구간",
+    "dong": "가평읍",
+    "ptype": "노상",
+    "grade": 1,
+    "free": 60,
+    "unit": 500,
+    "day": 5000,
+    "month": 50000
+   }
+  ],
+  "basis": "「가평군 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금(시행 2025-05-19 · 경기도가평군조례 제3303호(일부개정) · 별표1 공영주차장 주차요금) · 제10조① 주차요금 적용시간 09:00~18:00 · 가평군청 공영주차장 안내(2026-11-17 확인)"
+ },
+ "slug": "gapyeong",
+ "province": "경기도",
+ "province_slug": "gyeonggi",
+ "dong_page_min_lots": 3,
+ "city": "가평군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "일반 차량",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": ""
+  },
+  {
+   "label": "긴급·공무수행·모범납세자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차(소방·구급 등), 국가·지방자치단체 공무수행(관용) 차량, 외교사절 차량, 모범납세자(표창일부터 1년), 유공납세자·성실납세자 인증서 제시 차량(교부일부터 1년) — 전액 면제"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18 2시간 면제",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "장애인 등록 차량, 국가유공자 상이등급 차량, 고엽제후유증·후유의증 환자 차량, 5·18민주유공자 차량이 운전자·동승자로 탑승한 경우 — 주차시간 2시간 이내 전액 면제"
+  },
+  {
+   "label": "전기·하이브리드차 2시간 면제",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "환경친화적 자동차 표지를 외부에서 알아볼 수 있게 붙이고 전기차 충전시설에서 충전한 전기·하이브리드 자동차 — 주차시간 2시간 이내 전액 면제"
+  },
+  {
+   "label": "전통시장 인접 주차장 2시간 면제",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "전통시장 구역 안 또는 경계도로와 인접한 공영주차장 가운데 군수가 지정한 곳을 이용하는 차량 — 2시간 이내 면제(2025-05-19 신설, 대상 주차장 지정·고시 뒤 적용)"
+  },
+  {
+   "label": "경차·저공해·다자녀 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차, 저공해·환경친화적 자동차(표지 부착), 경기도지사 발급 우수자원봉사자증 제시 차량, 병역명문가 예우대상자 차량, 가평군에 사는 70세 이상 고령운전자, 두 자녀 이상 다자녀가정 우대카드(경기 아이플러스카드 등) 제시 차량, 장기기증자·장기기증희망자 증서 소지 차량 — 50%"
+  },
+  {
+   "label": "승용차 요일제 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "군수 또는 다른 지방자치단체장이 인정하는 승용차 요일제 스티커 부착차량(10인승 이하 비영업용) — 20%"
+  }
+ ],
+ "realtime": false
+}

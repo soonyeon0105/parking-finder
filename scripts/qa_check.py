@@ -3619,6 +3619,165 @@ for _u in ("https://parking.9welfare.com/parking/gyeonggi/gwacheon/",
 
 
 
+# ---------------------------------------------------------------- 가평군 (T-03 Phase 28)
+# 「가평군 주차장 설치 및 관리 조례」 [별표 1](시행 2025-05-19, 경기도가평군조례 제3303호)과
+# 제4조 감면·제10조 운영, 가평군청 공영주차장 안내(2026-08-31 수정 · 2026-11-17 조회):
+#   노상·노외 모두 최초 1시간 무료 → 30분마다 1급지 500원·2급지 300원,
+#   일일주차권 5,000·3,000원, 월 정기권 50,000·30,000원, 요금 적용시간 09:00~18:00(연중 24시간 운영).
+#   공원시설·휴양지·유원지 노외(운악산)는 일일주차권 승용차 2,000원·버스 4,000원.
+gp_cards = [l for l in LOTS if l.get("city") == "가평군" and l.get("list_mode") == "card"]
+gp_paid = [l for l in gp_cards if l["fee"]["type"] == "유료"]
+gp_free = [l for l in gp_cards if l["fee"]["type"] == "무료"]
+gp_by = {l["name"]: l for l in gp_cards}
+gp_street = [l for l in LOTS if l.get("city") == "가평군" and l.get("list_mode") == "street"]
+gp_street_paid = [l for l in gp_street if l["fee"]["type"] == "유료"]
+gp_street_by = {l["name"]: l for l in gp_street}
+if not gp_cards:
+    fails.append("가평군 카드 데이터가 없음")
+# 구성: 카드 40곳(유료 15·무료 25) 1,853면 · 노상 9구간 181면(모두 유료)
+if len(gp_cards) != 40 or len(gp_paid) != 15 or len(gp_free) != 25:
+    fails.append(f"가평군 카드 구성이 다름: 카드 {len(gp_cards)} · 유료 {len(gp_paid)} · 무료 {len(gp_free)}")
+if sum(l["spaces"] or 0 for l in gp_cards) != 1853:
+    fails.append(f"가평군 카드 구획 합계가 다름: {sum(l['spaces'] or 0 for l in gp_cards)}")
+if len(gp_street) != 9 or sum(l["spaces"] or 0 for l in gp_street) != 181:
+    fails.append(f"가평군 노상 구간이 다름: {len(gp_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in gp_street)}면")
+if len(gp_street_paid) != 9:
+    fails.append(f"가평군 무료 노상 구간이 있음: {[l['name'] for l in gp_street if l['fee']['type'] != '유료'][:3]}")
+_gp_dongs = {l.get("dong") for l in gp_cards}
+if _gp_dongs != {"가평읍", "청평면", "조종면", "북면", "설악면"} or any(not l.get("dong") for l in gp_cards):
+    fails.append(f"가평군 읍·면 구성이 다름: {sorted(_gp_dongs)}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "가평군"):
+    fails.append("가평군에 민영 주차장이 실려 있음")
+_gp_dup = [k for k, v in Counter(l["name"] for l in gp_cards).items() if v > 1]
+if _gp_dup:
+    fails.append(f"가평군 카드 이름 중복: {_gp_dup[:3]}")
+_gp_q = next(c for c in CITIES if c["city"] == "가평군").get("quality") or {}
+if _gp_q.get("원자료_행수") != 49 or _gp_q.get("제외_행수") != 0:
+    fails.append(f"가평군 원자료 처리가 다름: {_gp_q.get('원자료_행수')}행 · 제외 {_gp_q.get('제외_행수')}")
+# 이름 보정 28건 — 표준데이터의 ‘가평읍 임시공영주차장(1)’·‘자투리주차장(2)’·‘무료 공영주차장(4)’ 등을
+#   군청 안내 이름으로 바꾼 수. 면수 차이 2건, 무료시간 보정 1건(가평읍 10구간), 월정기 차이 1건(운악산).
+if len(_gp_q.get("이름_보정") or []) != 28:
+    fails.append(f"가평군 이름 보정이 28건이 아님: {len(_gp_q.get('이름_보정') or [])}")
+if len(_gp_q.get("면수_차이") or []) != 2:
+    fails.append(f"가평군 면수 차이가 2건이 아님: {_gp_q.get('면수_차이')}")
+if len(_gp_q.get("무료시간_보정") or []) != 1:
+    fails.append(f"가평군 무료시간 보정이 1건이 아님: {_gp_q.get('무료시간_보정')}")
+if len(_gp_q.get("정기권_차이") or []) != 1:
+    fails.append(f"가평군 정기권 차이가 1건이 아님: {_gp_q.get('정기권_차이')}")
+if _gp_q.get("관리번호_중복") or _gp_q.get("이름중복") or _gp_q.get("좌표_없음"):
+    fails.append(f"가평군 원자료 이상: {_gp_q.get('관리번호_중복')} {_gp_q.get('이름중복')}")
+if _gp_q.get("요금구분") != {"무료": 25, "유료": 24}:
+    fails.append(f"가평군 요금 구분이 다름: {_gp_q.get('요금구분')}")
+# 요금 — 시간 요금 주차장 14곳(노외)은 1급지 60분 무료·30분 500원·1일 5,000원·월 50,000원
+for _l in gp_paid:
+    _f = _l["fee"]
+    if _f.get("flat_day"):
+        continue
+    if (_f.get("grade"), _f.get("base_min"), _f.get("base_fee"), _f.get("unit_min"),
+            _f.get("unit_fee"), _f.get("daily_fee"), _f.get("monthly")) != (1, _f.get("free_min"), 0, 30, 500, 5000, 50000):
+        fails.append(f"가평군 {_l['name']} 요금이 별표1 1급지와 다름: {_f.get('grade')} "
+                     f"{_f.get('base_min')}/{_f.get('unit_fee')}/{_f.get('daily_fee')}/{_f.get('monthly')}")
+        break
+# ‘최초 2시간 무료’ 5곳(노외) — 카드와 노상 10구간까지 6곳
+_f2 = sorted(l["name"] for l in LOTS if l.get("city") == "가평군"
+             and l["fee"].get("free_min") == 120)
+if _f2 != sorted(["가평읍 노상주차장 10구간", "청평면 공영주차장(1구역)", "청평면 공영주차장(2구역)",
+                  "조종면 공영주차장", "조종면 임시 공영주차장", "레일바이크 공영주차장"]):
+    fails.append(f"가평군 최초 2시간 무료 주차장이 다름: {_f2}")
+# 운악산 — 공원·휴양지·유원지 노외 일일주차권(승용차 2,000원)·월 2급지 30,000원
+_gp_park = gp_by.get("운악산 공영주차장")
+if not _gp_park or (_gp_park["fee"].get("daily_fee"), _gp_park["fee"].get("monthly"),
+                    bool(_gp_park["fee"].get("flat_day"))) != (2000, 30000, True):
+    fails.append(f"가평군 운악산 일일권 요금이 다름: {_gp_park and _gp_park['fee']}")
+# 계산 표본 — 별표1 본문(최초 60분 무료 → 30분마다 500원, 일일 5,000원)으로 직접 계산한 값
+for _n, _mins, _want in (("가평역세권 공영주차장", 60, 0), ("가평역세권 공영주차장", 61, 500),
+                         ("가평역세권 공영주차장", 90, 500), ("가평역세권 공영주차장", 120, 1000),
+                         ("가평역세권 공영주차장", 180, 2000), ("가평역세권 공영주차장", 300, 4000),
+                         ("가평역세권 공영주차장", 420, 5000), ("가평역세권 공영주차장", 1440, 5000),
+                         ("레일바이크 공영주차장", 120, 0), ("레일바이크 공영주차장", 150, 500),
+                         ("레일바이크 공영주차장", 240, 2000), ("운악산 공영주차장", 60, 2000),
+                         ("운악산 공영주차장", 1440, 2000)):
+    _l = gp_by.get(_n)
+    if not _l:
+        fails.append(f"가평군 표본 주차장이 없음: {_n}")
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"가평군 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 요일 — 토·일·공휴일에도 같은 요금(조례 제10조①) · 야간도 같은 계산(요금 적용시간은 문구로 안내)
+for _l in gp_paid:
+    _w = price_for(_l, 120, "weekday")
+    for _d in ("sat", "sun"):
+        _r = price_for(_l, 120, _d)
+        if _r["state"] != _w["state"] or _r.get("amount") != _w.get("amount"):
+            fails.append(f"가평군 {_l['name']} {_d} 계산이 평일과 다름(주말 무료 아님)")
+            break
+if price_for(gp_street_by["가평읍 노상주차장 10구간"], 120, "weekday")["state"] != "free":
+    fails.append("가평군 노상 10구간은 최초 2시간 무료여야 함")
+if price_for(gp_street_by["가평읍 노상주차장 1구간"], 120, "weekday").get("amount") != 1000:
+    fails.append("가평군 노상 1구간 2시간이 1,000원이 아님")
+# 무료 25곳 — 요일과 관계없이 무료
+for _l in gp_free:
+    if any(price_for(_l, 120, _d)["state"] != "free" for _d in ("weekday", "sat", "sun")):
+        fails.append(f"가평군 무료 주차장 {_l['name']}이 무료로 계산되지 않음")
+        break
+# 감면표 — 전액(1.0)·2시간 면제(120분)·50%·20% 항목
+_gp_disc = next(c for c in CITIES if c["city"] == "가평군").get("discounts") or []
+if not any(d["rate"] == 1.0 and not d.get("exempt_min") for d in _gp_disc):
+    fails.append("가평군 감면표에 전액 면제 항목이 없음")
+if not any(d["rate"] == 1.0 and d.get("exempt_min") == 120 for d in _gp_disc):
+    fails.append("가평군 감면표에 2시간 이내 면제 항목이 없음")
+if sum(1 for d in _gp_disc if d["rate"] == 0.5) < 1:
+    fails.append("가평군 감면표에 50% 항목이 없음")
+if not any(d["rate"] == 0.2 for d in _gp_disc):
+    fails.append("가평군 감면표에 20% 항목이 없음")
+# 페이지 — 군 허브 · 읍·면 5곳 · 노상
+_gp_root = DIST / "parking" / "gyeonggi" / "gapyeong"
+_gp_hub = _gp_root / "index.html"
+if not _gp_hub.exists():
+    fails.append("가평군 군 페이지 없음")
+else:
+    _gp_html = _gp_hub.read_text()
+    for label in ("가평군 급지별 주차요금표", "최초 60분 무료", "30분당", "일일주차권", "월 정기권",
+                  "최초 2시간 무료 6곳", "09:00~18:00", "연중 24시간", "8,000원" if False else "5,000원",
+                  "2025-05-19", "031-580-2075", "가평군 공영주차장 40곳", "운악산 공영주차장",
+                  "가평역세권 공영주차장", "가평군 주말·공휴일 운영"):
+        if label not in _gp_html:
+            fails.append(f"가평군 군 페이지에 {label} 없음")
+    if _gp_html.count('class="card lot') != len(gp_cards):
+        fails.append(f"가평군 군 페이지 카드 수 불일치({_gp_html.count(chr(34) + 'card lot')} vs {len(gp_cards)})")
+    if "&lt;b&gt;" in _gp_html:
+        fails.append("가평군 군 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _gp_html or "nan" in _gp_html:
+        fails.append("가평군 군 페이지에 None/nan 문자열이 보임")
+_gp_st_page = _gp_root / "street-parking" / "index.html"
+if not _gp_st_page.exists():
+    fails.append("가평군 노상 페이지 없음")
+else:
+    _gp_st = _gp_st_page.read_text()
+    for label in ("가평읍 노상주차장 1구간", "보인빌라~오리보양식", "기사식당~장터해장국", "181면",
+                  "최초 1시간 무료", "09:00~18:00"):
+        if label not in _gp_st:
+            fails.append(f"가평군 노상 페이지에 {label} 없음")
+    if "&lt;b&gt;" in _gp_st:
+        fails.append("가평군 노상 페이지에 이스케이프된 <b> 태그가 보임")
+for _slug, _n in (("gapyeong-eup", 16), ("cheongpyeong-myeon", 11), ("jojong-myeon", 6),
+                  ("buk-myeon", 4), ("seolak-myeon", 3)):
+    _p = _gp_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"가평군 읍·면 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"가평군 {_slug} 카드 수 불일치({_p.read_text().count(chr(34) + 'card lot')} ≠ {_n})")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/gapyeong/",
+           "https://parking.9welfare.com/parking/gyeonggi/gapyeong/street-parking/",
+           "https://parking.9welfare.com/parking/gyeonggi/gapyeong/gapyeong-eup/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"가평군 주소가 사이트맵에 없음: {_u}")
+
+
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")

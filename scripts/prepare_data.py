@@ -375,6 +375,9 @@ CITY_META = {
               "dong_page_min_lots": 3},
     "과천시": {"slug": "gwacheon", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    # 가평군 — 자치구·시가 아닌 군이라 슬러그는 gapyeong, 경로는 /parking/gyeonggi/gapyeong/.
+    "가평군": {"slug": "gapyeong", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -6544,8 +6547,10 @@ def check_quality_gimpo(std_all, rows, lots, excluded, merged, hour_fixed, grade
         "운영시간_보정": hour_fixed,
         "급지_보정": grade_fixed,
         "등록값_차이": fee_diff,
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
@@ -7201,8 +7206,10 @@ def check_quality_paju(std_all, rows, lots, excluded, merged, hour_fixed, grade_
         "운영시간_보정": hour_fixed,
         "급지_보정": grade_fixed,
         "등록값_차이": fee_diff,
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
@@ -7237,7 +7244,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -7726,8 +7733,10 @@ def check_quality_gwangju(std_all, rows, lots, excluded, merged, hour_fixed, gra
         "급지_보정": grade_fixed,
         "등록값_차이": fee_diff,
         "포털_유료_차이": portal_paid_diff,
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
@@ -9755,8 +9764,10 @@ def check_quality_gwangmyeong(std_all, rows, lots, excluded, merged, hour_fixed,
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -10275,8 +10286,10 @@ def check_quality_guri(std_all, rows, lots, excluded, merged, hour_fixed, space_
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -11555,8 +11568,10 @@ def check_quality_icheon(std_all, rows, lots, excluded, merged, hour_fixed, spac
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -12177,8 +12192,10 @@ def check_quality_anseong(std_all, rows, lots, excluded, merged, hour_fixed, spa
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -12848,8 +12865,10 @@ def check_quality_yangju(std_all, rows, lots, excluded, merged, private, hour_fi
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -13419,8 +13438,10 @@ def check_quality_pocheon(std_all, rows, lots, excluded, merged, hour_fixed, spa
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len(free),
         "무료_구획수": sum(l["spaces"] or 0 for l in free),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -14245,8 +14266,10 @@ def check_quality_uiwang(std_all, rows, lots, excluded, merged, hour_fixed, spac
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len(free),
         "무료_구획수": sum(l["spaces"] or 0 for l in free),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -14966,8 +14989,10 @@ def check_quality_yeoju(std_all, rows, lots, excluded, merged, hour_fixed, space
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len(free),
         "무료_구획수": sum(l["spaces"] or 0 for l in free),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -15653,8 +15678,10 @@ def check_quality_dongducheon(std_all, rows, lots, excluded, merged, hour_fixed,
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len(free),
         "무료_구획수": sum(l["spaces"] or 0 for l in free),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -16384,8 +16411,10 @@ def check_quality_gwacheon(std_all, rows, lots, excluded, merged, hour_fixed, sp
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "무료_요금구분": len(free),
         "무료_구획수": sum(l["spaces"] or 0 for l in free),
-        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
-                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
         "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
         "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
@@ -16398,12 +16427,640 @@ def check_quality_gwacheon(std_all, rows, lots, excluded, merged, hour_fixed, sp
     }
 
 
+# ---------------------------------------------------------------- 가평군 (T-03 Phase 28)
+GP_PROVIDER = "경기도 가평군"
+# 가평군은 읍·면 아래 ‘리’가 있지만, 표준데이터 주소의 지역 낱말은 읍·면이다.
+#   자치구가 없어 군 페이지가 계산기·목록 페이지를 겸하고, 그 아래 읍·면 페이지를 둔다.
+#   (가평읍·설악면·청평면·상면·조종면·북면 가운데 표준데이터에 주차장이 있는 곳만 페이지가 된다.)
+GP_DISTRICTS = [("가평군", "gapyeong")]
+GP_BBOX = (37.60, 38.10, 127.25, 127.60)   # 가평군 대략 경계(좌표 점검용)
+GP_UNIT_SUFFIX = ("읍", "면")
+
+GP_ORDINANCE_URL = "https://law.go.kr/LSW/ordinInfoP.do?ordinSeq=2039645"
+GP_CITY_URL = "https://www.gp.go.kr/portal/contents.do?key=2506"
+GP_ORD1 = RAW / "law.go.kr_가평군주차장조례_별표1_20261117.hwp"
+GP_ORD1_TXT = RAW / "law.go.kr_가평군주차장조례_별표1_20261117.txt"
+GP_CITY_TXT = RAW / "gp.go.kr_공영주차장_20261117.txt"
+GP_ORDINANCE_NOTE = ("시행 2025-05-19 · 경기도가평군조례 제3303호(일부개정) · "
+                     "별표1 공영주차장 주차요금")
+GP_FREE_MIN = 60           # 별표1 ‘최초 1시간 이내 무료’
+GP_FREE2_MIN = 120         # 군청 안내 ‘최초 2시간 무료’ 5곳(가평읍 10구간·청평면 1·2구역·조종면·조종면 임시·레일바이크)
+GP_UNIT_MIN = 30           # 1시간 초과시 30분마다
+GP_PAID_START = 9 * 60     # 조례 제10조① 주차요금 적용시간 09:00~18:00
+GP_PAID_END = 18 * 60
+
+# 가평군 공영주차장 요금 — 「가평군 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금
+#   (시행 2025-05-19, 경기도가평군조례 제3303호, 별표1 HWP의 표와 비고를 읽음).
+#   · 노상·노외 같은 표: 1급지 최초 1시간 무료 → 30분마다 500원 · 일일주차권 5,000원 · 월 정기 50,000원
+#                          2급지 최초 1시간 무료 → 30분마다 300원 · 일일주차권 3,000원 · 월 정기 30,000원
+#   · 공원시설·휴양지·유원지의 노외: 승용차·승합차·4톤 이하 화물차 일일 2,000원(월 1급지 50,000·2급지 30,000원),
+#     버스(관광버스)·4톤 초과 화물차 일일 4,000원(월 90,000·50,000원), 정기버스 무료 — 시간 요금 없이 일일권만 받는다.
+#   · 비고2: 1급지 = 「국토의 계획 및 이용에 관한 법률」에 따른 용도지역 중 도시지역, 2급지 = 그 밖의 관내 전 지역.
+#   · 비고3: 별표1 금액은 상한이고 차종에 따라 조정할 수 있다. 비고5: 공원·휴양지·유원지 주차장은 선불 징수 가능.
+#   · 조례 제10조①: 운영시간은 연중 24시간, 주차요금 적용시간은 09:00~18:00(2025-05-19 전문개정).
+#   · 조례 제10조②: 토요일·공휴일에 군수가 필요하다고 인정하면 지역주민 무료 개방할 수 있다(의무 아님).
+GP_FEES = {
+    1: {"unit": 500, "day": 5_000, "month": 50_000, "where": "도시지역"},
+    2: {"unit": 300, "day": 3_000, "month": 30_000, "where": "1급지 외 관내 전 지역"},
+}
+GP_PARK_DAY = {"car": 2_000, "bus": 4_000}   # 공원시설·휴양지·유원지 노외 일일주차권
+# 군청 공영주차장 안내(2026-08-31 수정 · 2026-11-17 조회)가 개별 이름 없이 등록된 주차장에 붙인 이름.
+#   표준데이터 등록명은 ‘가평읍 임시공영주차장(1)’·‘자투리주차장(2)’·‘무료 공영주차장(4)’처럼 번호뿐이라
+#   같은 주차장을 가리키는 군청 이름을 카드 이름으로 쓰고, 등록명을 카드에 함께 적는다.
+GP_NAME_BY_JIBUN = {
+    "가평읍 읍내리 426-17": "준일주택 옆 공영주차장",
+    "가평읍 읍내리 780-1": "정명힐탑빌라 옆 공영주차장",
+    "가평읍 읍내리 767-3": "블루핀아파트 옆 자투리주차장",
+    "가평읍 읍내리 969-2": "읍내10리 마을회관 앞 자투리주차장",
+    "가평읍 대곡리 95-2": "가평고등학교 앞 공영주차장",
+    "가평읍 대곡리 255-5": "가평감자탕 옆 자투리주차장",
+    "가평읍 달전리 601": "가평역 뒤 공영주차장",
+    "가평읍 달전리 581": "가평역 옆 자투리주차장",
+    "가평읍 읍내리 495-37": "기록관 옆 공영주차장",
+    "가평읍 읍내리 616": "한국전력 옆 공영주차장",
+    "가평읍 읍내리 468-36": "수도측량 옆 공영주차장",
+    "가평읍 읍내리 488-2": "한국국토정보공사 옆 공영주차장",
+    "설악면 신천리 438-2": "천원교회 옆 공영주차장",
+    "설악면 신천리 492-8": "미원초 앞 공영주차장",
+    "청평면 청평리 79-11": "365할인마트 옆 공영주차장",
+    "청평면 청평리 319-10": "청우원룸 앞 공영주차장",
+    "청평면 청평리 633-8": "한라빌라 앞 공영주차장",
+    "청평면 청평리 356": "마을회관 앞 공영주차장",
+    "청평면 청평리 357-20": "당구장 옆 공영주차장",
+    "청평면 청평리 627-9": "나루마트 뒤 공영주차장",
+    "청평면 청평리 79-72": "가나커피 앞 자투리주차장",
+    "조종면 상판리 565": "상판리 공영주차장",
+    "조종면 현리 277-6": "바빈스커피 앞 공영주차장",
+    "조종면 현리 547-24": "복개천 쌈지공원 공영주차장",
+    "조종면 현리 413-7": "조종면 임시 공영주차장",
+    "북면 백둔리 371-6": "백둔리 공영주차장",
+    "북면 도대리 661": "도대리 공영주차장",
+    "조종면 운악리 452-1": "운악산 공영주차장",
+}
+# 군청 안내가 ‘최초 2시간 무료’로 적은 주차장(표준데이터는 이 가운데 네 곳만 기본시간 120분으로 등록).
+GP_FREE2 = {
+    "가평읍 노상주차장 10구간", "청평면 공영주차장(1구역)", "청평면 공영주차장(2구역)",
+    "조종면 공영주차장", "조종면 임시 공영주차장", "레일바이크 공영주차장",
+}
+# 군청 안내의 노상 구간 설명(도로 열) — 표준데이터는 구간 번호만 등록했다.
+GP_STREET_SEG = {
+    "가평읍 노상주차장 1구간": "보인빌라~오리보양식",
+    "가평읍 노상주차장 3구간": "가평군청~영화해물찜",
+    "가평읍 노상주차장 4구간": "이모네식당~광고물협회",
+    "가평읍 노상주차장 5구간": "가평J족발~가평카센터",
+    "가평읍 노상주차장 6구간": "송원막국수~국수사랑",
+    "가평읍 노상주차장 7구간": "인천집~가평철물",
+    "가평읍 노상주차장 8구간": "국제광고~지역농협",
+    "가평읍 노상주차장 9구간": "세븐일레븐~휴대폰매점",
+    "가평읍 노상주차장 10구간": "기사식당~장터해장국",
+}
+# 군청 안내와 등록면수가 다른 곳 — 등록면수를 쓰고 카드에 차이를 적는다.
+GP_CITY_SPACES = {"조종면 공영주차장": 55, "복개천 쌈지공원 공영주차장": 59}
+# 군청 안내에만 있고 표준데이터에는 없는 주차장(좌표가 없어 카드로 만들지 않는다).
+GP_CITY_ONLY = [
+    ("문화로(한석봉체육관 맞은편) 공영주차장", "가평읍 대곡리 301-1", 24, "유료"),
+    ("투썸플레이스 옆 주차장", "설악면 신천리 574-9", 20, "무료"),
+]
+
+# 가평군 주차요금 감면 — 「가평군 주차장 설치 및 관리 조례」 제4조(공영주차장 주차요금의 감면 등).
+#   ① 긴급자동차·공무수행(관용)·외교사절·모범납세자(1년)·유공납세자·성실납세자(1년) 전액 면제
+#   ② 장애인·국가유공자 상이등급·고엽제·5·18민주유공자(운전·동승)와 전기·하이브리드차(충전 시),
+#      전통시장 인접 지정 공영주차장 이용차량 — 주차시간 2시간 이내 면제
+#   ③ 경차·저공해·환경친화적 자동차 50%, 승용차 요일제 20%, 우수자원봉사자·병역명문가·
+#      70세 이상 고령운전자·다자녀가정·장기기증자 50%
+#   ⑤ 감면사유가 둘 이상이면 감면율이 높은 하나만 적용, 100원 미만 절사
+GP_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "긴급·공무수행·모범납세자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차(소방·구급 등), 국가·지방자치단체 공무수행(관용) 차량, 외교사절 차량, "
+              "모범납세자(표창일부터 1년), 유공납세자·성실납세자 인증서 제시 차량(교부일부터 1년) — 전액 면제")},
+    {"label": "장애인·국가유공자·고엽제·5·18 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": ("장애인 등록 차량, 국가유공자 상이등급 차량, 고엽제후유증·후유의증 환자 차량, "
+              "5·18민주유공자 차량이 운전자·동승자로 탑승한 경우 — 주차시간 2시간 이내 전액 면제")},
+    {"label": "전기·하이브리드차 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": ("환경친화적 자동차 표지를 외부에서 알아볼 수 있게 붙이고 전기차 충전시설에서 충전한 "
+              "전기·하이브리드 자동차 — 주차시간 2시간 이내 전액 면제")},
+    {"label": "전통시장 인접 주차장 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": ("전통시장 구역 안 또는 경계도로와 인접한 공영주차장 가운데 군수가 지정한 곳을 이용하는 "
+              "차량 — 2시간 이내 면제(2025-05-19 신설, 대상 주차장 지정·고시 뒤 적용)")},
+    {"label": "경차·저공해·다자녀 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("경형자동차, 저공해·환경친화적 자동차(표지 부착), 경기도지사 발급 우수자원봉사자증 제시 차량, "
+              "병역명문가 예우대상자 차량, 가평군에 사는 70세 이상 고령운전자, 두 자녀 이상 다자녀가정 "
+              "우대카드(경기 아이플러스카드 등) 제시 차량, 장기기증자·장기기증희망자 증서 소지 차량 — 50%")},
+    {"label": "승용차 요일제 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "군수 또는 다른 지방자치단체장이 인정하는 승용차 요일제 스티커 부착차량(10인승 이하 비영업용) — 20%"},
+]
+
+
+def gp_dong_of(text: str):
+    """주소에서 가평군 읍·면을 뽑는다 — ‘경기도 가평군 ○○읍|○○면 번지’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "가평군":
+        cand = parts[2]
+        if cand.endswith(GP_UNIT_SUFFIX):
+            return cand
+    return None
+
+
+def gp_hm(m: int) -> str:
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def gp_window(start=GP_PAID_START, end=GP_PAID_END):
+    """주차요금 적용시간(09:00~18:00)을 hours 셀 모양으로 만든다."""
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [gp_hm(start), gp_hm(end)]}
+
+
+def gp_fee(grade: int = 1, ptype: str = "노외", pay: str = "", *, free_min=GP_FREE_MIN,
+           monthly=None, daily=None):
+    """가평군 공영주차장 시간 요금 → 사이트 공통 fee 객체.
+
+    별표1은 ‘최초 1시간 이내 무료 → 1시간이 지나면 30분마다 500원(1급지)’이다. 그래서
+    base 60분 0원·30분 단위 500원으로 넣는다(60분까지 0원, 61~90분 500원, 91~120분 1,000원).
+    군청이 ‘최초 2시간 무료’로 적은 곳은 base 120분 0원으로 넣는다.
+    """
+    t = GP_FEES[grade]
+    month = t["month"] if monthly is None else monthly
+    day = t["day"] if daily is None else daily
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "grade_label": f"{grade}급지", "std_grade": None,
+        "base_min": free_min, "base_fee": 0,
+        "unit_min": GP_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": free_min, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 일일주차권",
+        "daily_hours": 24, "daily_fee": day,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": month, "monthly_day": None, "monthly_night": None, "monthly_all": month,
+        "monthly_label": None, "pay": pay,
+        "basis": (f"「가평군 주차장 설치 및 관리 조례」 별표1 {grade}급지 {ptype} "
+                  f"(최초 {free_min}분 무료 · {GP_UNIT_MIN}분당 {t['unit']:,}원 · "
+                  f"일일주차권 {day:,}원 · 월 정기 {month:,}원)"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def gp_park_fee(pay: str = ""):
+    """공원시설·휴양지·유원지 노외주차장의 일일주차권(승용차 2,000원) 요금 객체."""
+    day = GP_PARK_DAY["car"]
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": 2, "grade_label": "2급지(공원·휴양지·유원지)", "std_grade": None,
+        "base_min": 1440, "base_fee": day, "unit_min": 1440, "unit_fee": day,
+        "steps": None, "steps_label": None,
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 일일주차권(공원·휴양지·유원지)",
+        "daily_hours": 24, "daily_fee": day,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": GP_FEES[2]["month"], "monthly_day": None, "monthly_night": None,
+        "monthly_all": GP_FEES[2]["month"], "monthly_label": None, "pay": pay,
+        "basis": ("「가평군 주차장 설치 및 관리 조례」 별표1 공원시설·휴양지·유원지 노외주차장 "
+                  "일일주차권 승용차·승합차·화물차(4톤 이하) 2,000원"),
+        "category": "tourist", "portal_free_now": False, "flat_day": True,
+        "ticket_only": False, "std": None,
+    }
+
+
+def gp_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_gapyeong():
+    """가평군 공영주차장을 표준데이터 + 가평군 주차장 조례 별표1·제4조 + 군청 공영주차장 안내로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 가평군 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 49행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 가평군은 자치구가 없어 군 페이지가 계산기·목록 페이지를 겸하고, 그 아래 읍·면 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 읍·면 페이지는 카드가 3곳 이상인 읍·면만 만든다(빈 페이지 방지).
+    요금은 조례 별표1(최초 1시간 무료 → 30분마다 500원, 일일 5,000원, 월 50,000원)을 쓰고,
+    요금 적용시간은 조례 제10조①(09:00~18:00)로 정리한다(표준데이터는 유료 행도 00:00~23:59로 등록).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GP_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    name_fixed, grade_fixed, free2_fixed = [], [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None, road_group=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "가평군",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and gp_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and gp_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": road_group if street else None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "가평군청 교통지도팀",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["free_min"] if fee["type"] == "유료" else None),
+            "city": "가평군",
+            "city_slug": "gapyeong",
+        })
+
+    for r in rows_city:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (GP_BBOX[0] <= lat <= GP_BBOX[1] and GP_BBOX[2] <= lng <= GP_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+
+        key = jibun.replace(GP_PROVIDER + " ", "")
+        name = GP_NAME_BY_JIBUN.get(key, std_name)
+        if name != std_name:
+            name_fixed.append(f"{key}: 표준데이터 ‘{std_name}’ → 군청 안내 ‘{name}’")
+
+        dong = gp_dong_of(jibun) or gp_dong_of(road)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        std_grade = (r.get("급지구분") or "").strip()
+        grade = min(max(to_int(std_grade) or 1, 1), 2)     # 조례 별표1은 1·2급지다
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        road_group = GP_STREET_SEG.get(name) if street else None
+
+        paid = fee_type in ("유료", "혼합")
+        if paid:
+            # 공원시설·휴양지·유원지 노외주차장(운악산)은 시간 요금 없이 일일주차권만 받는다.
+            park_lot = (("휴양지" in std_name) or ("운악산" in name))
+            if park_lot:
+                fee = gp_park_fee(pay=pay)
+                fee["std_grade"] = std_grade or None
+                day_std = to_int(r.get("1일주차권요금")) or 0
+                month_std = to_int(r.get("월정기권요금")) or 0
+                if day_std and day_std != GP_PARK_DAY["car"]:
+                    note_fixed.append(f"{name}: 표준데이터 1일 {day_std:,}원 ↔ 별표1 일일주차권 "
+                                      f"{GP_PARK_DAY['car']:,}원")
+                if month_std and month_std != GP_FEES[2]["month"]:
+                    month_diff.append(f"{name}: 표준데이터 월정기 {month_std:,}원 ↔ 별표1 2급지 "
+                                      f"{GP_FEES[2]['month']:,}원(1급지 값으로 등록됨)")
+                win = {"weekday": gp_window(0, 24 * 60), "sat": gp_window(0, 24 * 60),
+                       "sun": gp_window(0, 24 * 60)}
+                for k in win:
+                    win[k]["24h"] = True
+                oper = {"weekday": True, "sat": True, "sun": True}
+                notice_bits.append(
+                    "공원시설·휴양지·유원지 노외주차장이라 시간 요금 없이 일일주차권을 받습니다 — "
+                    f"승용차·승합차·화물차(4톤 이하) {GP_PARK_DAY['car']:,}원, 버스(관광버스)·화물차"
+                    f"(4톤 이상) {GP_PARK_DAY['bus']:,}원, 정기버스 무료(별표1·비고5 선불 징수 가능)")
+                notice_bits.append(
+                    f"월 정기권은 조례 별표1의 2급지 값 {GP_FEES[2]['month']:,}원인데, 표준데이터에는 "
+                    f"1급지 값 {month_std:,}원으로 등록되어 있습니다")
+                notice_bits.append("경차는 50% 할인됩니다(표준데이터 특기사항·조례 제4조③1)")
+            else:
+                fmin = GP_FREE2_MIN if name in GP_FREE2 else GP_FREE_MIN
+                fee = gp_fee(grade=grade, ptype=ptype, pay=pay, free_min=fmin)
+                fee["std_grade"] = std_grade or None
+                daily_std = to_int(r.get("1일주차권요금")) or 0
+                month_std = to_int(r.get("월정기권요금")) or 0
+                base_min_std = to_int(r.get("주차기본시간"))
+                base_fee_std = to_int(r.get("주차기본요금"))
+                fee["std"] = {"base_min": base_min_std, "base_fee": base_fee_std,
+                              "unit_min": to_int(r.get("추가단위시간")),
+                              "unit_fee": to_int(r.get("추가단위요금")),
+                              "day": daily_std, "monthly": month_std}
+                if base_min_std and base_min_std != fmin:
+                    free2_fixed.append(
+                        f"{name}: 표준데이터 최초 {base_min_std}분 무료 ↔ 군청 안내 "
+                        f"최초 {fmin}분 무료(군청 값 적용)")
+                if (to_int(r.get("추가단위요금")) or 0) and \
+                        (to_int(r.get("추가단위시간")), to_int(r.get("추가단위요금"))) != \
+                        (GP_UNIT_MIN, fee["unit_fee"]):
+                    note_fixed.append(
+                        f"{name}: 표준데이터 추가 {to_int(r.get('추가단위시간')) or '-'}분 "
+                        f"{to_int(r.get('추가단위요금')) or 0:,}원 ↔ 별표1 {GP_UNIT_MIN}분당 "
+                        f"{fee['unit_fee']:,}원")
+                if daily_std and daily_std != fee["daily_fee"]:
+                    note_fixed.append(f"{name}: 표준데이터 1일 {daily_std:,}원 ↔ 별표1 "
+                                      f"{fee['daily_fee']:,}원")
+                if month_std and month_std != (fee["monthly"] or 0):
+                    month_diff.append(f"{name}: 표준데이터 월정기 {month_std:,}원 ↔ 별표1 "
+                                      f"{grade}급지 {fee['monthly']:,}원")
+                # 요금 적용시간은 조례 제10조①(09:00~18:00) — 운영은 연중 24시간이다.
+                win = {"weekday": gp_window(), "sat": gp_window(), "sun": gp_window()}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~"
+                    f"{r.get('평일운영종료시각') or ''} → 조례 제10조① 주차요금 적용시간 "
+                    f"09:00~18:00(운영은 연중 24시간)")
+                free_note = ("운영은 연중 24시간이고 주차요금은 09:00~18:00에만 받습니다 — "
+                             "18:00~익일 09:00은 무료입니다(조례 제10조①)")
+                notice_bits.append(
+                    f"「가평군 주차장 설치 및 관리 조례」 별표1 {grade}급지({GP_FEES[grade]['where']}) "
+                    f"요금입니다 — 최초 {fmin}분 무료, 그 뒤 {GP_UNIT_MIN}분마다 "
+                    f"{fee['unit_fee']:,}원, 일일주차권 {fee['daily_fee']:,}원, 월 정기권 "
+                    f"{fee['monthly']:,}원")
+                if fmin == GP_FREE2_MIN:
+                    notice_bits.append(
+                        "가평군청 공영주차장 안내가 ‘최초 2시간 무료’로 적은 곳입니다 — 2시간까지 0원, "
+                        "그 뒤 30분마다 500원입니다"
+                        + (f"(표준데이터는 이 구간을 최초 {base_min_std}분 무료로 등록해 두었습니다)"
+                           if base_min_std and base_min_std != GP_FREE2_MIN else ""))
+                notice_bits.append(
+                    "토요일·일요일·공휴일에도 같은 요금을 받습니다 — 조례 제10조②는 군수가 필요하다고 "
+                    "인정할 때 지역주민 무료 개방을 할 수 있게만 정하고, 군청 안내에 그런 표기가 없습니다")
+            if std_grade and to_int(std_grade) != grade:
+                grade_fixed.append(f"{name}: 표준데이터 급지 ‘{std_grade}’ → 별표1 {grade}급지")
+        else:
+            fee = gp_free_fee()
+            # 무료 주차장은 표준데이터의 운영시간(대부분 24시간)을 그대로 쓴다.
+            notice_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+            if fee_type and fee_type != "무료":
+                reclassified.append(f"{name}: 요금정보 ‘{fee_type}’ → 무료로 실음")
+
+        if name == "가평읍 공영주차장":
+            notice_bits.append("무인으로 운영하는 주차장입니다(가평군청 안내)")
+        if name in GP_CITY_SPACES and GP_CITY_SPACES[name] != spaces:
+            space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 군청 안내 {GP_CITY_SPACES[name]}면")
+            notice_bits.append(
+                f"가평군청 공영주차장 안내의 면수는 {GP_CITY_SPACES[name]}면입니다(표준데이터 등록면수 "
+                f"{spaces}면과 다릅니다)")
+        if name != std_name:
+            notice_bits.append(f"표준데이터 등록명은 ‘{std_name}’입니다 — 가평군청 안내의 이름으로 적었습니다")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "가평군청 교통지도팀"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note, road_group=road_group)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        # 김포시 카드가 ‘gp-’ 접두어를 쓰고 있어 겹치지 않도록 ‘gap-’을 쓴다.
+        l["id"] = f"gap-{i:03d}" if l["list_mode"] == "card" else f"gap-s{i:03d}"
+
+    quality = check_quality_gapyeong(rows_all, rows_city, lots, excluded, merged,
+                                     hour_fixed, space_diff, note_fixed, reclassified,
+                                     month_diff, name_fixed, grade_fixed, free2_fixed)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "가평군"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-23",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 가평군이 등록한 49행(노외 40·노상 9)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다. 요금 구분은 혼합 23행(노외 14·노상 9), "
+                             "유료 1행(운악산), 무료 25행(모두 노외)이다 — ‘혼합’은 최초 1시간(또는 2시간) "
+                             "무료 뒤 30분마다 요금을 받는 운영 방식이다. 급지는 1급지 42행·2급지 7행"
+                             "(무료 4·운악산 1)이다. 노외 40행 가운데 28행은 개별 이름 없이 "
+                             "‘가평읍 임시공영주차장(1)’·‘자투리주차장(2)’·‘무료 공영주차장(4)’처럼 "
+                             "번호로만 등록되어 있어, 군청 공영주차장 안내의 이름으로 적었다. 주차구획수가 "
+                             "비어 있는 껍데기 행은 없었다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": ("「가평군 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금 · "
+                             "제4조 감면 · 제10조 관리·운영"),
+                    "org": "가평군청 건설도시국 교통과(031-580-2074)",
+                    "url": GP_ORDINANCE_URL,
+                    "file": GP_ORD1.name if GP_ORD1.exists() else GP_ORD1_TXT.name,
+                    "sha256": (sha256(GP_ORD1) if GP_ORD1.exists()
+                               else sha256(GP_ORD1_TXT) if GP_ORD1_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": GP_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(GP_ORD1_TXT),
+                    "note": ("국가법령정보센터 자치법규 별표 HWP를 내려받아 표 셀과 비고를 읽어 정리본"
+                             "(txt)을 두었다. 노상·노외 같은 표로 1급지 최초 1시간 무료·30분마다 500원·"
+                             "일일주차권 5,000원·월 정기권 50,000원, 2급지 무료·300원·3,000원·30,000원이고, "
+                             "공원시설·휴양지·유원지 노외주차장은 승용차·승합차·화물차(4톤 이하) 일일 "
+                             "2,000원(월 1급지 50,000·2급지 30,000원), 버스(관광버스)·화물차(4톤 이상) "
+                             "4,000원(월 90,000·50,000원), 정기버스 무료다. 비고2는 1급지를 도시지역, "
+                             "2급지를 그 밖의 관내 전 지역으로 정하고, 비고3은 금액을 상한으로 두며, "
+                             "비고5는 공원·휴양지·유원지 주차장의 선불 징수를 허용한다. 제4조는 전액 면제 "
+                             "5종과 2시간 이내 면제 6종(장애인·국가유공자·고엽제·5·18·전기차·전통시장), "
+                             "50% 감면 6종과 요일제 20%를 정한다. 제10조①은 운영시간을 연중 24시간, "
+                             "주차요금 적용시간을 09:00~18:00으로 정하고(2025-05-19 전문개정), ②는 "
+                             "토요일·공휴일에 군수가 필요하다고 인정할 때 지역주민 무료 개방을 할 수 "
+                             "있게 한다."),
+                },
+                {
+                    "id": "city", "name": "가평군청 공영주차장 안내(요금·감면·유료 25개소·무료 26개소)",
+                    "org": "가평군청 교통지도팀(031-580-2075)",
+                    "url": GP_CITY_URL,
+                    "file": GP_CITY_TXT.name if GP_CITY_TXT.exists() else None,
+                    "sha256": sha256(GP_CITY_TXT) if GP_CITY_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+                    "base_date": "수정 2026-08-31 · 조회 2026-11-17",
+                    "rows_total": 51, "fetched_at": _sync_time(GP_CITY_TXT),
+                    "note": ("유료 공영주차장 25개소(노상 9·노외 16)와 무료 공영주차장 26개소를 주차장명·"
+                             "소재지·주차면수로 적고, 요금 체계(노상·노외 모두 최초 1시간 무료·1시간 초과 "
+                             "30분마다 500원·일일 최대 5,000원·월정기 50,000원)와 ‘최초 2시간 무료’ 5곳"
+                             "(가평읍 10구간·청평면 1·2구역·조종면·조종면 임시·레일바이크), 감면대상 표를 "
+                             "싣는다. 이 가운데 문화로(한석봉체육관 맞은편) 공영주차장(대곡리 301-1, "
+                             "24면)과 투썸플레이스 옆 주차장(신천리 574-9, 20면)은 표준데이터에 없고 "
+                             "좌표도 없어 카드로 만들지 않았다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GP_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "gapyeong_grade",
+            "unit_min": GP_UNIT_MIN,
+            "free_min": GP_FREE_MIN,
+            "free2_min": GP_FREE2_MIN,
+            "paid_window": {"start": gp_hm(GP_PAID_START), "end": gp_hm(GP_PAID_END)},
+            "open_hours": "연중 24시간",
+            "rows": [
+                {"grade": 1, "where": "도시지역(가평읍 시가지 등)",
+                 "free": GP_FREE_MIN, "unit": GP_FEES[1]["unit"],
+                 "day": GP_FEES[1]["day"], "month": GP_FEES[1]["month"]},
+                {"grade": 2, "where": "1급지 외 관내 전 지역",
+                 "free": GP_FREE_MIN, "unit": GP_FEES[2]["unit"],
+                 "day": GP_FEES[2]["day"], "month": GP_FEES[2]["month"]},
+            ],
+            "park": {"car": GP_PARK_DAY["car"], "bus": GP_PARK_DAY["bus"],
+                     "month1": GP_FEES[1]["month"], "month2": GP_FEES[2]["month"],
+                     "month_bus1": 90_000, "month_bus2": 50_000},
+            "corp": {
+                "paid": len([l for l in lots if l["fee"]["type"] == "유료"]),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+                "free2": sorted(GP_FREE2),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade"), "free": l["fee"].get("free_min"),
+                 "unit": l["fee"].get("unit_fee"), "day": l["fee"].get("daily_fee"),
+                 "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「가평군 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금"
+                      f"({GP_ORDINANCE_NOTE}) · 제10조① 주차요금 적용시간 09:00~18:00 · "
+                      "가평군청 공영주차장 안내(2026-11-17 확인)"),
+        },
+    }
+    payload.update(CITY_META["가평군"] | {
+        "city": "가평군",
+        "weekend_free_pages": False,
+        "discounts": GP_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "gapyeong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_gapyeong(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                           note_fixed, reclassified, month_diff, name_fixed, grade_fixed,
+                           free2_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_가평군행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "2시간무료": len([l for l in paid if l["fee"].get("free_min") == GP_FREE2_MIN]),
+        "일일권_정액": [l["name"] for l in paid if l["fee"].get("flat_day")],
+        "정기권_판매": sorted(l["name"] for l in paid if l["fee"].get("monthly")),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "이름_보정": name_fixed,
+        "급지_보정": grade_fixed,
+        "무료시간_보정": free2_fixed,
+        "군청만_등록": [f"{n}({j}, {s}면, {t})" for n, j, s, t in GP_CITY_ONLY],
+        "감면_출처": "「가평군 주차장 설치 및 관리 조례」 제4조 · 가평군청 감면대상 안내",
+        "무료시간_출처": "별표1(최초 1시간 이내 무료) · 군청 안내 ‘최초 2시간 무료’ 5곳",
+        "주말무료_출처": ("없음 — 조례 제10조②는 군수가 필요하다고 인정할 때 지역주민 무료 개방을 "
+                          "할 수 있게만 정하고, 군청 안내에도 주말 무료 개방 표기가 없다"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid
+                                if l["fee"].get("base_fee") and not l["fee"].get("flat_day"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")
+                                        and not l["fee"].get("flat_day")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -16415,7 +17072,8 @@ def main():
              "yangju": ["양주시"], "pocheon": ["포천시"], "uiwang": ["의왕시"],
              "yeoju": ["여주시"],
              "dongducheon": ["동두천시"],
-             "gwacheon": ["과천시"]}[args.city])
+             "gwacheon": ["과천시"],
+             "gapyeong": ["가평군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -16473,6 +17131,8 @@ def main():
         cities.append(build_dongducheon())
     if "과천시" in want:
         cities.append(build_gwacheon())
+    if "가평군" in want:
+        cities.append(build_gapyeong())
 
     if args.city == "all":
         site = build_site_payload(cities)

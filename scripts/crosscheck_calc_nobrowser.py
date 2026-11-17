@@ -95,7 +95,10 @@ street_free = [l for l in street if l["fee"]["type"] == "무료"]
 street_paid = [l for l in street if l["fee"]["type"] == "유료"]
 # 평일에는 요금을 받지 않는 구간(과천시 북문노상주차장 — 평일 무료 개방·토요일·공휴일만 유료)은
 #   평일 계산이 ‘휴무’로 나오는 것이 맞으므로 대조에서 뺀다.
-street_paid_wk = [l for l in street_paid if l["oper"].get("weekday")]
+# 최초 무료시간이 대조 시간(120분) 이상인 구간(가평군 가평읍 10구간 — 최초 2시간 무료)은
+#   120분 계산이 ‘무료’로 나오는 것이 맞으므로 뺀다(데이터 오류 아님 — 검사 전제).
+street_paid_wk = [l for l in street_paid if l["oper"].get("weekday")
+                  and (l["fee"].get("free_min") or 0) < 120]
 street_bad = [l["name"] for l in street_paid_wk
               if price_for(l, 120, "weekday", 0.5)["state"] != "paid"]
 street_free_bad = [l["name"] for l in street_free
