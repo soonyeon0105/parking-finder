@@ -1,0 +1,5458 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 07:46",
+  "generated_at_iso": "2026-11-18T07:46:34+09:00",
+  "snapshot_at": "2026-11-18 07:46",
+  "region": {
+   "province": "부산광역시",
+   "city": "서구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 43,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "서구로 등록된 행 43행(노외·부설 18·노상 25)을 읽어 노외·부설 20곳과 노상 25구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 10분 단위 요금과 1일 주차요금을 그대로 계산한다. 부산시설공단이 직접 운영하는 2곳은 표준데이터에 없어 공단 통합주차포털의 면수·급지·요금을 더했다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「부산광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제3조의2 감면",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2029885",
+    "file": "busan.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "3198af7edba3d6900d621faf219cb28b95962c3ad14a35c3bedb756068ca45c0",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:25 (KST)",
+    "note": "시영(부산시설공단) 공영주차장에 적용하는 요금표다. 1급지(가)·1급지(나)·2~4급지로 나뉘고 1구획 10분마다 700·500·300·200·100원이며, 1일 주차는 21,000·15,000·8,000·4,700·2,400원, 월 주차는 주간 220,000·160,000·90,000·50,000·30,000원·야간 90,000·80,000·70,000·40,000·22,000원이다(3급지는 환승 35,000·비환승 50,000원). 1일·월 주차는 노외주차장과 주간 2~4급지 노상주차장에만 받고, 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제3조의2는 장애인·국가유공자 등 1시간 면제 뒤 50퍼센트, 경차·환경친화·저공해 50퍼센트, 다자녀·임산부 50퍼센트, 전통시장 1시간 면제, 승용차부제 50퍼센트, 모범납세자 1년 면제, 환승 50퍼센트, 상가 할인권 30퍼센트 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「부산광역시 서구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)",
+    "org": "서구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2076017",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-10-01 · 부산광역시서구조례 제1598호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 서구는 시 조례 별표1의 요금을 그대로 쓰고, 조례 제10조의2는 노상주차장을 평일·토요일 11시간 이상 무료로 운영하고 일요일·공휴일에는 종일 무료로 운영하도록 정합니다. 표준데이터에 1일 주차권 요금이 비어 있는 노외 주차장은 조례 별표1의 급지 요금(2급지 8,000원·4급지 2,400원)을 상한으로 계산합니다."
+   },
+   {
+    "id": "city_fee_page",
+    "name": "부산광역시 분야별 통합 ‘주차요금’·감면 안내",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.busan.go.kr/depart/parkinfo0201",
+    "file": "busan.go.kr_주차요금_감면_20261118.txt",
+    "sha256": "9fb7422a2b9cd9de7900e00a8f80b513295fb7a42991cc3d6e0cf861ba177c41",
+    "license": "공공누리 제1유형",
+    "base_date": "최근 업데이트 2025-10-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:27 (KST)",
+    "note": "급지별 요금표와 감면 대상·비율을 조례와 같은 내용으로 싣고 있다(2026-11-18 확인). 표준데이터와 다른 값은 이 표·조례와 대조해 카드에 차이를 적었다."
+   },
+   {
+    "id": "corp_portal",
+    "name": "부산시설공단 통합주차포털 직영 주차장 목록·요금",
+    "org": "부산시설공단(051-860-7700)",
+    "url": "https://bsparking.bisco.or.kr/searchparking",
+    "file": "bsparking.bisco.or.kr_공영주차장_목록_20261118.json",
+    "sha256": "742e53c3b1e55d15fbfec10241f9fbe87fc74e906f5561662fc959825d96d5d2",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "2026-11-18 확인",
+    "rows_total": 2,
+    "fetched_at": "2026-11-18 07:28 (KST)",
+    "note": "부산시설공단이 직접 운영하는 공영주차장 53곳 가운데 이 구의 2곳을 더했다. 주차면수·급지·10분 요금·1일 주차요금·월 정기권·무료시간(10분)·좌표를 포털 내려받기 값 그대로 썼다. 포털의 ‘민간위탁/전통시장’ 주차장은 위탁 운영이라 이 사이트 계산 대상에서 뺐다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "부산 서구",
+   "slug": "seo-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "seo-gu-001",
+   "mgmt_no": "131-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남부민2동공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 남부민동 595-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 149,
+   "tel": "051-240-4555",
+   "lat": 35.08369899,
+   "lng": 129.0211272,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-002",
+   "mgmt_no": "131-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "등대시장공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 남부민동 632-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "051-240-4512",
+   "lat": 35.08429018,
+   "lng": 129.0227413,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-003",
+   "mgmt_no": "131-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천해로공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 남부민동 434-227",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "051-240-4555",
+   "lat": 35.08407811,
+   "lng": 129.0161998,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-004",
+   "mgmt_no": "131-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무동새벽시장공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 남부민동 685-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "051-240-4555",
+   "lat": 35.092783,
+   "lng": 129.0249253,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-005",
+   "mgmt_no": "131-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해돋이공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 남부민동 50-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 101,
+   "tel": "051-240-4555",
+   "lat": 35.091305,
+   "lng": 129.0211395,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-006",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "동대신동",
+   "gu": "부산 서구",
+   "dong": "동대신동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 동대신동3가 258-212",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "051-860-7786",
+   "lat": 35.116641,
+   "lng": 129.020013,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 무인 운영 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-007",
+   "mgmt_no": "131-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "망양공영",
+   "gu": "부산 서구",
+   "dong": "동대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 동대신동1가 11-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 101,
+   "tel": "051-240-4512",
+   "lat": 35.11160047,
+   "lng": 129.0251193,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-008",
+   "mgmt_no": "131-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북산리공영",
+   "gu": "부산 서구",
+   "dong": "동대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 동대신동2가 79-39",
+   "addr_road": "",
+   "road": null,
+   "spaces": 99,
+   "tel": "051-240-4512",
+   "lat": 35.11450349,
+   "lng": 129.0241822,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-009",
+   "mgmt_no": "",
+   "src": "공단 안내",
+   "list_mode": "card",
+   "name": "중앙공원",
+   "gu": "부산 서구",
+   "dong": "동대신동",
+   "dong_src": "공단 안내",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "부산광역시 서구 망양로193번길 187",
+   "road": null,
+   "spaces": 101,
+   "tel": "051-860-7759",
+   "lat": 35.112963,
+   "lng": 129.027834,
+   "base_date": "2026-11-18",
+   "manager": "부산시설공단",
+   "note": "",
+   "notice": "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·요금을 썼습니다 · 도로명주소만 공개되어 있어 법정동은 공원 위치(동대신동)로 적었습니다 · 부산시설공단 주차장은 최초 10분이 무료입니다(포털 요금 설정) · 시영(부산시설공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": 10,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-010",
+   "mgmt_no": "131-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부민동공영",
+   "gu": "부산 서구",
+   "dong": "부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 부민동3가 56",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "051-240-4512",
+   "lat": 35.10249017,
+   "lng": 129.0167617,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-011",
+   "mgmt_no": "131-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부민동제2공영",
+   "gu": "부산 서구",
+   "dong": "부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 부민동3가 36-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "051-240-4512",
+   "lat": 35.10334257,
+   "lng": 129.0177433,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-012",
+   "mgmt_no": "131-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고운들공영",
+   "gu": "부산 서구",
+   "dong": "서대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 서대신동2가 509-233",
+   "addr_road": "",
+   "road": null,
+   "spaces": 81,
+   "tel": "051-240-4512",
+   "lat": 35.10674959,
+   "lng": 129.0125065,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-013",
+   "mgmt_no": "131-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구덕꽃마을공영",
+   "gu": "부산 서구",
+   "dong": "서대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 서대신동3가 산 10-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 124,
+   "tel": "051-240-4512",
+   "lat": 35.12709753,
+   "lng": 129.0077639,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-014",
+   "mgmt_no": "131-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시약로공영",
+   "gu": "부산 서구",
+   "dong": "서대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 서대신동3가 92",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "051-240-4512",
+   "lat": 35.11864534,
+   "lng": 129.0135839,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-015",
+   "mgmt_no": "131-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아미골공영",
+   "gu": "부산 서구",
+   "dong": "아미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 아미동2가 212-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "051-240-4512",
+   "lat": 35.09916475,
+   "lng": 129.0136227,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-016",
+   "mgmt_no": "131-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아미까치공영",
+   "gu": "부산 서구",
+   "dong": "아미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 아미동2가 249-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "051-240-4512",
+   "lat": 35.10443625,
+   "lng": 129.0094865,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-017",
+   "mgmt_no": "131-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아미초등학교지하공영",
+   "gu": "부산 서구",
+   "dong": "아미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 아미동2가 89",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "051-240-4512",
+   "lat": 35.09877555,
+   "lng": 129.0155897,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-018",
+   "mgmt_no": "131-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송도공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 암남동 579",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "051-240-4512",
+   "lat": 35.07374199,
+   "lng": 129.0157119,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-019",
+   "mgmt_no": "131-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "암남공원공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 암남동 620-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 320,
+   "tel": "051-240-4512",
+   "lat": 35.06379407,
+   "lng": 129.0205153,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 조례 별표1 4급지은 10분 100원입니다 — 이 사이트는 등록요금 300원으로 계산합니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-020",
+   "mgmt_no": "131-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무동골목시장공영",
+   "gu": "부산 서구",
+   "dong": "충무동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 서구 충무동1가 37-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "051-240-4512",
+   "lat": 35.09439676,
+   "lng": 129.0238831,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s001",
+   "mgmt_no": "131-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남부민1동제1공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 남부민동 695-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "051-240-4555",
+   "lat": 35.09097518,
+   "lng": 129.0250696,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s002",
+   "mgmt_no": "131-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남부민2동제1공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 남부민동 705",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "051-240-4555",
+   "lat": 35.08483806,
+   "lng": 129.025797,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s003",
+   "mgmt_no": "131-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남부민2동제2공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 남부민동 692-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "051-240-4555",
+   "lat": 35.08663694,
+   "lng": 129.0256069,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s004",
+   "mgmt_no": "131-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남부민2동제3공영",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 남부민동 705",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "051-240-4555",
+   "lat": 35.08483806,
+   "lng": 129.025797,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s005",
+   "mgmt_no": "131-1-000047",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남항체육공원",
+   "gu": "부산 서구",
+   "dong": "남부민동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 남부민동 523-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "051-240-4513",
+   "lat": 35.08537635,
+   "lng": 129.0264553,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s006",
+   "mgmt_no": "131-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대1제4공영",
+   "gu": "부산 서구",
+   "dong": "동대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 동대신동1가 9-48",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "051-240-4555",
+   "lat": 35.11198516,
+   "lng": 129.024565,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s007",
+   "mgmt_no": "131-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대2제1공영",
+   "gu": "부산 서구",
+   "dong": "동대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 동대신동2가 452-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "051-240-4555",
+   "lat": 35.11168679,
+   "lng": 129.020888,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s008",
+   "mgmt_no": "131-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부민동제4공영",
+   "gu": "부산 서구",
+   "dong": "부용동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 부용동1가 66-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "051-240-4555",
+   "lat": 35.10541463,
+   "lng": 129.0210272,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s009",
+   "mgmt_no": "131-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대4제1공영",
+   "gu": "부산 서구",
+   "dong": "서대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 서대신동3가 산2-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "051-240-4555",
+   "lat": 35.12113658,
+   "lng": 129.015146,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s010",
+   "mgmt_no": "131-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대4제2공영",
+   "gu": "부산 서구",
+   "dong": "서대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 서대신동3가 147-45",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "051-240-4555",
+   "lat": 35.11811565,
+   "lng": 129.0119306,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s011",
+   "mgmt_no": "131-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대4제3공영",
+   "gu": "부산 서구",
+   "dong": "서대신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 서대신동3가 7-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "051-240-4555",
+   "lat": 35.12769905,
+   "lng": 129.0071508,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s012",
+   "mgmt_no": "131-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "아미제2공영",
+   "gu": "부산 서구",
+   "dong": "아미동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 아미동1가 1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "051-240-4555",
+   "lat": 35.10142254,
+   "lng": 129.0187487,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s013",
+   "mgmt_no": "131-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "등대로공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 123-37",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "051-240-4555",
+   "lat": 35.08086932,
+   "lng": 129.0249644,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s014",
+   "mgmt_no": "131-1-000045",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서구 원양로제1공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 633-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 82,
+   "tel": "051-240-4555",
+   "lat": 35.07181961,
+   "lng": 129.0071921,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s015",
+   "mgmt_no": "131-1-000046",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서구 원양로제2공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 633-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "051-240-4555",
+   "lat": 35.07181961,
+   "lng": 129.0071921,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s016",
+   "mgmt_no": "131-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "암남동제10공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 95-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "051-240-4555",
+   "lat": 35.08060134,
+   "lng": 129.0243117,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s017",
+   "mgmt_no": "131-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "암남동제1공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 135-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "051-240-4555",
+   "lat": 35.076124,
+   "lng": 129.0227267,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s018",
+   "mgmt_no": "131-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "암남동제2공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 135-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "051-240-4555",
+   "lat": 35.07247828,
+   "lng": 129.0169719,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s019",
+   "mgmt_no": "131-1-000044",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "암남동제5공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 123-50",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "051-240-4555",
+   "lat": 35.07754461,
+   "lng": 129.0246254,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s020",
+   "mgmt_no": "131-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "암남동제7공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 537-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "051-240-4555",
+   "lat": 35.07549432,
+   "lng": 129.0161189,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s021",
+   "mgmt_no": "131-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "암남동제8공영",
+   "gu": "부산 서구",
+   "dong": "암남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 암남동 614-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "051-240-4555",
+   "lat": 35.07219403,
+   "lng": 129.0164542,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s022",
+   "mgmt_no": "131-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "초장동제1공영",
+   "gu": "부산 서구",
+   "dong": "초장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 초장동 128-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "051-240-4555",
+   "lat": 35.09296243,
+   "lng": 129.018806,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 4급지 1일 주차요금(2,400원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 52,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s023",
+   "mgmt_no": "131-1-000043",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "충무동제7공영",
+   "gu": "부산 서구",
+   "dong": "충무동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 충무동1가 43-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "051-240-4555",
+   "lat": 35.09594124,
+   "lng": 129.0261031,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s024",
+   "mgmt_no": "131-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "충무동제2공영",
+   "gu": "부산 서구",
+   "dong": "토성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 토성동3가 32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "051-240-4555",
+   "lat": 35.10070591,
+   "lng": 129.0197881,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "seo-gu-s025",
+   "mgmt_no": "131-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "충무동제5공영",
+   "gu": "부산 서구",
+   "dong": "토성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 서구 토성동1가 8-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "051-240-4555",
+   "lat": 35.09999115,
+   "lng": 129.0239548,
+   "base_date": "2026-10-16",
+   "manager": "부산광역시 서구청",
+   "note": "",
+   "notice": "서구 조례 제10조의2에 따라 노상주차장은 일요일·공휴일에 요금을 받지 않습니다(무료 운영) · 감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(8,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 전일 160,000원을 함께 적었습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 서구",
+   "city_slug": "seo-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 07:46",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 43,
+  "원자료_서구행수": 43,
+  "원자료_받은행수": 45,
+  "구별": "서구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 20,
+  "노외_부설": {
+   "노외": 20
+  },
+  "노상_구간": 25,
+  "총_구획수": 1635,
+  "노상_구획수": 657,
+  "동별": {
+   "남부민동": 5,
+   "동대신동": 4,
+   "서대신동": 3,
+   "아미동": 3,
+   "부민동": 2,
+   "암남동": 2,
+   "충무동": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 18,
+   "공단 안내": 2
+  },
+  "요금구분": {
+   "유료": 45
+  },
+  "요금_미상": [],
+  "유료_노상": 25,
+  "유료_노외": 20,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "서구 원양로제2공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "서구 원양로제1공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "초장동제1공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "서대4제2공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "서대4제1공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "동대1제4공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "암남동제10공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "남부민2동제3공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "남부민2동제2공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "남부민1동제1공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "충무동제5공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "충무동제2공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "아미제2공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)",
+   "동대2제1공영: 운영요일 ‘평일+토요일’ → 일요일·공휴일 무료(서구 조례 제10조의2)"
+  ],
+  "등록값_차이": [
+   "등대시장공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "시약로공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "천해로공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "암남공원공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "충무동골목시장공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "남부민2동공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "부민동제2공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "부민동공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "해돋이공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "아미초등학교지하공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "아미골공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "아미까치공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "구덕꽃마을공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "고운들공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "북산리공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "망양공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "송도공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "충무동새벽시장공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "남항체육공원: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "서구 원양로제2공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "서구 원양로제1공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "암남동제5공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "충무동제7공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "등대로공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "초장동제1공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "서대4제3공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "서대4제2공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "서대4제1공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "동대1제4공영: 1일 주차권 요금이 없어 조례 별표1 4급지 1일 주차 2,400원을 상한으로 계산",
+   "남부민2동제1공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "암남동제10공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "암남동제8공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "암남동제7공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "암남동제2공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "암남동제1공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "남부민2동제3공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "남부민2동제2공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "남부민1동제1공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "충무동제5공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "충무동제2공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "아미제2공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "부민동제4공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산",
+   "동대2제1공영: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차 8,000원을 상한으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "암남공원공영: 4급지 기준 100원 ↔ 등록 300원"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「부산광역시 주차장 설치 및 관리 조례」 제3조의2, 구영은 「부산광역시 서구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)(시행 2025-10-01 · 부산광역시서구조례 제1598호(일부개정))",
+  "무료시간_출처": "부산광역시·구 조례 별표1은 10분 단위로 요금을 매기고 별도의 최초 무료시간을 두지 않는다. 부산시설공단이 직접 운영하는 주차장만 포털 안내대로 최초 10분을 무료로 두었다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항과 구청 안내(부산진구 주례초등학교 주말 무료, 서구 조례 제10조의2 노상 일요일·공휴일 무료)를 그대로 썼다",
+  "무료개방_표기": [
+   "남부민1동제1공영",
+   "남부민2동제1공영",
+   "남부민2동제2공영",
+   "남부민2동제3공영",
+   "남항체육공원",
+   "동대1제4공영",
+   "동대2제1공영",
+   "부민동제4공영",
+   "서대4제1공영",
+   "서대4제2공영",
+   "서대4제3공영",
+   "아미제2공영",
+   "등대로공영",
+   "서구 원양로제1공영",
+   "서구 원양로제2공영",
+   "암남동제10공영",
+   "암남동제1공영",
+   "암남동제2공영",
+   "암남동제5공영",
+   "암남동제7공영",
+   "암남동제8공영",
+   "초장동제1공영",
+   "충무동제7공영",
+   "충무동제2공영",
+   "충무동제5공영"
+  ],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 189,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-16",
+   "2026-11-18"
+  ],
+  "공단안내_주차장": [
+   "동대신동",
+   "중앙공원"
+  ]
+ },
+ "fee_table": {
+  "style": "busan_grade",
+  "unit_min": 10,
+  "applies": "2025-04-16",
+  "rows": [
+   {
+    "grade": "1가",
+    "label": "1급지(가)",
+    "lots": 0,
+    "unit_label": "700원",
+    "hour": 4200,
+    "two_hour": 8400,
+    "day": 21000,
+    "month": 310000,
+    "charter": 700,
+    "charter_day": 21000
+   },
+   {
+    "grade": "1나",
+    "label": "1급지(나)",
+    "lots": 0,
+    "unit_label": "500원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "day": 15000,
+    "month": 240000,
+    "charter": 500,
+    "charter_day": 15000
+   },
+   {
+    "grade": "2",
+    "label": "2급지",
+    "lots": 19,
+    "unit_label": "300원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "day": 8000,
+    "month": 160000,
+    "charter": 300,
+    "charter_day": 8000
+   },
+   {
+    "grade": "3",
+    "label": "3급지",
+    "lots": 0,
+    "unit_label": "200원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 4700,
+    "month": 90000,
+    "charter": 200,
+    "charter_day": 4700
+   },
+   {
+    "grade": "4",
+    "label": "4급지",
+    "lots": 26,
+    "unit_label": "100~300원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 2400,
+    "month": 52000,
+    "charter": 100,
+    "charter_day": 2400
+   }
+  ],
+  "windows": [
+   {
+    "group": "24시간",
+    "count": 20
+   },
+   {
+    "group": "08:00~21:00",
+    "count": 11
+   },
+   {
+    "group": "07:00~20:00",
+    "count": 5
+   },
+   {
+    "group": "11:00~23:00",
+    "count": 3
+   },
+   {
+    "group": "06:00~18:00",
+    "count": 2
+   },
+   {
+    "group": "09:00~22:00",
+    "count": 2
+   },
+   {
+    "group": "10:00~22:00",
+    "count": 2
+   }
+  ],
+  "notes": "서구는 시 조례 별표1의 요금을 그대로 쓰고, 조례 제10조의2는 노상주차장을 평일·토요일 11시간 이상 무료로 운영하고 일요일·공휴일에는 종일 무료로 운영하도록 정합니다. 표준데이터에 1일 주차권 요금이 비어 있는 노외 주차장은 조례 별표1의 급지 요금(2급지 8,000원·4급지 2,400원)을 상한으로 계산합니다",
+  "corp": {
+   "paid": 20,
+   "free": 0,
+   "unknown": 0,
+   "street_paid": 25,
+   "corp": 2
+  },
+  "basis": "「부산광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면) · 「부산광역시 서구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)(시행 2025-10-01 · 부산광역시서구조례 제1598호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "seo-gu",
+ "province": "부산광역시",
+ "province_slug": "busan",
+ "dong_page_min_lots": 3,
+ "city": "부산 서구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차(1,000cc 미만)·환경친화적·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"
+  },
+  {
+   "label": "우수납세자 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "「부산광역시 서구 모범납세자 예우 및 지원 조례」 우수납세자 — 인정일부터 1년간 면제(서구 조례 제3조의2제2호)"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전통시장 이용사실 확인 자료 제출 — 1시간 면제, 추가 1시간 50퍼센트"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차부제 참여 자동차 50퍼센트(월 주차 20퍼센트)"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장 환승 확인 차 50퍼센트"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인(등록)·독립유공자·상이자·5·18민주화운동부상자·고엽제후유의증 대상자가 자기 소유나 1년 이상 임차한 차를 직접 운전(또는 운전하게)한 경우 — 1시간까지 면제, 1시간 초과와 1일·월 주차는 50퍼센트 경감"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "배기량 1,000cc 미만 경형자동차, 환경친화적 자동차 표지 부착 차, 저공해자동차 표지 부착 차 50퍼센트 — 전기자동차가 충전을 위해 주차하면 1시간까지 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 가족사랑카드에 등재된 비사업용 승용·승합(12인승 이하)·소형화물자동차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지를 붙이고 임산부가 탑승한 차에 산모수첩 등 증명자료를 제시하면 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "시장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하면 1시간까지 면제하고 추가 1시간은 50퍼센트 경감"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 승용차부제 지원 조례」 참여 자동차 50퍼센트(월 주차는 20퍼센트)"
+  },
+  {
+   "label": "모범납세자·우수기업인 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "우수납세자·성실납세자(1년), 우수기업인(3년), 향토기업 차 1대, 사회공헌장·효행자·모범노동자(3년), 시무형유산 보유자·공예명장·병역명문가·우수 자원봉사자·장기기증자 50~100퍼센트 — 조례 제3조의2"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 환승한 것이 확인되거나 근거자료를 낸 차 50퍼센트(월 주차는 별표1 요금)"
+  },
+  {
+   "label": "상가 할인권 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "공영주차장 인근 상가와 사전협약이 있고 상가 이용 확인증(할인권)을 제시하면 30퍼센트"
+  }
+ ],
+ "realtime": false
+}

@@ -4575,6 +4575,148 @@ for _u in ("https://parking.9welfare.com/parking/incheon/michuhol/",
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"인천 주소가 사이트맵에 없음: {_u}")
 
+# ---------------------------------------------------------------- 부산광역시 구 (T-03 Phase 37)
+#  부산은 1구획 10분 단위 요금이고, 시 조례 별표1을 구 조례가 그대로 준용한다.
+#  1급지(가) 700·1급지(나) 500·2급지 300·3급지 200·4급지 100원, 1일 주차 21,000·15,000·8,000·
+#  4,700·2,400원(노외와 주간 2~4급지 노상만).
+BUSAN_EXPECT = {
+    # 구: (슬러그, 카드, 노상, 카드 3곳 이상 법정동 페이지, 구 조례 ordinSeq)
+    "부산 중구": {"slug": "jung-gu", "cards": 11, "street": 16,
+                "dong_pages": ["bosu-dong"], "ordin": "2134177"},
+    "부산 서구": {"slug": "seo-gu", "cards": 20, "street": 25,
+                "dong_pages": ["ami-dong", "dongdaesin-dong", "nambumin-dong", "seodaesin-dong"],
+                "ordin": "2076017"},
+    "부산 동구": {"slug": "dong-gu", "cards": 26, "street": 33,
+                "dong_pages": ["beomil-dong", "choryang-dong", "jwacheon-dong", "sujeong-dong"],
+                "ordin": "1914637"},
+    "부산 영도구": {"slug": "yeongdo-gu", "cards": 22, "street": 11,
+                 "dong_pages": ["bongrae-dong", "cheonghak-dong", "dongsam-dong", "sinseon-dong"],
+                 "ordin": "1953375"},
+    "부산 부산진구": {"slug": "busanjin-gu", "cards": 5, "street": 7,
+                  "dong_pages": ["bujeon-dong"], "ordin": "2078387"},
+}
+_bus_pages = 0
+for _gu, _exp in BUSAN_EXPECT.items():
+    _slug = _exp["slug"]
+    _hub = DIST / "parking" / "busan" / _slug / "index.html"
+    if not _hub.exists():
+        fails.append(f"부산 {_gu}: 구 페이지 없음")
+        continue
+    _bus_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"부산 {_gu}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "부산광역시" not in _h:
+        fails.append(f"부산 {_gu}: breadcrumb 에 부산광역시 없음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2029885"' not in _h:
+        fails.append(f"부산 {_gu}: 부산광역시 조례 출처 링크 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"부산 {_gu}: 구 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if 'href="https://bsparking.bisco.or.kr/searchparking"' not in _h:
+        fails.append(f"부산 {_gu}: 부산시설공단 통합주차포털 출처 링크 없음")
+    if 'href=""' in _h:
+        fails.append(f"부산 {_gu}: 빈 링크(href=\"\")가 있음")
+    if "급지별 주차요금표" not in _h:
+        fails.append(f"부산 {_gu}: 급지별 주차요금표 없음")
+    if "1일 주차" not in _h:
+        fails.append(f"부산 {_gu}: 1일 주차요금 안내 없음")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"부산 {_gu}: 노상 페이지 없음")
+        else:
+            _bus_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"부산 {_gu}: 노상 페이지 행이 구간 수보다 적음")
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"부산 {_gu}: {_d} 법정동 페이지 없음")
+        else:
+            _bus_pages += 1
+    if _leaked_nan(_h):
+        fails.append(f"부산 {_gu}: 페이지에 None/nan 문자열")
+
+# 법정동 페이지는 카드 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
+for _gu, _exp in BUSAN_EXPECT.items():
+    _root = DIST / "parking" / "busan" / _exp["slug"]
+    if not _root.exists():
+        continue
+    _have = {p.parent.name for p in _root.glob("*/index.html")
+             if p.parent.name not in ("street-parking", _exp["slug"])}
+    _expected = set(_exp["dong_pages"])
+    if _have != _expected:
+        fails.append(f"부산 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 {sorted(_expected)}")
+
+# 표본 계산 — 부산 조례 별표1(10분 단위)과 구청·공단 안내로 확인한 값.
+_bus_by_key = {(l["city"], l["name"]): l for l in LOTS if l.get("city") in BUSAN_EXPECT}
+for _city, _name, _min, _day, _want_state, _want in (
+        ("부산 중구", "대청 공영주차장", 120, "weekday", "paid", 1200),        # 4급지 100×12
+        ("부산 중구", "대청 공영주차장", 240, "weekday", "paid", 2400),        # 1일 주차 상한
+        ("부산 중구", "용두산 공영주차장", 120, "weekday", "paid", 6000),      # 1급지(나) 500×12
+        ("부산 중구", "용두산 공영주차장", 1440, "weekday", "paid", 15000),    # 1일 주차 15,000원
+        ("부산 중구", "롯데 광복점 뒤(2)", 60, "weekday", "paid", 1500),       # 최초 10분 무료
+        ("부산 서구", "남부민1동제1공영", 120, "weekday", "paid", 3600),       # 2급지 노상 300×12
+        ("부산 서구", "남부민1동제1공영", 120, "sun", "free", None),           # 서구 조례 제10조의2
+        ("부산 동구", "수정공원상로 제1노상", 120, "weekday", "free", None),   # 무료 등록 구간
+        ("부산 영도구", "태종대유원지부설주차장", 60, "weekday", "paid", 1000),  # 부설 60분 1,000원
+        ("부산 영도구", "태종대유원지부설주차장", 120, "weekday", "paid", 2200),  # 1,000 + 6×200
+        ("부산 영도구", "중리산", 120, "weekday", "free", None),               # 무료 등록
+        ("부산 부산진구", "유원오피스텔 뒤", 120, "weekday", "paid", 8400),     # 1급지(가) 700×12
+        ("부산 부산진구", "주례초등학교", 120, "sun", "free", None),            # 주말 무료 개방
+        ("부산 부산진구", "부전복개도로1", 120, "weekday", "paid", 8400),       # 공단 1급지(가)
+):
+    _lot = _bus_by_key.get((_city, _name))
+    if not _lot:
+        fails.append(f"부산 표본 주차장 없음: {_city} {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"부산 계산 불일치: {_city} {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 구 페이지 문구 — 급지·조례·공단 안내가 본문에 있어야 한다.
+_bus_texts = {
+    "jung-gu": ("부산시설공단", "1급지(가)", "롯데 광복점 뒤(2)", "16구간"),
+    "seo-gu": ("서구 조례 제10조의2", "2급지", "25구간", "중앙공원"),
+    "dong-gu": ("국민체육문예센터", "33구간", "좌천동", "수정공원상로"),
+    "yeongdo-gu": ("태종대유원지부설주차장", "영선대로 지하 공영", "11구간", "중리산"),
+    "busanjin-gu": ("주례초등학교", "부전복개도로", "부전동", "7구간"),
+}
+for _slug, _needles in _bus_texts.items():
+    _hp = DIST / "parking" / "busan" / _slug / "index.html"
+    if not _hp.exists():
+        fails.append(f"부산 페이지 없음: {_slug}")
+        continue
+    _t = _hp.read_text()
+    for _n in _needles:
+        if _n not in _t:
+            fails.append(f"부산 {_slug}: 문구 ‘{_n}’ 없음")
+    if _leaked_nan(_t):
+        fails.append(f"부산 {_slug}: 페이지에 None/nan 문자열")
+
+print(f"부산광역시 구 검사 완료 ({len(BUSAN_EXPECT)}개 구 · 페이지 {_bus_pages})")
+
+if 'id="busan"' not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 부산광역시 지역 묶음(#busan) 없음")
+for _u in ("https://parking.9welfare.com/parking/busan/jung-gu/",
+           "https://parking.9welfare.com/parking/busan/jung-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/jung-gu/bosu-dong/",
+           "https://parking.9welfare.com/parking/busan/seo-gu/",
+           "https://parking.9welfare.com/parking/busan/seo-gu/nambumin-dong/",
+           "https://parking.9welfare.com/parking/busan/seo-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/dong-gu/",
+           "https://parking.9welfare.com/parking/busan/dong-gu/sujeong-dong/",
+           "https://parking.9welfare.com/parking/busan/dong-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/yeongdo-gu/",
+           "https://parking.9welfare.com/parking/busan/yeongdo-gu/cheonghak-dong/",
+           "https://parking.9welfare.com/parking/busan/yeongdo-gu/street-parking/",
+           "https://parking.9welfare.com/parking/busan/busanjin-gu/",
+           "https://parking.9welfare.com/parking/busan/busanjin-gu/bujeon-dong/",
+           "https://parking.9welfare.com/parking/busan/busanjin-gu/street-parking/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"부산 주소가 사이트맵에 없음: {_u}")
+
 
 
 

@@ -21438,18 +21438,913 @@ def check_quality_incheon(name, std_all, rows_std, rows_city, lots, excluded, me
         "구청안내_주차장": [l["name"] for l in lots if l.get("src") == "구청 안내"],
     }
 
+# ---------------------------------------------------------------- 부산광역시 (T-03 Phase 37)
+#  부산은 15개 구·1개 군이고, 공영주차장 요금은 「부산광역시 주차장 설치 및 관리 조례」 별표1을
+#  중구·서구·동구·영도구·부산진구 조례가 그대로 준용한다(각 구 조례 제3조·제3조의2 확인).
+#  요금은 1구획 10분 단위이고 1급지(가) 700원·1급지(나) 500원·2급지 300원·3급지 200원·
+#  4급지 100원이며, 1일 주차(21,000·15,000·8,000·4,700·2,400원)와 월 주차는 노외주차장과
+#  주간 2~4급지 노상주차장에만 받는다(별표1 비고). 1일 주차가 허용되는 주차장에서 시간제 요금이
+#  1일 주차요금을 넘으면 1일 주차요금을 받는다. 1급지(가)는 중구 부평동·광복동·남포동과 부산진구
+#  부전1·2동, 1급지(나)는 중구 중앙동·동광동·대청동, 동구 초량1·2·3동·범일2동, 부산진구 범천1동
+#  등이다(부산광역시 급지구분 고시). 주간은 08:00~20:00, 야간은 20:00~다음날 08:00이다.
+BUSAN_PROVINCE = "부산광역시"
+BUSAN_PROVINCE_SLUG = "busan"
+BUSAN_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2029885"
+BUSAN_ORD_NOTE = ("시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · "
+                  "별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면")
+BUSAN_ORD1_TXT = RAW / "busan.law.go.kr_주차장조례_별표1_20261118.txt"
+# 급지: (10분마다, 1일 주차, 월 주간, 월 야간) — 별표 1
+BUSAN_FEES = {"1가": (700, 21000, 220000, 90000),
+              "1나": (500, 15000, 160000, 80000),
+              "2": (300, 8000, 90000, 70000),
+              "3": (200, 4700, 50000, 40000),
+              "4": (100, 2400, 30000, 22000)}
+# 월 정기권 전일(주+야) — 3급지는 비환승 90,000원, 환승 60,000원이다.
+BUSAN_MONTHLY_ALL = {"1가": 310000, "1나": 240000, "2": 160000, "3": 90000, "4": 52000}
+BUSAN_GRADE_LABEL = {"1가": "1급지(가)", "1나": "1급지(나)", "2": "2급지", "3": "3급지", "4": "4급지"}
+BUSAN_DISTRICTS = {"중구": "jung", "서구": "seo", "동구": "dong",
+                   "영도구": "yeongdo", "부산진구": "busanjin"}
+# 1급지(가)로 고시된 법정동 — 표준데이터 등록요금이 조례 급지와 다를 때 근거로 쓴다.
+BUSAN_GRADE_A_DONGS = {("중구", "부평동"), ("중구", "광복동"), ("중구", "남포동"),
+                       ("부산진구", "부전동")}
+
+# 부산시설공단(시영) 통합주차포털 직영 주차장 가운데 이 5개 구에 있는 8곳 — 표준데이터에는
+# 구청이 맡는 주차장만 등록되어 있어, 공단 포털의 면수·급지·요금(무료시간 10분)·좌표를 쓴다.
+#   (이름, 지번, 도로명, 법정동, 면수, 급지, 유형, 10분요금, 1일, 월 전일, 무료분, 운영, 위도, 경도, 전화, 비고)
+BUSAN_CORP_LOTS = [
+    ("동대신동", "부산광역시 서구 동대신동3가 258-212", "", "동대신동", 24, "4", "노외",
+     100, 2400, 52000, 10, None, "35.116641", "129.020013", "051-860-7786", "무인 운영"),
+    ("신선3동", "부산광역시 영도구 신선동3가 112-255", "", "신선동", 84, "4", "노외",
+     100, 2400, 52000, 10, None, "35.080725", "129.046000", "051-860-7742", "무인 운영"),
+    ("영선대로 지하 공영", "부산광역시 영도구 영선동1가 46-3", "", "영선동", 122, "2", "노외",
+     300, 8000, 90000, 10, None, "35.090440", "129.043300", "051-412-6354",
+     "지하 주차장, 월 정기권은 3급지 기준(환승 60,000원)"),
+    ("중앙공원", "", "부산광역시 서구 망양로193번길 187", "동대신동", 101, "4", "노외",
+     100, 2400, 52000, 10, None, "35.112963", "129.027834", "051-860-7759",
+     "도로명주소만 공개되어 있어 법정동은 공원 위치(동대신동)로 적었습니다"),
+    ("롯데 광복점 뒤(2)", "", "부산광역시 중구 대교로 94", "중앙동", 22, "2", "노외",
+     300, 8000, 160000, 10, ("08:00", "19:00"), "35.098361", "129.038111", "",
+     "24시간 운영 주차장이 아니라 운영시간에만 요금을 받습니다"),
+    ("부전복개도로1", "", "부산광역시 부산진구 가야대로 743", "부전동", 20, "1가", "노외",
+     700, None, None, 0, None, "35.154786", "129.057792", "",
+     "1일 주차권·월 정기권을 받지 않는 주차장입니다(공단 표기 ‘전일X’)"),
+    ("부전복개도로2", "", "부산광역시 부산진구 가야대로 743", "부전동", 23, "1가", "노외",
+     700, None, None, 0, None, "35.152649", "129.057800", "",
+     "1일 주차권·월 정기권을 받지 않는 주차장입니다(공단 표기 ‘전일X’)"),
+    ("골드테마거리", "부산광역시 부산진구 범천동 835-2", "부산광역시 부산진구 범일로 134", "범천동", 16,
+     "1나", "노상", 500, None, 240000, 0, None, "35.141515", "129.059751", "",
+     "1일 주차권이 없는 노상 구간입니다"),
+]
+
+# 「부산광역시 주차장 설치 및 관리 조례」 제3조의2(주차요금의 감면) — 시영(부산시설공단)
+BUSAN_CITY_DISCOUNTS = [
+    {"label": "장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": ("장애인(등록)·독립유공자·상이자·5·18민주화운동부상자·고엽제후유의증 대상자가 자기 소유나 "
+              "1년 이상 임차한 차를 직접 운전(또는 운전하게)한 경우 — 1시간까지 면제, 1시간 초과와 "
+              "1일·월 주차는 50퍼센트 경감")},
+    {"label": "경차·환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("배기량 1,000cc 미만 경형자동차, 환경친화적 자동차 표지 부착 차, 저공해자동차 표지 부착 차 "
+              "50퍼센트 — 전기자동차가 충전을 위해 주차하면 1시간까지 면제")},
+    {"label": "다자녀 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "다자녀가정 가족사랑카드에 등재된 비사업용 승용·승합(12인승 이하)·소형화물자동차 50퍼센트"},
+    {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "임산부자동차 표지를 붙이고 임산부가 탑승한 차에 산모수첩 등 증명자료를 제시하면 50퍼센트"},
+    {"label": "전통시장 1시간 면제 후 1시간 50%", "rate": 0.5, "exempt_min": 60,
+     "note": ("시장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하면 "
+              "1시간까지 면제하고 추가 1시간은 50퍼센트 경감")},
+    {"label": "승용차부제 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「부산광역시 승용차부제 지원 조례」 참여 자동차 50퍼센트(월 주차는 20퍼센트)"},
+    {"label": "모범납세자·우수기업인 등 100%", "rate": 1.0, "exempt_min": 0,
+     "note": ("우수납세자·성실납세자(1년), 우수기업인(3년), 향토기업 차 1대, 사회공헌장·효행자·"
+              "모범노동자(3년), 시무형유산 보유자·공예명장·병역명문가·우수 자원봉사자·장기기증자 "
+              "50~100퍼센트 — 조례 제3조의2")},
+    {"label": "환승 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "환승주차장에 대고 환승한 것이 확인되거나 근거자료를 낸 차 50퍼센트(월 주차는 별표1 요금)"},
+    {"label": "상가 할인권 30%", "rate": 0.3, "exempt_min": 0,
+     "note": "공영주차장 인근 상가와 사전협약이 있고 상가 이용 확인증(할인권)을 제시하면 30퍼센트"},
+]
+
+BUSAN_OPERATORS = {
+    "부산광역시 중구청": "구영(중구청 직영)",
+    "부산광역시 서구청": "구영(서구청 직영)",
+    "부산광역시 동구청": "구영(동구청 직영)",
+    "부산광역시 영도구청": "구영(영도구청 직영)",
+    "부산광역시 부산진구청": "구영(부산진구청 직영)",
+    "부산시설공단": "시영(부산시설공단)",
+    "부산관광공사": "부산관광공사",
+}
+
+BUSAN_CONF = {
+    "중구": {
+        "city": "부산 중구",
+        "slug": "jung-gu",
+        "manager": "부산광역시 중구청 교통행정과(051-600-4556)",
+        "manager_inquiry": "부산광역시 중구청 교통행정과(051-600-4556) · 시영은 부산시설공단(051-860-7700)",
+        "ordinance": ("「부산광역시 중구 주차장 설치 및 관리 조례」 제6조 감면(시 조례 별표1 준용)",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2134177",
+                      "시행 2026-06-25 · 부산광역시중구조례 제1580호(일부개정)"),
+        "notes": ("중구는 시 조례 별표1의 요금을 그대로 쓰고, 구 조례 제6조가 전통시장 1시간 면제·"
+                  "우수납세자 1년 면제·다회 헌혈자 50퍼센트를 따로 정합니다. 부평동·광복동·남포동은 "
+                  "1급지(가)(10분 700원)로 고시되어 있는데, 표준데이터에는 500원(1급지(나))으로 "
+                  "등록된 주차장이 있습니다 — 이 사이트는 등록값으로 계산합니다"),
+        "discounts": [
+            {"label": "장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"},
+            {"label": "경차·환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차·환경친화적 자동차·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"},
+            {"label": "다자녀 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"},
+            {"label": "전통시장 1시간 면제", "rate": 1.0, "exempt_min": 60,
+             "note": "구청장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출 — 1시간 면제(중구 조례 제6조제2호)"},
+            {"label": "우수납세자 100%", "rate": 1.0, "exempt_min": 0,
+             "note": "「부산광역시 중구 모범납세자 예우 및 지원 조례」 우수납세자 — 인정일부터 1년간 면제"},
+            {"label": "다회 헌혈자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "「부산광역시 중구 헌혈 장려 및 지원에 관한 조례」 감면확인증을 받은 다회 헌혈자 — 발급일부터 1년간 50퍼센트(2026. 6. 25. 신설)"},
+            {"label": "승용차부제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차부제 참여 자동차 50퍼센트(월 주차 20퍼센트)"},
+            {"label": "환승 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환승주차장 환승 확인 차 50퍼센트"},
+        ],
+    },
+    "서구": {
+        "city": "부산 서구",
+        "slug": "seo-gu",
+        "manager": "부산광역시 서구청 교통행정과 주차장운영계(051-240-4512·4555)",
+        "manager_inquiry": "부산광역시 서구청 교통행정과 주차장운영계(051-240-4512·4555) · 시영은 부산시설공단(051-860-7700)",
+        "ordinance": ("「부산광역시 서구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2076017",
+                      "시행 2025-10-01 · 부산광역시서구조례 제1598호(일부개정)"),
+        "notes": ("서구는 시 조례 별표1의 요금을 그대로 쓰고, 조례 제10조의2는 노상주차장을 평일·토요일 "
+                  "11시간 이상 무료로 운영하고 일요일·공휴일에는 종일 무료로 운영하도록 정합니다. "
+                  "표준데이터에 1일 주차권 요금이 비어 있는 노외 주차장은 조례 별표1의 급지 요금"
+                  "(2급지 8,000원·4급지 2,400원)을 상한으로 계산합니다"),
+        "discounts": [
+            {"label": "장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"},
+            {"label": "경차·환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차(1,000cc 미만)·환경친화적·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"},
+            {"label": "우수납세자 100%", "rate": 1.0, "exempt_min": 0,
+             "note": "「부산광역시 서구 모범납세자 예우 및 지원 조례」 우수납세자 — 인정일부터 1년간 면제(서구 조례 제3조의2제2호)"},
+            {"label": "다자녀 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"},
+            {"label": "전통시장 1시간 면제 후 1시간 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "전통시장 이용사실 확인 자료 제출 — 1시간 면제, 추가 1시간 50퍼센트"},
+            {"label": "승용차부제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차부제 참여 자동차 50퍼센트(월 주차 20퍼센트)"},
+            {"label": "환승 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환승주차장 환승 확인 차 50퍼센트"},
+        ],
+    },
+    "동구": {
+        "city": "부산 동구",
+        "slug": "dong-gu",
+        "manager": "부산광역시 동구청 교통과",
+        "manager_inquiry": "부산광역시 동구청 교통과 · 시영은 부산시설공단(051-860-7700)",
+        "ordinance": ("「부산광역시 동구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1914637",
+                      "시행 2024-03-20 · 부산광역시동구조례 제1490호(일부개정)"),
+        "notes": ("동구는 시 조례 별표1의 요금을 그대로 쓰고, 구 조례 제3조의2가 우수·성실납세자, "
+                  "국민체육문예센터 70퍼센트, 우수기업인, 장기기증자 감면을 따로 정합니다. "
+                  "초량동·범일동 일부는 1급지(나)(10분 500원), 나머지 노상·노외는 4급지(100원)입니다"),
+        "discounts": [
+            {"label": "장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"},
+            {"label": "경차·환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차·환경친화적·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"},
+            {"label": "우수납세자 100%·성실납세자 50%", "rate": 1.0, "exempt_min": 0,
+             "note": "「부산광역시 동구 성실납세자 등 지원에 관한 조례」 — 우수납세자는 1년간 면제, 성실납세자는 1년간 50퍼센트(동구 조례 제3조의2제2호)"},
+            {"label": "국민체육문예센터 70%", "rate": 0.7, "exempt_min": 0,
+             "note": "「부산광역시 동구 국민체육문예센터 설치 및 운영 조례」 제14조에 따른 주차요금 70퍼센트 감면"},
+            {"label": "우수기업인 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "「부산광역시 기업인 예우 및 기업활동 촉진에 관한 조례」 우수기업인 — 인증일부터 3년간 1시간 면제, 초과분 50퍼센트"},
+            {"label": "장기기증자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "「부산광역시 동구 장기 등 및 인체조직 기증 장려에 관한 조례」 기증자와 유족(동구 주민) 50퍼센트"},
+            {"label": "다자녀 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"},
+            {"label": "전통시장 1시간 면제 후 1시간 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "전통시장 이용사실 확인 자료 제출 — 1시간 면제, 추가 1시간 50퍼센트"},
+        ],
+    },
+    "영도구": {
+        "city": "부산 영도구",
+        "slug": "yeongdo-gu",
+        "manager": "부산광역시 영도구청 교통과(051-419-4552)",
+        "manager_inquiry": "부산광역시 영도구청 교통과(051-419-4552) · 시영은 부산시설공단(051-860-7700)",
+        "ordinance": ("「부산광역시 영도구 주차장 설치 및 관리 조례」 제5조 감면(시 조례 별표1 준용)",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1953375",
+                      "시행 2024-07-12 · 부산광역시영도구조례 제1637호(일부개정)"),
+        "notes": ("영도구는 시 조례 별표1의 요금을 그대로 쓰고, 구 조례 제5조가 전통시장 고객 50퍼센트, "
+                  "자랑스런 영도인상 수상자·의로운 시민·적십자 구호활동 차량 면제, 헌혈 확인증 소지자 "
+                  "50퍼센트(2년) 등을 따로 정합니다. 노상 구간은 대부분 2~4급지이고 08:00~20:00에 "
+                  "요금을 받습니다"),
+        "discounts": [
+            {"label": "장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"},
+            {"label": "경차·다자녀 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차와 가족사랑카드에 등재된 다자녀가정 차 50퍼센트(영도구 조례 제5조제6호)"},
+            {"label": "전통시장 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "구청장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출 — 50퍼센트(제5조제5호)"},
+            {"label": "헌혈 확인증 50%·면제", "rate": 0.5, "exempt_min": 0,
+             "note": "「부산광역시 영도구 헌혈 권장에 관한 조례」 확인증 소지자 — 발급일부터 2년간 50퍼센트, 제12조제1항제2호 확인증은 면제"},
+            {"label": "모범납세자 100%", "rate": 1.0, "exempt_min": 0,
+             "note": "우수납세자·성실납세자(국세청장 인정 포함) — 인정일부터 1년간 면제"},
+            {"label": "영도인상·의로운 시민 100%", "rate": 1.0, "exempt_min": 0,
+             "note": "자랑스런 영도인상 수상자는 수상일부터 1년, 「의로운 시민 등에 대한 예우 및 지원에 관한 조례」 대상자는 3년간 면제"},
+            {"label": "환경친화 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환경친화적 자동차 표지 부착 차 50퍼센트(영도구 조례 제5조제10호)"},
+            {"label": "승용차부제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차부제 참여 자동차 50퍼센트(월 주차 20퍼센트)"},
+            {"label": "장기기증자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "기증확인증을 제시한 비사업용 승용·승합(15인승 이하)·1톤 이하 화물차 50퍼센트"},
+        ],
+    },
+    "부산진구": {
+        "city": "부산 부산진구",
+        "slug": "busanjin-gu",
+        "manager": "부산광역시 부산진구청 주차관리과(051-605-5886)",
+        "manager_inquiry": "부산광역시 부산진구청 주차관리과(051-605-5886) · 시영은 부산시설공단(051-860-7700)",
+        "ordinance": ("「부산광역시 부산진구 주차장 설치 및 관리 조례」 제3조(시 조례 준용)",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2078387",
+                      "시행 2025-10-29 · 부산광역시부산진구조례 제1756호(일부개정)"),
+        "notes": ("부산진구 조례 제3조는 공영주차장의 주차요금·가산금·감면을 시 조례에 그대로 따르도록 "
+                  "정합니다. 부전동은 1급지(가)(10분 700원), 범천동은 1급지(나)(500원), 나머지 노상·노외는 "
+                  "2~3급지입니다. 구청 안내는 노상 주차장의 일요일을 휴무로, 주례초등학교 공영주차장은 "
+                  "주말(토·일) 무료 개방으로 적고 있습니다"),
+        "discounts": [
+            {"label": "장애인·국가유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"},
+            {"label": "경차·환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차·환경친화적·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"},
+            {"label": "다자녀 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"},
+            {"label": "전통시장 1시간 면제 후 1시간 50%", "rate": 0.5, "exempt_min": 60,
+             "note": "전통시장 이용사실 확인 자료 제출 — 1시간 면제, 추가 1시간 50퍼센트"},
+            {"label": "모범납세자 100%", "rate": 1.0, "exempt_min": 0,
+             "note": "우수납세자·성실납세자 — 인정일부터 1년간 면제"},
+            {"label": "승용차부제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차부제 참여 자동차 50퍼센트(월 주차 20퍼센트)"},
+            {"label": "환승 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환승주차장 환승 확인 차 50퍼센트"},
+        ],
+    },
+}
+
+# 부산광역시 도시 메타 — 도시 이름은 다른 시·도의 ‘중구’와 겹치지 않도록 ‘부산 ○○구’로 적는다.
+CITY_META_BUSAN = {
+    "중구": {"slug": "jung-gu", "province": BUSAN_PROVINCE, "province_slug": BUSAN_PROVINCE_SLUG,
+            "dong_page_min_lots": 3},
+    "서구": {"slug": "seo-gu", "province": BUSAN_PROVINCE, "province_slug": BUSAN_PROVINCE_SLUG,
+            "dong_page_min_lots": 3},
+    "동구": {"slug": "dong-gu", "province": BUSAN_PROVINCE, "province_slug": BUSAN_PROVINCE_SLUG,
+            "dong_page_min_lots": 3},
+    "영도구": {"slug": "yeongdo-gu", "province": BUSAN_PROVINCE, "province_slug": BUSAN_PROVINCE_SLUG,
+             "dong_page_min_lots": 3},
+    "부산진구": {"slug": "busanjin-gu", "province": BUSAN_PROVINCE, "province_slug": BUSAN_PROVINCE_SLUG,
+              "dong_page_min_lots": 3},
+}
+
+
+def busan_addr(row) -> str:
+    return (row.get("소재지지번주소") or "").strip() or (row.get("소재지도로명주소") or "").strip()
+
+
+def busan_dong_of(addr: str):
+    """지번주소에서 법정동을 읽는다(‘보수동1가’·‘남포동6가’는 ‘보수동’·‘남포동’으로 묶는다)."""
+    if not addr:
+        return None
+    parts = addr.split()
+    if len(parts) < 3:
+        return None
+    d = parts[2]
+    if not (d.endswith("동") or d.endswith("가")):
+        return None
+    d = re.sub(r"\d+가$", "", d)      # 남포동6가 → 남포동, 보수동1가 → 보수동
+    return d or None
+
+
+def busan_district_of(row):
+    """이 행이 어느 구에 속하는지 — 지번·도로명주소의 두 번째 낱말이 구 이름이다."""
+    addr = (row.get("소재지지번주소") or "").strip() or (row.get("소재지도로명주소") or "").strip()
+    parts = addr.split()
+    if len(parts) > 1 and parts[0].startswith("부산") and parts[1] in BUSAN_DISTRICTS:
+        return parts[1]
+    return None
+
+
+def busan_fee(row, conf, district, note_bits, note_fixed, grade_fixed):
+    """부산 구 공영주차장 한 곳의 요금 — 등록값(10분 단위)을 쓰고, 조례 별표1과 대조한다."""
+    name = (row.get("주차장명") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip() or "노외"
+    street = ptype == "노상"
+    raw_type = (row.get("요금정보") or "").strip()
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    grade_raw = (row.get("급지구분") or "").strip()
+    grade = None
+    if grade_raw in ("1가", "1나"):
+        grade = grade_raw
+    elif grade_raw == "1":
+        grade = "1가" if (base_fee or 0) >= 700 else "1나"
+    elif grade_raw in ("2", "3", "4"):
+        grade = grade_raw
+    label = BUSAN_GRADE_LABEL.get(grade) or (f"{grade_raw}급지" if grade_raw else None)
+    _dong0 = busan_dong_of(busan_addr(row))
+    if (district, _dong0) in BUSAN_GRADE_A_DONGS and (base_fee or 0) and base_fee < 700:
+        # 조례는 부평동·광복동·남포동·부전동을 1급지(가)(10분 700원)로 고시했다.
+        grade_fixed.append(f"{name}: 조례 1급지(가) 700원({_dong0}) ↔ 등록 {base_fee:,}원")
+        note_bits.append(f"조례 급지구분은 {_dong0}을 1급지(가)(10분 700원)로 고시했는데 표준데이터에는 "
+                         f"{base_fee:,}원으로 등록되어 있어 등록값으로 계산합니다")
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": grade, "grade_label": label, "std_grade": grade_raw or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    ref = BUSAN_FEES.get(grade)
+    if not base_fee:
+        if ref:
+            fee.update({"base_min": 10, "base_fee": ref[0], "unit_min": 10, "unit_fee": ref[0],
+                        "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"})
+            note_fixed.append(f"{name}: 표준데이터에 시간 요금이 없어 조례 별표1 {label} "
+                              f"10분 {ref[0]:,}원으로 계산")
+            note_bits.append(f"표준데이터에 시간 요금이 없어 조례 별표1의 {label} 요금"
+                             f"(10분 {ref[0]:,}원)으로 계산합니다")
+        else:
+            fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+            note_fixed.append(f"{name}: 요금 정보가 비어 있어 ‘요금 정보 없음’으로 두었습니다")
+            return fee
+    else:
+        fee["base_min"] = base_min or 10
+        fee["base_fee"] = base_fee
+        if unit_min is None and unit_fee is None:
+            fee["unit_min"], fee["unit_fee"] = fee["base_min"], base_fee
+            note_fixed.append(f"{name}: 추가단위 요금이 없어 기본요금과 같은 "
+                              f"{fee['base_min']}분당 {base_fee:,}원으로 계산")
+        else:
+            fee["unit_min"] = unit_min or 10
+            fee["unit_fee"] = unit_fee if unit_fee is not None else base_fee
+    # 1일 주차 — 노외주차장과 주간 2~4급지 노상주차장에만 받는다(별표1 비고).
+    day_ok = (not street) or grade in ("2", "3", "4")
+    if row.get("_no_day"):
+        day_ok = False          # 부산시설공단 표기 ‘전일X’ — 1일 주차권을 받지 않는 주차장이다
+    if day_ok:
+        if day:
+            fee["daily_fee"] = day
+        elif ref:
+            fee["daily_fee"] = ref[1]
+            note_fixed.append(f"{name}: 1일 주차권 요금이 없어 조례 별표1 {label} 1일 주차 "
+                              f"{ref[1]:,}원을 상한으로 계산")
+            note_bits.append(f"표준데이터에 1일 주차권 요금이 없어 조례 별표1의 {label} 1일 주차요금"
+                             f"({ref[1]:,}원)을 상한으로 계산합니다")
+    elif day:
+        note_fixed.append(f"{name}: 노상 1급지라 1일 주차권({day:,}원)을 받지 않아 시간 요금만 계산")
+    # 월 정기권 — 노외주차장과 주간 2~4급지 노상주차장에만 있다. 등록값은 전일(주+야) 요금이다.
+    if month and not row.get("_no_month"):
+        # 등록된 월 정기권은 급지·유형과 관계없이 그 값을 쓴다(공단이 노상에 매는 정기권도 있다).
+        fee["monthly_all"] = month
+        fee["monthly_label"] = "전일"
+    elif day_ok and not row.get("_no_month") and grade and BUSAN_MONTHLY_ALL.get(grade):
+        fee["monthly_all"] = BUSAN_MONTHLY_ALL[grade]
+        fee["monthly_label"] = "전일·조례 별표1"
+        note_bits.append(f"표준데이터에 월 정기권이 없어 조례 별표1의 전일 "
+                         f"{BUSAN_MONTHLY_ALL[grade]:,}원을 함께 적었습니다")
+    fee["monthly"] = fee["monthly_all"]
+    # 조례 급지 vs 등록요금
+    if ref and fee.get("base_fee") and fee["base_fee"] != ref[0]:
+        grade_fixed.append(f"{name}: {label} 기준 {ref[0]:,}원 ↔ 등록 {fee['base_fee']:,}원")
+        _dong = busan_dong_of(busan_addr(row))
+        _why = ""
+        if (district, _dong) in BUSAN_GRADE_A_DONGS and ref[0] == 700:
+            _why = (f"조례는 {_dong}을 1급지(가)(10분 700원)로 고시했는데, 표준데이터에는 1급지(나) "
+                    f"500원으로 등록되어 있습니다")
+        else:
+            _why = f"조례 별표1 {label}은 10분 {ref[0]:,}원입니다"
+        note_bits.append(f"{_why} — 이 사이트는 등록요금 {fee['base_fee']:,}원으로 계산합니다")
+    if raw_type == "혼합":
+        note_bits.append("요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다")
+    # 특기사항의 ‘N시간 무료’·‘최초 N분 무료’
+    _free = (re.search(r"(\d+)\s*시간\s*무료", (row.get("특기사항") or ""))
+             or re.search(r"최초\s*(\d+)\s*분\s*무료", (row.get("특기사항") or ""))
+             or re.search(r"(\d+)\s*분\s*무료", (row.get("특기사항") or "")))
+    if _free:
+        _mins = int(_free.group(1)) * (60 if "시간" in _free.group(0) else 1)
+        if 0 < _mins <= 180:
+            fee["deduct_min"] = _mins
+            note_bits.append(f"최초 {_mins}분은 무료이고 그 시간을 뺀 나머지로 요금을 계산합니다")
+    if row.get("_free_min"):
+        fee["deduct_min"] = row["_free_min"]
+    if grade_raw == "기타":
+        note_bits.append("급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다")
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    fee["basis"] = ("표준데이터 등록요금(10분 단위)"
+                    if raw_type != "혼합" else "표준데이터 등록요금 — 요금 구분 ‘혼합’")
+    if not street and fee.get("daily_fee"):
+        note_bits.append(f"1일 주차요금 {fee['daily_fee']:,}원 — 시간 요금이 이 금액을 넘으면 "
+                         "1일 주차요금을 받습니다")
+    return fee
+
+
+def build_busan_district(name: str):
+    """부산광역시 구 하나(중·서·동·영도·부산진구)를 표준데이터 + 시·구 조례 + 공단 포털로 추출한다."""
+    conf = BUSAN_CONF[name]
+    city_name = conf["city"]
+    rows_all = read_csv_kr(STD_CSV)
+    rows_std = [r for r in rows_all if busan_district_of(r) == name]
+    rows_city = list(rows_std)
+    # 부산시설공단이 직접 운영하는 주차장 8곳 가운데 이 구의 것 — 표준데이터에 없어 공단 포털 값을 더한다.
+    _corp_n = 0
+    for (_n, _jibun, _road, _dong, _sp, _grade, _ptype, _bfee, _day, _mon, _free, _hours,
+         _lat, _lng, _tel, _memo) in BUSAN_CORP_LOTS:
+        if busan_dong_of(_jibun or _road) is None and not _dong:
+            continue
+        _addr = _jibun or _road
+        _parts = _addr.split()
+        if len(_parts) < 2 or _parts[1] != name:
+            continue
+        _corp_n += 1
+        if _hours:
+            _h0, _h1 = _hours
+            _times = {k: (_h0, _h1) for k in ("평일", "토요일", "공휴일")}
+        else:
+            _times = {k: ("00:00", "23:59") for k in ("평일", "토요일", "공휴일")}
+        rows_city.append({
+            "주차장관리번호": "", "주차장명": _n, "주차장구분": "공영", "주차장유형": _ptype,
+            "소재지도로명주소": _road, "소재지지번주소": _jibun,
+            "주차구획수": str(_sp), "급지구분": _grade, "부제시행구분": "미시행",
+            "운영요일": "평일 토요일 공휴일",
+            "평일운영시작시각": _times["평일"][0], "평일운영종료시각": _times["평일"][1],
+            "토요일운영시작시각": _times["토요일"][0], "토요일운영종료시각": _times["토요일"][1],
+            "공휴일운영시작시각": _times["공휴일"][0], "공휴일운영종료시각": _times["공휴일"][1],
+            "요금정보": "유료", "주차기본시간": "10", "주차기본요금": str(_bfee),
+            "추가단위시간": "10", "추가단위요금": str(_bfee),
+            "1일주차권요금적용시간": "", "1일주차권요금": "" if _day is None else str(_day),
+            "월정기권요금": "" if _mon is None else str(_mon),
+            "결제방법": "카드", "특기사항": "부산시설공단 통합주차포털",
+            "관리기관명": "부산시설공단", "전화번호": _tel,
+            "위도": _lat, "경도": _lng, "데이터기준일자": "2026-11-18",
+            "제공기관코드": "", "제공기관명": "부산시설공단",
+            "_src": "공단 안내", "_dong": _dong, "_free_min": _free, "_memo": _memo,
+            "_no_day": _day is None, "_no_month": _mon is None,
+        })
+
+    # 같은 주차장이 두 이름으로 등록된 행을 걷어낸다 — 지번(번지)과 면수가 같을 때만 하나로 본다.
+    _by_plot = {}
+    for _i, r in enumerate(rows_city):
+        _jib = (r.get("소재지지번주소") or "").strip()
+        if not _jib or not re.search(r"\d+(-\d+)?$", _jib):
+            continue
+        if (r.get("주차장유형") or "").strip() == "노상":
+            continue
+        _by_plot.setdefault((_jib, to_int(r.get("주차구획수")) or 0), []).append(_i)
+    _drop = set()
+    merged = []
+    for _key, _idxs in _by_plot.items():
+        if len(_idxs) < 2:
+            continue
+        _newest = max(_idxs, key=lambda i: rows_city[i].get("데이터기준일자") or "")
+        for _i in _idxs:
+            if _i != _newest:
+                _drop.add(_i)
+                merged.append({"name": rows_city[_i]["주차장명"],
+                               "addr": busan_addr(rows_city[_i]),
+                               "base_date": rows_city[_i].get("데이터기준일자"),
+                               "kept": rows_city[_newest].get("데이터기준일자")})
+    rows_dedup = [r for i, r in enumerate(rows_city) if i not in _drop]
+
+    lots, excluded = [], []
+    note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed = [], [], [], [], []
+    for r in rows_dedup:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+
+        if r.get("_src"):
+            dong = r.get("_dong")
+            dong_src = "공단 안내"
+        else:
+            dong = busan_dong_of(busan_addr(r))
+            dong_src = "지번주소" if dong else "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        _raw_oper = (r.get("운영요일") or "").replace(" ", "")
+        _missing = []
+        for _day, _label in (("sat", "토요일"), ("sun", "일요일·공휴일")):
+            if oper.get(_day):
+                continue
+            # 표준데이터 운영요일에 없는 요일 — 구청·조례가 정한 바가 있으면 그것을 적는다.
+            if name == "서구" and ptype == "노상":
+                oper[_day] = True
+                win[_day] = dict(win["weekday"])
+                note_bits.append(f"서구 조례 제10조의2에 따라 노상주차장은 {_label}에 요금을 받지 않습니다"
+                                 "(무료 운영)")
+                hour_fixed.append(f"{std_name}: 운영요일 ‘{_raw_oper}’ → {_label} 무료(서구 조례 제10조의2)")
+            elif name == "부산진구" and ptype == "노상":
+                _missing.append(_label)
+                hour_fixed.append(f"{std_name}: 운영요일 ‘{_raw_oper}’ → {_label} 휴무(부산진구청 안내)")
+            else:
+                _missing.append(_label)
+                hour_fixed.append(f"{std_name}: 운영요일 ‘{_raw_oper}’ → {_label} 미운영(등록값)")
+        if _missing:
+            note_bits.append(f"표준데이터 운영요일이 ‘{_raw_oper}’로 등록되어 " + "·".join(_missing)
+                             + "은 운영일에서 빠져 있습니다(현장 확인)")
+        if std_name == "주례초등학교":
+            # 부산진구청 ‘공영주차장 현황’이 주말(토·일) 무료 개방으로 적은 주차장이다.
+            for _day in ("sat", "sun"):
+                oper[_day] = True
+                win[_day] = dict(win["weekday"])     # 24시간 개방·요금 없음(부산진구청 안내)
+            note_bits.append("부산진구청 안내대로 토요일·일요일에는 무료로 개방합니다")
+        if "할인" in note or "감면" in note:
+            note_bits.append("감면 대상은 아래 계산기에서 골라 계산할 수 있습니다")
+        _n0 = len(note_bits)
+        fee = busan_fee(r, conf, name, note_bits, note_fixed, grade_fixed)
+        free_days = parse_free_days(note)
+        if name == "서구" and ptype == "노상" and not free_days["sun"]:
+            free_days["sun"] = True
+        if std_name == "주례초등학교":
+            free_days["sat"] = free_days["sun"] = True
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if r.get("_src"):
+            del note_bits[_n0:]
+            note_bits.insert(0, "표준데이터에 없고 부산시설공단 통합주차포털에만 있어 공단의 면수·급지·"
+                                "요금을 썼습니다")
+            if r.get("_memo"):
+                note_bits.append(r["_memo"])
+            if r.get("_free_min"):
+                note_bits.append(f"부산시설공단 주차장은 최초 {r['_free_min']}분이 무료입니다"
+                                 "(포털 요금 설정)")
+        mgmt = (r.get("관리기관명") or "").strip()
+        oper_label = BUSAN_OPERATORS.get(mgmt)
+        if oper_label:
+            note_bits.append(f"{oper_label} 주차장")
+        if ptype == "노상" and fee["type"] == "유료" and not fee.get("daily_fee"):
+            note_bits.append("노상 1급지 구간이라 1일 주차권이 없습니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": r.get("_src") or "표준데이터",
+            "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": city_name, "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": None,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": "", "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": parse_free_window(note), "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": city_name, "city_slug": conf["slug"],
+        })
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"{conf['slug']}-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"{conf['slug']}-s{n_street:03d}"
+
+    fee_table = busan_fee_table(name, conf, lots)
+    quality = check_quality_busan(name, rows_all, rows_std, rows_city, lots, excluded, merged,
+                                  note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-06",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-16 22:03 (KST)",
+        "note": (f"{name}로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 요금·운영시간·"
+                 "급지·면수는 주차장별 등록값을 그대로 썼고, 10분 단위 요금과 1일 주차요금을 그대로 계산한다."
+                 + (f" 부산시설공단이 직접 운영하는 {_corp_n}곳은 표준데이터에 없어 공단 통합주차포털의 "
+                    "면수·급지·요금을 더했다." if _corp_n else "")),
+    }
+    ord_url, ord_note = conf["ordinance"][1], conf["ordinance"][2]
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance",
+            "name": "「부산광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제3조의2 감면",
+            "org": "부산광역시 교통혁신과(051-888-3936)",
+            "url": BUSAN_ORD_URL,
+            "file": BUSAN_ORD1_TXT.name if BUSAN_ORD1_TXT.exists() else None,
+            "sha256": sha256(BUSAN_ORD1_TXT) if BUSAN_ORD1_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": BUSAN_ORD_NOTE,
+            "rows_total": None, "fetched_at": _sync_time(BUSAN_ORD1_TXT),
+            "note": ("시영(부산시설공단) 공영주차장에 적용하는 요금표다. 1급지(가)·1급지(나)·2~4급지로 "
+                     "나뉘고 1구획 10분마다 700·500·300·200·100원이며, 1일 주차는 21,000·15,000·"
+                     "8,000·4,700·2,400원, 월 주차는 주간 220,000·160,000·90,000·50,000·30,000원·"
+                     "야간 90,000·80,000·70,000·40,000·22,000원이다(3급지는 환승 35,000·비환승 50,000원). "
+                     "1일·월 주차는 노외주차장과 주간 2~4급지 노상주차장에만 받고, 시간제 요금이 1일 "
+                     "주차요금을 넘으면 1일 주차요금을 받는다. 제3조의2는 장애인·국가유공자 등 1시간 "
+                     "면제 뒤 50퍼센트, 경차·환경친화·저공해 50퍼센트, 다자녀·임산부 50퍼센트, "
+                     "전통시장 1시간 면제, 승용차부제 50퍼센트, 모범납세자 1년 면제, 환승 50퍼센트, "
+                     "상가 할인권 30퍼센트 등을 정한다."),
+        },
+        {
+            "id": "gu_ordinance", "name": conf["ordinance"][0],
+            "org": f"{name}청 주차관리 부서",
+            "url": ord_url,
+            "file": (RAW / f"{conf['slug']}.law.go.kr_주차장조례_별표1_20261118.txt").name
+                    if (RAW / f"{conf['slug']}.law.go.kr_주차장조례_별표1_20261118.txt").exists() else None,
+            "sha256": (sha256(RAW / f"{conf['slug']}.law.go.kr_주차장조례_별표1_20261118.txt")
+                       if (RAW / f"{conf['slug']}.law.go.kr_주차장조례_별표1_20261118.txt").exists() else None),
+            "license": "자치법규(공개)", "base_date": ord_note,
+            "rows_total": None, "fetched_at": "2026-11-18 (KST)",
+            "note": f"구영(구청 직영) 주차장에 적용하는 조례다. {conf['notes']}.",
+        },
+        {
+            "id": "city_fee_page", "name": "부산광역시 분야별 통합 ‘주차요금’·감면 안내",
+            "org": "부산광역시 교통혁신과(051-888-3936)",
+            "url": "https://www.busan.go.kr/depart/parkinfo0201",
+            "file": "busan.go.kr_주차요금_감면_20261118.txt",
+            "sha256": sha256(RAW / "busan.go.kr_주차요금_감면_20261118.txt")
+                      if (RAW / "busan.go.kr_주차요금_감면_20261118.txt").exists() else None,
+            "license": "공공누리 제1유형", "base_date": "최근 업데이트 2025-10-01",
+            "rows_total": None, "fetched_at": _sync_time(RAW / "busan.go.kr_주차요금_감면_20261118.txt"),
+            "note": ("급지별 요금표와 감면 대상·비율을 조례와 같은 내용으로 싣고 있다(2026-11-18 확인). "
+                     "표준데이터와 다른 값은 이 표·조례와 대조해 카드에 차이를 적었다."),
+        },
+    ]
+    _corp_file = RAW / "bsparking.bisco.or.kr_공영주차장_목록_20261118.json"
+    if _corp_n and _corp_file.exists():
+        sources.append({
+            "id": "corp_portal", "name": "부산시설공단 통합주차포털 직영 주차장 목록·요금",
+            "org": "부산시설공단(051-860-7700)",
+            "url": "https://bsparking.bisco.or.kr/searchparking",
+            "file": _corp_file.name, "sha256": sha256(_corp_file),
+            "license": "공공기관 공개 웹페이지", "base_date": "2026-11-18 확인",
+            "rows_total": _corp_n, "fetched_at": _sync_time(_corp_file),
+            "note": ("부산시설공단이 직접 운영하는 공영주차장 53곳 가운데 이 구의 "
+                     f"{_corp_n}곳을 더했다. 주차면수·급지·10분 요금·1일 주차요금·월 정기권·무료시간"
+                     "(10분)·좌표를 포털 내려받기 값 그대로 썼다. 포털의 ‘민간위탁/전통시장’ 주차장은 "
+                     "위탁 운영이라 이 사이트 계산 대상에서 뺐다."),
+        })
+    if name == "중구":
+        _f = RAW / "bsjunggu.go.kr_공영주차장_목록_20261118.txt"
+        if _f.exists():
+            sources.append({
+                "id": "gu_portal", "name": "부산광역시 중구청 공영주차장 목록(구역명·소재지·주차면수·10분 요금)",
+                "org": "부산광역시 중구청 교통행정과(051-600-4556)",
+                "url": "https://www.bsjunggu.go.kr/cyber/board/list.junggu?boardId=LIFE&categoryCode1=E&categoryCode2=E02&menuCd=DOM_000000111001001000",
+                "file": _f.name, "sha256": sha256(_f),
+                "license": "공공누리 제1유형", "base_date": "최종수정일 2026-11-17",
+                "rows_total": 26, "fetched_at": _sync_time(_f),
+                "note": ("중구가 운영하는 공영주차장 26곳(노외 10·노상 16)의 이름·소재지·면수·10분당 요금을 "
+                         "표준데이터와 대조했다. 같은 목록과 요금이 표준데이터에도 등록되어 있어 값을 그대로 썼다."),
+            })
+    if name == "부산진구":
+        _f = RAW / "busanjin.go.kr_공영주차장_현황_20261118.txt"
+        if _f.exists():
+            sources.append({
+                "id": "gu_portal", "name": "부산광역시 부산진구청 공영주차장 현황(2026. 1. 현재)",
+                "org": "부산광역시 부산진구청 주차관리과(051-605-5886)",
+                "url": "http://www.busanjin.go.kr/index.busanjin?menuCd=DOM_000000105008000000",
+                "file": _f.name, "sha256": sha256(_f),
+                "license": "공공누리 제1유형", "base_date": "2026-01-01 기준",
+                "rows_total": 9, "fetched_at": _sync_time(_f),
+                "note": ("공영주차장 9개소(노상 6·노외 3, 435면)의 급지·면수·운영시간을 표준데이터와 "
+                         "대조했다. 구청은 노상 주차장의 일요일을 휴무로, 주례초등학교는 주말(토·일) "
+                         "무료 개방으로 적고 있다."),
+            })
+
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": BUSAN_PROVINCE, "city": name},
+            "sources": sources,
+        },
+        "districts": [{"name": city_name, "slug": conf["slug"]}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update(CITY_META_BUSAN[name] | {
+        "city": city_name,
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": BUSAN_CITY_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / f"busan_{conf['slug']}_parking.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def busan_charge(fee, minutes):
+    """요금표의 1시간·2시간 예상요금(1일 주차요금 상한 적용)."""
+    if not fee.get("base_min") or not fee.get("base_fee"):
+        return None
+    raw = fee["base_fee"] if minutes <= fee["base_min"] else (
+        fee["base_fee"] + math.ceil((minutes - fee["base_min"]) / fee["unit_min"]) * fee["unit_fee"])
+    cap = fee.get("daily_fee")
+    return min(raw, cap) if cap else raw
+
+
+def busan_fee_table(name, conf, lots):
+    """급지별 10분 요금표 — 이 구 주차장의 등록값과 조례 별표1로 만든다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    by_grade = {}
+    for l in paid:
+        by_grade.setdefault(l["fee"]["grade"], []).append(l)
+    rows = []
+    for grade in ("1가", "1나", "2", "3", "4"):
+        gl = by_grade.get(grade) or []
+        ref = BUSAN_FEES[grade]
+        if gl:
+            fees = [l["fee"]["base_fee"] for l in gl if l["fee"].get("base_fee")]
+            pool = [l for l in gl if l["list_mode"] == "card"] or gl
+            key = Counter((l["fee"]["base_min"], l["fee"]["base_fee"]) for l in pool).most_common(1)[0][0]
+            sample = next(l for l in pool if (l["fee"]["base_min"], l["fee"]["base_fee"]) == key)
+            h1 = busan_charge(sample["fee"], 60)
+            h2 = busan_charge(sample["fee"], 120)
+            unit = min(fees) if fees else ref[0]
+            unit_label = (f"{unit:,}원" if len(set(fees)) <= 1
+                          else f"{min(fees):,}~{max(fees):,}원")
+            months = [l["fee"]["monthly_all"] for l in gl if l["fee"].get("monthly_all")]
+            days = [l["fee"]["daily_fee"] for l in gl if l["fee"].get("daily_fee")]
+            rows.append({
+                "grade": grade, "label": BUSAN_GRADE_LABEL[grade], "lots": len(gl),
+                "unit_label": unit_label, "hour": h1, "two_hour": h2,
+                "day": min(days) if days else ref[1],
+                "month": min(months) if months else BUSAN_MONTHLY_ALL[grade],
+                "charter": ref[0], "charter_day": ref[1],
+            })
+        else:
+            # 이 구에 그 급지 주차장이 없어도 조례 요금은 보여 준다(1시간 = 10분 요금×6, 1일 상한 적용).
+            rows.append({
+                "grade": grade, "label": BUSAN_GRADE_LABEL[grade], "lots": 0,
+                "unit_label": f"{ref[0]:,}원",
+                "hour": min(ref[0] * 6, ref[1]),
+                "two_hour": min(ref[0] * 12, ref[1]),
+                "day": ref[1], "month": BUSAN_MONTHLY_ALL[grade],
+                "charter": ref[0], "charter_day": ref[1],
+            })
+    hours_counter = Counter()
+    for l in paid:
+        h = l["hours"]["weekday"]
+        if h.get("24h"):
+            hours_counter["24시간"] += 1
+        elif h.get("open") and h.get("start") is not None:
+            hours_counter[f"{h['start'] // 60:02d}:{h['start'] % 60:02d}~"
+                          f"{h['end'] // 60:02d}:{h['end'] % 60:02d}"] += 1
+        else:
+            hours_counter["등록 없음"] += 1
+    windows = [{"group": k, "count": v} for k, v in hours_counter.most_common()]
+    return {
+        "style": "busan_grade",
+        "unit_min": 10,
+        "applies": "2025-04-16",
+        "rows": rows,
+        "windows": windows,
+        "notes": conf["notes"],
+        "corp": {
+            "paid": len([l for l in paid if l["list_mode"] == "card"]),
+            "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+            "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+            "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+            "corp": len([l for l in lots if l.get("src") == "공단 안내"]),
+        },
+        "basis": (f"「부산광역시 주차장 설치 및 관리 조례」 별표1({BUSAN_ORD_NOTE}) · "
+                  f"{conf['ordinance'][0]}({conf['ordinance'][2]}) · "
+                  "전국주차장정보표준데이터(2026-10-06 기준) 등록요금"),
+    }
+
+
+def check_quality_busan(name, std_all, rows_std, rows_city, lots, excluded, merged,
+                        note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    conf = BUSAN_CONF[name]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{name}행수": len(rows_std),
+        "원자료_받은행수": len(rows_city),
+        "구별": name,
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": hour_fixed,
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": grade_fixed,
+        "좌표_보정": [],
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": ("시영은 「부산광역시 주차장 설치 및 관리 조례」 제3조의2, "
+                      f"구영은 {conf['ordinance'][0]}({conf['ordinance'][2]})"),
+        "무료시간_출처": ("부산광역시·구 조례 별표1은 10분 단위로 요금을 매기고 별도의 최초 무료시간을 "
+                          "두지 않는다. 부산시설공단이 직접 운영하는 주차장만 포털 안내대로 최초 10분을 "
+                          "무료로 두었다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다"),
+        "주말무료_출처": ("표준데이터 운영요일·특기사항과 구청 안내(부산진구 주례초등학교 주말 무료, "
+                          "서구 조례 제10조의2 노상 일요일·공휴일 무료)를 그대로 썼다"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len(paid))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "공단안내_주차장": [l["name"] for l in lots if l.get("src") == "공단 안내"],
+    }
+
+
+
 
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
-          "bupyeong", "gyeyang", "seohae", "geomdan", "ganghwa", "ongjin", "all"], default="all")
+          "bupyeong", "gyeyang", "seohae", "geomdan", "ganghwa", "ongjin",
+          "busanjung", "busanseo", "busandong", "busanyeongdo", "busanjin", "all"], default="all")
     args = ap.parse_args()
 
     want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시", "과천시", "가평군", "양평군", "연천군", "종로구", "중구", "용산구", "강남구", "서초구", "송파구", "강동구", "마포구", "영등포구", "서대문구", "양천구", "강서구",
                 "성동구", "광진구", "동대문구", "중랑구", "성북구", "강북구",
                 "도봉구", "노원구", "은평구", "구로구", "금천구", "동작구", "관악구",
                 "미추홀구", "연수구", "남동구", "제물포구", "영종구",
-                "부평구", "계양구", "서해구", "검단구", "강화군", "옹진군"] if args.city == "all" else \
+                "부평구", "계양구", "서해구", "검단구", "강화군", "옹진군",
+                "부산 중구", "부산 서구", "부산 동구", "부산 영도구", "부산 부산진구"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -21479,7 +22374,9 @@ def main():
              "michuhol": ["미추홀구"], "yeonsu": ["연수구"], "namdong": ["남동구"],
              "jemulpo": ["제물포구"], "yeongjong": ["영종구"],
              "bupyeong": ["부평구"], "gyeyang": ["계양구"], "seohae": ["서해구"],
-             "geomdan": ["검단구"], "ganghwa": ["강화군"], "ongjin": ["옹진군"]}[args.city])
+             "geomdan": ["검단구"], "ganghwa": ["강화군"], "ongjin": ["옹진군"],
+             "busanjung": ["부산 중구"], "busanseo": ["부산 서구"], "busandong": ["부산 동구"],
+             "busanyeongdo": ["부산 영도구"], "busanjin": ["부산 부산진구"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -21553,6 +22450,10 @@ def main():
                 "부평구", "계양구", "서해구", "검단구", "강화군", "옹진군"):
         if _gu in want:
             cities.append(build_incheon_district(_gu))
+    for _gu, _city in (("중구", "부산 중구"), ("서구", "부산 서구"), ("동구", "부산 동구"),
+                       ("영도구", "부산 영도구"), ("부산진구", "부산 부산진구")):
+        if _city in want:
+            cities.append(build_busan_district(_gu))
 
     if args.city == "all":
         site = build_site_payload(cities)

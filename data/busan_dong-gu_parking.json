@@ -1,0 +1,6892 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 07:46",
+  "generated_at_iso": "2026-11-18T07:46:34+09:00",
+  "snapshot_at": "2026-11-18 07:46",
+  "region": {
+   "province": "부산광역시",
+   "city": "동구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 59,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "동구로 등록된 행 59행(노외·부설 26·노상 33)을 읽어 노외·부설 26곳과 노상 33구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 10분 단위 요금과 1일 주차요금을 그대로 계산한다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「부산광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제3조의2 감면",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2029885",
+    "file": "busan.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "3198af7edba3d6900d621faf219cb28b95962c3ad14a35c3bedb756068ca45c0",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:25 (KST)",
+    "note": "시영(부산시설공단) 공영주차장에 적용하는 요금표다. 1급지(가)·1급지(나)·2~4급지로 나뉘고 1구획 10분마다 700·500·300·200·100원이며, 1일 주차는 21,000·15,000·8,000·4,700·2,400원, 월 주차는 주간 220,000·160,000·90,000·50,000·30,000원·야간 90,000·80,000·70,000·40,000·22,000원이다(3급지는 환승 35,000·비환승 50,000원). 1일·월 주차는 노외주차장과 주간 2~4급지 노상주차장에만 받고, 시간제 요금이 1일 주차요금을 넘으면 1일 주차요금을 받는다. 제3조의2는 장애인·국가유공자 등 1시간 면제 뒤 50퍼센트, 경차·환경친화·저공해 50퍼센트, 다자녀·임산부 50퍼센트, 전통시장 1시간 면제, 승용차부제 50퍼센트, 모범납세자 1년 면제, 환승 50퍼센트, 상가 할인권 30퍼센트 등을 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「부산광역시 동구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)",
+    "org": "동구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1914637",
+    "file": null,
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "시행 2024-03-20 · 부산광역시동구조례 제1490호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 동구는 시 조례 별표1의 요금을 그대로 쓰고, 구 조례 제3조의2가 우수·성실납세자, 국민체육문예센터 70퍼센트, 우수기업인, 장기기증자 감면을 따로 정합니다. 초량동·범일동 일부는 1급지(나)(10분 500원), 나머지 노상·노외는 4급지(100원)입니다."
+   },
+   {
+    "id": "city_fee_page",
+    "name": "부산광역시 분야별 통합 ‘주차요금’·감면 안내",
+    "org": "부산광역시 교통혁신과(051-888-3936)",
+    "url": "https://www.busan.go.kr/depart/parkinfo0201",
+    "file": "busan.go.kr_주차요금_감면_20261118.txt",
+    "sha256": "9fb7422a2b9cd9de7900e00a8f80b513295fb7a42991cc3d6e0cf861ba177c41",
+    "license": "공공누리 제1유형",
+    "base_date": "최근 업데이트 2025-10-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 07:27 (KST)",
+    "note": "급지별 요금표와 감면 대상·비율을 조례와 같은 내용으로 싣고 있다(2026-11-18 확인). 표준데이터와 다른 값은 이 표·조례와 대조해 카드에 차이를 적었다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "부산 동구",
+   "slug": "dong-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dong-gu-001",
+   "mgmt_no": "132-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가구거리",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 범일동 183",
+   "addr_road": "부산광역시 동구 중앙대로 471-10",
+   "road": null,
+   "spaces": 60,
+   "tel": "051-440-4742",
+   "lat": 35.13613716,
+   "lng": 129.0553244,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-002",
+   "mgmt_no": "132-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "범일1동",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 범일동 1338-11",
+   "addr_road": "부산광역시 동구 증산로 154",
+   "road": null,
+   "spaces": 45,
+   "tel": "051-440-4742",
+   "lat": 35.13947459,
+   "lng": 129.0532274,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-003",
+   "mgmt_no": "132-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "범일1동 제2공영",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 범일동 1424-7",
+   "addr_road": "부산광역시 동구 범곡서로 21",
+   "road": null,
+   "spaces": 19,
+   "tel": "051-440-4742",
+   "lat": 35.14051494,
+   "lng": 129.0516079,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-004",
+   "mgmt_no": "132-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "범일1동 제3공영",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 범일동 1511-4",
+   "addr_road": "부산광역시 동구 범내로 34",
+   "road": null,
+   "spaces": 28,
+   "tel": "051-440-4742",
+   "lat": 35.14346251,
+   "lng": 129.0495404,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-005",
+   "mgmt_no": "132-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "범일1동 제4공영",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 범일동 1438-216",
+   "addr_road": "부산광역시 동구 범내남로26번길 16",
+   "road": null,
+   "spaces": 49,
+   "tel": "051-440-4742",
+   "lat": 35.1416543,
+   "lng": 129.050623,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-006",
+   "mgmt_no": "132-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동구국민 체육센터 공영",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 822",
+   "addr_road": "부산광역시 동구 구청로 8",
+   "road": null,
+   "spaces": 160,
+   "tel": "051-440-4742",
+   "lat": 35.12895295,
+   "lng": 129.0446742,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-007",
+   "mgmt_no": "132-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동구체육공원",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 711-4",
+   "addr_road": "부산광역시 동구 수정공원중로 22",
+   "road": null,
+   "spaces": 50,
+   "tel": "051-440-4742",
+   "lat": 35.1323287,
+   "lng": 129.0385856,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-008",
+   "mgmt_no": "132-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수정1동",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 1043-60",
+   "addr_road": "부산광역시 동구 홍곡남로 15",
+   "road": null,
+   "spaces": 53,
+   "tel": "051-440-4742",
+   "lat": 35.12482562,
+   "lng": 129.0389031,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-009",
+   "mgmt_no": "132-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수정2동",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 771-210",
+   "addr_road": "부산광역시 동구 수정공원로 41",
+   "road": null,
+   "spaces": 28,
+   "tel": "051-440-4742",
+   "lat": 35.1305959,
+   "lng": 129.0391654,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-010",
+   "mgmt_no": "132-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수정2동 제2공영",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 785-8",
+   "addr_road": "부산광역시 동구 수정로 54-1",
+   "road": null,
+   "spaces": 40,
+   "tel": "051-440-4742",
+   "lat": 35.13014573,
+   "lng": 129.0419229,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-011",
+   "mgmt_no": "132-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수정4동",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 968-11",
+   "addr_road": "부산광역시 동구 망양로694번길 7-1",
+   "road": null,
+   "spaces": 38,
+   "tel": "051-440-4742",
+   "lat": 35.1273455,
+   "lng": 129.0416731,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-012",
+   "mgmt_no": "132-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수정5동",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 410-111",
+   "addr_road": "부산광역시 동구 수정공원북로 7",
+   "road": null,
+   "spaces": 49,
+   "tel": "051-440-4742",
+   "lat": 35.13711518,
+   "lng": 129.0456733,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-013",
+   "mgmt_no": "132-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수정산",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 수정동 600-3",
+   "addr_road": "부산광역시 동구 수정공원로 89",
+   "road": null,
+   "spaces": 97,
+   "tel": "051-440-4742",
+   "lat": 35.13294221,
+   "lng": 129.0404701,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-014",
+   "mgmt_no": "132-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고관로 제1공영",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 68-569",
+   "addr_road": "부산광역시 동구 성남로 69",
+   "road": null,
+   "spaces": 21,
+   "tel": "051-440-4742",
+   "lat": 35.13134533,
+   "lng": 129.0564589,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-015",
+   "mgmt_no": "132-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고관로 제2공영",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 68-595",
+   "addr_road": "부산광역시 동구 성남로 61-2",
+   "road": null,
+   "spaces": 73,
+   "tel": "051-440-4742",
+   "lat": 35.13130178,
+   "lng": 129.0558391,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-016",
+   "mgmt_no": "132-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "독도주차장",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 722",
+   "addr_road": "부산광역시 동구 증산로 100",
+   "road": null,
+   "spaces": 42,
+   "tel": "051-440-4742",
+   "lat": 35.13563677,
+   "lng": 129.0529467,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-017",
+   "mgmt_no": "132-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부산진역",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 1164-2",
+   "addr_road": "부산광역시 동구 중앙대로 380",
+   "road": null,
+   "spaces": 38,
+   "tel": "051-440-4742",
+   "lat": 35.12845648,
+   "lng": 129.0490542,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-018",
+   "mgmt_no": "132-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성남로 제1노외",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 1119",
+   "addr_road": "부산광역시 동구 성남로 35-1",
+   "road": null,
+   "spaces": 29,
+   "tel": "051-440-4742",
+   "lat": 35.12974704,
+   "lng": 129.0544179,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-019",
+   "mgmt_no": "132-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성북공영",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 910-3",
+   "addr_road": "부산광역시 동구 망양로860번길 3",
+   "road": null,
+   "spaces": 47,
+   "tel": "051-440-4742",
+   "lat": 35.13729921,
+   "lng": 129.0479509,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-020",
+   "mgmt_no": "132-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "좌천동 제1공영",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 808-12",
+   "addr_road": "부산광역시 동구 증산로65번길 7",
+   "road": null,
+   "spaces": 51,
+   "tel": "051-440-4742",
+   "lat": 35.13327668,
+   "lng": 129.0505487,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-021",
+   "mgmt_no": "132-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "좌천동 제2공영",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 952-2",
+   "addr_road": "부산광역시 동구 증산로8번길 9",
+   "road": null,
+   "spaces": 49,
+   "tel": "051-440-4742",
+   "lat": 35.13472964,
+   "lng": 129.0464824,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-022",
+   "mgmt_no": "132-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "초량6동",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 좌천동 689-94",
+   "addr_road": "부산광역시 동구 고관로141번길 18-4",
+   "road": null,
+   "spaces": 47,
+   "tel": "051-440-4742",
+   "lat": 35.13134562,
+   "lng": 129.0485696,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-023",
+   "mgmt_no": "132-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동구공영주차빌딩",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 초량동 1204-9",
+   "addr_road": "부산광역시 동구 중앙대로 196번길 12-12",
+   "road": null,
+   "spaces": 152,
+   "tel": "051-440-4742",
+   "lat": 35.11352832,
+   "lng": 129.0401986,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 160000,
+    "monthly_all": 160000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 160000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-024",
+   "mgmt_no": "132-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "차이나타운",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 초량동 545-7",
+   "addr_road": "부산광역시 동구 중앙대로195번길 23",
+   "road": null,
+   "spaces": 62,
+   "tel": "051-440-4742",
+   "lat": 35.1152382,
+   "lng": 129.0379841,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 15,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 15000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 240000,
+    "monthly_all": 240000,
+    "monthly_label": "전일",
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 15000,
+     "monthly": 240000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-025",
+   "mgmt_no": "132-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "초량2동",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 초량동 865",
+   "addr_road": "부산광역시 동구 영초길247번가길 9-6",
+   "road": null,
+   "spaces": 46,
+   "tel": "051-440-4742",
+   "lat": 35.11859783,
+   "lng": 129.0336895,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-026",
+   "mgmt_no": "132-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "초량2동 제2공영",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "부산광역시 동구 초량동 865-148",
+   "addr_road": "부산광역시 동구 망양로 488",
+   "road": null,
+   "spaces": 34,
+   "tel": "051-440-4742",
+   "lat": 35.11767417,
+   "lng": 129.0332089,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 52000,
+    "monthly_all": 52000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 52000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s001",
+   "mgmt_no": "132-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "범일2동 제1노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-9",
+   "addr_road": "부산광역시 동구 자성로133번길 10",
+   "road": null,
+   "spaces": 39,
+   "tel": "051-440-4742",
+   "lat": 35.13809798,
+   "lng": 129.0650803,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s002",
+   "mgmt_no": "132-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "범일로90번길 노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-63",
+   "addr_road": "부산광역시 동구 조방로 15",
+   "road": null,
+   "spaces": 16,
+   "tel": "051-440-4742",
+   "lat": 35.13822332,
+   "lng": 129.0622617,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s003",
+   "mgmt_no": "132-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부산진성공원로 제1노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-29",
+   "addr_road": "부산광역시 동구 부산진성공원로 23",
+   "road": null,
+   "spaces": 5,
+   "tel": "051-440-4742",
+   "lat": 35.13771728,
+   "lng": 129.0624598,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s004",
+   "mgmt_no": "132-1-000029",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부산진성공원로 제2노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-29",
+   "addr_road": "부산광역시 동구 부산진성공원로 23",
+   "road": null,
+   "spaces": 9,
+   "tel": "051-440-4742",
+   "lat": 35.13771686,
+   "lng": 129.0624578,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s005",
+   "mgmt_no": "132-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "자성로 제1노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 829-16",
+   "addr_road": "부산광역시 동구 자성로 115",
+   "road": null,
+   "spaces": 13,
+   "tel": "051-440-4742",
+   "lat": 35.13676626,
+   "lng": 129.0630589,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s006",
+   "mgmt_no": "132-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "자성로140번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 825-3",
+   "addr_road": "부산광역시 동구 자성로 134",
+   "road": null,
+   "spaces": 31,
+   "tel": "051-440-4742",
+   "lat": 35.1366352,
+   "lng": 129.065039,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s007",
+   "mgmt_no": "132-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "자유시장뒤",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-24",
+   "addr_road": "부산광역시 동구 조방로 48",
+   "road": null,
+   "spaces": 31,
+   "tel": "051-440-4742",
+   "lat": 35.1409748,
+   "lng": 129.0610412,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s008",
+   "mgmt_no": "132-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조방로10번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-30",
+   "addr_road": "부산광역시 동구 자성로133번길 15",
+   "road": null,
+   "spaces": 17,
+   "tel": "051-440-4742",
+   "lat": 35.13827371,
+   "lng": 129.0640755,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s009",
+   "mgmt_no": "132-1-000030",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조방로10번길 제2노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-31",
+   "addr_road": "부산광역시 동구 자성로133번길 16",
+   "road": null,
+   "spaces": 48,
+   "tel": "051-440-4742",
+   "lat": 35.13884638,
+   "lng": 129.065224,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s010",
+   "mgmt_no": "132-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조방로16번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-303",
+   "addr_road": "부산광역시 동구 조방로 39-7",
+   "road": null,
+   "spaces": 17,
+   "tel": "051-440-4742",
+   "lat": 35.13956561,
+   "lng": 129.0610276,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s011",
+   "mgmt_no": "132-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조방로16번길 제2노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-24",
+   "addr_road": "부산광역시 동구 조방로 48",
+   "road": null,
+   "spaces": 22,
+   "tel": "051-440-4742",
+   "lat": 35.1409748,
+   "lng": 129.0610412,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s012",
+   "mgmt_no": "132-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조방로34번길 제2노상",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-24",
+   "addr_road": "부산광역시 동구 조방로 48",
+   "road": null,
+   "spaces": 17,
+   "tel": "051-440-4742",
+   "lat": 35.1409748,
+   "lng": 129.0610412,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s013",
+   "mgmt_no": "132-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "행복예식장옆",
+   "gu": "부산 동구",
+   "dong": "범일동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 범일동 830-24",
+   "addr_road": "부산광역시 동구 조방로 48",
+   "road": null,
+   "spaces": 10,
+   "tel": "051-440-4742",
+   "lat": 35.1409748,
+   "lng": 129.0610412,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s014",
+   "mgmt_no": "132-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "수정공원상로 제1노상",
+   "gu": "부산 동구",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 수정동 1178-43",
+   "addr_road": "부산광역시 동구 수정공원상로20번길 7",
+   "road": null,
+   "spaces": 20,
+   "tel": "051-440-4742",
+   "lat": 35.1284546,
+   "lng": 129.0389585,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s015",
+   "mgmt_no": "132-1-000032",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "성남로 제2노상",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 좌천동 1116-1",
+   "addr_road": "부산광역시 동구 충장대로 351",
+   "road": null,
+   "spaces": 25,
+   "tel": "051-440-4742",
+   "lat": 35.12948701,
+   "lng": 129.056747,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s016",
+   "mgmt_no": "132-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "성남로49번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 좌천동 68-1",
+   "addr_road": "부산광역시 동구 성남로47번길 28-12",
+   "road": null,
+   "spaces": 30,
+   "tel": "051-440-4742",
+   "lat": 35.1301641,
+   "lng": 129.0529936,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s017",
+   "mgmt_no": "132-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로399번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "좌천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 좌천동 682-1",
+   "addr_road": "부산광역시 동구 중앙대로 401",
+   "road": null,
+   "spaces": 8,
+   "tel": "051-440-4742",
+   "lat": 35.13086132,
+   "lng": 129.0505627,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s018",
+   "mgmt_no": "132-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "구봉로 제1노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1118-1",
+   "addr_road": "부산광역시 동구 구봉로 19",
+   "road": null,
+   "spaces": 36,
+   "tel": "051-440-4742",
+   "lat": 35.12220161,
+   "lng": 129.0378198,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s019",
+   "mgmt_no": "132-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부산고등학교입구",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 667-8",
+   "addr_road": "부산광역시 동구 초량로 36",
+   "road": null,
+   "spaces": 16,
+   "tel": "051-440-4742",
+   "lat": 35.1205107,
+   "lng": 129.0387329,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": 90000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s020",
+   "mgmt_no": "132-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "스카이웨이",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 827-248",
+   "addr_road": "부산광역시 동구 망양로579번길 7-8",
+   "road": null,
+   "spaces": 52,
+   "tel": "051-440-4742",
+   "lat": 35.12239082,
+   "lng": 129.0332091,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s021",
+   "mgmt_no": "132-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로180번길 제3공영",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1213-1",
+   "addr_road": "부산광역시 동구 중앙대로180번길 12",
+   "road": null,
+   "spaces": 37,
+   "tel": "051-440-4742",
+   "lat": 35.11286526,
+   "lng": 129.0401886,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s022",
+   "mgmt_no": "132-1-000031",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로196번길 노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1203-2",
+   "addr_road": "부산광역시 동구 중앙대로196번길 12-3",
+   "road": null,
+   "spaces": 14,
+   "tel": "051-440-4742",
+   "lat": 35.1139274,
+   "lng": 129.0407124,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s023",
+   "mgmt_no": "132-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로236번길 제2노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1195-1",
+   "addr_road": "부산광역시 동구 중앙대로248번길 14",
+   "road": null,
+   "spaces": 8,
+   "tel": "051-440-4742",
+   "lat": 35.11837406,
+   "lng": 129.0431338,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s024",
+   "mgmt_no": "132-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로236번길 제3노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1195-2",
+   "addr_road": "부산광역시 동구 중앙대로236번길 7-12",
+   "road": null,
+   "spaces": 12,
+   "tel": "051-440-4742",
+   "lat": 35.11845666,
+   "lng": 129.0429384,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s025",
+   "mgmt_no": "132-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로236번길 제4노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1196-4",
+   "addr_road": "부산광역시 동구 중앙대로226번길 13-7",
+   "road": null,
+   "spaces": 14,
+   "tel": "051-440-4742",
+   "lat": 35.11725625,
+   "lng": 129.0425136,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s026",
+   "mgmt_no": "132-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로248번길 제3노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1188-1",
+   "addr_road": "부산광역시 동구 중앙대로248번길 7-6",
+   "road": null,
+   "spaces": 20,
+   "tel": "051-440-4742",
+   "lat": 35.11900702,
+   "lng": 129.0434347,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s027",
+   "mgmt_no": "132-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로260번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1168-13",
+   "addr_road": "부산광역시 동구 중앙대로260번길 3-2",
+   "road": null,
+   "spaces": 16,
+   "tel": "051-440-4742",
+   "lat": 35.11991224,
+   "lng": 129.0431941,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s028",
+   "mgmt_no": "132-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로260번길제2노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1167",
+   "addr_road": "부산광역시 동구 중앙대로260번길 11",
+   "road": null,
+   "spaces": 22,
+   "tel": "051-440-4742",
+   "lat": 35.12032104,
+   "lng": 129.0441278,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s029",
+   "mgmt_no": "132-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로296번길 제1노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1159-1",
+   "addr_road": "부산광역시 동구 중앙대로296번길 7-3",
+   "road": null,
+   "spaces": 9,
+   "tel": "051-440-4742",
+   "lat": 35.12320136,
+   "lng": 129.0450086,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s030",
+   "mgmt_no": "132-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로320번길 제2노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1154-1",
+   "addr_road": "부산광역시 동구 중앙대로332번길 8",
+   "road": null,
+   "spaces": 11,
+   "tel": "051-440-4742",
+   "lat": 35.12524118,
+   "lng": 129.0465389,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s031",
+   "mgmt_no": "132-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로320번길 제3노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1154-1",
+   "addr_road": "부산광역시 동구 중앙대로332번길 8",
+   "road": null,
+   "spaces": 14,
+   "tel": "051-440-4742",
+   "lat": 35.12524118,
+   "lng": 129.0465389,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s032",
+   "mgmt_no": "132-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로332번길 제2공영",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1150-7",
+   "addr_road": "부산광역시 동구 중앙대로332번길 9",
+   "road": null,
+   "spaces": 9,
+   "tel": "051-440-4742",
+   "lat": 35.12553427,
+   "lng": 129.0466866,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dong-gu-s033",
+   "mgmt_no": "132-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙대로332번길 제3노상",
+   "gu": "부산 동구",
+   "dong": "초량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "부산광역시 동구 초량동 1150-1",
+   "addr_road": "부산광역시 동구 중앙대로332번길 7-12",
+   "road": null,
+   "spaces": 22,
+   "tel": "051-440-4742",
+   "lat": 35.12613367,
+   "lng": 129.0470526,
+   "base_date": "2026-10-19",
+   "manager": "부산광역시 동구청",
+   "note": "",
+   "notice": "구영(동구청 직영) 주차장 · 노상 1급지 구간이라 1일 주차권이 없습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1나",
+    "grade_label": "1급지(나)",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드결제 등",
+    "std": {
+     "base_min": 10,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부산 동구",
+   "city_slug": "dong-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 07:46",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 59,
+  "원자료_동구행수": 59,
+  "원자료_받은행수": 59,
+  "구별": "동구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 26,
+  "노외_부설": {
+   "노외": 26
+  },
+  "노상_구간": 33,
+  "총_구획수": 1407,
+  "노상_구획수": 670,
+  "동별": {
+   "좌천동": 9,
+   "수정동": 8,
+   "범일동": 5,
+   "초량동": 4
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 26
+  },
+  "요금구분": {
+   "유료": 58,
+   "무료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 32,
+  "유료_노외": 26,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「부산광역시 주차장 설치 및 관리 조례」 제3조의2, 구영은 「부산광역시 동구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)(시행 2024-03-20 · 부산광역시동구조례 제1490호(일부개정))",
+  "무료시간_출처": "부산광역시·구 조례 별표1은 10분 단위로 요금을 매기고 별도의 최초 무료시간을 두지 않는다. 부산시설공단이 직접 운영하는 주차장만 포털 안내대로 최초 10분을 무료로 두었다. 무료 주차장은 표준데이터 요금 구분이 ‘무료’인 곳이다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항과 구청 안내(부산진구 주례초등학교 주말 무료, 서구 조례 제10조의2 노상 일요일·공휴일 무료)를 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 1,
+  "무료_구획수": 20,
+  "평균_기본요금": 321,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-19"
+  ],
+  "공단안내_주차장": []
+ },
+ "fee_table": {
+  "style": "busan_grade",
+  "unit_min": 10,
+  "applies": "2025-04-16",
+  "rows": [
+   {
+    "grade": "1가",
+    "label": "1급지(가)",
+    "lots": 0,
+    "unit_label": "700원",
+    "hour": 4200,
+    "two_hour": 8400,
+    "day": 21000,
+    "month": 310000,
+    "charter": 700,
+    "charter_day": 21000
+   },
+   {
+    "grade": "1나",
+    "label": "1급지(나)",
+    "lots": 26,
+    "unit_label": "500원",
+    "hour": 3000,
+    "two_hour": 6000,
+    "day": 15000,
+    "month": 240000,
+    "charter": 500,
+    "charter_day": 15000
+   },
+   {
+    "grade": "2",
+    "label": "2급지",
+    "lots": 12,
+    "unit_label": "300원",
+    "hour": 1800,
+    "two_hour": 3600,
+    "day": 8000,
+    "month": 52000,
+    "charter": 300,
+    "charter_day": 8000
+   },
+   {
+    "grade": "3",
+    "label": "3급지",
+    "lots": 0,
+    "unit_label": "200원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 4700,
+    "month": 90000,
+    "charter": 200,
+    "charter_day": 4700
+   },
+   {
+    "grade": "4",
+    "label": "4급지",
+    "lots": 20,
+    "unit_label": "100원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 2400,
+    "month": 30000,
+    "charter": 100,
+    "charter_day": 2400
+   }
+  ],
+  "windows": [
+   {
+    "group": "08:00~21:00",
+    "count": 29
+   },
+   {
+    "group": "24시간",
+    "count": 27
+   },
+   {
+    "group": "08:00~18:00",
+    "count": 1
+   },
+   {
+    "group": "08:00~20:00",
+    "count": 1
+   }
+  ],
+  "notes": "동구는 시 조례 별표1의 요금을 그대로 쓰고, 구 조례 제3조의2가 우수·성실납세자, 국민체육문예센터 70퍼센트, 우수기업인, 장기기증자 감면을 따로 정합니다. 초량동·범일동 일부는 1급지(나)(10분 500원), 나머지 노상·노외는 4급지(100원)입니다",
+  "corp": {
+   "paid": 26,
+   "free": 1,
+   "unknown": 0,
+   "street_paid": 32,
+   "corp": 0
+  },
+  "basis": "「부산광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-04-16 · 부산광역시조례 제7585호(일부개정) · 별표1 공영주차장 주차요금표(개정 2018. 1. 10.) · 제3조의2 주차요금의 감면) · 「부산광역시 동구 주차장 설치 및 관리 조례」 제3조의2 감면(시 조례 별표1 준용)(시행 2024-03-20 · 부산광역시동구조례 제1490호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "dong-gu",
+ "province": "부산광역시",
+ "province_slug": "busan",
+ "dong_page_min_lots": 3,
+ "city": "부산 동구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인·독립유공자·상이자·5·18부상자·고엽제후유의증 대상자가 직접 운전 — 1시간 면제 뒤 50퍼센트"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차·환경친화적·저공해자동차 50퍼센트(전기차 충전 주차는 1시간 면제)"
+  },
+  {
+   "label": "우수납세자 100%·성실납세자 50%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "「부산광역시 동구 성실납세자 등 지원에 관한 조례」 — 우수납세자는 1년간 면제, 성실납세자는 1년간 50퍼센트(동구 조례 제3조의2제2호)"
+  },
+  {
+   "label": "국민체육문예센터 70%",
+   "rate": 0.7,
+   "exempt_min": 0,
+   "note": "「부산광역시 동구 국민체육문예센터 설치 및 운영 조례」 제14조에 따른 주차요금 70퍼센트 감면"
+  },
+  {
+   "label": "우수기업인 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "「부산광역시 기업인 예우 및 기업활동 촉진에 관한 조례」 우수기업인 — 인증일부터 3년간 1시간 면제, 초과분 50퍼센트"
+  },
+  {
+   "label": "장기기증자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 동구 장기 등 및 인체조직 기증 장려에 관한 조례」 기증자와 유족(동구 주민) 50퍼센트"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "가족사랑카드에 등재된 다자녀가정 차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지·산모수첩 등 증명자료를 제시한 차 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "전통시장 이용사실 확인 자료 제출 — 1시간 면제, 추가 1시간 50퍼센트"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인(등록)·독립유공자·상이자·5·18민주화운동부상자·고엽제후유의증 대상자가 자기 소유나 1년 이상 임차한 차를 직접 운전(또는 운전하게)한 경우 — 1시간까지 면제, 1시간 초과와 1일·월 주차는 50퍼센트 경감"
+  },
+  {
+   "label": "경차·환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "배기량 1,000cc 미만 경형자동차, 환경친화적 자동차 표지 부착 차, 저공해자동차 표지 부착 차 50퍼센트 — 전기자동차가 충전을 위해 주차하면 1시간까지 면제"
+  },
+  {
+   "label": "다자녀 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "다자녀가정 가족사랑카드에 등재된 비사업용 승용·승합(12인승 이하)·소형화물자동차 50퍼센트"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부자동차 표지를 붙이고 임산부가 탑승한 차에 산모수첩 등 증명자료를 제시하면 50퍼센트"
+  },
+  {
+   "label": "전통시장 1시간 면제 후 1시간 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "시장이 지정한 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하면 1시간까지 면제하고 추가 1시간은 50퍼센트 경감"
+  },
+  {
+   "label": "승용차부제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「부산광역시 승용차부제 지원 조례」 참여 자동차 50퍼센트(월 주차는 20퍼센트)"
+  },
+  {
+   "label": "모범납세자·우수기업인 등 100%",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "우수납세자·성실납세자(1년), 우수기업인(3년), 향토기업 차 1대, 사회공헌장·효행자·모범노동자(3년), 시무형유산 보유자·공예명장·병역명문가·우수 자원봉사자·장기기증자 50~100퍼센트 — 조례 제3조의2"
+  },
+  {
+   "label": "환승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환승주차장에 대고 환승한 것이 확인되거나 근거자료를 낸 차 50퍼센트(월 주차는 별표1 요금)"
+  },
+  {
+   "label": "상가 할인권 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "공영주차장 인근 상가와 사전협약이 있고 상가 이용 확인증(할인권)을 제시하면 30퍼센트"
+  }
+ ],
+ "realtime": false
+}
