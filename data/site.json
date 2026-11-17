@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 13:25",
+  "generated_at": "2026-11-17 13:43",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -109,6 +109,12 @@
    {
     "city": "군포시",
     "slug": "gunpo",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "광명시",
+    "slug": "gwangmyeong",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -843,6 +849,76 @@
     "fetched_at": "2026-11-17 13:10 (KST)",
     "note": "1급지 800·400·9,000원 / 2급지 600·200·6,000원 / 3급지 300·200·4,000원과 중심 1일 최대 35,000원·산본로데오 8,000원을 확인했다(조례 별표1의 중심 90,000원·산본시장 57,000원은 2025년 개정 전 값으로 보아 운영 값을 따랐다).",
     "city": "군포시"
+   },
+   {
+    "id": "ordinance",
+    "name": "광명시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 주차요금",
+    "org": "광명시(대중교통과)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?chrClsCd=010202&gubun=ELIS&ordinSeq=2162053",
+    "file": "gwangmyeong.law.go.kr_주차장조례_20261117.txt",
+    "sha256": "4a2adf490972bb498c178ea8ea3072f1f38df4aa1505db70f3c0c5a61256594a",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-08-14 (경기도광명시조례 제3407호, 2026-08-14 일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 13:52 (KST)",
+    "note": "1급지 최초 30분 800원·10분당 300원(2시간 초과 400원)·1일 13,000원·월 정기권 주간 75,000원·야간 45,000원, 2급지(옥길동·학온동) 500·200·300원·1일 8,000원, 거주지 전용 800·300·400원·1일 5,000원, 전통시장 2시간 초과 10분당 500원(1일 한도 없음)을 확인했다. 조문 일부만 받아 옮겼고, 별표 금액은 광명시 공영주차장 요금표·광명도시공사 이용요금의 같은 표로 대조했다.",
+    "city": "광명시"
+   },
+   {
+    "id": "city",
+    "name": "광명시 공영주차장 현황·요금표·할인대상·운영시간",
+    "org": "광명시 대중교통과 주차시설팀(02-2680-6499)",
+    "url": "https://www.gm.go.kr/pt/ns/gi/czfacility/PTMN207/PTGI0042.jsp",
+    "file": "gm.go.kr_공영주차장_20261117.txt",
+    "sha256": "16e3949cc682c0d4fff7a4ab8b02a3aa172e1ede782a71162f9ae94a201df3a8",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": 31,
+    "fetched_at": "2026-11-17 13:52 (KST)",
+    "note": "노외 21곳·노상 10곳 31개소 2,373면의 이름·위치·면수·유료/무료, 요금표(1급지·2급지·거주지 전용), 할인대상, 노상 운영시간(10:00~19:00·주말·공휴일 무료) 확인용.",
+    "city": "광명시"
+   },
+   {
+    "id": "corp",
+    "name": "광명도시공사 공영주차장 운영현황·공영주차장 안내",
+    "org": "광명도시공사 주차관리팀(02-2610-7390)",
+    "url": "https://gmuc.co.kr/user/conn/parkFacil.do",
+    "file": "gmuc.co.kr_공영주차장현황_20261117.txt · gmuc.co.kr_공영주차장안내_20261117.txt",
+    "sha256": "768e96a630c4eb33454d4cd85fe86fbe1fdd035eab977ae0853fffb13cdef58e",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": 25,
+    "fetched_at": "2026-11-17 13:52 (KST)",
+    "note": "노외 11곳·노상 8곳·거주자 1곳·부설 5곳의 면수와 운영시간(24시간 연중무휴, 새빛공원 평일 09:00~18시·주말 무료), 운영방법(시간/월정기), 소하 제1·3·4 노외의 면수 확인용. 실시간 잔여면수는 게시되어 있지 않다.",
+    "city": "광명시"
+   },
+   {
+    "id": "price",
+    "name": "광명도시공사 공영주차장 이용요금·할인 안내",
+    "org": "광명도시공사",
+    "url": "https://www.gmuc.co.kr/user/conn/parkPrice.do",
+    "file": "gmuc.co.kr_이용요금_20261117.txt",
+    "sha256": "22df221405781e1df43bee905723e7f2f7fc465eb171c6b9813a0b15ec805168",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 13:52 (KST)",
+    "note": "시간주차 800·300·400원과 일 최대 13,000원(노외 한정, 철산 상업지역은 상한 없음), 전통시장 2시간 초과 500원, 월정기권(전일 120,000·주간 75,000·야간 45,000원, 광명동굴 제3 80,000원, 개운어린이공원 70,000원, 목감로 거주자 40,000원)과 시간주차·월정기권 할인표 확인용.",
+    "city": "광명시"
+   },
+   {
+    "id": "terms",
+    "name": "광명도시공사 공영주차장 이용약관",
+    "org": "광명도시공사",
+    "url": "https://www.gmuc.co.kr/user/conn/parkTerms.do",
+    "file": "gmuc.co.kr_이용약관_20261117.txt",
+    "sha256": "449b228e7adec9c92b86fb675d0b817da0451ebd7877a15bd9f20f8ca1fff99c",
+    "license": "공공기관 공개 웹페이지(참고용)",
+    "base_date": "2026-11-17 확인",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 13:52 (KST)",
+    "note": "노상 8구간의 평일 10:00~19:00·주말·공휴일 휴무, 노외 24시간 연중무휴, 월정기주차 운영 주차장과 주간(08:00~19:00)·야간(19:00~익일 08:00) 시간, 거주자우선 공유주차 30분 800원·1회 5,000원 확인용.",
+    "city": "광명시"
    }
   ]
  },
@@ -871,7 +947,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -1098,7 +1174,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1285,7 +1361,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -1479,7 +1555,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -1618,7 +1694,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -1805,7 +1881,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -1972,7 +2048,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -2191,7 +2267,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -2396,7 +2472,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -2630,7 +2706,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -3365,7 +3441,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -3728,7 +3804,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -4008,7 +4084,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4255,7 +4331,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -4534,7 +4610,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -4769,7 +4845,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 35,
     "원자료_하남시행수": 35,
@@ -5036,7 +5112,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 13:25",
+    "generated_at": "2026-11-17 13:43",
     "원자료_전국행수": 18994,
     "원자료_행수": 80,
     "원자료_군포시행수": 80,
@@ -5369,6 +5445,227 @@
      "att_spaces": 159
     },
     "basis": "「군포시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금(시행 2025-01-01 (경기도군포시조례 제2236호, 2024-12-10 전부개정)) · 군포도시공사 공영주차장 요금 안내(2026-11-17 확인)"
+   }
+  },
+  {
+   "city": "광명시",
+   "slug": "gwangmyeong",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "광명시",
+     "slug": "gwangmyeong"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 13:43",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 28,
+    "원자료_광명시행수": 28,
+    "제외_행수": 0,
+    "제외_행": [],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 22,
+    "노외_부설": {
+     "노외": 22
+    },
+    "노상_구간": 10,
+    "총_구획수": 1708,
+    "노상_구획수": 716,
+    "동별": {
+     "광명동": 7,
+     "철산동": 7,
+     "소하동": 5,
+     "하안동": 2,
+     "일직동": 1
+    },
+    "동수": 5,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 19,
+     "시 홈페이지 주소": 3
+    },
+    "요금구분": {
+     "미상": 3,
+     "유료": 26,
+     "무료": 3
+    },
+    "요금_미상": [
+     "광명5동 한진1길",
+     "뜨락",
+     "밤일부락 소형"
+    ],
+    "급지별": {
+     "1": 24
+    },
+    "표준데이터_급지": {
+     "1": 28
+    },
+    "운영시간_보정": [
+     "범안로 임시: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · 주말·공휴일 무료 개방",
+     "목감천 거주자우선: 거주자우선주차장 — 24시간 연중무휴(도시공사 이용약관)",
+     "철산동 중앙로변: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · 주말·공휴일 무료 개방",
+     "자동차경매장 주변: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · 주말·공휴일 무료 개방",
+     "하안동 상업지역 제2: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · 주말·공휴일 무료 개방",
+     "하안동 상업지역 제1: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · 주말·공휴일 무료 개방",
+     "철산동 등기소 주변: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · 주말·공휴일 무료 개방",
+     "철산동 상업지역 제2: 토·공휴일 휴무(00:00~00:00) → 시 안내 10:00~19:00(명절 연휴만 무료)",
+     "철산동 상업지역 제1: 토·공휴일 휴무(00:00~00:00) → 시 안내 10:00~19:00(명절 연휴만 무료)"
+    ],
+    "면수_차이": [
+     "광명동굴 제3: 표준데이터 162면 ↔ 시 홈페이지 168면",
+     "광명동굴 제3: 표준데이터 162면 ↔ 도시공사 168면",
+     "소하동 제3: 표준데이터 85면 ↔ 도시공사 93면",
+     "소하동 제1: 표준데이터 27면 ↔ 도시공사 73면",
+     "범안로 임시: 표준데이터 25면 ↔ 시 홈페이지 22면",
+     "범안로 임시: 표준데이터 25면 ↔ 도시공사 22면",
+     "목감천 거주자우선: 표준데이터 122면 ↔ 시 홈페이지 121면",
+     "철산동 중앙로변: 표준데이터 78면 ↔ 도시공사 77면",
+     "철산동 등기소 주변: 표준데이터 55면 ↔ 도시공사 54면",
+     "철산동 상업지역 제2: 표준데이터 68면 ↔ 시 홈페이지 67면",
+     "철산동 상업지역 제2: 표준데이터 68면 ↔ 도시공사 67면"
+    ],
+    "특기사항_보정": [],
+    "정기권_금액없음": [
+     "밤일부락 소형: 월 정기권 50,000원만 등록",
+     "광명5동 한진1길: 월 정기권 90,000원만 등록",
+     "뜨락: 월 정기권 120,000원만 등록"
+    ],
+    "공사_현황_없음": [
+     "목감천 거주자우선"
+    ],
+    "시_홈페이지에만": [
+     "안현철골",
+     "광명6동 노외",
+     "광명6동 소형",
+     "새빛공원"
+    ],
+    "일요일_무료표기": [
+     "새빛공원",
+     "철산동 등기소 주변",
+     "철산동 중앙로변",
+     "범안로 임시",
+     "자동차경매장 주변",
+     "하안동 상업지역 제1",
+     "하안동 상업지역 제2"
+    ],
+    "무료개방_표기": [
+     "새빛공원",
+     "철산동 등기소 주변",
+     "철산동 중앙로변",
+     "범안로 임시",
+     "자동차경매장 주변",
+     "하안동 상업지역 제1",
+     "하안동 상업지역 제2"
+    ],
+    "무료_요금구분": 3,
+    "평균_기본요금": 800,
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [
+     "광명6동 노외",
+     "새빛공원",
+     "안현철골",
+     "광명6동 소형"
+    ],
+    "주소_없음": [],
+    "이름중복": [],
+    "관리번호중복": [],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-04-17",
+     "2026-11-17"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "경차·저공해 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "「자동차관리법」에 따른 경형자동차, 저공해자동차 표지부착차량, 장기 등 기증자·기증등록자, 우수자원봉사자증 소지자, 병역명문가증 제시자, 2자녀 이상 가정(막내 만15세 이하)"
+    },
+    {
+     "label": "유공자·장애인 2시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 120,
+     "note": "국가유공자·상이자, 고엽제후유의증 환자, 5·18민주유공자 부상자, 등록 장애인, 3자녀 이상 가정, 전기·수소·태양광 자동차 — 최초 2시간 면제 뒤 50%"
+    },
+    {
+     "label": "긴급·납세자 차량 면제",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "긴급자동차, 납세자 관련 차량용 증명표지 부착 차량(모범납세자)"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "gwangmyeong_steps",
+    "unit_min": 10,
+    "base_min": 30,
+    "free_min": 0,
+    "applies": "시행 2026-08-14 (경기도광명시조례 제3407호, 2026-08-14 일부개정) · 2023-11-10 요금 적용",
+    "off": [
+     {
+      "grade": 1,
+      "base": 800,
+      "unit": 300,
+      "after": 400,
+      "day": 13000,
+      "month_day": 75000,
+      "month_night": 45000,
+      "month_all": 120000,
+      "where": "2급지 이외의 광명시 전지역",
+      "lots": 16
+     },
+     {
+      "grade": 2,
+      "base": 500,
+      "unit": 200,
+      "after": 300,
+      "day": 8000,
+      "month_day": 50000,
+      "month_night": 30000,
+      "month_all": null,
+      "where": "옥길동·학온동",
+      "lots": 0
+     }
+    ],
+    "special": [
+     {
+      "name": "광명동(전통시장) 지하",
+      "base": 800,
+      "unit": 300,
+      "after": 500,
+      "day": null,
+      "note": "2시간 초과 10분당 500원 · 일 한도 없음 · 야간 정기권 45,000원"
+     },
+     {
+      "name": "목감로 거주자우선(거주지 전용)",
+      "base": 800,
+      "unit": 300,
+      "after": 400,
+      "day": 5000,
+      "note": "월 정기권 주간·야간 20,000원 · 전일 40,000원 · 공유주차 30분 800원"
+     }
+    ],
+    "corp": {
+     "out": 11,
+     "st": 8,
+     "resident": 1,
+     "att": 5,
+     "city": 31
+    },
+    "basis": "「광명시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금(시행 2026-08-14 (경기도광명시조례 제3407호, 2026-08-14 일부개정)) · 광명시 공영주차장 요금표 · 광명도시공사 이용요금(2026-11-17 확인)"
    }
   }
  ],
@@ -210358,6 +210655,3999 @@
    "price_key": null,
    "city": "군포시",
    "city_slug": "gunpo"
+  },
+  {
+   "id": "gmy-001",
+   "mgmt_no": "213-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명5동 한진1길",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 207-24번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "02-2680-5097",
+   "lat": 37.4775167,
+   "lng": 126.8506449,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명5동행정복지센터",
+   "note": "",
+   "notice": "시간 주차요금 없이 월 정기권만 등록된 주차장입니다 — 월 정기권은 90,000원입니다",
+   "fee": {
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 90000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": "월 정기권 전용(시간 주차요금 미게시)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 90000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-002",
+   "mgmt_no": "",
+   "src": "광명시 공영주차장 현황",
+   "list_mode": "card",
+   "name": "광명6동 노외",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "시 홈페이지 주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 748-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "02-2680-6499",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-11-17",
+   "manager": "광명시",
+   "note": "",
+   "notice": "광명시 공영주차장 현황에만 등록되어 있고 표준데이터에는 없습니다 — 75면 규모입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-003",
+   "mgmt_no": "213-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명동(전통시장) 지하",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 109-6번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 176,
+   "tel": "02-2610-7390",
+   "lat": 37.481408,
+   "lng": 126.85746,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "전통시장 공영주차장 — 2시간이 지나면 10분당 500원이고 1일 한도 금액이 없습니다(표준데이터 특기사항은 400원으로 등록되어 있으나 시·도시공사 요금표의 500원을 썼습니다). 시 홈페이지는 1일 주차권·월정기권을 시행하지 않는다고 적고, 광명도시공사는 야간(21:00~익일 09:00) 정기권 45,000원을 게시합니다(현장 확인)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 500원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": 45000,
+    "monthly_all": null,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 전통시장",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-004",
+   "mgmt_no": "213-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명사거리",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 158-900번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "02-2680-5072",
+   "lat": 37.47921001,
+   "lng": 126.8515364,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명4동행정복지센터",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "09:00~01:00(자정 넘김) 운영으로 등록되어 있어 화면에는 09:00~24:00으로 적었습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "현금+신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "01:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-005",
+   "mgmt_no": "213-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명새마을시장유료",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 290-10번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "02-2680-5097",
+   "lat": 37.4742667,
+   "lng": 126.8505366,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명5동행정복지센터",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "현금",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-006",
+   "mgmt_no": "213-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광삼로 뜨락",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 32-12번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "02-2680-5054",
+   "lat": 37.479586,
+   "lng": 126.861984,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명3동행정복지센터",
+   "note": "",
+   "notice": "광명시 공영주차장 현황·표준데이터 모두 요금 구분이 ‘무료’인 주차장입니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-007",
+   "mgmt_no": "213-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "뜨락",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 광명동 35-16번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "02-2680-5054",
+   "lat": 37.47854302,
+   "lng": 126.8591727,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명3동행정복지센터",
+   "note": "",
+   "notice": "시간 주차요금 없이 월 정기권만 등록된 주차장입니다 — 월 정기권은 120,000원입니다",
+   "fee": {
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금",
+    "basis": "월 정기권 전용(시간 주차요금 미게시)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-008",
+   "mgmt_no": "213-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개운어린이공원",
+   "gu": "광명시",
+   "dong": "소하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 소하동 935번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "02-2610-7390",
+   "lat": 37.43697123,
+   "lng": 126.8775002,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 70000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-009",
+   "mgmt_no": "213-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명동굴 제3",
+   "gu": "광명시",
+   "dong": "소하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 소하동 1384번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 162,
+   "tel": "02-2610-7390",
+   "lat": 37.432091,
+   "lng": 126.878169,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "광명시 공영주차장 현황은 168면으로 안내합니다(표준데이터 162면) · 광명도시공사는 168면으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 80000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-010",
+   "mgmt_no": "213-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소하동 제1",
+   "gu": "광명시",
+   "dong": "소하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 소하동 1335-1번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "02-2680-2266",
+   "lat": 37.44848362,
+   "lng": 126.8844223,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 일자리경제과",
+   "note": "",
+   "notice": "광명시 공영주차장 현황·표준데이터 모두 ‘무료’로 등록된 주차장입니다(도시공사 ‘그 외 주차장’ 표에는 유료로 적혀 있어 현장 확인이 필요합니다) · 광명도시공사는 73면으로 안내합니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-011",
+   "mgmt_no": "213-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소하동 제3",
+   "gu": "광명시",
+   "dong": "소하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 소하동 1342-2번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "02-2680-6499",
+   "lat": 37.44709735,
+   "lng": 126.8828058,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 철도정책과",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "광명도시공사는 93면으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "현금+신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-012",
+   "mgmt_no": "213-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소하동 제4",
+   "gu": "광명시",
+   "dong": "소하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 소하동 1339-2번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "02-2680-6499",
+   "lat": 37.44723629,
+   "lng": 126.8840264,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 철도정책과",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-013",
+   "mgmt_no": "",
+   "src": "광명도시공사 공영주차장 현황",
+   "list_mode": "card",
+   "name": "새빛공원",
+   "gu": "광명시",
+   "dong": "일직동",
+   "dong_src": "시 홈페이지 주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 일직동 424",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "02-2610-7390",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-11-17",
+   "manager": "광명시",
+   "note": "",
+   "notice": "광명도시공사 운영현황(일직동)에만 있는 주차장입니다 — 평일 09:00~18:00 유료, 주말·공휴일은 무료 개방(도시공사 안내)이고 1일 주차권은 13,000원입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일은 무료로 개방합니다(광명도시공사 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-014",
+   "mgmt_no": "213-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명동초등학교 지하",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 78-4번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 104,
+   "tel": "02-2610-7390",
+   "lat": 37.48353,
+   "lng": 126.863234,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-015",
+   "mgmt_no": "213-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광명시청 철산동지하",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 222-1번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 367,
+   "tel": "02-2610-7390",
+   "lat": 37.478556,
+   "lng": 126.864741,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-016",
+   "mgmt_no": "213-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광북",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 63번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 170,
+   "tel": "02-2610-7390",
+   "lat": 37.48679879,
+   "lng": 126.8656473,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-017",
+   "mgmt_no": "213-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼각주마을 제1",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 606-9번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "02-2610-7390",
+   "lat": 37.49455394,
+   "lng": 126.8684859,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-018",
+   "mgmt_no": "213-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼각주마을 제2",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 626-9번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "02-2610-7390",
+   "lat": 37.49455394,
+   "lng": 126.8684859,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-019",
+   "mgmt_no": "213-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼각주마을 제3",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 626-9번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "02-2610-7390",
+   "lat": 37.49455394,
+   "lng": 126.8684859,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-020",
+   "mgmt_no": "213-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철산상업지역 노외",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 철산동 430번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "02-2610-7390",
+   "lat": 37.47491374,
+   "lng": 126.8689132,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 120000,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 13000,
+     "monthly": 120000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-021",
+   "mgmt_no": "213-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "밤일부락 소형",
+   "gu": "광명시",
+   "dong": "하안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 하안동 868번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "02-2680-6550",
+   "lat": 37.45388805,
+   "lng": 126.862288,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 하안1동행정복지센터",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "시간 주차요금 없이 월 정기권만 등록된 주차장입니다 — 월 정기권은 50,000원입니다",
+   "fee": {
+    "type": "미상",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 50000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "현금",
+    "basis": "월 정기권 전용(시간 주차요금 미게시)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": true,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 50000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-022",
+   "mgmt_no": "",
+   "src": "광명시 공영주차장 현황",
+   "list_mode": "card",
+   "name": "안현철골",
+   "gu": "광명시",
+   "dong": "하안동",
+   "dong_src": "시 홈페이지 주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 광명시 하안동 577-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 192,
+   "tel": "02-2610-7390",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-11-17",
+   "manager": "광명시",
+   "note": "",
+   "notice": "광명시 공영주차장 현황(노외 21곳)에만 등록되어 있고 표준데이터·도시공사 운영현황에는 없습니다 — 192면 규모의 건물식(철골) 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 13000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s023",
+   "mgmt_no": "",
+   "src": "광명시 공영주차장 현황",
+   "list_mode": "street",
+   "name": "광명6동 소형",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "시 홈페이지 주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 광명동 390-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "02-2680-6499",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-11-17",
+   "manager": "광명시",
+   "note": "",
+   "notice": "광명시 공영주차장 현황에 ‘무료’로 등록된 소형 노상 주차장입니다(표준데이터 미등록)",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s024",
+   "mgmt_no": "213-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "목감천 거주자우선",
+   "gu": "광명시",
+   "dong": "광명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 광명동 158-186번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 122,
+   "tel": "02-2610-7390",
+   "lat": 37.48719746,
+   "lng": 126.8591668,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "",
+   "notice": "거주자우선주차장입니다 — 배정 차량은 월 정기권(전일 40,000원·주간/야간 20,000원)을 내고, 비배정 차량은 ‘모두의 주차장’ 앱 공유주차로만 30분당 800원·1회 5,000원까지 이용할 수 있습니다(도시공사 이용약관). 계산기의 시간 요금은 조례 별표1의 ‘거주지 전용’(30분 800원·10분당 300원·1일 5,000원)입니다 · 광명시 공영주차장 현황은 121면으로 안내합니다(표준데이터 122면)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": 5000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": 20000,
+    "monthly_night": 20000,
+    "monthly_all": 40000,
+    "pay": "현금+신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 거주지 전용",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 40000
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s025",
+   "mgmt_no": "213-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "철산동 등기소 주변",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 철산동 525번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "02-2610-7390",
+   "lat": 37.47687565,
+   "lng": 126.8671731,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지) · 광명도시공사는 54면으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s026",
+   "mgmt_no": "213-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "철산동 상업지역 제1",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 철산동 531번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 124,
+   "tel": "02-2610-7390",
+   "lat": 37.4749603,
+   "lng": 126.8706794,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "명절 연휴에만 무료이고 평일·토요일·일요일에는 10:00~19:00 요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "평일·토요일·일요일에 요금을 받고, 명절 연휴에만 무료입니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s027",
+   "mgmt_no": "213-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "철산동 상업지역 제2",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 철산동 527번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "02-2610-7390",
+   "lat": 37.4750458,
+   "lng": 126.8675952,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "명절 연휴에만 무료이고 평일·토요일·일요일에는 10:00~19:00 요금을 받습니다 · 광명시 공영주차장 현황은 67면으로 안내합니다(표준데이터 68면) · 광명도시공사는 67면으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": "평일·토요일·일요일에 요금을 받고, 명절 연휴에만 무료입니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s028",
+   "mgmt_no": "213-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "철산동 중앙로변",
+   "gu": "광명시",
+   "dong": "철산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 철산동 526번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "02-2610-7390",
+   "lat": 37.47665418,
+   "lng": 126.8692032,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지) · 광명도시공사는 77면으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s029",
+   "mgmt_no": "213-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "범안로 임시",
+   "gu": "광명시",
+   "dong": "하안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 하안동 712번지",
+   "addr_road": "",
+   "road": "범안로",
+   "spaces": 25,
+   "tel": "02-2610-7390",
+   "lat": 37.46232,
+   "lng": 126.87935,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지) · 광명시 공영주차장 현황은 22면으로 안내합니다(표준데이터 25면) · 광명도시공사는 22면으로 안내합니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s030",
+   "mgmt_no": "213-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "자동차경매장 주변",
+   "gu": "광명시",
+   "dong": "하안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 하안동 717-3번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "02-2610-7390",
+   "lat": 37.45781224,
+   "lng": 126.8773035,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s031",
+   "mgmt_no": "213-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "하안동 상업지역 제1",
+   "gu": "광명시",
+   "dong": "하안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 하안동 711-5번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "02-2610-7390",
+   "lat": 37.46355927,
+   "lng": 126.8805982,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
+  },
+  {
+   "id": "gmy-s032",
+   "mgmt_no": "213-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "하안동 상업지역 제2",
+   "gu": "광명시",
+   "dong": "하안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 광명시 하안동 714번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 103,
+   "tel": "02-2610-7390",
+   "lat": 37.46215872,
+   "lng": 126.8818538,
+   "base_date": "2026-04-17",
+   "manager": "경기도 광명시 광명도시공사",
+   "note": "2시간 이내 10분당 300원, 2시간 이후 10분당 400원 추가요금 발생",
+   "notice": "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": 1,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간 초과 10분당 400원",
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 1일 주차요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": 75000,
+    "monthly_night": 45000,
+    "monthly_all": 120000,
+    "pay": "신용카드",
+    "basis": "「광명시 주차장 설치 및 관리 조례」 별표1 1급지",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 800,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광명시",
+   "city_slug": "gwangmyeong"
   }
  ]
 }

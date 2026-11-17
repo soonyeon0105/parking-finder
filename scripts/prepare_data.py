@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시 + 시흥시 + 의정부시 + 김포시 + 파주시 + 광주시 + 하남시 + 군포시 + 광명시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -351,6 +351,8 @@ CITY_META = {
     "하남시": {"slug": "hanam", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "군포시": {"slug": "gunpo", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
+    "광명시": {"slug": "gwangmyeong", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
 }
 
@@ -7211,7 +7213,7 @@ def build_summary_city(payload):
                      f"(+ 노상 구간 {q['노상_구간']}곳 {q['노상_구획수']:,}면)")
         lines.append(f"- 원자료 {city} {q['원자료_행수']}행 중 껍데기 행 {q['제외_행수']}행 제외"
                      + (f" · 같은 지번 중복 {q['중복제거_행수']}행 제거" if q.get("중복제거_행수") else ""))
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -9064,19 +9066,699 @@ def check_quality_gunpo(std_all, rows, lots, excluded, merged, hour_fixed, grade
     }
 
 
+
+# ---------------------------------------------------------------- 광명시 (T-03 Phase 17)
+GM_PROVIDER = "경기도 광명시"
+# 광명시는 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+GM_DISTRICTS = [("광명시", "gwangmyeong")]
+GM_BBOX = (37.41, 37.51, 126.83, 126.93)   # 광명시 대략 경계(좌표 점검용)
+# 광명시 법정동 9개 — 표준데이터 지번주소의 세 번째 낱말이 법정동이다.
+#   (행정동 광명1~7동·철산1~4동·하안1~4동·소하1~2동·일직동·학온동은 여러 법정동을 묶은 이름이라
+#    주소에는 법정동이 적힌다. ‘학원동’은 시 홈페이지 요금표의 표기이고 조례·주소의 이름은 학온동이다.)
+GM_DONGS = ("광명동", "철산동", "하안동", "소하동", "일직동", "학온동", "노온사동", "가학동", "옥길동")
+
+GM_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?chrClsCd=010202&gubun=ELIS&ordinSeq=2162053"
+GM_CITY_URL = "https://www.gm.go.kr/pt/ns/gi/czfacility/PTMN207/PTGI0042.jsp"
+GM_CORP_FACIL_URL = "https://gmuc.co.kr/user/conn/parkFacil.do"
+GM_CORP_PUBLIC_URL = "https://www.gmuc.co.kr/user/conn/parkPublic.do"
+GM_CORP_PRICE_URL = "https://www.gmuc.co.kr/user/conn/parkPrice.do"
+GM_CORP_TERMS_URL = "https://www.gmuc.co.kr/user/conn/parkTerms.do"
+GM_CITY_TXT = RAW / "gm.go.kr_공영주차장_20261117.txt"
+GM_FACIL_TXT = RAW / "gmuc.co.kr_공영주차장현황_20261117.txt"
+GM_PUBLIC_TXT = RAW / "gmuc.co.kr_공영주차장안내_20261117.txt"
+GM_PRICE_TXT = RAW / "gmuc.co.kr_이용요금_20261117.txt"
+GM_TERMS_TXT = RAW / "gmuc.co.kr_이용약관_20261117.txt"
+GM_ORD_TXT = RAW / "gwangmyeong.law.go.kr_주차장조례_20261117.txt"
+GM_ORDINANCE_NOTE = "시행 2026-08-14 (경기도광명시조례 제3407호, 2026-08-14 일부개정)"
+
+# 광명시 공영주차장 요금 — 「광명시 주차장 설치 및 관리 조례」 [별표 1]의 값으로, 광명시청 공영주차장
+#   요금표(2026-11-17 확인)와 광명도시공사 이용요금(parkPrice)·요금 안내(parking2)에서 같은 값을 확인했다.
+#   · 1급지(2급지 이외의 광명시 전지역): 최초 30분 800원 → 30분 초과 10분당 300원 →
+#     <b>2시간 초과 10분당 400원</b>. 노외 1일 주차권 13,000원, 월 정기권 주간 75,000·야간 45,000원.
+#   · 2급지(옥길동·학온동): 30분 500원 → 10분당 200원 → 2시간 초과 10분당 300원,
+#     1일 8,000원, 월 정기권 주간 50,000·야간 30,000원.
+#   · 거주지 전용(목감로 거주자우선): 30분 800원 → 10분당 300원 → 2시간 초과 10분당 400원,
+#     1일 5,000원, 월 정기권 20,000원(주간·야간)·전일 40,000원.
+#   · 전통시장(광명동 전통시장 지하): 30분 800원 → 10분당 300원 → 2시간 초과 10분당 500원,
+#     1일 한도 없음. 시 홈페이지는 1일 주차권·월정기권을 시행하지 않는다고 적고,
+#     광명도시공사는 야간(21시~익일 9시) 정기권 45,000원을 게시한다(카드에 함께 적음).
+#   2023-11-10 조례 일부개정 전에는 30분 600원·10분당 200원·1일 7,500원이었고, 시 홈페이지의
+#   ‘2급지 250원’ 표는 그 이전 값이 화면에 남은 것이다 — 도시공사·표준데이터(2026-04-17) 값이 최신이다.
+GM_FEES = {
+    1: {"base": 800, "unit": 300, "unit_after2h": 400, "day": 13_000,
+        "month_day": 75_000, "month_night": 45_000, "month_all": 120_000},
+    2: {"base": 500, "unit": 200, "unit_after2h": 300, "day": 8_000,
+        "month_day": 50_000, "month_night": 30_000, "month_all": None},
+}
+GM_RESIDENT = {"base": 800, "unit": 300, "unit_after2h": 400, "day": 5_000,
+               "month_day": 20_000, "month_night": 20_000, "month_all": 40_000}
+GM_MARKET = {"base": 800, "unit": 300, "unit_after2h": 500, "day": None, "month_night": 45_000}
+GM_GRADE_DONGS = ("옥길동", "학온동")     # 2급지
+GM_BASE_MIN = 30
+GM_UNIT_MIN = 10
+GM_STEP_UNTIL = 120                      # 2시간 초과분부터 요율이 올라간다
+
+# 광명시청 ‘공영주차장 현황’(2026-11-17 조회) — 노외 21곳·노상 10곳 31개소 2,373면.
+#   표준데이터 이름 → (시 홈페이지 이름, 면수, 노상/노외, 유료/무료)
+GM_CITY = {
+    "뜨락": ("뜨락", 11, "노외", "유료"),
+    "광삼로 뜨락": ("광산로 뜨락", 4, "노외", "무료"),
+    "광명사거리": ("광명4동 광명사거리", 30, "노외", "유료"),
+    "광명5동 한진1길": ("광명5동 한진1길", 4, "노외", "유료"),
+    "광명새마을시장유료": ("광명5동 새마을시장 유료", 39, "노외", "유료"),
+    "광북": ("광북", 170, "노외", "유료"),
+    "광명시청 철산동지하": ("광명시청 철산동지하", 367, "노외", "유료"),
+    "밤일부락 소형": ("밤일부락 소형", 8, "노외", "유료"),
+    "개운어린이공원": ("개운어린이공원", 46, "노외", "유료"),
+    "소하동 제1": ("소하 제1", 27, "노외", "무료"),
+    "소하동 제3": ("소하 제3", 85, "노외", "유료"),
+    "소하동 제4": ("소하 제4", 52, "노외", "유료"),
+    "광명동굴 제3": ("광명동굴 제3", 168, "노외", "유료"),
+    "철산상업지역 노외": ("철산상업지역 노외", 18, "노외", "유료"),
+    "삼각주마을 제1": ("삼각주마을 제1", 48, "노외", "유료"),
+    "삼각주마을 제2": ("삼각주마을 제2", 16, "노외", "유료"),
+    "삼각주마을 제3": ("삼각주마을 제3", 22, "노외", "유료"),
+    "광명동초등학교 지하": ("광명동초등학교 지하", 104, "노외", "유료"),
+    "광명동(전통시장) 지하": ("광명동(전통시장) 지하", 176, "노외", "유료"),
+    # 노상 10구간
+    "철산동 등기소 주변": ("철산동 등기소 주변", 55, "노상", "유료"),
+    "철산동 중앙로변": ("철산동 철산로변", 78, "노상", "유료"),
+    "철산동 상업지역 제1": ("철산동 상업지역 제1", 124, "노상", "유료"),
+    "철산동 상업지역 제2": ("철산동 상업지역 제2", 67, "노상", "유료"),
+    "자동차경매장 주변": ("자동차매장 주변", 25, "노상", "유료"),
+    "하안동 상업지역 제1": ("하안동 상업지역 제1", 91, "노상", "유료"),
+    "하안동 상업지역 제2": ("하안동 상업지역 제2", 103, "노상", "유료"),
+    "목감천 거주자우선": ("목감로 거주자우선", 121, "노상", "유료"),
+    "범안로 임시": ("범안로 임시", 22, "노상", "유료"),
+}
+# 광명도시공사 운영현황(2026-11-17 조회) — 표준데이터에 없는 소하 제1·3·4노외의 면수가 다르고,
+#   노상 8구간의 면수가 시 홈페이지와 1~2면씩 다르다. 값은 참고로만 두고 등록면수(표준데이터·
+#   시 홈페이지)를 쓴다 — 차이는 카드에 적는다.
+GM_CORP_SPACES = {
+    "광명동(전통시장) 지하": 176, "광명동초등학교 지하": 104, "개운어린이공원": 46,
+    "철산상업지역 노외": 18, "삼각주마을 제1": 48, "삼각주마을 제2": 16,
+    "삼각주마을 제3": 22, "광명시청 철산동지하": 367, "광북": 170, "광명동굴 제3": 168,
+    "소하동 제1": 73, "소하동 제3": 93, "소하동 제4": 52,
+    "철산동 등기소 주변": 54, "철산동 중앙로변": 77, "철산동 상업지역 제1": 124,
+    "철산동 상업지역 제2": 67, "하안동 상업지역 제1": 91, "하안동 상업지역 제2": 103,
+    "자동차경매장 주변": 25, "범안로 임시": 22,
+}
+# 표준데이터에 없고 시 홈페이지·도시공사 안내에만 있는 주차장 — 주소·면수·운영방법·운영시간이
+#   모두 공개된 곳만 넣는다(이름만 있는 행은 넣지 않는다). 좌표는 원자료에 없어 지도는 주소 검색으로 건다.
+GM_EXTRA = [
+    {"name": "안현철골", "jibun": "경기도 광명시 하안동 577-1", "road": "",
+     "spaces": 192, "dong": "하안동", "ptype": "노외", "pay": "유료",
+     "spec": ("24H", "24H", "24H"), "tel": "02-2610-7390",
+     "src": "광명시 공영주차장 현황",
+     "notice": "광명시 공영주차장 현황(노외 21곳)에만 등록되어 있고 표준데이터·도시공사 운영현황에는 "
+               "없습니다 — 192면 규모의 건물식(철골) 주차장입니다"},
+    {"name": "광명6동 노외", "jibun": "경기도 광명시 광명동 748-5", "road": "",
+     "spaces": 75, "dong": "광명동", "ptype": "노외", "pay": "유료",
+     "spec": ("24H", "24H", "24H"), "tel": "02-2680-6499",
+     "src": "광명시 공영주차장 현황",
+     "notice": "광명시 공영주차장 현황에만 등록되어 있고 표준데이터에는 없습니다 — 75면 규모입니다"},
+    {"name": "광명6동 소형", "jibun": "경기도 광명시 광명동 390-6", "road": "",
+     "spaces": 25, "dong": "광명동", "ptype": "노상", "pay": "무료",
+     "spec": ("24H", "24H", "24H"), "tel": "02-2680-6499",
+     "src": "광명시 공영주차장 현황",
+     "notice": "광명시 공영주차장 현황에 ‘무료’로 등록된 소형 노상 주차장입니다(표준데이터 미등록)"},
+    {"name": "새빛공원", "jibun": "경기도 광명시 일직동 424", "road": "",
+     "spaces": 52, "dong": "일직동", "ptype": "노외", "pay": "유료",
+     "spec": ("09:00~18:00", "09:00~18:00", "09:00~18:00"), "tel": "02-2610-7390",
+     "src": "광명도시공사 공영주차장 현황",
+     "notice": "광명도시공사 운영현황(일직동)에만 있는 주차장입니다 — 평일 09:00~18:00 유료, "
+               "주말·공휴일은 무료 개방(도시공사 안내)이고 1일 주차권은 13,000원입니다"},
+]
+GM_EXTRA_FREE_DAYS = ("새빛공원",)     # 주말·공휴일 무료 개방
+
+# 시간 주차요금 없이 월 정기권만 등록된 주차장 — 0원이 아니라 ‘요금 정보 미상(정기권 전용)’으로 둔다.
+#   (광명시청·행정복지센터가 관리하는 소형 주차장으로, 표준데이터에 월정기권 금액만 있다.)
+GM_TICKET_ONLY = ("뜨락", "광명5동 한진1길", "밤일부락 소형")
+
+# 노상에서 주말·공휴일에 요금을 받지 않는 구간(광명시 홈페이지 ‘주말, 공휴일 무료’).
+#   철산동 상업지역 제1·2는 ‘명절 무료’만이라 주말에도 요금을 받는다.
+GM_STREET_WEEKEND_FREE = ("철산동 등기소 주변", "철산동 중앙로변", "자동차경매장 주변",
+                          "하안동 상업지역 제1", "하안동 상업지역 제2", "범안로 임시")
+GM_STREET_HOLIDAY_ONLY = ("철산동 상업지역 제1", "철산동 상업지역 제2")
+
+# 광명시 ‘공영주차장 할인대상’(조례 제6조제4항·시 홈페이지·광명도시공사 할인 안내) —
+#   · 면제: 긴급자동차, 납세자 관련 차량용 증명표지 부착 차량(모범납세자)
+#   · 2시간 무료 후 50%: 국가유공자·상이자, 고엽제후유의증, 5·18민주유공자 부상자, 장애인,
+#     3자녀 이상(막내 만15세 이하), 전기·수소·태양광 자동차
+#   · 50%: 경형자동차(경차), 장기 등 기증자·기증등록자, 저공해자동차, 우수자원봉사자,
+#     병역명문가, 2자녀 이상(막내 만15세 이하)
+#   · 그 밖에 승용차 부제·함께타기 20%, 전통시장 주차권 30분 감면
+GM_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「자동차관리법」에 따른 경형자동차, 저공해자동차 표지부착차량, 장기 등 기증자·기증등록자, "
+             "우수자원봉사자증 소지자, 병역명문가증 제시자, 2자녀 이상 가정(막내 만15세 이하)"},
+    {"label": "유공자·장애인 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "국가유공자·상이자, 고엽제후유의증 환자, 5·18민주유공자 부상자, 등록 장애인, "
+             "3자녀 이상 가정, 전기·수소·태양광 자동차 — 최초 2시간 면제 뒤 50%"},
+    {"label": "긴급·납세자 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "긴급자동차, 납세자 관련 차량용 증명표지 부착 차량(모범납세자)"},
+]
+
+
+def gm_dong_of(text: str):
+    """주소에서 광명시 법정동을 뽑는다 — ‘경기도 광명시 {법정동} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "광명시" and parts[2] in GM_DONGS:
+        return parts[2]
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(GM_DONGS, key=len, reverse=True):
+        if d in t:
+            return d
+    return None
+
+
+def gm_win(spec):
+    """도시공사·시 안내 운영시간 문자열 → 사이트 공통 hours 객체."""
+    win = {}
+    for key, txt in zip(("weekday", "sat", "sun"), spec):
+        if txt in ("24H", "무료개방"):
+            win[key] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                        "listed": True, "raw": ["00:00", "24:00"]}
+        else:
+            m = re.match(r"(\d{1,2}):(\d{2})~(\d{1,2}):(\d{2})", txt)
+            s = int(m.group(1)) * 60 + int(m.group(2))
+            e = int(m.group(3)) * 60 + int(m.group(4))
+            win[key] = {"open": True, "start": s, "end": e, "24h": False,
+                        "listed": True, "raw": [f"{s // 60:02d}:{s % 60:02d}",
+                                                f"{e // 60:02d}:{e % 60:02d}"]}
+    return win
+
+
+def gm_steps(t):
+    """30분 기본요금 뒤 10분 단위, 2시간을 넘으면 요율이 올라가는 2단계 요금."""
+    return [{"until": GM_STEP_UNTIL, "unit_min": GM_UNIT_MIN, "unit_fee": t["unit"]},
+            {"until": None, "unit_min": GM_UNIT_MIN, "unit_fee": t["unit_after2h"]}]
+
+
+def gm_fee(kind: str, street: bool, monthly=None):
+    """광명시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    kind: ‘1급지’·‘2급지’·‘전통시장’·‘거주지’
+    노상에는 1일 주차권이 없다(광명도시공사 요금표 ‘일 최대 요금(노외 한정)’).
+    """
+    if kind == "전통시장":
+        t, label, day = GM_MARKET, "별표1 전통시장", None
+    elif kind == "거주지":
+        t, label, day = GM_RESIDENT, "별표1 거주지 전용", GM_RESIDENT["day"]
+    else:
+        t = GM_FEES[1 if kind == "1급지" else 2]
+        label, day = f"별표1 {kind}", (None if street else t["day"])
+    fee = {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": (1 if kind == "1급지" else 2 if kind == "2급지" else None),
+        "std_grade": None,
+        "base_min": GM_BASE_MIN, "base_fee": t["base"],
+        "unit_min": GM_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": gm_steps(t), "steps_label": "2시간 초과 10분당 {}".format(
+            won_kr(t["unit_after2h"])),
+        "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 1일 주차요금",
+        "daily_hours": None, "daily_fee": day,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": monthly, "monthly_day": t.get("month_day"),
+        "monthly_night": t.get("month_night"), "monthly_all": t.get("month_all"),
+        "pay": "", "basis": f"「광명시 주차장 설치 및 관리 조례」 {label}",
+        "category": None, "portal_free_now": False, "flat_day": False, "ticket_only": False,
+    }
+    if monthly and not fee["monthly_all"]:
+        fee["monthly_all"] = monthly
+    return fee
+
+
+def won_kr(n):
+    return f"{n:,}원"
+
+
+def gm_free_fee(**extra):
+    fee = {"type": "무료", "raw_type": "무료", "mixed": False, "grade": None, "std_grade": None,
+           "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "steps": None, "free_min": None, "deduct_min": None, "cap_fee": None, "cap_src": None,
+           "daily_hours": None, "daily_fee": None, "prepaid_day": None, "prepaid_weekend": None,
+           "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+           "pay": "", "basis": "요금 구분 ‘무료’", "category": None, "portal_free_now": False,
+           "flat_day": False, "ticket_only": False, "std": None}
+    fee.update(extra)
+    return fee
+
+
+def gm_ticket_fee(monthly=None, raw_type="유료", basis="월 정기권 전용(시간 주차요금 미게시)"):
+    return {"type": "미상", "raw_type": raw_type, "mixed": False, "grade": None,
+            "std_grade": None, "base_min": None, "base_fee": None, "unit_min": None,
+            "unit_fee": None, "steps": None, "free_min": None, "deduct_min": None,
+            "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None, "monthly": monthly,
+            "monthly_day": None, "monthly_night": None, "monthly_all": None,
+            "pay": "", "basis": basis, "category": None,
+            "portal_free_now": False, "flat_day": False, "ticket_only": True, "std": None}
+
+
+def build_gwangmyeong():
+    """광명시 공영주차장을 표준데이터 + 광명시 공영주차장 현황 + 광명도시공사 안내 + 조례 별표1로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 광명시 범위를 벗어난 행은 제외(껍데기 행).
+      · 광명시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동만 만든다.
+    요금은 조례 별표1(1·2급지·거주지 전용·전통시장)을 적용하고, 운영시간은 표준데이터의 등록값을
+    쓰되 주말·공휴일 무료 개방과 노상 요금 시간을 시·도시공사 안내로 보정했다(노외는 24시간 연중무휴).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == GM_PROVIDER]
+    lots, excluded, merged, hour_fixed, space_diff, note_fixed = [], [], [], [], [], []
+    corp_missing, ticket_diff, city_only = [], [], []
+    seen = {}
+    card_no = street_no = 0
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, pay, win, oper, fee, r=None,
+                src="표준데이터", notice=None, tel="", mgmt="", lat=None, lng=None,
+                base_date="", free_days=None, free_note=None):
+        nonlocal card_no, street_no
+        street = ptype == "노상"
+        if street:
+            street_no += 1
+            lot_id = f"gmy-s{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"gmy-{card_no:03d}"
+        fee["pay"] = (r.get("결제방법") or "").strip() if r else ""
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": src,
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "광명시",
+            "dong": dong,
+            "dong_src": "지번주소" if r and gm_dong_of((r.get("소재지지번주소") or "")) else
+                        ("도로명주소" if r and gm_dong_of((r.get("소재지도로명주소") or "")) else
+                         ("시 홈페이지 주소" if src != "표준데이터" else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": (re.match(r"^([가-힣0-9]+(?:대로|로|길))", name).group(1)
+                     if street and re.match(r"^([가-힣0-9]+(?:대로|로|길))", name) else None),
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "광명시",
+            "note": (r.get("특기사항") or "").strip() if r else "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "광명시",
+            "city_slug": "gwangmyeong",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        mgmt = (r.get("주차장관리번호") or "").strip()
+        jibun_key = re.sub(r"\s", "", jibun)
+        name_key = re.sub(r"\s+", "", name)
+        dup_key = None
+        if jibun_key and ("지번", jibun_key, ptype, spaces) in seen:
+            dup_key = ("지번", jibun_key, ptype, spaces)
+        elif name_key and ("이름", name_key, ptype) in seen:
+            dup_key = ("이름", name_key, ptype)
+        if dup_key:
+            merged.append(f"{seen[dup_key]}({mgmt}) ↔ {name}({mgmt}) — 같은 주차장으로 묶음")
+            continue
+        if jibun_key and name_key:
+            seen[("지번", jibun_key, ptype, spaces)] = name
+            seen[("이름", name_key, ptype)] = name
+
+        addr = jibun or road
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (GM_BBOX[0] <= lat <= GM_BBOX[1]
+                                     and GM_BBOX[2] <= lng <= GM_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = gm_dong_of(jibun) or gm_dong_of(road)
+        pay = (r.get("요금정보") or "").strip()
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+
+        # 노상은 시·도시공사 안내의 요금 부과 시간(평일 10:00~19:00)과 주말·공휴일 무료 개방을 쓴다.
+        if street and name in GM_STREET_WEEKEND_FREE:
+            want = gm_win(("10:00~19:00", "10:00~19:00", "10:00~19:00"))
+            if any(win[k]["start"] != want[k]["start"] or win[k]["end"] != want[k]["end"]
+                   for k in ("weekday", "sat", "sun")):
+                hour_fixed.append(
+                    f"{name}: 표준데이터 토·공휴일 휴무(00:00~00:00) → 시 안내 평일 10:00~19:00 · "
+                    f"주말·공휴일 무료 개방")
+            win = want
+            oper = {k: True for k in ("weekday", "sat", "sun")}
+            free_days = {"sat": True, "sun": True}
+            free_note = "토요일·일요일·공휴일에는 요금을 받지 않습니다(광명시 홈페이지 안내)"
+        elif street and name in GM_STREET_HOLIDAY_ONLY:
+            want = gm_win(("10:00~19:00", "10:00~19:00", "10:00~19:00"))
+            win, oper = want, {k: True for k in ("weekday", "sat", "sun")}
+            hour_fixed.append(f"{name}: 토·공휴일 휴무(00:00~00:00) → 시 안내 10:00~19:00(명절 연휴만 무료)")
+            free_note = "평일·토요일·일요일에 요금을 받고, 명절 연휴에만 무료입니다(광명시 홈페이지 안내)"
+        elif street and name == "목감천 거주자우선":
+            want = gm_win(("24H", "24H", "24H"))
+            win, oper = want, {k: True for k in ("weekday", "sat", "sun")}
+            hour_fixed.append(f"{name}: 거주자우선주차장 — 24시간 연중무휴(도시공사 이용약관)")
+
+        if name in GM_TICKET_ONLY:
+            monthly = to_int(r.get("월정기권요금"))
+            fee = gm_ticket_fee(monthly=monthly, raw_type=pay or "유료",
+                                basis="월 정기권 전용(시간 주차요금 미게시)")
+            ticket_diff.append(f"{name}: 월 정기권 {monthly:,}원만 등록" if monthly else name)
+        elif name == "목감천 거주자우선":
+            fee = gm_fee("거주지", street=True, monthly=to_int(r.get("월정기권요금")))
+        elif pay == "무료":
+            fee = gm_free_fee()
+        elif name == "광명동(전통시장) 지하":
+            fee = gm_fee("전통시장", street=street)
+        else:
+            grade = "2급지" if dong in GM_GRADE_DONGS else "1급지"
+            fee = gm_fee(grade, street=street, monthly=to_int(r.get("월정기권요금")))
+        fee["std_grade"] = to_int(r.get("급지구분"))
+        fee["std"] = {"base_min": to_int(r.get("주차기본시간")), "base_fee": to_int(r.get("주차기본요금")),
+                      "unit_min": to_int(r.get("추가단위시간")),
+                      "unit_fee": to_int(r.get("추가단위요금")),
+                      "day": to_int(r.get("1일주차권요금")), "monthly": to_int(r.get("월정기권요금"))}
+
+        notice = None
+        if name == "광명동(전통시장) 지하":
+            notice = ("전통시장 공영주차장 — 2시간이 지나면 10분당 500원이고 1일 한도 금액이 없습니다"
+                      "(표준데이터 특기사항은 400원으로 등록되어 있으나 시·도시공사 요금표의 500원을 썼습니다). "
+                      "시 홈페이지는 1일 주차권·월정기권을 시행하지 않는다고 적고, 광명도시공사는 "
+                      "야간(21:00~익일 09:00) 정기권 45,000원을 게시합니다(현장 확인)")
+        elif name == "목감천 거주자우선":
+            notice = ("거주자우선주차장입니다 — 배정 차량은 월 정기권(전일 40,000원·주간/야간 20,000원)을 "
+                      "내고, 비배정 차량은 ‘모두의 주차장’ 앱 공유주차로만 30분당 800원·1회 5,000원까지 "
+                      "이용할 수 있습니다(도시공사 이용약관). 계산기의 시간 요금은 조례 별표1의 "
+                      "‘거주지 전용’(30분 800원·10분당 300원·1일 5,000원)입니다")
+        elif name in GM_TICKET_ONLY:
+            m = to_int(r.get("월정기권요금"))
+            notice = ("시간 주차요금 없이 월 정기권만 등록된 주차장입니다 — "
+                      + (f"월 정기권은 {m:,}원입니다" if m else "월 정기권 금액은 게시되어 있지 않습니다"))
+        elif name in ("광삼로 뜨락", "소하동 제1"):
+            notice = ("광명시 공영주차장 현황·표준데이터 모두 요금 구분이 ‘무료’인 주차장입니다"
+                      if name == "광삼로 뜨락" else
+                      "광명시 공영주차장 현황·표준데이터 모두 ‘무료’로 등록된 주차장입니다"
+                      "(도시공사 ‘그 외 주차장’ 표에는 유료로 적혀 있어 현장 확인이 필요합니다)")
+        elif name == "광명사거리":
+            notice = "09:00~01:00(자정 넘김) 운영으로 등록되어 있어 화면에는 09:00~24:00으로 적었습니다"
+        elif street and name in GM_STREET_HOLIDAY_ONLY:
+            notice = "명절 연휴에만 무료이고 평일·토요일·일요일에는 10:00~19:00 요금을 받습니다"
+        elif street:
+            notice = "평일 10:00~19:00에만 요금을 받고, 주말·공휴일은 무료로 개방합니다(광명시 홈페이지)"
+
+        if name in GM_CITY:
+            city_name, city_spaces, city_type, city_pay = GM_CITY[name]
+            if city_spaces != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 시 홈페이지 {city_spaces}면")
+                notice = ((notice + " · ") if notice else "") + \
+                    f"광명시 공영주차장 현황은 {city_spaces}면으로 안내합니다(표준데이터 {spaces}면)"
+            if city_pay == "무료" and pay != "무료":
+                note_fixed.append(f"{name}: 표준데이터 ‘{pay}’ ↔ 시 홈페이지 ‘무료’")
+        if name in GM_CORP_SPACES and GM_CORP_SPACES[name] != spaces:
+            space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 도시공사 {GM_CORP_SPACES[name]}면")
+            notice = ((notice + " · ") if notice else "") + \
+                f"광명도시공사는 {GM_CORP_SPACES[name]}면으로 안내합니다"
+        if name not in GM_CORP_SPACES and name not in ("뜨락", "광삼로 뜨락", "광명사거리",
+                                                      "광명새마을시장유료", "광명5동 한진1길",
+                                                      "밤일부락 소형", "소하동 제1"):
+            corp_missing.append(name)
+
+        add_lot(name, jibun, road, ptype, spaces, dong, pay, win, oper, fee, r=r,
+                notice=notice, tel=(r.get("전화번호") or "").strip(),
+                mgmt=(r.get("관리기관명") or "").strip() or "광명시",
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    # 표준데이터에 없고 시 홈페이지·도시공사 안내에만 있는 주차장
+    for e in GM_EXTRA:
+        win = gm_win(e["spec"])
+        oper = {k: True for k in ("weekday", "sat", "sun")}
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        if e["name"] in GM_EXTRA_FREE_DAYS:
+            free_days = {"sat": True, "sun": True}
+            free_note = "토요일·일요일·공휴일은 무료로 개방합니다(광명도시공사 안내)"
+        if e["pay"] == "무료":
+            fee = gm_free_fee()
+        else:
+            fee = gm_fee("2급지" if e["dong"] in GM_GRADE_DONGS else "1급지",
+                         street=(e["ptype"] == "노상"))
+        city_only.append(e["name"])
+        add_lot(e["name"], e["jibun"], e["road"], e["ptype"], e["spaces"], e["dong"], e["pay"],
+                win, oper, fee, src=e["src"], notice=e["notice"], tel=e["tel"],
+                mgmt="광명시", base_date="2026-11-17", free_days=free_days, free_note=free_note)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"gmy-{i:03d}" if l["list_mode"] == "card" else f"gmy-s{i:03d}"
+
+    quality = check_quality_gwangmyeong(rows_all, rows_city, lots, excluded, merged, hour_fixed,
+                                        space_diff, note_fixed, ticket_diff, corp_missing,
+                                        city_only)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(GM_CITY_TXT).strftime("%Y-%m-%d %H:%M")
+                           if GM_CITY_TXT.exists() else NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "광명시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-17",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("경기도 광명시가 등록한 28행(노외 19·노상 9)을 읽었다. 이름·주소·구획수·"
+                             "운영요일·운영시간·좌표·전화·관리번호·결제방법·특기사항과 등록요금 출처로 썼다."),
+                },
+                {
+                    "id": "ordinance", "name": "광명시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 주차요금",
+                    "org": "광명시(대중교통과)",
+                    "url": GM_ORDINANCE_URL,
+                    "file": GM_ORD_TXT.name,
+                    "sha256": sha256(GM_ORD_TXT) if GM_ORD_TXT.exists() else None,
+                    "license": "자치법규(공개)",
+                    "base_date": GM_ORDINANCE_NOTE,
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GM_ORD_TXT),
+                    "note": ("1급지 최초 30분 800원·10분당 300원(2시간 초과 400원)·1일 13,000원·"
+                             "월 정기권 주간 75,000원·야간 45,000원, 2급지(옥길동·학온동) 500·200·300원·"
+                             "1일 8,000원, 거주지 전용 800·300·400원·1일 5,000원, 전통시장 2시간 초과 "
+                             "10분당 500원(1일 한도 없음)을 확인했다. 조문 일부만 받아 옮겼고, 별표 금액은 "
+                             "광명시 공영주차장 요금표·광명도시공사 이용요금의 같은 표로 대조했다."),
+                },
+                {
+                    "id": "city", "name": "광명시 공영주차장 현황·요금표·할인대상·운영시간",
+                    "org": "광명시 대중교통과 주차시설팀(02-2680-6499)",
+                    "url": GM_CITY_URL,
+                    "file": GM_CITY_TXT.name if GM_CITY_TXT.exists() else None,
+                    "sha256": sha256(GM_CITY_TXT) if GM_CITY_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 31,
+                    "fetched_at": _sync_time(GM_CITY_TXT),
+                    "note": ("노외 21곳·노상 10곳 31개소 2,373면의 이름·위치·면수·유료/무료, 요금표"
+                             "(1급지·2급지·거주지 전용), 할인대상, 노상 운영시간(10:00~19:00·주말·공휴일 "
+                             "무료) 확인용."),
+                },
+                {
+                    "id": "corp", "name": "광명도시공사 공영주차장 운영현황·공영주차장 안내",
+                    "org": "광명도시공사 주차관리팀(02-2610-7390)",
+                    "url": GM_CORP_FACIL_URL,
+                    "file": f"{GM_FACIL_TXT.name} · {GM_PUBLIC_TXT.name}",
+                    "sha256": sha256(GM_FACIL_TXT) if GM_FACIL_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": 25,
+                    "fetched_at": _sync_time(GM_FACIL_TXT),
+                    "note": ("노외 11곳·노상 8곳·거주자 1곳·부설 5곳의 면수와 운영시간(24시간 연중무휴, "
+                             "새빛공원 평일 09:00~18시·주말 무료), 운영방법(시간/월정기), 소하 제1·3·4 "
+                             "노외의 면수 확인용. 실시간 잔여면수는 게시되어 있지 않다."),
+                },
+                {
+                    "id": "price", "name": "광명도시공사 공영주차장 이용요금·할인 안내",
+                    "org": "광명도시공사",
+                    "url": GM_CORP_PRICE_URL,
+                    "file": GM_PRICE_TXT.name if GM_PRICE_TXT.exists() else None,
+                    "sha256": sha256(GM_PRICE_TXT) if GM_PRICE_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GM_PRICE_TXT),
+                    "note": ("시간주차 800·300·400원과 일 최대 13,000원(노외 한정, 철산 상업지역은 상한 "
+                             "없음), 전통시장 2시간 초과 500원, 월정기권(전일 120,000·주간 75,000·야간 "
+                             "45,000원, 광명동굴 제3 80,000원, 개운어린이공원 70,000원, 목감로 거주자 "
+                             "40,000원)과 시간주차·월정기권 할인표 확인용."),
+                },
+                {
+                    "id": "terms", "name": "광명도시공사 공영주차장 이용약관",
+                    "org": "광명도시공사",
+                    "url": GM_CORP_TERMS_URL,
+                    "file": GM_TERMS_TXT.name if GM_TERMS_TXT.exists() else None,
+                    "sha256": sha256(GM_TERMS_TXT) if GM_TERMS_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2026-11-17 확인",
+                    "rows_total": None,
+                    "fetched_at": _sync_time(GM_TERMS_TXT),
+                    "note": ("노상 8구간의 평일 10:00~19:00·주말·공휴일 휴무, 노외 24시간 연중무휴, "
+                             "월정기주차 운영 주차장과 주간(08:00~19:00)·야간(19:00~익일 08:00) 시간, "
+                             "거주자우선 공유주차 30분 800원·1회 5,000원 확인용."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in GM_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "gwangmyeong_steps",
+            "unit_min": GM_UNIT_MIN,
+            "base_min": GM_BASE_MIN,
+            "free_min": 0,
+            "applies": GM_ORDINANCE_NOTE + " · 2023-11-10 요금 적용",
+            "off": [
+                {"grade": 1, "base": 800, "unit": 300, "after": 400, "day": 13_000,
+                 "month_day": 75_000, "month_night": 45_000, "month_all": 120_000,
+                 "where": "2급지 이외의 광명시 전지역", "lots": 0},
+                {"grade": 2, "base": 500, "unit": 200, "after": 300, "day": 8_000,
+                 "month_day": 50_000, "month_night": 30_000, "month_all": None,
+                 "where": "옥길동·학온동", "lots": 0},
+            ],
+            "special": [
+                {"name": "광명동(전통시장) 지하", "base": 800, "unit": 300, "after": 500,
+                 "day": None, "note": "2시간 초과 10분당 500원 · 일 한도 없음 · 야간 정기권 45,000원"},
+                {"name": "목감로 거주자우선(거주지 전용)", "base": 800, "unit": 300, "after": 400,
+                 "day": 5_000, "note": "월 정기권 주간·야간 20,000원 · 전일 40,000원 · 공유주차 30분 800원"},
+            ],
+            "corp": {"out": 11, "st": 8, "resident": 1, "att": 5, "city": 31},
+            "basis": ("「광명시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금"
+                      f"({GM_ORDINANCE_NOTE}) · 광명시 공영주차장 요금표 · 광명도시공사 이용요금(2026-11-17 확인)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료")
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["광명시"] | {
+        "city": "광명시",
+        "weekend_free_pages": False,
+        "discounts": GM_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "gwangmyeong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_gwangmyeong(std_all, rows, lots, excluded, merged, hour_fixed,
+                              space_diff, note_fixed, ticket_diff, corp_missing, city_only):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_광명시행수": len(rows),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"].split("(")[0] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in lots
+                                     if l["fee"].get("std_grade"))),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "특기사항_보정": note_fixed,
+        "정기권_금액없음": ticket_diff,
+        "공사_현황_없음": corp_missing,
+        "시_홈페이지에만": city_only,
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
              "ansan": ["안산시"], "siheung": ["시흥시"], "uijeongbu": ["의정부시"],
              "gimpo": ["김포시"], "paju": ["파주시"], "gwangju": ["광주시"],
-             "hanam": ["하남시"], "gunpo": ["군포시"]}[args.city])
+             "hanam": ["하남시"], "gunpo": ["군포시"],
+             "gwangmyeong": ["광명시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -9112,6 +9794,8 @@ def main():
         cities.append(build_hanam())
     if "군포시" in want:
         cities.append(build_gunpo())
+    if "광명시" in want:
+        cities.append(build_gwangmyeong())
 
     if args.city == "all":
         site = build_site_payload(cities)

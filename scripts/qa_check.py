@@ -548,6 +548,15 @@ _others2 = set()
 for _k, _v in MIX.items():
     _others2.update(t for t in _v if t not in GUNPO_TOKENS)
 MIX["gunpo"] = tuple(sorted(_others2))
+# 광명시도 자치구가 없다 — 다른 도시 페이지에 광명 자료가 섞이면 실패.
+#   (‘광명로’(성남 노상)·‘광명교회’(시흥 노상) 같은 도로·상호 이름과 겹치지 않게 ‘광명시’ 단위로 좁힌다.)
+GM_TOKENS = ("광명시", "광명도시공사", "광명시청")
+for _k in list(MIX):
+    MIX[_k] = tuple(MIX[_k]) + GM_TOKENS
+_others3 = set()
+for _k, _v in MIX.items():
+    _others3.update(t for t in _v if t not in GM_TOKENS)
+MIX["gwangmyeong"] = tuple(sorted(_others3))
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     city_key = next((k for k in MIX if f"/{k}" in rel), None)
@@ -2035,6 +2044,111 @@ else:
     gpo_rows = len(re.findall(r"<tr><td>", gpo_street_page.read_text()))
     if gpo_rows < len(gpo_street):
         fails.append(f"군포시 노상 페이지 행 {gpo_rows} < 구간 {len(gpo_street)}")
+
+# 광명시: 「광명시 주차장 설치 및 관리 조례」 [별표 1](2023-11-10 개정, 2026-08-14 일부개정)
+#   · 1급지 최초 30분 800원 → 10분당 300원 → 2시간 초과 10분당 400원, 노외 1일 13,000원.
+#   · 2급지(옥길동·학온동) 500·200·300원·1일 8,000원, 전통시장 2시간 초과 10분당 500원(1일 한도 없음).
+gmy_cards = [l for l in LOTS if l.get("city") == "광명시" and l.get("list_mode") == "card"]
+gmy_street = [l for l in LOTS if l.get("city") == "광명시" and l.get("list_mode") == "street"]
+if not gmy_cards:
+    fails.append("광명시 카드 데이터가 없음")
+gmy_paid = [l for l in gmy_cards if l["fee"]["type"] == "유료"]
+gmy_free = [l for l in gmy_cards if l["fee"]["type"] == "무료"]
+gmy_ticket = [l for l in gmy_cards if l["fee"].get("ticket_only")]
+gmy_bad = [l["name"] for l in gmy_paid
+           if l["name"] != "광명동(전통시장) 지하"
+           and (l["fee"]["base_min"] != 30 or l["fee"]["base_fee"] != 800
+           or l["fee"]["unit_min"] != 10 or l["fee"]["unit_fee"] != 300
+                or [st["unit_fee"] for st in (l["fee"].get("steps") or [])] != [300, 400])]
+if gmy_bad:
+    fails.append(f"광명시 유료 주차장 요금이 조례 별표1과 다름 {len(gmy_bad)}곳 {gmy_bad[:3]}")
+gmy_day_bad = [l["name"] for l in gmy_paid
+               if l["name"] != "광명동(전통시장) 지하" and l["fee"]["daily_fee"] != 13_000]
+if gmy_day_bad:
+    fails.append(f"광명시 1일 주차권이 13,000원이 아님 {gmy_day_bad[:3]}")
+gmy_market = next((l for l in gmy_cards if l["name"] == "광명동(전통시장) 지하"), None)
+if not gmy_market:
+    fails.append("광명시 전통시장 지하 카드가 없음")
+elif [st["unit_fee"] for st in (gmy_market["fee"].get("steps") or [])] != [300, 500]         or gmy_market["fee"]["daily_fee"]:
+    fails.append("광명시 전통시장 요금(2시간 초과 500원·1일 한도 없음)이 아님")
+# 계산 규칙: 2시간 3,500원 · 4시간 5,900원 · 24시간 13,000원(전통시장은 69,500원, 상한 없음)
+_gmy_p = next((l for l in gmy_paid if l["name"] == "광북"), None)
+if not _gmy_p:
+    fails.append("광명시 광북 카드가 없음")
+else:
+    _want = [(120, 3500), (180, 5900), (240, 8300), (1440, 13000)]
+    _bad = [(m, price_for(_gmy_p, m, "weekday").get("amount")) for m, v in _want
+            if price_for(_gmy_p, m, "weekday").get("amount") != v]
+    if _bad:
+        fails.append(f"광명시 요금 계산이 조례 값과 다름 {_bad[:3]}")
+if gmy_market and price_for(gmy_market, 1440, "weekday").get("amount") != 69500:
+    fails.append(f"광명시 전통시장 24시간 요금이 69,500원이 아님: "
+                 f"{price_for(gmy_market, 1440, 'weekday').get('amount')}")
+# 감면표: 경차·저공해 50%, 유공자·장애인 2시간 면제 후 50%, 긴급·납세자 면제
+_gmy_disc = next(c for c in CITIES if c["city"] == "광명시").get("discounts") or []
+if not any(d.get("rate") == 0.5 and (d.get("exempt_min") or 0) == 120 for d in _gmy_disc):
+    fails.append("광명시 감면표의 유공자·장애인 면제 시간이 120분이 아님")
+if not any(d.get("rate") == 0.5 and not d.get("exempt_min") for d in _gmy_disc):
+    fails.append("광명시 감면표에 경차·저공해 50%가 없음")
+if not any(d.get("rate") == 1.0 for d in _gmy_disc):
+    fails.append("광명시 감면표에 긴급·모범납세자 면제가 없음")
+# 구성: 카드 22곳(유료 17·무료 2·정기권 전용 3) · 노상 10구간 · 구획 1,708면 / 716면
+if len(gmy_cards) != 22 or len(gmy_street) != 10:
+    fails.append(f"광명시 카드·노상 구성이 다름: 카드 {len(gmy_cards)} · 노상 {len(gmy_street)}")
+if len(gmy_paid) != 17 or len(gmy_free) != 2 or len(gmy_ticket) != 3:
+    fails.append(f"광명시 카드 요금 구분이 다름: 유료 {len(gmy_paid)}·무료 {len(gmy_free)}·"
+                 f"정기권전용 {len(gmy_ticket)}")
+if dict(Counter(l["fee"]["grade"] for l in gmy_paid if l["fee"].get("grade"))) != {1: 16}:
+    fails.append("광명시 카드 유료 급지 구성이 {1: 16}이 아님")
+if sum(l["spaces"] or 0 for l in gmy_cards) != 1708 or sum(l["spaces"] or 0 for l in gmy_street) != 716:
+    fails.append(f"광명시 구획 합계가 다름: 노외 {sum(l['spaces'] or 0 for l in gmy_cards)} · "
+                 f"노상 {sum(l['spaces'] or 0 for l in gmy_street)}")
+if len([l for l in gmy_cards if not l.get("dong")]):
+    fails.append("광명시 카드에 동이 없는 주차장이 있음")
+_gmy_dup = [k for k, v in Counter(l["name"] for l in gmy_cards).items() if v > 1]
+if _gmy_dup:
+    fails.append(f"광명시 카드 이름 중복: {_gmy_dup[:3]}")
+for _n in ("광명동(전통시장) 지하", "안현철골", "새빛공원", "광명시청 철산동지하"):
+    if not any(l["name"] == _n for l in gmy_cards):
+        fails.append(f"광명시 카드에 {_n} 없음")
+# 노상 주말 무료 개방 6구간 + 새빛공원
+if len([l for l in LOTS if l.get("city") == "광명시" and l["free_days"].get("sun")
+        and l["fee"]["type"] != "무료"]) != 7:
+    fails.append("광명시 일요일 무료 개방 주차장이 7곳이 아님")
+gmy_root = DIST / "parking" / "gyeonggi" / "gwangmyeong"
+gmy_hub = gmy_root / "index.html"
+if not gmy_hub.exists():
+    fails.append("광명시 시 페이지 없음")
+else:
+    gmy_html = gmy_hub.read_text()
+    for label in ("광명시 급지별 주차요금표", "1급지", "2급지", "10분당", "2시간 초과",
+                  "30분", "월 정기권", "별도 요금 주차장", "광명동(전통시장) 지하",
+                  "평일 2시간 기준 가장 저렴한 곳", 'class="calc', "광명도시공사",
+                  "경기도 광명시 28행"):
+        if label not in gmy_html:
+            fails.append(f"광명시 시 페이지에 {label} 없음")
+    if gmy_html.count('class="card lot') != len(gmy_cards):
+        fails.append(f"광명시 시 페이지 카드 수 불일치({gmy_html.count(chr(34)+'card lot')} vs {len(gmy_cards)})")
+    if "&lt;b&gt;" in gmy_html:
+        fails.append("광명시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    if "옥길동" not in gmy_html:
+        fails.append("광명시 시 페이지에 2급지 대상 지역(옥길동) 안내 없음")
+gmy_dong_pages = sorted(q.parent.name for q in gmy_root.rglob("index.html")
+                        if q.parent.parent == gmy_root and q.parent.name != "street-parking")
+gmy_expect = sorted(__import__("build_site").dong_slug(d)
+                    for d, n in Counter(l.get("dong") for l in gmy_cards if l.get("dong")).items()
+                    if n >= 3)
+if gmy_dong_pages != gmy_expect:
+    fails.append(f"광명시 동 페이지 구성이 다름: {gmy_dong_pages} ≠ {gmy_expect}")
+if len(gmy_dong_pages) != 3:
+    fails.append(f"광명시 동 페이지가 3개가 아님: {gmy_dong_pages}")
+gmy_street_page = gmy_root / "street-parking" / "index.html"
+if not gmy_street_page.exists():
+    fails.append("광명시 노상주차장 페이지 없음(street-parking)")
+else:
+    gmy_rows = len(re.findall(r"<tr><td>", gmy_street_page.read_text()))
+    if gmy_rows < len(gmy_street):
+        fails.append(f"광명시 노상 페이지 행 {gmy_rows} < 구간 {len(gmy_street)}")
 
 print()
 if warns:
