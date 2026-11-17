@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시)
+공영주차장 파인더 - 데이터 정제 스크립트 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시 + 부천시 + 고양시 + 남양주시 + 안산시)
 
 입력(모두 실제 공개 데이터, data/raw/):
   1) 전국주차장정보표준데이터 (공공데이터포털 15012896, CSV, EUC-KR)  -> 요금/운영시간/좌표/특기사항
@@ -14,6 +14,7 @@
      - 부천시 109행: 요금·운영시간·좌표 (노외 72 + 부설 29 + 노상 8, 원미·소사·오정 3개 구)
      - 고양시 88행: 요금·운영시간·좌표 (노외 63 + 부설 17 + 노상 8, 덕양·일산동·일산서 3개 구)
      - 남양주시 84행: 요금·운영시간·좌표 (노외 49 + 노상 35, 구 없이 6읍 3면·동)
+     - 안산시 153행 + 안산도시공사 75행: 요금·운영시간·좌표 (노외 193 + 노상 28 + 부설 7, 상록·단원 2개 구)
   2) 수원도시공사 공영주차장 통합 안내 지도(parking.suwonudc.co.kr/parking/parkingMap) 임베드 JSON 스냅샷
      -> 실시간 잔여면수, 장애인/경차/전기차/여성/임산부 구획수 (수원시만)
   3) 경기도 수원시_공영노외주차장현황 (공공데이터포털 15157772, CSV, EUC-KR) -> 주소/면수 보강 (수원시만)
@@ -25,6 +26,8 @@
      -> 주차장별 급지·기본 30분·10분당·1일 최대요금·정기권(주간·야간·전일)·장애인 구획 (부천시만)
   7) 남양주도시공사 원패스파킹(parking.ncuc.or.kr) 주차장 목록 JSON 스냅샷
      -> 주차장별 급지(1~2급지)·기본시간·기본요금·간격요금·1일 주차요금·월 정기권·구획 구성 (남양주시만)
+  8) 안산도시공사 홈페이지 공영유료주차장 현황 표 + 주차장 세부내역(상세 팝업) 스냅샷
+     -> 주차장별 급지(1~4급지)·주차면수·운영시간·요금·월 정기권·결제방법·환승할인 (안산시만)
 
 출력:
   data/site.json             도시 통합 결과(사이트 생성기 입력: cities[] + lots[])
@@ -37,11 +40,12 @@
   data/bucheon_parking.json  부천시 단독 결과
   data/goyang_parking.json   고양시 단독 결과
   data/namyangju_parking.json 남양주시 단독 결과
+  data/ansan_parking.json    안산시 단독 결과
   data/data_quality.json     수원시 정합성 점검 결과(기존 경로 호환)
   scripts/summary.md         사람이 읽는 정제 요약 (도시별)
   scripts/summary.json       기계가 읽는 정제 요약 (도시별)
 
-사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|all]
+사용법:  python3 scripts/prepare_data.py [--city suwon|seongnam|yongin|hwaseong|anyang|pyeongtaek|bucheon|goyang|namyangju|ansan|all]
 """
 from __future__ import annotations
 
@@ -329,6 +333,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "남양주시": {"slug": "namyangju", "province": "경기도", "province_slug": "gyeonggi",
               "dong_page_min_lots": 3},
+    "안산시": {"slug": "ansan", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -4103,6 +4109,710 @@ def check_quality_namyangju(std_all, rows, rows_dup, lots, excluded, portal):
     }
 
 
+# ---------------------------------------------------------------- 안산시 (T-03 Phase 9)
+ANSAN_PROVIDER = "경기도 안산시"
+ANSAN_CORP_PROVIDER = "안산도시공사"
+# 안산시는 상록구·단원구 2개 구다. 동 이름은 법정동 기준으로 적는다.
+#   · 상록구: 사동·본오동·이동·일동·성포동·월피동·부곡동·팔곡이동·수암동·건건동·장상동·장하동·안산동·양상동
+#   · 단원구: 고잔동·원곡동·초지동·선부동·와동·신길동·대부북동·대부남동·대부동동·선감동·풍도동·원시동·성곡동·목내동
+ANSAN_DISTRICTS = [("상록구", "ansan-sangrok"), ("단원구", "ansan-danwon")]
+ANSAN_BBOX = (37.22, 37.38, 126.55, 126.93)     # 안산시 대략 경계(좌표 점검용)
+ANSAN_DONGS = {
+    "상록구": ("사동", "본오동", "이동", "일동", "성포동", "월피동", "부곡동", "팔곡이동",
+             "수암동", "건건동", "장상동", "장하동", "안산동", "양상동"),
+    "단원구": ("고잔동", "원곡동", "초지동", "선부동", "와동", "신길동", "대부북동",
+             "대부남동", "대부동동", "선감동", "풍도동", "원시동", "성곡동", "목내동"),
+}
+ANSAN_ALL_DONGS = tuple(d for v in ANSAN_DONGS.values() for d in v)
+ANSAN_CORP_JSON = RAW / "ansanuc.ansanuc.net_공영유료주차장현황_20261117.json"
+ANSAN_PORTAL_JSON = RAW / "ansanuc.ansanuc.net_parkinglotPopup_20261117.json"
+ANSAN_ORDINANCE_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2126431"
+ANSAN_PAGE_URL = "https://www.ansan.go.kr/www/common/cntnts/selectContents.do?cntnts_id=C0001322"
+ANSAN_CORP_PAGE_URL = "https://www.ansanuc.net/homenew/10221/40063/contents.do"
+
+# 안산시 공영주차장 요금 — 「안산시 주차장 조례」 별표2 ‘공영유료주차장 주차요금표’(시행 2026-04-29)와
+# 안산시 공영유료주차장 요금표·안산도시공사 시설현황/요금안내(2026-11-17 확인)를 그대로 옮겼다.
+#   · 1회 주차 1구역 최초 30분 기본요금 뒤 30분을 넘기면 10분마다 가산, 1일 주차요금이 상한
+#   · 1급지 600·300·9,000원 / 2급지 400·200·4,500원 / 3급지 300·200·4,500원 / 4급지 300·200·4,500원
+#   · 월 정기권(선불) 1급지 80,000 / 2급지 50,000 / 3급지 40,000 / 4급지 20,000원
+#   · 지하철 환승 주차장(안산역·고잔역·중앙역·상록수역·한대앞역·반월역)은 ‘2,3급지’ 중복급지로,
+#     도시철도 이용확인증을 내면 3급지, 아니면 2급지 요금이다(카드에 안내).
+#   · 수암봉은 입차 후 2시간까지 2급지, 이후 1급지 요금이고 주말·공휴일에만 유료 운영한다.
+#   · 와~스타디움 부설은 최초 3시간 무료 뒤 1급지 요금(10분당 300원), 1일 9,000원이다.
+ANSAN_FEES = {
+    1: {"base_min": 30, "base_fee": 600, "unit_min": 10, "unit_fee": 300, "day": 9_000, "monthly": 80_000},
+    2: {"base_min": 30, "base_fee": 400, "unit_min": 10, "unit_fee": 200, "day": 4_500, "monthly": 50_000},
+    3: {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 200, "day": 4_500, "monthly": 40_000},
+    4: {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 200, "day": 4_500, "monthly": 20_000},
+}
+ANSAN_UNIT_MIN = 10
+# 안산시는 공영주차장 전체에 적용하는 ‘최초 N분 무료’가 없다(시청부설 20분, 와~스타디움 3시간만 별도).
+
+# 안산시 공영주차장 요금 감면 — 안산시 ‘주차요금 할인 안내’와 안산도시공사 감면 안내(2026-11-17 확인).
+#   · 100%               : 긴급자동차, 국가·지자체 공무수행 관용차, 모범납세자·안산시 성실납세자(1년)
+#   · 3시간 면제 후 50%   : 행복플러스카드(다자녀·임산부), 국가보훈대상자, 장애 정도가 심한 장애인,
+#                          5·18민주유공자, 고엽제
+#   · 2시간 면제 후 50%   : 전기·태양광·수소자동차
+#   · 1시간 면제 후 50%   : 장애 정도가 심하지 않은 장애인, VIP자원봉사증
+#   · 50%                : 경형(1,000cc 미만), 저공해(경유 제외), 우수자원봉사증, 경기아이플러스카드,
+#                          병역명문가, 장기등·인체조직 기증자, 병역 의무 이행 청년카드
+#   · 감면은 중복 적용하지 않는다(현장 확인).
+ANSAN_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·자원봉사 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "경형(1,000cc 미만)·저공해(경유 제외)·우수자원봉사증·경기아이플러스카드·병역명문가·장기기증자"},
+    {"label": "심하지 않은 장애인 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": "장애 정도가 심하지 않은 장애인·VIP자원봉사증, 최초 1시간 면제"},
+    {"label": "전기·수소차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "전기·태양광·수소자동차, 최초 2시간 면제"},
+    {"label": "장애인·국가유공자 3시간 면제 후 50%", "rate": 0.5, "exempt_min": 180,
+     "note": "심한 장애인·국가보훈대상자·5·18민주유공자·고엽제·행복플러스카드(다자녀·임산부), 최초 3시간 면제"},
+    {"label": "모범·성실납세자 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "국세청 모범납세자·안산시 성실납세자 표지 부착 차량(교부일부터 1년)"},
+]
+# 표준데이터 이름과 안산도시공사 홈페이지 이름이 달라 이름으로 찾지 못하는 주차장.
+ANSAN_NAME_ALIAS = {
+    "메가박스앞": "메가넥스앞",                       # 홈페이지 상세 팝업의 표기 오타
+    "외국인본부부설주차장": "외국인지원본부",
+    "상록수역환승주차장": "상록수역환승",
+}
+# 시간제 주차요금 없이 월 정기권만 받는 화물차 전용 차고지 — 0원이 아니라 ‘요금 미상(정기권 전용)’으로 표시한다.
+ANSAN_TICKET_ONLY = {
+    "월피동 화물주차장": 90_000,
+    "팔곡동 화물차고지": 90_000,
+    "부곡동 화물전용주차장": 90_000,
+}
+# 지하철 환승 할인(도시철도 이용확인증) 대상 — 2급지 요금으로 계산하고 카드에 3급지 요금을 함께 적는다.
+ANSAN_TRANSFER_NOTE = ("도시철도 환승(이용확인증 제시) 시 3급지 요금(30분 300원·10분당 200원)이 적용됩니다"
+                       " — 환승하지 않으면 2급지 요금입니다")
+
+
+def ansan_name_key(s: str, drop_parens: bool = True) -> str:
+    """주차장 이름 비교용 키 — 꾸밈말(주차장·공영·주차타워·지하·임시)을 뺀다.
+
+    drop_parens=True  : ‘(소)’, ‘(대)’처럼 구획을 나눈 괄호를 빼 같은 주차장으로 본다
+                        (고잔역환승(소) ↔ 고잔역환승).
+    drop_parens=False : 괄호 안 설명을 남긴다 — ‘안산역환승(서측)’과 ‘안산역환승(동측)’,
+                        ‘공단삼거리(1주차장-중앙일보)’와 ‘공단삼거리 1주차장’을 가르는 데 쓴다.
+    """
+    t = re.sub(r"[\s\[\]·,.ㆍ~]", "", s or "")
+    if drop_parens:
+        t = re.sub(r"\([^)]*\)", "", t)
+    else:
+        t = t.replace("(", "").replace(")", "")
+    for w in ("주차장", "주차타워", "공영", "지하", "임시"):
+        t = t.replace(w, "")
+    return t
+
+
+def ansan_addr_jibun(addr: str) -> str:
+    """지번주소 비교용 — 공백·‘번지’·구 이름을 빼고 동+번지로 맞춘다."""
+    t = re.sub(r"\s", "", addr or "").replace("번지", "")
+    return t.replace("경기도안산시", "")
+
+
+def ansan_dong_of(text: str):
+    """주소에서 안산시 법정동을 뽑는다(긴 이름 우선 — 대부북동/대부동동 구분)."""
+    t = re.sub(r"\s", "", text or "")
+    for d in sorted(ANSAN_ALL_DONGS, key=len, reverse=True):
+        # ‘고잔동 539-11’처럼 지번이 바로 붙거나, ‘본오동 산128-1’처럼 임야번지가 붙는다.
+        if re.search(re.escape(d) + r"(?=$|\d|산\d|[^가-힣])", t):
+            return d
+    return None
+
+
+def ansan_gu_of(dong: str):
+    for gu, names in ANSAN_DONGS.items():
+        if dong in names:
+            return gu
+    return None
+
+
+def load_ansan_corp_list() -> list:
+    """안산도시공사 홈페이지 ‘공영유료주차장 시설현황’ 표 스냅샷 → 주차장별 급지·면수·운영시간."""
+    if not ANSAN_CORP_JSON.exists():
+        return []
+    raw = json.loads(ANSAN_CORP_JSON.read_text())
+    out = []
+    for r in raw.get("lots", []):
+        grades = [int(x) for x in re.findall(r"\d", str(r.get("grade") or ""))]
+        out.append({**r, "grades": grades, "grade": grades[0] if grades else None})
+    return out
+
+
+def load_ansan_portal() -> dict:
+    """안산도시공사 주차장 상세(주차장세부내역) 팝업 스냅샷 → 이름별 요금·면수·결제방법·환승할인.
+
+    팝업 본문은 ‘위치 … 주차면수 … 운영시간 … 결제방법 … 이용요금 월정기/30분기본/추가 10분당/1일주차요금’
+    순서의 한 줄 텍스트라 필요한 값만 뽑는다. 수암봉처럼 월정기·기본요금 칸이 없는 주차장은 빈 값으로 둔다.
+    """
+    if not ANSAN_PORTAL_JSON.exists():
+        return {}
+    raw = json.loads(ANSAN_PORTAL_JSON.read_text())
+    out: dict[str, dict] = {}
+    for it in raw.get("items", []):
+        text = it.get("text") or ""
+        m = re.search(r"주차장세부내역(?:\s*주차장세부내역)?\s*(.*?)\s*공영유료주차장", text)
+        if not m:
+            continue
+        name = m.group(1).strip()
+        if not name:
+            continue
+        addr = re.search(r"표\s*위치\s*(.*?)\s*주차면수", text)
+        spaces = re.search(r"주차면수\s*(\d+)", text)
+        monthly = re.search(r"월정기\s*:\s*([\d,]+)", text)
+        base = re.search(r"30분기본\s*:\s*([\d,]+)", text)
+        unit = re.search(r"추가\s*10분당\s*([\d,]+)", text)
+        daily = re.search(r"1일주차요금\s*:\s*([\d,]+)", text)
+        pay = re.search(r"결제방법\s*([가-힣]+)\s*이용요금", text)
+        rec = {
+            "no": it.get("no"),
+            "name": name,
+            "addr": (addr.group(1) if addr else "").strip(),
+            "spaces": to_int(spaces.group(1)) if spaces else None,
+            "monthly": to_int(monthly.group(1)) if monthly else None,
+            "base_fee": to_int(base.group(1)) if base else None,
+            "unit_fee": to_int(unit.group(1)) if unit else None,
+            "day": to_int(daily.group(1)) if daily else None,
+            "pay": (pay.group(1) if pay else "").strip(),
+            "transfer": "환승할인 : " in text,
+            "text": text,
+        }
+        # 같은 이름이 여러 번(옛 이름·중복 행) 나오면 값이 더 많이 찬 쪽을 쓴다.
+        cur = out.get(name)
+        if cur is None or sum(bool(rec[k]) for k in ("monthly", "base_fee", "unit_fee", "day")) > \
+                sum(bool(cur[k]) for k in ("monthly", "base_fee", "unit_fee", "day")):
+            out[name] = rec
+    return out
+
+
+def ansan_name_pick(name: str, pool: dict):
+    """이름이 같은(또는 서로 포함되는) 후보 하나를 고른다 — 괄호를 남긴 키를 먼저 본다.
+
+    괄호를 남긴 키로 먼저 맞춰 ‘안산역환승(서측)’이 ‘(동측)’ 값으로 덮이지 않게 하고,
+    그다음 괄호를 뺀 키로 ‘고잔역환승(소)’ ↔ ‘고잔역환승’처럼 구획만 나뉜 이름을 잇는다.
+    """
+    for drop in (False, True):
+        key = ansan_name_key(name, drop)
+        if not key:
+            continue
+        for k, r in pool.items():
+            if ansan_name_key(k, drop) == key:
+                return r
+    for drop in (False, True):
+        key = ansan_name_key(name, drop)
+        if not key:
+            continue
+        cand = [r for k, r in pool.items()
+                if (k2 := ansan_name_key(k, drop)) and len(k2) >= 2 and (k2 in key or key in k2)]
+        if len(cand) == 1:
+            return cand[0]
+    return None
+
+
+def ansan_portal_match(name: str, portal: dict, corp_list: list):
+    """표준데이터 한 행에 대응하는 안산도시공사 상세 팝업을 정한다(별칭표 → 이름 비교 → 같은 지번)."""
+    if not portal:
+        return None
+    alias = ANSAN_NAME_ALIAS.get(name)
+    if alias and alias in portal:
+        return portal[alias]
+    return ansan_name_pick(name, portal)
+
+
+def ansan_corp_match(name: str, addr: str, corp_list: list):
+    """표준데이터 한 행에 대응하는 홈페이지 표(급지·면수·운영시간) 행을 정한다."""
+    if not corp_list:
+        return None
+    alias = ANSAN_NAME_ALIAS.get(name)
+    if alias:
+        for r in corp_list:
+            if r["name"] == alias:
+                return r
+    hit = ansan_name_pick(name, {r["name"]: r for r in corp_list})
+    if hit:
+        return hit
+    jib = ansan_addr_jibun(addr)
+    if jib:
+        near = [r for r in corp_list if ansan_addr_jibun(r["addr"]) == jib]
+        if len(near) == 1:
+            return near[0]
+    return None
+
+
+def ansan_rows_merge(city_rows, corp_rows):
+    """시·도시공사 두 제공기관의 행을 주차장 단위로 합친다.
+
+    같은 주차장이 두 제공기관에 나뉘어 등록되어 있어(시 153행 · 도시공사 75행) 그대로 쓰면
+    카드가 두 장씩 생긴다. 도시공사 행(요금·급지가 채워진 유료 주차장)을 먼저 두고,
+    시 행은 이름 키가 같거나(괄호만 다른 경우 포함) 같은 지번에 이름이 겹치는 경우 중복으로 뺀다.
+    """
+    chosen = [{"row": r, "src": "도시공사"} for r in corp_rows]
+    dropped = []
+    for r in city_rows:
+        key = ansan_name_key(r.get("주차장명"))
+        jib = ansan_addr_jibun(r.get("소재지지번주소"))
+        full = re.sub(r"[\s()·ㆍ\-]", "", r.get("주차장명") or "")
+        dup = None
+        for c in chosen:
+            if c["src"] != "도시공사":
+                # 시 행끼리는 같은 이름(주택가 주차장 등)이 여러 곳이라 서로 지우지 않는다.
+                continue
+            o = c["row"]
+            okey = ansan_name_key(o.get("주차장명"))
+            ofull = re.sub(r"[\s()·ㆍ\-]", "", o.get("주차장명") or "")
+            if key and key == okey:
+                dup = (c, "이름")
+                break
+            if jib and jib == ansan_addr_jibun(o.get("소재지지번주소")) and \
+                    ((full and (full in ofull or ofull in full)) or not key):
+                dup = (c, "지번+이름")
+                break
+        if dup:
+            dropped.append({"name": r.get("주차장명"), "addr": r.get("소재지지번주소"),
+                            "kept": dup[0]["row"].get("주차장명"), "why": dup[1]})
+        else:
+            chosen.append({"row": r, "src": "시"})
+    return chosen, dropped
+
+
+def build_ansan():
+    """안산시 공영주차장을 표준데이터 + 안산도시공사 홈페이지 표·상세 팝업으로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 안산시 범위를 벗어난 행은 제외(껍데기 행).
+      · 노상(거리) 구간은 이름이 구간 설명이라 카드 대신 전용 표 페이지로 분리(list_mode='street').
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    요금은 조례 별표2의 급지별 요금표(1~4급지)를 쓰고, 주차장별 요금·월 정기권·면수는 안산도시공사
+    상세 팝업(2026-11-17 조회)의 등록값을 우선한다. 표준데이터의 등록값이 조례표와 다르면
+    품질 리포트 ‘등록값_차이’에 남기고 조례표(또는 상세 팝업 값)를 적용한다.
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == ANSAN_PROVIDER]
+    rows_corp = [r for r in rows_all if (r.get("제공기관명") or "").strip() == ANSAN_CORP_PROVIDER]
+    corp_list = load_ansan_corp_list()
+    portal = load_ansan_portal()
+    chosen, dropped = ansan_rows_merge(rows_city, rows_corp)
+    lots, excluded = [], []
+    card_no = street_no = 0
+    fee_counts = Counter()
+
+    for item in sorted(chosen, key=lambda c: (c["row"].get("주차장명") or "")):
+        r = item["row"]
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        addr = jibun or road
+        ptype = (r.get("주차장유형") or "").strip() or "주차장"
+        fee_raw = (r.get("요금정보") or "").strip()
+        spaces = to_int(r.get("주차구획수"))
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+
+        # 껍데기 행 제외 — 이름·주소·구획수가 없으면 페이지를 만들지 않는다.
+        reason = None
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is not None and not (ANSAN_BBOX[0] <= lat <= ANSAN_BBOX[1]
+                                     and ANSAN_BBOX[2] <= lng <= ANSAN_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        ref = ansan_portal_match(name, portal, corp_list) or {}
+        crow = ansan_corp_match(name, addr, corp_list)
+        dong = ansan_dong_of(jibun) or ansan_dong_of(road)
+        dong_src = "지번주소"
+        if not dong:
+            dong = ansan_dong_of((ref or {}).get("addr") or (crow or {}).get("addr") or "")
+            dong_src = "홈페이지주소"
+        if not dong:
+            dong_src = "없음"
+        gu = ansan_gu_of(dong)
+
+        note = (r.get("특기사항") or "").strip()
+        win, oper, closed_note = parse_schedule(r, note)
+        free_days = parse_free_days(note)
+        std_grade = to_int(r.get("급지구분"))
+        std_fee = {
+            "base_min": to_int(r.get("주차기본시간")),
+            "base_fee": to_int(r.get("주차기본요금")),
+            "unit_min": to_int(r.get("추가단위시간")),
+            "unit_fee": to_int(r.get("추가단위요금")),
+            "day": to_int(r.get("1일주차권요금")),
+            "monthly": to_int(r.get("월정기권요금")),
+        }
+
+        street = ptype == "노상"
+        facility = ptype == "부설"
+        if street:
+            street_no += 1
+            lot_id = f"as-street-{street_no:03d}"
+        else:
+            card_no += 1
+            lot_id = f"as-{card_no:03d}"
+
+        # 급지는 홈페이지 표(공영유료주차장 현황) → 표준데이터 급지구분 → 1급지 순으로 정한다.
+        grade = (crow or {}).get("grade") or (std_grade if std_grade in ANSAN_FEES else 1)
+        if grade not in ANSAN_FEES:
+            grade = 1
+        ticket_only = name in ANSAN_TICKET_ONLY
+
+        fee = {
+            "type": "무료" if fee_raw == "무료" else ("유료" if fee_raw in ("유료", "혼합") else "미상"),
+            "raw_type": fee_raw,
+            "mixed": fee_raw == "혼합",
+            "grade": grade,
+            "std_grade": std_grade,
+            "grades": (crow or {}).get("grades") or [grade],
+            "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None,
+            "free_min": 0, "cap_fee": None, "cap_src": None,
+            "daily_hours": None, "daily_fee": None,
+            "prepaid_day": None, "prepaid_weekend": None,
+            "monthly": None, "monthly_night": None, "monthly_all": None,
+            "pay": ref.get("pay") or (r.get("결제방법") or "").strip(),
+            "basis": None,
+            "category": None,
+            "std": std_fee,
+            "portal_free_now": False,
+            "ticket_only": False,
+        }
+        notice = None
+
+        if ticket_only:
+            # 화물차 전용 차고지 — 시간제 요금 없이 월 정기권만 받는다.
+            fee.update({"type": "미상", "ticket_only": True,
+                        "monthly": ANSAN_TICKET_ONLY[name],
+                        "basis": "정기권(월정기) 전용 — 화물차 전용 차고지"})
+            notice = (f"화물차 전용 차고지입니다 — 월 정기권 {ANSAN_TICKET_ONLY[name]:,}원, "
+                      "시간제 주차는 받지 않습니다")
+        elif fee["type"] == "유료":
+            table = ANSAN_FEES[grade]
+            base_fee = ref.get("base_fee") or table["base_fee"]
+            unit_min = table["unit_min"]
+            unit_fee = ref.get("unit_fee") or table["unit_fee"]
+            day = ref.get("day") or table["day"]
+            monthly = ref.get("monthly") or table["monthly"]
+            fee.update({
+                "base_min": table["base_min"], "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day, "cap_src": "조례 1일 주차요금",
+                "monthly": monthly,
+                "category": "facility" if facility else f"{'street' if street else 'off'}{grade}",
+            })
+            fee["basis"] = (f"「안산시 주차장 조례」 별표2 {grade}급지"
+                            + (" · 안산도시공사 상세 안내(2026-11-17 확인)" if ref else ""))
+            # 주차장별 예외 — 부설·수암봉·환승주차장
+            if name == "시청부설주차장":
+                fee.update({"base_min": 30, "base_fee": 500, "unit_min": 30, "unit_fee": 500,
+                            "free_min": 20, "daily_fee": None, "cap_fee": None,
+                            "monthly": std_fee["monthly"] or 10_000, "category": "facility",
+                            "daily_hours": None})
+                fee["basis"] = "안산도시공사 부설주차장 안내(시청) — 30분당 500원"
+                notice = ("입차 후 20분 이내 또는 민원확인증을 받고 1시간 이내 출차하면 무료입니다"
+                          " (민원확인증으로 1시간 무료, 초과분은 매 30분당 500원)")
+            elif name == "와~스타디움부설주차장":
+                fee.update({"base_min": 180, "base_fee": 0, "free_min": 180, "unit_min": 10,
+                            "unit_fee": 300, "daily_fee": 9_000, "cap_fee": 9_000,
+                            "monthly": 10_000, "category": "facility"})
+                fee["basis"] = "안산도시공사 체육시설 부설주차장 안내 — 최초 3시간 무료, 이후 1급지 요금"
+                notice = "최초 3시간은 무료이고, 3시간이 지나면 10분당 300원(1급지 요금)이 붙습니다"
+            elif name == "차량등록사업소부설주차장":
+                fee.update({"base_min": 30, "base_fee": 500, "unit_min": 30, "unit_fee": 500,
+                            "daily_fee": None, "cap_fee": None,
+                            "monthly": std_fee["monthly"] or 10_000, "category": "facility"})
+                fee["basis"] = "안산도시공사 부설주차장 안내 — 30분당 500원"
+            elif name == "외국인본부부설주차장":
+                fee.update({"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 200,
+                            "daily_fee": 4_500, "cap_fee": 4_500, "monthly": 40_000,
+                            "category": "facility"})
+                notice = "월 정기권(40,000원)은 상주 직원 대상입니다"
+            elif name == "수암봉":
+                fee.update({
+                    "base_min": 30, "base_fee": 400, "unit_min": 10,
+                    "steps": [{"until": 120, "unit_min": 10, "unit_fee": 200},
+                              {"until": None, "unit_min": 10, "unit_fee": 300}],
+                    "steps_label": "2시간까지 2급지 · 이후 1급지",
+                    "daily_fee": None, "cap_fee": None, "monthly": std_fee["monthly"] or 90_000,
+                    "category": None, "grade": 2,
+                })
+                fee["basis"] = "안산도시공사 요금 안내(수암봉) — 2시간까지 2급지, 이후 1급지"
+                notice = ("평일에는 유료 운영을 하지 않습니다(안산시 안내로는 평일 무료 개방). "
+                          "주말·공휴일 09시~20시(4~9월)·09시~18시(10~3월)만 유료입니다")
+                # 주말·공휴일만 운영 — 등록값(평일 00:00~00:00, 공휴일 00:00~23:59) 대신 실제 운영시간으로 적는다.
+                for k in ("weekday",):
+                    win[k] = {"open": False, "start": 0, "end": 0, "24h": False, "listed": False,
+                              "raw": ["-", "-"]}
+                for k in ("sat", "sun"):
+                    win[k] = {"open": True, "start": 540, "end": 1200, "24h": False, "listed": True,
+                              "raw": ["09:00", "20:00"], "seasonal": True}
+                oper = {"weekday": False, "sat": True, "sun": True}
+            if ref.get("transfer") and name != "수암봉":
+                notice = ANSAN_TRANSFER_NOTE
+            elif name in ("선부광장", "선부우체국앞"):
+                notice = "수~일요일만 운영합니다(월·화요일 휴무)"
+            elif name == "초지동 화물전용":
+                notice = ("화물차 전용 주차장입니다 — 2.5톤 이상~4톤 미만 30분 600원·10분당 400원·1일 9,000원, "
+                          "4톤 이상 30분 900원·10분당 600원·1일 13,500원")
+                # 표준데이터는 00:00~23:59(24시간)로 등록되어 있으나, 도시공사 홈페이지 운영시간은
+                # 평일 09~18시·토 09~14시다(화물차 전용이라 주말 오후·공휴일은 운영하지 않는다).
+                win["weekday"] = {"open": True, "start": 540, "end": 1080, "24h": False,
+                                  "listed": True, "raw": ["09:00", "18:00"]}
+                win["sat"] = {"open": True, "start": 540, "end": 840, "24h": False,
+                              "listed": True, "raw": ["09:00", "14:00"]}
+                win["sun"] = {"open": False, "start": 0, "end": 0, "24h": False, "listed": False,
+                              "raw": ["-", "-"]}
+                oper = {"weekday": True, "sat": True, "sun": False}
+
+            # 등록값(표준데이터)이 조례표·상세 팝업과 다른 주차장 — 품질 리포트에 남긴다.
+            reg = std_fee
+            if (reg["base_fee"] or reg["unit_fee"]) and name != "수암봉":
+                applied = (fee["base_min"], fee["base_fee"], fee["unit_min"], fee["unit_fee"])
+                if reg["base_fee"] is not None and \
+                        (reg["base_min"], reg["base_fee"], reg["unit_min"], reg["unit_fee"]) != applied:
+                    fee["std_diff"] = (f"등록값 {reg['base_min'] or 0}분 {reg['base_fee'] or 0}원·"
+                                       f"{reg['unit_min'] or 0}분당 {reg['unit_fee'] or 0}원 → 적용 "
+                                       f"{applied[0]}분 {applied[1]}원·{applied[2]}분당 {applied[3]}원")
+            fee_counts[f"{'street' if street else ('facility' if facility else 'off')}{grade}"] += 1
+        if fee["type"] == "무료":
+            free_days = {"sat": True, "sun": True}
+            # 무료로 등록된 주차장은 평일·토요일 00:00~24:00에 공휴일 칸도 24시간이다.
+            #   (구청 부설처럼 평일만 여는 곳은 등록된 운영요일을 그대로 둔다)
+            if all(win[k]["open"] and win[k]["24h"] for k in ("weekday", "sat", "sun")) or \
+                    win["weekday"]["24h"]:
+                for k in ("weekday", "sat", "sun"):
+                    win[k] = {"open": True, "start": 0, "end": 1440, "24h": True,
+                              "listed": True, "raw": ["00:00", "24:00"]}
+                oper = {"weekday": True, "sat": True, "sun": True}
+
+        lots.append({
+            "id": lot_id,
+            "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": f"표준데이터({item['src']})",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": gu,
+            "dong": dong,
+            "dong_src": dong_src,
+            "kind": (r.get("주차장구분") or "").strip(),
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": (r.get("관리기관명") or "").strip(),
+            "note": note,
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days,
+            "free_window": parse_free_window(note),
+            "closed_from_note": closed_note,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None,
+            "portal_name": (ref or {}).get("name") or (crow or {}).get("name"),
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["base_fee"] if fee["base_fee"] else (fee["unit_fee"] or None),
+            "city": "안산시",
+            "city_slug": "ansan",
+        })
+
+    order = {g: i for i, (g, _) in enumerate(ANSAN_DISTRICTS)}
+    lots.sort(key=lambda l: (order.get(l["gu"], 9), l["list_mode"] != "card",
+                             l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"as-{i:03d}" if l["list_mode"] == "card" else f"as-s{i:03d}"
+
+    quality = check_quality_ansan(rows_all, rows_city, rows_corp, lots, excluded, portal, corp_list, dropped)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": _snapshot_time(ANSAN_PORTAL_JSON).strftime("%Y-%m-%d %H:%M")
+                            if ANSAN_PORTAL_JSON.exists() else None,
+            "region": {"province": "경기도", "city": "안산시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-09-15", "rows_total": len(rows_all),
+                    "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 19:07 (KST)",
+                    "note": ("안산시가 등록한 153행(제공기관명 '경기도 안산시')과 안산도시공사가 등록한 75행"
+                             "(제공기관명 '안산도시공사')을 함께 읽었다. 유료 주차장은 도시공사 행을 기준으로 "
+                             "삼고 시 행과 겹치는 50행은 중복으로 뺐다(quality.중복제거_행 참고)."),
+                },
+                {
+                    "id": "auc", "name": "안산도시공사 공영유료주차장 시설현황·상세 안내",
+                    "org": "안산도시공사",
+                    "url": ANSAN_CORP_PAGE_URL,
+                    "file": ANSAN_CORP_JSON.name,
+                    "sha256": sha256(ANSAN_CORP_JSON) if ANSAN_CORP_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": len(corp_list),
+                    "fetched_at": _snapshot_time(ANSAN_CORP_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if ANSAN_CORP_JSON.exists() else None,
+                    "note": ("공영유료주차장 74곳의 권역·급지·주차면수·요일별 운영시간 확인용."),
+                },
+                {
+                    "id": "auc_pop", "name": "안산도시공사 주차장 세부내역(상세 팝업)",
+                    "org": "안산도시공사",
+                    "url": "https://www.ansanuc.net/home/parking/parkinglotPopup.do",
+                    "file": ANSAN_PORTAL_JSON.name,
+                    "sha256": sha256(ANSAN_PORTAL_JSON) if ANSAN_PORTAL_JSON.exists() else None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": None, "rows_total": len(portal),
+                    "fetched_at": _snapshot_time(ANSAN_PORTAL_JSON).strftime("%Y-%m-%d %H:%M (KST)")
+                                  if ANSAN_PORTAL_JSON.exists() else None,
+                    "note": ("주차장별 30분 기본요금·10분당 가산·1일 주차요금·월 정기권·결제방법·"
+                             "환승할인 대상 확인용(2026-11-17 09:10 조회)."),
+                },
+                {
+                    "id": "ordinance", "name": "안산시 주차장 조례 (별표2 공영유료주차장 주차요금표)",
+                    "org": "안산시",
+                    "url": ANSAN_ORDINANCE_URL,
+                    "file": None, "sha256": None,
+                    "license": "자치법규(공개)",
+                    "base_date": "2026-04-29 개정·시행(경기도안산시조례 제3098호)", "rows_total": None,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("1~4급지별 30분 기본요금·10분당 가산요금·1일 주차요금·월 정기권 근거. "
+                             "요금 감면은 조례와 안산시 ‘주차요금 할인 안내’를 함께 확인."),
+                },
+                {
+                    "id": "ansan", "name": "안산시 공영유료주차장 요금표·현황·할인 안내",
+                    "org": "안산시청 교통정책과",
+                    "url": ANSAN_PAGE_URL,
+                    "file": None, "sha256": None,
+                    "license": "공공기관 공개 웹페이지(참고용)",
+                    "base_date": "2025-12 (공영유료주차장 현황)", "rows_total": 74,
+                    "fetched_at": "2026-11-17 (KST)",
+                    "note": ("공영유료주차장 74곳의 급지·면수·운영시간과 감면 5단계(전액·3시간·2시간·1시간 면제 후 "
+                             "50%·50%) 확인용. 지하철 환승 주차장은 이용 여부에 따라 2급지/3급지가 적용된다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in ANSAN_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "ansan_grade",
+            "unit_min": ANSAN_UNIT_MIN,
+            "applies": "2026-04-29 개정 조례",
+            "rows": [{"grade": g, **t, "lots": quality["급지별"].get(g, 0)}
+                     for g, t in sorted(ANSAN_FEES.items())],
+            "transfer": {"from": 2, "to": 3, "base_fee": 300, "unit_fee": 200},
+            "facility": {"city_hall": 500, "city_hall_free_min": 20, "stadium_free_min": 180,
+                         "stadium_unit_fee": 300, "stadium_day": 9_000, "monthly": 10_000},
+            "freight": [{"ton": "2.5톤 미만", "base_fee": 300, "unit_fee": 200, "day": 4_500, "monthly": 70_000},
+                        {"ton": "2.5톤 이상~4톤 미만", "base_fee": 600, "unit_fee": 400, "day": 9_000, "monthly": 80_000},
+                        {"ton": "4톤 이상", "base_fee": 900, "unit_fee": 600, "day": 13_500, "monthly": 90_000}],
+            "basis": ("「안산시 주차장 조례」 별표2(2026-04-29 개정·시행) · 안산시 공영유료주차장 요금표 · "
+                      "안산도시공사 시설현황·요금안내(2026-11-17 확인)"),
+        },
+    }
+    payload.update(CITY_META["안산시"] | {
+        "city": "안산시",
+        "weekend_free_pages": False,     # 주말 무료 개방 '표기'가 없어 주말 무료 페이지를 만들지 않는다
+        "discounts": ANSAN_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "ansan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def _ansan_lot_pool(lots) -> dict:
+    """이름 비교용 카드 목록 — 별칭(홈페이지 이름)도 함께 넣어 ‘홈페이지에만 있는 주차장’을 가려낸다."""
+    pool = {l["name"]: l for l in lots}
+    for l in lots:
+        alias = ANSAN_NAME_ALIAS.get(l["name"])
+        if alias:
+            pool.setdefault(alias, l)
+    return pool
+
+
+def check_quality_ansan(std_all, rows_city, rows_corp, lots, excluded, portal, corp_list, dropped):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(f'{l["gu"]} {l["dong"] or "동 미상"}' for l in card)
+    fee_types = Counter(l["fee"]["type"] for l in lots)
+    paid = [l["fee"]["base_fee"] for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"]]
+    mgmt = Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no"))
+    matched = [l for l in lots if l.get("portal_name")]
+    grade_mismatch = []
+    for l in lots:
+        stdg = l["fee"].get("std_grade")
+        if l["fee"]["type"] == "유료" and stdg and stdg in ANSAN_FEES and stdg != l["fee"]["grade"]:
+            grade_mismatch.append(f'{l["name"]}: 등록 급지 {stdg} → 적용 {l["fee"]["grade"]}급지')
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_city) + len(rows_corp),
+        "원자료_안산시행수": len(rows_city),
+        "원자료_도시공사행수": len(rows_corp),
+        "중복제거_행수": len(dropped),
+        "중복제거_행": dropped,
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "구별": dict(Counter(l["gu"] for l in card)),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({(l["gu"], l["dong"]) for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(fee_types),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "요금갈래": dict(Counter(l["fee"]["category"] for l in lots if l["fee"]["category"])),
+        "급지별": dict(Counter(l["fee"]["grade"] for l in lots if l["fee"]["type"] == "유료")),
+        "등록값_차이": [f'{l["name"]}: {l["fee"]["std_diff"]}' for l in lots if l["fee"].get("std_diff")],
+        "급지_차이": grade_mismatch,
+        "홈페이지_목록수": len(corp_list),
+        "포털_목록수": len(portal),
+        "포털_매칭": len(matched),
+        "포털_미매칭": [l["name"] for l in lots if not l.get("portal_name")],
+        # 안산도시공사 홈페이지(표·상세)에만 있고 표준데이터에는 없는 주차장 — 카드로 만들지 않았다.
+        #   이름이 괄호·꾸밈말만 다른 곳((대,소)·부설 등)은 이미 카드가 있으므로 이름 비교로 걸러낸다.
+        "포털에만_있음": sorted(n for n in ({r["name"] for r in corp_list} | set(portal))
+                              if not ansan_name_pick(n, _ansan_lot_pool(lots))),
+        "구획수_차이": [f'{l["name"]}: 등록 {l["spaces"]}면 ↔ 홈페이지 {portal[l["portal_name"]]["spaces"]}면'
+                       for l in matched
+                       if portal.get(l["portal_name"], {}).get("spaces") and
+                       portal[l["portal_name"]]["spaces"] != l["spaces"]],
+        "평균_기본요금": round(sum(paid) / len(paid)) if paid else None,
+        "무료_요금구분": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in mgmt.items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots}),
+        "정기권전용": [l["name"] for l in lots if l["fee"].get("ticket_only")],
+    }
+
+
 def build_summary_city(payload):
     q = payload["quality"]
     city = payload["city"]
@@ -4177,13 +4887,14 @@ def build_site_payload(cities):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
-             "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"]}[args.city])
+             "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
+             "ansan": ["안산시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -4203,6 +4914,8 @@ def main():
         cities.append(build_goyang())
     if "남양주시" in want:
         cities.append(build_namyangju())
+    if "안산시" in want:
+        cities.append(build_ansan())
 
     if args.city == "all":
         site = build_site_payload(cities)

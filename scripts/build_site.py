@@ -330,6 +330,40 @@ CITY_UI = {
                        "10분까지는 0원·1시간 2,100원·2시간 3,300원이며 1일 주차권 7,000원이 상한입니다. "
                        "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
     },
+    "안산시": {
+        "manager": "안산도시공사 주차사업팀(031-481-4961~4) · 안산시청 교통정책과 주차장관리팀(031-481-2974)",
+        "manager_inquiry": "안산도시공사 주차사업팀(031-481-4961)",
+        "merged_list": False,
+        "district_short": False,
+        "std_base_date": "2026-09-15",
+        "realtime": False,
+        "discount_note": ("안산시 조례·안산시 ‘주차요금 할인 안내’ 기준입니다. 심한 장애인·국가보훈대상자·"
+                          "5·18민주유공자·고엽제·행복플러스카드(다자녀·임산부)는 3시간 면제 후 50%, 전기·수소차는 "
+                          "2시간 면제 후 50%, 심하지 않은 장애인·VIP자원봉사증은 1시간 면제 후 50%, 경차·저공해·"
+                          "우수자원봉사증·병역명문가 등은 50%, 모범·성실납세자는 100%이고, 감면은 중복 적용되지 않습니다"
+                          "(현장 확인)."),
+        "free_example": "",
+        "calc_note": ("차량 감면은 <b>안산시 조례·안산시 주차요금 할인 안내</b> 기준입니다. 심한 장애인·국가보훈대상자·"
+                      "행복플러스카드 3시간 면제 후 50%, 전기·수소차 2시간 면제 후 50%, 심하지 않은 장애인 1시간 면제 후 "
+                      "50%, 경차·저공해·병역명문가 50%, 모범·성실납세자 100%이고 감면은 중복 적용되지 않습니다(현장 확인)."),
+        "daily_example": "1일 주차요금 9,000원(1급지)",
+        "street_examples": "‘진흥2길’·‘선부광장’",
+        "street_fee_caveat": ("<li><b>노상 요금</b>: 안산시 노상 공영주차장은 노외와 같은 급지 요금표를 씁니다 — "
+                              "1급지 30분 600원·10분당 300원·1일 9,000원, 3급지 30분 300원·10분당 200원·1일 4,500원.</li>"
+                              "<li><b>무료 구간</b>: 민방위훈련장 앞 1곳은 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다.</li>"
+                              "<li><b>운영일</b>: 선부광장·선부우체국앞은 수~일요일만, 나머지 유료 노상은 평일(일부 토요일) "
+                              "주간에만 유료로 운영합니다.</li>"),
+        "rate_bullets": [
+            "안산시 공영주차장은 <b>1~4급지</b>로 나뉘고, 1회 주차 1구역 <b>최초 30분 기본요금</b> 뒤 30분을 넘기면 "
+            "<b>10분 단위</b>로 요금이 붙습니다(1급지 600원·10분당 300원, 2급지 400·200, 3·4급지 300·200원).",
+            "<b>1일 주차요금이 상한</b>입니다(1급지 9,000원, 2~4급지 4,500원). 시간 요금 합계가 이 금액을 넘지 않습니다.",
+            "안산시는 공영주차장 전체에 적용하는 ‘최초 N분 무료’가 없습니다. 시청부설은 입차 후 20분 이내(민원확인증 1시간), "
+            "와~스타디움 부설은 최초 3시간이 무료입니다.",
+            "<b>지하철 환승 주차장</b>(안산역·고잔역·중앙역·상록수역·한대앞역·반월역)은 2·3급지 중복급지로, 도시철도 "
+            "이용확인증을 내면 3급지 요금이 적용됩니다. 카드의 예상요금은 환승하지 않은 2급지 기준입니다.",
+            "<b>월 정기권</b>은 급지별 80,000·50,000·40,000·20,000원이고, 주차장별로 등록된 금액이 다르면 카드에 그 금액을 적었습니다.",
+        ],
+    },
 }
 
 
@@ -618,7 +652,9 @@ def fee_text(lot) -> str:
         cap_label = "(조례 상한)" if f.get("cap_src") == "조례 상한" else ""
         bits.append(f"일일 최대 {won(f['cap_fee'])}{cap_label}")
     if f["daily_fee"]:
-        bits.append(f"1일권 {won(f['daily_fee'])}" + (f"({f['daily_hours']}시간)" if f["daily_hours"] else ""))
+        # 안산시는 1일 주차권이 아니라 ‘1일 주차요금(상한)’이라 그 이름으로 적는다.
+        day_label = "1일 주차요금" if f.get("cap_src") == "조례 1일 주차요금" else "1일권"
+        bits.append(f"{day_label} {won(f['daily_fee'])}" + (f"({f['daily_hours']}시간)" if f["daily_hours"] else ""))
     if f.get("prepaid_day"):
         bits.append(f"선불 1일 {won(f['prepaid_day'])}")
     if f["monthly"]:
@@ -734,6 +770,18 @@ def capa_note(lot) -> str:
     if not (spaces and total) or spaces == total:
         return ""
     return f"등록 구획 {spaces:,}면과 {abs(total - spaces):,}면 차이"
+
+
+def district_sorted(lots):
+    """구(시) 페이지 카드 목록의 정렬 순서 — 무료 → 기본요금 → 이름.
+
+    카드의 id(lot-1, lot-2…)와 다른 페이지의 링크(#lot-N)가 같은 주차장을 가리키도록
+    build_district 와 build_city 가 이 순서를 함께 쓴다.
+    """
+    return sorted(lots, key=lambda l: (
+        0 if is_free_lot(l) else 1,
+        l["fee"]["base_fee"] if l["fee"]["type"] == "유료" and l["fee"]["base_fee"] is not None else 9_999_999,
+        l["name"]))
 
 
 def stats_for(lots):
@@ -1380,6 +1428,12 @@ def street_is_all_mixed(city) -> bool:
     return bool(st) and all(l["fee"].get("mixed") for l in st)
 
 
+def ft_applies(city) -> str:
+    """요금표의 적용 시점 문구(도시별 fee_table.applies)."""
+    ft = city.get("fee_table") or {}
+    return ft.get("applies") or "최신 조례"
+
+
 def district_dataset_lines(city, ui, gap_line) -> str:
     """구 페이지 ‘데이터 출처와 한계’ 목록 — 도시별로 실제 수집한 자료만 적는다."""
     q = city.get("quality") or {}
@@ -1463,6 +1517,19 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>표준데이터에 유료운영시간이 비어 있는 날(대부분 일요일·공휴일)은 ‘미운영’으로 표시했습니다. 조례·공사 안내상 유료운영시간은 공휴일을 제외한 평일·토요일 주간(08:00~20:00)이니, 야간·휴일 무료 개방 여부는 현장 표지로 확인하세요.</li>
     <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다(포털과 다른 곳은 화도 제3공영 1곳, 등록 16면 ↔ 포털 18면).</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동·읍·면은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지)."""
+    if city["city"] == "안산시":
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(안산시가 등록한 {q.get('원자료_안산시행수', '')}행과 안산도시공사가 등록한 {q.get('원자료_도시공사행수', '')}행 중 노외·부설 {q['총_주차장']}곳과 노상 {q['노상_구간']}구간, 기준일 {esc(ui['std_base_date'])})</li>
+    <li><b>요금표</b>: 「안산시 주차장 조례」 별표2 공영유료주차장 주차요금표(시행 {esc(ft_applies(city))}) — 1급지 30분 600원·10분당 300원·1일 9,000원, 2급지 400·200·4,500원, 3·4급지 300·200·4,500원, 월 정기권 80,000·50,000·40,000·20,000원</li>
+    <li><b>주차장별 급지·면수·운영시간</b>: <a href="https://www.ansanuc.net/homenew/10221/40063/contents.do" rel="nofollow noopener" target="_blank">안산도시공사 공영유료주차장 시설현황</a>(2026-11-17 조회 스냅샷 · <code>data/raw/ansanuc.ansanuc.net_공영유료주차장현황_20261117.json</code>)와 <a href="https://www.ansan.go.kr/www/common/cntnts/selectContents.do?cntnts_id=C0001322" rel="nofollow noopener" target="_blank">안산시 공영유료주차장 현황</a>(2025-12 기준)</li>
+    <li><b>주차장별 요금·월 정기권·결제방법</b>: 안산도시공사 주차장 세부내역(상세 팝업) 스냅샷(<code>data/raw/ansanuc.ansanuc.net_parkinglotPopup_20261117.json</code>, 2026-11-17 09:10 조회) — 표준데이터에 요금 칸이 비어 있는 주차장의 30분 기본요금·10분당 가산·1일 주차요금을 이 값으로 채웠습니다.</li>
+    <li>같은 주차장이 <b>안산시(153행)와 안산도시공사(75행)</b> 두 제공기관으로 나뉘어 등록되어 있어, 도시공사 행을 기준으로 두고 시 행 가운데 같은 주차장인 {q.get('중복제거_행수', 0)}행은 중복으로 뺐습니다(품질 리포트 ‘중복제거_행’).</li>
+    <li><b>지하철 환승 주차장</b>(안산역·고잔역·중앙역·상록수역·한대앞역·반월역)은 2·3급지 중복급지입니다. 카드의 예상요금은 환승하지 않은 2급지 기준이고, 도시철도 이용확인증을 내면 3급지 요금이 적용됩니다.</li>
+    <li><b>수암봉</b>은 주말·공휴일에만 유료 운영(2시간까지 2급지, 이후 1급지)하고, <b>시청부설</b>은 20분 이내(민원확인증 1시간) 무료 뒤 30분당 500원, <b>와~스타디움 부설</b>은 최초 3시간 무료 뒤 10분당 300원입니다.</li>
+    <li>화물차고지(월피동·팔곡동·부곡동)는 시간제 주차요금 없이 월 정기권만 받아 0원이 아니라 <b>‘요금 정보 미상(정기권 전용)’</b>으로 표시했습니다.</li>
+    <li>안산도시공사 홈페이지에만 있고 표준데이터에 없는 주차장(중앙대로 대·소, 신선어린이공원 지하, 보성프라자앞 노상, 성포예술광장 북·남측, 중보길·양지편길·솔새길 노상 등)은 카드로 만들지 않았습니다 — 표준데이터가 갱신되면 같은 파이프라인으로 들어옵니다.</li>
+    <li>동 이름은 <b>법정동</b> 기준입니다(고잔동·선부동·와동 등). 표준데이터 주소에 구가 잘못 적힌 행(예: 중앙역사거리 ‘상록구 고잔동’)은 법정동이 속한 구로 바로잡았습니다.</li>
+    <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다. 실시간 잔여면수는 연동하지 않았습니다.</li>
+    <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지)."""
     if city["city"] == "화성시":
         return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(화성시 {city_rows_total(city)}행 중 노외 {q['총_주차장']}곳, 기준일 {esc(ui['std_base_date'])})</li>
     <li><b>요금 감면</b>: 「화성시 주차장 설치 및 관리 조례」 별표 4와 화성시 통합주차포털·화성도시공사 안내(2026-11-16 확인)</li>
@@ -1489,10 +1556,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
     s = stats_for(lots)
     ui = city_ui(city)
     area = ui.get("area_label", "구")      # ‘이 구’ 대신 ‘이 시’로 적을 도시가 있다
-    lots_sorted = sorted(lots, key=lambda l: (
-        0 if is_free_lot(l) else 1,
-        l["fee"]["base_fee"] if l["fee"]["type"] == "유료" and l["fee"]["base_fee"] is not None else 9_999_999,
-        l["name"]))
+    lots_sorted = district_sorted(lots)
 
     dongs = {}
     for l in lots:
@@ -1935,6 +1999,43 @@ def fee_table_block(city) -> str:
 </ul>
 <p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·노상·노외 구분으로 계산하며, 월 정기권은 주간 요금을 카드에 적었습니다.</p>
 """
+    if ft.get("style") == "ansan_grade":
+        # 안산시(조례 별표2): 1~4급지가 같은 모양의 요금표(30분 기본 + 10분 단위 + 1일 주차요금 + 월 정기권)를 쓴다.
+        #   환승 주차장(2·3급지 중복)·수암봉(2시간까지 2급지, 이후 1급지)·부설·화물차 전용은 아래에 따로 적는다.
+        rows = "".join(
+            f'<tr><td>{r["grade"]}급지</td><td class="num">{won(r["base_fee"])}</td>'
+            f'<td class="num">{won(r["unit_fee"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["monthly"])}</td>'
+            f'<td class="num">{r.get("lots") or "—"}곳</td></tr>'
+            for r in ft["rows"])
+        fac = ft.get("facility") or {}
+        freight = " · ".join(f'{esc(f["ton"])} {won(f["base_fee"])}·10분당 {won(f["unit_fee"])}·1일 {won(f["day"])}'
+                             for f in ft.get("freight") or [])
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">안산시 공영주차장은 <b>1~4급지</b>로 나뉘고, 1회 주차 1구역 <b>최초 {ft['rows'][0]['base_min']}분 기본요금</b> 뒤
+30분을 넘기면 <b>{ft['unit_min']}분 단위</b>로 요금이 붙습니다. 시간 요금을 아무리 오래 합쳐도 <b>1일 주차요금</b>을 넘지 않습니다
+(현재 적용: {esc(ft['applies'])}).</p>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">{ft['unit_min']}분당</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권</th><th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows}</tbody>
+</table>
+<p class="updated">안산시는 공영주차장 전체에 적용하는 ‘최초 N분 무료’가 없습니다. 급지는 용도지역과 도시철도 환승 여부로 정해지며,
+지하철 환승 주차장(안산역·고잔역·중앙역·상록수역·한대앞역·반월역)은 <b>도시철도 이용확인증을 내면 3급지</b>, 아니면 2급지 요금입니다.</p>
+<h3 style="margin-top:22px">부설·특수 주차장</h3>
+<ul>
+  <li><b>시청부설</b>: 입차 후 20분 이내 또는 민원확인증을 받고 1시간 이내 출차하면 무료, 그 뒤 매 30분당 {won(fac.get("city_hall"))},
+  월 정기권 {won(fac.get("monthly"))}(소속 공무원 등).</li>
+  <li><b>와~스타디움 부설</b>: 최초 {fac.get("stadium_free_min", 180) // 60}시간 무료, 이후 10분당 {won(fac.get("stadium_unit_fee"))},
+  1일 {won(fac.get("stadium_day"))}, 월 정기권 {won(fac.get("monthly"))}.</li>
+  <li><b>수암봉</b>: 주말·공휴일에만 유료로, 입차 후 2시간까지는 2급지(30분 400원·10분당 200원), 2시간이 지나면 1급지 요금
+  (10분당 300원)입니다. 평일은 유료 운영을 하지 않습니다.</li>
+  <li><b>화물차 전용</b>(초지동 화물전용): 3급지 요금에 차량 규모별로 나뉩니다 — {freight}.</li>
+  <li><b>화물차고지</b>(월피동·팔곡동·부곡동): 시간제 요금 없이 월 정기권(90,000원 안팎)만 받습니다.</li>
+</ul>
+<p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 주차장별 급지·등록요금으로 계산하며, 월 정기권은 주차장별 등록값을 적었습니다.</p>
+"""
     if ft.get("style") == "grade_base":
         # 급지별 고정 요금표(부천시) — 1회 요금은 노상·노외가 같고, 1일 주차권·월 정기권이 급지별로 다르다.
         target = {1: "상업지역", 2: "1·3급지 외 지역, 중로 15m 이상 노상",
@@ -2022,12 +2123,18 @@ def build_city(city, lots, site):
                     f'<td class="num">{gs["spaces"]:,}</td><td class="num">{won(gs["avg_base"]) if gs["avg_base"] else "-"}</td>'
                     f'<td class="num">{gs["free"]}</td></tr>')
     free_type_n = len([l for l in lots if l["fee"]["type"] == "무료"])
-    cheap = sorted([l for l in lots if l["fee"]["type"] == "유료" and l["fee"]["base_fee"] is not None],
-                   key=lambda l: price_for(l, 120)["amount"])[:8]
+    # 2시간 예상요금이 실제로 계산되는(유료·운영일) 주차장만 — 최초 무료시간이 2시간을 덮는 곳(안산 와~스타디움)은 뺀다.
+    cheap = [l for l, r in sorted(((l, price_for(l, 120)) for l in lots if l["fee"]["type"] == "유료"),
+                                  key=lambda t: (t[1].get("state") != "paid", t[1].get("amount") or 0))
+             if r.get("state") == "paid"][:8]
+    # 링크의 #lot-N 은 구 페이지 카드 번호(정렬 순서)와 같아야 한다 — 저렴한 순위가 아니다.
+    gu_order = {d["name"]: district_sorted([l for l in lots if l["gu"] == d["name"]])
+                for d in city["districts"]}
     cheap_rows = "".join(
-        f'<tr><td><a href="../{gu_slug(l["gu"], city["city"])}/#lot-{i+1}">{esc(l["name"])}</a></td>'
+        f'<tr><td><a href="../{gu_slug(l["gu"], city["city"])}/#lot-{gu_order[l["gu"]].index(l) + 1}">'
+        f'{esc(l["name"])}</a></td>'
         f'<td>{esc(l["gu"] or "-")}</td><td class="num">{won(price_for(l, 120)["amount"])}</td>'
-        f'<td class="num">{l["spaces"] or "-"}</td></tr>' for i, l in enumerate(cheap))
+        f'<td class="num">{l["spaces"] or "-"}</td></tr>' for l in cheap)
     street_block = ""
     if street:
         by_gu = {}
@@ -2307,9 +2414,13 @@ def _build_street_mixed(city, street, site):
         example_rows = "".join(
             f'<tr><td>{label}</td><td class="num">{price_cell(sample, m)}</td></tr>'
             for label, m in (("10분", 10), ("30분", 30), ("1시간", 60), ("2시간", 120), ("4시간", 240)))
-        daily_txt = (f"1일권({sample['fee']['daily_hours'] or ''}시간) {won(dfee)}" if dfee else "")
+        # 1일 주차요금에 운영시간(일일권 적용시간)이 등록되지 않은 도시(안산시)는 시간을 적지 않는다.
+        day_label = "1일 주차요금" if sample["fee"].get("cap_src") == "조례 1일 주차요금" else "1일권"
+        daily_txt = (f"{day_label}({sample['fee']['daily_hours']}시간) {won(dfee)}"
+                     if dfee and sample["fee"].get("daily_hours")
+                     else f"{day_label} {won(dfee)}" if dfee else "")
         cap_fee = sample["fee"].get("cap_fee")
-        fee_line = rate_text(sample["fee"]) + (f" · 1일권 {won(dfee)}" if dfee else "")
+        fee_line = rate_text(sample["fee"]) + (f" · {daily_txt}" if daily_txt else "")
         unknown = [l for l in street if l["fee"]["type"] == "미상"]
         extra_bits = ""
         diff_sentence = ("급지가 달라(1·2·3급지) 구간별 목록에 급지 요금표로 계산한 값을 적었습니다."
@@ -2332,7 +2443,7 @@ def _build_street_mixed(city, street, site):
   <thead><tr><th>이용 시간</th><th class="num">평일 예상요금</th></tr></thead>
   <tbody>{example_rows}</tbody>
 </table>
-<p class="updated">{fee_n}개 구간이 위 요금표와 같습니다.{" 1일권 요금이 더 싸면 그 금액을 상한으로 적용합니다." if dfee else (f" 일일 최대요금 {won(cap_fee)}이 상한입니다." if cap_fee else "")}</p>"""
+<p class="updated">{fee_n}개 구간이 위 요금표와 같습니다.{f" {day_label}이 상한입니다." if dfee and day_label == "1일 주차요금" else (f" {day_label} 요금이 더 싸면 그 금액을 상한으로 적용합니다." if dfee else (f" 일일 최대요금 {won(cap_fee)}이 상한입니다." if cap_fee else ""))}</p>"""
     else:
         fee_box = """
     <li><b>요금</b>: 모든 구간이 요금 구분 ‘무료’로 등록되어 있습니다.</li>"""

@@ -443,12 +443,22 @@ MIX = {
 GOYANG_TOKENS = ("고양", "고양도시관리공사", "덕양구", "일산동구", "일산서구")
 # 남양주시는 자치구가 없다(6읍 3면 + 동) — 다른 도시 페이지에 남양주 자료가 섞이면 실패.
 NAMYANGJU_TOKENS = ("남양주", "남양주도시공사", "원패스파킹")
+# 안산시는 상록구·단원구 2개 구 — 다른 도시 페이지에 안산 자료가 섞이면 실패.
+ANSAN_TOKENS = ("안산", "안산도시공사", "상록구", "단원구")
 for _k in list(MIX):
-    MIX[_k] = MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS
+    MIX[_k] = MIX[_k] + GOYANG_TOKENS + NAMYANGJU_TOKENS + ANSAN_TOKENS
 MIX["namyangju"] = (
     "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
     "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
     "부천", "부천도시공사", "고양", "고양도시관리공사",
+    "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
+    "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
+    "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
+)
+MIX["ansan"] = (
+    "수원", "수원도시공사", "성남", "성남도시개발공사", "용인", "용인도시공사",
+    "화성", "화성도시공사", "안양", "안양도시공사", "평택", "평택도시공사",
+    "부천", "부천도시공사", "고양", "고양도시관리공사", "남양주", "남양주도시공사", "원패스파킹",
     "영통구", "권선구", "팔달구", "장안구", "수정구", "중원구", "분당구",
     "처인구", "기흥구", "수지구", "만세구", "효행구", "병점구", "동탄구",
     "만안구", "동안구", "원미구", "소사구", "오정구", "덕양구", "일산동구", "일산서구",
@@ -485,6 +495,23 @@ for p in pages:
         if lot.get("list_mode") == "street" and f'data-lot="{lot["id"]}"' in html:
             fails.append(f"{rel}: 노상 구간이 카드로 렌더링됨({lot['name']})")
             break
+
+# 3-1) 시 페이지의 '가장 저렴한 곳' 표 링크(#lot-N)가 구 페이지의 같은 주차장 카드를 가리켜야 한다.
+#      (카드 번호는 구 페이지 정렬 순서이고, 표의 순위와 다르다)
+for city in CITIES:
+    hub = DIST / "parking" / "gyeonggi" / city["slug"] / "index.html"
+    if not hub.exists():
+        continue
+    for href, num, label in re.findall(r'<a href="\.\./([^"/]+)/#lot-(\d+)">([^<]+)</a>', hub.read_text()):
+        page = DIST / "parking" / "gyeonggi" / href / "index.html"
+        if not page.exists():
+            fails.append(f"{city['city']}: 저렴한 곳 링크 대상 페이지 없음 {href}")
+            continue
+        m_card = re.search(rf'id="lot-{num}">.*?<h3>([^<]+)</h3>', page.read_text(), re.S)
+        if not m_card:
+            fails.append(f"{city['city']} {href}: #lot-{num} 카드 없음({label})")
+        elif html_lib.unescape(m_card.group(1)) != html_lib.unescape(label):
+            fails.append(f"{city['city']} {href}#lot-{num}: 링크 이름 '{label}' ≠ 카드 '{m_card.group(1)}'")
 
 # 4) 사이트맵 = 실제 페이지 집합 (404 제외, 중복 없음)
 sm = (DIST / "sitemap.xml").read_text()
@@ -669,6 +696,28 @@ cases = [
     ("다산 제1공영", 600, "weekday", 0.5, 1440, "free", None),      # 24시간 면제
     ("별내동 노상제1", 120, "weekday", 0.5, 0, "paid", 1650),       # 노상 유료 구간 50%
     ("다산 제1공영", 120, "weekday", 1.0, 0, "paid", 0),
+    # 안산시(조례 별표2, 2026-04-29 시행): 1급지 30분 600원 + 10분당 300원·1일 9,000원,
+    #   2급지 400+200, 3·4급지 300+200·1일 4,500원. 공영주차장 전체 최초 무료시간은 없다.
+    ("중앙하이츠빌앞", 30, "weekday", 0, 0, "paid", 600),
+    ("중앙하이츠빌앞", 120, "weekday", 0, 0, "paid", 3300),          # 600 + 300×9
+    ("중앙하이츠빌앞", 1440, "weekday", 0, 0, "paid", 9000),         # 42,900 → 1일 주차요금
+    ("안산세무서뒤", 120, "weekday", 0, 0, "paid", 2200),            # 2급지 400 + 200×9
+    ("신천길앞", 120, "weekday", 0, 0, "paid", 2100),                # 3급지 300 + 200×9
+    ("공단삼거리(1주차장-중앙일보)", 240, "weekday", 0, 0, "paid", 4500),  # 4급지 4,500 상한
+    ("안산세무서뒤", 120, "sun", 0, 0, "closed", None),              # 평일+토요일만 운영
+    ("수암봉", 120, "weekday", 0, 0, "closed", None),                # 주말·공휴일만 유료
+    ("수암봉", 120, "sat", 0, 0, "paid", 2200),                      # 2시간까지 2급지
+    ("시청부설주차장", 20, "weekday", 0, 0, "free", None),           # 20분 이내 무료
+    ("시청부설주차장", 60, "weekday", 0, 0, "paid", 1000),           # 30분당 500원
+    ("와~스타디움부설주차장", 180, "weekday", 0, 0, "free", None),   # 최초 3시간 무료
+    ("와~스타디움부설주차장", 240, "weekday", 0, 0, "paid", 1800),   # 3시간 뒤 10분당 300원
+    ("월피동 화물주차장", 120, "weekday", 0, 0, "unknown", None),    # 월 정기권 전용
+    ("선부광장", 120, "weekday", 0, 0, "paid", 3300),                # 노상 1급지
+    # 안산시 감면: 심한 장애인·국가보훈대상자·행복플러스카드 3시간 면제 후 50%, 경차·저공해 50%
+    ("중앙하이츠빌앞", 120, "weekday", 0.5, 180, "free", None),
+    ("중앙하이츠빌앞", 240, "weekday", 0.5, 180, "paid", 3450),      # 6,900의 50%
+    ("중앙하이츠빌앞", 120, "weekday", 0.5, 0, "paid", 1650),
+    ("중앙하이츠빌앞", 120, "weekday", 1.0, 0, "paid", 0),           # 모범·성실납세자
 ]
 for name, minutes, day, rate, exempt, want_state, want_amt in cases:
     lot = by_name.get(name)
@@ -1042,6 +1091,134 @@ else:
     nj_rows = len(re.findall(r"<tr><td>", nj_street_page.read_text()))
     if nj_rows < len(nj_street):
         fails.append(f"남양주시 노상 페이지 행 {nj_rows} < 구간 {len(nj_street)}")
+
+# 안산시: 「안산시 주차장 조례」 별표2(시행 2026-04-29) — 1~4급지 30분 기본 + 10분당 가산 + 1일 주차요금.
+#   시청부설(30분당 500원·20분 무료), 와~스타디움(3시간 무료 뒤 10분당 300원), 차량등록사업소부설(30분당 500원),
+#   수암봉(2시간까지 2급지·이후 1급지)은 조례표와 다른 별도 요금이라 검사에서 뺀다.
+AS_FEE = {1: (600, 300, 9000, 80000), 2: (400, 200, 4500, 50000),
+          3: (300, 200, 4500, 40000), 4: (300, 200, 4500, 20000)}
+AS_SPECIAL = {"시청부설주차장", "와~스타디움부설주차장", "차량등록사업소부설주차장", "수암봉"}
+as_cards = [l for l in LOTS if l.get("city") == "안산시" and l.get("list_mode") == "card"]
+as_street = [l for l in LOTS if l.get("city") == "안산시" and l.get("list_mode") == "street"]
+if not as_cards:
+    fails.append("안산시 카드 데이터가 없음")
+as_paid = [l for l in as_cards + as_street if l["fee"]["type"] == "유료"]
+as_bad_fee = [f"{l['name']}({l['fee']['grade']}급지 {l['fee']['base_fee']}/{l['fee']['unit_fee']}/{l['fee']['daily_fee']})"
+              for l in as_paid if l["name"] not in AS_SPECIAL
+              and (l["fee"]["base_fee"], l["fee"]["unit_fee"], l["fee"]["daily_fee"])
+              != (AS_FEE[l["fee"]["grade"]][0], AS_FEE[l["fee"]["grade"]][1], AS_FEE[l["fee"]["grade"]][2])]
+if as_bad_fee:
+    fails.append(f"안산시 유료 주차장 요금이 조례 별표2와 다름 {len(as_bad_fee)}곳 {as_bad_fee[:3]}")
+if sorted({l["fee"]["grade"] for l in as_paid}) != [1, 2, 3, 4]:
+    fails.append(f"안산시 유료 주차장 급지가 1~4급지가 아님: {sorted({l['fee']['grade'] for l in as_paid})}")
+if not all(l["fee"].get("monthly") for l in as_paid):
+    fails.append("안산시 유료 주차장에 월 정기권 금액이 없음")
+# 수암봉(평일 미운영)·와~스타디움(최초 3시간 무료)은 2시간 계산이 유료가 아니어도 정상이다.
+as_card_bad = [l["name"] for l in as_cards
+               if l["fee"]["type"] == "유료" and l["name"] not in ("수암봉", "와~스타디움부설주차장")
+               and price_for(l, 120, "weekday")["state"] != "paid"]
+if as_card_bad:
+    fails.append(f"안산시 유료 카드 중 평일 2시간 계산 불가 {len(as_card_bad)}곳 {as_card_bad[:3]}")
+as_free_bad = [l["name"] for l in as_cards
+               if l["fee"]["type"] == "무료" and price_for(l, 120, "weekday")["state"] != "free"]
+if as_free_bad:
+    fails.append(f"안산시 무료 카드가 무료로 계산되지 않음 {len(as_free_bad)}곳 {as_free_bad[:3]}")
+# 급지별 대표 요금 — 1급지 30분 600원, 2급지 400원, 3·4급지 300원, 1일 주차요금 1급지 9,000원·그 밖 4,500원
+as_by = {l["name"]: l for l in as_cards}
+for name, want in (("중앙하이츠빌앞", 600), ("안산세무서뒤", 400), ("신천길앞", 300), ("공단삼거리(1주차장-중앙일보)", 300)):
+    lot = as_by.get(name)
+    if not lot:
+        fails.append(f"안산시 표본 주차장 없음: {name}")
+    elif price_for(lot, 30, "weekday").get("amount") != want:
+        fails.append(f"안산시 30분 요금 불일치: {name} → {price_for(lot, 30, 'weekday')} (기대 {want})")
+# 수암봉: 1시간 1,000원 · 2시간 2,200원 · 3시간 4,000원 (2시간까지 2급지, 이후 1급지)
+as_sm = as_by.get("수암봉")
+if not as_sm:
+    fails.append("안산시 수암봉 카드 없음")
+else:
+    for minutes, want in ((60, 1000), (120, 2200), (180, 4000)):
+        r = price_for(as_sm, minutes, "sat")
+        if r.get("state") != "paid" or r.get("amount") != want:
+            fails.append(f"안산시 수암봉 {minutes}분 요금 불일치: {r} (기대 {want})")
+    if price_for(as_sm, 120, "weekday")["state"] != "closed":
+        fails.append("안산시 수암봉이 평일에 유료로 계산됨(주말·공휴일만 유료)")
+# 시청부설: 20분 이내 무료, 1시간 1,000원 / 와~스타디움: 3시간 무료, 3시간 10분 300원
+as_ch = as_by.get("시청부설주차장")
+if not as_ch:
+    fails.append("안산시 시청부설 카드 없음")
+else:
+    r20, r60 = price_for(as_ch, 20, "weekday"), price_for(as_ch, 60, "weekday")
+    if not (r20["state"] == "free" and r60.get("amount") == 1000):
+        fails.append(f"안산시 시청부설 요금 불일치: 20분 {r20} / 60분 {r60}")
+as_st = as_by.get("와~스타디움부설주차장")
+if not as_st:
+    fails.append("안산시 와~스타디움 카드 없음")
+else:
+    r180, r190 = price_for(as_st, 180, "weekday"), price_for(as_st, 190, "weekday")
+    if not (r180["state"] == "free" and r190.get("amount") == 300):
+        fails.append(f"안산시 와~스타디움 요금 불일치: 180분 {r180} / 190분 {r190}")
+# 지하철 환승 주차장(2·3급지 중복급지)은 카드에 3급지 안내가 있어야 한다
+as_transfer = [l["name"] for l in as_cards if l.get("notice") and "환승" in l["notice"]]
+if len(as_transfer) < 10 or "상록수역환승주차장" not in as_transfer:
+    fails.append(f"안산시 환승 주차장 안내가 예상과 다름({len(as_transfer)}곳): {as_transfer}")
+# 화물차고지(월 정기권 전용)는 0원이 아니라 요금 미상(정기권 전용)으로 표시
+as_ticket = sorted(l["name"] for l in as_cards if l["fee"].get("ticket_only"))
+if as_ticket != sorted(["부곡동 화물전용주차장", "월피동 화물주차장", "팔곡동 화물차고지"]):
+    fails.append(f"안산시 월 정기권 전용 주차장이 예상과 다름: {as_ticket}")
+# 노상은 무료 1곳 + 유료 14곳
+as_st_free = [l for l in as_street if l["fee"]["type"] == "무료"]
+as_st_paid = [l for l in as_street if l["fee"]["type"] == "유료"]
+if (len(as_st_free), len(as_st_paid)) != (1, 14):
+    fails.append(f"안산시 노상 무료/유료 수가 자료와 다름(무료 {len(as_st_free)}·유료 {len(as_st_paid)})")
+# 시·도시공사 두 제공기관 행이 겹쳐도 카드가 중복되지 않아야 한다(유료 카드 이름 기준)
+as_dup = [k for k, v in Counter(l["name"] for l in as_paid).items() if v > 1]
+if as_dup:
+    fails.append(f"안산시 유료 카드 이름 중복(제공기관 중복 행 혼입 의심): {as_dup[:3]}")
+# 시 페이지: 급지 요금표(1~4급지)·계산기·목록 / 구 페이지 2개(계산기) / 동 페이지 15개 / 노상 페이지
+as_hub = DIST / "parking" / "gyeonggi" / "ansan" / "index.html"
+if not as_hub.exists():
+    fails.append("안산시 시 페이지 없음")
+else:
+    hub_html = as_hub.read_text()
+    for need, label in (("급지별 주차요금표", "급지 요금표"),
+                        ("1급지", "1급지 행"), ("2급지", "2급지 행"), ("3급지", "3급지 행"),
+                        ("4급지", "4급지 행"), ("수암봉", "수암봉 안내"), ("지하철 환승 주차장", "환승 안내"),
+                        ("ansan-sangrok/", "상록구 링크")):
+        if need not in hub_html:
+            fails.append(f"안산시 시 페이지에 {label} 없음")
+    if hub_html.count('class="card lot') != 0:
+        fails.append("안산시 시 페이지에 카드가 그려짐(구 페이지로 나뉘어야 함)")
+    for slug, gu in (("ansan-sangrok", "상록구"), ("ansan-danwon", "단원구")):
+        page = DIST / "parking" / "gyeonggi" / slug / "index.html"
+        if not page.exists():
+            fails.append(f"안산시 {gu} 페이지 없음")
+            continue
+        html_gu = page.read_text()
+        if f"{gu} 공영주차장" not in html_gu:
+            fails.append(f"안산시 {gu} 페이지 제목에 구 이름 없음")
+        if 'class="calc' not in html_gu:
+            fails.append(f"안산시 {gu} 페이지에 요금 계산기 없음")
+        want_cards = len([l for l in as_cards if l["gu"] == gu])
+        if html_gu.count('class="card lot') != want_cards:
+            fails.append(f"안산시 {gu} 카드 수 불일치({html_gu.count('class="card lot')} vs {want_cards})")
+# 동 페이지는 구 페이지 아래에 있다(ansan-sangrok/<동>/, ansan-danwon/<동>/). 카드 3곳 이상인 동만 만든다.
+as_root = DIST / "parking" / "gyeonggi" / "ansan"
+as_dong_pages = []
+for slug_g in ("ansan-sangrok", "ansan-danwon"):
+    g = DIST / "parking" / "gyeonggi" / slug_g
+    if g.exists():
+        as_dong_pages += sorted(q.parent.name for q in g.rglob("index.html") if q.parent != g)
+as_expect = sorted(__import__("build_site").dong_slug(d)
+                   for d, n in Counter(l.get("dong") for l in as_cards if l.get("dong")).items() if n >= 3)
+if sorted(as_dong_pages) != sorted(as_expect):
+    fails.append(f"안산시 동 페이지 구성이 다름: {as_dong_pages} ≠ {as_expect}")
+as_street_page = as_root / "street-parking" / "index.html"
+if not as_street_page.exists():
+    fails.append("안산시 노상주차장 페이지 없음(street-parking)")
+else:
+    as_rows = len(re.findall(r"<tr><td>", as_street_page.read_text()))
+    if as_rows < len(as_street):
+        fails.append(f"안산시 노상 페이지 행 {as_rows} < 구간 {len(as_street)}")
 
 print()
 if warns:
