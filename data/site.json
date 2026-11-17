@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 17:09",
+  "generated_at": "2026-11-17 17:30",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -145,6 +145,12 @@
    {
     "city": "양주시",
     "slug": "yangju",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "포천시",
+    "slug": "pocheon",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -1327,6 +1333,76 @@
     "fetched_at": "2026-11-17 17:02 (KST)",
     "note": "덕정역 공영주차장(68면)이 2026-05-04부터 평일 08:00~20:00에만 유료로 운영되고 야간·주말·공휴일은 무료로 개방한다는 것을 확인했다 — 최초 30분 600원·이후 10분당 200원·1일 7,000원, 덕정역 환승 50% 할인은 정산 때 자동 차감. 표준데이터는 아직 무료로 등록되어 있다.",
     "city": "양주시"
+   },
+   {
+    "id": "ordinance",
+    "name": "포천시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 요금표 · [별표 2] 주차요금의 감면",
+    "org": "포천시청 교통행정과 · 포천도시공사 공공시설팀 주차관리(031-540-6305)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095709&gubun=ELIS&conDatGubunCd=1",
+    "file": "pocheon.law.go.kr_주차장조례_별표1_20261117.hwp",
+    "sha256": "bdd841d145a4ff27e8085db72aadc75d8afe538f86c6ad33b063b0febfc6f361",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-12-22 · 경기도포천시조례 제1827호(일부개정) · 별표1 〈개정 2025.11.20.〉",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 17:22 (KST)",
+    "note": "국가법령정보센터 별표/서식 HWP를 내려받아 표 셀을 읽어 정리본(txt)을 두었다. 노상 1급지 10분당 200원·1일 주차요금(선납) 7,000원·월 정기권(선납) 70,000원, 노외 1급지 200·7,000·40,000원, 2급지 100·4,000·40,000원(노외 30,000원)이고, 노상·노외 모두 ‘최초 5분’이 무료다(병합 셀). 비고3은 09:00~18:00을 주간, 비고5는 토·일·공휴일·야간 무료 원칙, 비고6은 점심시간(11:30~13:30) 유료 노상주차장 무료, 비고7은 차량 크기별 2배·3배를 정한다. 별표2는 전액 면제·일부 면제(2시간)·50% 감면(4시간·2시간·1시간 면제 뒤)·40%·30% 감면을 정한다.",
+    "city": "포천시"
+   },
+   {
+    "id": "corp",
+    "name": "포천도시공사 공영주차장 안내(노상주차장·노외주차장·감면 대상)",
+    "org": "포천도시공사 공공시설팀 주차관리(031-540-6305)",
+    "url": "https://www.pcuc.kr/contents/99",
+    "file": "pcuc.kr_공영주차장_20261117.txt",
+    "sha256": "6d59fcf3ae30315293fe54add1dab3d0e41c73db3b3f5cda4e5ec8aa87f27ea8",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 25,
+    "fetched_at": "2026-11-17 17:22 (KST)",
+    "note": "노상주차장은 소흘읍·일동면·포천동 세 지역 25개 구간 484면, 노외주차장은 송우로 제1·2·3 세 곳(108·58·27면)이다. 요금은 노상·노외 모두 5분 무료·5분 이후 10분당 200원·선납 1일 7,000원이고, 월 정기권은 노상 70,000원·노외 40,000원이다. 두 표 모두 ‘운영시간 09:00~18:00(운영시간 외 무료 개방)’, ‘토·일·법정공휴일 무료 개방’을 적고 있어 요금 부과 시간과 무료 개방을 이 값으로 정리했다. 감면은 조례 별표2를 그대로 싣고 중복 시 감면율이 높은 하나만 적용한다고 안내한다.",
+    "city": "포천시"
+   },
+   {
+    "id": "month",
+    "name": "포천도시공사 월정기 주차권 안내(노외주차장)",
+    "org": "포천도시공사 공공시설팀 주차관리(031-540-6305~7)",
+    "url": "https://www.pcuc.kr/contents/101",
+    "file": "pcuc.kr_월정기주차권_20261117.txt",
+    "sha256": "f88429938e84cea9c662f6145b8ab67706d4c8cc628f92dead990b5078ecf2a2",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 3,
+    "fetched_at": "2026-11-17 17:22 (KST)",
+    "note": "노외 3곳의 월 정기권이 모두 40,000원이고 신청 가능 면수는 98면(송우로 제1 55·제2 29·제3 14)이다. 매월 25일(휴일이면 전날) 09:00부터 온라인 선착순 접수하고 카드로만 결제하며, 경차·저공해·장애인·국가유공자·다자녀는 50% 감면(20,000원)이다. 노상 월 정기권은 공사가 따로 안내하지 않아 조례 별표1(70,000원)을 그대로 적었다.",
+    "city": "포천시"
+   },
+   {
+    "id": "city",
+    "name": "포천시 대표 누리집 — 교통/주차시설(명절 공영주차장 무료 개방)",
+    "org": "포천시청",
+    "url": "https://www.pocheon.go.kr/www/contents.do?key=4280",
+    "file": "pocheon.go.kr_교통주차시설_20261117.txt",
+    "sha256": "48e2e4939b9fc3cfcdc8566e9b47223a95f53d9a995bad65ecdc6ce069f4d0ef",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "2026-09-23~27",
+    "rows_total": 14,
+    "fetched_at": "2026-11-17 17:22 (KST)",
+    "note": "2026년 추석 연휴(9.23~9.27)에 무료로 개방한 공영주차장 14곳과 면수를 확인해, 어느 주차장이 평소 유료인지 가려냈다 — 신읍동 8구간, 소흘읍 5곳(송우로 제1·2·3 포함), 일동면 1구간이다. 표준데이터가 ‘무료’로 등록한 송우로 제3공영주차장도 이 목록에 있어 유료 운영을 뒷받침한다.",
+    "city": "포천시"
+   },
+   {
+    "id": "news",
+    "name": "기호일보 — 포천도시공사 공영주차장 요금감면 전면 폐지 및 정상화 운영",
+    "org": "기호일보(2024-12-04 보도)",
+    "url": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=1122252",
+    "file": "kihoilbo.co.kr_포천공영주차장_요금정상화_20261117.txt",
+    "sha256": "f8b8eccd141ec2c330f1ec892c72c8b0378da9812361eac5794580676886b2fe",
+    "license": "언론 보도(참고용)",
+    "base_date": "2024-12-04",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 17:22 (KST)",
+    "note": "코로나19 한시 감면을 2024-12-31자로 끝내고 2025-01-01부터 정상 요금을 받는다고 보도했다 — 대상은 시청사 부설, 송우로 제1·2·3공영주차장, 소흘읍·포천동·일동면 공영주차장이고, ‘입차 후 5분 무료, 10분당 200원’이라고 적고 있다.",
+    "city": "포천시"
    }
   ]
  },
@@ -1355,7 +1431,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -1582,7 +1658,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1769,7 +1845,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -1963,7 +2039,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -2102,7 +2178,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -2289,7 +2365,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -2456,7 +2532,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -2675,7 +2751,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -2880,7 +2956,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -3114,7 +3190,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -3849,7 +3925,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -4212,7 +4288,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -4492,7 +4568,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4739,7 +4815,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -5018,7 +5094,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -5253,7 +5329,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 35,
     "원자료_하남시행수": 35,
@@ -5520,7 +5596,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 80,
     "원자료_군포시행수": 80,
@@ -5867,7 +5943,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 28,
     "원자료_광명시행수": 28,
@@ -6088,7 +6164,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 15,
     "원자료_구리시행수": 15,
@@ -6312,7 +6388,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 44,
     "원자료_오산시행수": 44,
@@ -6775,7 +6851,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 115,
     "원자료_이천시행수": 115,
@@ -7554,7 +7630,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 52,
     "원자료_안성시행수": 52,
@@ -7920,7 +7996,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 17:09",
+    "generated_at": "2026-11-17 17:30",
     "원자료_전국행수": 18994,
     "원자료_행수": 89,
     "원자료_양주시행수": 49,
@@ -8473,6 +8549,477 @@
      "corp_total": "공영주차장 19곳(노외 18·노상 1)과 부설주차장 5곳(공단 안내 2026.10.31. 기준)"
     },
     "basis": "「양주시 주차장 조례」 [별표 1] 공영주차장 주차요금표(공포 2026-02-02 · 경기도양주시조례 제1498호(일부개정) · 별표1 〈개정 2021.8.2.〉) · 양주도시공사 요금안내(2026-10-31) · 통합주차포털 주차장별 요금(2026-11-17 조회)"
+   }
+  },
+  {
+   "city": "포천시",
+   "slug": "pocheon",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "포천시",
+     "slug": "pocheon"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 17:30",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 82,
+    "원자료_포천시행수": 82,
+    "원자료_전체행수": 82,
+    "민영_제외": 0,
+    "제외_행수": 8,
+    "제외_행": [
+     {
+      "name": "용정산업단지 제1쌈지주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "가채리 벚꽃길 임시주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "구읍공원주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "탄동리 공영주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "이동면 도평리 쌈지주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "양문리 공영주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "감암리 파라뷰 공영주차장",
+      "reason": "주차구획수 없음"
+     },
+     {
+      "name": "내촌면 내리 공영주차장",
+      "reason": "주차구획수 없음"
+     }
+    ],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 58,
+    "노외_부설": {
+     "노외": 58
+    },
+    "노상_구간": 16,
+    "총_구획수": 2940,
+    "노상_구획수": 913,
+    "동별": {
+     "신읍동": 29,
+     "소흘읍": 14,
+     "일동면": 5,
+     "관인면": 2,
+     "선단동": 2,
+     "가산면": 1,
+     "내촌면": 1,
+     "신북면": 1,
+     "영북면": 1,
+     "영중면": 1,
+     "이동면": 1
+    },
+    "동수": 11,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 57,
+     "도로명주소": 1
+    },
+    "요금구분": {
+     "무료": 59,
+     "유료": 15
+    },
+    "요금_미상": [],
+    "급지별": {
+     "1": 15
+    },
+    "표준데이터_급지": {},
+    "유료_노상": 12,
+    "유료_노외": 3,
+    "운영시간_보정": [
+     "시가지 노상주차장: 표준데이터 00:00~23:59(평일+토요일+공휴일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "보건소앞 노상주차장: 표준데이터 00:00~23:59(평일+토요일+공휴일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "중앙로 제3노상주차장: 표준데이터 09:00~18:00(평일+토요일+공휴일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "송우로 제3주차장: 표준데이터 00:00~23:59(평일+토요일+공휴일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "재래시장 주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "시가지 노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "송우로 제2주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "송우로 제1주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "시가지 노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "구절초길 제2노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "중앙로 제1노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "원앙길 제1노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "구절초길 제1노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "시가지 노상주차장: 표준데이터 09:00~18:00(평일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)",
+     "중앙로노상주차장: 표준데이터 09:00~18:00(평일+토요일+공휴일) → 포천도시공사 요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)"
+    ],
+    "면수_차이": [
+     "송우로 제3주차장: 표준데이터 30면 ↔ 포천도시공사 27면",
+     "송우로 제1주차장: 표준데이터 112면 ↔ 포천도시공사 108면"
+    ],
+    "등록값_차이": [
+     "시가지 노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "보건소앞 노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "중앙로 제3노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "재래시장 주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "시가지 노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "송우로 제2주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노외 1일 7,000원·월 40,000원(칸이 어긋나 있음)",
+     "송우로 제1주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노외 1일 7,000원·월 40,000원(칸이 어긋나 있음)",
+     "시가지 노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "구절초길 제2노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "중앙로 제1노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "원앙길 제1노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "구절초길 제1노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "시가지 노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)",
+     "중앙로노상주차장: 표준데이터 1일주차권요금적용시간 ‘7000’·1일주차권요금 70,000원·월정기권요금 0원 ↔ 조례 별표1 1급지 노상 1일 7,000원·월 70,000원(칸이 어긋나 있음)"
+    ],
+    "요금구분_보정": [
+     "송우로 제3주차장: 표준데이터 요금정보 ‘무료’ ↔ 포천도시공사가 2025-01-01부터 정상 요금으로 운영(노외 5분 무료·10분당 200원·1일 7,000원·월 40,000원) — 유료로 바로잡음"
+    ],
+    "정기권_차이": [
+     "시가지 노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "보건소앞 노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "중앙로 제3노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "재래시장 주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "시가지 노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "송우로 제2주차장: 표준데이터 월정기권 0원 ↔ 별표1 노외 1급지 40,000원",
+     "송우로 제1주차장: 표준데이터 월정기권 0원 ↔ 별표1 노외 1급지 40,000원",
+     "시가지 노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "구절초길 제2노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "중앙로 제1노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "원앙길 제1노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "구절초길 제1노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "시가지 노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원",
+     "중앙로노상주차장: 표준데이터 월정기권 0원 ↔ 별표1 노상 1급지 70,000원"
+    ],
+    "점심시간_무료_노상": [
+     "시가지 노상주차장",
+     "보건소앞 노상주차장",
+     "중앙로 제3노상주차장",
+     "재래시장 주차장",
+     "시가지 노상주차장",
+     "시가지 노상주차장",
+     "구절초길 제2노상주차장",
+     "중앙로 제1노상주차장",
+     "원앙길 제1노상주차장",
+     "구절초길 제1노상주차장",
+     "시가지 노상주차장",
+     "중앙로노상주차장"
+    ],
+    "5부제": [
+     "시가지 노상주차장",
+     "중앙로 제3노상주차장",
+     "시가지 노상주차장",
+     "시가지 노상주차장",
+     "구절초길 제2노상주차장",
+     "중앙로 제1노상주차장",
+     "원앙길 제1노상주차장",
+     "구절초길 제1노상주차장",
+     "시가지 노상주차장",
+     "중앙로노상주차장"
+    ],
+    "감면_출처": "「포천시 주차장 설치 및 관리 조례」 별표2(제3조제3항) · 포천도시공사 감면 대상",
+    "무료시간_출처": "조례 별표1 공영주차장 요금표(최초 5분 무료)",
+    "주말무료_출처": "조례 별표1 비고5(토·일요일·공휴일·야간 무료 원칙) · 포천도시공사 요금안내(토·일·법정공휴일 무료 개방)",
+    "일요일_무료표기": [
+     "송우로 제1주차장",
+     "송우로 제2주차장",
+     "송우로 제3주차장",
+     "시가지 노상주차장",
+     "재래시장 주차장",
+     "구절초길 제1노상주차장",
+     "구절초길 제2노상주차장",
+     "보건소앞 노상주차장",
+     "시가지 노상주차장",
+     "시가지 노상주차장",
+     "원앙길 제1노상주차장",
+     "중앙로 제1노상주차장",
+     "중앙로 제3노상주차장",
+     "중앙로노상주차장",
+     "시가지 노상주차장"
+    ],
+    "무료개방_표기": [
+     "송우로 제1주차장",
+     "송우로 제2주차장",
+     "송우로 제3주차장",
+     "시가지 노상주차장",
+     "재래시장 주차장",
+     "구절초길 제1노상주차장",
+     "구절초길 제2노상주차장",
+     "보건소앞 노상주차장",
+     "시가지 노상주차장",
+     "시가지 노상주차장",
+     "원앙길 제1노상주차장",
+     "중앙로 제1노상주차장",
+     "중앙로 제3노상주차장",
+     "중앙로노상주차장",
+     "시가지 노상주차장"
+    ],
+    "무료_요금구분": 59,
+    "무료_구획수": 3068,
+    "평균_기본요금": 0,
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [],
+    "주소_없음": [],
+    "이름중복": [
+     "시가지 노상주차장"
+    ],
+    "관리번호중복": [],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-04-20"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "경차·저공해·경로우대·병역명문가 50%",
+     "rate": 0.5,
+     "exempt_min": 60,
+     "note": "장애인등록증·복지카드 소지자, 전기차 등(본인 소유 비사업용 자동차 직접 운전), 경형자동차(1,000cc 미만), 저공해자동차표지 부착 차량, 만 70세 이상 경로우대, 포천시 우수자원봉사자증 소지차량, 병역명문가 예우대상자 차량, 투표확인증 소지자(투표 당일 1회) — 최초 1시간 면제, 1시간 초과분 50% 감면"
+    },
+    {
+     "label": "다자녀 2시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 120,
+     "note": "「포천시 인구정책 추진 및 지원에 관한 조례」에 따른 다자녀가정이 모바일 앱카드·경기i-PLUS카드를 제시하거나 경기도 내 거주 다자녀가정 증명서를 제시하는 경우 — 최초 2시간 면제, 2시간 초과분 50% 감면"
+    },
+    {
+     "label": "국가유공자 등 4시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 240,
+     "note": "국가유공자·독립유공자·참전유공자·고엽제후유의증 등 환자·5·18민주유공자·특수임무유공자·의사상자·국군포로(억류지출신 포로가족·등록포로) — 최초 4시간 면제, 4시간 초과분 50% 감면"
+    },
+    {
+     "label": "긴급·관용·임산부·성실납세자 등 100%",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "국가·지방자치단체 공무수행(관용) 자동차와 외교사절 차량, 긴급자동차, 성실납세증 표지 부착 차량(1년), 임산부가 운전하거나 동승한 차량, 이·통장·새마을지도자·적십자봉사자·주민자치(회) 위원, 설날·추석 연휴 기간"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "pocheon_grade",
+    "unit_min": 10,
+    "base_min": 5,
+    "free_min": 5,
+    "applies": "시행 2025-12-22 · 경기도포천시조례 제1827호(일부개정) · 별표1 〈개정 2025.11.20.〉",
+    "off": [
+     {
+      "grade": 1,
+      "where": "도시지역 중 주거지역·상업지역·공업지역",
+      "unit": 200,
+      "day_st": 7000,
+      "day_out": 7000,
+      "month_st": 70000,
+      "month_out": 40000,
+      "lots": 3
+     },
+     {
+      "grade": 2,
+      "where": "1급지 외의 지역",
+      "unit": 100,
+      "day_st": 4000,
+      "day_out": 4000,
+      "month_st": 40000,
+      "month_out": 30000,
+      "lots": 0
+     }
+    ],
+    "paid_window": {
+     "start": "09:00",
+     "end": "18:00",
+     "free": "운영시간 외·토요일·일요일·공휴일 무료 개방"
+    },
+    "lunch_free": {
+     "start": "11:30",
+     "end": "13:30",
+     "target": "유료 노상주차장"
+    },
+    "corp": {
+     "street": {
+      "lots": 25,
+      "spaces": 484,
+      "areas": "소흘읍 5·일동면 5·포천동 15"
+     },
+     "out": {
+      "lots": 3,
+      "spaces": 193,
+      "names": "송우로 제1·2·3"
+     },
+     "month_out_spaces": 98,
+     "paid": 15,
+     "free": 59,
+     "free_spaces": 3068
+    },
+    "lots": [
+     {
+      "name": "송우로 제1주차장",
+      "dong": "소흘읍",
+      "ptype": "노외",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 40000
+     },
+     {
+      "name": "송우로 제2주차장",
+      "dong": "소흘읍",
+      "ptype": "노외",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 40000
+     },
+     {
+      "name": "송우로 제3주차장",
+      "dong": "소흘읍",
+      "ptype": "노외",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 40000
+     },
+     {
+      "name": "시가지 노상주차장",
+      "dong": "소흘읍",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "재래시장 주차장",
+      "dong": "소흘읍",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "구절초길 제1노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "구절초길 제2노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "보건소앞 노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "시가지 노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "시가지 노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "원앙길 제1노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "중앙로 제1노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "중앙로 제3노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "중앙로노상주차장",
+      "dong": "신읍동",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     },
+     {
+      "name": "시가지 노상주차장",
+      "dong": "일동면",
+      "ptype": "노상",
+      "grade": 1,
+      "free": 5,
+      "unit": 200,
+      "day": 7000,
+      "month": 70000
+     }
+    ],
+    "basis": "「포천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 요금표(시행 2025-12-22 · 경기도포천시조례 제1827호(일부개정) · 별표1 〈개정 2025.11.20.〉) · 포천도시공사 공영주차장 요금안내(2026-11-17 확인)"
    }
   }
  ],
@@ -245560,6 +246107,8325 @@
    "price_key": null,
    "city": "양주시",
    "city_slug": "yangju"
+  },
+  {
+   "id": "ph-001",
+   "mgmt_no": "236-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가산로 주차장",
+   "gu": "포천시",
+   "dong": "가산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 가산면 마산리 183-8",
+   "addr_road": "경기도 포천시 가산면 가산로 360",
+   "road": null,
+   "spaces": 44,
+   "tel": "031-538-3493",
+   "lat": 37.84722547,
+   "lng": 127.1888903,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-002",
+   "mgmt_no": "236-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장독대마을 주차장",
+   "gu": "포천시",
+   "dong": "관인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 관인면 중리 1097",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-538-3493",
+   "lat": 38.10228777,
+   "lng": 127.2179419,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-003",
+   "mgmt_no": "236-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지장산마을 주차장",
+   "gu": "포천시",
+   "dong": "관인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 관인면 중리 1121",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-538-3493",
+   "lat": 38.10359263,
+   "lng": 127.1932012,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-004",
+   "mgmt_no": "236-2-000080",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내리 주금산등산로 주차장",
+   "gu": "포천시",
+   "dong": "내촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 내촌면 내리 102-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 88,
+   "tel": "031-538-3464",
+   "lat": 37.7843730841,
+   "lng": 127.2384432976,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-005",
+   "mgmt_no": "236-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선단4교 자투리 공영주차장",
+   "gu": "포천시",
+   "dong": "선단동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 선단동 763-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-538-3464",
+   "lat": 37.8604210492,
+   "lng": 127.155156,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-006",
+   "mgmt_no": "236-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선마로 쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "선단동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 선단동 37",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "031-538-3493",
+   "lat": 37.85203587,
+   "lng": 127.1674941909,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-007",
+   "mgmt_no": "236-2-000076",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고모리 공영주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 고모리 산 2-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-538-3464",
+   "lat": 37.7983409704,
+   "lng": 127.1670165544,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-008",
+   "mgmt_no": "236-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소흘4블록 공영주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 387-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 90,
+   "tel": "031-538-3464",
+   "lat": 37.83279,
+   "lng": 127.138692,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-009",
+   "mgmt_no": "236-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "솔모루공영주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 392-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-538-3464",
+   "lat": 37.826461,
+   "lng": 127.138056,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-010",
+   "mgmt_no": "236-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "솔모루로 제1주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 94-4",
+   "addr_road": "경기도 포천시 소흘읍 솔모루로 130",
+   "road": null,
+   "spaces": 81,
+   "tel": "031-538-3493",
+   "lat": 37.83225225,
+   "lng": 127.1501769,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-011",
+   "mgmt_no": "236-2-000075",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "솔모루로 제2공영주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 730-63",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "031-538-3464",
+   "lat": 37.823956,
+   "lng": 127.140989,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-012",
+   "mgmt_no": "236-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송우 임시주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 산29",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-538-3464",
+   "lat": 37.8310282648,
+   "lng": 127.1432471128,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-013",
+   "mgmt_no": "236-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송우로 제1주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 726-82",
+   "addr_road": "경기도 포천시 소흘읍 송우로 68",
+   "road": null,
+   "spaces": 112,
+   "tel": "031-540-6400",
+   "lat": 37.82985268,
+   "lng": 127.141839,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노외 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 40,000원 · 표준데이터 등록면수는 112면이고, 포천도시공사 안내는 108면입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-014",
+   "mgmt_no": "236-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송우로 제2주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 729-7",
+   "addr_road": "경기도 포천시 소흘읍 송우로 65",
+   "road": null,
+   "spaces": 58,
+   "tel": "031-540-6400",
+   "lat": 37.82939527,
+   "lng": 127.1416064,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노외 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 40,000원",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-015",
+   "mgmt_no": "236-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송우로 제3주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 389-2",
+   "addr_road": "경기도 포천시 소흘읍 송우로 101-12",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-538-3493",
+   "lat": 37.83067689,
+   "lng": 127.1378693,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노외 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 40,000원 · 포천도시공사가 2025년 1월 1일부터 코로나19 한시 감면을 끝내고 정상 요금을 받습니다 — 공공데이터 표준데이터에는 아직 ‘무료’로 등록되어 있습니다 · 표준데이터 등록면수는 30면이고, 포천도시공사 안내는 27면입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 40000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노외 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-016",
+   "mgmt_no": "236-2-000077",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송우리 쌈지주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 93-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 144,
+   "tel": "031-538-3464",
+   "lat": 37.8313241668,
+   "lng": 127.1501247032,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-017",
+   "mgmt_no": "236-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽엽산로 주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 이가팔리 613-9",
+   "addr_road": "경기도 포천시 소흘읍 죽엽산로 15-20",
+   "road": null,
+   "spaces": 39,
+   "tel": "031-538-3493",
+   "lat": 37.82755033,
+   "lng": 127.150689,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-018",
+   "mgmt_no": "236-2-000078",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태봉근린공원공영주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 산13-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "031-538-3464",
+   "lat": 37.8322750922,
+   "lng": 127.1472255074,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-019",
+   "mgmt_no": "236-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하송우리 자투리공영주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 70-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-538-3464",
+   "lat": 37.8350937989,
+   "lng": 127.152542,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-020",
+   "mgmt_no": "236-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하송우사거리 쌈지주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 76-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-538-3464",
+   "lat": 37.836159253,
+   "lng": 127.153839,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-021",
+   "mgmt_no": "236-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "기지리 공영주차장",
+   "gu": "포천시",
+   "dong": "신북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신북면 기지리 76-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-538-3493",
+   "lat": 37.93947792,
+   "lng": 127.2297833,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-022",
+   "mgmt_no": "236-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍11통 자투리(쌈지)주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 67-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-538-3464",
+   "lat": 37.892347,
+   "lng": 127.199841,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-023",
+   "mgmt_no": "236-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍1통 자투리(쌈지)주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 62-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-538-3464",
+   "lat": 37.8938357941,
+   "lng": 127.201492978,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-024",
+   "mgmt_no": "236-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍1통 제2자투리(쌈지)주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 33-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-538-3464",
+   "lat": 37.894324,
+   "lng": 127.2014988427,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-025",
+   "mgmt_no": "236-2-000070",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍8통 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 210-43",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "031-538-3464",
+   "lat": 37.9035705249,
+   "lng": 127.204941,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-026",
+   "mgmt_no": "236-2-000074",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍8통 제2쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 223-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-538-3464",
+   "lat": 37.9024847057,
+   "lng": 127.2025933848,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-027",
+   "mgmt_no": "236-2-000071",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍9통 공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 93-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-538-3464",
+   "lat": 37.8934274557,
+   "lng": 127.1956234619,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-028",
+   "mgmt_no": "236-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍9통 자투리(쌈지)주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 116-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-538-3464",
+   "lat": 37.895848,
+   "lng": 127.19436,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-029",
+   "mgmt_no": "236-2-000073",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍길 공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 127-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-538-3464",
+   "lat": 37.8957540582,
+   "lng": 127.1988353535,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-030",
+   "mgmt_no": "236-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신읍동 시가지 임시주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 45-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-538-3464",
+   "lat": 37.897549,
+   "lng": 127.2020087143,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-031",
+   "mgmt_no": "236-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕방로118번길 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 343-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-538-3464",
+   "lat": 37.893215,
+   "lng": 127.193475,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-032",
+   "mgmt_no": "236-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕방산 등산로 공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 139-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 136,
+   "tel": "031-538-3493",
+   "lat": 37.89757587,
+   "lng": 127.1953383,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-033",
+   "mgmt_no": "236-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원모루 공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 102",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "031-538-3493",
+   "lat": 37.89454927,
+   "lng": 127.1970964,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-034",
+   "mgmt_no": "236-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원모루1길 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 372-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-538-3464",
+   "lat": 37.8910330342,
+   "lng": 127.19407,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-035",
+   "mgmt_no": "236-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원모루로 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 103-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-538-3464",
+   "lat": 37.894278,
+   "lng": 127.196949,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-036",
+   "mgmt_no": "236-2-000069",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원모루로1길 노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 88-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-538-3464",
+   "lat": 37.8922872599,
+   "lng": 127.1954680429,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-037",
+   "mgmt_no": "236-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원앙길 공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 176-16",
+   "addr_road": "경기도 포천시 원앙로 23",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-538-3493",
+   "lat": 37.8990358398,
+   "lng": 127.2016929801,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-038",
+   "mgmt_no": "236-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원앙로 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 206-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-538-3493",
+   "lat": 37.90094998,
+   "lng": 127.2040292,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-039",
+   "mgmt_no": "236-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 164-3",
+   "addr_road": "경기도 포천시 포천로 1612",
+   "road": null,
+   "spaces": 37,
+   "tel": "031-538-3493",
+   "lat": 37.90082576,
+   "lng": 127.2012192,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-040",
+   "mgmt_no": "236-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 162-12",
+   "addr_road": "경기도 포천시 왕방로 235",
+   "road": null,
+   "spaces": 28,
+   "tel": "031-538-3493",
+   "lat": 37.9014824,
+   "lng": 127.201032,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-041",
+   "mgmt_no": "236-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 230-1",
+   "addr_road": "경기도 포천시 왕방로 248",
+   "road": null,
+   "spaces": 175,
+   "tel": "031-538-3493",
+   "lat": 37.90207116,
+   "lng": 127.202144,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-042",
+   "mgmt_no": "236-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙로 노외주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 29-26",
+   "addr_road": "경기도 포천시 중앙로78번길 33",
+   "road": null,
+   "spaces": 5,
+   "tel": "031-538-3493",
+   "lat": 37.8951936,
+   "lng": 127.2030484,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-043",
+   "mgmt_no": "236-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청수탕 인근 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 125-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "031-538-3464",
+   "lat": 37.894978,
+   "lng": 127.198618,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-044",
+   "mgmt_no": "236-2-000072",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "포천고 인근 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 369-36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "031-538-3464",
+   "lat": 37.8913732535,
+   "lng": 127.192987,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-045",
+   "mgmt_no": "236-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "포천성당인근 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 138-31",
+   "addr_road": "경기도 포천시 왕방로184번길 3-11",
+   "road": null,
+   "spaces": 23,
+   "tel": "031-538-3493",
+   "lat": 37.8978763,
+   "lng": 127.198109,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-046",
+   "mgmt_no": "236-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학동로 쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 10-23",
+   "addr_road": "경기도 포천시 학동로 16-1",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-538-3493",
+   "lat": 37.90178761,
+   "lng": 127.2054304,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-047",
+   "mgmt_no": "236-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한내천3길 쌈지공영주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 29-15",
+   "addr_road": "경기도 포천시 구절초로 13",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-538-3493",
+   "lat": 37.89552179,
+   "lng": 127.2029038,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-048",
+   "mgmt_no": "236-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호병로1길 자투리(쌈지)주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 316-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-538-3464",
+   "lat": 37.8945135654,
+   "lng": 127.194211,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-049",
+   "mgmt_no": "236-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호병천 복개주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 59-4",
+   "addr_road": "경기도 포천시 중앙로 77",
+   "road": null,
+   "spaces": 130,
+   "tel": "031-538-3493",
+   "lat": 37.8939605083,
+   "lng": 127.2003468054,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-050",
+   "mgmt_no": "236-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호병천 쌈지주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 신읍동 126-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-538-3464",
+   "lat": 37.8950596343,
+   "lng": 127.1994602649,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-051",
+   "mgmt_no": "236-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운천리 자투리 공영주차장",
+   "gu": "포천시",
+   "dong": "영북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 영북면 운천리 262-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-538-3464",
+   "lat": 38.0770654726,
+   "lng": 127.2795698222,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-052",
+   "mgmt_no": "236-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양문로 주차장",
+   "gu": "포천시",
+   "dong": "영중면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 영중면 양문리 770-1",
+   "addr_road": "경기도 포천시 영중면 양문로9길 4",
+   "road": null,
+   "spaces": 64,
+   "tel": "031-538-3493",
+   "lat": 38.00178136,
+   "lng": 127.2430411,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-053",
+   "mgmt_no": "236-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장암 공영주차장",
+   "gu": "포천시",
+   "dong": "이동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 이동면 장암리 477-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "031-538-3493",
+   "lat": 38.036596,
+   "lng": 127.366642,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-054",
+   "mgmt_no": "236-2-000079",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "기산리 자투리 주차장",
+   "gu": "포천시",
+   "dong": "일동면",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "경기도 포천시 일동면 운악청계로 1772",
+   "road": null,
+   "spaces": 74,
+   "tel": "031-538-3464",
+   "lat": 37.9549101053,
+   "lng": 127.3184961993,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-055",
+   "mgmt_no": "236-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사리재5길 주차장",
+   "gu": "포천시",
+   "dong": "일동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 일동면 기산리 87-1",
+   "addr_road": "경기도 포천시 일동면 사리재5길 22-17",
+   "road": null,
+   "spaces": 24,
+   "tel": "031-538-3493",
+   "lat": 37.95476864,
+   "lng": 127.3206591,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-056",
+   "mgmt_no": "236-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일동장터 주차장",
+   "gu": "포천시",
+   "dong": "일동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 일동면 기산리 94-36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 340,
+   "tel": "031-538-3493",
+   "lat": 37.95982484,
+   "lng": 127.3198006,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-057",
+   "mgmt_no": "236-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청계천 둔치주차장",
+   "gu": "포천시",
+   "dong": "일동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 일동면 기산리 88-53",
+   "addr_road": "경기도 포천시 일동면 소야길 16-11",
+   "road": null,
+   "spaces": 59,
+   "tel": "031-538-3493",
+   "lat": 37.95687829,
+   "lng": 127.3147787,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-058",
+   "mgmt_no": "236-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청계천 복개주차장",
+   "gu": "포천시",
+   "dong": "일동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 포천시 일동면 기산리 96-104",
+   "addr_road": "경기도 포천시 일동면 화동로 1032",
+   "road": null,
+   "spaces": 181,
+   "tel": "031-538-3493",
+   "lat": 37.95564067,
+   "lng": 127.3166941,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s059",
+   "mgmt_no": "236-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시가지 노상주차장",
+   "gu": "포천시",
+   "dong": "내촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 내촌면 내리 496-11",
+   "addr_road": "경기도 포천시 내촌면 내촌로 52",
+   "road": null,
+   "spaces": 80,
+   "tel": "031-538-3493",
+   "lat": 37.78475463,
+   "lng": 127.2268579,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s060",
+   "mgmt_no": "236-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시가지 노상주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 146-6",
+   "addr_road": "경기도 포천시 소흘읍 솔모루로 49",
+   "road": null,
+   "spaces": 108,
+   "tel": "031-540-6400",
+   "lat": 37.8270448,
+   "lng": 127.1443222,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 소흘읍 노상주차장을 5개 구간 117면으로 나누어 안내합니다(‘소흘읍1’~‘소흘읍5’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s061",
+   "mgmt_no": "236-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "재래시장 주차장",
+   "gu": "포천시",
+   "dong": "소흘읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 소흘읍 송우리 141-13",
+   "addr_road": "경기도 포천시 소흘읍 송우로21번길 4",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-540-6400",
+   "lat": 37.82749794,
+   "lng": 127.1459691,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 포천도시공사는 소흘읍 노상주차장을 5개 구간 117면으로 나누어 안내합니다(‘소흘읍1’~‘소흘읍5’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s062",
+   "mgmt_no": "236-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "구절초길 제1노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 39-4",
+   "addr_road": "경기도 포천시 구절초로 28",
+   "road": null,
+   "spaces": 42,
+   "tel": "031-540-6400",
+   "lat": 37.89639555,
+   "lng": 127.2019407,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s063",
+   "mgmt_no": "236-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "구절초길 제2노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 29-3",
+   "addr_road": "경기도 포천시 구절초로 15",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-540-6400",
+   "lat": 37.89557957,
+   "lng": 127.2027455,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s064",
+   "mgmt_no": "236-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "보건소앞 노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 179-17",
+   "addr_road": "경기도 포천시 포천로 1606-3",
+   "road": null,
+   "spaces": 25,
+   "tel": "031-538-3493",
+   "lat": 37.90024163,
+   "lng": 127.2014477,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s065",
+   "mgmt_no": "236-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시가지 노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 125-5",
+   "addr_road": "경기도 포천시 중앙로75번길 22-1",
+   "road": null,
+   "spaces": 51,
+   "tel": "031-538-3493",
+   "lat": 37.89501927,
+   "lng": 127.1985105,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s066",
+   "mgmt_no": "236-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시가지 노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 42-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "031-540-6400",
+   "lat": 37.8978913501,
+   "lng": 127.20376448,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s067",
+   "mgmt_no": "236-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "원앙길 제1노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 176-16",
+   "addr_road": "경기도 포천시 원앙로 23",
+   "road": null,
+   "spaces": 22,
+   "tel": "031-540-6400",
+   "lat": 37.8990358398,
+   "lng": 127.2016929801,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s068",
+   "mgmt_no": "236-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "원앙길 제2노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 189-13",
+   "addr_road": "경기도 포천시 중앙로141번길 20",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-538-3493",
+   "lat": 37.89983899,
+   "lng": 127.2029747,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s069",
+   "mgmt_no": "236-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로 제1노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 75-6",
+   "addr_road": "경기도 포천시 중앙로 55",
+   "road": null,
+   "spaces": 62,
+   "tel": "031-540-6400",
+   "lat": 37.89233372,
+   "lng": 127.1989381,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s070",
+   "mgmt_no": "236-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로 제3노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 202-4",
+   "addr_road": "경기도 포천시 중앙로 170",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-538-3493",
+   "lat": 37.90051608,
+   "lng": 127.2066038,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s071",
+   "mgmt_no": "236-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 58-2",
+   "addr_road": "경기도 포천시 중앙로 87",
+   "road": null,
+   "spaces": 40,
+   "tel": "031-540-6400",
+   "lat": 37.89469975,
+   "lng": 127.2003445,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 포천동(법정동 신읍동) 노상주차장을 15개 구간 237면으로 나누어 안내합니다(‘포천동1’~‘포천동15’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s072",
+   "mgmt_no": "236-1-000044",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "포천로 노상주차장",
+   "gu": "포천시",
+   "dong": "신읍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 신읍동 233-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-538-3493",
+   "lat": 37.90174257,
+   "lng": 127.1996706,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s073",
+   "mgmt_no": "236-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시가지 노상주차장",
+   "gu": "포천시",
+   "dong": "영북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 영북면 운천리 340-3",
+   "addr_road": "경기도 포천시 영북면 영북로 168",
+   "road": null,
+   "spaces": 202,
+   "tel": "031-538-3493",
+   "lat": 38.08929064,
+   "lng": 127.2751477,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "포천시",
+   "city_slug": "pocheon"
+  },
+  {
+   "id": "ph-s074",
+   "mgmt_no": "236-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시가지 노상주차장",
+   "gu": "포천시",
+   "dong": "일동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 포천시 일동면 기산리 90-148",
+   "addr_road": "경기도 포천시 일동면 화동로1050번길 2",
+   "road": null,
+   "spaces": 125,
+   "tel": "031-540-6400",
+   "lat": 37.9569646,
+   "lng": 127.317619,
+   "base_date": "2026-04-20",
+   "manager": "경기도 포천시시설관리공단",
+   "note": "",
+   "notice": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 요금입니다 — 최초 5분 무료, 그 뒤 10분당 200원, 1일 주차요금(선납) 7,000원, 월 정기권(선납) 70,000원 · 승용차 5부제를 시행하는 구간입니다 · 포천도시공사는 일동면 노상주차장을 5개 구간 130면으로 나누어 안내합니다(‘일동면1’~‘일동면5’) — 표준데이터는 이 구간을 한 줄로 묶어 등록했습니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "std_grade": null,
+    "base_min": 5,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "steps": null,
+    "steps_label": null,
+    "free_min": 5,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금(선납)",
+    "daily_hours": null,
+    "daily_fee": 7000,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 70000,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 70000,
+    "monthly_label": null,
+    "pay": "현금",
+    "basis": "「포천시 주차장 설치 및 관리 조례」 별표1 1급지 노상 (최초 5분 무료 · 10분당 200원 · 1일 7,000원)",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 70000,
+     "monthly": 0
+    }
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": "평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내) · 점심시간(11:30~13:30)에는 무료입니다(비고6)",
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "포천시",
+   "city_slug": "pocheon"
   }
  ]
 }

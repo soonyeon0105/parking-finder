@@ -302,4 +302,9 @@
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/yangju/okjeong-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/yangju/jangheung-myeon/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/yangju/street-parking/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/pocheon/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/pocheon/soheul-eup/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/pocheon/sineup-dong/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/pocheon/ildong-myeon/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeonggi/pocheon/street-parking/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

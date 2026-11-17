@@ -2817,6 +2817,123 @@ for _slug in ("goam-dong", "goeup-dong", "nambang-dong", "mansong-dong"):
     if (_yj_root / _slug / "index.html").exists():
         fails.append(f"양주시 카드 3곳 미만인 동 페이지가 만들어짐: {_slug}")
 
+# 「포천시 주차장 설치 및 관리 조례」 [별표 1](시행 2025-12-22, 경기도포천시조례 제1827호)과
+# 포천도시공사 공영주차장 요금안내(2026-11-17 확인): 노상·노외 모두 최초 5분 무료 뒤 10분당
+# 1급지 200원, 1일 주차요금(선납) 7,000원, 월 정기권 노상 70,000원·노외 40,000원(2급지 100원·
+# 4,000원·40,000원·30,000원). 요금은 평일 09:00~18:00에만 받고 야간·주말·공휴일은 무료 개방(비고5),
+# 유료 노상은 점심시간(11:30~13:30) 무료(비고6).
+ph_cards = [l for l in LOTS if l.get("city") == "포천시" and l.get("list_mode") == "card"]
+ph_paid = [l for l in ph_cards if l["fee"]["type"] == "유료"]
+ph_free = [l for l in ph_cards if l["fee"]["type"] == "무료"]
+ph_by = {l["name"]: l for l in ph_cards}
+ph_street = [l for l in LOTS if l.get("city") == "포천시" and l.get("list_mode") == "street"]
+ph_street_paid = [l for l in ph_street if l["fee"]["type"] == "유료"]
+ph_all_paid = [l for l in LOTS if l.get("city") == "포천시" and l["fee"]["type"] == "유료"]
+if not ph_cards:
+    fails.append("포천시 카드 데이터가 없음")
+# 구성: 카드 58곳(유료 3·무료 55) · 노외 2,940면 · 노상 16구간 913면(유료 12·무료 4)
+if len(ph_cards) != 58 or len(ph_paid) != 3 or len(ph_free) != 55:
+    fails.append(f"포천시 카드 구성이 다름: 카드 {len(ph_cards)} · 유료 {len(ph_paid)} · 무료 {len(ph_free)}")
+if sum(l["spaces"] or 0 for l in ph_cards) != 2940:
+    fails.append(f"포천시 노외 구획 합계가 다름: {sum(l['spaces'] or 0 for l in ph_cards)}")
+if len(ph_street) != 16 or sum(l["spaces"] or 0 for l in ph_street) != 913:
+    fails.append(f"포천시 노상 구간이 다름: {len(ph_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in ph_street)}면")
+if len(ph_street_paid) != 12 or len(ph_all_paid) != 15:
+    fails.append(f"포천시 유료 주차장이 다름: 노상 {len(ph_street_paid)} · 전체 {len(ph_all_paid)}")
+if len({l.get("dong") for l in ph_cards}) != 11 or any(not l.get("dong") for l in ph_cards):
+    fails.append(f"포천시 동 구성이 다름: {sorted({l.get('dong') for l in ph_cards})}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "포천시"):
+    fails.append("포천시에 민영 주차장이 실려 있음")
+_ph_q = next(c for c in CITIES if c["city"] == "포천시").get("quality") or {}
+if _ph_q.get("제외_행수") != 8:
+    fails.append(f"포천시 껍데기 행 제외가 8행이 아님: {_ph_q.get('제외_행수')}")
+if len(_ph_q.get("요금구분_보정") or []) != 1:
+    fails.append(f"포천시 요금구분 보정이 1건이 아님: {_ph_q.get('요금구분_보정')}")
+# 요금 — 별표1 1급지(최초 5분 무료·10분당 200원·1일 7,000원·월 노상 70,000원/노외 40,000원)
+for _l in ph_all_paid:
+    _f = _l["fee"]
+    _month = 70000 if _l["ptype"] == "노상" else 40000
+    if (_f.get("grade"), _f.get("free_min"), _f.get("base_min"), _f.get("base_fee"),
+            _f.get("unit_min"), _f.get("unit_fee"), _f.get("daily_fee"), _f.get("monthly")) != \
+            (1, 5, 5, 0, 10, 200, 7000, _month):
+        fails.append(f"포천시 요금이 별표1 1급지와 다름: {_l['name']} "
+                     f"{_f.get('grade')}/{_f.get('free_min')}/{_f.get('base_fee')}/"
+                     f"{_f.get('unit_fee')}/{_f.get('daily_fee')}/{_f.get('monthly')}")
+    # 요금은 평일 09:00~18:00에만 받고 토·일·공휴일은 무료 개방이다(비고5·공사 요금안내)
+    _wk = _l["hours"]["weekday"]
+    if (_wk["start"], _wk["end"]) != (9 * 60, 18 * 60):
+        fails.append(f"포천시 {_l['name']}의 유료 시간이 09:00~18:00이 아님: {_wk['raw']}")
+    if not (_l["free_days"].get("sat") and _l["free_days"].get("sun")):
+        fails.append(f"포천시 {_l['name']}의 주말·공휴일 무료 개방 표기가 없음")
+# 송우로 제3주차장 — 표준데이터는 무료, 2025-01-01부터 정상 요금
+_ph_third = ph_by.get("송우로 제3주차장")
+if not _ph_third:
+    fails.append("포천시 카드에 송우로 제3주차장 없음")
+elif _ph_third["fee"]["type"] != "유료" or "정상 요금" not in (_ph_third.get("notice") or ""):
+    fails.append(f"포천시 송우로 제3주차장이 유료로 바로잡히지 않음: {_ph_third['fee']['type']}")
+# 계산 표본 — 최초 5분 무료·10분당 200원·1일 7,000원 상한
+for _n, _mins, _want in (("송우로 제1주차장", 5, 0), ("송우로 제1주차장", 6, 200),
+                         ("송우로 제1주차장", 15, 200), ("송우로 제1주차장", 16, 400),
+                         ("송우로 제1주차장", 30, 600), ("송우로 제1주차장", 60, 1200),
+                         ("송우로 제1주차장", 120, 2400), ("송우로 제1주차장", 1440, 7000)):
+    _l = ph_by.get(_n)
+    if not _l:
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"포천시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+if ph_by.get("송우로 제1주차장") and price_for(ph_by["송우로 제1주차장"], 120, "sat")["state"] != "free":
+    fails.append("포천시 유료 주차장의 토요일 계산이 무료가 아님")
+# 감면표 — 별표2(4시간 면제 뒤 50%·2시간 면제 뒤 50%·1시간 면제 뒤 50%·전액 면제)
+_ph_disc = next(c for c in CITIES if c["city"] == "포천시").get("discounts") or []
+for _want_ex in (240, 120, 60):
+    if not any(d["rate"] == 0.5 and d.get("exempt_min") == _want_ex for d in _ph_disc):
+        fails.append(f"포천시 감면표에 {_want_ex}분 면제 뒤 50%가 없음")
+if not any(d["rate"] == 1.0 for d in _ph_disc):
+    fails.append("포천시 감면표에 100% 면제 대상이 없음")
+# 페이지 — 시 허브·동 3곳·노상
+_ph_root = DIST / "parking" / "gyeonggi" / "pocheon"
+_ph_hub = _ph_root / "index.html"
+if not _ph_hub.exists():
+    fails.append("포천시 시 페이지 없음")
+else:
+    _ph_html = _ph_hub.read_text()
+    for label in ("포천시 급지별 주차요금표", "최초 5분", "10분당", "1일 주차요금(선납)",
+                  "월 정기권", "2급지", "도시지역 중 주거지역", "포천도시공사",
+                  "송우로 제3공영주차장", "토·일·법정공휴일 무료", "점심시간",
+                  "031-540-6305"):
+        if label not in _ph_html:
+            fails.append(f"포천시 시 페이지에 {label} 없음")
+    if _ph_html.count('class="card lot') != len(ph_cards):
+        fails.append(f"포천시 시 페이지 카드 수 불일치({_ph_html.count(chr(34)+'card lot')} vs {len(ph_cards)})")
+    if "&lt;b&gt;" in _ph_html:
+        fails.append("포천시 시 페이지에 이스케이프된 <b> 태그가 보임")
+_ph_st_page = _ph_root / "street-parking" / "index.html"
+if not _ph_st_page.exists():
+    fails.append("포천시 노상 페이지 없음")
+else:
+    _ph_st = _ph_st_page.read_text()
+    for label in ("재래시장 주차장", "노상", "무료 4곳", "점심시간"):
+        if label not in _ph_st:
+            fails.append(f"포천시 노상 페이지에 {label} 없음")
+    if "&lt;b&gt;" in _ph_st:
+        fails.append("포천시 노상 페이지에 이스케이프된 <b> 태그가 보임")
+for _slug, _n in (("sineup-dong", 29), ("soheul-eup", 14), ("ildong-myeon", 5)):
+    # 카드 3곳 이상인 동·읍·면만 페이지를 만든다(빈 페이지 방지)
+    _p = _ph_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"포천시 동 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"포천시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+for _slug in ("gwanin-myeon", "seondan-dong", "gasan-myeon", "naechon-myeon"):
+    if (_ph_root / _slug / "index.html").exists():
+        fails.append(f"포천시 카드 3곳 미만인 동 페이지가 만들어짐: {_slug}")
+if "parking.9welfare.com/parking/gyeonggi/pocheon/" not in (DIST / "sitemap.xml").read_text():
+    fails.append("포천시 주소가 사이트맵에 없음")
+
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")

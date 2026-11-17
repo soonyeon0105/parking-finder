@@ -365,6 +365,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "양주시": {"slug": "yangju", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "포천시": {"slug": "pocheon", "province": "경기도", "province_slug": "gyeonggi",
+             "dong_page_min_lots": 3},
 }
 
 
@@ -7227,7 +7229,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -12852,13 +12854,584 @@ def check_quality_yangju(std_all, rows, lots, excluded, merged, private, hour_fi
     }
 
 
+# ---------------------------------------------------------------- 포천시 (T-03 Phase 23)
+PH_PROVIDER = "경기도 포천시"
+# 포천시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+PH_DISTRICTS = [("포천시", "pocheon")]
+PH_BBOX = (37.70, 38.25, 127.05, 127.50)   # 포천시 대략 경계(좌표 점검용)
+# 포천시 법정동·읍·면 — 주소의 ‘경기도 포천시 ○○동|○○읍|○○면 번지’ 세 번째 낱말을 쓴다.
+#   포천시는 1읍(소흘읍) 11면(군내·내촌·가산·신북·창수·영중·일동·이동·영북·관인·화현)과
+#   포천동·선단동 2개 행정동(법정동 신읍동·선단동 등)으로 이루어진다.
+PH_UNIT_SUFFIX = ("읍", "면", "동")
+# 표준데이터에 실제로 주소가 올라온 지역(품질 리포트의 동별 집계와 같은 값이 된다).
+
+PH_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095709"
+                    "&gubun=ELIS&conDatGubunCd=1")
+PH_CORP_URL = "https://www.pcuc.kr/contents/99"
+PH_MONTH_URL = "https://www.pcuc.kr/contents/101"
+PH_CITY_URL = "https://www.pocheon.go.kr/www/contents.do?key=4280"
+PH_NEWS_URL = "https://www.kihoilbo.co.kr/news/articleView.html?idxno=1122252"
+PH_ORD_ANNEX1_TXT = RAW / "pocheon.law.go.kr_주차장조례_별표1_20261117.txt"
+PH_ORD_ANNEX1_HWP = RAW / "pocheon.law.go.kr_주차장조례_별표1_20261117.hwp"
+PH_ORD_ANNEX2_TXT = RAW / "pocheon.law.go.kr_주차장조례_별표2_20261117.txt"
+PH_ORD_ANNEX2_HWP = RAW / "pocheon.law.go.kr_주차장조례_별표2_20261117.hwp"
+PH_CORP_TXT = RAW / "pcuc.kr_공영주차장_20261117.txt"
+PH_MONTH_TXT = RAW / "pcuc.kr_월정기주차권_20261117.txt"
+PH_CITY_TXT = RAW / "pocheon.go.kr_교통주차시설_20261117.txt"
+PH_NEWS_TXT = RAW / "kihoilbo.co.kr_포천공영주차장_요금정상화_20261117.txt"
+PH_ORDINANCE_NOTE = ("시행 2025-12-22 · 경기도포천시조례 제1827호(일부개정) · "
+                     "별표1 〈개정 2025.11.20.〉")
+PH_BASE_MIN = 5
+PH_UNIT_MIN = 10
+PH_FREE_MIN = 5
+
+# 포천시 공영주차장 요금 — 「포천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 요금표
+#   (시행 2025-12-22, 경기도포천시조례 제1827호. 별표/서식 HWP에서 표를 읽음).
+#   · 노상: 1급지 10분당 200원·1일 주차요금(선납) 7,000원·월 정기권(선납) 70,000원
+#           2급지 100원·4,000원·40,000원
+#   · 노외: 1급지 10분당 200원·1일 주차권 7,000원·월 정기권(선납) 40,000원
+#           2급지 100원·4,000원·30,000원
+#   · 노상·노외 모두 ‘최초 5분’은 무료(병합 셀), 5분이 지나면 10분 단위로 요금이 붙는다.
+#   · 비고3: 09:00~18:00이 주간, 나머지는 야간. 비고4: 1급지 = 도시지역 중 주거·상업·공업지역,
+#     2급지 = 그 밖의 지역. 비고5: 토·일요일·공휴일과 야간은 무료 원칙(수요가 많은 곳은 유료 가능).
+#     비고6: 점심시간(11:30~13:30) 동안 유료 노상주차장 무료.
+#     비고7: 중형 승합·화물 2배, 대형 승합·화물·건설기계 3배.
+PH_FEES = {
+    (1, "노상"): {"unit": 200, "day": 7_000, "month": 70_000},
+    (1, "노외"): {"unit": 200, "day": 7_000, "month": 40_000},
+    (2, "노상"): {"unit": 100, "day": 4_000, "month": 40_000},
+    (2, "노외"): {"unit": 100, "day": 4_000, "month": 30_000},
+}
+# 포천도시공사가 요금을 받는 시간 — 두 요금안내 표 모두 ‘운영시간 09:00~18:00,
+#   운영시간 외 무료 개방, 토·일·법정공휴일 무료 개방’이다.
+PH_PAID_START = 9 * 60
+PH_PAID_END = 18 * 60
+PH_LUNCH_FREE = (11 * 60 + 30, 13 * 60 + 30)   # 유료 노상주차장 점심시간 무료(별표1 비고6)
+# 포천도시공사가 따로 안내하는 주차장별 면수(2026-11-17 조회) — 표준데이터와 다른 곳이 있다.
+PH_CORP_SPACES = {
+    "송우로 제1주차장": 108, "송우로 제2주차장": 58, "송우로 제3주차장": 27,
+}
+# 포천도시공사 노상주차장 안내의 구간·면수(2026-11-17 조회) — 표준데이터는 지역별로 묶어 등록했다.
+#   신읍동은 행정동 포천동의 법정동이라 포천동 구간(237면·15구간)으로 잇는다.
+PH_CORP_STREET = {
+    "소흘읍": (117, 5, "소흘읍"), "일동면": (130, 5, "일동면"), "신읍동": (237, 15, "포천동"),
+}
+# 표준데이터가 ‘무료’로 등록했지만 포천도시공사가 유료로 운영하는 주차장.
+#   2025-01-01부터 코로나19 한시 감면을 끝내고 정상 요금을 받는다(기호일보 2024-12-04 보도,
+#   포천도시공사 노외주차장 요금안내) — 시청사 부설·송우로 제1·2·3·소흘읍·포천동·일동면.
+PH_RECLASSIFIED = {"송우로 제3주차장"}
+
+# 포천시 주차요금 감면 — 「포천시 주차장 설치 및 관리 조례」 [별표 2](제3조제3항 관련).
+#   감면은 중복 적용하지 않고(제3조③), 증빙서류를 낸 때부터 적용한다.
+PH_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "경차·저공해·경로우대·병역명문가 50%", "rate": 0.5, "exempt_min": 60,
+     "note": ("장애인등록증·복지카드 소지자, 전기차 등(본인 소유 비사업용 자동차 직접 운전), "
+              "경형자동차(1,000cc 미만), 저공해자동차표지 부착 차량, 만 70세 이상 경로우대, "
+              "포천시 우수자원봉사자증 소지차량, 병역명문가 예우대상자 차량, 투표확인증 소지자"
+              "(투표 당일 1회) — 최초 1시간 면제, 1시간 초과분 50% 감면")},
+    {"label": "다자녀 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": ("「포천시 인구정책 추진 및 지원에 관한 조례」에 따른 다자녀가정이 모바일 앱카드·"
+              "경기i-PLUS카드를 제시하거나 경기도 내 거주 다자녀가정 증명서를 제시하는 경우 — "
+              "최초 2시간 면제, 2시간 초과분 50% 감면")},
+    {"label": "국가유공자 등 4시간 면제 후 50%", "rate": 0.5, "exempt_min": 240,
+     "note": ("국가유공자·독립유공자·참전유공자·고엽제후유의증 등 환자·5·18민주유공자·"
+              "특수임무유공자·의사상자·국군포로(억류지출신 포로가족·등록포로) — 최초 4시간 면제, "
+              "4시간 초과분 50% 감면")},
+    {"label": "긴급·관용·임산부·성실납세자 등 100%", "rate": 1.0, "exempt_min": 0,
+     "note": ("국가·지방자치단체 공무수행(관용) 자동차와 외교사절 차량, 긴급자동차, 성실납세증 "
+              "표지 부착 차량(1년), 임산부가 운전하거나 동승한 차량, 이·통장·새마을지도자·"
+              "적십자봉사자·주민자치(회) 위원, 설날·추석 연휴 기간")},
+]
+
+
+def ph_dong_of(text: str):
+    """주소에서 포천시 법정동·읍·면을 뽑는다 — ‘경기도 포천시 {읍·면·동} {번지}’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "포천시":
+        cand = parts[2]
+        if cand.endswith("읍") or cand.endswith("면") or cand.endswith("동"):
+            if not cand.endswith(("로동", "가동")):
+                return cand
+    return None
+
+
+def ph_fee(ptype: str = "노외", grade: int = 1, pay: str = "", *,
+           monthly=None, daily=0, month_std=0):
+    """포천시 공영주차장 시간 요금 → 사이트 공통 fee 객체(유료, 1일 주차요금이 상한).
+
+    별표1은 ‘최초 5분 무료 → 5분이 지나면 10분당 200원(1급지)’이다. 그래서 free_min=5,
+    base 5분 0원, 10분 단위 200원으로 넣는다(5분까지 0원, 6~15분 200원, 16~25분 400원).
+    """
+    t = PH_FEES[(grade, ptype)]
+    month = t["month"] if monthly is None else monthly
+    return {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": grade, "std_grade": None,
+        "base_min": PH_BASE_MIN, "base_fee": 0,
+        "unit_min": PH_UNIT_MIN, "unit_fee": t["unit"],
+        "steps": None, "steps_label": None,
+        "free_min": PH_FREE_MIN, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 주차요금(선납)",
+        "daily_hours": None, "daily_fee": t["day"],
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": month, "monthly_day": None, "monthly_night": None,
+        "monthly_all": month, "monthly_label": None,
+        "pay": pay,
+        "basis": (f"「포천시 주차장 설치 및 관리 조례」 별표1 {grade}급지 {ptype} "
+                  f"(최초 {PH_FREE_MIN}분 무료 · {PH_UNIT_MIN}분당 {t['unit']:,}원 · "
+                  f"1일 {t['day']:,}원)"),
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def ph_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def ph_hm(m: int) -> str:
+    """분 단위 값 → ‘09:00’ 꼴 표기."""
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def ph_window(start=PH_PAID_START, end=PH_PAID_END):
+    """요금을 받는 시간(09:00~18:00)을 hours 셀 모양으로 만든다."""
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [ph_hm(start), ph_hm(end)]}
+
+
+def build_pocheon():
+    """포천시 공영주차장을 표준데이터 + 포천시 조례 별표1·2 + 포천도시공사 자료로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 포천시 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 82행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 포천시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동·읍·면 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 동·읍·면만 만든다.
+    요금은 조례 별표1(최초 5분 무료 → 10분당 200원, 1일 7,000원, 월 노상 70,000원·노외 40,000원)을
+    쓰고, 운영시간은 포천도시공사 요금안내의 ‘09:00~18:00, 운영시간 외 무료 개방, 토·일·법정공휴일
+    무료 개방’으로 정리한다(표준데이터는 유료 행도 00:00~23:59로 등록되어 있다).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == PH_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    lunch_street, five_day = [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "포천시",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and ph_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and ph_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "포천도시공사",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": fee["unit_fee"] if fee["type"] == "유료" else None,
+            "city": "포천시",
+            "city_slug": "pocheon",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            # 포천시는 표준데이터에 민영 등록이 없지만, 다른 도시와 같은 규칙을 둔다.
+            excluded.append({"name": name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (PH_BBOX[0] <= lat <= PH_BBOX[1] and PH_BBOX[2] <= lng <= PH_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = ph_dong_of(jibun) or ph_dong_of(road)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        grade = to_int(r.get("급지구분")) or 1
+        grade = min(max(grade, 1), 2)     # 조례 별표1은 1·2급지다
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+
+        paid = fee_type in ("유료", "혼합") or name in PH_RECLASSIFIED
+        if fee_type not in ("유료", "혼합") and name in PH_RECLASSIFIED:
+            reclassified.append(
+                f"{name}: 표준데이터 요금정보 ‘{fee_type or '무료'}’ ↔ 포천도시공사가 2025-01-01부터 "
+                f"정상 요금으로 운영(노외 5분 무료·10분당 200원·1일 7,000원·월 40,000원) — 유료로 바로잡음")
+
+        if paid:
+            fee = ph_fee(ptype, grade, pay=pay)
+            # 1일 주차요금·월 정기권은 조례 별표1 값이다. 표준데이터는 이 두 칸이 어긋나 있다
+            #   (적용시간 칸에 7,000, 1일 주차권 칸에 70,000, 월정기권 칸은 비어 있음).
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            applied_std = (r.get("1일주차권요금적용시간") or "").strip()
+            fee["std"] = {"base_min": to_int(r.get("주차기본시간")),
+                          "base_fee": to_int(r.get("주차기본요금")),
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily_std, "monthly": month_std}
+            want_day, want_month = PH_FEES[(grade, ptype)]["day"], PH_FEES[(grade, ptype)]["month"]
+            if (applied_std or daily_std or month_std) and \
+                    (applied_std or daily_std != want_day or month_std != want_month):
+                note_fixed.append(
+                    f"{name}: 표준데이터 1일주차권요금적용시간 ‘{applied_std}’·1일주차권요금 "
+                    f"{daily_std:,}원·월정기권요금 {month_std:,}원 ↔ 조례 별표1 {grade}급지 {ptype} "
+                    f"1일 {want_day:,}원·월 {want_month:,}원(칸이 어긋나 있음)")
+                month_diff.append(f"{name}: 표준데이터 월정기권 {month_std or 0:,}원 ↔ 별표1 "
+                                  f"{ptype} {grade}급지 {want_month:,}원")
+            # 요금은 09:00~18:00에만 받고 그 밖의 시간과 토·일·공휴일은 무료 개방이다.
+            win = {"weekday": ph_window(), "sat": ph_window(), "sun": ph_window()}
+            oper = {"weekday": True, "sat": True, "sun": True}
+            free_days = {"sat": True, "sun": True}
+            hour_fixed.append(
+                f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~"
+                f"{r.get('평일운영종료시각') or ''}({r.get('운영요일') or '평일'}) → 포천도시공사 "
+                f"요금안내 09:00~18:00(운영시간 외·토·일·공휴일 무료 개방)")
+            free_note = ("평일 09:00~18:00에만 요금을 받고, 18:00~익일 09:00과 토요일·일요일·"
+                         "공휴일은 무료로 개방합니다(조례 별표1 비고3·5, 포천도시공사 요금안내)")
+            if street:
+                free_note += (f" · 점심시간({ph_hm(PH_LUNCH_FREE[0])}~"
+                              f"{ph_hm(PH_LUNCH_FREE[1])})에는 무료입니다(비고6)")
+                lunch_street.append(name)
+            notice_bits.append(
+                f"「포천시 주차장 설치 및 관리 조례」 별표1 {grade}급지 {ptype} 요금입니다 — "
+                f"최초 {PH_FREE_MIN}분 무료, 그 뒤 {PH_UNIT_MIN}분당 "
+                f"{PH_FEES[(grade, ptype)]['unit']:,}원, 1일 주차요금(선납) "
+                f"{PH_FEES[(grade, ptype)]['day']:,}원, 월 정기권(선납) "
+                f"{PH_FEES[(grade, ptype)]['month']:,}원")
+            if (r.get("부제시행구분") or "").strip() == "5부제":
+                five_day.append(name)
+                notice_bits.append("승용차 5부제를 시행하는 구간입니다")
+            if name in PH_RECLASSIFIED:
+                notice_bits.append(
+                    "포천도시공사가 2025년 1월 1일부터 코로나19 한시 감면을 끝내고 정상 요금을 "
+                    "받습니다 — 공공데이터 표준데이터에는 아직 ‘무료’로 등록되어 있습니다")
+            if name in PH_CORP_SPACES and PH_CORP_SPACES[name] != spaces:
+                notice_bits.append(
+                    f"표준데이터 등록면수는 {spaces}면이고, 포천도시공사 안내는 "
+                    f"{PH_CORP_SPACES[name]}면입니다")
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 포천도시공사 "
+                                  f"{PH_CORP_SPACES[name]}면")
+        else:
+            fee = ph_free_fee()
+            free_days = {"sat": False, "sun": False}
+            # 무료 주차장은 표준데이터의 운영시간을 그대로 쓴다(대부분 24시간).
+            if name in PH_CORP_SPACES and PH_CORP_SPACES[name] != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 포천도시공사 "
+                                  f"{PH_CORP_SPACES[name]}면")
+
+        if street and dong in PH_CORP_STREET and paid:
+            corp_spaces, corp_seg, corp_area = PH_CORP_STREET[dong]
+            here = (f"{corp_area}(법정동 {dong})" if corp_area != dong else corp_area)
+            notice_bits.append(
+                f"포천도시공사는 {here} 노상주차장을 {corp_seg}개 구간 {corp_spaces}면으로 "
+                f"나누어 안내합니다(‘{corp_area}1’~‘{corp_area}{corp_seg}’) — 표준데이터는 이 구간을 "
+                f"한 줄로 묶어 등록했습니다")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(notice_bits) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "포천도시공사"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"ph-{i:03d}" if l["list_mode"] == "card" else f"ph-s{i:03d}"
+
+    quality = check_quality_pocheon(rows_all, rows_city, lots, excluded, merged,
+                                    hour_fixed, space_diff, note_fixed, reclassified,
+                                    month_diff, lunch_street, five_day)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "포천시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-04-20",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-17 16:05 (KST)",
+                    "note": ("경기도 포천시가 등록한 82행(노외 66·노상 16)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다(공영주차장 파인더라 민영은 싣지 않는 규칙은 "
+                             "그대로 두었다). 요금 구분은 유료 14행(노외 2·노상 12)과 무료 68행이지만, "
+                             "노외 ‘송우로 제3주차장’은 포천도시공사가 2025-01-01부터 유료로 운영해 "
+                             "유료로 바로잡았다. 주차구획수가 비어 있는 8행(용정산업단지 제1쌈지·"
+                             "가채리 벚꽃길·구읍공원·탄동리·도평리 쌈지·양문리·감암리 파라뷰·"
+                             "내촌면 내리)은 껍데기 행이라 제외했다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": "포천시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 요금표 · [별표 2] 주차요금의 감면",
+                    "org": "포천시청 교통행정과 · 포천도시공사 공공시설팀 주차관리(031-540-6305)",
+                    "url": PH_ORDINANCE_URL,
+                    "file": PH_ORD_ANNEX1_HWP.name if PH_ORD_ANNEX1_HWP.exists() else PH_ORD_ANNEX1_TXT.name,
+                    "sha256": (sha256(PH_ORD_ANNEX1_HWP) if PH_ORD_ANNEX1_HWP.exists()
+                               else sha256(PH_ORD_ANNEX1_TXT) if PH_ORD_ANNEX1_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": PH_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(PH_ORD_ANNEX1_TXT),
+                    "note": ("국가법령정보센터 별표/서식 HWP를 내려받아 표 셀을 읽어 정리본(txt)을 "
+                             "두었다. 노상 1급지 10분당 200원·1일 주차요금(선납) 7,000원·월 정기권"
+                             "(선납) 70,000원, 노외 1급지 200·7,000·40,000원, 2급지 100·4,000·40,000원"
+                             "(노외 30,000원)이고, 노상·노외 모두 ‘최초 5분’이 무료다(병합 셀). "
+                             "비고3은 09:00~18:00을 주간, 비고5는 토·일·공휴일·야간 무료 원칙, "
+                             "비고6은 점심시간(11:30~13:30) 유료 노상주차장 무료, 비고7은 차량 크기별 "
+                             "2배·3배를 정한다. 별표2는 전액 면제·일부 면제(2시간)·50% 감면(4시간·"
+                             "2시간·1시간 면제 뒤)·40%·30% 감면을 정한다."),
+                },
+                {
+                    "id": "corp", "name": "포천도시공사 공영주차장 안내(노상주차장·노외주차장·감면 대상)",
+                    "org": "포천도시공사 공공시설팀 주차관리(031-540-6305)",
+                    "url": PH_CORP_URL,
+                    "file": PH_CORP_TXT.name if PH_CORP_TXT.exists() else None,
+                    "sha256": sha256(PH_CORP_TXT) if PH_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 25, "fetched_at": _sync_time(PH_CORP_TXT),
+                    "note": ("노상주차장은 소흘읍·일동면·포천동 세 지역 25개 구간 484면, 노외주차장은 "
+                             "송우로 제1·2·3 세 곳(108·58·27면)이다. 요금은 노상·노외 모두 5분 무료·"
+                             "5분 이후 10분당 200원·선납 1일 7,000원이고, 월 정기권은 노상 70,000원·"
+                             "노외 40,000원이다. 두 표 모두 ‘운영시간 09:00~18:00(운영시간 외 무료 "
+                             "개방)’, ‘토·일·법정공휴일 무료 개방’을 적고 있어 요금 부과 시간과 "
+                             "무료 개방을 이 값으로 정리했다. 감면은 조례 별표2를 그대로 싣고 "
+                             "중복 시 감면율이 높은 하나만 적용한다고 안내한다."),
+                },
+                {
+                    "id": "month", "name": "포천도시공사 월정기 주차권 안내(노외주차장)",
+                    "org": "포천도시공사 공공시설팀 주차관리(031-540-6305~7)",
+                    "url": PH_MONTH_URL,
+                    "file": PH_MONTH_TXT.name if PH_MONTH_TXT.exists() else None,
+                    "sha256": sha256(PH_MONTH_TXT) if PH_MONTH_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 3, "fetched_at": _sync_time(PH_MONTH_TXT),
+                    "note": ("노외 3곳의 월 정기권이 모두 40,000원이고 신청 가능 면수는 98면(송우로 "
+                             "제1 55·제2 29·제3 14)이다. 매월 25일(휴일이면 전날) 09:00부터 온라인 "
+                             "선착순 접수하고 카드로만 결제하며, 경차·저공해·장애인·국가유공자·"
+                             "다자녀는 50% 감면(20,000원)이다. 노상 월 정기권은 공사가 따로 안내하지 "
+                             "않아 조례 별표1(70,000원)을 그대로 적었다."),
+                },
+                {
+                    "id": "city", "name": "포천시 대표 누리집 — 교통/주차시설(명절 공영주차장 무료 개방)",
+                    "org": "포천시청", "url": PH_CITY_URL,
+                    "file": PH_CITY_TXT.name if PH_CITY_TXT.exists() else None,
+                    "sha256": sha256(PH_CITY_TXT) if PH_CITY_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "2026-09-23~27",
+                    "rows_total": 14, "fetched_at": _sync_time(PH_CITY_TXT),
+                    "note": ("2026년 추석 연휴(9.23~9.27)에 무료로 개방한 공영주차장 14곳과 면수를 "
+                             "확인해, 어느 주차장이 평소 유료인지 가려냈다 — 신읍동 8구간, 소흘읍 "
+                             "5곳(송우로 제1·2·3 포함), 일동면 1구간이다. 표준데이터가 ‘무료’로 "
+                             "등록한 송우로 제3공영주차장도 이 목록에 있어 유료 운영을 뒷받침한다."),
+                },
+                {
+                    "id": "news", "name": "기호일보 — 포천도시공사 공영주차장 요금감면 전면 폐지 및 정상화 운영",
+                    "org": "기호일보(2024-12-04 보도)", "url": PH_NEWS_URL,
+                    "file": PH_NEWS_TXT.name if PH_NEWS_TXT.exists() else None,
+                    "sha256": sha256(PH_NEWS_TXT) if PH_NEWS_TXT.exists() else None,
+                    "license": "언론 보도(참고용)", "base_date": "2024-12-04",
+                    "rows_total": None, "fetched_at": _sync_time(PH_NEWS_TXT),
+                    "note": ("코로나19 한시 감면을 2024-12-31자로 끝내고 2025-01-01부터 정상 요금을 "
+                             "받는다고 보도했다 — 대상은 시청사 부설, 송우로 제1·2·3공영주차장, "
+                             "소흘읍·포천동·일동면 공영주차장이고, ‘입차 후 5분 무료, 10분당 "
+                             "200원’이라고 적고 있다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in PH_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "pocheon_grade",
+            "unit_min": PH_UNIT_MIN,
+            "base_min": PH_BASE_MIN,
+            "free_min": PH_FREE_MIN,
+            "applies": PH_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "도시지역 중 주거지역·상업지역·공업지역",
+                 "unit": 200, "day_st": 7_000, "day_out": 7_000,
+                 "month_st": 70_000, "month_out": 40_000, "lots": 0},
+                {"grade": 2, "where": "1급지 외의 지역",
+                 "unit": 100, "day_st": 4_000, "day_out": 4_000,
+                 "month_st": 40_000, "month_out": 30_000, "lots": 0},
+            ],
+            "paid_window": {"start": "09:00", "end": "18:00",
+                            "free": "운영시간 외·토요일·일요일·공휴일 무료 개방"},
+            "lunch_free": {"start": "11:30", "end": "13:30", "target": "유료 노상주차장"},
+            "corp": {
+                "street": {"lots": 25, "spaces": 484, "areas": "소흘읍 5·일동면 5·포천동 15"},
+                "out": {"lots": 3, "spaces": 193, "names": "송우로 제1·2·3"},
+                "month_out_spaces": 98,
+                "paid": len([l for l in lots if l["fee"]["type"] == "유료"]),
+                "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+                "free_spaces": sum(l["spaces"] or 0 for l in lots if l["fee"]["type"] == "무료"),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade"), "free": l["fee"].get("free_min"),
+                 "unit": l["fee"].get("unit_fee"), "day": l["fee"].get("daily_fee"),
+                 "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「포천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 요금표"
+                      f"({PH_ORDINANCE_NOTE}) · 포천도시공사 공영주차장 요금안내(2026-11-17 확인)"),
+        },
+    }
+    card_paid = Counter(l["fee"]["grade"] for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade"))
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    payload.update(CITY_META["포천시"] | {
+        "city": "포천시",
+        "weekend_free_pages": False,
+        "discounts": PH_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "pocheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_pocheon(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                          note_fixed, reclassified, month_diff, lunch_street, five_day):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_포천시행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "점심시간_무료_노상": lunch_street,
+        "5부제": five_day,
+        "감면_출처": "「포천시 주차장 설치 및 관리 조례」 별표2(제3조제3항) · 포천도시공사 감면 대상",
+        "무료시간_출처": "조례 별표1 공영주차장 요금표(최초 5분 무료)",
+        "주말무료_출처": ("조례 별표1 비고5(토·일요일·공휴일·야간 무료 원칙) · "
+                          "포천도시공사 요금안내(토·일·법정공휴일 무료 개방)"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -12867,7 +13440,7 @@ def main():
              "hanam": ["하남시"], "gunpo": ["군포시"],
              "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"],
              "icheon": ["이천시"], "anseong": ["안성시"],
-             "yangju": ["양주시"]}[args.city])
+             "yangju": ["양주시"], "pocheon": ["포천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -12915,6 +13488,8 @@ def main():
         cities.append(build_anseong())
     if "양주시" in want:
         cities.append(build_yangju())
+    if "포천시" in want:
+        cities.append(build_pocheon())
 
     if args.city == "all":
         site = build_site_payload(cities)
