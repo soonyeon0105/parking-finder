@@ -371,6 +371,8 @@ CITY_META = {
              "dong_page_min_lots": 3},
     "여주시": {"slug": "yeoju", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
+    "동두천시": {"slug": "dongducheon", "province": "경기도", "province_slug": "gyeonggi",
+              "dong_page_min_lots": 3},
 }
 
 
@@ -7233,7 +7235,7 @@ def build_summary_city(payload):
         if q.get("민영_제외"):
             lines.append(f"- 공영 {q['원자료_양주시행수']}행만 실었고, 민영 주차장 {q['민영_제외']}행은 "
                          f"공영주차장 파인더라 제외")
-        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시"):
+        if city in ("평택시", "남양주시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시"):
             lines.append(f"- 구 없음(자치구 미설치) · 동·읍·면 {q['동수']}개 · 노상 {q['노상_구간']}구간")
         else:
             lines.append(f"- 구별: {q['구별']} · 동(읍·면) {q['동수']}개")
@@ -14976,12 +14978,699 @@ def check_quality_yeoju(std_all, rows, lots, excluded, merged, hour_fixed, space
     }
 
 
+# ---------------------------------------------------------------- 동두천시 (T-03 Phase 26)
+DDC_PROVIDER = "경기도 동두천시"
+# 동두천시도 자치구가 없다 — 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+DDC_DISTRICTS = [("동두천시", "dongducheon")]
+DDC_BBOX = (37.82, 37.99, 126.96, 127.20)   # 동두천시 대략 경계(좌표 점검용)
+# 동두천시 법정동 — 주소의 ‘경기도 동두천시 ○○동 번지’ 세 번째 낱말을 쓴다.
+#   행정동은 8개(생연1·2동, 중앙동, 보산동, 불현동, 송내동, 소요동, 상패동)이고,
+#   법정동은 생연동·송내동·지행동·동두천동·보산동·탑동동·상패동·광암동 등이다.
+DDC_UNIT_SUFFIX = ("동",)
+
+DDC_ORDINANCE_URL = ("https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127619"
+                     "&gubun=ELIS&conDatGubunCd=1")
+DDC_CORP_URL = "https://www.ddcsiseol.or.kr/main/content/view/MN02040000.do"
+DDC_CITY_URL = "https://www.ddc.go.kr/ddc/contents.do?key=242"
+DDC_ORD_HWP = RAW / "ddc.law.go.kr_주차장조례_별표1_20261117.hwp"
+DDC_ORD_TXT = RAW / "ddc.law.go.kr_주차장조례_별표1_20261117.txt"
+DDC_CORP_TXT = RAW / "ddcsiseol.or.kr_공영주차장_20261117.txt"
+DDC_CITY_TXT = RAW / "ddc.go.kr_공영주차장_20261117.txt"
+DDC_ORDINANCE_NOTE = ("시행 2026-05-06 · 경기도동두천시조례 제2628호(일부개정) · "
+                      "별표1〈개정 2025.11.18.〉")
+DDC_BASE_MIN = 30
+DDC_UNIT_MIN = 10
+DDC_FREE_MIN = 10          # 별표1 ※ ‘입차 후 최초 10분까지는 무료’
+DDC_2H_FREE_MIN = 120      # 별표1 ‘2시간 무료 주차 허용 노외주차장’
+
+# 동두천시 공영주차장 요금 — 「동두천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표
+#   (시행 2026-05-06, 경기도동두천시조례 제2628호 · 별표1〈개정 2025.11.18.〉, 조례 HWP의 표를 읽음).
+#   · 노상 1급지: 최초 30분 700원 · 30분 초과 10분마다 300원 · 2시간 초과 15분마다 700원 (1일·월 없음)
+#   · 노상 2급지: 최초 30분 500원 · 10분마다 200원 · 2시간 초과 15분마다 500원
+#   · 노외 1급지: 최초 30분 600원 · 30분 초과 10분마다 200원 · 1일 6,000원 · 월 50,000원
+#   · 노외 2급지: 최초 30분 500원 · 30분 초과 10분마다 200원 · 1일 4,000원 · 월 40,000원
+#   · 2시간 무료 주차 허용 노외주차장(2급지에 한함): 최초 2시간 무료 · 이후 10분마다 400원,
+#     1일·월 요금은 2급지 값(4,000원·40,000원)
+#   · 대형자동차 공영주차장: 소형 30분 500원·10분당 200원·1일 4,000원·월 40,000원,
+#     중형·대형 30분 600원·10분당 200원·1일 8,000원·월 100,000원
+#   · 비고 2: 노상 3~10월 08:00~20:00·11~2월 09:00~19:00, 노외 주간 09:00~20:00·야간 20:00~익일 09:00
+#   · 비고 3: 1급지 = 상업지역 중 교통혼잡역세권(지행역 주변), 2급지 = 1급지를 제외한 상업·준주거·주거지역
+#   · 비고 5: 주차시간 10분 미만은 10분으로 본다.
+#   · ※ 입차 후 최초 10분까지는 무료(회차 차량 고려)
+DDC_FEES = {
+    1: {"base": 600, "unit": 200, "day": 6_000, "month": 50_000},
+    2: {"base": 500, "unit": 200, "day": 4_000, "month": 40_000},
+}
+DDC_FEE_2H = {"free_min": 120, "unit": 400, "day": 4_000, "month": 40_000}
+DDC_BIG = {
+    "소형": {"base": 500, "unit": 200, "day": 4_000, "month": 40_000},
+    "중형·대형": {"base": 600, "unit": 200, "day": 8_000, "month": 100_000},
+}
+# 유료 주차장 요금 갈래 — 동두천시 시설관리공단 ‘(유료) 노외주차장 현황’(2026-11-17 조회)과
+#   표준데이터의 기본·추가 요금이 같은 곳만 골라 배정했다.
+DDC_GRADE1 = {"송내1주차장", "송내4주차장"}            # 1급지(지행역 주변) 30분 600원
+DDC_2H_LOTS = {                                        # 2시간 무료 뒤 10분당 400원
+    "큰시장 공영주차장", "중앙동 공영주차장", "송내2주차장", "송내3주차장",
+    "송내지구 공영주차장", "미2사단 보산동 공영주차장", "생연로일원 공영주차장",
+    "동두천중앙역세권", "5060청춘로드 주차장",
+}
+DDC_BIG_LOTS = {"대형자동차 공영주차장(소형)": "소형", "대형자동차 공영주차장(대형)": "중형·대형"}
+# 요금을 받는 시간 — 공단 ‘(유료) 노외주차장 현황’의 운영시간(2026-11-17 조회)
+DDC_HOURS_DAY = {"송내1주차장", "송내4주차장"}          # 09:00~22:00 (월~일)
+DDC_HOURS_BIG = {"대형자동차 공영주차장(소형)", "대형자동차 공영주차장(대형)"}   # 08:00~21:00 (월~토)
+#   나머지 유료 주차장은 09:00~20:00 (월~토)이고, 일요일·공휴일은 요금을 받지 않는다.
+#   공단 표의 운영시간은 ‘요금을 받는 시간’이라 그 밖의 시간(야간 20:00~익일 09:00)은
+#   요금을 받지 않는다(조례 별표1 비고2의 주간·야간 구분).
+# 공단이 정기권을 판매하는 7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)의
+#   월 정기요금. 나머지 유료 주차장은 공단 정기권 판매 대상이 아니라 월 요금을 비운다.
+DDC_MONTHLY = {
+    "송내4주차장": 50_000, "송내지구 공영주차장": 40_000, "중앙동 공영주차장": 40_000,
+    "대형자동차 공영주차장(대형)": 100_000, "미2사단 보산동 공영주차장": 40_000,
+    "생연로일원 공영주차장": 40_000, "동두천중앙역세권": 40_000,
+}
+# 표준데이터가 ‘무료’로 등록했지만 공단이 유료로 운영하는 주차장(2시간 무료 뒤 10분당 400원).
+DDC_RECLASSIFIED = {"송내3주차장"}
+# 공단 안내와 표준데이터가 다른 면수 — 등록면수를 쓰고 카드에 차이를 적는다.
+DDC_CORP_SPACES = {"송내3주차장": 14, "대형자동차 공영주차장(소형)": 44, "대형자동차 공영주차장(대형)": 136}
+# 공단 안내의 위치(지번) — 표준데이터 지번과 다른 곳.
+DDC_CORP_ADDR = {
+    "미2사단 보산동 공영주차장": "경기도 동두천시 보산동 441-3",
+    "대형자동차 공영주차장(대형)": "경기도 동두천시 상패동 370",
+    "대형자동차 공영주차장(소형)": "경기도 동두천시 상패동 370",
+}
+# 표준데이터에만 유료로 등록되어 있고 공단 유료 노외주차장 11곳 목록에는 없는 곳.
+DDC_NOT_IN_CORP = {"5060청춘로드 주차장"}
+
+# 동두천시 주차요금 감면 — 「동두천시 주차장 설치 및 관리 조례」 제7조(주차요금의 감면).
+#   면제: 긴급자동차, 국가유공자·유족, 고엽제후유증·후유의증환자와 2세, 5·18민주화운동 부상자,
+#         시장이 필요하다고 인정하는 공공행사·공무수행·공휴일 이용차량·성실모범납세필증 차량.
+#   경감 50%: 장애인, 경형자동차, 저공해자동차, 다자녀(미성년 2자녀 이상),
+#         요일제·임산부·자원봉사자·장기기증 등 시책 참여 차량, 병역명문가, 장기복무 제대군인.
+#   전기자동차: 2시간 무료 뒤 50%.
+#   원도심·재래시장 활성화를 위해 시장이 필요하다고 인정하면 공영주차장 2시간 이내 무료주차 허용.
+DDC_DISCOUNTS = [
+    {"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""},
+    {"label": "국가유공자·유족·고엽제·5·18부상자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("국가유공자 증서, 고엽제후유증·후유의증 환자·2세 증명서, 5·18민주유공자증을 "
+              "소지한 사람의 자가운전차량 및 동승차량 — 면제(제7조 제1항 제1호 나~라목)")},
+    {"label": "긴급·공무수행·공휴일·성실납세자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차, 공무수행 차량, 공휴일 이용차량, 시가 주최·후원하는 공공 목적 행사 차량, "
+              "성실모범납세필증 부착 차량 — 면제(제7조 제1항 제1호 가목·마목)")},
+    {"label": "장애인 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "장애인등록증을 소지한 장애인의 자가운전차량 및 동승차량 — 50%"},
+    {"label": "경차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「자동차관리법」 제3조에 따른 경형자동차 — 50%"},
+    {"label": "저공해차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "저공해자동차 표지부착차량 — 50%(전기자동차는 따로 2시간 무료 뒤 50%)"},
+    {"label": "다자녀(미성년 2자녀 이상) 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "자동차 소유주가 다자녀(미성년 2자녀 이상) 가구임을 증명하는 자동차 — 50%"},
+    {"label": "요일제·임산부·자원봉사·장기기증 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("시장이 실시하는 시책 참여 차량 — 요일제 스티커 부착차량, 모자보건수첩 등 임산부 증빙 제시차량, "
+              "경기도·시 우수 자원봉사자증 제시차량, 장기 및 인체조직 기증 등록증 제시차량 — 50%")},
+    {"label": "병역명문가·장기복무 제대군인 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("병역명문가증과 주소가 기입된 신분증을 제시하는 사람의 차량, 장기복무 제대군인으로서 "
+              "국가보훈등록증을 증명하는 차량 — 50%(2025-11-18 신설)")},
+    {"label": "전기차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "「자동차관리법」 제10조에 따른 전기자동차 — 최초 2시간 무료 뒤 50%(제7조 제1항 제2호 바목)"},
+]
+
+
+def ddc_dong_of(text: str):
+    """주소에서 동두천시 법정동을 뽑는다 — ‘경기도 동두천시 ○○동 번지’ 꼴."""
+    parts = (text or "").split()
+    if len(parts) >= 3 and parts[1] == "동두천시":
+        cand = parts[2]
+        if cand.endswith(DDC_UNIT_SUFFIX) and not cand.endswith(("로동", "가동")):
+            return cand
+    return None
+
+
+def ddc_hm(m: int) -> str:
+    h, mi = divmod(int(m), 60)
+    return f"{h:02d}:{mi:02d}"
+
+
+def ddc_window(start, end):
+    return {"open": True, "start": start, "end": end, "24h": False, "listed": True,
+            "raw": [ddc_hm(start), ddc_hm(end)]}
+
+
+def ddc_fee(*, grade: int = 2, two_hour: bool = False, big: str = None, pay: str = "",
+            monthly=None):
+    """동두천시 공영주차장 요금 → 사이트 공통 fee 객체.
+
+    별표1은 ‘최초 30분 기본요금 → 30분 초과 10분마다 200원’이고, 입차 후 최초 10분은 무료다.
+    2시간 무료 주차 허용 노외주차장은 최초 120분 무료 뒤 10분당 400원(1일·월은 2급지 값)이라
+    기본요금 0원·무료 120분으로 넣는다(120분까지 0원, 130분 400원, 150분 1,200원).
+    """
+    common = {
+        "type": "유료", "raw_type": "유료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "steps": None, "steps_label": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": "조례 별표1 1일 주차요금",
+        "daily_hours": None, "prepaid_day": None, "prepaid_weekend": None,
+        "monthly_day": None, "monthly_night": None, "monthly_all": monthly, "monthly_label": None,
+        "pay": pay, "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+    if big:
+        t = DDC_BIG[big]
+        return {**common,
+                "grade_label": f"대형자동차 {big}",
+                "base_min": DDC_BASE_MIN, "base_fee": t["base"],
+                "unit_min": DDC_UNIT_MIN, "unit_fee": t["unit"],
+                "free_min": DDC_FREE_MIN,
+                "daily_fee": t["day"], "monthly": monthly,
+                "basis": (f"「동두천시 주차장 설치 및 관리 조례」 별표1 대형자동차 공영주차장 "
+                          f"{big}(최초 30분 {t['base']:,}원 · 30분 초과 {DDC_UNIT_MIN}분당 "
+                          f"{t['unit']:,}원 · 1일 {t['day']:,}원"
+                          + (f" · 월 {monthly:,}원" if monthly else "") + ")")}
+    if two_hour:
+        t = DDC_FEE_2H
+        return {**common,
+                "grade": 2,
+                "base_min": DDC_FEE_2H["free_min"], "base_fee": 0,
+                "unit_min": DDC_UNIT_MIN, "unit_fee": t["unit"],
+                "free_min": DDC_FEE_2H["free_min"],
+                "daily_fee": t["day"], "monthly": monthly,
+                "basis": (f"「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 "
+                          f"노외주차장(2급지 한정 · 최초 {DDC_2H_FREE_MIN}분 무료 · 이후 "
+                          f"{DDC_UNIT_MIN}분당 {t['unit']:,}원 · 1일 {t['day']:,}원"
+                          + (f" · 월 {monthly:,}원" if monthly else "") + ")")}
+    t = DDC_FEES[grade]
+    return {**common,
+            "grade": grade,
+            "base_min": DDC_BASE_MIN, "base_fee": t["base"],
+            "unit_min": DDC_UNIT_MIN, "unit_fee": t["unit"],
+            "free_min": DDC_FREE_MIN,
+            "daily_fee": t["day"], "monthly": monthly,
+            "basis": (f"「동두천시 주차장 설치 및 관리 조례」 별표1 노외 {grade}급지"
+                      f"(최초 30분 {t['base']:,}원 · 30분 초과 {DDC_UNIT_MIN}분당 {t['unit']:,}원 · "
+                      f"1일 {t['day']:,}원" + (f" · 월 {monthly:,}원" if monthly else "") + ")")}
+
+
+def ddc_free_fee():
+    """요금 구분 ‘무료’ 주차장의 사이트 공통 fee 객체."""
+    return {
+        "type": "무료", "raw_type": "무료", "mixed": False,
+        "grade": None, "grade_label": None, "std_grade": None,
+        "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+        "steps": None, "steps_label": None, "free_min": None, "deduct_min": None,
+        "cap_fee": None, "cap_src": None, "daily_hours": None, "daily_fee": None,
+        "prepaid_day": None, "prepaid_weekend": None,
+        "monthly": None, "monthly_day": None, "monthly_night": None, "monthly_all": None,
+        "monthly_label": None, "pay": "", "basis": "요금 구분 ‘무료’",
+        "category": None, "portal_free_now": False, "flat_day": False,
+        "ticket_only": False, "std": None,
+    }
+
+
+def build_dongducheon():
+    """동두천시 공영주차장을 표준데이터 + 동두천시 조례 별표1 + 시설관리공단 안내로 추출한다.
+
+    다른 도시와 같은 품질 기준을 쓴다.
+      · 이름·주소·구획수 중 하나라도 없거나 좌표가 동두천시 범위를 벗어난 행은 제외(껍데기 행).
+      · 표준데이터 64행은 모두 공영(민영 등록 없음)이라 민영 제외는 일어나지 않는다.
+      · 동두천시는 자치구가 없어 시 페이지가 계산기·목록 페이지를 겸하고, 그 아래 법정동 페이지를 둔다.
+      · 노상(거리) 구간은 표 페이지로 분리(list_mode='street')하고 카드 목록에는 넣지 않는다.
+      · 동 페이지는 카드가 3곳 이상인 법정동만 만든다.
+    요금은 조례 별표1을 쓰고, 유료 주차장의 요금 갈래·운영시간은 공단 ‘(유료) 노외주차장 현황’으로
+    대조한다(표준데이터는 유료 행도 기본·추가 요금만 등록되어 있고 운영시간이 24시간으로 되어 있다).
+    """
+    rows_all = read_csv_kr(STD_CSV)
+    rows_city = [r for r in rows_all if (r.get("제공기관명") or "").strip() == DDC_PROVIDER]
+    lots, excluded, merged = [], [], []
+    hour_fixed, space_diff, note_fixed, reclassified, month_diff = [], [], [], [], []
+    addr_fixed, dup_mgmt, no_ticket, big_note = [], [], [], []
+
+    def add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=None,
+                notice=None, tel="", mgmt="", lat=None, lng=None, base_date="",
+                free_days=None, free_note=None):
+        street = ptype == "노상"
+        lots.append({
+            "id": "",     # 정렬 뒤에 다시 매긴다
+            "mgmt_no": (r.get("주차장관리번호") or "").strip() if r else "",
+            "src": "표준데이터",
+            "list_mode": "street" if street else "card",
+            "name": name,
+            "gu": "동두천시",
+            "dong": dong,
+            "dong_src": ("지번주소" if r and ddc_dong_of((r.get("소재지지번주소") or "")) else
+                         ("도로명주소" if r and ddc_dong_of((r.get("소재지도로명주소") or "")) else "없음")),
+            "kind": (r.get("주차장구분") or "").strip() if r else "공영",
+            "ptype": ptype,
+            "addr_jibun": jibun,
+            "addr_road": road,
+            "road": None,
+            "spaces": spaces,
+            "tel": tel,
+            "lat": lat, "lng": lng,
+            "base_date": base_date,
+            "manager": mgmt or "동두천시 시설관리공단",
+            "note": "",
+            "notice": notice,
+            "fee": fee,
+            "oper": oper,
+            "hours": win,
+            "free_days": free_days or {"sat": False, "sun": False},
+            "free_window": None,
+            "free_hour_note": free_note,
+            "closed_from_note": False,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip() if r else "",
+            "capa_detail": None,
+            "portal_name": None,
+            "realtime": None,
+            "udc_id": None,
+            "price_key": (fee["free_min"] if fee["type"] == "유료" else None),
+            "city": "동두천시",
+            "city_slug": "dongducheon",
+        })
+
+    for r in rows_city:
+        name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        addr = jibun or road
+        gubun = (r.get("주차장구분") or "").strip()
+        reason = None
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        if not name:
+            reason = "주차장명 없음"
+        elif not addr:
+            reason = "주소 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif lat is None or lng is None:
+            reason = "좌표 없음"
+        elif not (DDC_BBOX[0] <= lat <= DDC_BBOX[1] and DDC_BBOX[2] <= lng <= DDC_BBOX[3]):
+            reason = "좌표 범위 이탈"
+        if reason:
+            excluded.append({"name": name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = ddc_dong_of(jibun) or ddc_dong_of(road)
+        street = ptype == "노상"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        pay = (r.get("결제방법") or "").strip()
+        fee_type = (r.get("요금정보") or "").strip()
+        std_grade = (r.get("급지구분") or "").strip()
+        notice_bits = []
+        free_days = {"sat": False, "sun": False}
+        free_note = None
+        is_big = name in DDC_BIG_LOTS
+        is_2h = name in DDC_2H_LOTS
+
+        paid = fee_type in ("유료", "혼합") or name in DDC_RECLASSIFIED
+        if fee_type not in ("유료", "혼합") and name in DDC_RECLASSIFIED:
+            reclassified.append(
+                f"{name}: 표준데이터 요금정보 ‘{fee_type or '무료'}’ ↔ 동두천시 시설관리공단이 유료로 운영"
+                f"(유료 노외주차장 현황 5번, 14면·09:00~20:00 월~토·2시간 무료·2시간 초과 10분당 400원"
+                f"·1일 4,000원) — 유료로 바로잡음")
+            notice_bits.append(
+                "공공데이터 표준데이터에는 ‘무료’로 등록되어 있지만, 동두천시 시설관리공단이 "
+                "유료(09:00~20:00 월~토, 2시간 무료·2시간 초과 10분당 400원·1일 4,000원)로 운영합니다")
+
+        if paid:
+            if is_big:
+                big = DDC_BIG_LOTS[name]
+                fee = ddc_fee(big=big, pay=pay, monthly=DDC_MONTHLY.get(name))
+                big_note.append(name)
+                notice_bits.append(
+                    "「동두천시 주차장 설치 및 관리 조례」 별표1 대형자동차 공영주차장 요금입니다 — "
+                    f"최초 30분 {DDC_BIG[big]['base']:,}원, 30분 초과 10분마다 200원"
+                    + (f", 1일 {DDC_BIG[big]['day']:,}원" if big == "중형·대형" else ""))
+            elif is_2h:
+                fee = ddc_fee(two_hour=True, pay=pay, monthly=DDC_MONTHLY.get(name))
+                notice_bits.append(
+                    "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — "
+                    "최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원")
+            else:
+                grade = 1 if name in DDC_GRADE1 else 2
+                fee = ddc_fee(grade=grade, pay=pay, monthly=DDC_MONTHLY.get(name))
+                notice_bits.append(
+                    f"「동두천시 주차장 설치 및 관리 조례」 별표1 노외 {grade}급지 요금입니다 — "
+                    f"최초 30분 {DDC_FEES[grade]['base']:,}원, 30분 초과 10분마다 200원, "
+                    f"1일 주차요금 {DDC_FEES[grade]['day']:,}원"
+                    + (f", 월 정기 {DDC_FEES[grade]['month']:,}원" if DDC_MONTHLY.get(name) else ""))
+            fee["std_grade"] = std_grade or None
+            daily_std = to_int(r.get("1일주차권요금")) or 0
+            month_std = to_int(r.get("월정기권요금")) or 0
+            base_min_std = to_int(r.get("주차기본시간"))
+            base_fee_std = to_int(r.get("주차기본요금"))
+            fee["std"] = {"base_min": base_min_std, "base_fee": base_fee_std,
+                          "unit_min": to_int(r.get("추가단위시간")),
+                          "unit_fee": to_int(r.get("추가단위요금")),
+                          "day": daily_std, "monthly": month_std}
+            # 표준데이터 등록값과 조례 별표1이 다르면 기록한다.
+            std_tuple = (base_min_std, base_fee_std, to_int(r.get("추가단위요금")) or 0)
+            want_tuple = ((DDC_FEE_2H["free_min"], 0, 400) if is_2h
+                          else (DDC_BASE_MIN, DDC_BIG[DDC_BIG_LOTS[name]]["base"] if is_big
+                                else DDC_FEES[1 if name in DDC_GRADE1 else 2]["base"], 200))
+            if std_tuple != want_tuple:
+                note_fixed.append(
+                    f"{name}: 표준데이터 기본 {base_min_std or '-'}분 {base_fee_std or 0:,}원·"
+                    f"추가 {to_int(r.get('추가단위시간')) or '-'}분 {to_int(r.get('추가단위요금')) or 0:,}원 "
+                    f"↔ 조례 별표1 {want_tuple[0]}분 {want_tuple[1]:,}원·10분당 {want_tuple[2]:,}원")
+            if is_2h and std_grade and std_grade != "2":
+                note_fixed.append(f"{name}: 표준데이터 급지 {std_grade} ↔ 2시간 무료 요금제는 2급지 한정"
+                                  f"(별표1) — 공단 요금이 2시간 무료·10분당 400원이라 2급지로 실음")
+            if not DDC_MONTHLY.get(name) and month_std:
+                month_diff.append(f"{name}: 표준데이터 월정기권 {month_std:,}원 ↔ 공단 정기권 판매 7곳에 없음")
+            # 요금을 받는 시간 — 공단 운영시간대로 정리한다.
+            if name in DDC_HOURS_DAY:
+                win = {"weekday": ddc_window(9 * 60, 22 * 60),
+                       "sat": ddc_window(9 * 60, 22 * 60),
+                       "sun": ddc_window(9 * 60, 22 * 60)}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                free_days = {"sat": False, "sun": True}
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                    f"공단 09:00~22:00(월~일)·일요일·공휴일 무료")
+            elif is_big:
+                win = {"weekday": ddc_window(8 * 60, 21 * 60),
+                       "sat": ddc_window(8 * 60, 21 * 60),
+                       "sun": ddc_window(8 * 60, 21 * 60)}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                free_days = {"sat": False, "sun": True}
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                    f"공단 08:00~21:00(월~토)·일요일·공휴일 무료")
+            else:
+                win = {"weekday": ddc_window(9 * 60, 20 * 60),
+                       "sat": ddc_window(9 * 60, 20 * 60),
+                       "sun": ddc_window(9 * 60, 20 * 60)}
+                oper = {"weekday": True, "sat": True, "sun": True}
+                free_days = {"sat": False, "sun": True}
+                hour_fixed.append(
+                    f"{name}: 표준데이터 {r.get('평일운영시작시각') or ''}~{r.get('평일운영종료시각') or ''} → "
+                    f"공단 09:00~20:00(월~토)·일요일·공휴일 무료")
+            night_from = "22:00" if name in DDC_HOURS_DAY else ("21:00" if is_big else "20:00")
+            notice_bits.append(
+                f"입차 후 최초 10분은 무료입니다(조례 별표1 ※). {night_from} 이후 야간과 일요일·공휴일은 "
+                "요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 "
+                "‘공휴일 이용차량’ 면제)")
+            if name in DDC_HOURS_DAY:
+                notice_bits.append(
+                    "공단 운영시간은 월~일 09:00~22:00이라 일요일도 여는 주차장입니다 — 일요일 요금은 "
+                    "현장 안내를 확인하세요(동두천시는 일요일·공휴일 무료로 안내해 왔습니다)")
+            if not DDC_MONTHLY.get(name) and name != "송내1주차장":
+                notice_bits.append(
+                    "조례 별표1의 월 정기요금은 있지만, 동두천시 시설관리공단이 정기권을 판매하는 "
+                    "7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)에는 들지 않습니다")
+            if name in DDC_CORP_SPACES and DDC_CORP_SPACES[name] != spaces:
+                space_diff.append(f"{name}: 표준데이터 {spaces}면 ↔ 공단 {DDC_CORP_SPACES[name]}면")
+                notice_bits.append(
+                    f"표준데이터 등록면수는 {spaces}면이고, 공단 안내는 {DDC_CORP_SPACES[name]}면입니다")
+            if name in DDC_CORP_ADDR:
+                notice_bits.append(f"공단 안내 위치는 {DDC_CORP_ADDR[name]}입니다")
+            if name in DDC_NOT_IN_CORP:
+                notice_bits.append(
+                    "공단 ‘(유료) 노외주차장 현황’ 11곳에는 없고 표준데이터에만 유료(2시간 무료·"
+                    "10분당 400원·1일 4,000원)로 등록되어 있습니다 — 현장 확인 권장")
+            if name == "송내1주차장":
+                notice_bits.append(
+                    "공단 정기권 판매 대상은 아니고, 일 주차요금만 받습니다"
+                    "(조례 1급지 월 정기요금 50,000원은 송내4에 적용)")
+            if is_big:
+                notice_bits.append(
+                    "표준데이터는 이 주차장을 대형·소형 두 행(136면·48면)으로 나누어 등록했고, "
+                    "공단은 184면(대형 136·소형 44) 한 곳으로 안내합니다")
+            if name == "미2사단 보산동 공영주차장":
+                notice_bits.append(
+                    "공단은 ‘출차 전 무인정산기 결제, 2시간 무료 외 모든 감면·면제 대상 해당’을 안내합니다")
+        else:
+            fee = ddc_free_fee()
+            # 무료 주차장은 표준데이터의 운영시간을 그대로 쓴다(대부분 24시간).
+            if street:
+                notice_bits.append(
+                    "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 "
+                    "816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 "
+                    "기준이 있으나 현재 요금을 받지 않습니다")
+
+        spec = (r.get("특기사항") or "").strip()
+        if spec:
+            spec = spec.replace("50퍼센트", "50%")
+            spec = re.sub(r"\s*\+\s*", " · ", spec)
+            notice_bits.append(f"표준데이터 특기사항: {spec}")
+
+        add_lot(name, jibun, road, ptype, spaces, dong, win, oper, fee, r=r,
+                notice=" · ".join(b for b in notice_bits if b) or None,
+                tel=(r.get("전화번호") or "").strip(),
+                mgmt=((r.get("관리기관명") or "").strip() or "동두천시 시설관리공단"),
+                lat=lat, lng=lng, base_date=(r.get("데이터기준일자") or "").strip(),
+                free_days=free_days, free_note=free_note)
+
+    for no, cnt in Counter(l.get("mgmt_no") for l in lots if l.get("mgmt_no")).items():
+        if cnt > 1:
+            names = "·".join(l["name"] for l in lots if l.get("mgmt_no") == no)
+            dup_mgmt.append(f"관리번호 {no}가 {names} 두 곳에 같은 값으로 등록되어 있습니다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    for i, l in enumerate(lots, 1):
+        l["id"] = f"ddc-{i:03d}" if l["list_mode"] == "card" else f"ddc-s{i:03d}"
+
+    quality = check_quality_dongducheon(rows_all, rows_city, lots, excluded, merged,
+                                        hour_fixed, space_diff, note_fixed, reclassified,
+                                        month_diff, addr_fixed, dup_mgmt, no_ticket)
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": "경기도", "city": "동두천시"},
+            "sources": [
+                {
+                    "id": "std", "name": "전국주차장정보표준데이터",
+                    "org": "행정안전부·지방자치단체",
+                    "url": "https://www.data.go.kr/data/15012896/standard.do",
+                    "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+                    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+                    "base_date": "2026-10-23",
+                    "rows_total": len(rows_all), "rows_city": len(rows_city),
+                    "fetched_at": "2026-11-16 22:03 (KST)",
+                    "note": ("경기도 동두천시가 등록한 64행(노외 39·노상 25)을 읽었다. 모두 주차장구분이 "
+                             "‘공영’이라 민영 주차장은 없다. 요금 구분은 유료 12행(모두 노외)과 무료 52행"
+                             "(노외 27·노상 25)인데, 표준데이터가 ‘무료’로 등록한 송내3 공영주차장은 "
+                             "시설관리공단이 유료로 운영해 유료로 바로잡았다. 노외 39곳의 등록면수 합계 "
+                             "1,599면은 공단 전체 현황의 노외 1,599면과 같고, 노상 25구간 812면은 시 "
+                             "홈페이지 26개소 816면과 1곳(동두천중앙역 3번출구 4면)만큼 다르다. "
+                             "주차구획수가 비어 있는 껍데기 행은 없었다."),
+                },
+                {
+                    "id": "ordinance",
+                    "name": "동두천시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 주차요금표 · 제7조 감면",
+                    "org": "동두천시청 교통행정과(031-860-2293)",
+                    "url": DDC_ORDINANCE_URL,
+                    "file": DDC_ORD_HWP.name if DDC_ORD_HWP.exists() else DDC_ORD_TXT.name,
+                    "sha256": (sha256(DDC_ORD_HWP) if DDC_ORD_HWP.exists()
+                               else sha256(DDC_ORD_TXT) if DDC_ORD_TXT.exists() else None),
+                    "license": "자치법규(공개)", "base_date": DDC_ORDINANCE_NOTE,
+                    "rows_total": None, "fetched_at": _sync_time(DDC_ORD_TXT),
+                    "note": ("국가법령정보센터 자치법규 별표 HWP를 내려받아 표 셀과 비고를 읽어 정리본(txt)을 "
+                             "두었다. 노외 1급지 최초 30분 600원·10분당 200원·1일 6,000원·월 50,000원, "
+                             "2급지 500·200·4,000·40,000원, 2시간 무료 주차 허용 노외(2급지 한정)는 "
+                             "최초 2시간 무료 뒤 10분당 400원, 대형자동차는 소형 500·200·4,000·40,000원, "
+                             "중형·대형 600·200·8,000·100,000원이다. ※ 입차 후 최초 10분 무료, 비고2 "
+                             "운영시간(노외 주간 09:00~20:00), 비고3 급지(1급지 지행역 주변 상업지역), "
+                             "비고5 10분 미만 10분 계산. 제7조는 면제 4종과 50% 경감 8종, 전기차 "
+                             "2시간 무료 뒤 50%, 재래시장 2시간 무료 허용을 정한다."),
+                },
+                {
+                    "id": "corp", "name": "동두천시 시설관리공단 공영주차장 현황·정기권 안내",
+                    "org": "동두천시 시설관리공단 시설관리팀(031-865-6004)",
+                    "url": DDC_CORP_URL,
+                    "file": DDC_CORP_TXT.name if DDC_CORP_TXT.exists() else None,
+                    "sha256": sha256(DDC_CORP_TXT) if DDC_CORP_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 12, "fetched_at": _sync_time(DDC_CORP_TXT),
+                    "note": ("전체 공영주차장 64개소 2,934면(환승 2·106면, 노상 25·825면, 노외 36·1,599면 "
+                             "가운데 유료 11·893면, 무료 25·706면)과 유료 노외주차장 12행(시청 부설 포함)의 "
+                             "면수·운영시간·요금을 적고 있다. 2시간 무료 주차장은 09:00~20:00 월~토, "
+                             "송내1·4는 09:00~22:00 월~일, 상패동 대형자동차는 08:00~21:00 월~토, "
+                             "시청 부설은 08:00~18:00 월~금이다. 정기권은 7곳(송내4 50,000원·송내지구·"
+                             "중앙동·보산동·생연로 일원·중앙역세권 40,000원·상패동 대형 100,000원)에서만 "
+                             "판매한다."),
+                },
+                {
+                    "id": "city", "name": "동두천시 홈페이지 공영주차장 안내(노상·무료 노외·기타 관리부서)",
+                    "org": "동두천시 교통행정과(031-860-2293)",
+                    "url": DDC_CITY_URL,
+                    "file": DDC_CITY_TXT.name if DDC_CITY_TXT.exists() else None,
+                    "sha256": sha256(DDC_CITY_TXT) if DDC_CITY_TXT.exists() else None,
+                    "license": "공공기관 공개 웹페이지(공공누리 제1유형)", "base_date": "조회 2026-11-17",
+                    "rows_total": 82, "fetched_at": _sync_time(DDC_CITY_TXT),
+                    "note": ("공영주차장 총 82개소 3,768면(노상 26·816면, 유료 노외 11·708면, 무료 노외 23·716면, "
+                             "기타 부서 22·1,525면)을 안내한다. 노상주차장은 모두 무료이고, 무료 노외주차장 "
+                             "목록에 동두천역 환승주차장(68면)이 들어 있다. 시청 부설주차장(방죽로 23)은 "
+                             "기타 부서 주차장(349면)으로 표기되며 공단이 199면을 유료로 운영한다 — "
+                             "표준데이터에는 없어 카드로 만들지 않고 자주 묻는 질문에 안내했다."),
+                },
+            ],
+        },
+        "districts": [{"name": g, "slug": s} for g, s in DDC_DISTRICTS],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": {
+            "style": "dongducheon_grade",
+            "base_min": DDC_BASE_MIN,
+            "unit_min": DDC_UNIT_MIN,
+            "free_min": DDC_FREE_MIN,
+            "applies": DDC_ORDINANCE_NOTE,
+            "off": [
+                {"grade": 1, "where": "상업지역 중 교통혼잡역세권(지행역 주변)",
+                 "base": 600, "unit": 200, "day": 6_000, "month": 50_000, "lots": 0},
+                {"grade": 2, "where": "그 밖의 상업·준주거·주거지역",
+                 "base": 500, "unit": 200, "day": 4_000, "month": 40_000, "lots": 0},
+            ],
+            "two_hour": {"where": "2급지에 한함", "free_min": DDC_2H_FREE_MIN,
+                         "unit": DDC_FEE_2H["unit"], "day": DDC_FEE_2H["day"],
+                         "month": DDC_FEE_2H["month"], "lots": 0},
+            "big": [
+                {"kind": "소형", "base": 500, "unit": 200, "day": 4_000, "month": 40_000, "lots": 0},
+                {"kind": "중형·대형", "base": 600, "unit": 200, "day": 8_000, "month": 100_000, "lots": 0},
+            ],
+            "street": [
+                {"grade": 1, "base": 700, "unit": 300, "after": 700},
+                {"grade": 2, "base": 500, "unit": 200, "after": 500},
+            ],
+            "windows": [
+                {"group": "송내1·송내4 공영(1급지)", "hours": "월~일 09:00~22:00",
+                 "free": "일요일·공휴일 무료"},
+                {"group": "2시간 무료 주차장(2급지)", "hours": "월~토 09:00~20:00",
+                 "free": "일요일·공휴일 무료 · 야간(20:00~09:00) 무료"},
+                {"group": "상패동 대형자동차 공영주차장", "hours": "월~토 08:00~21:00",
+                 "free": "일요일·공휴일 무료 · 야간 무료"},
+                {"group": "동두천시청 부설주차장(공단)", "hours": "월~금 08:00~18:00",
+                 "free": "토·일·공휴일 무료"},
+            ],
+            "monthly_sold": sorted(DDC_MONTHLY),
+            "corp": {
+                "paid_out": len([l for l in lots if l["list_mode"] == "card"
+                                 and l["fee"]["type"] == "유료"]),
+                "free_out": len([l for l in lots if l["list_mode"] == "card"
+                                 and l["fee"]["type"] == "무료"]),
+                "street": len([l for l in lots if l["list_mode"] == "street"]),
+            },
+            "lots": [
+                {"name": l["name"], "dong": l["dong"], "ptype": l["ptype"],
+                 "grade": l["fee"].get("grade") or l["fee"].get("grade_label"),
+                 "free": l["fee"].get("free_min"), "unit": l["fee"].get("unit_fee"),
+                 "base": l["fee"].get("base_fee"),
+                 "day": l["fee"].get("daily_fee"), "month": l["fee"].get("monthly")}
+                for l in lots if l["fee"]["type"] == "유료"],
+            "basis": ("「동두천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표"
+                      f"({DDC_ORDINANCE_NOTE}) · 제7조 주차요금의 감면 · 동두천시 시설관리공단 "
+                      "공영주차장 현황(2026-11-17 확인)"),
+        },
+    }
+    # 급지 요금표의 ‘이 사이트 유료 주차장’은 그 급지의 기본 요금을 쓰는 곳만 센다 —
+    #   2시간 무료 주차 허용 노외주차장은 따로 표를 두므로 여기서 빼고 센다.
+    card_paid = Counter(l["fee"].get("grade") for l in lots
+                        if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+                        and l["fee"].get("grade") and l["fee"].get("free_min") != DDC_2H_FREE_MIN)
+    for row in payload["fee_table"]["off"]:
+        row["lots"] = card_paid.get(row["grade"], 0)
+    two_h = [l for l in lots if l["list_mode"] == "card" and l["fee"]["type"] == "유료"
+             and l["fee"].get("free_min") == DDC_2H_FREE_MIN]
+    payload["fee_table"]["two_hour"]["lots"] = len(two_h)
+    for row in payload["fee_table"]["big"]:
+        row["lots"] = len([l for l in lots if l["list_mode"] == "card"
+                           and l["fee"].get("grade_label") == f"대형자동차 {row['kind']}"])
+    payload.update(CITY_META["동두천시"] | {
+        "city": "동두천시",
+        "weekend_free_pages": False,
+        "discounts": DDC_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / "dongducheon_parking.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def check_quality_dongducheon(std_all, rows, lots, excluded, merged, hour_fixed, space_diff,
+                              note_fixed, reclassified, month_diff, addr_fixed, dup_mgmt, no_ticket):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    by_dong = Counter(l["dong"] or "동 미상" for l in card)
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows),
+        "원자료_동두천시행수": len([r for r in rows if (r.get("주차장구분") or "").strip() == "공영"]),
+        "원자료_전체행수": len(rows),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded),
+        "제외_행": excluded,
+        "중복제거_행수": len(merged),
+        "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(by_dong.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in lots if l["fee"]["type"] == "미상"],
+        "급지별": dict(Counter(l["fee"]["grade"] for l in paid if l["fee"].get("grade"))),
+        "표준데이터_급지": dict(Counter(l["fee"].get("std_grade") for l in paid
+                                     if l["fee"].get("std_grade"))),
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "2시간무료": len([l for l in paid if l["fee"].get("free_min") == DDC_2H_FREE_MIN]),
+        "대형자동차": len([l for l in paid if (l["fee"].get("grade_label") or "").startswith("대형자동차")]),
+        "정기권_판매": sorted(l["name"] for l in paid if l["fee"].get("monthly")),
+        "운영시간_보정": hour_fixed,
+        "면수_차이": space_diff,
+        "등록값_차이": note_fixed,
+        "요금구분_보정": reclassified,
+        "정기권_차이": month_diff,
+        "주소_보정": addr_fixed,
+        "관리번호_중복": dup_mgmt,
+        "1일권_없음": no_ticket,
+        "감면_출처": "「동두천시 주차장 설치 및 관리 조례」 제7조(주차요금의 감면) · 동두천시 시설관리공단 감면안내",
+        "무료시간_출처": "조례 별표1 ※(입차 후 최초 10분 무료) · 2시간 무료 주차 허용 노외주차장(최초 2시간)",
+        "주말무료_출처": ("동두천시 시설관리공단 유료 운영시간(월~토 / 송내1·4 월~일) · "
+                          "조례 제7조 제1항 제1호 마목(공휴일 이용차량 면제)"),
+        "일요일_무료표기": [l["name"] for l in lots if l["free_days"].get("sun")],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                          / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+    }
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
-    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "all"], default="all")
+    ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "all"], default="all")
     args = ap.parse_args()
 
-    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시"] if args.city == "all" else \
+    want = (["수원시", "성남시", "용인시", "화성시", "안양시", "평택시", "부천시", "고양시", "남양주시", "안산시", "시흥시", "의정부시", "김포시", "파주시", "광주시", "하남시", "군포시", "광명시", "구리시", "오산시", "이천시", "안성시", "양주시", "포천시", "의왕시", "여주시", "동두천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -14991,7 +15680,8 @@ def main():
              "gwangmyeong": ["광명시"], "guri": ["구리시"], "osan": ["오산시"],
              "icheon": ["이천시"], "anseong": ["안성시"],
              "yangju": ["양주시"], "pocheon": ["포천시"], "uiwang": ["의왕시"],
-             "yeoju": ["여주시"]}[args.city])
+             "yeoju": ["여주시"],
+             "dongducheon": ["동두천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -15045,6 +15735,8 @@ def main():
         cities.append(build_uiwang())
     if "여주시" in want:
         cities.append(build_yeoju())
+    if "동두천시" in want:
+        cities.append(build_dongducheon())
 
     if args.city == "all":
         site = build_site_payload(cities)

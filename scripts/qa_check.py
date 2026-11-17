@@ -3288,6 +3288,177 @@ for _u in ("https://parking.9welfare.com/parking/gyeonggi/yeoju/",
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"여주시 주소가 사이트맵에 없음: {_u}")
 
+# ---------------------------------------------------------------- 동두천시 (T-03 Phase 26)
+# 「동두천시 주차장 설치 및 관리 조례」 [별표 1](시행 2026-05-06, 경기도동두천시조례 제2628호 ·
+# 별표1〈개정 2025.11.18.〉)와 제7조 감면, 동두천시 시설관리공단 공영주차장 현황(2026-11-17 확인):
+# 노외 1급지 30분 600원·10분당 200원·1일 6,000원·월 50,000원, 2급지 500·200·4,000·40,000원,
+# 2시간 무료 주차 허용 노외(2급지 한정)는 최초 2시간 무료 뒤 10분당 400원, 대형자동차는
+# 소형 500·200·4,000·40,000원 / 중형·대형 600·200·8,000·100,000원, 입차 후 최초 10분 무료.
+dc_cards = [l for l in LOTS if l.get("city") == "동두천시" and l.get("list_mode") == "card"]
+dc_paid = [l for l in dc_cards if l["fee"]["type"] == "유료"]
+dc_free = [l for l in dc_cards if l["fee"]["type"] == "무료"]
+dc_by = {l["name"]: l for l in dc_cards}
+dc_street = [l for l in LOTS if l.get("city") == "동두천시" and l.get("list_mode") == "street"]
+dc_street_paid = [l for l in dc_street if l["fee"]["type"] == "유료"]
+dc_2h = [l for l in dc_paid if l["fee"].get("free_min") == 120]
+dc_big = {l["name"]: l for l in dc_paid if (l["fee"].get("grade_label") or "").startswith("대형자동차")}
+dc_month = sorted(l["name"] for l in dc_paid if l["fee"].get("monthly"))
+if not dc_cards:
+    fails.append("동두천시 카드 데이터가 없음")
+# 구성: 카드 39곳(유료 13·무료 26) 1,599면 · 노상 25구간 812면(모두 무료)
+if len(dc_cards) != 39 or len(dc_paid) != 13 or len(dc_free) != 26:
+    fails.append(f"동두천시 카드 구성이 다름: 카드 {len(dc_cards)} · 유료 {len(dc_paid)} · 무료 {len(dc_free)}")
+if sum(l["spaces"] or 0 for l in dc_cards) != 1599:
+    fails.append(f"동두천시 카드 구획 합계가 다름: {sum(l['spaces'] or 0 for l in dc_cards)}")
+if len(dc_street) != 25 or sum(l["spaces"] or 0 for l in dc_street) != 812:
+    fails.append(f"동두천시 노상 구간이 다름: {len(dc_street)}구간 "
+                 f"{sum(l['spaces'] or 0 for l in dc_street)}면")
+if dc_street_paid:
+    fails.append(f"동두천시 유료 노상 구간이 있음: {[l['name'] for l in dc_street_paid][:3]}")
+if len({l.get("dong") for l in dc_cards}) != 8 or any(not l.get("dong") for l in dc_cards):
+    fails.append(f"동두천시 동 구성이 다름: {sorted({l.get('dong') for l in dc_cards})}")
+if any(l["kind"] == "민영" for l in LOTS if l.get("city") == "동두천시"):
+    fails.append("동두천시에 민영 주차장이 실려 있음")
+_dc_dup = [k for k, v in Counter(l["name"] for l in dc_cards).items() if v > 1]
+if _dc_dup:
+    fails.append(f"동두천시 카드 이름 중복: {_dc_dup[:3]}")
+_dc_q = next(c for c in CITIES if c["city"] == "동두천시").get("quality") or {}
+if _dc_q.get("원자료_행수") != 64 or _dc_q.get("제외_행수") != 0:
+    fails.append(f"동두천시 원자료 처리가 다름: {_dc_q.get('원자료_행수')}행 · 제외 {_dc_q.get('제외_행수')}")
+# 요금구분 보정 1건 — 송내3(표준데이터 무료 ↔ 공단 유료)
+if len(_dc_q.get("요금구분_보정") or []) != 1 or "송내3" not in (_dc_q.get("요금구분_보정") or [""])[0]:
+    fails.append(f"동두천시 요금구분 보정이 다름: {_dc_q.get('요금구분_보정')}")
+_sn3 = dc_by.get("송내3주차장")
+if not _sn3 or _sn3["fee"]["type"] != "유료":
+    fails.append("동두천시 송내3주차장이 유료로 바로잡히지 않음")
+elif (_sn3["fee"].get("grade"), _sn3["fee"].get("free_min"), _sn3["fee"].get("unit_fee")) != (2, 120, 400):
+    fails.append(f"동두천시 송내3 요금이 공단 안내와 다름: {_sn3['fee'].get('grade')}/"
+                 f"{_sn3['fee'].get('free_min')}/{_sn3['fee'].get('unit_fee')}")
+# 2시간 무료 주차장 9곳 · 대형자동차 2곳 · 정기권 7곳
+if len(dc_2h) != 9:
+    fails.append(f"동두천시 2시간 무료 주차장이 9곳이 아님: {sorted(l['name'] for l in dc_2h)}")
+for _n in ("큰시장 공영주차장", "중앙동 공영주차장", "송내2주차장", "송내3주차장", "송내지구 공영주차장",
+           "미2사단 보산동 공영주차장", "생연로일원 공영주차장", "동두천중앙역세권", "5060청춘로드 주차장"):
+    _l = dc_by.get(_n)
+    if not _l or _l["fee"].get("free_min") != 120 or _l["fee"].get("unit_fee") != 400:
+        fails.append(f"동두천시 {_n}이 2시간 무료·10분당 400원이 아님")
+if len(dc_big) != 2:
+    fails.append(f"동두천시 대형자동차 주차장이 2곳이 아님: {sorted(dc_big)}")
+for _n, _base, _day in (("대형자동차 공영주차장(소형)", 500, 4000), ("대형자동차 공영주차장(대형)", 600, 8000)):
+    _l = dc_big.get(_n)
+    if not _l or (_l["fee"].get("base_fee"), _l["fee"].get("unit_fee"), _l["fee"].get("daily_fee")) != \
+            (_base, 200, _day):
+        fails.append(f"동두천시 {_n} 요금이 별표1과 다름: {_l['fee'] if _l else None}")
+if dc_month != sorted(["송내4주차장", "송내지구 공영주차장", "중앙동 공영주차장",
+                       "대형자동차 공영주차장(대형)", "미2사단 보산동 공영주차장",
+                       "생연로일원 공영주차장", "동두천중앙역세권"]):
+    fails.append(f"동두천시 정기권 판매 주차장이 다름: {dc_month}")
+# 급지·기본요금 — 1급지(송내1·송내4) 최초 30분 600원·10분당 200원·일 6,000원
+for _n in ("송내1주차장", "송내4주차장"):
+    _l = dc_by.get(_n)
+    if not _l or (_l["fee"].get("grade"), _l["fee"].get("base_min"), _l["fee"].get("base_fee"),
+                  _l["fee"].get("unit_min"), _l["fee"].get("unit_fee"),
+                  _l["fee"].get("free_min"), _l["fee"].get("daily_fee")) != (1, 30, 600, 10, 200, 10, 6000):
+        fails.append(f"동두천시 {_n} 요금이 별표1 1급지와 다름")
+if dc_by.get("송내4주차장") and dc_by["송내4주차장"]["fee"].get("monthly") != 50000:
+    fails.append("동두천시 송내4 월 정기요금이 50,000원이 아님")
+# 면수 차이 2건(송내3 21↔14, 대형 소형 48↔44)
+if len(_dc_q.get("면수_차이") or []) != 2:
+    fails.append(f"동두천시 면수 차이가 2건이 아님: {len(_dc_q.get('면수_차이') or [])}")
+# 관리번호 중복·주소 보정 없음
+if _dc_q.get("관리번호_중복") or _dc_q.get("주소_보정") or _dc_q.get("이름중복"):
+    fails.append(f"동두천시 원자료 이상: {_dc_q.get('관리번호_중복')} {_dc_q.get('주소_보정')}")
+# 계산 표본 — 별표1 본문으로 직접 계산한 값
+for _n, _mins, _want in (("송내4주차장", 5, 0), ("송내4주차장", 10, 0), ("송내4주차장", 15, 600),
+                         ("송내4주차장", 30, 600), ("송내4주차장", 31, 800), ("송내4주차장", 60, 1200),
+                         ("송내4주차장", 120, 2400), ("송내4주차장", 1440, 6000),
+                         ("큰시장 공영주차장", 60, 0), ("큰시장 공영주차장", 120, 0),
+                         ("큰시장 공영주차장", 130, 400), ("큰시장 공영주차장", 140, 800),
+                         ("큰시장 공영주차장", 180, 2400), ("큰시장 공영주차장", 1440, 4000),
+                         ("대형자동차 공영주차장(소형)", 30, 500),
+                         ("대형자동차 공영주차장(대형)", 30, 600),
+                         ("대형자동차 공영주차장(대형)", 60, 1200),
+                         ("대형자동차 공영주차장(대형)", 1440, 8000)):
+    _l = dc_by.get(_n)
+    if not _l:
+        fails.append(f"동두천시 표본 주차장이 없음: {_n}")
+        continue
+    _r = price_for(_l, _mins, "weekday")
+    _got = 0 if _r["state"] == "free" else _r.get("amount")
+    if _got != _want:
+        fails.append(f"동두천시 요금 계산이 별표1과 다름: {_n} {_mins}분 {_got} ≠ {_want}")
+# 요일 — 일요일·공휴일은 유료 주차장 13곳 모두 0원, 토요일은 평일과 같다
+for _l in dc_paid:
+    _r = price_for(_l, 180, "sun")
+    if _r["state"] != "free":
+        fails.append(f"동두천시 {_l['name']} 일요일 계산이 무료가 아님: {_r}")
+    if not _l["free_days"].get("sun"):
+        fails.append(f"동두천시 {_l['name']}에 일요일 무료 표기가 없음")
+for _n, _want in (("큰시장 공영주차장", 2400), ("송내4주차장", 3600)):
+    _l = dc_by.get(_n)
+    if _l and price_for(_l, 180, "sat").get("amount") != _want:
+        fails.append(f"동두천시 {_n} 토요일 3시간이 {_want:,}원이 아님: {price_for(_l, 180, 'sat')}")
+# 유료 운영시간 — 공단 안내(송내1·4 09:00~22:00, 2시간 무료 09:00~20:00, 대형 08:00~21:00)
+for _n, _se in (("송내1주차장", (9 * 60, 22 * 60)), ("큰시장 공영주차장", (9 * 60, 20 * 60)),
+                ("대형자동차 공영주차장(대형)", (8 * 60, 21 * 60))):
+    _l = dc_by.get(_n)
+    if _l:
+        _wk = _l["hours"]["weekday"]
+        if (_wk["start"], _wk["end"]) != _se:
+            fails.append(f"동두천시 {_n} 유료 시간이 {_se}가 아님: {_wk['raw']}")
+# 감면표 — 면제(1.0)·50%·전기차 2시간 면제 뒤 50%(120분)
+_dc_disc = next(c for c in CITIES if c["city"] == "동두천시").get("discounts") or []
+if not any(d["rate"] == 1.0 for d in _dc_disc):
+    fails.append("동두천시 감면표에 면제 항목이 없음")
+if sum(1 for d in _dc_disc if d["rate"] == 0.5) < 5:
+    fails.append(f"동두천시 감면표의 50% 항목이 적음: {len(_dc_disc)}")
+if not any(d.get("exempt_min") == 120 and d["rate"] == 0.5 for d in _dc_disc):
+    fails.append("동두천시 감면표에 전기차 2시간 면제 항목이 없음")
+# 페이지 — 시 허브 · 동 5곳 · 노상
+_dc_root = DIST / "parking" / "gyeonggi" / "dongducheon"
+_dc_hub = _dc_root / "index.html"
+if not _dc_hub.exists():
+    fails.append("동두천시 시 페이지 없음")
+else:
+    _dc_html = _dc_hub.read_text()
+    for label in ("동두천시 급지별 주차요금표", "최초 30분", "10분당", "2시간 무료", "1일 주차요금",
+                  "월 정기요금", "송내4", "031-865-6004", "2026-05-06", "동두천시청 부설주차장",
+                  "일요일·공휴일", "동두천시 공영주차장 39곳"):
+        if label not in _dc_html:
+            fails.append(f"동두천시 시 페이지에 {label} 없음")
+    if _dc_html.count('class="card lot') != len(dc_cards):
+        fails.append(f"동두천시 시 페이지 카드 수 불일치({_dc_html.count(chr(34)+'card lot')} vs {len(dc_cards)})")
+    if "&lt;b&gt;" in _dc_html:
+        fails.append("동두천시 시 페이지에 이스케이프된 <b> 태그가 보임")
+    if "None" in _dc_html or "nan" in _dc_html:
+        fails.append("동두천시 시 페이지에 None/nan 문자열이 보임")
+_dc_st_page = _dc_root / "street-parking" / "index.html"
+if not _dc_st_page.exists():
+    fails.append("동두천시 노상 페이지 없음")
+else:
+    _dc_st = _dc_st_page.read_text()
+    for label in ("한빛누리고", "동광극장", "25구간", "812면", "동두천시는 노상주차장 25구간 812면을"):
+        if label not in _dc_st:
+            fails.append(f"동두천시 노상 페이지에 {label} 없음")
+    if "&lt;b&gt;" in _dc_st:
+        fails.append("동두천시 노상 페이지에 이스케이프된 <b> 태그가 보임")
+for _slug, _n in (("saengyeon-dong", 18), ("tapdong-dong", 6), ("bosan-dong", 5),
+                  ("sangpae-dong", 3), ("songnae-dong", 3)):
+    _p = _dc_root / _slug / "index.html"
+    if not _p.exists():
+        fails.append(f"동두천시 동 페이지 없음: {_slug}")
+    elif _p.read_text().count('class="card lot') != _n:
+        fails.append(f"동두천시 {_slug} 카드 수 불일치({_p.read_text().count(chr(34)+'card lot')} ≠ {_n})")
+for _slug in ("jihaeng-dong", "gwangam-dong", "dongducheon-dong"):
+    if (_dc_root / _slug / "index.html").exists():
+        fails.append(f"동두천시 카드 3곳 미만인 동 페이지가 만들어짐: {_slug}")
+for _u in ("https://parking.9welfare.com/parking/gyeonggi/dongducheon/",
+           "https://parking.9welfare.com/parking/gyeonggi/dongducheon/street-parking/",
+           "https://parking.9welfare.com/parking/gyeonggi/dongducheon/saengyeon-dong/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"동두천시 주소가 사이트맵에 없음: {_u}")
+
+
 
 print()
 if warns:

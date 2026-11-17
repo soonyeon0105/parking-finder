@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-17 18:25",
+  "generated_at": "2026-11-17 18:40",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -163,6 +163,12 @@
    {
     "city": "여주시",
     "slug": "yeoju",
+    "province": "경기도",
+    "province_slug": "gyeonggi"
+   },
+   {
+    "city": "동두천시",
+    "slug": "dongducheon",
     "province": "경기도",
     "province_slug": "gyeonggi"
    }
@@ -1541,6 +1547,48 @@
     "fetched_at": "2026-11-17 18:12 (KST)",
     "note": "시청부설주차장은 월~금 09:00~18:30(토·일·공휴일 휴무), 최초 40분 무료·40분 초과 1시간 이내 500원·1시간 초과 10분마다 300원, 82면(일반 63·장애인 5·임산부·어르신 2·경차 7·버스 1·전기차 4)이다.",
     "city": "여주시"
+   },
+   {
+    "id": "ordinance",
+    "name": "동두천시 주차장 설치 및 관리 조례 [별표 1] 공영주차장 주차요금표 · 제7조 감면",
+    "org": "동두천시청 교통행정과(031-860-2293)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127619&gubun=ELIS&conDatGubunCd=1",
+    "file": "ddc.law.go.kr_주차장조례_별표1_20261117.hwp",
+    "sha256": "9b066a2823a6be1b537b55f2d5745f372ffcc1b45d95f9beb4c37a20257e4ba4",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-05-06 · 경기도동두천시조례 제2628호(일부개정) · 별표1〈개정 2025.11.18.〉",
+    "rows_total": null,
+    "fetched_at": "2026-11-17 18:36 (KST)",
+    "note": "국가법령정보센터 자치법규 별표 HWP를 내려받아 표 셀과 비고를 읽어 정리본(txt)을 두었다. 노외 1급지 최초 30분 600원·10분당 200원·1일 6,000원·월 50,000원, 2급지 500·200·4,000·40,000원, 2시간 무료 주차 허용 노외(2급지 한정)는 최초 2시간 무료 뒤 10분당 400원, 대형자동차는 소형 500·200·4,000·40,000원, 중형·대형 600·200·8,000·100,000원이다. ※ 입차 후 최초 10분 무료, 비고2 운영시간(노외 주간 09:00~20:00), 비고3 급지(1급지 지행역 주변 상업지역), 비고5 10분 미만 10분 계산. 제7조는 면제 4종과 50% 경감 8종, 전기차 2시간 무료 뒤 50%, 재래시장 2시간 무료 허용을 정한다.",
+    "city": "동두천시"
+   },
+   {
+    "id": "corp",
+    "name": "동두천시 시설관리공단 공영주차장 현황·정기권 안내",
+    "org": "동두천시 시설관리공단 시설관리팀(031-865-6004)",
+    "url": "https://www.ddcsiseol.or.kr/main/content/view/MN02040000.do",
+    "file": "ddcsiseol.or.kr_공영주차장_20261117.txt",
+    "sha256": "65103b0671bb3042338b65919508b8f7b423ee916138b10edcd8f7d58763593b",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 12,
+    "fetched_at": "2026-11-17 18:36 (KST)",
+    "note": "전체 공영주차장 64개소 2,934면(환승 2·106면, 노상 25·825면, 노외 36·1,599면 가운데 유료 11·893면, 무료 25·706면)과 유료 노외주차장 12행(시청 부설 포함)의 면수·운영시간·요금을 적고 있다. 2시간 무료 주차장은 09:00~20:00 월~토, 송내1·4는 09:00~22:00 월~일, 상패동 대형자동차는 08:00~21:00 월~토, 시청 부설은 08:00~18:00 월~금이다. 정기권은 7곳(송내4 50,000원·송내지구·중앙동·보산동·생연로 일원·중앙역세권 40,000원·상패동 대형 100,000원)에서만 판매한다.",
+    "city": "동두천시"
+   },
+   {
+    "id": "city",
+    "name": "동두천시 홈페이지 공영주차장 안내(노상·무료 노외·기타 관리부서)",
+    "org": "동두천시 교통행정과(031-860-2293)",
+    "url": "https://www.ddc.go.kr/ddc/contents.do?key=242",
+    "file": "ddc.go.kr_공영주차장_20261117.txt",
+    "sha256": "7436ef95dc4968bf1f4c9333f74ff48cab5182af9eb781eb0d3cff2b24b27196",
+    "license": "공공기관 공개 웹페이지(공공누리 제1유형)",
+    "base_date": "조회 2026-11-17",
+    "rows_total": 82,
+    "fetched_at": "2026-11-17 18:36 (KST)",
+    "note": "공영주차장 총 82개소 3,768면(노상 26·816면, 유료 노외 11·708면, 무료 노외 23·716면, 기타 부서 22·1,525면)을 안내한다. 노상주차장은 모두 무료이고, 무료 노외주차장 목록에 동두천역 환승주차장(68면)이 들어 있다. 시청 부설주차장(방죽로 23)은 기타 부서 주차장(349면)으로 표기되며 공단이 199면을 유료로 운영한다 — 표준데이터에는 없어 카드로 만들지 않고 자주 묻는 질문에 안내했다.",
+    "city": "동두천시"
    }
   ]
  },
@@ -1569,7 +1617,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -1796,7 +1844,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -1983,7 +2031,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -2177,7 +2225,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -2316,7 +2364,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -2503,7 +2551,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -2670,7 +2718,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -2889,7 +2937,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -3094,7 +3142,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -3328,7 +3376,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -4063,7 +4111,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -4426,7 +4474,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -4706,7 +4754,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -4953,7 +5001,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -5232,7 +5280,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -5467,7 +5515,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 35,
     "원자료_하남시행수": 35,
@@ -5734,7 +5782,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 80,
     "원자료_군포시행수": 80,
@@ -6081,7 +6129,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 28,
     "원자료_광명시행수": 28,
@@ -6302,7 +6350,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 15,
     "원자료_구리시행수": 15,
@@ -6526,7 +6574,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 44,
     "원자료_오산시행수": 44,
@@ -6989,7 +7037,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 115,
     "원자료_이천시행수": 115,
@@ -7768,7 +7816,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 52,
     "원자료_안성시행수": 52,
@@ -8134,7 +8182,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 89,
     "원자료_양주시행수": 49,
@@ -8701,7 +8749,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 82,
     "원자료_포천시행수": 82,
@@ -9172,7 +9220,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_의왕시행수": 55,
@@ -9849,7 +9897,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-17 18:25",
+    "generated_at": "2026-11-17 18:40",
     "원자료_전국행수": 18994,
     "원자료_행수": 40,
     "원자료_여주시행수": 40,
@@ -10469,6 +10517,471 @@
      }
     ],
     "basis": "「여주시 주차장 조례」 [별표 5] 공영주차장 주차요금표(시행 2025-06-30 · 경기도여주시조례 제1434호(일부개정) · 별표5·별표6 〈개정 2025.6.30.〉) · 「여주시 공공청사 부설주차장 관리 운영 조례」 [별표 1](시행 2024-12-18 · 경기도여주시조례 제1399호(일부개정) · 별표1 〈개정 2024.12.18.〉) · 여주도시공사 공영주차장 안내(2026-11-17 확인)"
+   }
+  },
+  {
+   "city": "동두천시",
+   "slug": "dongducheon",
+   "province": "경기도",
+   "province_slug": "gyeonggi",
+   "districts": [
+    {
+     "name": "동두천시",
+     "slug": "dongducheon"
+    }
+   ],
+   "quality": {
+    "generated_at": "2026-11-17 18:40",
+    "원자료_전국행수": 18994,
+    "원자료_행수": 64,
+    "원자료_동두천시행수": 64,
+    "원자료_전체행수": 64,
+    "민영_제외": 0,
+    "제외_행수": 0,
+    "제외_행": [],
+    "중복제거_행수": 0,
+    "중복제거_행": [],
+    "총_주차장": 39,
+    "노외_부설": {
+     "노외": 39
+    },
+    "노상_구간": 25,
+    "총_구획수": 1599,
+    "노상_구획수": 812,
+    "동별": {
+     "생연동": 18,
+     "탑동동": 6,
+     "보산동": 5,
+     "상패동": 3,
+     "송내동": 3,
+     "지행동": 2,
+     "광암동": 1,
+     "동두천동": 1
+    },
+    "동수": 8,
+    "동_미상": [],
+    "동_근거": {
+     "지번주소": 39
+    },
+    "요금구분": {
+     "무료": 51,
+     "유료": 13
+    },
+    "요금_미상": [],
+    "급지별": {
+     "2": 9,
+     "1": 2
+    },
+    "표준데이터_급지": {
+     "2": 10,
+     "1": 3
+    },
+    "유료_노상": 0,
+    "유료_노외": 13,
+    "유료_부설": 0,
+    "2시간무료": 9,
+    "대형자동차": 2,
+    "정기권_판매": [
+     "대형자동차 공영주차장(대형)",
+     "동두천중앙역세권",
+     "미2사단 보산동 공영주차장",
+     "생연로일원 공영주차장",
+     "송내4주차장",
+     "송내지구 공영주차장",
+     "중앙동 공영주차장"
+    ],
+    "운영시간_보정": [
+     "대형자동차 공영주차장(소형): 표준데이터 09:00~21:00 → 공단 08:00~21:00(월~토)·일요일·공휴일 무료",
+     "대형자동차 공영주차장(대형): 표준데이터 09:00~21:00 → 공단 08:00~21:00(월~토)·일요일·공휴일 무료",
+     "송내지구 공영주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "5060청춘로드 주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "중앙동 공영주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "큰시장 공영주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "송내4주차장: 표준데이터 09:00~22:00 → 공단 09:00~22:00(월~일)·일요일·공휴일 무료",
+     "송내1주차장: 표준데이터 09:00~22:00 → 공단 09:00~22:00(월~일)·일요일·공휴일 무료",
+     "송내3주차장: 표준데이터 00:00~23:59 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "동두천중앙역세권: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "생연로일원 공영주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "미2사단 보산동 공영주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료",
+     "송내2주차장: 표준데이터 09:00~20:00 → 공단 09:00~20:00(월~토)·일요일·공휴일 무료"
+    ],
+    "면수_차이": [
+     "대형자동차 공영주차장(소형): 표준데이터 48면 ↔ 공단 44면",
+     "송내3주차장: 표준데이터 21면 ↔ 공단 14면"
+    ],
+    "등록값_차이": [
+     "송내3주차장: 표준데이터 기본 -분 0원·추가 -분 0원 ↔ 조례 별표1 120분 0원·10분당 400원",
+     "송내3주차장: 표준데이터 급지 1 ↔ 2시간 무료 요금제는 2급지 한정(별표1) — 공단 요금이 2시간 무료·10분당 400원이라 2급지로 실음"
+    ],
+    "요금구분_보정": [
+     "송내3주차장: 표준데이터 요금정보 ‘무료’ ↔ 동두천시 시설관리공단이 유료로 운영(유료 노외주차장 현황 5번, 14면·09:00~20:00 월~토·2시간 무료·2시간 초과 10분당 400원·1일 4,000원) — 유료로 바로잡음"
+    ],
+    "정기권_차이": [
+     "5060청춘로드 주차장: 표준데이터 월정기권 40,000원 ↔ 공단 정기권 판매 7곳에 없음"
+    ],
+    "주소_보정": [],
+    "관리번호_중복": [],
+    "1일권_없음": [],
+    "감면_출처": "「동두천시 주차장 설치 및 관리 조례」 제7조(주차요금의 감면) · 동두천시 시설관리공단 감면안내",
+    "무료시간_출처": "조례 별표1 ※(입차 후 최초 10분 무료) · 2시간 무료 주차 허용 노외주차장(최초 2시간)",
+    "주말무료_출처": "동두천시 시설관리공단 유료 운영시간(월~토 / 송내1·4 월~일) · 조례 제7조 제1항 제1호 마목(공휴일 이용차량 면제)",
+    "일요일_무료표기": [
+     "미2사단 보산동 공영주차장",
+     "대형자동차 공영주차장(대형)",
+     "대형자동차 공영주차장(소형)",
+     "5060청춘로드 주차장",
+     "동두천중앙역세권",
+     "생연로일원 공영주차장",
+     "중앙동 공영주차장",
+     "큰시장 공영주차장",
+     "송내2주차장",
+     "송내3주차장",
+     "송내지구 공영주차장",
+     "송내1주차장",
+     "송내4주차장"
+    ],
+    "무료개방_표기": [
+     "미2사단 보산동 공영주차장",
+     "대형자동차 공영주차장(대형)",
+     "대형자동차 공영주차장(소형)",
+     "5060청춘로드 주차장",
+     "동두천중앙역세권",
+     "생연로일원 공영주차장",
+     "중앙동 공영주차장",
+     "큰시장 공영주차장",
+     "송내2주차장",
+     "송내3주차장",
+     "송내지구 공영주차장",
+     "송내1주차장",
+     "송내4주차장"
+    ],
+    "무료_요금구분": 51,
+    "무료_구획수": 1662,
+    "평균_기본요금": 575,
+    "토요일_미운영": 0,
+    "일공휴일_미운영": 0,
+    "좌표_없음": [],
+    "주소_없음": [],
+    "이름중복": [],
+    "관리번호중복": [],
+    "전화번호_없음": 0,
+    "데이터기준일": [
+     "2026-10-23"
+    ]
+   },
+   "weekend_free_pages": false,
+   "discounts": [
+    {
+     "label": "일반 차량",
+     "rate": 0.0,
+     "exempt_min": 0,
+     "note": ""
+    },
+    {
+     "label": "국가유공자·유족·고엽제·5·18부상자 면제",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "국가유공자 증서, 고엽제후유증·후유의증 환자·2세 증명서, 5·18민주유공자증을 소지한 사람의 자가운전차량 및 동승차량 — 면제(제7조 제1항 제1호 나~라목)"
+    },
+    {
+     "label": "긴급·공무수행·공휴일·성실납세자 면제",
+     "rate": 1.0,
+     "exempt_min": 0,
+     "note": "긴급자동차, 공무수행 차량, 공휴일 이용차량, 시가 주최·후원하는 공공 목적 행사 차량, 성실모범납세필증 부착 차량 — 면제(제7조 제1항 제1호 가목·마목)"
+    },
+    {
+     "label": "장애인 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "장애인등록증을 소지한 장애인의 자가운전차량 및 동승차량 — 50%"
+    },
+    {
+     "label": "경차 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "「자동차관리법」 제3조에 따른 경형자동차 — 50%"
+    },
+    {
+     "label": "저공해차 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "저공해자동차 표지부착차량 — 50%(전기자동차는 따로 2시간 무료 뒤 50%)"
+    },
+    {
+     "label": "다자녀(미성년 2자녀 이상) 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "자동차 소유주가 다자녀(미성년 2자녀 이상) 가구임을 증명하는 자동차 — 50%"
+    },
+    {
+     "label": "요일제·임산부·자원봉사·장기기증 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "시장이 실시하는 시책 참여 차량 — 요일제 스티커 부착차량, 모자보건수첩 등 임산부 증빙 제시차량, 경기도·시 우수 자원봉사자증 제시차량, 장기 및 인체조직 기증 등록증 제시차량 — 50%"
+    },
+    {
+     "label": "병역명문가·장기복무 제대군인 50%",
+     "rate": 0.5,
+     "exempt_min": 0,
+     "note": "병역명문가증과 주소가 기입된 신분증을 제시하는 사람의 차량, 장기복무 제대군인으로서 국가보훈등록증을 증명하는 차량 — 50%(2025-11-18 신설)"
+    },
+    {
+     "label": "전기차 2시간 면제 후 50%",
+     "rate": 0.5,
+     "exempt_min": 120,
+     "note": "「자동차관리법」 제10조에 따른 전기자동차 — 최초 2시간 무료 뒤 50%(제7조 제1항 제2호 바목)"
+    }
+   ],
+   "realtime": false,
+   "dong_page_min_lots": 3,
+   "fee_table": {
+    "style": "dongducheon_grade",
+    "base_min": 30,
+    "unit_min": 10,
+    "free_min": 10,
+    "applies": "시행 2026-05-06 · 경기도동두천시조례 제2628호(일부개정) · 별표1〈개정 2025.11.18.〉",
+    "off": [
+     {
+      "grade": 1,
+      "where": "상업지역 중 교통혼잡역세권(지행역 주변)",
+      "base": 600,
+      "unit": 200,
+      "day": 6000,
+      "month": 50000,
+      "lots": 2
+     },
+     {
+      "grade": 2,
+      "where": "그 밖의 상업·준주거·주거지역",
+      "base": 500,
+      "unit": 200,
+      "day": 4000,
+      "month": 40000,
+      "lots": 0
+     }
+    ],
+    "two_hour": {
+     "where": "2급지에 한함",
+     "free_min": 120,
+     "unit": 400,
+     "day": 4000,
+     "month": 40000,
+     "lots": 9
+    },
+    "big": [
+     {
+      "kind": "소형",
+      "base": 500,
+      "unit": 200,
+      "day": 4000,
+      "month": 40000,
+      "lots": 1
+     },
+     {
+      "kind": "중형·대형",
+      "base": 600,
+      "unit": 200,
+      "day": 8000,
+      "month": 100000,
+      "lots": 1
+     }
+    ],
+    "street": [
+     {
+      "grade": 1,
+      "base": 700,
+      "unit": 300,
+      "after": 700
+     },
+     {
+      "grade": 2,
+      "base": 500,
+      "unit": 200,
+      "after": 500
+     }
+    ],
+    "windows": [
+     {
+      "group": "송내1·송내4 공영(1급지)",
+      "hours": "월~일 09:00~22:00",
+      "free": "일요일·공휴일 무료"
+     },
+     {
+      "group": "2시간 무료 주차장(2급지)",
+      "hours": "월~토 09:00~20:00",
+      "free": "일요일·공휴일 무료 · 야간(20:00~09:00) 무료"
+     },
+     {
+      "group": "상패동 대형자동차 공영주차장",
+      "hours": "월~토 08:00~21:00",
+      "free": "일요일·공휴일 무료 · 야간 무료"
+     },
+     {
+      "group": "동두천시청 부설주차장(공단)",
+      "hours": "월~금 08:00~18:00",
+      "free": "토·일·공휴일 무료"
+     }
+    ],
+    "monthly_sold": [
+     "대형자동차 공영주차장(대형)",
+     "동두천중앙역세권",
+     "미2사단 보산동 공영주차장",
+     "생연로일원 공영주차장",
+     "송내4주차장",
+     "송내지구 공영주차장",
+     "중앙동 공영주차장"
+    ],
+    "corp": {
+     "paid_out": 13,
+     "free_out": 26,
+     "street": 25
+    },
+    "lots": [
+     {
+      "name": "미2사단 보산동 공영주차장",
+      "dong": "보산동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": 40000
+     },
+     {
+      "name": "대형자동차 공영주차장(대형)",
+      "dong": "상패동",
+      "ptype": "노외",
+      "grade": "대형자동차 중형·대형",
+      "free": 10,
+      "unit": 200,
+      "base": 600,
+      "day": 8000,
+      "month": 100000
+     },
+     {
+      "name": "대형자동차 공영주차장(소형)",
+      "dong": "상패동",
+      "ptype": "노외",
+      "grade": "대형자동차 소형",
+      "free": 10,
+      "unit": 200,
+      "base": 500,
+      "day": 4000,
+      "month": null
+     },
+     {
+      "name": "5060청춘로드 주차장",
+      "dong": "생연동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": null
+     },
+     {
+      "name": "동두천중앙역세권",
+      "dong": "생연동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": 40000
+     },
+     {
+      "name": "생연로일원 공영주차장",
+      "dong": "생연동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": 40000
+     },
+     {
+      "name": "중앙동 공영주차장",
+      "dong": "생연동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": 40000
+     },
+     {
+      "name": "큰시장 공영주차장",
+      "dong": "생연동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": null
+     },
+     {
+      "name": "송내2주차장",
+      "dong": "송내동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": null
+     },
+     {
+      "name": "송내3주차장",
+      "dong": "송내동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": null
+     },
+     {
+      "name": "송내지구 공영주차장",
+      "dong": "송내동",
+      "ptype": "노외",
+      "grade": 2,
+      "free": 120,
+      "unit": 400,
+      "base": 0,
+      "day": 4000,
+      "month": 40000
+     },
+     {
+      "name": "송내1주차장",
+      "dong": "지행동",
+      "ptype": "노외",
+      "grade": 1,
+      "free": 10,
+      "unit": 200,
+      "base": 600,
+      "day": 6000,
+      "month": null
+     },
+     {
+      "name": "송내4주차장",
+      "dong": "지행동",
+      "ptype": "노외",
+      "grade": 1,
+      "free": 10,
+      "unit": 200,
+      "base": 600,
+      "day": 6000,
+      "month": 50000
+     }
+    ],
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 [별표 1] 공영주차장 주차요금표(시행 2026-05-06 · 경기도동두천시조례 제2628호(일부개정) · 별표1〈개정 2025.11.18.〉) · 제7조 주차요금의 감면 · 동두천시 시설관리공단 공영주차장 현황(2026-11-17 확인)"
    }
   }
  ],
@@ -266948,6 +267461,7265 @@
    "price_key": 60,
    "city": "여주시",
    "city_slug": "yeoju"
+  },
+  {
+   "id": "ddc-001",
+   "mgmt_no": "215-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광암교주차장",
+   "gu": "동두천시",
+   "dong": "광암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 광암동 195-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "031-860-2293",
+   "lat": 37.89463268,
+   "lng": 127.087224,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-002",
+   "mgmt_no": "215-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동두천역주차장",
+   "gu": "동두천시",
+   "dong": "동두천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 동두천동 245-4",
+   "addr_road": "경기도동두천시평화로 2687",
+   "road": null,
+   "spaces": 68,
+   "tel": "031-860-2293",
+   "lat": 37.92840047,
+   "lng": 127.0556447,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-003",
+   "mgmt_no": "215-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "DDC커뮤니티센터",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 보산동 425-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-860-2293",
+   "lat": 37.9137149,
+   "lng": 127.056923,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-004",
+   "mgmt_no": "215-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미2사단 보산동 공영주차장",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 보산동 418-14",
+   "addr_road": "경기도 동두천시 평화로 2557-1",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-860-2293",
+   "lat": 37.91615923,
+   "lng": 127.0570332,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 공단 안내 위치는 경기도 동두천시 보산동 441-3입니다 · 공단은 ‘출차 전 무인정산기 결제, 2시간 무료 외 모든 감면·면제 대상 해당’을 안내합니다 · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": 40000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원 · 월 40,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-005",
+   "mgmt_no": "215-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미2사단 정문 맞은 편 지하철 하부",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 보산동 434-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "031-860-2293",
+   "lat": 37.91958542,
+   "lng": 127.0561696,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-006",
+   "mgmt_no": "215-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보산1펌프장지구",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 보산동 458-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "031-860-2293",
+   "lat": 37.92241796,
+   "lng": 127.056467,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-007",
+   "mgmt_no": "215-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한미문화의광장 주차장",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 보산동 431-36",
+   "addr_road": "경기도 동두천시 상패로 210-27",
+   "road": null,
+   "spaces": 47,
+   "tel": "031-860-2293",
+   "lat": 37.91665362,
+   "lng": 127.0558196,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-008",
+   "mgmt_no": "215-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대형자동차 공영주차장(대형)",
+   "gu": "동두천시",
+   "dong": "상패동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 상패동 252-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 136,
+   "tel": "031-865-6004",
+   "lat": 37.90101758,
+   "lng": 127.0353953,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "「동두천시 주차장 설치 및 관리 조례」 별표1 대형자동차 공영주차장 요금입니다 — 최초 30분 600원, 30분 초과 10분마다 200원, 1일 8,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 21:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 공단 안내 위치는 경기도 동두천시 상패동 370입니다 · 표준데이터는 이 주차장을 대형·소형 두 행(136면·48면)으로 나누어 등록했고, 공단은 184면(대형 136·소형 44) 한 곳으로 안내합니다 · 표준데이터 특기사항: 경차 · 장애인차량할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "대형자동차 중형·대형",
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 100000,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 8000,
+     "monthly": 100000
+    },
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "free_min": 10,
+    "daily_fee": 8000,
+    "monthly": 100000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 대형자동차 공영주차장 중형·대형(최초 30분 600원 · 30분 초과 10분당 200원 · 1일 8,000원 · 월 100,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 10,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-009",
+   "mgmt_no": "215-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대형자동차 공영주차장(소형)",
+   "gu": "동두천시",
+   "dong": "상패동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 상패동 252-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "031-865-6004",
+   "lat": 37.90101758,
+   "lng": 127.0353953,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "「동두천시 주차장 설치 및 관리 조례」 별표1 대형자동차 공영주차장 요금입니다 — 최초 30분 500원, 30분 초과 10분마다 200원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 21:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 조례 별표1의 월 정기요금은 있지만, 동두천시 시설관리공단이 정기권을 판매하는 7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)에는 들지 않습니다 · 표준데이터 등록면수는 48면이고, 공단 안내는 44면입니다 · 공단 안내 위치는 경기도 동두천시 상패동 370입니다 · 표준데이터는 이 주차장을 대형·소형 두 행(136면·48면)으로 나누어 등록했고, 공단은 184면(대형 136·소형 44) 한 곳으로 안내합니다 · 표준데이터 특기사항: 경차 · 장애인차량할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": "대형자동차 소형",
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "free_min": 10,
+    "daily_fee": 4000,
+    "monthly": null,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 대형자동차 공영주차장 소형(최초 30분 500원 · 30분 초과 10분당 200원 · 1일 4,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "21:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 10,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-010",
+   "mgmt_no": "215-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상패동 8통",
+   "gu": "동두천시",
+   "dong": "상패동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 상패동 687-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-860-2293",
+   "lat": 37.90232169,
+   "lng": 127.0255418,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-011",
+   "mgmt_no": "215-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "5060청춘로드 주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 824-60",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "031-865-6004",
+   "lat": 37.90523435,
+   "lng": 127.0515456,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 조례 별표1의 월 정기요금은 있지만, 동두천시 시설관리공단이 정기권을 판매하는 7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)에는 들지 않습니다 · 공단 ‘(유료) 노외주차장 현황’ 11곳에는 없고 표준데이터에만 유료(2시간 무료·10분당 400원·1일 4,000원)로 등록되어 있습니다 — 현장 확인 권장 · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": null,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-012",
+   "mgmt_no": "215-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동두천중앙역세권",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 678-60",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "031-860-2293",
+   "lat": 37.9029251,
+   "lng": 127.0550301,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": 40000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원 · 월 40,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-013",
+   "mgmt_no": "215-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동두천초교 정문 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 478-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-860-2293",
+   "lat": 37.9081111,
+   "lng": 127.0585996,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-014",
+   "mgmt_no": "215-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건소 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 715-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "031-860-2293",
+   "lat": 37.89639076,
+   "lng": 127.0532496,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-015",
+   "mgmt_no": "215-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불현지구 임시주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 745-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "031-860-2293",
+   "lat": 37.8955909,
+   "lng": 127.0573884,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-016",
+   "mgmt_no": "215-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불현지구2 임시주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 744-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-860-2293",
+   "lat": 37.89815165,
+   "lng": 127.0570643,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-017",
+   "mgmt_no": "215-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "생연로일원 공영주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 818-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "031-860-2293",
+   "lat": 37.9039305,
+   "lng": 127.0508524,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": 40000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원 · 월 40,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-018",
+   "mgmt_no": "215-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "은성교회 전철하부주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 547-2",
+   "addr_road": "경기도 동두천시 평화로 2511",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-860-2293",
+   "lat": 37.91218589,
+   "lng": 127.0575986,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-019",
+   "mgmt_no": "215-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임시주차장(생연파출소 세아프라자)",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 814-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "031-860-2293",
+   "lat": 37.90099951,
+   "lng": 127.0511247,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-020",
+   "mgmt_no": "215-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제일시장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 824-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-860-2293",
+   "lat": 37.9046288,
+   "lng": 127.0513558,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-021",
+   "mgmt_no": "215-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙근린공원 공영주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 221",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "031-860-2293",
+   "lat": 37.90839056,
+   "lng": 127.0645902,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-022",
+   "mgmt_no": "215-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙동 공영주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 612-1",
+   "addr_road": "경기도 동두천시 동광로66번길 28",
+   "road": null,
+   "spaces": 41,
+   "tel": "031-865-6004",
+   "lat": 37.90738006,
+   "lng": 127.0551875,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": 40000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원 · 월 40,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-023",
+   "mgmt_no": "215-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙동 빗물펌프장 1",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 580-71",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "031-860-2293",
+   "lat": 37.91194821,
+   "lng": 127.0543269,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-024",
+   "mgmt_no": "215-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙동 빗물펌프장 2",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 826-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-860-2293",
+   "lat": 37.9075918,
+   "lng": 127.0513922,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-025",
+   "mgmt_no": "215-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙동13통주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 582-39",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-860-2293",
+   "lat": 37.90933507,
+   "lng": 127.0521574,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-026",
+   "mgmt_no": "215-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙동5통주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 552-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "031-860-2293",
+   "lat": 37.90932744,
+   "lng": 127.0559134,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-027",
+   "mgmt_no": "215-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙동행정복지센터",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 604-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "031-860-2293",
+   "lat": 37.90759801,
+   "lng": 127.0533984,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-028",
+   "mgmt_no": "215-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "큰시장 공영주차장",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 생연동 698-9",
+   "addr_road": "경기도 동두천시 큰시장로 57",
+   "road": null,
+   "spaces": 63,
+   "tel": "031-865-6004",
+   "lat": 37.90018291,
+   "lng": 127.0512966,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 조례 별표1의 월 정기요금은 있지만, 동두천시 시설관리공단이 정기권을 판매하는 7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)에는 들지 않습니다 · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": null,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-029",
+   "mgmt_no": "215-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송내2주차장",
+   "gu": "동두천시",
+   "dong": "송내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 송내동 689",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "031-860-2293",
+   "lat": 37.88417814,
+   "lng": 127.0507834,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 조례 별표1의 월 정기요금은 있지만, 동두천시 시설관리공단이 정기권을 판매하는 7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)에는 들지 않습니다 · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": null,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-030",
+   "mgmt_no": "215-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송내3주차장",
+   "gu": "동두천시",
+   "dong": "송내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 송내동 676",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-860-2293",
+   "lat": 37.8826288,
+   "lng": 127.053493,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "공공데이터 표준데이터에는 ‘무료’로 등록되어 있지만, 동두천시 시설관리공단이 유료(09:00~20:00 월~토, 2시간 무료·2시간 초과 10분당 400원·1일 4,000원)로 운영합니다 · 조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 조례 별표1의 월 정기요금은 있지만, 동두천시 시설관리공단이 정기권을 판매하는 7곳(송내4·송내지구·중앙동·상패동 대형·보산동·생연로 일원·중앙역세권)에는 들지 않습니다 · 표준데이터 등록면수는 21면이고, 공단 안내는 14면입니다",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "1",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 0,
+     "monthly": 0
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": null,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-031",
+   "mgmt_no": "215-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송내지구 공영주차장",
+   "gu": "동두천시",
+   "dong": "송내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 송내동 681",
+   "addr_road": "경기도 동두천시 중앙로33번길 67-82",
+   "road": null,
+   "spaces": 97,
+   "tel": "031-865-6004",
+   "lat": 37.88279313,
+   "lng": 127.0523069,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "조례 별표1의 ‘2시간 무료 주차 허용 노외주차장’(2급지에 한함) 요금입니다 — 최초 2시간 무료, 2시간이 지나면 10분마다 400원, 1일 주차요금 4,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 20:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 표준데이터 특기사항: 경차 · 장애인차량할인 · 2시간이내 무료주차",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "grade_label": null,
+    "std_grade": "2",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 40000,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "free_min": 120,
+    "daily_fee": 4000,
+    "monthly": 40000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 2시간 무료 주차 허용 노외주차장(2급지 한정 · 최초 120분 무료 · 이후 10분당 400원 · 1일 4,000원 · 월 40,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 120,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-032",
+   "mgmt_no": "215-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송내1주차장",
+   "gu": "동두천시",
+   "dong": "지행동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 지행동 720",
+   "addr_road": "",
+   "road": null,
+   "spaces": 105,
+   "tel": "031-865-6004",
+   "lat": 37.89148117,
+   "lng": 127.0539419,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "「동두천시 주차장 설치 및 관리 조례」 별표1 노외 1급지 요금입니다 — 최초 30분 600원, 30분 초과 10분마다 200원, 1일 주차요금 6,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 22:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 공단 운영시간은 월~일 09:00~22:00이라 일요일도 여는 주차장입니다 — 일요일 요금은 현장 안내를 확인하세요(동두천시는 일요일·공휴일 무료로 안내해 왔습니다) · 공단 정기권 판매 대상은 아니고, 일 주차요금만 받습니다(조례 1급지 월 정기요금 50,000원은 송내4에 적용) · 표준데이터 특기사항: 경차 · 장애인차량할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": "1",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 0
+    },
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "free_min": 10,
+    "daily_fee": 6000,
+    "monthly": null,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 노외 1급지(최초 30분 600원 · 30분 초과 10분당 200원 · 1일 6,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 10,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-033",
+   "mgmt_no": "215-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송내4주차장",
+   "gu": "동두천시",
+   "dong": "지행동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 지행동 722",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "031-865-6004",
+   "lat": 37.89084467,
+   "lng": 127.0524788,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시 시설관리공단",
+   "note": "",
+   "notice": "「동두천시 주차장 설치 및 관리 조례」 별표1 노외 1급지 요금입니다 — 최초 30분 600원, 30분 초과 10분마다 200원, 1일 주차요금 6,000원, 월 정기 50,000원 · 입차 후 최초 10분은 무료입니다(조례 별표1 ※). 22:00 이후 야간과 일요일·공휴일은 요금을 받지 않습니다(조례 별표1 비고2의 주간·야간 구분, 제7조 제1항 제1호 마목 ‘공휴일 이용차량’ 면제) · 공단 운영시간은 월~일 09:00~22:00이라 일요일도 여는 주차장입니다 — 일요일 요금은 현장 안내를 확인하세요(동두천시는 일요일·공휴일 무료로 안내해 왔습니다) · 표준데이터 특기사항: 경차 · 장애인차량할인",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 1,
+    "grade_label": null,
+    "std_grade": "1",
+    "steps": null,
+    "steps_label": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": "조례 별표1 1일 주차요금",
+    "daily_hours": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "pay": "현금+신용카드",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "free_min": 10,
+    "daily_fee": 6000,
+    "monthly": 50000,
+    "basis": "「동두천시 주차장 설치 및 관리 조례」 별표1 노외 1급지(최초 30분 600원 · 30분 초과 10분당 200원 · 1일 6,000원 · 월 50,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 10,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-034",
+   "mgmt_no": "215-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동1주차장",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 탑동동 350-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "031-860-2293",
+   "lat": 37.89190135,
+   "lng": 127.1093494,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-035",
+   "mgmt_no": "215-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동2주차장",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 탑동동 370-9",
+   "addr_road": "경기도 동두천시 탑신로 215-12",
+   "road": null,
+   "spaces": 31,
+   "tel": "031-860-2293",
+   "lat": 37.8965291,
+   "lng": 127.1143411,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-036",
+   "mgmt_no": "215-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동3주차장",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 탑동동 223-2",
+   "addr_road": "경기도 동두천시 탑신로 315",
+   "road": null,
+   "spaces": 43,
+   "tel": "031-860-2293",
+   "lat": 37.89207508,
+   "lng": 127.1221641,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-037",
+   "mgmt_no": "215-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동4주차장",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 탑동동 366-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-860-2293",
+   "lat": 37.89577031,
+   "lng": 127.1119324,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-038",
+   "mgmt_no": "215-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동5주차장",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 탑동동 218-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "031-860-2293",
+   "lat": 37.89276326,
+   "lng": 127.1208309,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-039",
+   "mgmt_no": "215-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동6주차장",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 동두천시 탑동동 205",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-860-2293",
+   "lat": 37.89133515,
+   "lng": 127.1262674,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s040",
+   "mgmt_no": "215-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동두천역 철길(담장) 옆",
+   "gu": "동두천시",
+   "dong": "동두천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 동두천동 544-1",
+   "addr_road": "경기도 동두천시 원터강변로41번길 91",
+   "road": null,
+   "spaces": 39,
+   "tel": "031-860-2293",
+   "lat": 37.928648,
+   "lng": 127.0535535,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s041",
+   "mgmt_no": "215-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동두천일반산업단지 내",
+   "gu": "동두천시",
+   "dong": "동두천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 동두천동 542-2, 544",
+   "addr_road": "경기도 동두천시 강변로702번길 30",
+   "road": null,
+   "spaces": 174,
+   "tel": "031-860-2293",
+   "lat": 37.92862183,
+   "lng": 127.0514182,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s042",
+   "mgmt_no": "215-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "경환공업사 앞",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 보산동 387-7",
+   "addr_road": "경기도 동두천시 동광로 172",
+   "road": null,
+   "spaces": 19,
+   "tel": "031-860-2293",
+   "lat": 37.91543626,
+   "lng": 127.0605571,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s043",
+   "mgmt_no": "215-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동두천쇼핑, 초원식당",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 보산동 365-52",
+   "addr_road": "경기도 동두천시 평화로 2544",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-860-2293",
+   "lat": 37.91479865,
+   "lng": 127.0577258,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s044",
+   "mgmt_no": "215-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동양가구 앞",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 보산동 412-25",
+   "addr_road": "경기도 동두천시 평화로2530번길",
+   "road": null,
+   "spaces": 16,
+   "tel": "031-860-2293",
+   "lat": 37.91348481,
+   "lng": 127.0581171,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s045",
+   "mgmt_no": "215-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "보산손세차장 앞",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 보산동 410-34",
+   "addr_road": "경기도 동두천시 중앙로 378",
+   "road": null,
+   "spaces": 13,
+   "tel": "031-860-2293",
+   "lat": 37.9129971,
+   "lng": 127.0586768,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s046",
+   "mgmt_no": "215-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "카리스뮤직 앞",
+   "gu": "동두천시",
+   "dong": "보산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 보산동 436-16",
+   "addr_road": "경기도 동두천시 상패로 214-1",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-860-2293",
+   "lat": 37.91760142,
+   "lng": 127.0561753,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s047",
+   "mgmt_no": "215-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "G7호텔 주변",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 671-2",
+   "addr_road": "경기도 동두천시 어수로101번길 14",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-860-2293",
+   "lat": 37.9031456,
+   "lng": 127.0542649,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s048",
+   "mgmt_no": "215-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동광극장 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 828-2",
+   "addr_road": "경기도 동두천시 동광로 33",
+   "road": null,
+   "spaces": 25,
+   "tel": "031-860-2293",
+   "lat": 37.90883275,
+   "lng": 127.0520047,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s049",
+   "mgmt_no": "215-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동두천벽지·장판 매장 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 597-1",
+   "addr_road": "경기도 동두천시 중앙로274번길 25",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-860-2293",
+   "lat": 37.90591711,
+   "lng": 127.055745,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s050",
+   "mgmt_no": "215-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동두천중앙역→보산역 방향 일방통행로",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 631-6",
+   "addr_road": "경기도 동두천시 정장로 55",
+   "road": null,
+   "spaces": 113,
+   "tel": "031-860-2293",
+   "lat": 37.90433564,
+   "lng": 127.0569778,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s051",
+   "mgmt_no": "215-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "로하스요양병원 옆 도로",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 825-167",
+   "addr_road": "경기도 동두천시 강변로420번길 10",
+   "road": null,
+   "spaces": 10,
+   "tel": "031-860-2293",
+   "lat": 37.90623406,
+   "lng": 127.0513986,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s052",
+   "mgmt_no": "215-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염산부인과 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 522-1",
+   "addr_road": "경기도 동두천시 동광로 124",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-860-2293",
+   "lat": 37.91198659,
+   "lng": 127.0610196,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s053",
+   "mgmt_no": "215-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "우성아파트·동원아파트 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 465-3, 464-9",
+   "addr_road": "경기도 동두천시 송터로 15",
+   "road": null,
+   "spaces": 26,
+   "tel": "031-860-2293",
+   "lat": 37.90902998,
+   "lng": 127.0616787,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s054",
+   "mgmt_no": "215-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "재광타운 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 244",
+   "addr_road": "경기도 동두천시 못골로49번길 40",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-860-2293",
+   "lat": 37.90212721,
+   "lng": 127.0658475,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s055",
+   "mgmt_no": "215-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제일감리교회 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 616-79",
+   "addr_road": "경기도 동두천시 동두천로 294",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-860-2293",
+   "lat": 37.90765285,
+   "lng": 127.0561695,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s056",
+   "mgmt_no": "215-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙경로당, 빨간풍차",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 548-1",
+   "addr_road": "경기도 동두천시 평화로 2509",
+   "road": null,
+   "spaces": 107,
+   "tel": "031-860-2293",
+   "lat": 37.91180504,
+   "lng": 127.057447,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s057",
+   "mgmt_no": "215-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙종묘농약사~성지가전재활용",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 561-30",
+   "addr_road": "경기도 동두천시 중앙로362번길 30-6",
+   "road": null,
+   "spaces": 57,
+   "tel": "031-860-2293",
+   "lat": 37.91184597,
+   "lng": 127.056836,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s058",
+   "mgmt_no": "215-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한국국토정보공사·시청 후문",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 455-15",
+   "addr_road": "경기도 동두천시 정장로 72",
+   "road": null,
+   "spaces": 21,
+   "tel": "031-860-2293",
+   "lat": 37.90392291,
+   "lng": 127.0588165,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s059",
+   "mgmt_no": "215-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한빛누리고 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 522-1",
+   "addr_road": "경기도 동두천시 동광로 124",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-860-2293",
+   "lat": 37.91198659,
+   "lng": 127.0610196,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s060",
+   "mgmt_no": "215-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "향미식당 앞",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 821-23",
+   "addr_road": "경기도 동두천시 생연로 110",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-860-2293",
+   "lat": 37.90227695,
+   "lng": 127.0509486,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s061",
+   "mgmt_no": "215-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화성5차아파트",
+   "gu": "동두천시",
+   "dong": "생연동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 생연동 789-25",
+   "addr_road": "경기도 동두천시 강변로300번길 49-7",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-860-2293",
+   "lat": 37.89973669,
+   "lng": 127.046482,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s062",
+   "mgmt_no": "215-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "(구)전자랜드 앞",
+   "gu": "동두천시",
+   "dong": "송내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 송내동 695-4",
+   "addr_road": "경기도 동두천시 동두천로 9",
+   "road": null,
+   "spaces": 14,
+   "tel": "031-860-2293",
+   "lat": 37.8822938,
+   "lng": 127.0539543,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s063",
+   "mgmt_no": "215-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동두천중앙고 후문 앞",
+   "gu": "동두천시",
+   "dong": "지행동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 지행동 340-2",
+   "addr_road": "경기도 동두천시 평화로 2280",
+   "road": null,
+   "spaces": 15,
+   "tel": "031-860-2293",
+   "lat": 37.89165104,
+   "lng": 127.0581024,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
+  },
+  {
+   "id": "ddc-s064",
+   "mgmt_no": "215-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "폭포수농원 옆",
+   "gu": "동두천시",
+   "dong": "탑동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경기도 동두천시 탑동동 103",
+   "addr_road": "경기도 동두천시 탑신로 438",
+   "road": null,
+   "spaces": 9,
+   "tel": "031-860-2293",
+   "lat": 37.89268955,
+   "lng": 127.1353224,
+   "base_date": "2026-10-23",
+   "manager": "경기도 동두천시청 교통행정과",
+   "note": "",
+   "notice": "동두천시가 노상주차장을 무료로 운영합니다(동두천시 홈페이지 ‘노상주차장(무료)’ 26개소 816면·공단 전체 현황 25개소 825면). 조례 별표1에는 노상 1급지 700원·2급지 500원 기준이 있으나 현재 요금을 받지 않습니다",
+   "fee": {
+    "type": "무료",
+    "raw_type": "무료",
+    "mixed": false,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": null,
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "steps": null,
+    "steps_label": null,
+    "free_min": null,
+    "deduct_min": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": null,
+    "monthly_day": null,
+    "monthly_night": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "pay": "",
+    "basis": "요금 구분 ‘무료’",
+    "category": null,
+    "portal_free_now": false,
+    "flat_day": false,
+    "ticket_only": false,
+    "std": null
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동두천시",
+   "city_slug": "dongducheon"
   }
  ]
 }
