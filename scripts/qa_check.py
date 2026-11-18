@@ -4908,6 +4908,23 @@ DAEGU_EXPECT = {
     "대구 북구": {"slug": "buk-gu", "cards": 52, "street": 193,
                 "dong_pages": ["bokhyeon-dong", "chilseong-dong", "guam-dong", "gwaneum-dong",
                                "nowon-dong", "sangyeok-dong"], "ordin": "1920431"},
+    # T-03 Phase 41 — 수성구·달서구·달성군·군위군(대구 9개 구·군 완주)
+    "대구 수성구": {"slug": "suseong-gu", "cards": 34, "street": 7,
+                  "dong_pages": ["dusan-dong", "manchon-dong", "sinmae-dong", "pa-dong",
+                                 "hwanggeum-dong"], "ordin": "2047061"},
+    "대구 달서구": {"slug": "dalseo-gu", "cards": 75, "street": 46,
+                  "dong_pages": ["gamsam-dong", "daegok-dong", "dowon-dong", "duryu-dong",
+                                 "bon-dong", "bolli-dong", "sangin-dong", "songhyeon-dong",
+                                 "sindang-dong", "yongsan-dong", "janggi-dong", "jukjeon-dong"],
+                  "ordin": "1978177"},
+    "대구 달성군": {"slug": "dalseong-gun", "cards": 86, "street": 146, "county": True,
+                  "dong_pages": ["gachang-myeon", "guji-myeon", "nongong-eup", "dasa-eup",
+                                 "okpo-eup", "yuga-eup", "habin-myeon", "hyeonpung-eup",
+                                 "hwawon-eup"], "ordin": "2172193"},
+    "대구 군위군": {"slug": "gunwi-gun", "cards": 52, "street": 8, "county": True,
+                  "dong_pages": ["gunwi-eup", "bugye-myeon", "samgukyusa-myeon", "sobo-myeon",
+                                 "ubo-myeon", "uiheung-myeon", "hyoryeong-myeon"],
+                  "ordin": "2164527"},
 }
 _dg_pages = 0
 for _gu, _exp in DAEGU_EXPECT.items():
@@ -4930,9 +4947,13 @@ for _gu, _exp in DAEGU_EXPECT.items():
         fails.append(f"대구 {_gu}: 대구시 주차포털 출처 링크 없음")
     if 'href=""' in _h:
         fails.append(f"대구 {_gu}: 빈 링크가 있음")
-    if "급지별 주차요금표" not in _h:
+    if "급지별 주차요금표" not in _h and not _exp.get("county"):
         fails.append(f"대구 {_gu}: 급지별 주차요금표 없음")
-    if "대구광역시 조례 별표1" not in _h or "조례 별표1 — 구청이 맡은 주차장" not in _h:
+    if _exp.get("county"):
+        # 군은 급지가 아니라 한 가지 요금표(달성군)·차종별 요금표(군위군)다.
+        if "조례 별표1" not in _h or "요금 상한" not in _h:
+            fails.append(f"대구 {_gu}: 군 조례 별표1 요금표가 없음")
+    elif "대구광역시 조례 별표1" not in _h or "조례 별표1 — 구청이 맡은 주차장" not in _h:
         fails.append(f"대구 {_gu}: 시·구 조례 별표1 표가 없음")
     # 다른 시·도 자료가 섞이지 않았는지 — 대구 페이지에 부산·인천·서울 자료가 나오면 안 된다.
     _main = _h.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
@@ -4988,6 +5009,23 @@ for _city, _name, _min, _day, _want_state, _want in (
         ("대구 북구", "신천둔치(공영)", 120, "weekday", "paid", 2750),          # 30분 500 + 10분 250
         ("대구 북구", "칠성시장남편", 60, "weekday", "paid", 1250),             # 전통시장 30분 500
         ("대구 북구", "임시공영(관음동)", 120, "weekday", "free", None),
+        # T-03 Phase 41 — 수성구(구영 30분 1,000·2급지 600·3급지 400)와 공단 지역여건 50%·공원주차장
+        ("대구 수성구", "수성못공영주차장", 120, "weekday", "paid", 3300),      # 2급지 30분 600 + 10분 300
+        ("대구 수성구", "신매1공영주차장", 120, "weekday", "paid", 3600),       # 지역여건 50% 10분 300
+        ("대구 수성구", "어린이세상역앞 공영주차장", 120, "weekday", "paid", 1000),  # 공원 2시간 1,000
+        ("대구 수성구", "지산한라공영주차장", 120, "weekday", "paid", 2200),     # 3급지 30분 400 + 10분 200
+        ("대구 수성구", "범어천로노상공영1주차장", 120, "weekday", "paid", 3300),  # 노상 30분 600 + 10분 300
+        ("대구 수성구", "외환들공영주차장", 120, "weekday", "free", None),
+        # 달서구(구영 30분 1,000·600·400)와 공단 산업단지 50%·전통시장 50%
+        ("대구 달서구", "상인공영주차장", 60, "weekday", "paid", 3600),          # 1급지 10분 600
+        ("대구 달서구", "상인공영주차장", 1440, "weekday", "paid", 14000),       # 1일 14,000 상한
+        ("대구 달서구", "서촌공영주차장", 120, "weekday", "paid", 1200),         # 산업단지 10분 100
+        ("대구 달서구", "서남시장공영주차장", 60, "weekday", "paid", 1400),      # 전통시장 30분 500 + 10분 300
+        ("대구 달서구", "죽전동 3공영주차장", 120, "weekday", "paid", 3300),     # 2급지 30분 600 + 10분 300
+        ("대구 달서구", "호림1공영주차장", 1440, "weekday", "paid", 2000),       # 1일 2,000 상한
+        # 달성군·군위군 — 표준데이터에 모두 무료로 등록
+        ("대구 달성군", "논공 복개천 주차장", 120, "weekday", "free", None),
+        ("대구 군위군", "군위시장1 주차장", 120, "weekday", "free", None),
 ):
     _lot = _dg_by_key.get((_city, _name))
     if not _lot:
@@ -5005,6 +5043,11 @@ _dg_texts = {
     "seo-gu": ("염색산업단지", "서대구역 남편", "노상 65구간", "60구간이 무료"),
     "nam-gu": ("남구 조례 별표1은 다른 구와 달리", "앞산공원주차장", "무료 주차장이 14곳", "1·2급지만"),
     "buk-gu": ("칠성시장 주변 노상 8구간", "산업단지", "무료 32곳·노상 193구간", "북구청앞1·2"),
+    # T-03 Phase 41
+    "suseong-gu": ("1급지 최초 30분 1,000원", "수성못공영주차장", "무료 주차장이 <b>22곳</b>", "범어천로"),
+    "dalseo-gu": ("2급지", "서남·서남신시장", "95곳이 무료", "상인공영주차장"),
+    "dalseong-gun": ("모두 무료", "논공읍 84", "구지평촌파크골프주차장", "군 조례 별표1"),
+    "gunwi-gun": ("2023-07-01 대구광역시로 편입", "부계면 9", "사라온이야기마을", "차종별 요금"),
 }
 for _slug, _needles in _dg_texts.items():
     _hp = DIST / "parking" / "daegu" / _slug / "index.html"
@@ -5018,7 +5061,7 @@ for _slug, _needles in _dg_texts.items():
     if _leaked_nan(_t):
         fails.append(f"대구 {_slug}: 페이지에 None/nan 문자열")
 
-print(f"대구광역시 구 검사 완료 ({len(DAEGU_EXPECT)}개 구 · 페이지 {_dg_pages})")
+print(f"대구광역시 구·군 검사 완료 ({len(DAEGU_EXPECT)}개 구·군 · 페이지 {_dg_pages})")
 
 if 'id="daegu"' not in (DIST / "index.html").read_text():
     fails.append("랜딩에 대구광역시 지역 묶음(#daegu) 없음")
