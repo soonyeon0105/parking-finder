@@ -5254,6 +5254,192 @@ for _u in ("https://parking.9welfare.com/parking/daejeon/dong-gu/",
 print()
 if warns:
     print(f"주의 {len(warns)}건")
+# ---------------------------------------------------------------- 광주광역시 구 (T-03 Phase 43)
+#  광주는 조례 별표1이 10분 단위(1급지 최초 10분 500원·2시간 초과 매 10분 500원)이고,
+#  구청·공단이 실제로 받는 요금은 30분 기준(1급지 700원·15분마다 350원·1일 8,000원)이다.
+#  카드는 30분 기준 등록요금으로 계산하고, 요금표 페이지에 두 표를 함께 싣는다.
+GWANGJU_EXPECT = {
+    # 구: (슬러그, 카드, 노상 구간, 카드 3곳 이상 법정동 페이지, 구 조례 ordinSeq)
+    "광주 동구": {"slug": "dong-gu", "cards": 64, "street": 39,
+               "dong_pages": ["daein-dong", "dongmyeong-dong", "gyerim-dong", "hak-dong",
+                              "jisan-dong", "naenam-dong", "sansu-dong", "seongyo-dong",
+                              "seoseok-dong", "sotae-dong", "ullim-dong", "wolnam-dong"],
+               "ordin": "2146323"},
+    "광주 서구": {"slug": "seo-gu", "cards": 70, "street": 0,
+               "dong_pages": ["chipyeong-dong", "deokheung-dong", "geumho-dong", "hwajeong-dong",
+                              "nongseong-dong", "pungam-dong", "ssangchon-dong", "yang-dong",
+                              "yuchon-dong"], "ordin": "2132399"},
+    "광주 남구": {"slug": "nam-gu", "cards": 26, "street": 0,
+               "dong_pages": ["baekun-dong", "bangrim-dong", "juwol-dong", "seo-dong",
+                              "wolsan-dong"], "ordin": "2141727"},
+    "광주 북구": {"slug": "buk-gu", "cards": 80, "street": 5,
+               "dong_pages": ["bonchon-dong", "duam-dong", "ilgok-dong", "im-dong",
+                              "jungheung-dong", "munheung-dong", "ochi-dong", "samgak-dong",
+                              "sinan-dong", "unam-dong", "yangsan-dong", "yongbong-dong"],
+               "ordin": "2167893"},
+    "광주 광산구": {"slug": "gwangsan-gu", "cards": 63, "street": 0,
+                "dong_pages": ["hanam-dong", "heukseok-dong", "jingok-dong", "oseon-dong",
+                               "songjeong-dong", "usan-dong"], "ordin": "2145707"},
+}
+_gj_pages = 0
+for _gu, _exp in GWANGJU_EXPECT.items():
+    _slug = _exp["slug"]
+    _hub = DIST / "parking" / "gwangju" / _slug / "index.html"
+    if not _hub.exists():
+        fails.append(f"광주 {_gu}: 구 페이지 없음")
+        continue
+    _gj_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"광주 {_gu}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "광주광역시" not in _h:
+        fails.append(f"광주 {_gu}: breadcrumb 에 광주광역시 없음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2084493"' not in _h:
+        fails.append(f"광주 {_gu}: 광주광역시 조례 출처 링크 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"광주 {_gu}: 구 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if 'href=""' in _h:
+        fails.append(f"광주 {_gu}: 빈 링크가 있음")
+    if "급지별 주차요금표" not in _h:
+        fails.append(f"광주 {_gu}: 급지별 주차요금표 없음")
+    if "광주광역시 주차장 조례 별표1" not in _h or "2시간 초과 매 10분" not in _h:
+        fails.append(f"광주 {_gu}: 시 조례 별표1 표가 없음")
+    if "30분 초과 후 15분마다" not in _h:
+        fails.append(f"광주 {_gu}: 구청·공단 30분 요금표가 없음")
+    # 다른 시·도 자료가 섞이지 않았는지 — 광주 페이지에 대전·대구·부산·인천 자료가 나오면 안 된다.
+    _main = _h.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    for _bad in ("대전광역시", "대구광역시", "부산광역시", "인천광역시", "서울특별시",
+                 "경기도 광주시"):
+        if _bad in _main:
+            fails.append(f"광주 {_gu}: 본문에 다른 시·도 자료 ‘{_bad}’")
+    if _leaked_nan(_h):
+        fails.append(f"광주 {_gu}: 페이지에 None/nan 문자열")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"광주 {_gu}: 노상 페이지 없음")
+        else:
+            _gj_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"광주 {_gu}: 노상 페이지 행이 구간 수보다 적음")
+    else:
+        if _street.exists():
+            fails.append(f"광주 {_gu}: 유료·등록 노상 구간이 없는데 노상 페이지가 있음")
+    _free = _hub.parent / "free" / "index.html"
+    if not _free.exists():
+        fails.append(f"광주 {_gu}: 무료 개방 페이지 없음")
+    else:
+        _gj_pages += 1
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"광주 {_gu}: {_d} 법정동 페이지 없음")
+        else:
+            _gj_pages += 1
+
+# 법정동 페이지는 카드 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
+for _gu, _exp in GWANGJU_EXPECT.items():
+    _root = DIST / "parking" / "gwangju" / _exp["slug"]
+    if not _root.exists():
+        continue
+    _have = {p.parent.name for p in _root.glob("*/index.html")
+             if p.parent.name not in ("street-parking", "free", _exp["slug"])}
+    if _have != set(_exp["dong_pages"]):
+        fails.append(f"광주 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 {sorted(_exp['dong_pages'])}")
+
+# 표본 계산 — 30분 기본 + 15분 단위(1급지 700·350)와 10분 단위(효죽 200·150), 1일 상한.
+_gj_by_key = {(l["city"], l["name"]): l for l in LOTS if l.get("city") in GWANGJU_EXPECT}
+for _city, _name, _min, _day, _want_state, _want in (
+        ("광주 서구", "금호동 공영주차장", 30, "weekday", "paid", 700),      # 1급지 30분 700
+        ("광주 서구", "금호동 공영주차장", 60, "weekday", "paid", 1400),     # 700 + 15분 350×2
+        ("광주 서구", "금호동 공영주차장", 120, "weekday", "paid", 2800),    # 700 + 350×6
+        ("광주 서구", "금호동 공영주차장", 240, "weekday", "paid", 8000),    # 1일 8,000 상한
+        ("광주 서구", "금호동 공영주차장", 1440, "weekday", "paid", 8000),
+        ("광주 동구", "호남동 공영주차장", 120, "weekday", "paid", 2800),
+        ("광주 동구", "충장로 4가 공영주차장", 30, "weekday", "paid", 0),    # 최초 30분 0원
+        ("광주 동구", "충장로 4가 공영주차장", 60, "weekday", "paid", 700),
+        ("광주 동구", "황금주차장", 60, "weekday", "paid", 3000),           # 30분 1,500 + 750×2
+        ("광주 동구", "금남지하상가 지하주차장", 130, "weekday", "paid", 7200),  # 2시간 초과 15분 1,600
+        ("광주 북구", "효죽공영주차장", 60, "weekday", "paid", 950),         # 10분 200 + 150×5
+        ("광주 북구", "효죽공영주차장", 120, "weekday", "paid", 1850),
+        ("광주 북구", "효죽공영주차장", 130, "weekday", "paid", 2100),       # 2시간 초과 10분 250
+        ("광주 남구", "효덕IC 공영주차장", 60, "weekday", "paid", 1400),      # 10분 150 + 250×5
+        ("광주 남구", "효덕IC 공영주차장", 1440, "weekday", "paid", 6000),    # 1일 6,000 상한
+        ("광주 남구", "사직동 공영주차장", 120, "weekday", "paid", 2100),     # 60분 300 + 10분 300×6
+        ("광주 남구", "진월동 공영주차장", 120, "weekday", "paid", 900),      # 60분 300 + 15분 150×4
+        ("광주 광산구", "진곡화물공영차고지", 120, "weekday", "paid", 270),   # 120분마다 270
+        ("광주 광산구", "진곡화물공영차고지", 240, "weekday", "paid", 540),
+        ("광주 광산구", "MBC 송신소 캠핑카", 60, "weekday", "paid", 400),     # 4급지 200 + 100×2
+        ("광주 동구", "대인시장 공영주차장 제1주차장", 120, "weekday", "paid", 2000),  # 2급지 500 + 15분 250×6
+):
+    _lot = _gj_by_key.get((_city, _name))
+    if not _lot:
+        fails.append(f"광주 표본 주차장 없음: {_city} {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"광주 계산 불일치: {_city} {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 감면 표본 — 동구 장애인 1시간 면제, 서구 50퍼센트, 북구 15분 이내 출차 면제.
+_lot = _gj_by_key.get(("광주 동구", "호남동 공영주차장"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 0.5, 60)
+    if _r.get("state") != "free" or not _r.get("exempt"):
+        fails.append(f"광주 감면 불일치(동구 장애인 1시간 면제): {_r}")
+    _r = _pf(_lot, 120, "weekday", 0.5, 60)
+    if _r.get("state") != "paid" or _r.get("amount") != 1400:
+        fails.append(f"광주 감면 불일치(동구 장애인 1시간 초과 50%): {_r}")
+_lot = _gj_by_key.get(("광주 서구", "금호동 공영주차장"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 0.6, 0)
+    if _r.get("state") != "paid" or _r.get("amount") != 560:
+        fails.append(f"광주 감면 불일치(서구 경차 60%): {_r}")
+_lot = _gj_by_key.get(("광주 북구", "효죽공영주차장"))
+if _lot:
+    _r = _pf(_lot, 15, "weekday", 1.0, 15)
+    if _r.get("state") != "free":
+        fails.append(f"광주 감면 불일치(북구 15분 이내 출차): {_r}")
+
+# 구 페이지 문구 — 요금표 두 가지·무료 곳수·대표 주차장이 본문에 있어야 한다.
+_gj_texts = {
+    "dong-gu": ("조례 별표1(2026-07-01 개정)은", "85곳이 무료", "호남동 공영주차장(193면)",
+                "황금주차장(301면)", "91곳에 좌표가 없어"),
+    "seo-gu": ("58곳이 무료", "양동복개상가", "별표7 요금(1시간 1,000원)", "시 조례 제3조(별표1) 준용"),
+    "nam-gu": ("효덕IC 공영주차장", "주거지전용", "23곳이 무료"),
+    "buk-gu": ("쌈지주차장과 동 주민센터", "효죽공영주차장", "30분 기준(1급지 700·350원"),
+    "gwangsan-gu": ("전통시장 주차타워 4곳", "진곡화물공영차고지(430면)", "36곳이 무료"),
+}
+for _slug, _needles in _gj_texts.items():
+    _hp = DIST / "parking" / "gwangju" / _slug / "index.html"
+    if not _hp.exists():
+        fails.append(f"광주 페이지 없음: {_slug}")
+        continue
+    _t = _hp.read_text()
+    for _n in _needles:
+        if _n not in _t:
+            fails.append(f"광주 {_slug}: 문구 ‘{_n}’ 없음")
+
+print(f"광주광역시 구 검사 완료 ({len(GWANGJU_EXPECT)}개 구 · 페이지 {_gj_pages})")
+
+if 'id="gwangju"' not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 광주광역시 지역 묶음(#gwangju) 없음")
+for _u in ("https://parking.9welfare.com/parking/gwangju/dong-gu/",
+           "https://parking.9welfare.com/parking/gwangju/seo-gu/",
+           "https://parking.9welfare.com/parking/gwangju/nam-gu/",
+           "https://parking.9welfare.com/parking/gwangju/buk-gu/",
+           "https://parking.9welfare.com/parking/gwangju/gwangsan-gu/",
+           "https://parking.9welfare.com/parking/gwangju/dong-gu/daein-dong/",
+           "https://parking.9welfare.com/parking/gwangju/dong-gu/street-parking/",
+           "https://parking.9welfare.com/parking/gwangju/seo-gu/yang-dong/",
+           "https://parking.9welfare.com/parking/gwangju/nam-gu/wolsan-dong/",
+           "https://parking.9welfare.com/parking/gwangju/buk-gu/street-parking/",
+           "https://parking.9welfare.com/parking/gwangju/buk-gu/munheung-dong/",
+           "https://parking.9welfare.com/parking/gwangju/gwangsan-gu/songjeong-dong/",
+           "https://parking.9welfare.com/parking/gwangju/gwangsan-gu/free/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"광주 주소가 사이트맵에 없음: {_u}")
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")

@@ -1,0 +1,3159 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 12:23",
+  "generated_at_iso": "2026-11-18T12:23:35+09:00",
+  "snapshot_at": "2026-11-18 12:23",
+  "region": {
+   "province": "광주광역시",
+   "city": "남구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 27,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "남구로 등록된 행 27행(노외·부설 27·노상 0)을 읽어 노외·부설 26곳과 노상 0구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 같은 이름·지번·면수로 두 번 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「광주광역시 주차장 조례」 별표1 공영주차장 주차요금표 · 제3조의2 주차요금의 감면",
+    "org": "광주광역시 교통운영과",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2084493",
+    "file": "gwangju-metro.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "8d03a9e03cf5f534942aa7830360c5ebd60f8cc71de9854c053d34ecafc2e631",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 12:08 (KST)",
+    "note": "시장이 설치한 공영주차장에 적용하는 요금표다. 1~4급지 1구획 최초 10분 500·300·200·200원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 500·300·250·200원, 1일 주차권 12,000·8,000·6,000·4,000원, 월 정기 주간 130,000·90,000·66,000·44,000원·야간 100,000·70,000·52,000·30,000원이다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:00이고 나머지가 야간이다. 제3조의2는 시책 참여 20퍼센트, 장애인 50퍼센트, 국가유공 상이자·고엽제환자·5·18부상자 1시간 면제 뒤 50퍼센트, 경차 60퍼센트, 성실납세증 면제, 전통시장 상인·고객 50퍼센트, 다자녀행복카드·무형유산 보유자·저공해자동차·명예시민·병역명문가 50퍼센트를 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「전남광주통합특별시 남구 주차장 조례」 제6조 주차요금·제7조 주차요금의 감면·별표1",
+    "org": "전남광주통합특별시 남구청 교통과(062-607-4231)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2141727",
+    "file": "gwangju-nam-gu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "56e7f8d2c79884e8a159de7b01fee7b984f6f96f99ae677930220d11d3d92439",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-06-30 · 전남광주통합특별시남구조례 제1805호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구청장이 설치·관리하는 주차장에 적용하는 조례다. 남구 조례 별표1(2026-06-30 개정)은 1~4급지와 주거지전용을 두고, 1급지 최초 10분 500원·10분 초과 후 매 10분 300원·2시간 초과 매 10분 500원, 1일 주차권 12,000원, 월 정기 주간 130,000원·야간 100,000원으로 시 조례와 같은 금액을 싣습니다. 1급지는 양림동·방림1동·봉선1동·백운2동·주월1동·효덕동, 2급지는 사직동·백운1동·주월2동이고, 주거지전용은 30분 200·100원(1일 2,000원·월 20,000원)입니다. 남구가 등록한 27곳은 모두 노외이고 24곳이 무료이며, 유료 3곳(효덕IC·봉선·월산)은 30분 기준 요금으로 등록되어 있습니다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "광주 남구",
+   "slug": "nam-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gj-nam-gu-001",
+   "mgmt_no": "177-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주공원 앞 공영주차장",
+   "gu": "광주 남구",
+   "dong": "구동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 구동 2-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "062-607-4231",
+   "lat": 35.147951,
+   "lng": 126.910171,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-002",
+   "mgmt_no": "177-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방림2동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "방림동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 방림동 2-53",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "062-607-4231",
+   "lat": 35.130604,
+   "lng": 126.925081,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-003",
+   "mgmt_no": "177-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방림동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "방림동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 방림동 71-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "062-607-4231",
+   "lat": 35.132134,
+   "lng": 126.921794,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-004",
+   "mgmt_no": "177-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방림한국 공영주차장",
+   "gu": "광주 남구",
+   "dong": "방림동",
+   "dong_src": "보정(도로명주소 봉선중길 43)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전남광주통합특별시 남구 봉선중길 43",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-607-4231",
+   "lat": 35.131332,
+   "lng": 126.915395,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-005",
+   "mgmt_no": "177-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운1동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "백운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 백운동 604-33",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "062-607-4231",
+   "lat": 35.137336,
+   "lng": 126.906895,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-006",
+   "mgmt_no": "177-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운2동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "백운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 백운동 621-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "062-607-4231",
+   "lat": 35.136165,
+   "lng": 126.902482,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-007",
+   "mgmt_no": "177-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백운동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "백운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 백운동 33-27",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-607-4231",
+   "lat": 35.140266,
+   "lng": 126.905413,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-008",
+   "mgmt_no": "177-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉선1동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "봉선동",
+   "dong_src": "보정(도로명주소 봉선중앙로123번길 21)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전남광주통합특별시 남구 봉선중앙로123번길 21",
+   "road": null,
+   "spaces": 36,
+   "tel": "062-607-4231",
+   "lat": 35.131734,
+   "lng": 126.908252,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-009",
+   "mgmt_no": "177-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유안근린공원 공영주차장",
+   "gu": "광주 남구",
+   "dong": "봉선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 봉선동 134",
+   "addr_road": "전남광주통합특별시 남구 봉선로 195",
+   "road": null,
+   "spaces": 101,
+   "tel": "062-607-4231",
+   "lat": 35.123167,
+   "lng": 126.916605,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-010",
+   "mgmt_no": "177-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사직동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 사동 92-1",
+   "addr_road": "전남광주통합특별시 남구 천변좌로390번길 7-1",
+   "road": null,
+   "spaces": 40,
+   "tel": "062-607-4231",
+   "lat": 35.143654,
+   "lng": 126.913466,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 40000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 600
+     }
+    ],
+    "steps_label": "2시간까지 10분당 300원 → 2시간 초과 10분당 600원",
+    "basis": "표준데이터 등록요금"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-011",
+   "mgmt_no": "177-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주 향교 공영주차장",
+   "gu": "광주 남구",
+   "dong": "서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 서동 154",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-607-4231",
+   "lat": 35.14541,
+   "lng": 126.908681,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-012",
+   "mgmt_no": "177-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 서동 66-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "062-607-4231",
+   "lat": 35.144354,
+   "lng": 126.904291,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-013",
+   "mgmt_no": "177-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "통샘 공영주차장",
+   "gu": "광주 남구",
+   "dong": "서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 서동 160-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "062-607-4231",
+   "lat": 35.145423,
+   "lng": 126.908097,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-014",
+   "mgmt_no": "177-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효덕IC 공영주차장",
+   "gu": "광주 남구",
+   "dong": "송하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 송하동 29-2",
+   "addr_road": "전남광주통합특별시 남구 서문대로 551",
+   "road": null,
+   "spaces": 109,
+   "tel": "062-607-4231",
+   "lat": 35.110873,
+   "lng": 126.892836,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 150,
+    "unit_min": 10,
+    "unit_fee": 250,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 118000,
+    "monthly_all": 118000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 150,
+     "unit_min": 10,
+     "unit_fee": 250,
+     "day": 6000,
+     "monthly": 118000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 250
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label": "2시간까지 10분당 250원 → 2시간 초과 10분당 500원",
+    "basis": "표준데이터 등록요금(광주 10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-015",
+   "mgmt_no": "177-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "압촌동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "압촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 압촌동 90-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-607-4231",
+   "lat": 35.093645,
+   "lng": 126.837482,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-016",
+   "mgmt_no": "177-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)양림동 행정복지센터 공영주차장",
+   "gu": "광주 남구",
+   "dong": "양림동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 양림동 93-33",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "062-607-4231",
+   "lat": 35.137032,
+   "lng": 126.915648,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-017",
+   "mgmt_no": "177-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양림동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "양림동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 양림동 151-2",
+   "addr_road": "전남광주통합특별시 남구 서서평길 20",
+   "road": null,
+   "spaces": 18,
+   "tel": "062-607-4231",
+   "lat": 35.141173,
+   "lng": 126.914984,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-018",
+   "mgmt_no": "177-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수박등로 공영주차장",
+   "gu": "광주 남구",
+   "dong": "월산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 월산동614-4",
+   "addr_road": "전남광주통합특별시 남구 대남대로 308번길 32",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-607-4231",
+   "lat": 35.141664,
+   "lng": 126.897066,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-019",
+   "mgmt_no": "177-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산4동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "월산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 월산동 948-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-607-4231",
+   "lat": 35.146377,
+   "lng": 126.891086,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-020",
+   "mgmt_no": "177-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산5동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "월산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 월산동 1033-41",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "062-607-4231",
+   "lat": 35.139139,
+   "lng": 126.893192,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-021",
+   "mgmt_no": "177-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "월산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 월산동 187-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "062-607-4231",
+   "lat": 35.144482,
+   "lng": 126.900048,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-022",
+   "mgmt_no": "177-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)보훈병원 주차장",
+   "gu": "광주 남구",
+   "dong": "주월동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 주월동 1206-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 113,
+   "tel": "062-607-4231",
+   "lat": 35.13019958,
+   "lng": 126.901825,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-023",
+   "mgmt_no": "177-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부엉이 주차장",
+   "gu": "광주 남구",
+   "dong": "주월동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 주월동 486-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "062-607-4231",
+   "lat": 35.13211,
+   "lng": 126.895356,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-024",
+   "mgmt_no": "177-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주월동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "주월동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 주월동 974-145",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "062-607-4231",
+   "lat": 35.135132,
+   "lng": 126.894264,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-025",
+   "mgmt_no": "177-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지석동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "지석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 지석동 507",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "062-607-4231",
+   "lat": 35.085346,
+   "lng": 126.8350617,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "gj-nam-gu-026",
+   "mgmt_no": "177-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진월동 공영주차장",
+   "gu": "광주 남구",
+   "dong": "진월동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 남구 진월동 330-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "062-607-4231",
+   "lat": 35.124837,
+   "lng": 126.895528,
+   "base_date": "2026-08-04",
+   "manager": "전남광주통합특별시 남구청",
+   "note": "",
+   "notice": "1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 40000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 남구",
+   "city_slug": "nam-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 12:23",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 27,
+  "원자료_남구행수": 27,
+  "원자료_받은행수": 27,
+  "구별": "남구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 1,
+  "중복제거_행": [
+   {
+    "name": "월산동 공영주차장",
+    "addr": "전남광주통합특별시 남구 월산동 187-11",
+    "spaces": 6,
+    "note": "이름·지번·면수가 같은 옛 등록(스냅숏 중복)",
+    "base_date": "2026-08-04",
+    "kept": "2026-08-04",
+    "kept_spaces": 6
+   }
+  ],
+  "총_주차장": 26,
+  "노외_부설": {
+   "노외": 26
+  },
+  "노상_구간": 0,
+  "총_구획수": 851,
+  "노상_구획수": 0,
+  "동별": {
+   "월산동": 4,
+   "방림동": 3,
+   "백운동": 3,
+   "서동": 3,
+   "주월동": 3,
+   "봉선동": 2,
+   "양림동": 2,
+   "구동": 1,
+   "사동": 1,
+   "송하동": 1,
+   "압촌동": 1,
+   "지석동": 1,
+   "진월동": 1
+  },
+  "동수": 13,
+  "동_미상": [],
+  "동_보정": [
+   "방림한국 공영주차장: 동 미상 → 방림동(도로명주소 봉선중길 43)",
+   "봉선1동 공영주차장: 동 미상 → 봉선동(도로명주소 봉선중앙로123번길 21)"
+  ],
+  "동_근거": {
+   "지번주소": 24,
+   "보정(도로명주소 봉선중길 43)": 1,
+   "보정(도로명주소 봉선중앙로123번길 21)": 1
+  },
+  "요금구분": {
+   "무료": 23,
+   "유료": 3
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 3,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「광주광역시 주차장 조례」 제3조의2(시장이 설치한 주차장)와 「전남광주통합특별시 남구 주차장 조례」 제6조 주차요금·제7조 주차요금의 감면·별표1(시행 2026-06-30 · 전남광주통합특별시남구조례 제1805호(일부개정))",
+  "무료시간_출처": "광주 조례 별표1은 별도의 최초 무료시간을 두지 않고 10분(시 조례)·30분(구청·공단 요금표) 단위로 요금을 매긴다. 표준데이터에 ‘최초 N분 0원’으로 등록된 주차장만 그 시간을 무료로 계산했다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 23,
+  "무료_구획수": 641,
+  "평균_기본요금": 250,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-08-04"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 남구청": 26
+  }
+ },
+ "fee_table": {
+  "style": "gwangju_dual",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "1",
+    "unit_label": "300원/60분",
+    "hour": 300,
+    "two_hour": 900,
+    "day": 3900,
+    "month": 40000,
+    "lots": 1
+   },
+   {
+    "label": "2급지",
+    "grade": "2",
+    "unit_label": "300원/60분",
+    "hour": 300,
+    "two_hour": 2100,
+    "day": 8000,
+    "month": 40000,
+    "lots": 1
+   },
+   {
+    "label": "3급지",
+    "grade": "3",
+    "unit_label": "150원/10분",
+    "hour": 1400,
+    "two_hour": 2900,
+    "day": 6000,
+    "month": 118000,
+    "lots": 1
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "first10": 500,
+    "over10": 300,
+    "over2h": 500,
+    "day": 12000,
+    "month_day": 130000,
+    "month_night": 100000
+   },
+   {
+    "label": "2급지",
+    "first10": 300,
+    "over10": 200,
+    "over2h": 300,
+    "day": 8000,
+    "month_day": 90000,
+    "month_night": 70000
+   },
+   {
+    "label": "3급지",
+    "first10": 200,
+    "over10": 150,
+    "over2h": 250,
+    "day": 6000,
+    "month_day": 66000,
+    "month_night": 52000
+   },
+   {
+    "label": "4급지",
+    "first10": 200,
+    "over10": 100,
+    "over2h": 200,
+    "day": 4000,
+    "month_day": 44000,
+    "month_night": 30000
+   }
+  ],
+  "gu_rows": [
+   {
+    "label": "1급지",
+    "base30": 700,
+    "unit15": 350,
+    "over2h": 700,
+    "day": 8000,
+    "month_day": 88000,
+    "month_night": 70000
+   },
+   {
+    "label": "2급지",
+    "base30": 400,
+    "unit15": 200,
+    "over2h": 400,
+    "day": 6400,
+    "month_day": 70000,
+    "month_night": 56000
+   },
+   {
+    "label": "3급지",
+    "base30": 300,
+    "unit15": 150,
+    "over2h": 300,
+    "day": 3900,
+    "month_day": 43000,
+    "month_night": 34000
+   },
+   {
+    "label": "주거지전용",
+    "base30": 200,
+    "unit15": 100,
+    "over2h": null,
+    "day": 2000,
+    "month_day": 20000,
+    "month_night": 20000
+   }
+  ],
+  "county": false,
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:00",
+    "free": "나머지 시간이 야간이고, 요금은 주간·야간이 같다"
+   }
+  ],
+  "notes": "남구 조례 별표1(2026-06-30 개정)은 1~4급지와 주거지전용을 두고, 1급지 최초 10분 500원·10분 초과 후 매 10분 300원·2시간 초과 매 10분 500원, 1일 주차권 12,000원, 월 정기 주간 130,000원·야간 100,000원으로 시 조례와 같은 금액을 싣습니다. 1급지는 양림동·방림1동·봉선1동·백운2동·주월1동·효덕동, 2급지는 사직동·백운1동·주월2동이고, 주거지전용은 30분 200·100원(1일 2,000원·월 20,000원)입니다. 남구가 등록한 27곳은 모두 노외이고 24곳이 무료이며, 유료 3곳(효덕IC·봉선·월산)은 30분 기준 요금으로 등록되어 있습니다.",
+  "corp": {
+   "paid": 3,
+   "free": 23,
+   "unknown": 0,
+   "street_paid": 0,
+   "si": 0,
+   "gu": 26
+  },
+  "basis": "「광주광역시 주차장 조례」 별표1(시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)) · 「전남광주통합특별시 남구 주차장 조례」 제6조 주차요금·제7조 주차요금의 감면·별표1(시행 2026-06-30 · 전남광주통합특별시남구조례 제1805호(일부개정)) · 광주광역시 주차장현황·북구시설관리공단 요금안내(30분 기준) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "nam-gu",
+ "province": "광주광역시",
+ "province_slug": "gwangju",
+ "dong_page_min_lots": 3,
+ "city": "광주 남구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·성실납세증·구청장 인정 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 모범납세표창을 받고 성실납세증(스티커)을 붙인 차(교부일부터 1년), 그 밖에 구청장이 특별한 사유가 있다고 인정하는 차를 면제합니다(남구 조례 제7조1호)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차 60퍼센트(제7조2호)"
+  },
+  {
+   "label": "장애인·유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인등록증을 가진 장애인, 국가유공 상이자, 고엽제 환자, 5·18민주화운동부상자가 본인 소유 비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 주차는 50퍼센트(제7조3호)"
+  },
+  {
+   "label": "저공해·전통시장·다자녀·무형유산·명예시민·장기기증 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차(전기차 충전 시 최초 1시간 면제), 전통시장·시장활성화구역 상인과 고객, 직접영향권 내 주택 거주자, 다자녀행복카드 소지자, 무형유산 보유자 차, 명예시민, 장기기증자·기증희망자 50퍼센트(제7조4호 가~바목)"
+  },
+  {
+   "label": "시책 참여 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "시장·구청장이 추진하는 시책에 참여해 증명서를 붙인 차 20퍼센트(제7조5호)"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "시책 참여 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "시장이 추진하는 시책에 참여해 증명서(스티커 등)를 붙인 차 20퍼센트(제3조의2①1호)"
+  },
+  {
+   "label": "장애인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "장애인이 소유하고 외부에 장애인 표지를 붙여 식별되는 차 50퍼센트(제3조의2①2호)"
+  },
+  {
+   "label": "국가유공 상이자·고엽제 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "국가유공자 상이자와 고엽제후유증·후유의증 환자·2세 환자가 증명을 가지고 본인 소유 비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기권은 50퍼센트(제3조의2①3호)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차 60퍼센트(제3조의2①4호)"
+  },
+  {
+   "label": "성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세표창을 받고 성실납세증(스티커)을 붙인 차 — 교부일부터 1년간 면제(제3조의2①5호)"
+  },
+  {
+   "label": "5·18부상자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주화운동부상자가 유공자증서를 가지고 본인 소유 비사업용 차를 직접 운전하거나 장애가 심해 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기권은 50퍼센트(제3조의2①6호)"
+  },
+  {
+   "label": "전통시장 상인·고객 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장·시장활성화구역의 상인과 고객이 증명자료를 내고 시장 안이나 이웃한 공영주차장을 쓰면 50퍼센트(제3조의2①7호)"
+  },
+  {
+   "label": "다자녀행복카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「광주광역시 출산 및 양육 지원 조례」에 따른 다자녀행복카드 소지자가 비사업용 차임을 알아볼 수 있는 표지를 붙인 차 50퍼센트(제3조의2①8호)"
+  },
+  {
+   "label": "무형유산 보유자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "무형유산 보유자가 사용하는 차임을 알아볼 수 있는 표지를 붙인 차 50퍼센트(제3조의2①9호)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차 표지를 붙인 차 50퍼센트, 전기자동차 충전을 위해 주차하면 최초 1시간 면제(제3조의2①10호)"
+  },
+  {
+   "label": "명예시민 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "광주광역시 명예시민증을 받은 명예시민 50퍼센트(제3조의2①11호)"
+  },
+  {
+   "label": "병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "병역명문가증을 제시한 예우대상자 50퍼센트(제3조의2①12호)"
+  }
+ ],
+ "realtime": false
+}

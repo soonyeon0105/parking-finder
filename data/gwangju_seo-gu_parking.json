@@ -1,0 +1,7892 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 12:23",
+  "generated_at_iso": "2026-11-18T12:23:35+09:00",
+  "snapshot_at": "2026-11-18 12:23",
+  "region": {
+   "province": "광주광역시",
+   "city": "서구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 70,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "서구로 등록된 행 70행(노외·부설 70·노상 0)을 읽어 노외·부설 70곳과 노상 0구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 같은 이름·지번·면수로 두 번 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「광주광역시 주차장 조례」 별표1 공영주차장 주차요금표 · 제3조의2 주차요금의 감면",
+    "org": "광주광역시 교통운영과",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2084493",
+    "file": "gwangju-metro.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "8d03a9e03cf5f534942aa7830360c5ebd60f8cc71de9854c053d34ecafc2e631",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 12:08 (KST)",
+    "note": "시장이 설치한 공영주차장에 적용하는 요금표다. 1~4급지 1구획 최초 10분 500·300·200·200원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 500·300·250·200원, 1일 주차권 12,000·8,000·6,000·4,000원, 월 정기 주간 130,000·90,000·66,000·44,000원·야간 100,000·70,000·52,000·30,000원이다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:00이고 나머지가 야간이다. 제3조의2는 시책 참여 20퍼센트, 장애인 50퍼센트, 국가유공 상이자·고엽제환자·5·18부상자 1시간 면제 뒤 50퍼센트, 경차 60퍼센트, 성실납세증 면제, 전통시장 상인·고객 50퍼센트, 다자녀행복카드·무형유산 보유자·저공해자동차·명예시민·병역명문가 50퍼센트를 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「전남광주통합특별시 서구 주차장 조례」 제2조 주차요금(시 조례 제3조 준용)·제2조의2 주차요금의 감면",
+    "org": "전남광주통합특별시 서구청 교통행정과(062-360-7810)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2132399",
+    "file": "gwangju-seo-gu.law.go.kr_주차장조례_별표6_20261118.txt",
+    "sha256": "e4bb1c6eeb5fd5d7708ac03392fd0ec2231ba3c3fba0b17914e55750115cfbd1",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-06-16 · 전남광주통합특별시서구조례 제2032호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구청장이 설치·관리하는 주차장에 적용하는 조례다. 서구 조례 제2조①은 공영주차장의 주차요금과 가산금을 시 조례 제3조(별표1) 준용으로 정하고, 노외주차장을 주거지 전용으로 지정하면 시 조례 별표1의 3급지 요금을 적용합니다. 서구가 등록한 70곳은 모두 노외이고 58곳이 무료이며, 유료 12곳은 30분 700원·15분마다 350원(1급지)으로 등록되어 있습니다. 감면은 제2조의2가 정하고, 2026-07-01 개정으로 무형유산 보유자·기초생활수급자·임산부·병역명문가가 50퍼센트 대상에 더해졌습니다. 전통시장 주차권은 별표7 요금(1시간 1,000원)으로 따로 팔 수 있습니다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "광주 서구",
+   "slug": "seo-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gj-seo-gu-001",
+   "mgmt_no": "176-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천동주민센터",
+   "gu": "광주 서구",
+   "dong": "광천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 광천동 122-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-350-5283",
+   "lat": 35.16448764,
+   "lng": 126.880162,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-002",
+   "mgmt_no": "176-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금호1동주민센터",
+   "gu": "광주 서구",
+   "dong": "금호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 금호동 772",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "062-350-4494",
+   "lat": 35.13518075,
+   "lng": 126.8571483,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-003",
+   "mgmt_no": "176-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금호2동주민센터",
+   "gu": "광주 서구",
+   "dong": "금호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 금호동 812",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "062-350-4507",
+   "lat": 35.12899182,
+   "lng": 126.8571559,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-004",
+   "mgmt_no": "176-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금호동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "금호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 금호동 764",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "062-360-7810",
+   "lat": 35.132465,
+   "lng": 126.8573497,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-005",
+   "mgmt_no": "176-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성1동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 125-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-360-7810",
+   "lat": 35.15257397,
+   "lng": 126.8932208,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-006",
+   "mgmt_no": "176-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성1동 주거환경개선지구",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 30-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "062-360-7810",
+   "lat": 35.15648811,
+   "lng": 126.8913076,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-007",
+   "mgmt_no": "176-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성1동주거환경개선지구(농성동 69-1)",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 69-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "062-360-7810",
+   "lat": 35.15396863,
+   "lng": 126.8909739,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(농성동 69-1)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-008",
+   "mgmt_no": "176-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성1동주거환경개선지구(농성동 74-12)",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 74-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "062-360-7810",
+   "lat": 35.15335928,
+   "lng": 126.8923541,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(농성동 74-12)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-009",
+   "mgmt_no": "176-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성1동주민센터",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 359-7",
+   "addr_road": "전남광주통합특별시 서구 월산로225번길 10-36",
+   "road": null,
+   "spaces": 28,
+   "tel": "062-350-4247",
+   "lat": 35.15661505,
+   "lng": 126.889588,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-010",
+   "mgmt_no": "176-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성2동주민센터",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 630-11",
+   "addr_road": "전남광주통합특별시 서구 화정로 314",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-350-4266",
+   "lat": 35.15037423,
+   "lng": 126.8902215,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-011",
+   "mgmt_no": "176-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농성동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 109",
+   "addr_road": "",
+   "road": null,
+   "spaces": 171,
+   "tel": "062-360-7810",
+   "lat": 35.15270475,
+   "lng": 126.8917483,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-012",
+   "mgmt_no": "176-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상록도서관 옥외주차장",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 374-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "062-350-4579",
+   "lat": 35.15522263,
+   "lng": 126.8889178,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-013",
+   "mgmt_no": "176-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서구청주차장(지상)",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 299",
+   "addr_road": "전남광주통합특별시 서구 경열로 33",
+   "road": null,
+   "spaces": 118,
+   "tel": "062-360-7773",
+   "lat": 35.15203177,
+   "lng": 126.8901112,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-014",
+   "mgmt_no": "176-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서구청주차장(지하)",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 299",
+   "addr_road": "전남광주통합특별시 서구 경열로 33",
+   "road": null,
+   "spaces": 197,
+   "tel": "062-360-7773",
+   "lat": 35.15203177,
+   "lng": 126.8901112,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-015",
+   "mgmt_no": "176-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서구청주차장(타워)",
+   "gu": "광주 서구",
+   "dong": "농성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 농성동 299",
+   "addr_road": "전남광주통합특별시 서구 경열로 33",
+   "road": null,
+   "spaces": 143,
+   "tel": "062-360-7773",
+   "lat": 35.15203177,
+   "lng": 126.8901112,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-016",
+   "mgmt_no": "176-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕흥동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "덕흥동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 덕흥동 899-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "062-360-7810",
+   "lat": 35.16667956,
+   "lng": 126.8526003,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-017",
+   "mgmt_no": "176-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕흥동 주거환경개선지구(덕흥동 570)",
+   "gu": "광주 서구",
+   "dong": "덕흥동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 덕흥동 570",
+   "addr_road": "전남광주통합특별시 서구 덕흥1길 32",
+   "road": null,
+   "spaces": 25,
+   "tel": "062-360-7810",
+   "lat": 35.16570378,
+   "lng": 126.8376324,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(덕흥동 570)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-018",
+   "mgmt_no": "176-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕흥동 주거환경개선지구(덕흥동 808-1)",
+   "gu": "광주 서구",
+   "dong": "덕흥동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 덕흥동 808-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "062-360-7810",
+   "lat": 35.16675456,
+   "lng": 126.8352236,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(덕흥동 808-1)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-019",
+   "mgmt_no": "176-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동천동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "동천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 동천동 650",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "062-360-7810",
+   "lat": 35.15982792,
+   "lng": 126.8465404,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-020",
+   "mgmt_no": "176-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동천동주민센터",
+   "gu": "광주 서구",
+   "dong": "동천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 동천동 611",
+   "addr_road": "전남광주통합특별시 서구 유림로98번길 8",
+   "road": null,
+   "spaces": 15,
+   "tel": "062-350-4608",
+   "lat": 35.17087029,
+   "lng": 126.864739,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-021",
+   "mgmt_no": "176-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서창동 주거환경개선지구",
+   "gu": "광주 서구",
+   "dong": "서창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 서창동 555-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-360-7810",
+   "lat": 35.10850556,
+   "lng": 126.8216293,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-022",
+   "mgmt_no": "176-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서창동주민센터",
+   "gu": "광주 서구",
+   "dong": "세하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 세하동 553-1",
+   "addr_road": "전남광주통합특별시 서구 눌재로 412",
+   "road": null,
+   "spaces": 9,
+   "tel": "062-350-4470",
+   "lat": 35.11445067,
+   "lng": 126.8302906,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-023",
+   "mgmt_no": "176-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향토문화마을",
+   "gu": "광주 서구",
+   "dong": "세하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 세하동 682-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-360-7810",
+   "lat": 35.11562592,
+   "lng": 126.8300941,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-024",
+   "mgmt_no": "176-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계수마을 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 1328-9",
+   "addr_road": "전남광주통합특별시 서구 상무민주로123번길 9-5",
+   "road": null,
+   "spaces": 16,
+   "tel": "062-360-7810",
+   "lat": 35.1612474,
+   "lng": 126.8584296,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-025",
+   "mgmt_no": "176-2-000071",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계수마을 제2공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 1324-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-360-7810",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-026",
+   "mgmt_no": "176-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상무1동주민센터",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 328-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-350-4351",
+   "lat": 35.15377578,
+   "lng": 126.8674199,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-027",
+   "mgmt_no": "176-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상무2동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 511",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "062-360-7810",
+   "lat": 35.14713704,
+   "lng": 126.8618748,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-028",
+   "mgmt_no": "176-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상무2동 우리마을 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 524-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "062-360-7810",
+   "lat": 35.16667956,
+   "lng": 126.8526003,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-029",
+   "mgmt_no": "176-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상무2동주민센터",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 1207-6",
+   "addr_road": "전남광주통합특별시 서구 쌍촌로20번길 9-1",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-350-4379",
+   "lat": 35.14680667,
+   "lng": 126.8660606,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-030",
+   "mgmt_no": "176-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신학대 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 452-34",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "062-360-7810",
+   "lat": 35.14878557,
+   "lng": 126.8665819,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-031",
+   "mgmt_no": "176-2-000070",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍촌 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 967-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "062-360-7810",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-032",
+   "mgmt_no": "176-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍촌동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 896",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "062-360-7810",
+   "lat": 35.14479013,
+   "lng": 126.8547187,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-033",
+   "mgmt_no": "176-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효사어린이공원 공영주차장",
+   "gu": "광주 서구",
+   "dong": "쌍촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 쌍촌동 531-5",
+   "addr_road": "전남광주통합특별시 서구 쌍촌로47번길 41-1",
+   "road": null,
+   "spaces": 48,
+   "tel": "062-360-7810",
+   "lat": 35.15982792,
+   "lng": 126.8465404,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-034",
+   "mgmt_no": "176-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "발산마을 공영주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 438-79",
+   "addr_road": "전남광주통합특별시 서구 천변좌로 112-2",
+   "road": null,
+   "spaces": 13,
+   "tel": "062-360-4967",
+   "lat": 35.16030872,
+   "lng": 126.891338,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-035",
+   "mgmt_no": "176-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양3동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 437-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "062-360-7810",
+   "lat": 35.15847243,
+   "lng": 126.8926032,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-036",
+   "mgmt_no": "176-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양3동주민센터",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 46",
+   "addr_road": "전남광주통합특별시 서구 독립로185번길 5",
+   "road": null,
+   "spaces": 10,
+   "tel": "062-350-4225",
+   "lat": 35.15752068,
+   "lng": 126.8940007,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-037",
+   "mgmt_no": "176-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동 주거환경개선지구",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 287-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "062-360-7810",
+   "lat": 35.15329648,
+   "lng": 126.8981335,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-038",
+   "mgmt_no": "176-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동공영주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 80-1",
+   "addr_road": "전남광주통합특별시 서구 독립로194번길 2-1",
+   "road": null,
+   "spaces": 8,
+   "tel": "062-360-7810",
+   "lat": 35.14994043,
+   "lng": 126.9059761,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-039",
+   "mgmt_no": "176-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동닭전길시장공영주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 5-31",
+   "addr_road": "전남광주통합특별시 서구 양동시장2길 32",
+   "road": null,
+   "spaces": 82,
+   "tel": "062-360-7352",
+   "lat": 35.15223195,
+   "lng": 126.9032017,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-040",
+   "mgmt_no": "176-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동복개상가상하부주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 441",
+   "addr_road": "전남광주통합특별시 서구 천변좌로 243",
+   "road": null,
+   "spaces": 249,
+   "tel": "062-360-7352",
+   "lat": 35.15509075,
+   "lng": 126.9013634,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-041",
+   "mgmt_no": "176-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동산업용품주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 96-1",
+   "addr_road": "전남광주통합특별시 서구 천변좌로298번길 5",
+   "road": null,
+   "spaces": 40,
+   "tel": "062-360-7352",
+   "lat": 35.15015682,
+   "lng": 126.9069829,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-042",
+   "mgmt_no": "176-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동전통시장 연합 공영주차장",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 5-29",
+   "addr_road": "전남광주통합특별시 서구 양동시장3길 21-1",
+   "road": null,
+   "spaces": 148,
+   "tel": "062-360-7352",
+   "lat": 35.15509075,
+   "lng": 126.9013634,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-043",
+   "mgmt_no": "176-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양동주민센터",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 307-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-350-4210",
+   "lat": 35.15489274,
+   "lng": 126.9008763,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-044",
+   "mgmt_no": "176-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오천마을 재생프로젝트",
+   "gu": "광주 서구",
+   "dong": "양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 양동 374-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "062-360-7810",
+   "lat": 35.15763319,
+   "lng": 126.896456,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-045",
+   "mgmt_no": "176-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유덕동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "유촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 유촌동 148",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "062-360-7810",
+   "lat": 35.16558333,
+   "lng": 126.852727,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-046",
+   "mgmt_no": "176-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유덕동주민센터",
+   "gu": "광주 서구",
+   "dong": "유촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 유촌동 497-1",
+   "addr_road": "전남광주통합특별시 서구 유덕로 24",
+   "road": null,
+   "spaces": 40,
+   "tel": "062-350-4307",
+   "lat": 35.16510605,
+   "lng": 126.8518226,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-047",
+   "mgmt_no": "176-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유촌동 주거환경개선지구(유촌동 441)",
+   "gu": "광주 서구",
+   "dong": "유촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 유촌동 441",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "062-360-7810",
+   "lat": 35.1640376,
+   "lng": 126.8521721,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(유촌동 441)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-048",
+   "mgmt_no": "176-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유촌동 주거환경개선지구(유촌동 525-2)",
+   "gu": "광주 서구",
+   "dong": "유촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 유촌동 525-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-360-7810",
+   "lat": 35.16646584,
+   "lng": 126.8526378,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(유촌동 525-2)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-049",
+   "mgmt_no": "176-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유촌동 주거환경개선지구(유촌동 556-2)",
+   "gu": "광주 서구",
+   "dong": "유촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 유촌동 556-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "062-360-7810",
+   "lat": 35.16667956,
+   "lng": 126.8526003,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(유촌동 556-2)를 붙여 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-050",
+   "mgmt_no": "176-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "느티나무어린이공원 공영주차장",
+   "gu": "광주 서구",
+   "dong": "치평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 치평동 1192",
+   "addr_road": "전남광주통합특별시 서구 시청서편로12번길 8",
+   "road": null,
+   "spaces": 33,
+   "tel": "062-360-7810",
+   "lat": 35.15982792,
+   "lng": 126.8465404,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-051",
+   "mgmt_no": "176-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상무시민공원 공영주차장",
+   "gu": "광주 서구",
+   "dong": "치평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 치평동 1162",
+   "addr_road": "전남광주통합특별시 서구 상무자유로 59",
+   "road": null,
+   "spaces": 219,
+   "tel": "062-350-4938",
+   "lat": 35.15221868,
+   "lng": 126.8422202,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-052",
+   "mgmt_no": "176-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "치평동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "치평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 치평동 1308-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "062-360-7810",
+   "lat": 35.14572556,
+   "lng": 126.8438925,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-053",
+   "mgmt_no": "176-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "치평동주민센터",
+   "gu": "광주 서구",
+   "dong": "치평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 치평동 1171-11",
+   "addr_road": "전남광주통합특별시 서구 상무공원로 62",
+   "road": null,
+   "spaces": 6,
+   "tel": "062-350-4325",
+   "lat": 35.14994536,
+   "lng": 126.8433434,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-054",
+   "mgmt_no": "176-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신암근린공원 공영주차장",
+   "gu": "광주 서구",
+   "dong": "풍암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 풍암동 1126",
+   "addr_road": "전남광주통합특별시 서구 풍암2로 26",
+   "road": null,
+   "spaces": 9,
+   "tel": "062-350-4938",
+   "lat": 35.12487156,
+   "lng": 126.8791788,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-055",
+   "mgmt_no": "176-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어린이생태학습도서관 옥외주차장",
+   "gu": "광주 서구",
+   "dong": "풍암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 풍암동 산 14-50",
+   "addr_road": "전남광주통합특별시 서구 풍암공원로 8",
+   "road": null,
+   "spaces": 62,
+   "tel": "062-350-4579",
+   "lat": 35.12979981,
+   "lng": 126.8818544,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-056",
+   "mgmt_no": "176-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍암동주민센터",
+   "gu": "광주 서구",
+   "dong": "풍암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 풍암동 1125",
+   "addr_road": "전남광주통합특별시 서구 풍암1로 27",
+   "road": null,
+   "spaces": 7,
+   "tel": "062-350-4528",
+   "lat": 35.12474963,
+   "lng": 126.8786648,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-057",
+   "mgmt_no": "176-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍암생활체육공원 공영주차장",
+   "gu": "광주 서구",
+   "dong": "풍암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 풍암동 36",
+   "addr_road": "전남광주통합특별시 서구 회재로 1113",
+   "road": null,
+   "spaces": 65,
+   "tel": "062-350-4938",
+   "lat": 35.12937717,
+   "lng": 126.8839229,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-058",
+   "mgmt_no": "176-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍암호수공원",
+   "gu": "광주 서구",
+   "dong": "풍암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 풍암동 857-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 182,
+   "tel": "062-360-7810",
+   "lat": 35.12596351,
+   "lng": 126.8695967,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-059",
+   "mgmt_no": "176-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서부시장 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 779-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "062-360-7352",
+   "lat": 35.15385914,
+   "lng": 126.8797736,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-060",
+   "mgmt_no": "176-2-000069",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "염주 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 844-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-360-7810",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-061",
+   "mgmt_no": "176-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영화아파트 앞 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 100",
+   "addr_road": "전남광주통합특별시 서구 화운로 203",
+   "road": null,
+   "spaces": 17,
+   "tel": "062-360-4937",
+   "lat": 35.15705533,
+   "lng": 126.8767076,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-062",
+   "mgmt_no": "176-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정1동주민센터",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 71-81",
+   "addr_road": "전남광주통합특별시 서구 내방로338번길 11",
+   "road": null,
+   "spaces": 4,
+   "tel": "062-350-4385",
+   "lat": 35.15634355,
+   "lng": 126.8777162,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-063",
+   "mgmt_no": "176-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정2동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 950",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "062-360-7810",
+   "lat": 35.14342115,
+   "lng": 126.8866293,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-064",
+   "mgmt_no": "176-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정2동공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 1551",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-360-7810",
+   "lat": 35.14507754,
+   "lng": 126.8856842,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-065",
+   "mgmt_no": "176-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정2동주민센터",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 1611",
+   "addr_road": "전남광주통합특별시 서구 화운로 94",
+   "road": null,
+   "spaces": 27,
+   "tel": "062-350-4406",
+   "lat": 35.14836711,
+   "lng": 126.8806458,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-066",
+   "mgmt_no": "176-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정3동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 842-8",
+   "addr_road": "전남광주통합특별시 서구 월드컵4강로42번길 23-8",
+   "road": null,
+   "spaces": 24,
+   "tel": "062-360-7810",
+   "lat": 35.14172876,
+   "lng": 126.8783335,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-067",
+   "mgmt_no": "176-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정3동주민센터",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 818-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "062-350-4431",
+   "lat": 35.14345532,
+   "lng": 126.8769162,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-068",
+   "mgmt_no": "176-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정4동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 916-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "062-360-7810",
+   "lat": 35.14252868,
+   "lng": 126.8732198,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-069",
+   "mgmt_no": "176-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정4동주민센터",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 919-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "062-350-4446",
+   "lat": 35.14182727,
+   "lng": 126.8737654,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "gj-seo-gu-070",
+   "mgmt_no": "176-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화정동 공영주차장",
+   "gu": "광주 서구",
+   "dong": "화정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 서구 화정동 1705",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "062-360-7810",
+   "lat": 35.14855087,
+   "lng": 126.8772085,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 700,
+    "unit_min": 15,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 88000,
+    "monthly_all": 88000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 700,
+     "unit_min": 15,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 88000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 350
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 700
+     }
+    ],
+    "steps_label": "2시간까지 15분당 350원 → 2시간 초과 15분당 700원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 700,
+   "city": "광주 서구",
+   "city_slug": "seo-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 12:23",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 70,
+  "원자료_서구행수": 70,
+  "원자료_받은행수": 70,
+  "구별": "서구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 70,
+  "노외_부설": {
+   "노외": 70
+  },
+  "노상_구간": 0,
+  "총_구획수": 2858,
+  "노상_구획수": 0,
+  "동별": {
+   "화정동": 12,
+   "농성동": 11,
+   "양동": 11,
+   "쌍촌동": 10,
+   "유촌동": 5,
+   "풍암동": 5,
+   "치평동": 4,
+   "금호동": 3,
+   "덕흥동": 3,
+   "동천동": 2,
+   "세하동": 2,
+   "광천동": 1,
+   "서창동": 1
+  },
+  "동수": 13,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 농성1동주거환경개선지구, 덕흥동 주거환경개선지구, 유촌동 주거환경개선지구 — 이름 뒤에 주소를 붙여 구분"
+  ],
+  "동_근거": {
+   "지번주소": 70
+  },
+  "요금구분": {
+   "무료": 58,
+   "유료": 12
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 12,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "계수마을 제2공영주차장",
+   "쌍촌 공영주차장",
+   "염주 공영주차장"
+  ],
+  "감면_출처": "「광주광역시 주차장 조례」 제3조의2(시장이 설치한 주차장)와 「전남광주통합특별시 서구 주차장 조례」 제2조 주차요금(시 조례 제3조 준용)·제2조의2 주차요금의 감면(시행 2026-06-16 · 전남광주통합특별시서구조례 제2032호(일부개정))",
+  "무료시간_출처": "광주 조례 별표1은 별도의 최초 무료시간을 두지 않고 10분(시 조례)·30분(구청·공단 요금표) 단위로 요금을 매긴다. 표준데이터에 ‘최초 N분 0원’으로 등록된 주차장만 그 시간을 무료로 계산했다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 58,
+  "무료_구획수": 1956,
+  "평균_기본요금": 700,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-08-06"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 서구청": 70
+  }
+ },
+ "fee_table": {
+  "style": "gwangju_dual",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "1",
+    "unit_label": "700원/30분",
+    "hour": 1400,
+    "two_hour": 2800,
+    "day": 8000,
+    "month": 88000,
+    "lots": 12
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "first10": 500,
+    "over10": 300,
+    "over2h": 500,
+    "day": 12000,
+    "month_day": 130000,
+    "month_night": 100000
+   },
+   {
+    "label": "2급지",
+    "first10": 300,
+    "over10": 200,
+    "over2h": 300,
+    "day": 8000,
+    "month_day": 90000,
+    "month_night": 70000
+   },
+   {
+    "label": "3급지",
+    "first10": 200,
+    "over10": 150,
+    "over2h": 250,
+    "day": 6000,
+    "month_day": 66000,
+    "month_night": 52000
+   },
+   {
+    "label": "4급지",
+    "first10": 200,
+    "over10": 100,
+    "over2h": 200,
+    "day": 4000,
+    "month_day": 44000,
+    "month_night": 30000
+   }
+  ],
+  "gu_rows": [
+   {
+    "label": "1급지",
+    "base30": 700,
+    "unit15": 350,
+    "over2h": 700,
+    "day": 8000,
+    "month_day": 88000,
+    "month_night": 70000
+   },
+   {
+    "label": "2급지",
+    "base30": 400,
+    "unit15": 200,
+    "over2h": 400,
+    "day": 6400,
+    "month_day": 70000,
+    "month_night": 56000
+   },
+   {
+    "label": "3급지",
+    "base30": 300,
+    "unit15": 150,
+    "over2h": 300,
+    "day": 3900,
+    "month_day": 43000,
+    "month_night": 34000
+   },
+   {
+    "label": "주거지전용",
+    "base30": 200,
+    "unit15": 100,
+    "over2h": null,
+    "day": 2000,
+    "month_day": 20000,
+    "month_night": 20000
+   }
+  ],
+  "county": false,
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:00",
+    "free": "나머지 시간이 야간이고, 요금은 주간·야간이 같다"
+   }
+  ],
+  "notes": "서구 조례 제2조①은 공영주차장의 주차요금과 가산금을 시 조례 제3조(별표1) 준용으로 정하고, 노외주차장을 주거지 전용으로 지정하면 시 조례 별표1의 3급지 요금을 적용합니다. 서구가 등록한 70곳은 모두 노외이고 58곳이 무료이며, 유료 12곳은 30분 700원·15분마다 350원(1급지)으로 등록되어 있습니다. 감면은 제2조의2가 정하고, 2026-07-01 개정으로 무형유산 보유자·기초생활수급자·임산부·병역명문가가 50퍼센트 대상에 더해졌습니다. 전통시장 주차권은 별표7 요금(1시간 1,000원)으로 따로 팔 수 있습니다.",
+  "corp": {
+   "paid": 12,
+   "free": 58,
+   "unknown": 0,
+   "street_paid": 0,
+   "si": 0,
+   "gu": 70
+  },
+  "basis": "「광주광역시 주차장 조례」 별표1(시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)) · 「전남광주통합특별시 서구 주차장 조례」 제2조 주차요금(시 조례 제3조 준용)·제2조의2 주차요금의 감면(시행 2026-06-16 · 전남광주통합특별시서구조례 제2032호(일부개정)) · 광주광역시 주차장현황·북구시설관리공단 요금안내(30분 기준) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "seo-gu",
+ "province": "광주광역시",
+ "province_slug": "gwangju",
+ "dong_page_min_lots": 3,
+ "city": "광주 서구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무 차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차와 공무수행 중인 구 소유 차 등은 주차요금을 면제합니다(서구 조례 제2조③)"
+  },
+  {
+   "label": "시책 참여 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "구청장이 추진하는 시책에 참여해 스티커 등 증명서를 붙인 차 20퍼센트(제2조의2 1호)"
+  },
+  {
+   "label": "성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세표창을 받고 전남광주통합특별시장·구청장·국세청장이 교부한 성실납세증을 붙인 차 — 교부일부터 1년 면제(제2조의2 2호)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차 60퍼센트(제2조의2 3호)"
+  },
+  {
+   "label": "장애인·유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인등록증 소지자, 국가유공 상이자, 고엽제 환자, 5·18민주화운동부상자가 본인 소유나 1년 이상 임차한 비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 주차는 50퍼센트(제2조의2 4호 가~라목)"
+  },
+  {
+   "label": "전통시장·다자녀·저공해 등 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장·상점가·골목형상점가·상권활성화구역 상인과 고객, 다자녀행복카드 소지자, 환경친화적·저공해자동차(전기차 충전 시 최초 1시간 면제), 무형유산 보유자 차, 기초생활수급자 차(구청장 증명서), 임산부가 탑승한 차, 병역명문가 예우대상자와 그 가족 50퍼센트(제2조의2 5호 가~사목)"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "시책 참여 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "시장이 추진하는 시책에 참여해 증명서(스티커 등)를 붙인 차 20퍼센트(제3조의2①1호)"
+  },
+  {
+   "label": "장애인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "장애인이 소유하고 외부에 장애인 표지를 붙여 식별되는 차 50퍼센트(제3조의2①2호)"
+  },
+  {
+   "label": "국가유공 상이자·고엽제 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "국가유공자 상이자와 고엽제후유증·후유의증 환자·2세 환자가 증명을 가지고 본인 소유 비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기권은 50퍼센트(제3조의2①3호)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차 60퍼센트(제3조의2①4호)"
+  },
+  {
+   "label": "성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세표창을 받고 성실납세증(스티커)을 붙인 차 — 교부일부터 1년간 면제(제3조의2①5호)"
+  },
+  {
+   "label": "5·18부상자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주화운동부상자가 유공자증서를 가지고 본인 소유 비사업용 차를 직접 운전하거나 장애가 심해 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기권은 50퍼센트(제3조의2①6호)"
+  },
+  {
+   "label": "전통시장 상인·고객 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장·시장활성화구역의 상인과 고객이 증명자료를 내고 시장 안이나 이웃한 공영주차장을 쓰면 50퍼센트(제3조의2①7호)"
+  },
+  {
+   "label": "다자녀행복카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「광주광역시 출산 및 양육 지원 조례」에 따른 다자녀행복카드 소지자가 비사업용 차임을 알아볼 수 있는 표지를 붙인 차 50퍼센트(제3조의2①8호)"
+  },
+  {
+   "label": "무형유산 보유자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "무형유산 보유자가 사용하는 차임을 알아볼 수 있는 표지를 붙인 차 50퍼센트(제3조의2①9호)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차 표지를 붙인 차 50퍼센트, 전기자동차 충전을 위해 주차하면 최초 1시간 면제(제3조의2①10호)"
+  },
+  {
+   "label": "명예시민 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "광주광역시 명예시민증을 받은 명예시민 50퍼센트(제3조의2①11호)"
+  },
+  {
+   "label": "병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "병역명문가증을 제시한 예우대상자 50퍼센트(제3조의2①12호)"
+  }
+ ],
+ "realtime": false
+}

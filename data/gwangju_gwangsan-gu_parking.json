@@ -1,0 +1,7485 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 12:23",
+  "generated_at_iso": "2026-11-18T12:23:35+09:00",
+  "snapshot_at": "2026-11-18 12:23",
+  "region": {
+   "province": "광주광역시",
+   "city": "광산구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 63,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "광산구로 등록된 행 63행(노외·부설 63·노상 0)을 읽어 노외·부설 63곳과 노상 0구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 같은 이름·지번·면수로 두 번 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「광주광역시 주차장 조례」 별표1 공영주차장 주차요금표 · 제3조의2 주차요금의 감면",
+    "org": "광주광역시 교통운영과",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2084493",
+    "file": "gwangju-metro.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "8d03a9e03cf5f534942aa7830360c5ebd60f8cc71de9854c053d34ecafc2e631",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 12:08 (KST)",
+    "note": "시장이 설치한 공영주차장에 적용하는 요금표다. 1~4급지 1구획 최초 10분 500·300·200·200원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 500·300·250·200원, 1일 주차권 12,000·8,000·6,000·4,000원, 월 정기 주간 130,000·90,000·66,000·44,000원·야간 100,000·70,000·52,000·30,000원이다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:00이고 나머지가 야간이다. 제3조의2는 시책 참여 20퍼센트, 장애인 50퍼센트, 국가유공 상이자·고엽제환자·5·18부상자 1시간 면제 뒤 50퍼센트, 경차 60퍼센트, 성실납세증 면제, 전통시장 상인·고객 50퍼센트, 다자녀행복카드·무형유산 보유자·저공해자동차·명예시민·병역명문가 50퍼센트를 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「전남광주통합특별시 광산구 주차장 조례」 제6조 주차요금·별표 비고9~12 감면",
+    "org": "전남광주통합특별시 광산구 시설관리공단(062-960-9916)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2145707",
+    "file": "gwangju-gwangsan-gu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "3fd38deba4940b22cd94f278cfdf2b33fd952eede6cc87432ce8b0d9fc0e316c",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2026-06-30 · 전남광주통합특별시광산구조례 제2056호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구청장이 설치·관리하는 주차장에 적용하는 조례다. 광산구 조례 별표(2026-06-30 개정)는 1~4급지 10분 단위 요금표를 싣고, 1급지에 송정2동·첨단1·2동·신가동·신창동·수완동, 2급지에 송정1동·신흥동·어룡동·우산동·월곡2동을 둡니다. 감면은 별표 비고9~12가 정하고, 캠핑카 구역 정기주차권은 급지와 관계없이 월 90,000원입니다. 광산구시설관리공단이 맡은 61곳 가운데 36곳이 무료이고, 유료·혼합 25곳은 30분 300~400원·15분마다 150~400원으로 등록되어 있습니다. 진곡·평동 화물공영차고지는 광주광역시도시공사가 운영하며 120분당 270원·1일 5,940원을 받습니다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "광주 광산구",
+   "slug": "gwangsan-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gj-gwangsan-gu-001",
+   "mgmt_no": "179-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장1",
+   "gu": "광주 광산구",
+   "dong": "고룡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 고룡동 997",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "062-960-9916",
+   "lat": 35.21165208,
+   "lng": 126.7807502,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-002",
+   "mgmt_no": "179-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장9",
+   "gu": "광주 광산구",
+   "dong": "고룡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 고룡동 1007",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "062-960-9916",
+   "lat": 35.21002302,
+   "lng": 126.7811236,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-003",
+   "mgmt_no": "179-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비아5일시장 제2",
+   "gu": "광주 광산구",
+   "dong": "비아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 비아동 66-6",
+   "addr_road": "전남광주통합특별시 광산구 비아동원촌길 17",
+   "road": null,
+   "spaces": 47,
+   "tel": "062-960-9916",
+   "lat": 35.22059757,
+   "lng": 126.8257046,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-004",
+   "mgmt_no": "179-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비아5일시장(주차타워)",
+   "gu": "광주 광산구",
+   "dong": "비아동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 비아동67-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 89,
+   "tel": "062-960-9916",
+   "lat": 35.13661218,
+   "lng": 126.7926881,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "2급지 요금표는 최초 30분 400원·15분마다 200원인데, 이 주차장은 등록요금(300원/30분)으로 계산합니다 · 특기사항의 무료시간은 표준데이터에 적힌 조건이라 계산에는 넣지 않았습니다(현장 확인) · 1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-005",
+   "mgmt_no": "179-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "1913송정역시장 주차타워",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 857-1",
+   "addr_road": "전남광주통합특별시 광산구 송정로 14",
+   "road": null,
+   "spaces": 107,
+   "tel": "062-960-9916",
+   "lat": 35.13661218,
+   "lng": 126.7926881,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 특기사항의 무료시간은 표준데이터에 적힌 조건이라 계산에는 넣지 않았습니다(현장 확인) · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-006",
+   "mgmt_no": "179-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광산로 제2",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 805-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "062-960-9916",
+   "lat": 35.13952578,
+   "lng": 126.7969671,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-007",
+   "mgmt_no": "179-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광산로제1공영",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 818-15",
+   "addr_road": "전남광주통합특별시 광산구 광산로30번길 10",
+   "road": null,
+   "spaces": 190,
+   "tel": "062-960-9916",
+   "lat": 35.13813671,
+   "lng": 126.7947826,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-008",
+   "mgmt_no": "179-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주송정역뒤 공영주차장",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 1005-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "062-960-9916",
+   "lat": 35.13711133,
+   "lng": 126.7886045,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-009",
+   "mgmt_no": "179-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화예술회관",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 582-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "062-960-9916",
+   "lat": 35.14021977,
+   "lng": 126.7994773,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-010",
+   "mgmt_no": "179-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정5일시장 공영주차장",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 231-3",
+   "addr_road": "전남광주통합특별시 광산구 광산로30번길 80",
+   "road": null,
+   "spaces": 149,
+   "tel": "062-960-9916",
+   "lat": 35.13622744,
+   "lng": 126.7977313,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 특기사항의 무료시간은 표준데이터에 적힌 조건이라 계산에는 넣지 않았습니다(현장 확인) · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-011",
+   "mgmt_no": "179-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정매일시장 상가주차타워",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 792-8",
+   "addr_road": "전남광주통합특별시 광산구 내상로 10",
+   "road": null,
+   "spaces": 211,
+   "tel": "062-960-9916",
+   "lat": 35.14043727,
+   "lng": 126.7949565,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 특기사항의 무료시간은 표준데이터에 적힌 조건이라 계산에는 넣지 않았습니다(현장 확인) · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-012",
+   "mgmt_no": "179-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원동",
+   "gu": "광주 광산구",
+   "dong": "송정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 송정동 679",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "062-960-9916",
+   "lat": 35.14221002,
+   "lng": 126.8015865,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-013",
+   "mgmt_no": "179-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수완동 행정복지센터 옆",
+   "gu": "광주 광산구",
+   "dong": "수완동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 수완동 937-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 74,
+   "tel": "062-960-9916",
+   "lat": 35.19683748,
+   "lng": 126.8258694,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "주간·요금표",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": null
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "monthly_day": 43000,
+    "monthly_night": 34000,
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-014",
+   "mgmt_no": "179-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수완지구 공영주차장",
+   "gu": "광주 광산구",
+   "dong": "수완동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 수완동 918",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "062-960-9916",
+   "lat": 35.20042404,
+   "lng": 126.825239,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-015",
+   "mgmt_no": "179-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신창매결마을 주차장",
+   "gu": "광주 광산구",
+   "dong": "신창동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 신창동 1056-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-960-9916",
+   "lat": 35.18820264,
+   "lng": 126.8408709,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-016",
+   "mgmt_no": "179-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신흥동",
+   "gu": "광주 광산구",
+   "dong": "신촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 신촌동 1083-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "062-960-9916",
+   "lat": 35.14503815,
+   "lng": 126.8006674,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-017",
+   "mgmt_no": "179-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "야촌마을",
+   "gu": "광주 광산구",
+   "dong": "신촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 신촌동 707-90",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-960-9916",
+   "lat": 35.1393195,
+   "lng": 126.8064164,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-018",
+   "mgmt_no": "179-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍암근린공원 공영주차장",
+   "gu": "광주 광산구",
+   "dong": "쌍암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 쌍암동 653-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 161,
+   "tel": "062-960-9916",
+   "lat": 35.13661218,
+   "lng": 126.7926881,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "특기사항의 무료시간은 표준데이터에 적힌 조건이라 계산에는 넣지 않았습니다(현장 확인) · 1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-019",
+   "mgmt_no": "179-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평동3차일반산업단지 주차장",
+   "gu": "광주 광산구",
+   "dong": "연산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 연산동 1197",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-960-9916",
+   "lat": 35.11378734,
+   "lng": 126.7552272,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-020",
+   "mgmt_no": "179-4-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평동화물차고지",
+   "gu": "광주 광산구",
+   "dong": "연산동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 연산동 1123",
+   "addr_road": "전남광주통합특별시 광산구 평동산단9번로 145",
+   "road": null,
+   "spaces": 238,
+   "tel": "062-941-6662",
+   "lat": 35.1154293309,
+   "lng": 126.7627725168,
+   "base_date": "2026-06-30",
+   "manager": "광주광역시도시공사",
+   "note": "",
+   "notice": "표준데이터에 민영으로 등록되어 있지만 광주광역시도시공사가 운영하는 공영 화물차고지(238면)입니다 · 기본요금 없이 120분마다 270원을 받는 화물차고지로 등록되어 있어, 처음 120분에도 270원이 붙습니다 · 1일 주차요금 5,940원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 270,
+    "unit_min": 120,
+    "unit_fee": 270,
+    "daily_fee": 5940,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 18180,
+    "monthly_all": 18180,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": null,
+     "unit_min": 120,
+     "unit_fee": 270,
+     "day": 5940,
+     "monthly": 18180
+    },
+    "basis": "표준데이터 등록요금"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 270,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-021",
+   "mgmt_no": "179-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장12",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 598",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "062-960-9916",
+   "lat": 35.1998067,
+   "lng": 126.784814,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-022",
+   "mgmt_no": "179-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장3",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 667",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "062-960-9916",
+   "lat": 35.20178489,
+   "lng": 126.7916022,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-023",
+   "mgmt_no": "179-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장4",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 680",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "062-960-9916",
+   "lat": 35.20187344,
+   "lng": 126.7906431,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-024",
+   "mgmt_no": "179-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장5",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 708",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "062-960-9916",
+   "lat": 35.20080374,
+   "lng": 126.7918088,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-025",
+   "mgmt_no": "179-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장6",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 686",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "062-960-9916",
+   "lat": 35.20085635,
+   "lng": 126.7909019,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-026",
+   "mgmt_no": "179-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장7",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 634",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "062-960-9916",
+   "lat": 35.2015861,
+   "lng": 126.7890715,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-027",
+   "mgmt_no": "179-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장8",
+   "gu": "광주 광산구",
+   "dong": "오선동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 오선동 643",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-960-9916",
+   "lat": 35.19984828,
+   "lng": 126.7903803,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-028",
+   "mgmt_no": "179-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주여대 A",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1611-1",
+   "addr_road": "전남광주통합특별시 광산구 용아로 245",
+   "road": null,
+   "spaces": 24,
+   "tel": "062-960-9916",
+   "lat": 35.16524813,
+   "lng": 126.8014856,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-029",
+   "mgmt_no": "179-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주여대 B",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1611-9",
+   "addr_road": "전남광주통합특별시 광산구 용아로 231",
+   "road": null,
+   "spaces": 34,
+   "tel": "062-960-9916",
+   "lat": 35.16402733,
+   "lng": 126.8013723,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-030",
+   "mgmt_no": "179-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광주여대 인근 캠핑카 전용",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1611-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "062-960-9916",
+   "lat": 35.16249035,
+   "lng": 126.8009609,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-031",
+   "mgmt_no": "179-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "빛고을국민체육센터 옆",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1574-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "062-960-9916",
+   "lat": 35.16315869,
+   "lng": 126.8036932,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-032",
+   "mgmt_no": "179-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우산동 KT 앞",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1601-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-960-9916",
+   "lat": 35.16056198,
+   "lng": 126.807182,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-033",
+   "mgmt_no": "179-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우산동 MGM",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1606-9",
+   "addr_road": "전남광주통합특별시 광산구 무진대로212번길 13-36",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-960-9916",
+   "lat": 35.16081396,
+   "lng": 126.8056337,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-034",
+   "mgmt_no": "179-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우산동 맨하탄모텔 옆",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1577-7",
+   "addr_road": "전남광주통합특별시 광산구 무진대로231번길 15",
+   "road": null,
+   "spaces": 19,
+   "tel": "062-960-9916",
+   "lat": 35.16287613,
+   "lng": 126.8059395,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "주간·요금표",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": null
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "monthly_day": 70000,
+    "monthly_night": 56000,
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-035",
+   "mgmt_no": "179-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우산동 파라다이스 옆",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1609-7",
+   "addr_road": "전남광주통합특별시 광산구 무진대로212번길 16",
+   "road": null,
+   "spaces": 18,
+   "tel": "062-960-9916",
+   "lat": 35.16097476,
+   "lng": 126.803396,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-036",
+   "mgmt_no": "179-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우산동 행정복지센터 앞",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1601-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "062-960-9916",
+   "lat": 35.15995335,
+   "lng": 126.8069915,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-037",
+   "mgmt_no": "179-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호남병원 옆",
+   "gu": "광주 광산구",
+   "dong": "우산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 우산동 1583-4",
+   "addr_road": "전남광주통합특별시 광산구 무진대로 255",
+   "road": null,
+   "spaces": 59,
+   "tel": "062-960-9916",
+   "lat": 35.1620577,
+   "lng": 126.8086062,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 15,
+    "unit_fee": 200,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 400
+     }
+    ],
+    "steps_label": "2시간까지 15분당 200원 → 2시간 초과 15분당 400원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-038",
+   "mgmt_no": "179-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운남동",
+   "gu": "광주 광산구",
+   "dong": "운남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 운남동 524-3",
+   "addr_road": "전남광주통합특별시 광산구 목련로219번길 112",
+   "road": null,
+   "spaces": 62,
+   "tel": "062-960-9916",
+   "lat": 35.1764761,
+   "lng": 126.8236517,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-039",
+   "mgmt_no": "179-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "MBC 송신소 캠핑카",
+   "gu": "광주 광산구",
+   "dong": "월계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 월계동 302",
+   "addr_road": "",
+   "road": null,
+   "spaces": 208,
+   "tel": "062-960-9916",
+   "lat": 35.13661218,
+   "lng": 126.7926881,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 15,
+    "unit_fee": 100,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 15,
+     "unit_fee": 100,
+     "day": 4000,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 15분당 100원 → 2시간 초과 15분당 200원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-040",
+   "mgmt_no": "179-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월곡2동 행정복지센터 옆",
+   "gu": "광주 광산구",
+   "dong": "월곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 월곡동 490-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "062-960-9916",
+   "lat": 35.17437124,
+   "lng": 126.8080108,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-041",
+   "mgmt_no": "179-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월곡시장 주차타워",
+   "gu": "광주 광산구",
+   "dong": "월곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 월곡동 687-2",
+   "addr_road": "전남광주통합특별시 광산구 월곡중앙로 59-21",
+   "road": null,
+   "spaces": 88,
+   "tel": "062-960-9916",
+   "lat": 35.17166797,
+   "lng": 126.8096959,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "2급지 요금표는 최초 30분 400원·15분마다 200원인데, 이 주차장은 등록요금(200원/30분)으로 계산합니다 · 요금 구분이 ‘혼합’이라 등록된 운영시간에만 요금을 받습니다 · 특기사항의 무료시간은 표준데이터에 적힌 조건이라 계산에는 넣지 않았습니다(현장 확인) · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 15,
+    "unit_fee": 100,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 15,
+     "unit_fee": 100,
+     "day": 6400,
+     "monthly": 70000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 15분당 100원 → 2시간 초과 15분당 200원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-042",
+   "mgmt_no": "179-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황룡강 생태길 30 공영주차장",
+   "gu": "광주 광산구",
+   "dong": "유계동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 유계동 414-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "062-960-9916",
+   "lat": 35.0979640482,
+   "lng": 126.7956127443,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-043",
+   "mgmt_no": "179-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장덕동 1680 임시공영주차장",
+   "gu": "광주 광산구",
+   "dong": "장덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 장덕동 1680",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "062-960-9916",
+   "lat": 35.13661218,
+   "lng": 126.7926881,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "2급지 요금표는 최초 30분 400원·15분마다 200원인데, 이 주차장은 등록요금(200원/30분)으로 계산합니다 · 1일 주차요금 6,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 6400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "주간·요금표",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 6400,
+     "monthly": null
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 400
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 800
+     }
+    ],
+    "steps_label": "2시간까지 15분당 400원 → 2시간 초과 15분당 800원",
+    "monthly_day": 70000,
+    "monthly_night": 56000,
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-044",
+   "mgmt_no": "179-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남산단근로자주차장",
+   "gu": "광주 광산구",
+   "dong": "장덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 장덕동 982-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "062-960-9916",
+   "lat": 35.19391864,
+   "lng": 126.8073644,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-045",
+   "mgmt_no": "179-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장10",
+   "gu": "광주 광산구",
+   "dong": "진곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 진곡동 529",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "062-960-9916",
+   "lat": 35.20962859,
+   "lng": 126.7831754,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-046",
+   "mgmt_no": "179-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장11",
+   "gu": "광주 광산구",
+   "dong": "진곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 진곡동 88-39",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "062-960-9916",
+   "lat": 35.21228135,
+   "lng": 126.7878569,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-047",
+   "mgmt_no": "179-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장13",
+   "gu": "광주 광산구",
+   "dong": "진곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 진곡동 552",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-960-9916",
+   "lat": 35.21052062,
+   "lng": 126.7846693,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-048",
+   "mgmt_no": "179-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡일반산업단지 주차장2",
+   "gu": "광주 광산구",
+   "dong": "진곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 진곡동 511",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "062-960-9916",
+   "lat": 35.20898255,
+   "lng": 126.7819453,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-049",
+   "mgmt_no": "179-4-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진곡화물공영차고지",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "민영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 837",
+   "addr_road": "전남광주통합특별시 광산구 손재로 327",
+   "road": null,
+   "spaces": 430,
+   "tel": "062-962-6668",
+   "lat": 35.1946360344,
+   "lng": 126.7942529052,
+   "base_date": "2026-06-30",
+   "manager": "광주광역시도시공사",
+   "note": "",
+   "notice": "표준데이터에 민영으로 등록되어 있지만 광주광역시도시공사가 운영하는 공영 화물차고지(430면)입니다 · 기본요금 없이 120분마다 270원을 받는 화물차고지로 등록되어 있어, 처음 120분에도 270원이 붙습니다 · 1일 주차요금 5,940원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 270,
+    "unit_min": 120,
+    "unit_fee": 270,
+    "daily_fee": 5940,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 18180,
+    "monthly_all": 18180,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": null,
+     "unit_min": 120,
+     "unit_fee": 270,
+     "day": 5940,
+     "monthly": 18180
+    },
+    "basis": "표준데이터 등록요금"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 270,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-050",
+   "mgmt_no": "179-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장1",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 887",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "062-960-9916",
+   "lat": 35.18328049,
+   "lng": 126.7945742,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-051",
+   "mgmt_no": "179-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장10",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 956",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "062-960-9916",
+   "lat": 35.18196725,
+   "lng": 126.7953425,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-052",
+   "mgmt_no": "179-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장12",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 1056",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "062-960-9916",
+   "lat": 35.18469106,
+   "lng": 126.7961494,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-053",
+   "mgmt_no": "179-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장13",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 932",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-960-9916",
+   "lat": 35.1832178,
+   "lng": 126.7960972,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-054",
+   "mgmt_no": "179-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장2",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 1063",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "062-960-9916",
+   "lat": 35.18397633,
+   "lng": 126.7971928,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-055",
+   "mgmt_no": "179-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장5",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 1266",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "062-960-9916",
+   "lat": 35.18154751,
+   "lng": 126.8040209,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-056",
+   "mgmt_no": "179-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장7",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 1010",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "062-960-9916",
+   "lat": 35.18152111,
+   "lng": 126.7992914,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-057",
+   "mgmt_no": "179-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장8",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 1146",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "062-960-9916",
+   "lat": 35.18382664,
+   "lng": 126.7991578,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-058",
+   "mgmt_no": "179-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차전용건축물 2",
+   "gu": "광주 광산구",
+   "dong": "하남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 하남동 1201",
+   "addr_road": "",
+   "road": null,
+   "spaces": 201,
+   "tel": "062-960-9916",
+   "lat": 35.18156787,
+   "lng": 126.8015779,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-059",
+   "mgmt_no": "179-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장11",
+   "gu": "광주 광산구",
+   "dong": "흑석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 흑석동 794",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "062-960-9916",
+   "lat": 35.18329525,
+   "lng": 126.8054847,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-060",
+   "mgmt_no": "179-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장14",
+   "gu": "광주 광산구",
+   "dong": "흑석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 흑석동 673",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "062-960-9916",
+   "lat": 35.18245747,
+   "lng": 126.8006736,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-061",
+   "mgmt_no": "179-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장3",
+   "gu": "광주 광산구",
+   "dong": "흑석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 흑석동 652",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "062-960-9916",
+   "lat": 35.18366286,
+   "lng": 126.8012878,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-062",
+   "mgmt_no": "179-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차장9",
+   "gu": "광주 광산구",
+   "dong": "흑석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 흑석동 719",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "062-960-9916",
+   "lat": 35.18420501,
+   "lng": 126.8028194,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  },
+  {
+   "id": "gj-gwangsan-gu-063",
+   "mgmt_no": "179-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하남3지구 주차전용건축물 1",
+   "gu": "광주 광산구",
+   "dong": "흑석동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 광산구 흑석동 778",
+   "addr_road": "",
+   "road": null,
+   "spaces": 119,
+   "tel": "062-960-9916",
+   "lat": 35.18236715,
+   "lng": 126.803651,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 광산구 시설관리공단",
+   "note": "",
+   "notice": "1일 주차요금 3,900원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(광산구시설관리공단 위탁) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 15,
+    "unit_fee": 150,
+    "daily_fee": 3900,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 43000,
+    "monthly_all": 43000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 15,
+     "unit_fee": 150,
+     "day": 3900,
+     "monthly": 43000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 15,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 15분당 150원 → 2시간 초과 15분당 300원",
+    "basis": "표준데이터 등록요금(광주 30분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "광주 광산구",
+   "city_slug": "gwangsan-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 12:23",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 63,
+  "원자료_광산구행수": 63,
+  "원자료_받은행수": 63,
+  "구별": "광산구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 63,
+  "노외_부설": {
+   "노외": 63
+  },
+  "노상_구간": 0,
+  "총_구획수": 3594,
+  "노상_구획수": 0,
+  "동별": {
+   "우산동": 10,
+   "하남동": 10,
+   "송정동": 8,
+   "오선동": 7,
+   "흑석동": 5,
+   "진곡동": 4,
+   "고룡동": 2,
+   "비아동": 2,
+   "수완동": 2,
+   "신촌동": 2,
+   "연산동": 2,
+   "월곡동": 2,
+   "장덕동": 2,
+   "신창동": 1,
+   "쌍암동": 1,
+   "운남동": 1,
+   "월계동": 1,
+   "유계동": 1
+  },
+  "동수": 18,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 63
+  },
+  "요금구분": {
+   "무료": 36,
+   "유료": 27
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 27,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "장덕동 1680 임시공영주차장: 2급지 요금표 400원(30분) ↔ 등록 200원/30분",
+   "비아5일시장(주차타워): 2급지 요금표 400원(30분) ↔ 등록 300원/30분",
+   "월곡시장 주차타워: 2급지 요금표 400원(30분) ↔ 등록 200원/30분"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「광주광역시 주차장 조례」 제3조의2(시장이 설치한 주차장)와 「전남광주통합특별시 광산구 주차장 조례」 제6조 주차요금·별표 비고9~12 감면(시행 2026-06-30 · 전남광주통합특별시광산구조례 제2056호(일부개정))",
+  "무료시간_출처": "광주 조례 별표1은 별도의 최초 무료시간을 두지 않고 10분(시 조례)·30분(구청·공단 요금표) 단위로 요금을 매긴다. 표준데이터에 ‘최초 N분 0원’으로 등록된 주차장만 그 시간을 무료로 계산했다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 36,
+  "무료_구획수": 753,
+  "평균_기본요금": 335,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-06-30",
+   "2026-07-29"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 광산구 시설관리공단": 61,
+   "광주광역시도시공사": 2
+  }
+ },
+ "fee_table": {
+  "style": "gwangju_dual",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "1",
+    "unit_label": "270원/120분",
+    "hour": 270,
+    "two_hour": 270,
+    "day": 5940,
+    "month": 18180,
+    "lots": 2
+   },
+   {
+    "label": "2급지",
+    "grade": "2",
+    "unit_label": "67~133원/10분",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 6400,
+    "month": 70000,
+    "lots": 16
+   },
+   {
+    "label": "3급지",
+    "grade": "3",
+    "unit_label": "300원/30분",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3900,
+    "month": 43000,
+    "lots": 8
+   },
+   {
+    "label": "4급지",
+    "grade": "4",
+    "unit_label": "200원/30분",
+    "hour": 400,
+    "two_hour": 800,
+    "day": 4000,
+    "month": 70000,
+    "lots": 1
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "first10": 500,
+    "over10": 300,
+    "over2h": 500,
+    "day": 12000,
+    "month_day": 130000,
+    "month_night": 100000
+   },
+   {
+    "label": "2급지",
+    "first10": 300,
+    "over10": 200,
+    "over2h": 300,
+    "day": 8000,
+    "month_day": 90000,
+    "month_night": 70000
+   },
+   {
+    "label": "3급지",
+    "first10": 200,
+    "over10": 150,
+    "over2h": 250,
+    "day": 6000,
+    "month_day": 66000,
+    "month_night": 52000
+   },
+   {
+    "label": "4급지",
+    "first10": 200,
+    "over10": 100,
+    "over2h": 200,
+    "day": 4000,
+    "month_day": 44000,
+    "month_night": 30000
+   }
+  ],
+  "gu_rows": [
+   {
+    "label": "1급지",
+    "base30": 700,
+    "unit15": 350,
+    "over2h": 700,
+    "day": 8000,
+    "month_day": 88000,
+    "month_night": 70000
+   },
+   {
+    "label": "2급지",
+    "base30": 400,
+    "unit15": 200,
+    "over2h": 400,
+    "day": 6400,
+    "month_day": 70000,
+    "month_night": 56000
+   },
+   {
+    "label": "3급지",
+    "base30": 300,
+    "unit15": 150,
+    "over2h": 300,
+    "day": 3900,
+    "month_day": 43000,
+    "month_night": 34000
+   },
+   {
+    "label": "주거지전용",
+    "base30": 200,
+    "unit15": 100,
+    "over2h": null,
+    "day": 2000,
+    "month_day": 20000,
+    "month_night": 20000
+   }
+  ],
+  "county": false,
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:00",
+    "free": "나머지 시간이 야간이고, 요금은 주간·야간이 같다"
+   }
+  ],
+  "notes": "광산구 조례 별표(2026-06-30 개정)는 1~4급지 10분 단위 요금표를 싣고, 1급지에 송정2동·첨단1·2동·신가동·신창동·수완동, 2급지에 송정1동·신흥동·어룡동·우산동·월곡2동을 둡니다. 감면은 별표 비고9~12가 정하고, 캠핑카 구역 정기주차권은 급지와 관계없이 월 90,000원입니다. 광산구시설관리공단이 맡은 61곳 가운데 36곳이 무료이고, 유료·혼합 25곳은 30분 300~400원·15분마다 150~400원으로 등록되어 있습니다. 진곡·평동 화물공영차고지는 광주광역시도시공사가 운영하며 120분당 270원·1일 5,940원을 받습니다.",
+  "corp": {
+   "paid": 27,
+   "free": 36,
+   "unknown": 0,
+   "street_paid": 0,
+   "si": 2,
+   "gu": 61
+  },
+  "basis": "「광주광역시 주차장 조례」 별표1(시행 2025-11-11 · (구)광주광역시조례 제6644호(일부개정)) · 「전남광주통합특별시 광산구 주차장 조례」 제6조 주차요금·별표 비고9~12 감면(시행 2026-06-30 · 전남광주통합특별시광산구조례 제2056호(일부개정)) · 광주광역시 주차장현황·북구시설관리공단 요금안내(30분 기준) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "gwangsan-gu",
+ "province": "광주광역시",
+ "province_slug": "gwangju",
+ "dong_page_min_lots": 3,
+ "city": "광주 광산구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "시책 참여 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "구청장이 추진하는 시책에 참여하는 차 20퍼센트(광산구 조례 별표 비고9가목)"
+  },
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차는 주차요금을 면제할 수 있습니다(비고9나목)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차 60퍼센트(비고9라목) — 다른 구의 50퍼센트보다 큽니다"
+  },
+  {
+   "label": "성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세표창을 받고 성실납세증(스티커)을 붙인 차 — 교부일부터 1년 면제(비고9마목)"
+  },
+  {
+   "label": "장애인·유공자 등 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "장애인, 국가유공 상이자, 고엽제후유증·후유의증 환자와 2세 환자, 5·18민주화운동부상자가 본인 소유 비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 주차는 50퍼센트(비고10)"
+  },
+  {
+   "label": "전통시장·다자녀·저공해·무형유산·자원봉사·병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장·상권활성화구역 상인과 고객(최초 1시간 면제), 다자녀행복카드 소지자, 저공해·환경친화적 자동차(전기차 충전 시 최초 1시간 면제), 무형유산 보유자 차, 광산구 자원봉사센터 전년도 100시간 이상 자원봉사자 차, 병역명문가 예우대상자 50퍼센트(비고11 가~바목)"
+  },
+  {
+   "label": "투표참여자 할인",
+   "rate": 0.0,
+   "exempt_min": 0,
+   "note": "투표참여자는 광산구 선거관리위원회가 정하는 바에 따라 할인합니다(비고9다목) — 계산기에는 넣지 않았습니다"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "시책 참여 20%",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "시장이 추진하는 시책에 참여해 증명서(스티커 등)를 붙인 차 20퍼센트(제3조의2①1호)"
+  },
+  {
+   "label": "장애인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "장애인이 소유하고 외부에 장애인 표지를 붙여 식별되는 차 50퍼센트(제3조의2①2호)"
+  },
+  {
+   "label": "국가유공 상이자·고엽제 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "국가유공자 상이자와 고엽제후유증·후유의증 환자·2세 환자가 증명을 가지고 본인 소유 비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기권은 50퍼센트(제3조의2①3호)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차 60퍼센트(제3조의2①4호)"
+  },
+  {
+   "label": "성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세표창을 받고 성실납세증(스티커)을 붙인 차 — 교부일부터 1년간 면제(제3조의2①5호)"
+  },
+  {
+   "label": "5·18부상자 1시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "5·18민주화운동부상자가 유공자증서를 가지고 본인 소유 비사업용 차를 직접 운전하거나 장애가 심해 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기권은 50퍼센트(제3조의2①6호)"
+  },
+  {
+   "label": "전통시장 상인·고객 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장·시장활성화구역의 상인과 고객이 증명자료를 내고 시장 안이나 이웃한 공영주차장을 쓰면 50퍼센트(제3조의2①7호)"
+  },
+  {
+   "label": "다자녀행복카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「광주광역시 출산 및 양육 지원 조례」에 따른 다자녀행복카드 소지자가 비사업용 차임을 알아볼 수 있는 표지를 붙인 차 50퍼센트(제3조의2①8호)"
+  },
+  {
+   "label": "무형유산 보유자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "무형유산 보유자가 사용하는 차임을 알아볼 수 있는 표지를 붙인 차 50퍼센트(제3조의2①9호)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차 표지를 붙인 차 50퍼센트, 전기자동차 충전을 위해 주차하면 최초 1시간 면제(제3조의2①10호)"
+  },
+  {
+   "label": "명예시민 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "광주광역시 명예시민증을 받은 명예시민 50퍼센트(제3조의2①11호)"
+  },
+  {
+   "label": "병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "병역명문가증을 제시한 예우대상자 50퍼센트(제3조의2①12호)"
+  }
+ ],
+ "realtime": false
+}
