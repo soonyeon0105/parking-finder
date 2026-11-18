@@ -78,6 +78,7 @@ for pg in pages:
     for href in link_re.findall(html):
         if href.startswith(("http", "mailto", "tel", "/assets", "#")):
             continue
+        href = href.split("?", 1)[0]      # ?v=빌드표식 같은 쿼리는 파일 경로가 아니다
         if href.startswith("/"):
             target = DIST / href.lstrip("/")
         else:
@@ -159,8 +160,17 @@ for lot in LOTS:
         fails.append(f"{lot['name']} 지도 라벨 비었음")
 street_links = set(re.findall(r'https://map\.kakao\.com/link/search/[^"<>]+', all_html))
 print(f"노상 구간 지도 링크(주소 검색): {len(street_links)}종")
-if any("map.kakao.com/?q=" in h for h in (all_html,)):
+# 좌표 없는 주차장은 m.map.kakao.com/?q= (모바일 접속에서 앱 설치 안내로 넘어가지 않는 주소)를 쓴다.
+if re.search(r"https://map\.kakao\.com/\?q=", all_html):
     fails.append("구형 카카오 지도 링크(map.kakao.com/?q=)가 남아 있음")
+_mobile_kakao = set(re.findall(r'https://m\.map\.kakao\.com/\?q=[^"<>]+', all_html))
+print(f"좌표 없는 주차장 지도 링크(m.map.kakao.com): {len(_mobile_kakao)}종")
+for lot in LOTS:
+    if lot.get("lat") and lot.get("lng"):
+        continue
+    kakao, _naver = map_links(lot)
+    if not kakao.startswith("https://m.map.kakao.com/?q="):
+        fails.append(f"{lot['name']}(좌표 없음) 카카오 링크가 모바일 지도 형식이 아님: {kakao}")
 # ---------------------------------------------------------------- 페이지 기본 구조
 for pg in pages:
     html = pg.read_text()
@@ -196,7 +206,7 @@ else:
         if not href.startswith("/"):
             fails.append(f"404.html: 절대경로 아님 {href}")
             continue
-        target = DIST / href.lstrip("/")
+        target = DIST / href.split("?", 1)[0].lstrip("/")   # ?v=빌드표식 제외
         if target.is_dir():
             target = target / "index.html"
         if not target.exists():
@@ -321,10 +331,15 @@ for name, slug in DONG_SLUG.items():
 for name, slug in GU_SLUG.items():
     if gu_slug(name) != slug:
         fails.append(f"구 슬러그 변경: {name} {slug} → {gu_slug(name)}")
+# 2026-11-18: 수원시 동 페이지 기준을 3곳으로 올려 1~2곳짜리 18개 페이지를 없앴다.
+# 그 주소는 dist/_redirects 에서 구 허브로 301 하므로, 페이지가 없으면 301 규칙이 있는지 본다.
+_redirects_txt = (DIST / "_redirects").read_text() if (DIST / "_redirects").exists() else ""
 for name, slug in DONG_SLUG.items():
-    if not any(p.parent.name == slug and p.parent.parent.name.startswith("suwon-")
-               for p in pages):
-        fails.append(f"동 슬러그 페이지 없음: {name} → {slug}")
+    if any(p.parent.name == slug and p.parent.parent.name.startswith("suwon-") for p in pages):
+        continue
+    if f"/{slug}/ " in _redirects_txt and " 301" in _redirects_txt.split(f"/{slug}/ ", 1)[1].split("\n")[0]:
+        continue
+    fails.append(f"동 슬러그 페이지 없음: {name} → {slug}")
 
 # 2) 매핑에 없는 지역은 로마자 fallback 으로 자동 생성
 expect = {
@@ -364,10 +379,25 @@ for pg in pages:
 print("슬러그·canonical 검사 완료")
 
 # ---------------------------------------------------------------- 도시별 확장 규칙
-# 1) 수원시 39페이지(랜딩·시·구·주말·동) 는 그대로 남아 있어야 한다.
+# 1) 수원시 페이지 구성: 허브 1 + 구 4 + 주말 4 + 동(카드 3곳 이상) + 무료 1.
+#    2026-11-18 이전에는 동 29(1곳부터 생성)였고, 1~2곳짜리 18개를 301 로 구 허브에 넘겼다.
+from collections import Counter as _Counter
+_suwon = next(c for c in CITIES if c["city"] == "수원시")
+_suwon_cards = [l for l in LOTS if l.get("city") == "수원시" and l.get("list_mode", "card") != "street"]
+_suwon_dong_ok = sum(
+    1 for gu in _suwon["districts"]
+    for dong, n in _Counter(l["dong"] or UNKNOWN_DONG for l in _suwon_cards if l["gu"] == gu["name"]).items()
+    if dong != UNKNOWN_DONG and n >= _suwon.get("dong_page_min_lots", 3))
+_suwon_free = 1 if (DIST / "parking" / "gyeonggi" / "suwon" / "free" / "index.html").exists() else 0
+_suwon_expect = 1 + len(_suwon["districts"]) + len(_suwon["districts"]) + _suwon_dong_ok + _suwon_free
 suwon_pages = [p for p in pages if "/suwon" in p.as_posix()]
-if len(suwon_pages) != 38:
-    fails.append(f"수원시 페이지 수 변경: {len(suwon_pages)} (기대 38 = 허브 1 + 구 4 + 주말 4 + 동 29)")
+if len(suwon_pages) != _suwon_expect:
+    fails.append(f"수원시 페이지 수 변경: {len(suwon_pages)} "
+                 f"(기대 {_suwon_expect} = 허브 1 + 구 {len(_suwon['districts'])} + 주말 "
+                 f"{len(_suwon['districts'])} + 동 {_suwon_dong_ok} + 무료 1)")
+_removed = [ln for ln in _redirects_txt.splitlines() if "suwon" in ln and ln.endswith("301")]
+if len(_removed) != 18:
+    fails.append(f"수원시 옛 동 페이지 301 규칙 수 이상: {len(_removed)} (기대 18)")
 
 # 2) 도시별 페이지 구성: 허브 1 + 구 1 + (주말 페이지) + 동 페이지(기준 이상) + (노상 페이지)
 for city in CITIES:
@@ -396,7 +426,7 @@ for city in CITIES:
         minimum = city.get("dong_page_min_lots", 3)
         slugs_map = dong_slug_map(by_dong)
         dong_dirs = {q.parent.name: q for q in p.parent.rglob("index.html")
-                     if q.parent.parent == p.parent and q.parent.name not in ("weekend-free", "street-parking")}
+                     if q.parent.parent == p.parent and q.parent.name not in ("weekend-free", "street-parking", "free")}
         for dong, n in by_dong.items():
             if dong == UNKNOWN_DONG:
                 continue      # 주소·좌표로 동을 정하지 못한 묶음은 페이지를 만들지 않는다(의도된 동작)
@@ -1320,7 +1350,7 @@ else:
 # 읍·면·동 페이지: 카드 3곳 이상인 곳만 9개(다산동·화도읍·진접읍·와부읍·진건읍·퇴계원읍·호평동·조안면·오남읍)
 nj_root = DIST / "parking" / "gyeonggi" / "namyangju"
 nj_dong_pages = sorted(q.parent.name for q in nj_root.rglob("index.html")
-                       if q.parent != nj_root and q.parent.name != "street-parking")
+                       if q.parent != nj_root and q.parent.name not in ("street-parking", "free"))
 nj_by_dong = Counter(l.get("dong") for l in nj_cards if l.get("dong"))
 nj_expect = sorted(__import__("build_site").dong_slug(d) for d, n in nj_by_dong.items() if n >= 3)
 if nj_dong_pages != nj_expect:
@@ -1518,7 +1548,7 @@ else:
     if sh_html.count('class="card lot') != len(sh_cards):
         fails.append(f"시흥시 시 페이지 카드 수 불일치({sh_html.count(chr(34)+'card lot')} vs {len(sh_cards)})")
 sh_dong_pages = sorted(q.parent.name for q in sh_root.rglob("index.html")
-                       if q.parent.parent == sh_root and q.parent.name != "street-parking")
+                       if q.parent.parent == sh_root and q.parent.name not in ("street-parking", "free"))
 sh_expect = sorted(__import__("build_site").dong_slug(d)
                    for d, n in Counter(l.get("dong") for l in sh_cards if l.get("dong")).items() if n >= 3)
 if sh_dong_pages != sh_expect:
@@ -1600,7 +1630,7 @@ else:
     if uj_html.count('class="card lot') != len(uj_cards):
         fails.append(f"의정부시 시 페이지 카드 수 불일치({uj_html.count(chr(34)+'card lot')} vs {len(uj_cards)})")
 uj_dong_pages = sorted(q.parent.name for q in uj_root.rglob("index.html")
-                       if q.parent.parent == uj_root and q.parent.name != "street-parking")
+                       if q.parent.parent == uj_root and q.parent.name not in ("street-parking", "free"))
 uj_expect = sorted(__import__("build_site").dong_slug(d)
                    for d, n in Counter(l.get("dong") for l in uj_cards if l.get("dong")).items() if n >= 3)
 if uj_dong_pages != uj_expect:
@@ -1683,7 +1713,7 @@ else:
     if gp_html.count('class="card lot') != len(gp_cards):
         fails.append(f"김포시 시 페이지 카드 수 불일치({gp_html.count(chr(34)+'card lot')} vs {len(gp_cards)})")
 gp_dong_pages = sorted(q.parent.name for q in gp_root.rglob("index.html")
-                       if q.parent.parent == gp_root and q.parent.name != "street-parking")
+                       if q.parent.parent == gp_root and q.parent.name not in ("street-parking", "free"))
 gp_expect = sorted(__import__("build_site").dong_slug(d)
                    for d, n in Counter(l.get("dong") for l in gp_cards if l.get("dong")).items() if n >= 3)
 if gp_dong_pages != gp_expect:
@@ -1803,7 +1833,7 @@ else:
     if pj_html.count('class="card lot') != len(pj_cards):
         fails.append(f"파주시 시 페이지 카드 수 불일치({pj_html.count(chr(34)+'card lot')} vs {len(pj_cards)})")
 pj_dong_pages = sorted(q.parent.name for q in pj_root.rglob("index.html")
-                       if q.parent.parent == pj_root and q.parent.name != "street-parking")
+                       if q.parent.parent == pj_root and q.parent.name not in ("street-parking", "free"))
 pj_expect = sorted(__import__("build_site").dong_slug(d)
                    for d, n in Counter(l.get("dong") for l in pj_cards if l.get("dong")).items() if n >= 3)
 if pj_dong_pages != pj_expect:
@@ -1902,7 +1932,7 @@ else:
     if "경기도 광주시" not in gj_html:
         fails.append("광주시 페이지에 ‘경기도 광주시’ 표기가 없음(광주광역시와 구분)")
 gj_dong_pages = sorted(q.parent.name for q in gj_root.rglob("index.html")
-                       if q.parent.parent == gj_root and q.parent.name != "street-parking")
+                       if q.parent.parent == gj_root and q.parent.name not in ("street-parking", "free"))
 gj_expect = sorted(__import__("build_site").dong_slug(d)
                    for d, n in Counter(l.get("dong") for l in gj_cards if l.get("dong")).items() if n >= 3)
 if gj_dong_pages != gj_expect:
@@ -2017,7 +2047,7 @@ else:
     if hn_html.count('class="card lot') != len(hn_cards):
         fails.append(f"하남시 시 페이지 카드 수 불일치({hn_html.count(chr(34)+'card lot')} vs {len(hn_cards)})")
 hn_dong_pages = sorted(q.parent.name for q in hn_root.rglob("index.html")
-                       if q.parent.parent == hn_root and q.parent.name != "street-parking")
+                       if q.parent.parent == hn_root and q.parent.name not in ("street-parking", "free"))
 hn_expect = sorted(__import__("build_site").dong_slug(d)
                    for d, n in Counter(l.get("dong") for l in hn_cards if l.get("dong")).items() if n >= 3)
 if hn_dong_pages != hn_expect:
@@ -2152,7 +2182,7 @@ else:
 if "&lt;b&gt;" in gpo_hub.read_text() if gpo_hub.exists() else False:
     fails.append("군포시 시 페이지에 이스케이프된 <b> 태그가 보임")
 gpo_dong_pages = sorted(q.parent.name for q in gpo_root.rglob("index.html")
-                        if q.parent.parent == gpo_root and q.parent.name != "street-parking")
+                        if q.parent.parent == gpo_root and q.parent.name not in ("street-parking", "free"))
 gpo_expect = sorted(__import__("build_site").dong_slug(d)
                     for d, n in Counter(l.get("dong") for l in gpo_cards if l.get("dong")).items() if n >= 3)
 if gpo_dong_pages != gpo_expect:
@@ -2256,7 +2286,7 @@ else:
     if "옥길동" not in gmy_html:
         fails.append("광명시 시 페이지에 2급지 대상 지역(옥길동) 안내 없음")
 gmy_dong_pages = sorted(q.parent.name for q in gmy_root.rglob("index.html")
-                        if q.parent.parent == gmy_root and q.parent.name != "street-parking")
+                        if q.parent.parent == gmy_root and q.parent.name not in ("street-parking", "free"))
 gmy_expect = sorted(__import__("build_site").dong_slug(d)
                     for d, n in Counter(l.get("dong") for l in gmy_cards if l.get("dong")).items()
                     if n >= 3)
@@ -2360,7 +2390,7 @@ else:
     if "일반주거지역" not in gri_html:
         fails.append("구리시 시 페이지에 급지 기준(일반주거지역) 안내 없음")
 gri_dong_pages = sorted(q.parent.name for q in gri_root.rglob("index.html")
-                        if q.parent.parent == gri_root and q.parent.name != "street-parking")
+                        if q.parent.parent == gri_root and q.parent.name not in ("street-parking", "free"))
 if gri_dong_pages != ["sutaek-dong"]:
     fails.append(f"구리시 동 페이지 구성이 다름: {gri_dong_pages} ≠ ['sutaek-dong']")
 gri_street_page = gri_root / "street-parking" / "index.html"
@@ -2462,7 +2492,8 @@ else:
     for _t in ("오산시", "오산도시공사"):
         if _t not in os_html:
             fails.append(f"오산시 시 페이지에 {_t} 표기 없음")
-os_dong_pages = sorted(q.parent.name for q in os_root.rglob("index.html") if q.parent.parent == os_root)
+os_dong_pages = sorted(q.parent.name for q in os_root.rglob("index.html")
+                       if q.parent.parent == os_root and q.parent.name != "free")
 if os_dong_pages != ["cheonghak-dong", "gwol-dong", "naesammi-dong", "osan-dong", "segyo-dong",
                      "sucheong-dong", "won-dong"]:
     fails.append(f"오산시 동 페이지 구성이 다름: {os_dong_pages}")
@@ -4210,7 +4241,7 @@ for _slug, _gu in (("jongno", "종로구"), ("jung", "중구"), ("yongsan", "용
     _want = {d for d, n in Counter(l["dong"] or UNKNOWN_DONG for l in _lots).items()
              if d != UNKNOWN_DONG and n >= 3}
     _have = {q.parent.name for q in _root.rglob("index.html")
-             if q.parent.parent == _root and q.parent.name not in ("street-parking",)}
+             if q.parent.parent == _root and q.parent.name not in ("street-parking", "free")}
     _have.discard(_slug)
     from build_site import dong_slug_map as _dsm  # noqa: E402
     _map = _dsm(Counter(l["dong"] or UNKNOWN_DONG for l in _lots))
@@ -4478,7 +4509,7 @@ for _gu, _exp in INCHEON_EXPECT.items():
     _want = {d for d, n in Counter(l["dong"] or UNKNOWN_DONG for l in _lots).items()
              if d != UNKNOWN_DONG and n >= 3}
     _have = {q.parent.name for q in _root.rglob("index.html")
-             if q.parent.parent == _root and q.parent.name not in ("street-parking",)}
+             if q.parent.parent == _root and q.parent.name not in ("street-parking", "free")}
     _have.discard(_exp["slug"])
     from build_site import dong_slug_map as _dsm  # noqa: E402
     _map = _dsm({l["dong"]: [1] for l in _lots if l.get("dong")})
@@ -4687,7 +4718,7 @@ for _gu, _exp in BUSAN_EXPECT.items():
     if not _root.exists():
         continue
     _have = {p.parent.name for p in _root.glob("*/index.html")
-             if p.parent.name not in ("street-parking", _exp["slug"])}
+             if p.parent.name not in ("street-parking", "free", _exp["slug"])}
     _expected = set(_exp["dong_pages"])
     if _have != _expected:
         fails.append(f"부산 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 {sorted(_expected)}")
@@ -4867,9 +4898,20 @@ if warns:
     print(f"주의 {len(warns)}건")
     for w in warns[:10]:
         print(" -", w)
+# ---------------------------------------------------------------- 지도 QA (트랙 2-③)
+# qa_maps.py 를 그대로 불러 좌표·링크 하드 오류를 배포 전 검사에 포함한다.
+# 목록성 경고(좌표 없는 곳·같은 좌표 묶음·동 중심에서 먼 좌표)는 dist/qa_maps.txt 로 남긴다.
+import qa_maps  # noqa: E402
+
+_maps_text, _maps_hard = qa_maps.build_report(LOTS)
+if _maps_hard:
+    fails.extend(ln.strip()[2:] for ln in _maps_text.splitlines()
+                 if ln.startswith("  - ") and "https://" in ln)
+print(f"지도 QA(좌표·링크) 완료: 하드 오류 {_maps_hard}건 · 상세는 python3 scripts/qa_maps.py --write")
+
 if fails:
     print(f"실패 {len(fails)}건")
     for f in fails[:20]:
         print(" -", f)
     sys.exit(1)
-print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙")
+print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙, 지도 QA")

@@ -274,14 +274,11 @@
       if (ka[1] !== kb[1]) return ka[1] - kb[1];
       return (a.lot.name || '').localeCompare(b.lot.name || '', 'ko');
     });
-    var anchor = list.querySelector('.ad-slot');   // 광고 슬롯: 5번째·6번째 사이 고정
-    sorted.forEach(function (r) { list.insertBefore(r.card, anchor || null); });
-    if (anchor) {
-      var fifth = sorted[Math.min(4, sorted.length - 1)];
-      if (fifth && fifth.card.nextElementSibling !== anchor) {
-        list.insertBefore(anchor, fifth.card.nextSibling);
-      }
-    }
+    // 정렬은 DOM 이동 대신 CSS `order` 로 한다. 예전에는 insertBefore 로 카드와 광고 슬롯을 함께
+    // 옮겼는데, 실제 <ins class=adsbygoogle> 이 들어오면 노드 이동 = iframe 재생성 = 광고 재요청이
+    // 되어 애드센스 정책(광고 새로고침 금지)에 어긋나고 CLS 도 생긴다.
+    // 광고 슬롯은 서버가 style="order:5" 로 고정하고, 카드는 5번째까지 0~4, 그 뒤는 6부터 준다.
+    sorted.forEach(function (r, i) { r.card.style.order = (i < 5 ? i : i + 1); });
 
     updateSummary(results);
   }
@@ -359,4 +356,176 @@
 
   paintTime();
   refresh();
+})();
+
+
+/* ---------------------------------------------------------------- 지역 UI (2026-11-18)
+ * ① 상단 헤더의 ‘지역 빠른 이동’ 선택 → 그 지역 페이지로 이동
+ * ② 홈의 시·도 탭 → 한 번에 한 시·도만 보여 준다(다른 시·도의 링크는 HTML 에 그대로 남는다)
+ * ③ 목록의 무료 필터 칩(?f=weekend · ?now=1) → 카드를 숨겨 걸러 낸다(정렬 order 와 별개)
+ */
+(function () {
+  'use strict';
+
+  // ① 지역 빠른 이동
+  var jump = document.getElementById('region-jump');
+  if (jump) {
+    jump.addEventListener('change', function () {
+      if (jump.value) location.href = jump.value;
+    });
+  }
+
+  // ② 시·도 탭
+  var tabs = document.querySelectorAll('.prov-tabs .ptab');
+  if (tabs.length) {
+    function selectPanel(key, track) {
+      Array.prototype.forEach.call(tabs, function (t) {
+        t.setAttribute('aria-selected', t.getAttribute('data-panel') === key ? 'true' : 'false');
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.prov-panel'), function (p) {
+        if (p.getAttribute('data-prov') === key) p.removeAttribute('hidden');
+        else p.setAttribute('hidden', '');
+      });
+      if (track && window.pfTrack) {
+        window.pfTrack('region_tab_click', { tab: key, page_path: location.pathname });
+      }
+    }
+    Array.prototype.forEach.call(tabs, function (tab) {
+      tab.addEventListener('click', function () { selectPanel(tab.getAttribute('data-panel'), true); });
+    });
+    // 빵부스러기의 시·도 링크(/#seoul 등)로 들어오면 그 시·도 탭을 열어 준다.
+    var hash = (location.hash || '').replace('#', '');
+    if (hash && document.querySelector('.prov-tabs .ptab[data-panel="' + hash + '"]')) {
+      selectPanel(hash, false);
+      var target = document.getElementById(hash);
+      if (target && target.scrollIntoView) target.scrollIntoView();
+    }
+  }
+})();
+
+/* ---------------------------------------------------------------- 무료 필터 칩
+ * 무료(요금 구분) · 주말·공휴일 · 야간 · 지금 무료·운영 중. 상태는 URL 에 남겨 공유·뒤로가기가 된다.
+ * ‘지금’은 브라우저 시간을 KST(UTC+9)로 옮겨 계산하고, 공휴일은 페이지에 심은 2026~2027 목록을 쓴다.
+ */
+(function () {
+  'use strict';
+  var box = document.getElementById('free-filter');
+  var list = document.getElementById('lot-list');
+  var dataEl = document.getElementById('lot-data');
+  if (!box || !list || !dataEl) return;
+
+  var byId = {};
+  try {
+    JSON.parse(dataEl.textContent).forEach(function (l) { byId[l.id] = l; });
+  } catch (e) { return; }
+  var HOLIDAYS = [];
+  var holEl = document.getElementById('holiday-data');
+  if (holEl) {
+    try { HOLIDAYS = JSON.parse(holEl.textContent) || []; } catch (e2) { HOLIDAYS = []; }
+  }
+  var cards = Array.prototype.slice.call(list.querySelectorAll('.lot'));
+  var chips = Array.prototype.slice.call(box.querySelectorAll('.ff-chip'));
+  var status = document.getElementById('ff-status');
+  var state = { f: '', now: false };
+
+  var q = new URLSearchParams(location.search || '');
+  state.f = ['free', 'weekend', 'night'].indexOf(q.get('f')) >= 0 ? q.get('f') : '';
+  state.now = q.get('now') === '1';
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function nowKst() {
+    var d = new Date(Date.now() + 9 * 3600 * 1000);   // KST 고정(서머타임 없음)
+    return {
+      date: d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()),
+      dow: d.getUTCDay(),
+      minutes: d.getUTCHours() * 60 + d.getUTCMinutes()
+    };
+  }
+
+  function isFreeNow(lot) {
+    var t = nowKst();
+    var day = t.dow === 0 ? 'sun' : (t.dow === 6 ? 'sat' : 'weekday');
+    var isHol = HOLIDAYS.indexOf(t.date) >= 0 && t.dow !== 0;
+    var hk = isHol ? 'sun' : day;              // 공휴일에는 일요일 운영시간을 쓴다
+    var h = lot.hours && lot.hours[hk];
+    if (h && h.open === false) return false;   // 그날 문을 닫음
+    if (lot.fee && lot.fee.type === '무료') return true;
+    var fw = lot.free_window;
+    if (fw) {
+      var inWin = fw.wrap ? (t.minutes >= fw.start || t.minutes < fw.end)
+                          : (t.minutes >= fw.start && t.minutes < fw.end);
+      return inWin;                            // 무료 시간대가 정해진 곳은 그 시간대에만 무료
+    }
+    if (day === 'sat' && lot.free_days && lot.free_days.sat) return true;
+    if (day === 'sun' && lot.free_days && lot.free_days.sun) return true;
+    if (isHol && (lot.free_holiday || (lot.free_days && lot.free_days.sun))) return true;
+    return false;
+  }
+
+  function matches(lot) {
+    if (!state.f && !state.now) return true;
+    if (lot.access === 'permit') return false;  // 월정기·공무원·화물 전용은 무료 목록에서 뺀다
+    var tags = lot.free_tags || [];
+    if (state.f === 'free' && tags.indexOf('무료') < 0) return false;
+    if (state.f === 'weekend' && tags.indexOf('주말') < 0 && tags.indexOf('공휴일') < 0) return false;
+    if (state.f === 'night' && tags.indexOf('심야') < 0) return false;
+    if (state.now && !isFreeNow(lot)) return false;
+    return true;
+  }
+
+  function syncUrl() {
+    var params = new URLSearchParams();
+    if (state.f) params.set('f', state.f);
+    if (state.now) params.set('now', '1');
+    var qs = params.toString();
+    if (location.protocol === 'file:') return;
+    try {
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    } catch (e) { /* 파일 모드 등에서는 주소를 바꾸지 않는다 */ }
+  }
+
+  function apply(track) {
+    var shown = 0, nowFree = 0;
+    cards.forEach(function (card) {
+      var lot = byId[card.getAttribute('data-lot')];
+      var ok = lot ? matches(lot) : true;
+      card.style.display = ok ? '' : 'none';
+      if (ok) {
+        shown += 1;
+        if (lot && isFreeNow(lot)) nowFree += 1;
+      }
+    });
+    chips.forEach(function (chip) {
+      if (chip.hasAttribute('data-f')) {
+        chip.setAttribute('aria-pressed', chip.getAttribute('data-f') === state.f ? 'true' : 'false');
+      } else if (chip.id === 'ff-now') {
+        chip.setAttribute('aria-pressed', state.now ? 'true' : 'false');
+      }
+    });
+    if (status) {
+      status.textContent = shown + '곳 표시 중' + (state.now ? ' · 지금 무료·운영 중 ' + nowFree + '곳' : '');
+    }
+    syncUrl();
+    if (track && window.pfTrack) {
+      window.pfTrack('free_filter_click', {
+        link_text: (track.textContent || '').replace(/\s+/g, ' ').trim(),
+        filter: state.f || 'now',
+        page_path: location.pathname
+      });
+    }
+  }
+
+  box.addEventListener('click', function (e) {
+    var chip = e.target.closest ? e.target.closest('.ff-chip') : null;
+    if (!chip) return;
+    if (chip.hasAttribute('data-f')) {
+      state.f = chip.getAttribute('data-f');
+    } else if (chip.id === 'ff-now') {
+      state.now = !state.now;
+    }
+    apply(chip);
+  });
+
+  apply(false);
 })();

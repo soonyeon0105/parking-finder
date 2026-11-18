@@ -52,7 +52,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: #fff; display: grid; place-items: center; font-size: 14px; font-weight: 900;
 }
 .brand small { display: block; font-weight: 500; color: var(--muted); font-size: 11px; line-height: 1.2; }
-.site-nav { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+.site-nav { margin-left: auto; display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
+.site-nav .nav-jump { display: flex; align-items: center; gap: 4px; }
+.site-nav .nav-jump label { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.site-nav select {
+  appearance: none; font-family: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+  border: 1px solid var(--line); background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%2364748b'/></svg>") no-repeat right 7px center;
+  border-radius: 999px; padding: 5px 22px 5px 10px; max-width: 140px; cursor: pointer;
+}
 .site-nav a {
   font-size: 12.5px; color: var(--ink-soft); border: 1px solid var(--line);
   padding: 5px 9px; border-radius: 999px; background: #fff; white-space: nowrap;
@@ -141,7 +148,7 @@ input[type="range"] {
 .toolbar .count { font-size: 12.5px; color: var(--muted); }
 
 .list { display: grid; gap: 10px; }
-.list > .ad-slot { grid-column: 1 / -1; margin: 6px 0; }
+.list > .ad-slot { grid-column: 1 / -1; margin: 24px 0; }   /* 목록 안 광고도 위·아래 24px 이상 */
 .card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 13px 14px; box-shadow: var(--shadow); position: relative;
@@ -159,6 +166,7 @@ input[type="range"] {
 .badge.free { background: var(--free); color: #fff; border-color: var(--free); }
 .badge.live { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
 .badge.unknown { background: var(--warn-soft); color: var(--warn); border-color: #fde68a; }
+.badge.permit { background: #eef2ff; color: #4338ca; border-color: #c7d2fe; }
 
 .addr { margin: 6px 0 0; font-size: 12.5px; color: var(--muted); }
 .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 8px 0 0; padding: 0; list-style: none; font-size: 12.5px; color: var(--ink-soft); }
@@ -223,11 +231,75 @@ footer.site-foot .foot-legal a { font-weight: 700; color: var(--ink-soft); }
 .prose code { background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; font-size: 12px; }
 .prose table.data { margin-top: 10px; }
 
+
+/* ---------- 시·도 탭 · 빠른 검색 (2026-11-18 지역 UI 정리) ---------- */
+.hero-search { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; margin: 14px 0 0; box-shadow: var(--shadow); }
+.hero-search label { display: block; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+.hero-search .hs-row { display: flex; gap: 6px; }
+.hero-search input {
+  flex: 1 1 auto; min-width: 0; font-family: inherit; font-size: 14px; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; background: #fff;
+}
+.hero-search button {
+  flex: 0 0 auto; font-family: inherit; font-size: 13.5px; font-weight: 700; color: #fff;
+  background: var(--brand); border: 1px solid var(--brand); border-radius: 10px; padding: 9px 14px; cursor: pointer;
+}
+.prov-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; margin: 12px 0 10px; -webkit-overflow-scrolling: touch; }
+.prov-tabs .ptab {
+  flex: 0 0 auto; font-family: inherit; font-size: 13.5px; font-weight: 700; color: var(--ink-soft);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; cursor: pointer;
+}
+.prov-tabs .ptab small { font-weight: 600; color: var(--muted); font-size: 11px; margin-left: 2px; }
+.prov-tabs .ptab[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.prov-tabs .ptab[aria-selected="true"] small { color: #dbeafe; }
+.prov-panel[hidden] { display: none; }
+h3.prov { font-size: 13px; color: var(--muted); font-weight: 700; margin: 4px 0 8px; }
+
+/* ---------- 무료 필터 칩 ---------- */
+.free-filter { margin: 12px 0 4px; }
+.ff-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.ff-chip {
+  font-family: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; cursor: pointer;
+}
+.ff-chip b { font-weight: 800; color: var(--brand-dark); margin-left: 2px; }
+.ff-chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.ff-chip[aria-pressed="true"] b { color: #dbeafe; }
+.ff-chip.ff-now { border-color: #a7f3d0; background: var(--free-soft); color: var(--free); }
+.ff-chip.ff-now[aria-pressed="true"] { background: var(--free); border-color: var(--free); color: #fff; }
+.ff-status { font-size: 12px; color: var(--muted); margin: 6px 0 2px; }
+
+
+/* ---------- 무료 허브 유형 탭 ---------- */
+.free-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 2px; }
+.free-tabs a {
+  font-size: 13px; font-weight: 700; color: var(--free); background: var(--free-soft);
+  border: 1px solid #a7f3d0; border-radius: 999px; padding: 7px 13px;
+}
+.free-legend { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-soft); }
+.free-legend li { margin-bottom: 5px; }
+
+/* ---------- 푸터 지역 디렉터리 ---------- */
+footer.site-foot details.foot-dir { margin: 0 0 10px; font-size: 11.5px; }
+footer.site-foot details.foot-dir summary { cursor: pointer; font-weight: 700; color: var(--ink-soft); font-size: 12px; padding: 4px 0; }
+footer.site-foot details.foot-dir p { margin: 6px 0; line-height: 1.9; }
+footer.site-foot details.foot-dir b { color: var(--ink-soft); display: inline-block; margin-right: 4px; }
+footer.site-foot .foot-note { margin: 8px 0 0; font-size: 11.5px; color: var(--muted); line-height: 1.6; }
+.sub-links { font-size: 12px; line-height: 1.9; }
+.sub-links small { color: var(--muted); }
+@media (max-width: 520px) {
+  .brand small { display: none; }
+  .site-nav .nav-jump label { display: none; }
+  .site-nav select { max-width: 104px; font-size: 12px; }
+}
+
 @media (min-width: 720px) {
   body { font-size: 15.5px; }
   h1 { font-size: 28px; }
   .grid-2 { grid-template-columns: 1fr 1fr; }
   .list { grid-template-columns: 1fr 1fr; }
   .ad-slot { margin: 28px 0; }
+  .list > .ad-slot { margin: 28px 0; }
   .site-nav a { font-size: 13px; padding: 6px 12px; }
+  .hero-search input { font-size: 15px; }
 }

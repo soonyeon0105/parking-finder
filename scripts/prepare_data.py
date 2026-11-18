@@ -218,6 +218,98 @@ def parse_free_window(note: str):
     return f"{h1:02d}:00~{h2:02d}:{m.group(3) or '00'}"
 
 
+# ---------------------------------------------------------------- 무료 개방 파생 필드
+# 특기사항에 적힌 ‘토+일+공휴일 개방’, ‘월+공휴일개방’ 같은 표기를 무료 요일로 옮긴다.
+# 표준데이터의 ‘무료 개방’ 표기는 요일 칸이 따로 없어 특기사항 문장에만 적혀 있다(부천시 25곳 등).
+FREE_OPEN_TOKEN = re.compile(r"([^,;<>\n]{0,24})개방")
+PERMIT_HINTS = ("월정기전용", "정기권전용", "공무원전용", "화물차전용", "화물전용",
+                "버스전용", "시민전용")
+
+
+def parse_free_open_note(note: str):
+    """특기사항 문장에서 무료 개방 요일을 읽는다.
+
+    돌려주는 값: (sat, sun, holiday, raw)
+      · sat/sun — 토·일(공휴일 포함) 무료 개방
+      · holiday — 공휴일(설·추석 포함)에만 무료 개방
+      · raw — 근거가 된 문구 그대로
+    시각이 적힌 문구(‘04~07시 무료개방’)는 요일 무료가 아니므로 건너뛴다.
+    ”월’은 월요일인지 ‘매월’인지 원문으로 확정되지 않아 요일로 옮기지 않고 raw 에만 남긴다.
+    """
+    sat = sun = holiday = False
+    raw = None
+    for m in FREE_OPEN_TOKEN.finditer(note or ""):
+        seg = m.group(1)
+        if re.search(r"\d", seg) or "시" in seg:
+            continue                      # 시간대 한정 개방
+        if not re.search(r"(토|일|공휴일|주말|설|추석)", seg):
+            continue
+        raw = (seg + "개방").strip()
+        days = seg.replace("공휴일", "")      # ‘공휴일’의 ‘일’을 일요일로 읽지 않는다
+        if "주말" in days or "토" in days:
+            sat = True
+        if "일" in days:
+            sun = True
+        if "공휴일" in seg or "설" in seg or "추석" in seg:
+            holiday = True
+        break
+    return sat, sun, holiday, raw
+
+
+def parse_free_window_min(raw):
+    """‘19:01~09:59’ 같은 무료 시간대를 분 단위로. 자정을 넘기면 end < start 로 둔다."""
+    if not raw:
+        return None
+    m = re.match(r"^(\d{1,2}):(\d{2})\s*~\s*(\d{1,2}):(\d{2})$", str(raw).strip())
+    if not m:
+        return None
+    start = int(m.group(1)) * 60 + int(m.group(2))
+    end = int(m.group(3)) * 60 + int(m.group(4))
+    if start == end:
+        return None
+    return {"start": start, "end": end, "wrap": end < start}
+
+
+def overlaps_night(fw) -> bool:
+    """무료 시간대가 밤(22:00~06:00)과 겹치는지 — ‘심야 무료’ 표시 기준."""
+    if not fw:
+        return False
+    return fw["wrap"] or fw["start"] < 360 or fw["end"] > 1320
+
+
+def derive_free_fields(lot):
+    """허브·필터가 바로 쓸 수 있도록 무료 관련 파생 필드를 채운다(원값은 그대로 둔다)."""
+    note = lot.get("note") or ""
+    fd = lot.setdefault("free_days", {"sat": False, "sun": False})
+    sat, sun, holiday, raw = parse_free_open_note(note)
+    if lot["fee"]["type"] != "무료":
+        # 이미 요금 구분이 ‘무료’인 곳은 요일과 관계없이 무료라 요일 표기를 덧붙이지 않는다.
+        if sat:
+            fd["sat"] = True
+        if sun:
+            fd["sun"] = True
+    lot["free_holiday"] = bool(holiday)
+    lot["free_day_note"] = raw
+    fw = parse_free_window_min(lot.get("free_window"))
+    lot["free_window_min"] = fw
+    lot["free_window_raw"] = lot.get("free_window")
+    tags = []
+    if lot["fee"]["type"] == "무료":
+        tags.append("무료")
+    if fd["sat"] or fd["sun"]:
+        tags.append("주말")
+    if lot["free_holiday"] or fd["sun"]:
+        tags.append("공휴일")
+    if overlaps_night(fw):
+        tags.append("심야")
+    lot["free_tags"] = tags
+    flat = note.replace(" ", "")
+    permit = next((h for h in PERMIT_HINTS if h in flat), None)
+    lot["access"] = "permit" if permit else "general"
+    lot["access_note"] = note.strip() if permit else None
+    return lot
+
+
 def dong_from_jibun(addr: str):
     if not addr:
         return None
@@ -316,10 +408,11 @@ def load_nooe():
 # ---------------------------------------------------------------- 수원시
 CITY_META = {
     # dong_page_min_lots: 동별 페이지를 만드는 최소 노외 주차장 수.
-    #   수원시는 이미 색인된 동 페이지(29개)를 그대로 유지해야 하므로 1곳부터 만든다.
-    #   새로 확장하는 성남·용인·화성시는 3곳 미만 동을 구 페이지 표에만 두어 빈 페이지를 만들지 않는다.
+    #   2026-11-18: 수원시도 3곳으로 올렸다. 1곳부터 만들던 1~2곳짜리 동 페이지 18개가
+    #   본문 유사도 0.96(예: 남수동↔정자동, 1,170자·1,142자)으로 겹쳐 애드센스 ‘가치 낮은
+    #   대량 생성 페이지’ 위험이 있었다. 없어진 주소는 build_site.py 가 구 허브로 301 한다.
     "수원시": {"slug": "suwon", "province": "경기도", "province_slug": "gyeonggi",
-             "dong_page_min_lots": 1},
+             "dong_page_min_lots": 3},
     "성남시": {"slug": "seongnam", "province": "경기도", "province_slug": "gyeonggi",
              "dong_page_min_lots": 3},
     "용인시": {"slug": "yongin", "province": "경기도", "province_slug": "gyeonggi",
@@ -7366,6 +7459,8 @@ def build_site_payload(cities):
             keep = {}
     lots = []
     for c in cities:
+        for l in c["lots"]:
+            derive_free_fields(l)
         lots.extend(c["lots"])
     provinces = []
     for c in cities:
