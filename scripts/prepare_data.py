@@ -26213,6 +26213,1064 @@ def check_quality_gwangju_metro(name, std_all, rows_std, rows_city, lots, exclud
         "관리기관": dict(Counter(l.get("manager") for l in lots)),
     }
 
+# ---------------------------------------------------------------- 울산광역시 (T-03 Phase 44)
+#  울산은 시·구·군 조례 별표1이 모두 30분 단위 요금표다 — 최초 30분 500원(1급지)·300원(2급지)에,
+#  기본초과분은 30분마다 10분 이내 200·20분 이내 400·30분 이내 500원(1급지)으로 오른다.
+#  즉 10분 단위로는 200·200·100원씩 세 번 오르는 셈이라, 계산기에는 그 10분 증분을 steps 로 편다.
+#  (60분 1,000원·90분 1,500원·120분 2,000원 — 등록된 ‘10분당 200원’을 그대로 곱하면 60분이
+#   1,100원이 되어 조례와 어긋난다.)
+#  울주군만 요금표가 다르다 — 일반 공영주차장은 최초 30분 300원·10분당 100원·1일 6,000원,
+#  전통시장 공영주차장은 최초 120분 무료·120분 초과 600원 기본 후 10분당 100원·1일 3,000원이다.
+ULSAN_PROVINCE = "울산광역시"
+ULSAN_PROVINCE_SLUG = "ulsan"
+ULSAN_METRO_DISTRICTS = ("중구", "남구", "동구", "북구", "울주군")
+ULSAN_CITY_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2026989"
+ULSAN_CITY_ORD_NOTE = "시행 2025-04-03 · 울산광역시조례 제3088호(일부개정)"
+ULSAN_ORD1_TXT = RAW / "ulsan.law.go.kr_주차장조례_별표1_20261118.txt"
+ULSAN_ORD_TXT = RAW / "ulsan.law.go.kr_주차장조례_20261118.txt"
+
+# 「울산광역시 주차장 설치 및 관리 조례」 별표1(단위: 1구획당·원)
+#   (최초 30분, 기본초과 30분 단위의 10분 이내·20분 이내·30분 이내, 1일 주차, 월 정기 주간·야간)
+ULSAN_ORD_FEES = {
+    "1": (500, 200, 400, 500, 10000, 80000, 60000),
+    "2": (300, 100, 200, 300, 6000, 50000, 30000),
+}
+# 급지 구분 — 동구는 주전동, 북구는 강동동만 2급지다(각 구 조례 별표1 비고).
+ULSAN_GRADE_AREA = {
+    "중구": {"1": "중구 전역"},
+    "남구": {"1": "남구 전역"},
+    "동구": {"1": "동구 전지역(주전동 제외)", "2": "주전동"},
+    "북구": {"1": "북구 전역(강동동 제외)", "2": "강동동 전역"},
+}
+# 울주군 조례 별표1 — 일반 공영주차장 / 전통시장 공영주차장(평일 기준)
+ULSAN_ULJU_GENERAL = {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 100,
+                      "day": 6000, "month": 50000}
+ULSAN_ULJU_MARKET = {"base_min": 120, "base_fee": 600, "unit_min": 10, "unit_fee": 100,
+                     "day": 3000, "month": 30000,
+                     # 주말·공휴일·전통시장 장날: 120분 초과 10분당 200원·1일 6,000원
+                     "day_weekend": 6000, "unit_fee_weekend": 200}
+# 조례 별표1 비고 — 노외주차장은 최초 20분 이내 주차하면 무료다(구·군 조례 모두 같은 비고).
+ULSAN_OUTDOOR_FREE_MIN = 20
+
+# 「울산광역시 주차장 설치 및 관리 조례」 제4조③ — 시장이 설치한 공영주차장(울산시설공단 운영 포함)
+ULSAN_CITY_DISCOUNTS = [
+    {"label": "긴급자동차·공용차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("「도로교통법」 제2조제22호 긴급자동차, 국가·지방자치단체 공용차량, 시장이 인정하는 "
+              "행사·회의 참석 차량은 주차요금을 면제합니다(시 조례 제4조②)")},
+    {"label": "장애인·유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+     "note": ("장애인등록증 소지 장애인, 국가유공 상이자(1~7급), 고엽제후유증·후유의증 환자, "
+              "5·18민주화운동 부상자가 본인 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, "
+              "그 뒤와 1일·월 정기 주차는 50퍼센트(시 조례 제4조③1호)")},
+    {"label": "경차 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "「자동차관리법 시행규칙」 별표1 경형자동차 60퍼센트(제4조③2호)"},
+    {"label": "자동차부제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "시장이 정한 자동차부제운행 준수 차량과 함께타기 참여 차량 20퍼센트(제4조③3호)"},
+    {"label": "승용차 요일제 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "요일제 전자태그를 붙이고 참여일을 지킨 차량 50퍼센트 — 월 정기 주차는 제외(제4조③3호의2)"},
+    {"label": "모범납세자 1년 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "모범납세자 표창을 받고 성실납세증 표지를 붙인 차량 — 수상일부터 1년 면제(제4조③4호)"},
+    {"label": "투표확인증 2,000원 할인", "rate": 0.0, "exempt_min": 0,
+     "note": ("투표확인증을 낸 사람에게 2,000원을 경감합니다(선거일 후 3개월까지 유효, "
+              "제4조③5호) — 계산기에는 넣지 않았습니다")},
+    {"label": "전통시장 이용객 최초 60분 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "전통시장 안이나 인근 공영주차장을 쓰는 시장 이용객은 최초 60분 50퍼센트(제4조③6호)"},
+    {"label": "다자녀 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "다자녀 사랑카드에 등재된 사람이 운전하는 비사업용 승용·승합차 60퍼센트(제4조③7호)"},
+    {"label": "저공해·환경친화 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("환경친화적 자동차·저공해 표지를 붙인 차 50퍼센트, 전기자동차가 충전을 위해 주차하면 "
+              "최초 1시간 면제(제4조③8호)")},
+    {"label": "무형유산 보유자·임산부 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "시지정무형유산 보유자의 비사업용 차, 임산부가 탑승한 차 50퍼센트(제4조③9·10호)"},
+    {"label": "자원봉사자 20%", "rate": 0.2, "exempt_min": 0,
+     "note": "시장이 발급한 자원봉사자증 소지자 20퍼센트(제4조③11호)"},
+    {"label": "스마트주차결제 10%", "rate": 0.1, "exempt_min": 0,
+     "note": "스마트주차결제시스템에 등록한 이용자 10퍼센트(제4조③12호)"},
+    {"label": "병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "병역명문가증과 울산광역시 시민임을 확인하는 신분증을 낸 예우대상자 50퍼센트(제4조③14호)"},
+    {"label": "의상자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「의사상자 등 예우 및 지원에 관한 법률」에 따른 의상자가 의상자증을 내면 50퍼센트(제4조③15호)"},
+]
+
+ULSAN_OPERATORS = {
+    "울산광역시중구도시관리공단": "구영(중구도시관리공단 위탁)",
+    "울산광역시남구도시관리공단": "구영(남구도시관리공단 위탁)",
+    "울산광역시 동구청": "구영(동구청 직영)",
+    "울산광역시 북구청": "구영(북구청 직영)",
+    "울산광역시 울주군청": "군영(울주군청 직영)",
+    "울산광역시 울주군시설관리공단": "군영(울주군시설관리공단 위탁)",
+    "울주군 시설관리공단": "군영(울주군시설관리공단 위탁)",
+    "울산시설공단": "시영(울산시설공단 운영)",
+}
+
+# 주차요금을 받는 시간을 특기사항에 적어 둔 주차장(동구) — 그 밖의 시간은 무료다.
+ULSAN_WEEKDAY_ONLY_PAT = re.compile(r"월\s*~\s*금\s*\((\d{1,2}:\d{2})\s*~\s*(\d{1,2}:\d{2})\)\s*유료")
+ULSAN_WEEKEND_ONLY_PAT = re.compile(r"토\s*[ㆍ·,]\s*일\s*\((\d{1,2}:\d{2})\s*~\s*(\d{1,2}:\d{2})\)\s*유료")
+
+# 울주군청 ‘유료공영주차장 현황’(2026-11-18 확인)이 주차장별 운영시간을 따로 적어 둔다 —
+# 표준데이터는 모두 00:00~23:59(24시간)로 등록되어 있어, 안내된 운영시간을 카드에 함께 적는다.
+ULSAN_ULJU_HOURS = {
+    "언양강변": "연중 유료 06:00~22:00",
+    "덕신공영주차장": "연중 유료 06:00~22:00",
+    "온덕공영주차장": "연중 유료 06:00~22:00",
+    "구언양터미널임시": "연중 유료 06:00~22:00",
+    "언양": "평일·주말·공휴일 13:00~22:00",
+    "구영공원": "평일 유료 06:00~22:00, 그 밖의 시간 무료",
+    "구영공원공영주차장": "평일 유료 06:00~22:00, 그 밖의 시간 무료",
+    "범서 대리 공영": "평일 유료 09:00~18:00, 그 밖의 시간 무료",
+    "범서대리공영주차장": "평일 유료 09:00~18:00, 그 밖의 시간 무료",
+    "진하": "평일 22시~익일 11시",
+    "백천": "평일 22시~익일 11시",
+    "두현": "평일 22시~익일 11시",
+}
+
+# 옛 등록에 남아 있는 읍·면 이름 — 삼남면은 2021년 삼남읍으로 승격됐다.
+ULSAN_DONG_RENAME = {"삼남면": "삼남읍"}
+
+# 거주자우선주차 전용 구역 — 주간에는 무료로 열고 18:00~24:00만 배정 차량이 쓴다(남구 5곳).
+ULSAN_RESIDENT_PAT = re.compile(r"거주자우선주차\s*전용")
+
+ULSAN_CONF = {
+    "중구": {
+        "city": "울산 중구",
+        "slug": "jung-gu",
+        "manager": "울산중구도시관리공단 주차사업팀(052-290-7800)",
+        "manager_inquiry": "울산중구도시관리공단(052-290-7800)",
+        "ordinance": ("「울산광역시 중구 주차장 설치 및 관리 조례」 제6조 주차요금 징수 및 감면·별표1",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2181597",
+                      "시행 2026-11-02 · 울산광역시중구조례 제1490호(일부개정)"),
+        "notes": ("중구 조례 별표1은 1급지 한 줄짜리 요금표(최초 30분 500원·기본초과 30분 단위 10분 "
+                  "이내 200·20분 이내 400·30분 이내 500원·1일 10,000원·월 정기 80,000원 이내)이고, "
+                  "중구도시관리공단이 공개한 요금표와 금액이 같습니다. 비고는 노외주차장 최초 20분 "
+                  "무료, 2.5톤·25인승 이상 차량 기준요금 2배를 정합니다. 감면은 제6조②가 정하고, "
+                  "전통시장 이용객에게는 최초 60분 80퍼센트를 경감합니다."),
+        "discounts": [
+            {"label": "긴급자동차·공용차량·국빈 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "긴급자동차, 국가·지방자치단체 공용(관용) 차량, 국빈·외교사절과 수행자 차량은 면제합니다(중구 조례 제6조②1호)"},
+            {"label": "장애인·유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": ("국가유공 상이자, 고엽제후유증·후유의증 환자, 5·18민주유공자, 장애인, 독립유공자, "
+                      "참전유공자, 특수임무유공자가 본인 차를 직접 운전하거나 대리운전하게 하면 1시간 "
+                      "면제, 그 뒤와 1일·월 정기 주차는 50퍼센트(제6조②2호)")},
+            {"label": "모범납세자 1년 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "모범납세자 표창을 받고 성실납세증 표지를 붙인 차량 — 수상일부터 1년 면제(제6조②3호)"},
+            {"label": "전통시장 이용객 최초 60분 80%", "rate": 0.8, "exempt_min": 0,
+             "note": ("전통시장 안이나 인근 공영주차장을 쓰는 시장 이용객은 최초 60분 80퍼센트 경감"
+                      "(제6조②4호) — 계산기는 이용한 전체 시간에 이 비율을 적용합니다")},
+            {"label": "경차·다자녀 60%", "rate": 0.6, "exempt_min": 0,
+             "note": "경형자동차와 다자녀 사랑카드 등재자가 운전하는 비사업용 승용·승합차 60퍼센트(제6조②5호)"},
+            {"label": "승용차 요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "요일제 전자태그를 붙이고 운휴일을 지킨 차량 50퍼센트 — 월 정기 주차는 제외(제6조②6호가목)"},
+            {"label": "장기기증자·환경친화·임산부·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("장기기증자·등록자의 당일 주차요금, 환경친화적·저공해 표지 차(전기차 충전 시 최초 "
+                      "1시간 면제), 임산부가 탑승한 차, 병역명문가 예우대상자 50퍼센트(제6조②6호나~마목)")},
+            {"label": "투표확인증 2,000원 할인", "rate": 0.0, "exempt_min": 0,
+             "note": "투표확인증을 낸 사람에게 2,000원을 경감합니다(선거일 후 3개월까지) — 계산기에는 넣지 않았습니다"},
+            {"label": "자원봉사자 20%·스마트결제 10%", "rate": 0.2, "exempt_min": 0,
+             "note": "시장이 발급한 자원봉사자증 소지자 20퍼센트(제6조②8호)이고, 스마트주차결제시스템 등록자는 10퍼센트(제6조②9호)입니다"},
+        ],
+    },
+    "남구": {
+        "city": "울산 남구",
+        "slug": "nam-gu",
+        "manager": "울산광역시남구도시관리공단 주차관리팀(052-226-3400)",
+        "manager_inquiry": "울산광역시남구도시관리공단(052-226-3400)",
+        "ordinance": ("「울산광역시 남구 주차장 설치 및 관리 조례」 제8조 주차요금 등·별표1",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2156693",
+                      "시행 2026-08-03 · 울산광역시남구조례 제1491호(일부개정)"),
+        "notes": ("남구 조례 별표1(2026-08-03 개정)은 급지 구분 없이 한 줄(최초 30분 500원·기본초과 "
+                  "30분 단위 10분 이내 200·20분 이내 400·30분 이내 500원·1일 10,000원·월 정기 주간 "
+                  "80,000·야간 60,000원)이고, 표준데이터가 남구 전역을 1급지로 등록한 것과 맞습니다. "
+                  "거주자우선주차 구획은 별표7에서 따로 정하며, 남구는 노상 공영주차장의 점심(11:30~"
+                  "13:30)·저녁(17:30~19:30) 시간대 요금을 면제합니다(제8조③14호)."),
+        "discounts": [
+            {"label": "긴급자동차·공용차량·국빈 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "긴급자동차, 국가·지방자치단체 공용차량, 국빈·외교사절 차량, 구청장이 인정하는 차량은 면제합니다(남구 조례 제8조②)"},
+            {"label": "장애인·유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": ("장애인, 국가유공 상이자, 고엽제후유증·후유의증 환자, 5·18민주화운동 부상자가 본인 "
+                      "차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 주차는 "
+                      "50퍼센트(제8조③1호)")},
+            {"label": "경차·다자녀 60%", "rate": 0.6, "exempt_min": 0,
+             "note": "경형자동차와 다자녀 사랑카드 등재자가 운전하는 비사업용 승용·승합차 60퍼센트(제8조③2·8호)"},
+            {"label": "자동차10부제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "구청장이 정한 자동차10부제를 지키는 차량과 함께타기 참여 차량 20퍼센트(제8조③3호)"},
+            {"label": "승용차 요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "요일제 전자태그를 붙이고 운휴일을 지킨 차량 50퍼센트 — 월 주차는 제외(제8조③4호)"},
+            {"label": "모범납세자 1년 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "성실납세증 표지를 붙인 차량 — 수상일부터 1년 면제(제8조③5호)"},
+            {"label": "전통시장 이용객 1시간 면제", "rate": 1.0, "exempt_min": 60,
+             "note": "전통시장·상점가·골목형상점가 안이나 인근 공영주차장을 쓰는 시장 이용객은 1시간 범위에서 면제합니다(제8조③7호)"},
+            {"label": "저공해·환경친화 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환경친화적·저공해 표지 차 50퍼센트, 전기자동차 충전 시 최초 1시간 면제(제8조③9호)"},
+            {"label": "자원봉사자 20%·우수자원봉사자 50%", "rate": 0.2, "exempt_min": 0,
+             "note": "시장 발급 자원봉사자증 소지자 20퍼센트, 구청장 발급 우수자원봉사자증 소지자 50퍼센트(제8조③10·11호)"},
+            {"label": "임산부·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부가 탑승한 차, 남구 병역명문가 예우대상자 50퍼센트(제8조③12·13호)"},
+            {"label": "투표확인증 2,000원 할인", "rate": 0.0, "exempt_min": 0,
+             "note": "투표확인증을 낸 사람에게 2,000원까지 경감합니다 — 계산기에는 넣지 않았습니다(제8조③6호)"},
+            {"label": "노상 점심·저녁시간 면제", "rate": 1.0, "exempt_min": 0,
+             "note": ("노상 공영주차장에 점심시간(11:30~13:30)과 저녁시간(17:30~19:30)에 주차하면 그 "
+                      "시간 요금을 면제합니다(제8조③14호) — 시간대 계산은 하지 않습니다")},
+            {"label": "스마트주차결제 10%", "rate": 0.1, "exempt_min": 0,
+             "note": "스마트주차결제시스템으로 결제한 이용자 10퍼센트(제8조③15호)"},
+        ],
+    },
+    "동구": {
+        "city": "울산 동구",
+        "slug": "dong-gu",
+        "manager": "울산광역시 동구청 교통과(052-209-3333)",
+        "manager_inquiry": "울산광역시 동구청 교통과(052-209-3333)",
+        "ordinance": ("「울산광역시 동구 주차장 설치 및 관리 조례」 제7조 주차요금 등·별표1",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1979317",
+                      "시행 2024-10-24 · 울산광역시동구조례 제1269호(일부개정)"),
+        "notes": ("동구 조례 별표1은 1급지(최초 30분 500원)와 2급지(300원)를 두고, 1일·월 정기 주차요금은 "
+                  "노외주차장에만 받습니다. 급지는 1급지가 동구 전지역(주전동 제외), 2급지가 주전동입니다. "
+                  "표준데이터 특기사항에 적힌 대로 동구 유료 주차장은 대부분 월~금 09:00~18:00에만 "
+                  "요금을 받고, 대왕암·대왕암공원 타워주차장만 토·일 10:00~19:00에 요금을 받습니다."),
+        "discounts": [
+            {"label": "긴급자동차·공용차량 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "「도로교통법」 제2조제22호 긴급자동차와 국가·지방자치단체 공용(관용) 차량은 면제합니다(동구 조례 제7조②)"},
+            {"label": "장애인·유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": ("장애인, 국가유공 상이자, 고엽제후유증·후유의증 환자, 5·18민주화운동 부상자가 본인 "
+                      "차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 주차는 "
+                      "50퍼센트(제7조③1호)")},
+            {"label": "경차·다자녀 60%", "rate": 0.6, "exempt_min": 0,
+             "note": "경형자동차와 다자녀 사랑카드 등재자가 운전하는 비사업용 승용·승합차 60퍼센트(제7조③2·7호)"},
+            {"label": "자동차부제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "구청장이 정한 자동차부제를 지키는 차량과 함께타기 참여 차량 20퍼센트(제7조③3호)"},
+            {"label": "모범납세자 1년 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "성실납세증 표지를 붙인 차량 — 수상일부터 1년 면제(제7조③4호)"},
+            {"label": "전통시장 이용객 최초 60분 면제", "rate": 1.0, "exempt_min": 60,
+             "note": "전통시장 안이나 인근 공영주차장을 쓰는 시장 이용객은 최초 60분을 면제합니다(제7조③6호)"},
+            {"label": "승용차 요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "요일제 전자태그를 붙이고 운휴일을 지킨 차량 50퍼센트 — 월 주차는 제외(제7조③8호)"},
+            {"label": "저공해·환경친화 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환경친화적·저공해 표지 차 50퍼센트, 전기자동차 충전 시 1시간 면제(제7조③9호)"},
+            {"label": "자원봉사자 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "시장이 발급한 자원봉사자증 소지자(본인) 20퍼센트(제7조③10호)"},
+            {"label": "임산부·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부가 탑승한 차, 동구 병역명문가 예우대상자 50퍼센트(제7조③11·13호)"},
+            {"label": "투표확인증 2,000원 할인", "rate": 0.0, "exempt_min": 0,
+             "note": "투표확인증을 낸 사람에게 2,000원을 경감합니다 — 계산기에는 넣지 않았습니다(제7조③5호)"},
+            {"label": "스마트주차결제 10%", "rate": 0.1, "exempt_min": 0,
+             "note": "스마트주차결제시스템으로 결제한 이용자 10퍼센트(제7조③12호)"},
+        ],
+    },
+    "북구": {
+        "city": "울산 북구",
+        "slug": "buk-gu",
+        "manager": "울산광역시 북구 시설관리공단(052-255-5544)",
+        "manager_inquiry": "울산광역시 북구 시설관리공단(052-255-5544)",
+        "ordinance": ("「울산광역시 북구 주차장 설치 및 관리 조례」 제6조 주차요금 등·별표1",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1998239",
+                      "시행 2024-12-26 · 울산광역시북구조례 제1381호(일부개정)"),
+        "notes": ("북구 조례 별표1은 1급지(최초 30분 500원)와 2급지(300원)를 두고, 급지는 1급지가 북구 "
+                  "전역(강동동 제외), 2급지가 강동동 전역입니다. 1일·월 정기 주차요금은 노외주차장에만 "
+                  "받고, 경감액의 100원 미만은 절사합니다. 북구 시설관리공단은 노외주차장 6곳과 노상 7곳을 "
+                  "유료로 운영하며, 노외는 일요일·공휴일에, 노상은 토요일·일요일·공휴일에 무료로 "
+                  "개방합니다(북구청사 부설은 토·일·공휴일 무료개방)."),
+        "discounts": [
+            {"label": "긴급자동차·공용차량·국빈 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "긴급자동차, 국가·지방자치단체 공용(관용) 차량, 국빈·외교사절 차량은 면제합니다(북구 조례 제6조③)"},
+            {"label": "유공자·장애인 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": ("국가유공 상이자, 고엽제후유증·후유의증 환자, 5·18민주화운동 부상자, 장애인이 본인 "
+                      "비사업용 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 "
+                      "주차는 50퍼센트(제6조④1호)")},
+            {"label": "경차·다자녀 60%", "rate": 0.6, "exempt_min": 0,
+             "note": "경형자동차와 다자녀 사랑카드 등재자가 운전하는 비사업용 승용·승합차 60퍼센트(제6조④2·7호)"},
+            {"label": "자동차부제·함께타기 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "구청장이 정한 자동차부제를 지키는 차량과 함께타기 참여 차량 20퍼센트(제6조④3호)"},
+            {"label": "모범납세자 1년 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "성실납세증 표지를 붙인 차량 — 수상일부터 1년 100퍼센트 감면(제6조④4호)"},
+            {"label": "전통시장 이용객 최초 1시간 면제", "rate": 1.0, "exempt_min": 60,
+             "note": "전통시장·상점가 안이나 인근 공영주차장을 쓰는 이용객은 최초 1시간을 면제합니다(제6조④6호)"},
+            {"label": "자원봉사자 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "울산광역시장이 발급한 자원봉사자증 소지자(본인) 20퍼센트(제6조④8호)"},
+            {"label": "승용차 요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "요일제 전자태그를 붙이고 운휴일을 지킨 차량 50퍼센트(제6조④9호)"},
+            {"label": "장기기증자 50%·기증희망 5%", "rate": 0.5, "exempt_min": 0,
+             "note": "장기·인체조직 기증자는 당일 요금 50퍼센트, 기증희망자(구 주민)는 5퍼센트(제6조④10호)"},
+            {"label": "저공해·환경친화 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환경친화적·저공해 표지 차 50퍼센트, 전기자동차 충전 시 최초 1시간 면제(제6조④11호)"},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부가 탑승한 차로 산모수첩 등 증명자료를 내면 50퍼센트(제6조④12호)"},
+            {"label": "투표확인증 2,000원 할인", "rate": 0.0, "exempt_min": 0,
+             "note": "투표확인증을 낸 사람에게 2,000원까지 경감합니다 — 계산기에는 넣지 않았습니다(제6조④5호)"},
+            {"label": "스마트주차결제 10%", "rate": 0.1, "exempt_min": 0,
+             "note": "스마트주차결제시스템에 등록한 이용자 10퍼센트(제6조④13호)"},
+        ],
+    },
+    "울주군": {
+        "city": "울산 울주군",
+        "slug": "ulju-gun",
+        "manager": "울산광역시 울주군 교통정책과(052-204-2541)",
+        "manager_inquiry": "울산광역시 울주군 교통정책과(052-204-2541)",
+        "ordinance": ("「울산광역시 울주군 주차장 설치 및 관리 조례」 제7조 주차요금 등·별표1·별표1의2",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2050523",
+                      "시행 2025-07-03 · 울산광역시울주군조례 제1671호(일부개정)"),
+        "notes": ("울주군 조례 별표1(2025-07-03 개정)은 급지 대신 용도로 나눕니다 — 일반 공영주차장은 "
+                  "최초 30분 300원·30분 초과 10분당 100원·1일 6,000원·월 정기 50,000원이고, 전통시장 "
+                  "공영주차장(전통시장 안이나 인근)은 평일 최초 120분 무료·120분 초과 기본 600원에 "
+                  "10분당 100원·1일 3,000원·월 정기 30,000원입니다(주말·공휴일·장날은 10분당 200원·"
+                  "1일 6,000원). 대형·특수차량(2.5톤 이상·25인승 이상·캠핑카·트레일러)은 기준요금의 "
+                  "2배입니다. 감면은 별표1의2가 정합니다."),
+        "discounts": [
+            {"label": "긴급자동차·공용차량 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "긴급자동차, 국가·지방자치단체 공용 차량, 공공 행사·회의 참석을 위해 군수가 미리 승인한 차량은 면제합니다(울주군 조례 제7조③)"},
+            {"label": "장애인·유공자 등 1시간 면제 후 50%", "rate": 0.5, "exempt_min": 60,
+             "note": ("장애인, 국가유공 상이자(1~7급), 고엽제후유증·후유의증 환자, 5·18민주화운동 부상자가 "
+                      "본인 차를 직접 운전하거나 대리운전하게 하면 1시간 면제, 그 뒤와 1일·월 정기 주차는 "
+                      "50퍼센트(별표1의2 ‘그 외’)")},
+            {"label": "스마트주차결제 10%", "rate": 0.1, "exempt_min": 0,
+             "note": "스마트주차결제시스템에 등록한 이용자 10퍼센트(별표1의2)"},
+            {"label": "부제·함께타기·자원봉사·효행표창 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "자동차부제운행 준수 차량, 함께타기 참여 차량, 시장 발급 자원봉사자증 소지자, 효행 표창을 받은 사람 20퍼센트(별표1의2)"},
+            {"label": "헌혈자 30%", "rate": 0.3, "exempt_min": 0,
+             "note": "일반 헌혈자가 헌혈증서와 신분증을 내면 헌혈한 날부터 1년간 30퍼센트(별표1의2)"},
+            {"label": "요일제·저공해·임산부·다회헌혈 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("승용차 요일제 참여 차량(월 주차 제외), 환경친화적·저공해 표지 차(전기차 충전 시 최초 "
+                      "1시간 면제), 임산부가 탑승한 차, 다회 헌혈자(확인증 발급일부터 3년) 50퍼센트(별표1의2)")},
+            {"label": "경차·다자녀 60%", "rate": 0.6, "exempt_min": 0,
+             "note": "경형자동차와 다자녀 사랑카드 소지자가 운전하는 비사업용 승용·승합차 60퍼센트(별표1의2)"},
+            {"label": "모범납세자·투표확인증·군민상 100%", "rate": 1.0, "exempt_min": 0,
+             "note": ("성실납세증 표지를 붙인 차량(수상일부터 1년), 투표확인증을 낸 사람(선거일 후 3개월), "
+                      "울주군민상 수상자는 100퍼센트 감면입니다 — 계산기는 면제로 계산합니다(별표1의2)")},
+            {"label": "장기기증자 50%·기증희망 10%", "rate": 0.5, "exempt_min": 0,
+             "note": "장기 등 기증자는 50퍼센트, 장기기증희망등록증을 가진 사람(본인 차)은 10퍼센트(별표1의2)"},
+        ],
+    },
+}
+
+CITY_META_ULSAN = {
+    "중구": {"slug": "jung-gu", "province": ULSAN_PROVINCE, "province_slug": ULSAN_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "남구": {"slug": "nam-gu", "province": ULSAN_PROVINCE, "province_slug": ULSAN_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "동구": {"slug": "dong-gu", "province": ULSAN_PROVINCE, "province_slug": ULSAN_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "북구": {"slug": "buk-gu", "province": ULSAN_PROVINCE, "province_slug": ULSAN_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "울주군": {"slug": "ulju-gun", "province": ULSAN_PROVINCE, "province_slug": ULSAN_PROVINCE_SLUG,
+             "dong_page_min_lots": 3},
+}
+
+
+def ulsan_addr(row) -> str:
+    return (row.get("소재지지번주소") or "").strip() or (row.get("소재지도로명주소") or "").strip()
+
+
+def ulsan_dong_of(addr: str):
+    """주소에서 법정동·읍·면을 읽는다.
+
+    울산 표준데이터는 ‘울산광역시 중구 남외동 123’, ‘울산광역시 남구 야음동366-4’,
+    ‘울산광역시 울주군 범서읍 천상리 603-6’처럼 적는다. 세 번째 낱말이 법정동(읍·면)이고,
+    번지가 붙어 적힌 행(‘야음동366-4’)은 낱말 끝의 숫자를 떼어 낸다. 도로명만 적힌 행은
+    괄호 안 지번(‘강동산하지구 47B 18L(산하동 1021-7)’)이나 동 이름으로 시작하는 도로명
+    (‘호계동대중앙로’)에서 동을 읽는다.
+    """
+    if not addr:
+        return None
+    m = re.search(r"\(([가-힣]{1,5}(?:동|읍|면))\s*[\d산]", addr)
+    if m:
+        return m.group(1)
+    parts = addr.split()
+    if len(parts) < 3:
+        return None
+    third = parts[2]
+    if third.endswith(("동", "가", "읍", "면")):
+        return third or None
+    if third.endswith(("로", "길")) and len(parts) > 3 and re.fullmatch(r"\d+가", parts[3]):
+        return third + parts[3]
+    m = re.match(r"^([가-힣]+?(?:동|읍|면))(?:산)?\d", third)
+    if m:
+        return m.group(1) or None
+    m = re.match(r"^([가-힣]{1,4}동)(?:대)?[가-힣]*(?:로|길)$", third)
+    if m:
+        return m.group(1)
+    return None
+
+
+def ulsan_district_of(row):
+    """이 행이 어느 구·군에 속하는지 — 지번(없으면 도로명)주소의 두 번째 낱말이 구·군 이름이다."""
+    for k in ("소재지지번주소", "소재지도로명주소"):
+        parts = (row.get(k) or "").split()
+        if len(parts) > 1 and parts[1] in ULSAN_METRO_DISTRICTS and parts[0].startswith("울산"):
+            return parts[1]
+    return None
+
+
+def ulsan_steps(base_min: int, tiers) -> list:
+    """조례 별표1의 ‘기본초과 30분 단위 10분 이내/20분 이내/30분 이내’ 요금을 10분 증분으로 편다.
+
+    tiers = (최초 30분, 10분 이내, 20분 이내, 30분 이내) — 증분은 200·200·100원(1급지),
+    100·100·100원(2급지)이 되어 30분마다 되풀이된다. 1일 주차요금에 닿는 시간(기본 30분 기준
+    10시간)까지만 만든다.
+    """
+    first, t10, t20, t30 = tiers[:4]
+    inc = (t10, t20 - t10, t30 - t20)
+    steps, t, i = [], base_min, 0
+    while t < base_min + 600:
+        t += 10
+        steps.append({"until": t, "unit_min": 10, "unit_fee": inc[i % 3]})
+        i += 1
+    return steps
+
+
+def ulsan_fee(row, conf, name, note_bits, note_fixed, grade_fixed):
+    """울산 공영주차장 한 곳의 요금 — 구·군 조례 별표1과 등록값을 대조해 계산한다."""
+    ptype = (row.get("주차장유형") or "").strip() or "노외"
+    street = ptype == "노상"
+    raw_type = (row.get("요금정보") or "").strip()
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    grade_raw = (row.get("급지구분") or "").strip()
+    county = conf["slug"] == "ulju-gun"
+    grade = grade_raw if (grade_raw in ("1", "2") and not county) else None
+    label = f"{grade}급지" if grade else None
+    note = row.get("특기사항") or ""
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": grade, "grade_label": label, "std_grade": grade_raw or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": True,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    # 거주자우선주차 전용 구역 — 18:00~24:00만 배정 차량이 쓰고 그 밖의 시간은 열어 둔다.
+    if ULSAN_RESIDENT_PAT.search(note):
+        fee.update({"type": "무료", "monthly": month, "monthly_all": month,
+                    "monthly_label": "거주자 배정",
+                    "basis": "주거지 전용(거주자우선주차) — 배정 차량 월 정기권, 그 밖의 시간 무료 개방"})
+        note_bits.append(f"18:00~24:00은 거주자우선주차 배정 차량 전용이고, 그 밖의 시간은 무료로 "
+                         f"열려 있습니다(월 정기권 {month:,}원)" if month else
+                         "18:00~24:00은 거주자우선주차 배정 차량 전용입니다")
+        return fee
+    if county:
+        market = (base_min or 0) >= 120
+        conf_fee = ULSAN_ULJU_MARKET if market else ULSAN_ULJU_GENERAL
+        fee.update({"base_min": conf_fee["base_min"], "base_fee": conf_fee["base_fee"],
+                    "unit_min": conf_fee["unit_min"], "unit_fee": conf_fee["unit_fee"],
+                    "daily_fee": conf_fee["day"],
+                    "basis": ("「울산광역시 울주군 주차장 설치 및 관리 조례」 별표1 전통시장 공영주차장"
+                              if market else
+                              "「울산광역시 울주군 주차장 설치 및 관리 조례」 별표1 그 밖의 공영주차장")})
+        if market:
+            fee["free_min"] = ULSAN_ULJU_MARKET["base_min"]
+            fee["free_block"] = True
+            note_bits.append("최초 120분 무료 요금표(전통시장 안팎과 읍내 큰 주차장)를 적용해 평일 120분까지는 "
+                             f"무료이고, 그 뒤 기본 600원에 10분당 100원·1일 {ULSAN_ULJU_MARKET['day']:,}원입니다"
+                             " (주말·공휴일·장날은 10분당 200원·1일 6,000원)")
+        if month:
+            fee["monthly_all"] = month
+            fee["monthly_label"] = "전일"
+        else:
+            fee["monthly_all"] = conf_fee["month"]
+            fee["monthly_label"] = "요금표"
+        fee["monthly"] = fee["monthly_all"]
+        if month and month != conf_fee["month"]:
+            grade_fixed.append(f"{name}: 월 정기권 등록 {month:,}원 ↔ 조례 별표1 {conf_fee['month']:,}원")
+        if base_min and base_min != conf_fee["base_min"]:
+            note_fixed.append(f"{name}: 등록 기본시간 {base_min}분 ↔ 조례 {conf_fee['base_min']}분"
+                              f"(기본요금 {base_fee or 0:,}원)")
+        fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                      "unit_fee": unit_fee, "day": day, "monthly": month}
+        return fee
+    tiers = ULSAN_ORD_FEES.get(grade) or ULSAN_ORD_FEES["1"]
+    # 등록값이 최초 30분 500원·추가 10분 200원이면 조례 별표1의 10분 증분(200·200·100)으로 계산한다.
+    if base_fee and base_min == 30 and (unit_min or 10) <= 10 and not street:
+        fee.update({"base_min": 30, "base_fee": base_fee,
+                    "unit_min": 10, "unit_fee": tiers[1],
+                    "steps": ulsan_steps(30, tiers),
+                    "steps_label_only": True,
+                    "steps_label": (f"30분 초과 10분마다 {tiers[1]:,}원 "
+                                    f"(30분을 채우면 {tiers[3]:,}원)")})
+        if base_fee != tiers[0]:
+            grade_fixed.append(f"{name}: {label} 조례 {tiers[0]:,}원(30분) ↔ 등록 {base_fee:,}원")
+    elif base_fee and base_min == 30 and street:
+        fee.update({"base_min": 30, "base_fee": base_fee, "unit_min": 10, "unit_fee": tiers[1],
+                    "steps": ulsan_steps(30, tiers), "steps_label_only": True,
+                    "steps_label": (f"30분 초과 10분마다 {tiers[1]:,}원 "
+                                    f"(30분을 채우면 {tiers[3]:,}원)")})
+    elif base_min == 60 and not (base_fee or 0):
+        # 종하이노베이션센터 부설 — 최초 60분 무료 뒤 10분당 200원(공단 안내).
+        fee.update({"base_min": 60, "base_fee": 0, "unit_min": unit_min or 10,
+                    "unit_fee": unit_fee or 200, "free_min": 60,
+                    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 10분 단위)"})
+        note_bits.append(f"최초 60분이 무료이고 그 뒤 {unit_min or 10}분마다 {unit_fee or 200:,}원입니다"
+                         "(시설관리공단 안내)")
+    elif base_fee and (unit_min or 0) >= 30:
+        # 삼산공영주차장 — 30분 500원, 추가도 30분 500원으로 등록되어 있다.
+        fee.update({"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                    "unit_fee": unit_fee, "basis": "표준데이터 등록요금(30분 단위)"})
+        note_bits.append(f"30분 {base_fee:,}원·추가 30분마다 {unit_fee:,}원으로 등록되어 있어 그 값으로 "
+                         "계산합니다(조례 별표1은 10분 단위로 매깁니다)")
+    elif base_fee:
+        fee.update({"base_min": base_min or 30, "base_fee": base_fee,
+                    "unit_min": unit_min or 10, "unit_fee": unit_fee or tiers[1],
+                    "basis": "표준데이터 등록요금"})
+    else:
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        note_fixed.append(f"{name}: 요금 정보가 비어 있어 ‘요금 정보 없음’으로 두었습니다")
+        return fee
+    # 1일 주차요금 — 등록값을 쓰고, 없으면 조례 별표1(노외만).
+    if day:
+        fee["daily_fee"] = day
+        if grade and not street and day != tiers[4]:
+            grade_fixed.append(f"{name}: {label} 1일 주차권 등록 {day:,}원 ↔ 조례 {tiers[4]:,}원")
+    elif not street:
+        fee["daily_fee"] = tiers[4]
+        note_fixed.append(f"{name}: 1일 주차권 요금이 없어 {label} 1일 주차요금으로 계산")
+    if month:
+        fee["monthly_all"] = month
+        fee["monthly_label"] = "전일"
+    elif not street:
+        fee["monthly_all"] = tiers[5]
+        fee["monthly_day"] = tiers[5]
+        fee["monthly_night"] = tiers[6]
+        fee["monthly_label"] = "주간·요금표"
+    fee["monthly"] = fee["monthly_all"]
+    # 노외주차장 최초 20분 무료(조례 별표1 비고4) — 등록요금에 이 규정이 반영되어 있지 않다.
+    # 다만 최초 60분 무료처럼 더 긴 무료시간을 등록한 주차장은 그 값을 그대로 둔다.
+    if not street and not fee.get("free_min"):
+        fee["free_min"] = ULSAN_OUTDOOR_FREE_MIN
+    if raw_type == "혼합":
+        note_bits.append("요금 구분이 ‘혼합’이라 요금을 받는 시간에만 계산합니다")
+    if "공사중" in note or "중단" in note:
+        note_bits.append("표준데이터에 공사·중단 표기가 있어 지금은 이용이 어려울 수 있습니다(현장 확인)")
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    return fee
+
+
+def ulsan_charge(fee, minutes):
+    """요금표의 1시간·2시간 예상요금(10분 증분·1일 상한 적용)."""
+    if fee.get("base_min") is None or fee.get("base_fee") is None:
+        return None
+    if fee.get("free_min") and minutes <= fee["free_min"]:
+        return 0
+    raw, t = fee["base_fee"], fee["base_min"]
+    unit = fee.get("unit_min") or 10
+    while t < minutes:
+        step = (next((st["unit_fee"] for st in (fee.get("steps") or [])
+                      if st.get("until") is None or t < st["until"]), None)
+                if fee.get("steps") else fee.get("unit_fee"))
+        if step is None:
+            return None
+        raw += step
+        t += unit
+    cap = fee.get("daily_fee")
+    return min(raw, cap) if cap else raw
+
+
+def build_ulsan_district(name: str):
+    """울산광역시 구·군 하나(중구·남구·동구·북구·울주군)를 표준데이터 + 시·구·군 조례로 추출한다."""
+    conf = ULSAN_CONF[name]
+    city_name = conf["city"]
+    rows_all = read_csv_kr(STD_CSV)
+    rows_std = [r for r in rows_all if ulsan_district_of(r) == name]
+
+    def _nm(r):
+        return re.sub(r"\s+", "", (r.get("주차장명") or ""))
+
+    def _plot(r):
+        j = ((r.get("소재지지번주소") or "").strip().split(",")[0].strip()
+             or (r.get("소재지도로명주소") or "").strip().split(",")[0].strip())
+        j = re.sub(r"\s*(일원|일대)$", "", j)
+        j = re.sub(r"\s*번지$", "", j)
+        return re.sub(r"\s+", "", j)
+
+    def _rank(i):
+        r = rows_std[i]
+        mgmt = (r.get("관리기관명") or "")
+        # 요금 등록이 엇갈리면(같은 자리에 무료·유료가 함께 등록) 유료 등록을 남긴다 — 무료로 안내했다가
+        # 현장에서 요금을 받는 편이 더 나쁘기 때문이다. 카드에는 엇갈린 사실을 함께 적는다.
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "시설관리공단" in mgmt or "도시관리공단" in mgmt else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    dropped, merged = set(), []
+    # 1) 같은 관리번호 — 군청과 시설관리공단이 같은 주차장을 두 번 등록한 행(울주군 16행 등)
+    by_no = {}
+    for i, r in enumerate(rows_std):
+        no = (r.get("주차장관리번호") or "").strip()
+        if no:
+            by_no.setdefault(no, []).append(i)
+    for no, idxs in by_no.items():
+        if len(idxs) < 2:
+            continue
+        # 울산 남구·울주군 표준데이터는 서로 다른 주차장에 같은 주차장관리번호를 붙여 둔 행이 있다
+        # (남구 신정3동·태화강둔치가 모두 193-2-000003). 자리(지번)가 같은 행만 같은 주차장으로 본다.
+        if len({_plot(rows_std[i]) for i in idxs}) > 1:
+            continue
+        keep = max(idxs, key=_rank)
+        names = sorted({rows_std[i]["주차장명"] for i in idxs})
+        for i in idxs:
+            if i == keep:
+                continue
+            dropped.add(i)
+        fees = {(rows_std[i].get("요금정보") or "").strip() for i in idxs}
+        if len(names) > 1 or len(fees) > 1:
+            merged.append({"name": " / ".join(names), "addr": ulsan_addr(rows_std[keep]),
+                           "spaces": to_int(rows_std[keep].get("주차구획수")),
+                           "note": ("같은 자리에 무료·유료 등록이 엇갈려 유료 등록을 남김" if len(fees) > 1
+                                    else "같은 주차장관리번호로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김"),
+                           "base_date": rows_std[keep].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    rest = [i for i in range(len(rows_std)) if i not in dropped]
+    # 2) 이름·지번이 같은 행 — 등록 스냅숏이 겹친 경우. 면수가 다르면(백천 56↔76면) 같은 자리의
+    #    재등록으로 보고 최신·큰 등록을 남기며 차이를 적는다. 자리가 다르면 이름이 같아도 합치지 않는다.
+    snap = {}
+    for i in rest:
+        snap.setdefault((_nm(rows_std[i]), _plot(rows_std[i])), []).append(i)
+    for key, idxs in snap.items():
+        if len(idxs) < 2:
+            continue
+        keep = max(idxs, key=_rank)
+        _spaces = {to_int(rows_std[i].get("주차구획수")) or 0 for i in idxs}
+        for i in idxs:
+            if i == keep:
+                continue
+            dropped.add(i)
+            merged.append({"name": rows_std[i]["주차장명"], "addr": ulsan_addr(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": (f"같은 자리·같은 이름의 재등록(면수 {'·'.join(str(x) for x in sorted(_spaces))}면)"
+                                    if len(_spaces) > 1 else "이름·지번·면수가 같은 옛 등록(스냅숏 중복)"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep].get("데이터기준일자")})
+    rest = [i for i in range(len(rows_std)) if i not in dropped]
+    # 3) 같은 자리·같은 면수인데 이름만 다른 행(울주군 군청·공단 등록) — 자리가 같으므로 한 곳으로 본다.
+    #    같은 주소에 이름·면수가 다른 시설이 여럿 있는 곳(삼동면 조일리 1533 추모공원 4곳)은 합치지 않는다.
+    by_plot = {}
+    for i in rest:
+        by_plot.setdefault((_plot(rows_std[i]), to_int(rows_std[i].get("주차구획수")) or 0,
+                            (rows_std[i].get("요금정보") or "").strip()), []).append(i)
+    keep_name = {}
+    for key, idxs in by_plot.items():
+        if len(idxs) < 2:
+            continue
+        keep = max(idxs, key=_rank)
+        longest = max(idxs, key=lambda i: len(rows_std[i]["주차장명"]))
+        keep_name[keep] = rows_std[longest]["주차장명"]
+        for i in idxs:
+            if i == keep:
+                continue
+            dropped.add(i)
+        if len({_nm(rows_std[i]) for i in idxs}) > 1:
+            merged.append({"name": " / ".join(sorted({rows_std[i]["주차장명"] for i in idxs})),
+                           "addr": ulsan_addr(rows_std[keep]),
+                           "spaces": to_int(rows_std[keep].get("주차구획수")),
+                           "note": "같은 자리·같은 면수로 이름만 다르게 두 번 등록 — 한 곳으로 합침",
+                           "base_date": rows_std[keep].get("데이터기준일자"),
+                           "kept": keep_name[keep]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = keep_name.get(_i) or (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = ulsan_dong_of(jibun) or ulsan_dong_of(road)
+        dong_src = "지번주소" if ulsan_dong_of(jibun) else ("도로명주소" if dong else "없음")
+        if dong in ULSAN_DONG_RENAME:
+            # 삼남면은 2021년 삼남읍으로 승격됐지만 옛 등록에 ‘삼남면’이 남아 있다 — 한 이름으로 모은다.
+            dong_fixed.append(f"{std_name}: {dong} → {ULSAN_DONG_RENAME[dong]}(읍·면 통합 명칭)")
+            dong = ULSAN_DONG_RENAME[dong]
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        # 요금을 받는 시간이 특기사항에 적힌 동구 주차장 — 그 밖의 요일은 무료로 개방한다.
+        _wk = ULSAN_WEEKDAY_ONLY_PAT.search(note)
+        _we = ULSAN_WEEKEND_ONLY_PAT.search(note)
+        if _wk:
+            free_days = {"sat": True, "sun": True}
+            note_bits.append(f"요금은 월~금 {_wk.group(1)}~{_wk.group(2)}에만 받고 토요일·일요일·공휴일은 "
+                             "무료로 개방합니다")
+            hour_fixed.append(f"{std_name}: 유료 시간 월~금 {_wk.group(1)}~{_wk.group(2)}(특기사항)")
+        elif _we:
+            note_bits.append(f"토·일 {_we.group(1)}~{_we.group(2)}에만 요금을 받는 주차장입니다"
+                             "(평일은 무료 — 특기사항)")
+            note_fixed.append(f"{std_name}: 유료 시간 토·일 {_we.group(1)}~{_we.group(2)}(평일 무료)")
+        _raw_oper = (r.get("운영요일") or "").replace(" ", "")
+        _missing = [_label for _day, _label in (("sat", "토요일"), ("sun", "일요일·공휴일"))
+                    if not oper.get(_day)]
+        if _missing and _raw_oper:
+            hour_fixed.append(f"{std_name}: 운영요일 ‘{_raw_oper}’ → {'·'.join(_missing)} 미운영(등록값)")
+            note_bits.append(f"표준데이터 운영요일이 ‘{_raw_oper}’로 등록되어 " + "·".join(_missing)
+                             + "은 운영일에서 빠져 있습니다(현장 확인)")
+        fee = ulsan_fee(r, conf, std_name, note_bits, note_fixed, grade_fixed)
+        _hours = ULSAN_ULJU_HOURS.get(std_name)
+        if _hours and fee["type"] == "유료":
+            note_bits.append(f"울주군 안내 운영시간은 {_hours}입니다(표준데이터는 24시간으로 등록)")
+            hour_fixed.append(f"{std_name}: 운영시간 울주군 안내 {_hours}")
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        mgmt = (r.get("관리기관명") or "").strip()
+        oper_label = ULSAN_OPERATORS.get(mgmt)
+        if oper_label:
+            note_bits.append(f"{oper_label} 주차장")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        access, access_note = None, None
+        if ULSAN_RESIDENT_PAT.search(note):
+            access, access_note = "permit", "18:00~24:00 거주자우선주차 전용 구역"
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": city_name, "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": None,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": city_name, "city_slug": conf["slug"],
+        })
+        if access:
+            lots[-1]["access"] = access
+            lots[-1]["access_note"] = access_note
+
+    # 도로명주소만 적혀 법정동을 읽지 못한 주차장 — 같은 구·군에서 좌표가 등록된 다른 주차장 가운데
+    # 가장 가까운 곳(1.2km 이내)의 법정동을 쓴다. 주소에 동이 없어 좌표를 근거로 삼은 것이므로
+    # dong_src 에 그 사실을 남긴다.
+    _known = [l for l in lots if l["dong"] and l["lat"] is not None and l["lng"] is not None]
+    if _known:
+        for l in lots:
+            if l["dong"] or l["lat"] is None or l["lng"] is None:
+                continue
+
+            def _near_dist(o, _l=l):
+                return (o["lat"] - _l["lat"]) ** 2 + ((o["lng"] - _l["lng"]) * 0.81) ** 2
+
+            _near = min(_known, key=_near_dist)
+            _d = 111000 * math.sqrt(_near_dist(_near))
+            if _d <= 1200:
+                l["dong"] = _near["dong"]
+                l["dong_src"] = f"좌표 인근({_near['name']}, {_d:.0f}m)"
+                dong_fixed.append(f"{l['name']}: 동 미상 → {_near['dong']}(좌표 {_d:.0f}m 인근 "
+                                  f"{_near['name']})")
+
+    # 같은 이름·같은 종류인데 좌표가 100m 안쪽인 두 행(동구 월봉7길 이면도로 — 지번 등록과 도로명 등록)은
+    # 같은 구간을 두 번 등록한 것으로 보고 하나만 남긴다. 자리가 떨어져 있으면(이름만 같은 다른 구간) 그대로 둔다.
+    _merge_near, _done = set(), set()
+    for _a in range(len(lots)):
+        if _a in _done:
+            continue
+        for _b in range(_a + 1, len(lots)):
+            if _b in _done:
+                continue
+            la, lb = lots[_a], lots[_b]
+            if (_nm({"주차장명": la["name"]}), la["list_mode"]) != (_nm({"주차장명": lb["name"]}), lb["list_mode"]):
+                continue
+            # 지번이 적힌 등록과 도로명만 적힌 등록이 갈린 경우에만 같은 구간으로 본다. 둘 다 지번이
+            # 있으면서 100m 안쪽인 같은 이름(북구 호계시장 869-1 무료 16면 ↔ 678-5 유료 28면)은
+            # 이름만 같은 다른 주차장이므로 합치지 않는다.
+            if bool(la["addr_jibun"]) and bool(lb["addr_jibun"]):
+                continue
+            if la["lat"] is None or lb["lat"] is None:
+                continue
+            _dd = 111000 * math.sqrt((la["lat"] - lb["lat"]) ** 2
+                                     + ((la["lng"] - lb["lng"]) * 0.81) ** 2)
+            if _dd <= 100:
+                _done.add(_b)
+                _merge_near.add((la["name"], lb["name"], round(_dd)))
+    if _done:
+        for _i in sorted(_done, reverse=True):
+            _l = lots[_i]
+            merged.append({"name": _l["name"], "addr": ulsan_addr({"소재지지번주소": _l["addr_jibun"]}),
+                           "spaces": _l["spaces"],
+                           "note": "같은 이름·같은 종류의 구간이 100m 안에 두 번 등록되어 한 곳으로 합침",
+                           "base_date": _l["base_date"], "kept": _l["name"]})
+            lots.pop(_i)
+        dong_fixed.append("좌표가 100m 안쪽인 같은 이름 구간 " + ", ".join(sorted({m[0] for m in _merge_near}))
+                          + " — 한 곳으로 합침")
+
+    # 이름이 같은 주차장이 다른 자리에 따로 있는 경우(중구 학성새벽시장 노상·노외 등) 주소를 붙여 구분한다.
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        for l in lots:
+            if l["name"] not in _name_dups:
+                continue
+            _beonji = ((l.get("addr_jibun") or "").split() or [""])[-1]
+            _suffix = (f"({l['dong']} {_beonji})" if l.get("dong") and _beonji else
+                       f"({l['dong']})" if l.get("dong") else f"({_beonji})" if _beonji else "")
+            if not _suffix:
+                continue
+            _note = f"같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소{_suffix}를 붙여 구분했습니다"
+            l["name"] = f"{l['name']}{_suffix}"
+            l["notice"] = " · ".join(x for x in (l.get("notice"), _note) if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소를 붙여 구분")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"us-{conf['slug']}-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"us-{conf['slug']}-s{n_street:03d}"
+
+    fee_table = ulsan_fee_table(name, conf, lots)
+    quality = check_quality_ulsan(name, rows_all, rows_std, lots, excluded, merged,
+                                  note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-06",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-16 22:03 (KST)",
+        "note": (f"{name}로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 요금·운영시간·"
+                 "급지·면수는 주차장별 등록값을 그대로 쓰고 구·군 조례 별표1과 대조했으며, 같은 주차장이 "
+                 "관리번호·이름·자리로 두 번 등록된 행은 최근 등록 하나만 남겼다."),
+    }
+    _gu_ord_file = RAW / f"ulsan-{ {'중구': 'junggu', '남구': 'namgu', '동구': 'donggu', '북구': 'bukgu', '울주군': 'uljugun'}[name] }.law.go.kr_주차장조례_별표1_20261118.txt"
+    _gu_ord_body = RAW / f"ulsan-{ {'중구': 'junggu', '남구': 'namgu', '동구': 'donggu', '북구': 'bukgu', '울주군': 'uljugun'}[name] }.law.go.kr_주차장조례_20261118.txt"
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance",
+            "name": "「울산광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제4조 주차요금 및 감면",
+            "org": "울산광역시 교통관리과(052-229-4282)",
+            "url": ULSAN_CITY_ORD_URL,
+            "file": ULSAN_ORD1_TXT.name if ULSAN_ORD1_TXT.exists() else None,
+            "sha256": sha256(ULSAN_ORD1_TXT) if ULSAN_ORD1_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": ULSAN_CITY_ORD_NOTE,
+            "rows_total": None, "fetched_at": _sync_time(ULSAN_ORD1_TXT),
+            "note": ("시장이 설치한 공영주차장(울산시설공단 운영 포함)에 적용하는 요금표다. 1구획 최초 "
+                     "30분 1급지 500원·2급지 300원, 기본초과 30분 단위로 10분 이내 200·100원, 20분 이내 "
+                     "400·200원, 30분 이내 500·300원이고, 1일 주차 10,000·6,000원, 월 정기 주간 "
+                     "80,000·50,000원·야간 60,000·30,000원이다. 노외주차장은 최초 20분 무료(비고4), "
+                     "2.5톤·25인승 이상은 2배(비고5)다. 감면은 제4조③이 정하고 장애인·유공자 1시간 면제 "
+                     "뒤 50퍼센트, 경차·다자녀 60퍼센트, 요일제·저공해·임산부·병역명문가 50퍼센트, "
+                     "모범납세자 1년 면제 등이다."),
+        },
+        {
+            "id": "gu_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"],
+            "url": conf["ordinance"][1],
+            "file": _gu_ord_file.name if _gu_ord_file.exists() else None,
+            "sha256": sha256(_gu_ord_file) if _gu_ord_file.exists() else None,
+            "license": "자치법규(공개)", "base_date": conf["ordinance"][2],
+            "rows_total": None, "fetched_at": _sync_time(_gu_ord_file) if _gu_ord_file.exists() else None,
+            "note": f"{name}이 설치·관리하는 주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문 원자료: {_gu_ord_body.name if _gu_ord_body.exists() else 'law.go.kr'})",
+        },
+    ]
+
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": ULSAN_PROVINCE, "city": name},
+            "sources": sources,
+        },
+        "districts": [{"name": city_name, "slug": conf["slug"]}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update(CITY_META_ULSAN[name] | {
+        "city": city_name,
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": ULSAN_CITY_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / f"ulsan_{conf['slug']}_parking.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def ulsan_fee_table(name, conf, lots):
+    """급지·용도별 요금표 — 이 구·군 주차장의 등록값과 조례 별표1로 만든다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    county = conf["slug"] == "ulju-gun"
+    rows = []
+    if county:
+        for _label, _key in (("일반 공영주차장", "일반"), ("최초 120분 무료 요금표(시장 안팎·읍내)", "시장")):
+            gl = [l for l in paid
+                  if (_key == "시장") == bool((l["fee"].get("base_min") or 0) >= 120)]
+            if not gl:
+                continue
+            sample = gl[0]
+            rows.append({"label": _label, "grade": _key,
+                         "unit_label": (f"최초 120분 무료 → 10분당 {sample['fee']['unit_fee']:,}원"
+                                        if _key == "시장" else
+                                        f"{sample['fee']['base_fee']:,}원/30분 → 10분당 "
+                                        f"{sample['fee']['unit_fee']:,}원"),
+                         "hour": ulsan_charge(sample["fee"], 60),
+                         "two_hour": ulsan_charge(sample["fee"], 120),
+                         "day": sample["fee"].get("daily_fee"),
+                         "month": sample["fee"].get("monthly_all"),
+                         "lots": len(gl)})
+    else:
+        by_grade = {}
+        for l in paid:
+            by_grade.setdefault(l["fee"].get("grade"), []).append(l)
+        for grade in ("1", "2"):
+            gl = by_grade.get(grade) or []
+            if not gl:
+                continue
+            sample = gl[0]
+            rows.append({"label": f"{grade}급지", "grade": grade,
+                         "unit_label": (f"{sample['fee']['base_fee']:,}원/30분 → 10분당 "
+                                        f"{sample['fee'].get('unit_fee') or 0:,}원"),
+                         "hour": ulsan_charge(sample["fee"], 60),
+                         "two_hour": ulsan_charge(sample["fee"], 120),
+                         "day": sample["fee"].get("daily_fee"),
+                         "month": sample["fee"].get("monthly_all"),
+                         "lots": len(gl)})
+        other = [l for l in paid if not l["fee"].get("grade")]
+        if other:
+            rows.append({"label": "급지 기타", "grade": "기타", "unit_label": "주차장별로 다름",
+                         "hour": None, "two_hour": None, "day": None, "month": None,
+                         "lots": len(other)})
+    ord_rows = [{"label": f"{g}급지", "base30": v[0], "in10": v[1], "in20": v[2], "in30": v[3],
+                 "day": v[4], "month_day": v[5], "month_night": v[6]}
+                for g, v in ULSAN_ORD_FEES.items()]
+    county_rows = [
+        {"label": "일반 공영주차장", "base": "최초 30분 300원", "unit": "30분 초과 10분당 100원",
+         "day": 6000, "month": 50000},
+        {"label": "전통시장 공영주차장", "base": "최초 120분 무료(평일)", "unit": "120분 초과 기본 600원 + 10분당 100원",
+         "day": 3000, "month": 30000},
+        {"label": "대형·특수차량", "base": "기준요금의 2배", "unit": "2.5톤·25인승 이상, 캠핑카·트레일러",
+         "day": 12000, "month": 100000},
+    ]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+        "si": len([l for l in lots if (l.get("manager") or "") == "울산시설공단"]),
+        "gu": len([l for l in lots if (l.get("manager") or "") != "울산시설공단"]),
+    }
+    return {
+        "style": "ulsan_county" if county else "ulsan_30min",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": f"{ULSAN_CITY_ORD_NOTE} · {conf['ordinance'][2]}",
+        "rows": rows,
+        "ord_rows": ord_rows,
+        "county_rows": county_rows,
+        "grade_area": ULSAN_GRADE_AREA.get(name) or {},
+        "county": county,
+        "windows": [{"group": "주간",
+                     "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:00",
+                     "free": "나머지 시간이 야간이고, 요금은 주간·야간이 같다(월 정기권만 주간·야간을 나눈다)"}],
+        "notes": conf["notes"],
+        "corp": corp,
+        "basis": (f"「울산광역시 주차장 설치 및 관리 조례」 별표1({ULSAN_CITY_ORD_NOTE}) · "
+                  f"{conf['ordinance'][0]}({conf['ordinance'][2]}) · "
+                  "전국주차장정보표준데이터(2026-10-06 기준) 등록요금"),
+    }
+
+
+def check_quality_ulsan(name, std_all, rows_std, lots, excluded, merged, note_fixed,
+                        grade_fixed, space_diff, dong_fixed, hour_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    conf = ULSAN_CONF[name]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{name}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": name,
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": hour_fixed,
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": grade_fixed,
+        "좌표_보정": [],
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": (f"「울산광역시 주차장 설치 및 관리 조례」 제4조③(시장·울산시설공단 주차장)와 "
+                      f"{conf['ordinance'][0]}({conf['ordinance'][2]})"),
+        "무료시간_출처": ("구·군 조례 별표1 비고가 노외주차장의 최초 20분을 무료로 정해 그 시간을 "
+                          "무료로 계산했다. 울주군 전통시장 공영주차장은 별표1이 최초 120분을 무료로 정한다"),
+        "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다",
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [l["name"] for l in lots if (l.get("access") or "") == "permit"],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len(paid))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -26224,6 +27282,7 @@ def main():
           "daegususeong", "daegudalseo", "daegudalseong", "daegungunwi",
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
+          "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -26239,7 +27298,8 @@ def main():
                 "대구 중구", "대구 동구", "대구 서구", "대구 남구", "대구 북구",
                 "대구 수성구", "대구 달서구", "대구 달성군", "대구 군위군",
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
-                "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구"] if args.city == "all" else \
+                "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
+                "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -26286,7 +27346,10 @@ def main():
              "daejeonyuseong": ["대전 유성구"], "daejeondaedeok": ["대전 대덕구"],
              "gwangjudong": ["광주 동구"], "gwangjuseo": ["광주 서구"],
              "gwangjunam": ["광주 남구"], "gwangjubuk": ["광주 북구"],
-             "gwangjangsan": ["광주 광산구"]}[args.city])
+             "gwangjangsan": ["광주 광산구"],
+             "ulsanjung": ["울산 중구"], "ulsannam": ["울산 남구"],
+             "ulsandong": ["울산 동구"], "ulsanbuk": ["울산 북구"],
+             "ulsanulju": ["울산 울주군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -26382,6 +27445,10 @@ def main():
                        ("북구", "광주 북구"), ("광산구", "광주 광산구")):
         if _city in want:
             cities.append(build_gwangju_metro_district(_gu))
+    for _gu, _city in (("중구", "울산 중구"), ("남구", "울산 남구"), ("동구", "울산 동구"),
+                       ("북구", "울산 북구"), ("울주군", "울산 울주군")):
+        if _city in want:
+            cities.append(build_ulsan_district(_gu))
 
     if args.city == "all":
         site = build_site_payload(cities)

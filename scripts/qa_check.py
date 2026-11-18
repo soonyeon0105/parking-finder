@@ -5440,6 +5440,210 @@ for _u in ("https://parking.9welfare.com/parking/gwangju/dong-gu/",
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"광주 주소가 사이트맵에 없음: {_u}")
 
+# ---------------------------------------------------------------- 울산광역시 구·군 (T-03 Phase 44)
+#  울산은 조례 별표1이 30분 단위 요금표(최초 30분 1급지 500원, 30분 초과 10분 이내 200·20분 이내
+#  400·30분 이내 500원)이고, 노외주차장은 최초 20분이 무료다. 울주군만 용도별 표(일반 30분 300원,
+#  최초 120분 무료 요금표)를 쓴다. 계산기는 10분 증분(200·200·100원)으로 센다.
+ULSAN_EXPECT = {
+    # 구·군: (슬러그, 카드, 노상 구간, 카드 3곳 이상 동·읍·면 페이지, 구·군 조례 ordinSeq, 무료 허브)
+    "울산 중구": {"slug": "jung-gu", "cards": 26, "street": 4,
+               "dong_pages": ["hakseong-dong", "namoe-dong", "okgyo-dong", "taehwa-dong"],
+               "ordin": "2181597", "free_hub": False},
+    "울산 남구": {"slug": "nam-gu", "cards": 48, "street": 10,
+               "dong_pages": ["mugeo-dong", "ok-dong", "samsan-dong", "sinjeong-dong", "yaeum-dong"],
+               "ordin": "2156693", "free_hub": True},
+    "울산 동구": {"slug": "dong-gu", "cards": 77, "street": 36,
+               "dong_pages": ["bangeo-dong", "dongbu-dong", "hwajeong-dong", "ilsan-dong",
+                              "jeonha-dong", "jujeon-dong", "seobu-dong"],
+               "ordin": "1979317", "free_hub": True},
+    "울산 북구": {"slug": "buk-gu", "cards": 94, "street": 21,
+               "dong_pages": ["changpyeong-dong", "dalcheon-dong", "hogye-dong", "hwabong-dong",
+                              "jungsan-dong", "maegok-dong", "sanha-dong", "sincheon-dong",
+                              "songjeong-dong", "yangjeong-dong", "yeonam-dong"],
+               "ordin": "1998239", "free_hub": True},
+    "울산 울주군": {"slug": "ulju-gun", "cards": 58, "street": 14,
+                "dong_pages": ["beomseo-eup", "cheongryang-eup", "dudong-myeon", "eonyang-eup",
+                               "onsan-eup", "onyang-eup", "samdong-myeon", "sangbuk-myeon"],
+                "ordin": "2050523", "free_hub": True},
+}
+_us_pages = 0
+for _gu, _exp in ULSAN_EXPECT.items():
+    _hub = DIST / "parking" / "ulsan" / _exp["slug"] / "index.html"
+    if not _hub.exists():
+        fails.append(f"울산 {_gu}: 구·군 페이지 없음")
+        continue
+    _us_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"울산 {_gu}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "울산광역시" not in _h:
+        fails.append(f"울산 {_gu}: breadcrumb 에 울산광역시 없음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2026989"' not in _h:
+        fails.append(f"울산 {_gu}: 울산광역시 조례 출처 링크 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"울산 {_gu}: 구·군 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if 'href=""' in _h:
+        fails.append(f"울산 {_gu}: 빈 링크가 있음")
+    if "별표1" not in _h or "10분 이내" not in _h:
+        fails.append(f"울산 {_gu}: 조례 별표1 요금표가 없음")
+    if "급지별 주차요금표" not in _h and "울산 울주군 주차요금표" not in _h:
+        fails.append(f"울산 {_gu}: 요금표 절이 없음")
+    if "최초 20분" not in _h:
+        fails.append(f"울산 {_gu}: 노외 최초 20분 무료 안내가 없음")
+    # 다른 시·도 자료가 섞이지 않았는지 — 울산 페이지에 광주·대전·대구·부산·인천·서울 자료가 나오면 안 된다.
+    _main = _h.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    for _bad in ("광주광역시", "대전광역시", "대구광역시", "부산광역시", "인천광역시", "서울특별시",
+                 "경기도 광주시"):
+        if _bad in _main:
+            fails.append(f"울산 {_gu}: 본문에 다른 시·도 자료 ‘{_bad}’")
+    if _leaked_nan(_h):
+        fails.append(f"울산 {_gu}: 페이지에 None/nan 문자열")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"울산 {_gu}: 노상 페이지 없음")
+        else:
+            _us_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"울산 {_gu}: 노상 페이지 행이 구간 수보다 적음")
+    else:
+        if _street.exists():
+            fails.append(f"울산 {_gu}: 등록 노상 구간이 없는데 노상 페이지가 있음")
+    _free = _hub.parent / "free" / "index.html"
+    if _exp["free_hub"]:
+        if not _free.exists():
+            fails.append(f"울산 {_gu}: 무료 개방 페이지 없음")
+        else:
+            _us_pages += 1
+    elif _free.exists():
+        fails.append(f"울산 {_gu}: 무료 주차장이 없는데 무료 개방 페이지가 있음")
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"울산 {_gu}: {_d} 동·읍·면 페이지 없음")
+        else:
+            _us_pages += 1
+
+# 동·읍·면 페이지는 카드 3곳 이상인 곳에만 있어야 한다(빈 페이지 방지).
+for _gu, _exp in ULSAN_EXPECT.items():
+    _root = DIST / "parking" / "ulsan" / _exp["slug"]
+    if not _root.exists():
+        continue
+    _have = {p.parent.name for p in _root.glob("*/index.html")
+             if p.parent.name not in ("street-parking", "free")}
+    if _have != set(_exp["dong_pages"]):
+        fails.append(f"울산 {_gu}: 동·읍·면 페이지 {sorted(_have)} ≠ 기준 {sorted(_exp['dong_pages'])}")
+
+# 표본 계산 — 최초 30분 500원 + 10분 증분(200·200·100), 노외 최초 20분 무료, 1일 상한, 울주군 표.
+_us_by_key = {(l["city"], l["name"]): l for l in LOTS if l.get("city") in ULSAN_EXPECT}
+for _city, _name, _min, _day, _want_state, _want in (
+        ("울산 중구", "강북", 20, "weekday", "free", None),     # 노외 최초 20분 무료
+        ("울산 중구", "강북", 30, "weekday", "paid", 500),
+        ("울산 중구", "강북", 40, "weekday", "paid", 700),      # 500 + 10분 200
+        ("울산 중구", "강북", 50, "weekday", "paid", 900),      # 500 + 200 + 200
+        ("울산 중구", "강북", 60, "weekday", "paid", 1000),     # 30분 단위 500(증분 100)
+        ("울산 중구", "강북", 90, "weekday", "paid", 1500),
+        ("울산 중구", "강북", 120, "weekday", "paid", 2000),
+        ("울산 중구", "강북", 1440, "weekday", "paid", 10000),  # 1일 주차권 상한
+        ("울산 중구", "종갓집도서관부설", 60, "weekday", "free", None),  # 최초 60분 무료
+        ("울산 중구", "종갓집도서관부설", 120, "weekday", "paid", 1200),
+        ("울산 중구", "태화강국가정원", 120, "weekday", "paid", 2000),   # 노상(최초 20분 무료 없음)
+        ("울산 남구", "옥동공영주차장", 60, "weekday", "paid", 1000),
+        ("울산 남구", "옥동공영주차장", 240, "weekday", "paid", 4000),
+        ("울산 남구", "삼산공영주차장", 60, "weekday", "paid", 1000),    # 30분 등록(500+500)
+        ("울산 남구", "삼산공영주차장", 40, "weekday", "paid", 1000),    # 추가 30분 단위 올림
+        ("울산 남구", "궁거랑공영주차장", 120, "weekday", "free", None),  # 거주자우선(주간 무료)
+        ("울산 남구", "신정3동(쌈지)", 120, "weekday", "unknown", None),  # 등록요금 없음
+        ("울산 동구", "대왕암", 60, "weekday", "paid", 1000),
+        ("울산 동구", "대왕암", 120, "sat", "paid", 2000),
+        ("울산 동구", "남목마성시장 공영주차장", 120, "sat", "free", None),  # 토·일 무료
+        ("울산 동구", "남목마성시장 공영주차장", 120, "weekday", "paid", 2000),
+        ("울산 북구", "양정", 60, "weekday", "paid", 1000),
+        ("울산 북구", "양정", 90, "weekday", "paid", 1500),
+        ("울산 북구", "화봉공원", 1440, "weekday", "paid", 10000),
+        ("울산 울주군", "마루공원", 60, "weekday", "paid", 600),         # 일반 30분 300 + 10분 100
+        ("울산 울주군", "마루공원", 120, "weekday", "paid", 1200),
+        ("울산 울주군", "마루공원", 1440, "weekday", "paid", 6000),
+        ("울산 울주군", "남창옹기종기시장", 120, "weekday", "free", None),  # 최초 120분 무료
+        ("울산 울주군", "남창옹기종기시장", 130, "weekday", "paid", 700),  # 600 + 10분 100
+        ("울산 울주군", "남창옹기종기시장", 180, "weekday", "paid", 1200),
+        ("울산 울주군", "남창옹기종기시장", 1440, "weekday", "paid", 3000),
+):
+    _lot = _us_by_key.get((_city, _name))
+    if not _lot:
+        fails.append(f"울산 표본 주차장 없음: {_city} {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"울산 계산 불일치: {_city} {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 감면 표본 — 중구 장애인 1시간 면제 뒤 50%, 중구 전통시장 80%, 동구 경차 60%, 울주군 모범납세자 면제.
+_lot = _us_by_key.get(("울산 중구", "강북"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 0.5, 60)
+    if _r.get("state") != "free" or not _r.get("exempt"):
+        fails.append(f"울산 감면 불일치(중구 장애인 1시간 면제): {_r}")
+    _r = _pf(_lot, 120, "weekday", 0.5, 60)
+    if _r.get("state") != "paid" or _r.get("amount") != 1000:
+        fails.append(f"울산 감면 불일치(중구 장애인 1시간 초과 50%): {_r}")
+    _r = _pf(_lot, 60, "weekday", 0.8, 0)
+    if _r.get("state") != "paid" or _r.get("amount") != 200:
+        fails.append(f"울산 감면 불일치(중구 전통시장 80%): {_r}")
+_lot = _us_by_key.get(("울산 동구", "대왕암"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 0.6, 0)
+    if _r.get("state") != "paid" or _r.get("amount") != 400:
+        fails.append(f"울산 감면 불일치(동구 경차 60%): {_r}")
+_lot = _us_by_key.get(("울산 울주군", "마루공원"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 1.0, 0)
+    if _r.get("state") != "paid" or _r.get("amount") != 0:
+        fails.append(f"울산 감면 불일치(울주군 모범납세자 100%): {_r}")
+
+# 구·군 페이지 문구 — 요금표·대표 주차장·운영 특징이 본문에 있어야 한다.
+_us_texts = {
+    "jung-gu": ("태화강 국가정원", "노외주차장 최초 20분 무료", "1시간 1,000원",
+                "종합운동장 부설(977면)", "옥교주차장만 40,000원"),
+    "nam-gu": ("문수경기장", "거주자우선주차", "7,500원", "1일 주차권이 <b>7,500원</b>"),
+    "dong-gu": ("월~금 09:00~18:00", "대왕암공원 타워주차장(600면)", "2급지가 주전동"),
+    "buk-gu": ("호계시장", "노상은 토요일·일요일·공휴일", "북구청사부설 247면"),
+    "ulju-gun": ("최초 120분 무료", "언양임시터미널(629면)", "대형·특수차량"),
+}
+for _slug, _needles in _us_texts.items():
+    _hp = DIST / "parking" / "ulsan" / _slug / "index.html"
+    if not _hp.exists():
+        fails.append(f"울산 페이지 없음: {_slug}")
+        continue
+    _t = _hp.read_text()
+    for _n in _needles:
+        if _n not in _t:
+            fails.append(f"울산 {_slug}: 문구 ‘{_n}’ 없음")
+
+print(f"울산광역시 구·군 검사 완료 ({len(ULSAN_EXPECT)}개 구·군 · 페이지 {_us_pages})")
+
+if 'id="ulsan"' not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 울산광역시 지역 묶음(#ulsan) 없음")
+for _u in ("https://parking.9welfare.com/parking/ulsan/jung-gu/",
+           "https://parking.9welfare.com/parking/ulsan/nam-gu/",
+           "https://parking.9welfare.com/parking/ulsan/dong-gu/",
+           "https://parking.9welfare.com/parking/ulsan/buk-gu/",
+           "https://parking.9welfare.com/parking/ulsan/ulju-gun/",
+           "https://parking.9welfare.com/parking/ulsan/jung-gu/taehwa-dong/",
+           "https://parking.9welfare.com/parking/ulsan/jung-gu/street-parking/",
+           "https://parking.9welfare.com/parking/ulsan/nam-gu/ok-dong/",
+           "https://parking.9welfare.com/parking/ulsan/nam-gu/free/",
+           "https://parking.9welfare.com/parking/ulsan/dong-gu/bangeo-dong/",
+           "https://parking.9welfare.com/parking/ulsan/dong-gu/street-parking/",
+           "https://parking.9welfare.com/parking/ulsan/buk-gu/hogye-dong/",
+           "https://parking.9welfare.com/parking/ulsan/buk-gu/free/",
+           "https://parking.9welfare.com/parking/ulsan/ulju-gun/beomseo-eup/",
+           "https://parking.9welfare.com/parking/ulsan/ulju-gun/street-parking/",
+           "https://parking.9welfare.com/parking/ulsan/ulju-gun/free/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"울산 주소가 사이트맵에 없음: {_u}")
+
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")
