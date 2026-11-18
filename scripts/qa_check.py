@@ -5084,6 +5084,173 @@ for _u in ("https://parking.9welfare.com/parking/daegu/jung-gu/",
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"대구 주소가 사이트맵에 없음: {_u}")
 
+# ---------------------------------------------------------------- 대전광역시 구 (T-03 Phase 42)
+#  대전은 1~4급지이고, 시 조례 별표1(시행 2025-12-26)은 2시간까지 최초 10분 400·300·150·100원,
+#  10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 600·400·300·200원,
+#  1일 주차권 12,000·8,700·6,500·2,400원 체계다. 다섯 구 모두 같은 금액이다.
+DAEDEON_EXPECT = {
+    # 구: (슬러그, 카드, 노상 구간, 카드 3곳 이상 법정동 페이지, 구 조례 ordinSeq)
+    "대전 동구": {"slug": "dong-gu", "cards": 52, "street": 44,
+                "dong_pages": ["dae-dong", "gayang-dong", "in-dong", "jung-dong", "secheon-dong",
+                               "won-dong", "yongjeon-dong"], "ordin": "2057709"},
+    "대전 중구": {"slug": "jung-gu", "cards": 66, "street": 119,
+                "dong_pages": ["anyeong-dong", "busa-dong", "daeheung-dong", "daesa-dong",
+                               "munhwa-dong", "sajeong-dong", "sanseong-dong", "seokgyo-dong",
+                               "seonhwa-dong", "taepyeong-dong"], "ordin": "2156645"},
+    "대전 서구": {"slug": "seo-gu", "cards": 60, "street": 56,
+                "dong_pages": ["boksu-dong", "byeon-dong", "doma-dong", "galma-dong",
+                               "gasuwon-dong", "gwanjeo-dong", "wolpyeong-dong"], "ordin": "2095299"},
+    "대전 유성구": {"slug": "yuseong-gu", "cards": 77, "street": 68,
+                 "dong_pages": ["banseok-dong", "bokyong-dong", "bongsan-dong", "deokmyeong-dong",
+                                "gwanpyeong-dong", "gyesan-dong", "hagi-dong", "hakha-dong",
+                                "jangdae-dong", "jeonmin-dong", "juk-dong", "sinseong-dong",
+                                "wonnae-dong"], "ordin": "2077345"},
+    "대전 대덕구": {"slug": "daedeok-gu", "cards": 24, "street": 3,
+                 "dong_pages": ["jungri-dong", "songchon-dong"], "ordin": "2061737"},
+}
+_dj_pages = 0
+for _gu, _exp in DAEDEON_EXPECT.items():
+    _slug = _exp["slug"]
+    _hub = DIST / "parking" / "daejeon" / _slug / "index.html"
+    if not _hub.exists():
+        fails.append(f"대전 {_gu}: 구 페이지 없음")
+        continue
+    _dj_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"대전 {_gu}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "대전광역시" not in _h:
+        fails.append(f"대전 {_gu}: breadcrumb 에 대전광역시 없음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098193"' not in _h:
+        fails.append(f"대전 {_gu}: 대전광역시 조례 출처 링크 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"대전 {_gu}: 구 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if 'href="https://djtc.kr/kor/page.do?menuIdx=714"' not in _h:
+        fails.append(f"대전 {_gu}: 대전교통공사 환승주차장 출처 링크 없음")
+    if 'href=""' in _h:
+        fails.append(f"대전 {_gu}: 빈 링크가 있음")
+    if "급지별 주차요금표" not in _h:
+        fails.append(f"대전 {_gu}: 급지별 주차요금표 없음")
+    if "대전광역시 주차장 조례 별표1" not in _h or "2시간 초과 매 10분" not in _h:
+        fails.append(f"대전 {_gu}: 시 조례 별표1 표가 없음")
+    # 다른 시·도 자료가 섞이지 않았는지 — 대전 페이지에 대구·부산·인천 자료가 나오면 안 된다.
+    _main = _h.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    for _bad in ("대구광역시", "대구공공시설관리공단", "부산광역시", "인천광역시"):
+        if _bad in _main:
+            fails.append(f"대전 {_gu}: 본문에 다른 시·도 자료 ‘{_bad}’")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"대전 {_gu}: 노상 페이지 없음")
+        else:
+            _dj_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"대전 {_gu}: 노상 페이지 행이 구간 수보다 적음")
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"대전 {_gu}: {_d} 법정동 페이지 없음")
+        else:
+            _dj_pages += 1
+    if _leaked_nan(_h):
+        fails.append(f"대전 {_gu}: 페이지에 None/nan 문자열")
+
+# 법정동 페이지는 카드 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
+for _gu, _exp in DAEDEON_EXPECT.items():
+    _root = DIST / "parking" / "daejeon" / _exp["slug"]
+    if not _root.exists():
+        continue
+    _have = {p.parent.name for p in _root.glob("*/index.html")
+             if p.parent.name not in ("street-parking", "free", _exp["slug"])}
+    if _have != set(_exp["dong_pages"]):
+        fails.append(f"대전 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 {sorted(_exp['dong_pages'])}")
+
+# 표본 계산 — 대전광역시·구 조례 별표1(2시간까지 10분 단위 · 2시간 초과 2배)로 확인한 값.
+_dj_by_key = {(l["city"], l["name"]): l for l in LOTS if l.get("city") in DAEDEON_EXPECT}
+for _city, _name, _min, _day, _want_state, _want in (
+        ("대전 서구", "서구청 앞", 60, "weekday", "paid", 1900),          # 1급지 400 + 10분 300×5
+        ("대전 서구", "서구청 앞", 120, "weekday", "paid", 3700),         # 2시간까지 400+300×11
+        ("대전 서구", "서구청 앞", 130, "weekday", "paid", 4300),         # 2시간 초과 600 추가
+        ("대전 서구", "월평1동 제4공영주차장", 120, "weekday", "paid", 3700),  # 기본시간 0분 보정
+        ("대전 서구", "도안동 제5공한지유료주차장", 120, "weekday", "paid", 2000),  # 30분 200 + 10분 200
+        ("대전 서구", "관저문예회관 공영주차장", 120, "weekday", "paid", 1200),     # 4급지 100×12
+        ("대전 중구", "선화동제3노상", 60, "weekday", "paid", 1300),       # 2급지 10분 300 + 200×5
+        ("대전 중구", "대흥동제1노외", 1440, "weekday", "paid", 8700),     # 2급지 1일 8,700 상한
+        ("대전 중구", "태평시장공영주차장", 120, "weekday", "paid", 1200),  # 4급지 100×12
+        ("대전 중구", "태평시장공영주차장", 1440, "weekday", "paid", 2400),  # 4급지 1일 2,400
+        ("대전 동구", "중앙시장 공영주차빌딩 주차장(제2주차장)", 120, "weekday", "paid", 2500),
+        ("대전 동구", "홍도동 상점가 주차장", 120, "weekday", "paid", 1500),  # 3급지 30분 150 + 10분 150
+        ("대전 유성구", "봉명동공영", 120, "weekday", "paid", 600),        # 최초 60분 0원 뒤 10분 100
+        ("대전 유성구", "봉명동 노상 무인공영주차장(유성우체국 앞)", 60, "weekday", "paid", 1900),
+        ("대전 대덕구", "송촌공영주차장", 120, "weekday", "paid", 1800),   # 10분 150×12
+        ("대전 대덕구", "송촌공영주차장", 1440, "weekday", "paid", 6500),  # 1일 6,500 상한
+        ("대전 대덕구", "중리미래공영주차장", 120, "weekday", "free", None),  # 무료(공사중 표기)
+):
+    _lot = _dj_by_key.get((_city, _name))
+    if not _lot:
+        fails.append(f"대전 표본 주차장 없음: {_city} {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"대전 계산 불일치: {_city} {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 감면 표본 — 유성구 장애인 최초 2시간 면제, 서구 50퍼센트.
+_lot = _dj_by_key.get(("대전 유성구", "봉명동 노상 무인공영주차장(유성우체국 앞)"))
+if _lot:
+    _r = _pf(_lot, 120, "weekday", 0.5, 120)
+    if _r.get("state") != "free" or not _r.get("exempt"):
+        fails.append(f"대전 감면 불일치(유성구 장애인 2시간 면제): {_r}")
+_lot = _dj_by_key.get(("대전 서구", "서구청 앞"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 0.5, 0)
+    if _r.get("state") != "paid" or _r.get("amount") != 950:
+        fails.append(f"대전 감면 불일치(서구 50%): {_r}")
+
+# 구 페이지 문구 — 급지·조례·공단 안내가 본문에 있어야 한다.
+_dj_texts = {
+    "dong-gu": ("요금은 시 조례 제5조, 감면은 제6조를", "15분 기본요금 400원", "역전시장 공영주차장",
+                "82곳이 무료"),
+    "jung-gu": ("원도심(선화·대흥·은행·문화동)", "오류동제2~4노상", "태평·유천·문창·부사·산성시장",
+                "155곳이 무료"),
+    "seo-gu": ("둔산동·월평동·탄방동이 1급지", "17곳이 노상", "사유지를 빌려 운영하는 주차장",
+               "87곳이 무료"),
+    "yuseong-gu": ("「대전광역시 주차장 조례」 별표1을 따른다", "최초 60분 0원 뒤",
+                   "장애인은 최초 2시간 면제", "135곳이 무료"),
+    "daedeok-gu": ("1·2급지를 ‘해당없음’", "69,000원", "중리미래공영주차장", "12곳이 무료"),
+}
+for _slug, _needles in _dj_texts.items():
+    _hp = DIST / "parking" / "daejeon" / _slug / "index.html"
+    if not _hp.exists():
+        fails.append(f"대전 페이지 없음: {_slug}")
+        continue
+    _t = _hp.read_text()
+    for _n in _needles:
+        if _n not in _t:
+            fails.append(f"대전 {_slug}: 문구 ‘{_n}’ 없음")
+    if _leaked_nan(_t):
+        fails.append(f"대전 {_slug}: 페이지에 None/nan 문자열")
+
+print(f"대전광역시 구 검사 완료 ({len(DAEDEON_EXPECT)}개 구 · 페이지 {_dj_pages})")
+
+if 'id="daejeon"' not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 대전광역시 지역 묶음(#daejeon) 없음")
+for _u in ("https://parking.9welfare.com/parking/daejeon/dong-gu/",
+           "https://parking.9welfare.com/parking/daejeon/jung-gu/",
+           "https://parking.9welfare.com/parking/daejeon/seo-gu/",
+           "https://parking.9welfare.com/parking/daejeon/yuseong-gu/",
+           "https://parking.9welfare.com/parking/daejeon/daedeok-gu/",
+           "https://parking.9welfare.com/parking/daejeon/jung-gu/seonhwa-dong/",
+           "https://parking.9welfare.com/parking/daejeon/jung-gu/street-parking/",
+           "https://parking.9welfare.com/parking/daejeon/dong-gu/dae-dong/",
+           "https://parking.9welfare.com/parking/daejeon/seo-gu/gwanjeo-dong/",
+           "https://parking.9welfare.com/parking/daejeon/yuseong-gu/gyesan-dong/",
+           "https://parking.9welfare.com/parking/daejeon/yuseong-gu/street-parking/",
+           "https://parking.9welfare.com/parking/daejeon/daedeok-gu/songchon-dong/",
+           "https://parking.9welfare.com/parking/daejeon/daedeok-gu/free/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"대전 주소가 사이트맵에 없음: {_u}")
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")

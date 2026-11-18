@@ -1,0 +1,3471 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 11:49",
+  "generated_at_iso": "2026-11-18T11:49:50+09:00",
+  "snapshot_at": "2026-11-18 11:49",
+  "region": {
+   "province": "대전광역시",
+   "city": "대덕구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 27,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "대덕구로 등록된 행 27행(노외·부설 24·노상 3)을 읽어 노외·부설 24곳과 노상 3구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 같은 이름·지번·면수로 두 번 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「대전광역시 주차장 조례」 별표1 공영주차장 주차요금표 · 제6조 주차요금의 경감",
+    "org": "대전광역시 교통정책과",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098193",
+    "file": "daejeon.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "469827c847354e6897385af4b8111e3f03f1a917ecdd6a1f5f250d6b58693bb5",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-12-26 · 대전광역시조례 제6553호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 11:42 (KST)",
+    "note": "시장이 설치한 공영주차장에 적용하는 요금표다. 1~4급지 1구획 최초 10분 400·300·150·100원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 600·400·300·200원(요금표 금액의 2배), 1일 주차권 12,000·8,700·6,500·2,400원, 월 정기 주간 140,000·104,000·72,000·43,000원·야간 100,000·69,000·43,000·26,000원이다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:30이고 나머지가 야간이다. 급지는 월평·둔산·용문·유성 지역이 1급지, 노은·월드컵경기장·원도심·용전동·만년동·탄방괴정동·서대전 지역이 2급지, 그 밖의 상업·준주거지역이 3급지, 나머지가 4급지다. 제6조는 긴급·국가 소유 차·성실납세증 차를 면제하고, 국가유공자·장애인·경차·고엽제환자·전통시장 상인과 고객·환경친화차·꿈나무사랑카드·승용차요일제·보훈보상대상자·한부모가족·병역명문가를 50퍼센트 경감한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「대전광역시 대덕구 주차장 조례」 제4조 주차요금(별표1)·비고 감면",
+    "org": "대전광역시 대덕구청 교통과(042-608-5294)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2061737",
+    "file": "daejeon-daedeok-gu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "8ff37a417eb5cc6a155b6e84171b39c3193ddfec6b163006338e3cc8efb344b1",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-08-01 · 대전광역시대덕구조례 제1906호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구청장이 설치·관리하는 주차장에 적용하는 조례다. 대덕구 별표1 ‘공영주차장 주차 요금표’는 1·2급지를 ‘해당없음’으로 두고 3·4급지만 씁니다(3급지 최초 10분 150원·10분 초과 후 매 10분 150원·2시간 초과 매 10분 300원·1일 6,500원, 4급지 100·100·200원·1일 2,400원). 표준데이터 27행 가운데 10행이 무료이고, 나머지 17행은 요금 구분이 ‘혼합’으로 10분 100~150원·1일 2,400~6,500원·월 69,000~72,000원을 받습니다. 관리기관이 ‘대전광역시’로 등록된 17행은 대덕구가 시에 등록을 맡긴 주차장이라 카드에 관리기관을 그대로 적었습니다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "대전 대덕구",
+   "slug": "daedeok-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dj-daedeok-gu-001",
+   "mgmt_no": "187-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대덕산업단지주차장",
+   "gu": "대전 대덕구",
+   "dong": "문평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 문평동 80-2",
+   "addr_road": "대전광역시 대덕구 문평동로 16",
+   "road": null,
+   "spaces": 111,
+   "tel": "042-120",
+   "lat": 36.44610531,
+   "lng": 127.4035766,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-002",
+   "mgmt_no": "187-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌말지구 주차장",
+   "gu": "대전 대덕구",
+   "dong": "미호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 미호동 176",
+   "addr_road": "대전광역시 대덕구 대청로 526번길 33",
+   "road": null,
+   "spaces": 18,
+   "tel": "042-120",
+   "lat": 36.46720558,
+   "lng": 127.4708289,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-003",
+   "mgmt_no": "187-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법동생활체육공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "법동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 법동 439-4",
+   "addr_road": "대전광역시 대덕구 선비마을로 260",
+   "road": null,
+   "spaces": 34,
+   "tel": "042-120",
+   "lat": 36.37496754,
+   "lng": 127.428366,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-004",
+   "mgmt_no": "187-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비래동로 23번길 공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "비래동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 비래동 128-10",
+   "addr_road": "대전광역시 대덕구 비래동로23번길 28",
+   "road": null,
+   "spaces": 22,
+   "tel": "042-120",
+   "lat": 36.35669822,
+   "lng": 127.4490229,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-005",
+   "mgmt_no": "187-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비래동로 31번길 공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "비래동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 비래동 128-4",
+   "addr_road": "대전광역시 대덕구 비래동로31번길 13",
+   "road": null,
+   "spaces": 10,
+   "tel": "042-120",
+   "lat": 36.35661236,
+   "lng": 127.4497837,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-006",
+   "mgmt_no": "187-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 475-4",
+   "addr_road": "대전광역시 대덕구 계족산로81번길 11",
+   "road": null,
+   "spaces": 93,
+   "tel": "042-120",
+   "lat": 36.36366454,
+   "lng": 127.4399154,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "4급지 조례 별표1은 최초 10분 100원·10분 초과 후 매 10분 100원인데, 이 주차장은 등록요금(150원/10분)으로 계산합니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 6,500원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 150,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 6500,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 72000,
+    "monthly_all": 72000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드+주차권",
+    "std": {
+     "base_min": 10,
+     "base_fee": 150,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": 6500,
+     "monthly": 72000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 10분당 150원 → 2시간 초과 10분당 300원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-007",
+   "mgmt_no": "187-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌대양공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 482-19",
+   "addr_road": "대전광역시 대덕구 계족산로36번길 71",
+   "road": null,
+   "spaces": 29,
+   "tel": "042-120",
+   "lat": 36.36225469,
+   "lng": 127.439054,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-008",
+   "mgmt_no": "187-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌도서관 주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 165",
+   "addr_road": "대전광역시 대덕구 송촌로 59",
+   "road": null,
+   "spaces": 39,
+   "tel": "042-120",
+   "lat": 36.360082,
+   "lng": 127.4401573,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-009",
+   "mgmt_no": "187-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌먹자골목공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 454-2",
+   "addr_road": "대전광역시 대덕구 송촌북로32번길 28",
+   "road": null,
+   "spaces": 173,
+   "tel": "042-120",
+   "lat": 36.36549657,
+   "lng": 127.4377195,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "4급지 조례 별표1은 최초 10분 100원·10분 초과 후 매 10분 100원인데, 이 주차장은 등록요금(150원/10분)으로 계산합니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 6,500원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 150,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 6500,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 72000,
+    "monthly_all": 72000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드+주차권",
+    "std": {
+     "base_min": 10,
+     "base_fee": 150,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": 6500,
+     "monthly": 72000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 10분당 150원 → 2시간 초과 10분당 300원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-010",
+   "mgmt_no": "187-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌소리공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 446-3",
+   "addr_road": "대전광역시 대덕구 계족산로81번길 116",
+   "road": null,
+   "spaces": 24,
+   "tel": "042-120",
+   "lat": 36.36731791,
+   "lng": 127.4364683,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-011",
+   "mgmt_no": "187-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌주민센터공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 445-4",
+   "addr_road": "대전광역시 대덕구 동춘당로114번길 9",
+   "road": null,
+   "spaces": 72,
+   "tel": "042-120",
+   "lat": 36.36700874,
+   "lng": 127.4382093,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "4급지 조례 별표1은 최초 10분 100원·10분 초과 후 매 10분 100원인데, 이 주차장은 등록요금(150원/10분)으로 계산합니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 6,500원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 150,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 6500,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 72000,
+    "monthly_all": 72000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드+주차권",
+    "std": {
+     "base_min": 10,
+     "base_fee": 150,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": 6500,
+     "monthly": 72000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 10분당 150원 → 2시간 초과 10분당 300원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-012",
+   "mgmt_no": "187-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송촌진가쟁이공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "송촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 송촌동 504-3",
+   "addr_road": "대전광역시 대덕구 선비마을로5번길 26",
+   "road": null,
+   "spaces": 54,
+   "tel": "042-120",
+   "lat": 36.36283038,
+   "lng": 127.4451787,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-013",
+   "mgmt_no": "187-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신탄진역앞공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "신탄진동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 신탄진동 140-23",
+   "addr_road": "대전광역시 대덕구 신탄진동로7번길 64",
+   "road": null,
+   "spaces": 41,
+   "tel": "042-120",
+   "lat": 36.45041533,
+   "lng": 127.4297186,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 6,500원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 150,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 6500,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 115000,
+    "monthly_all": 115000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 150,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": 6500,
+     "monthly": 115000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 150
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "2시간까지 10분당 150원 → 2시간 초과 10분당 300원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-014",
+   "mgmt_no": "187-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용호마을테마먹거리촌공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "용호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 용호동 45",
+   "addr_road": "대전광역시 대덕구 대청로 238",
+   "road": null,
+   "spaces": 50,
+   "tel": "042-120",
+   "lat": 36.44832071,
+   "lng": 127.4512973,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-015",
+   "mgmt_no": "187-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산중골주차장",
+   "gu": "대전 대덕구",
+   "dong": "읍내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 읍내동 517-14",
+   "addr_road": "대전광역시 대덕구 계족로740번길 80",
+   "road": null,
+   "spaces": 89,
+   "tel": "042-120",
+   "lat": 36.37825836,
+   "lng": 127.4314387,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-016",
+   "mgmt_no": "187-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내어울림공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "읍내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 읍내동 575-4",
+   "addr_road": "대전광역시 대덕구 계족로 728",
+   "road": null,
+   "spaces": 30,
+   "tel": "042-120",
+   "lat": 36.37632865,
+   "lng": 127.4277639,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-017",
+   "mgmt_no": "187-2-000619",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장동욕골지구 공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 장동 367-4",
+   "addr_road": "대전광역시 대덕구 장동로 223-10",
+   "road": null,
+   "spaces": 91,
+   "tel": "042-120",
+   "lat": 36.4140307,
+   "lng": 127.438006,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-018",
+   "mgmt_no": "187-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동춘당생애길①공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 122-1",
+   "addr_road": "대전광역시 대덕구 계족산로 2",
+   "road": null,
+   "spaces": 27,
+   "tel": "042-120",
+   "lat": 36.36130697,
+   "lng": 127.4320404,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-019",
+   "mgmt_no": "187-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동춘당생애길②공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 122-1",
+   "addr_road": "대전광역시 대덕구 계족산로 2",
+   "road": null,
+   "spaces": 172,
+   "tel": "042-120",
+   "lat": 36.36130697,
+   "lng": 127.4320404,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-020",
+   "mgmt_no": "187-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리만남공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 174-3",
+   "addr_road": "대전광역시 대덕구 중리남로8번길 3",
+   "road": null,
+   "spaces": 17,
+   "tel": "042-120",
+   "lat": 36.36149254,
+   "lng": 127.4305618,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-021",
+   "mgmt_no": "187-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리미래공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 367-23",
+   "addr_road": "대전광역시 대덕구 중리로75번길 9",
+   "road": null,
+   "spaces": 51,
+   "tel": "042-120",
+   "lat": 36.36564901,
+   "lng": 127.4244429,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-022",
+   "mgmt_no": "187-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리정려각공영주자장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 499-8",
+   "addr_road": "대전광역시 대덕구 송촌북로5번길 10",
+   "road": null,
+   "spaces": 42,
+   "tel": "042-120",
+   "lat": 36.36293133,
+   "lng": 127.4363814,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "카드전용",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-023",
+   "mgmt_no": "187-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리행복길①공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 196-14",
+   "addr_road": "대전광역시 대덕구 중리남로27번길 5",
+   "road": null,
+   "spaces": 34,
+   "tel": "042-120",
+   "lat": 36.360762,
+   "lng": 127.4288059,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-024",
+   "mgmt_no": "187-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리행복길②공영주차장",
+   "gu": "대전 대덕구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대전광역시 대덕구 중리동 197-16",
+   "addr_road": "대전광역시 대덕구 중리동로17번길 32",
+   "road": null,
+   "spaces": 15,
+   "tel": "042-120",
+   "lat": 36.360553,
+   "lng": 127.4279318,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 1일 주차요금 2,400원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 69000,
+    "monthly_all": 69000,
+    "monthly_label": "전일",
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 69000
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-s001",
+   "mgmt_no": "187-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계족산로81번길 노상주차장",
+   "gu": "대전 대덕구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대전광역시 대덕구 계족산로81번길 11",
+   "road": null,
+   "spaces": 56,
+   "tel": "042-120",
+   "lat": 36.36366408,
+   "lng": 127.4399173,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-s002",
+   "mgmt_no": "187-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동춘당로94번길 노상주차장",
+   "gu": "대전 대덕구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대전광역시 대덕구 동춘당로94번길 11-15",
+   "road": null,
+   "spaces": 48,
+   "tel": "042-120",
+   "lat": 36.36604843,
+   "lng": 127.4394172,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  },
+  {
+   "id": "dj-daedeok-gu-s003",
+   "mgmt_no": "187-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "비래동로노상공영주차장",
+   "gu": "대전 대덕구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대전광역시 대덕구 비래동로 10",
+   "road": null,
+   "spaces": 59,
+   "tel": "042-120",
+   "lat": 36.35490718,
+   "lng": 127.4500177,
+   "base_date": "2026-04-16",
+   "manager": "대전광역시",
+   "note": "",
+   "notice": "요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 시 등록(대전광역시) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2400,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "4",
+    "grade_label": "4급지",
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "pay": "현금+주차권",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2400,
+     "monthly": 0
+    },
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 100
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 200
+     }
+    ],
+    "steps_label": "2시간까지 10분당 100원 → 2시간 초과 10분당 200원",
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대전 대덕구",
+   "city_slug": "daedeok-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 11:49",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 27,
+  "원자료_대덕구행수": 27,
+  "원자료_받은행수": 27,
+  "구별": "대덕구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 24,
+  "노외_부설": {
+   "노외": 24
+  },
+  "노상_구간": 3,
+  "총_구획수": 1338,
+  "노상_구획수": 163,
+  "동별": {
+   "송촌동": 7,
+   "중리동": 7,
+   "비래동": 2,
+   "읍내동": 2,
+   "문평동": 1,
+   "미호동": 1,
+   "법동": 1,
+   "신탄진동": 1,
+   "용호동": 1,
+   "장동": 1
+  },
+  "동수": 10,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 24
+  },
+  "요금구분": {
+   "무료": 12,
+   "유료": 15
+  },
+  "요금_미상": [],
+  "유료_노상": 1,
+  "유료_노외": 14,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "송촌주민센터공영주차장: 4급지 조례 100원(최초 10분)·100원(10분) ↔ 등록 150원/10분",
+   "송촌먹자골목공영주차장: 4급지 조례 100원(최초 10분)·100원(10분) ↔ 등록 150원/10분",
+   "송촌공영주차장: 4급지 조례 100원(최초 10분)·100원(10분) ↔ 등록 150원/10분"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「대전광역시 주차장 조례」 제6조(시장이 설치한 주차장)와 「대전광역시 대덕구 주차장 조례」 제4조 주차요금(별표1)·비고 감면(시행 2025-08-01 · 대전광역시대덕구조례 제1906호(일부개정))",
+  "무료시간_출처": "대전광역시·구 조례 별표1은 별도의 최초 무료시간을 두지 않고 10분 단위로 요금을 매긴다(10분 미만은 10분으로 계산). 표준데이터에 ‘최초 N분 0원’으로 등록된 유성구 주차장만 그 시간을 무료로 계산했다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다",
+  "무료개방_표기": [],
+  "무료_요금구분": 12,
+  "무료_구획수": 640,
+  "평균_기본요금": 113,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "대전광역시": 27
+  }
+ },
+ "fee_table": {
+  "style": "daejeon_grade",
+  "unit_min": 10,
+  "base_min": 10,
+  "applies": "시행 2025-12-26 · 대전광역시조례 제6553호(일부개정)",
+  "rows": [
+   {
+    "label": "3급지",
+    "grade": "3",
+    "unit_label": "150원/10분",
+    "hour": 900,
+    "two_hour": 1800,
+    "day": 6500,
+    "month": 115000,
+    "lots": 1
+   },
+   {
+    "label": "4급지",
+    "grade": "4",
+    "unit_label": "100~150원/10분",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 2400,
+    "month": 69000,
+    "lots": 14
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "first10": 400,
+    "over10": 300,
+    "over2h": 600,
+    "day": 12000,
+    "month_day": 140000,
+    "month_night": 100000
+   },
+   {
+    "label": "2급지",
+    "first10": 300,
+    "over10": 200,
+    "over2h": 400,
+    "day": 8700,
+    "month_day": 104000,
+    "month_night": 69000
+   },
+   {
+    "label": "3급지",
+    "first10": 150,
+    "over10": 150,
+    "over2h": 300,
+    "day": 6500,
+    "month_day": 72000,
+    "month_night": 43000
+   },
+   {
+    "label": "4급지",
+    "first10": 100,
+    "over10": 100,
+    "over2h": 200,
+    "day": 2400,
+    "month_day": 43000,
+    "month_night": 26000
+   }
+  ],
+  "county": false,
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+    "free": "나머지 시간이 야간이고, 요금은 주간·야간이 같다"
+   }
+  ],
+  "notes": "대덕구 별표1 ‘공영주차장 주차 요금표’는 1·2급지를 ‘해당없음’으로 두고 3·4급지만 씁니다(3급지 최초 10분 150원·10분 초과 후 매 10분 150원·2시간 초과 매 10분 300원·1일 6,500원, 4급지 100·100·200원·1일 2,400원). 표준데이터 27행 가운데 10행이 무료이고, 나머지 17행은 요금 구분이 ‘혼합’으로 10분 100~150원·1일 2,400~6,500원·월 69,000~72,000원을 받습니다. 관리기관이 ‘대전광역시’로 등록된 17행은 대덕구가 시에 등록을 맡긴 주차장이라 카드에 관리기관을 그대로 적었습니다.",
+  "corp": {
+   "paid": 14,
+   "free": 12,
+   "unknown": 0,
+   "street_paid": 1,
+   "si": 27,
+   "gu": 0
+  },
+  "basis": "「대전광역시 주차장 조례」 별표1(시행 2025-12-26 · 대전광역시조례 제6553호(일부개정)) · 「대전광역시 대덕구 주차장 조례」 제4조 주차요금(별표1)·비고 감면(시행 2025-08-01 · 대전광역시대덕구조례 제1906호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "daedeok-gu",
+ "province": "대전광역시",
+ "province_slug": "daejeon",
+ "dong_page_min_lots": 3,
+ "city": "대전 대덕구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "국가유공상이자·장애인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "국가유공상이자 및 장애인 자동차 표지 부착차량과 장애인을 동반한 일반차량 50퍼센트(대덕구 별표1 비고9)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차요일제 참여 차량 50퍼센트(비고8)"
+  },
+  {
+   "label": "경차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "경형자동차 50퍼센트(비고13)"
+  },
+  {
+   "label": "성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "모범납세자로서 성실납세증표(스티커)를 붙인 차 1년간 면제(비고14)"
+  },
+  {
+   "label": "꿈나무사랑카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "꿈나무사랑카드 제시자 50퍼센트(비고15)"
+  },
+  {
+   "label": "고엽제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "고엽제후유증·후유의증 환자와 2세 환자 50퍼센트(비고16)"
+  },
+  {
+   "label": "5·18부상자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "5·18민주화운동부상자 50퍼센트(비고17)"
+  },
+  {
+   "label": "환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환경친화적·저공해자동차 표지 부착 차 50퍼센트, 충전을 위해 주차하면 최초 1시간 면제(비고18)"
+  },
+  {
+   "label": "반경 200m 상가 이용 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "사전 협약이 있는 주차장에서 200m 이내 상가 이용이 확인되면 50퍼센트(비고19)"
+  },
+  {
+   "label": "보훈보상대상자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "보훈보상대상자증 소지자 50퍼센트(비고21)"
+  },
+  {
+   "label": "우수자원봉사자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대전광역시 대덕구 자원봉사활동 지원 조례」에 따른 우수자원봉사자증 소지자 50퍼센트(비고22)"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "긴급·국가 소유 차·성실납세증 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 소유 자동차 중 공사·업무수행 차, 시장이 교부한 유공납세자증이나 국세청장 성실납세증 표지를 붙인 차(1년), 시장이 인정한 차 — 면제(시 조례 제6조①)"
+  },
+  {
+   "label": "국가유공자·보훈보상대상자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "국가유공자증을 소지한 상이자(제4조제1항제4·6·10·12·15호, 같은 법 제73조)와 보훈보상대상자증 소지자 — 50퍼센트(제6조②1·10호)"
+  },
+  {
+   "label": "장애인등록증 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「장애인복지법」에 따른 장애인등록증을 소지한 사람 50퍼센트(제6조②2호)"
+  },
+  {
+   "label": "경차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」에 따른 경형자동차 50퍼센트(제6조②3호)"
+  },
+  {
+   "label": "고엽제 환자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "고엽제후유증·후유의증 환자와 고엽제후유증 2세 환자로서 국가보훈처장 증명서를 소지한 사람 50퍼센트(제6조②4호)"
+  },
+  {
+   "label": "전통시장·상권활성화구역 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "전통시장·상권활성화구역의 상인이나 고객이 입증자료를 제출하면 50퍼센트(제6조②5호)"
+  },
+  {
+   "label": "환경친화·저공해 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "환경친화적·저공해자동차 표지 부착 차 50퍼센트, 충전을 위해 주차하면 최초 1시간 면제(제6조②6호)"
+  },
+  {
+   "label": "꿈나무사랑카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대전광역시 다자녀가정 지원 조례」에 따른 꿈나무사랑카드 소지자 50퍼센트(제6조②7호)"
+  },
+  {
+   "label": "반경 200m 상가 이용 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "주차장에 주차하고 반경 200미터 이내 상가 이용이 확인되면 50퍼센트 — 관리수탁자와 상가 영업주 사이에 사전 협약이 있는 주차장만 해당(제6조②8호)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차요일제에 참여하는 자동차 50퍼센트(제6조②9호)"
+  },
+  {
+   "label": "한부모가족·병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "한부모가족증명서 소지자, 병역명문가증을 제시한 병역명문가 예우대상자 50퍼센트(제6조②11·12호)"
+  }
+ ],
+ "realtime": false
+}

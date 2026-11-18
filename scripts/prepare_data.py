@@ -24416,6 +24416,868 @@ def check_quality_daegu(name, std_all, rows_std, rows_city, lots, excluded, merg
         "공단안내_주차장": [l["name"] for l in lots if "대구공공시설관리공단" in (l.get("manager") or "")],
     }
 
+# ============================================================ 대전광역시 (T-03 Phase 42)
+#  대전은 1~4급지 요금제다. 시 조례 별표1(시행 2025-12-26, 조례 제6553호)은 1구획 기준으로
+#  2시간까지 최초 10분 400·300·150·100원, 10분 초과 후 매 10분 300·200·150·100원,
+#  2시간 초과 매 10분 600·400·300·200원(요금표 금액의 2배, 비고7)이고, 1일 주차권
+#  12,000·8,700·6,500·2,400원, 월 정기 주간 140,000·104,000·72,000·43,000원·야간
+#  100,000·69,000·43,000·26,000원이다.
+#  다섯 구 모두 같은 금액을 쓰지만 정하는 방식이 다르다 — 동구는 별표1을 2016-06-30 삭제하고
+#  시 조례 제5조(요금)·제6조(감면)를 준용하며(별표4로 65세 이상 동구 주민·임산부 등을 더
+#  경감), 유성구는 별표1이 “시 조례 별표1을 따른다”고 정하고, 중구·서구·대덕구는 같은 금액의
+#  요금표를 구 별표에 직접 싣는다. 대덕구 별표1은 1·2급지를 ‘해당없음’으로 두어 3·4급지만 쓴다.
+DAEDEON_PROVINCE = "대전광역시"
+DAEDEON_PROVINCE_SLUG = "daejeon"
+DAEDEON_DISTRICTS = ("동구", "중구", "서구", "유성구", "대덕구")
+DAEDEON_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098193"
+DAEDEON_ORD_NOTE = "시행 2025-12-26 · 대전광역시조례 제6553호(일부개정)"
+DAEDEON_ORD1_TXT = RAW / "daejeon.law.go.kr_주차장조례_별표1_20261118.txt"
+
+# 급지: (최초 10분, 10분 초과 후 매 10분(2시간까지), 2시간 초과 매 10분, 1일 주차권,
+#        월 정기 주간, 월 정기 야간)
+DAEDEON_FEES = {
+    "1": (400, 300, 600, 12000, 140000, 100000),
+    "2": (300, 200, 400, 8700, 104000, 69000),
+    "3": (150, 150, 300, 6500, 72000, 43000),
+    "4": (100, 100, 200, 2400, 43000, 26000),
+}
+
+# 「대전광역시 주차장 조례」 제6조(주차요금의 경감) — 시장이 설치한 공영주차장 기준.
+DAEDEON_CITY_DISCOUNTS = [
+    {"label": "긴급·국가 소유 차·성실납세증 면제", "rate": 1.0, "exempt_min": 0,
+     "note": ("긴급자동차, 국가·지방자치단체 소유 자동차 중 공사·업무수행 차, 시장이 교부한 "
+              "유공납세자증이나 국세청장 성실납세증 표지를 붙인 차(1년), 시장이 인정한 차 — 면제"
+              "(시 조례 제6조①)")},
+    {"label": "국가유공자·보훈보상대상자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("국가유공자증을 소지한 상이자(제4조제1항제4·6·10·12·15호, 같은 법 제73조)와 "
+              "보훈보상대상자증 소지자 — 50퍼센트(제6조②1·10호)")},
+    {"label": "장애인등록증 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「장애인복지법」에 따른 장애인등록증을 소지한 사람 50퍼센트(제6조②2호)"},
+    {"label": "경차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「자동차관리법 시행규칙」에 따른 경형자동차 50퍼센트(제6조②3호)"},
+    {"label": "고엽제 환자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("고엽제후유증·후유의증 환자와 고엽제후유증 2세 환자로서 국가보훈처장 증명서를 "
+              "소지한 사람 50퍼센트(제6조②4호)")},
+    {"label": "전통시장·상권활성화구역 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("전통시장·상권활성화구역의 상인이나 고객이 입증자료를 제출하면 50퍼센트"
+              "(제6조②5호)")},
+    {"label": "환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("환경친화적·저공해자동차 표지 부착 차 50퍼센트, 충전을 위해 주차하면 최초 1시간 "
+              "면제(제6조②6호)")},
+    {"label": "꿈나무사랑카드 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「대전광역시 다자녀가정 지원 조례」에 따른 꿈나무사랑카드 소지자 50퍼센트(제6조②7호)"},
+    {"label": "반경 200m 상가 이용 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("주차장에 주차하고 반경 200미터 이내 상가 이용이 확인되면 50퍼센트 — 관리수탁자와 "
+              "상가 영업주 사이에 사전 협약이 있는 주차장만 해당(제6조②8호)")},
+    {"label": "승용차요일제 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "승용차요일제에 참여하는 자동차 50퍼센트(제6조②9호)"},
+    {"label": "한부모가족·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": ("한부모가족증명서 소지자, 병역명문가증을 제시한 병역명문가 예우대상자 50퍼센트"
+              "(제6조②11·12호)")},
+]
+
+DAEDEON_OPERATORS = {
+    "대전광역시 중구청 주차관리과": "구영(중구청 주차관리과)",
+    "대전광역시 중구청 일자리경제과": "구영(중구청 일자리경제과·시장 주차장)",
+    "대전광역시 동구청": "구영(동구청 직영)",
+    "대전광역시 서구청": "구영(서구청 직영)",
+    "대전광역시 유성구청": "구영(유성구청 직영)",
+    "대전광역시": "시 등록(대전광역시)",
+    "도마큰시장 상인회": "시장 상인회 위탁(도마큰시장)",
+}
+
+# 표준데이터에 남아 있는 잘못된 주소·요금 — 그대로 두면 다른 지역 주차장이 섞이거나
+# 요금이 실제와 달라진다.
+DAEDEON_FIX = {
+    # 도로명주소만 있는 3행의 구 이름은 도로명주소에서 읽는다(지번주소가 비어 있다).
+    ("대덕구", "계족산로81번길 노상주차장"): {"district": "대덕구"},
+}
+
+DAEDEON_CONF = {
+    "동구": {
+        "city": "대전 동구",
+        "slug": "dong-gu",
+        "manager": "대전광역시 동구청 교통정책과(042-251-4901)",
+        "manager_inquiry": "대전광역시 동구청 교통정책과(042-251-4901)",
+        "ordinance": ("「대전광역시 동구 주차장 조례」 제4조 주차요금·감면(시 조례 제5조·제6조 준용) · 별표4",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2057709",
+                      "시행 2025-07-16 · 대전광역시동구조례 제1795호(일부개정)"),
+        "notes": ("동구 조례는 2016-06-30 별표1(요금표)을 삭제하고 주차요금은 「대전광역시 주차장 "
+                  "조례」 제5조를, 감면은 제6조를 준용합니다(조례 제4조①). 그래서 요금은 시 조례 "
+                  "별표1의 1~4급지 표(최초 10분 400·300·150·100원, 10분 초과 후 매 10분 "
+                  "300·200·150·100원, 2시간 초과 매 10분 600·400·300·200원)와 같고, 별표4가 "
+                  "5·18민주화운동부상자, 장기기증자, 의사상자, 동구에 주민등록이 된 65세 이상 "
+                  "운전자, 임산부를 50퍼센트 경감 대상에 더합니다. 표준데이터 96행 가운데 81행이 "
+                  "무료이고, 중앙시장·역전시장·가오동 상점가처럼 시장 주차장은 15분 기본요금으로 "
+                  "등록되어 있습니다."),
+        "discounts": DAEDEON_CITY_DISCOUNTS + [
+            {"label": "65세 이상 동구 주민 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("「노인복지법」 제26조에 따라 경로우대를 받는 65세 이상 운전자로서 대전 동구에 "
+                      "주민등록이 되어 있는 사람 50퍼센트(동구 조례 별표4 4호)")},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "모자보건수첩·산모수첩 등 입증자료를 소지한 임산부 50퍼센트(별표4 5호)"},
+            {"label": "5·18부상자·장기기증자·의사상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("5·18민주화운동부상자, 장기기증자·장기기증등록자, 의사자 유족·의상자 "
+                      "50퍼센트(별표4 1~3호)")},
+        ],
+    },
+    "중구": {
+        "city": "대전 중구",
+        "slug": "jung-gu",
+        "manager": "대전광역시 중구청 주차관리과(042-606-6851)",
+        "manager_inquiry": "대전광역시 중구청 주차관리과(042-606-6851)",
+        "ordinance": ("「대전광역시 중구 주차장설치 및 관리 조례」 제4조 주차요금·감면(별표)",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2156645",
+                      "시행 2026-08-03 · 대전광역시중구조례 제1782호(일부개정)"),
+        "notes": ("중구 조례 제4조①은 공영주차장의 주차요금·가산금·감면을 별표로 정하고, 별표 "
+                  "‘공영주차장주차요금표’가 1~4급지를 시 조례와 같은 금액(최초 10분 "
+                  "400·300·150·100원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 "
+                  "600·400·300·200원, 1일 12,000·8,700·6,500·2,400원)으로 싣습니다. 비고 9~24가 "
+                  "감면을 정하고, 비고17은 투표확인증에 2,000원을, 비고18은 장기기증자에게 면제를 "
+                  "줍니다. 표준데이터 185행 가운데 155행이 무료(동네 노상·노외)이고, 유료 노상은 "
+                  "원도심·서대전 2급지(10분 300원)와 3급지(10분 150원)에 있습니다."),
+        "discounts": [
+            {"label": "유공·모범납세자 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "시장·구청장·국세청장이 교부한 유공·모범납세자증을 붙인 차 1년간 면제(중구 별표 비고13)"},
+            {"label": "국가유공자·장애인 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("국가보훈등록증을 소지한 상이자와 장애인자동차 표지를 붙이고 장애인이 탑승해 "
+                      "등록증을 제시한 사람 50퍼센트(비고9)")},
+            {"label": "승용차요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차요일제 참여 차량 50퍼센트(비고8)"},
+            {"label": "경차 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차 50퍼센트(비고12)"},
+            {"label": "고엽제·5·18부상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "고엽제후유증·후유의증 환자와 5·18민주화운동부상자 50퍼센트(비고14·15)"},
+            {"label": "꿈나무사랑카드 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "꿈나무사랑카드 제시자 50퍼센트(비고16)"},
+            {"label": "전통시장 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("시장·상점가·상권활성화구역 상인과 고객 50퍼센트 — 중구가 개설·관리하는 "
+                      "주차장 가운데 시장 안이나 이웃한 곳(비고19)")},
+            {"label": "저공해·환경친화 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "저공해·환경친화적 자동차 50퍼센트(비고21)"},
+            {"label": "반경 200m 상가 이용 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "사전 협약이 있는 주차장에서 200m 이내 상가 이용이 확인되면 50퍼센트(비고22)"},
+            {"label": "보훈보상대상자·의사상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "보훈보상대상자증 소지자, 의사자 유족·의상자 50퍼센트(비고23·20)"},
+            {"label": "장기기증자 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "장기등기증등록자·장기기증자 등록증 소지자 면제(비고18)"},
+            {"label": "투표확인증 2,000원 경감", "rate": 0.0, "exempt_min": 0,
+             "note": ("선거에 참여해 투표확인증(선거일 후 3개월까지 유효)을 낸 사람은 요금에서 "
+                      "2,000원을 깎습니다(비고17) — 계산기에는 넣지 않았습니다")},
+        ],
+    },
+    "서구": {
+        "city": "대전 서구",
+        "slug": "seo-gu",
+        "manager": "대전광역시 서구청 주차행정과(042-288-4120)",
+        "manager_inquiry": "대전광역시 서구청 주차행정과(042-288-4120)",
+        "ordinance": ("「대전광역시 서구 주차장 설치 및 관리 조례」 제4조 주차요금(별표2)·제5조 주차요금의 감면",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095299",
+                      "시행 2025-12-22 · 대전광역시서구조례 제2265호(일부개정)"),
+        "notes": ("서구 조례 별표2 ‘공영주차장 주차요금’은 시 조례와 같은 1~4급지 금액(최초 10분 "
+                  "400·300·150·100원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 "
+                  "600·400·300·200원)을 싣고, 1급지에 월평·둔산·용문·도안 지역을, 2급지에 만년동·"
+                  "탄방·괴정동 지역을 둡니다. 4급지에는 주택가 거주자우선주차장도 넣습니다. 감면은 "
+                  "제5조가 정하고, 65세 이상(거주자우선주차제 시행지역 제외)·임산부 보호스티커 차·"
+                  "우수자원봉사자(노상 제외)가 50퍼센트입니다. 표준데이터 116행 가운데 87행이 무료이고, "
+                  "둔산·월평·탄방동 노상이 1급지(10분 400원), 만년동·갈마동 노상이 2급지(10분 300원)입니다."),
+        "discounts": [
+            {"label": "장기기증자 면제·기증희망자 10%", "rate": 1.0, "exempt_min": 0,
+             "note": ("장기등 기증자는 전액, 기증희망자와 10회 이상 헌혈자는 10퍼센트 경감"
+                      "(서구 조례 제5조②8호) — 계산기는 기증자 면제만 반영합니다")},
+            {"label": "시책 참여 차량 20%", "rate": 0.2, "exempt_min": 0,
+             "note": "구청장이 추진하는 시책에 참여해 구청장 표지(스티커)를 붙인 차 20퍼센트(제5조②1호)"},
+            {"label": "국가유공자·장애인 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "국가보훈등록증 소지 상이자와 장애인등록증 소지자 50퍼센트(제5조②2호)"},
+            {"label": "경차 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차 50퍼센트(제5조②3호)"},
+            {"label": "고엽제·5·18부상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "고엽제후유증·후유의증 환자, 5·18민주화운동부상자 50퍼센트(제5조②4·9호)"},
+            {"label": "꿈나무사랑카드 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "꿈나무사랑카드 소지자 50퍼센트(제5조②5호)"},
+            {"label": "전통시장 고객 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "전통시장 내 주차장과 인근 공영주차장을 쓰는 전통시장 고객 50퍼센트까지(제5조②7호)"},
+            {"label": "65세 이상 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("경로우대를 받는 65세 이상 50퍼센트 — 거주자우선주차제 시행지역은 제외"
+                      "(제5조②10호)")},
+            {"label": "임산부 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "임산부 보호스티커를 붙인 차 50퍼센트(제5조②11호)"},
+            {"label": "승용차요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차요일제 참여 차량 50퍼센트(제5조②12호)"},
+            {"label": "환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("환경친화적·저공해자동차, 배출가스저감장치 부착차 50퍼센트, 충전을 위해 "
+                      "주차하면 최초 1시간 면제(제5조②14호)")},
+            {"label": "우수자원봉사자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "우수자원봉사자증 소지자 50퍼센트 — 노상 주차장은 제외(제5조②15호)"},
+            {"label": "보훈보상·한부모·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "보훈보상대상자, 한부모가족증명서 소지자, 병역명문가 50퍼센트(제5조②16~18호)"},
+            {"label": "선거일 전액 경감", "rate": 1.0, "exempt_min": 0,
+             "note": ("임시 공휴일로 지정된 선거일 당일의 주차요금을 전액 경감합니다"
+                      "(제5조②6호) — 날짜에 따라 달라 계산기에는 넣지 않았습니다")},
+        ],
+    },
+    "유성구": {
+        "city": "대전 유성구",
+        "slug": "yuseong-gu",
+        "manager": "대전광역시 유성구청 주차관리과(042-611-2956)",
+        "manager_inquiry": "대전광역시 유성구청 주차관리과(042-611-2956)",
+        "ordinance": ("「대전광역시 유성구 주차장 설치 및 관리 조례」 제4조 주차요금(별표1)·비고 감면",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2077345",
+                      "시행 2025-10-02 · 대전광역시유성구조례 제2186호(일부개정)"),
+        "notes": ("유성구 별표1은 “공영주차장 주차요금표는 「대전광역시 주차장 조례」 별표1의 공영주차장 "
+                  "주차요금표를 따른다”고 정해, 금액은 시 조례와 같습니다(최초 10분 400·300·150·100원, "
+                  "10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 600·400·300·200원). "
+                  "1급지는 온천동로·온천북로·온천서로·장대로·계룡로 안쪽, 2급지는 노은·월드컵경기장 "
+                  "지역입니다. 비고12~25가 감면을 정하는데, 장애인은 최초 2시간을 면제하고 그 뒤 "
+                  "50퍼센트를 경감하는 점이 다른 구와 다릅니다. 표준데이터 145행 가운데 134행이 무료이고, "
+                  "유료·혼합 11행은 4급지 10분 100원(1일 2,400원)이나 3급지 10분 150원으로 등록되어 있습니다."),
+        "discounts": [
+            {"label": "장애인 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+             "note": ("장애인등록증 소지자는 최초 2시간 주차요금을 면제하고, 2시간 초과분과 1일 주차권은 "
+                      "50퍼센트를 경감합니다(유성구 별표1 비고13)")},
+            {"label": "국가유공자·65세 이상 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "국가보훈등록증 소지 상이자와 경로우대를 받는 65세 이상 50퍼센트(비고12)"},
+            {"label": "경차 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차 50퍼센트(비고14)"},
+            {"label": "성실납세증 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "모범납세자로서 행정청이 교부한 성실납세증 표지를 붙인 차 1년간 면제(비고15)"},
+            {"label": "고엽제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "고엽제후유증·후유의증 환자와 2세 환자 50퍼센트(비고16)"},
+            {"label": "꿈나무사랑카드 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "꿈나무사랑카드 소지자 50퍼센트(비고17)"},
+            {"label": "전통시장 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "전통시장·시장활성화구역 상인과 고객이 인접 주차장을 쓰면 50퍼센트(비고18)"},
+            {"label": "장기기증자 50%·헌혈 10%", "rate": 0.5, "exempt_min": 0,
+             "note": "장기기증증 소지자 50퍼센트, 10회 이상 헌혈자 10퍼센트(비고19)"},
+            {"label": "환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "환경친화적·저공해자동차 표지 부착 차 50퍼센트(비고21)"},
+            {"label": "의사상자·보훈보상·5·18부상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "의사자 유족·의상자, 보훈보상대상자, 5·18민주화운동부상자 50퍼센트(비고22~24)"},
+            {"label": "승용차요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차요일제 참여 차량 50퍼센트(별표1 비고8)"},
+            {"label": "투표확인증 2,000원까지 경감", "rate": 0.0, "exempt_min": 0,
+             "note": "투표확인증을 낸 사람은 2,000원까지 감면합니다(비고20) — 계산기에는 넣지 않았습니다"},
+        ],
+    },
+    "대덕구": {
+        "city": "대전 대덕구",
+        "slug": "daedeok-gu",
+        "manager": "대전광역시 대덕구청 교통과(042-608-5294)",
+        "manager_inquiry": "대전광역시 대덕구청 교통과(042-608-5294)",
+        "ordinance": ("「대전광역시 대덕구 주차장 조례」 제4조 주차요금(별표1)·비고 감면",
+                      "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2061737",
+                      "시행 2025-08-01 · 대전광역시대덕구조례 제1906호(일부개정)"),
+        "notes": ("대덕구 별표1 ‘공영주차장 주차 요금표’는 1·2급지를 ‘해당없음’으로 두고 3·4급지만 "
+                  "씁니다(3급지 최초 10분 150원·10분 초과 후 매 10분 150원·2시간 초과 매 10분 300원·"
+                  "1일 6,500원, 4급지 100·100·200원·1일 2,400원). 표준데이터 27행 가운데 10행이 무료이고, "
+                  "나머지 17행은 요금 구분이 ‘혼합’으로 10분 100~150원·1일 2,400~6,500원·월 69,000~"
+                  "72,000원을 받습니다. 관리기관이 ‘대전광역시’로 등록된 17행은 대덕구가 시에 등록을 "
+                  "맡긴 주차장이라 카드에 관리기관을 그대로 적었습니다."),
+        "discounts": [
+            {"label": "국가유공상이자·장애인 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("국가유공상이자 및 장애인 자동차 표지 부착차량과 장애인을 동반한 일반차량 "
+                      "50퍼센트(대덕구 별표1 비고9)")},
+            {"label": "승용차요일제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "승용차요일제 참여 차량 50퍼센트(비고8)"},
+            {"label": "경차 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "경형자동차 50퍼센트(비고13)"},
+            {"label": "성실납세증 면제", "rate": 1.0, "exempt_min": 0,
+             "note": "모범납세자로서 성실납세증표(스티커)를 붙인 차 1년간 면제(비고14)"},
+            {"label": "꿈나무사랑카드 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "꿈나무사랑카드 제시자 50퍼센트(비고15)"},
+            {"label": "고엽제 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "고엽제후유증·후유의증 환자와 2세 환자 50퍼센트(비고16)"},
+            {"label": "5·18부상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "5·18민주화운동부상자 50퍼센트(비고17)"},
+            {"label": "환경친화·저공해 50%", "rate": 0.5, "exempt_min": 0,
+             "note": ("환경친화적·저공해자동차 표지 부착 차 50퍼센트, 충전을 위해 주차하면 최초 1시간 "
+                      "면제(비고18)")},
+            {"label": "반경 200m 상가 이용 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "사전 협약이 있는 주차장에서 200m 이내 상가 이용이 확인되면 50퍼센트(비고19)"},
+            {"label": "보훈보상대상자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "보훈보상대상자증 소지자 50퍼센트(비고21)"},
+            {"label": "우수자원봉사자 50%", "rate": 0.5, "exempt_min": 0,
+             "note": "「대전광역시 대덕구 자원봉사활동 지원 조례」에 따른 우수자원봉사자증 소지자 50퍼센트(비고22)"},
+        ],
+    },
+}
+
+# 대전광역시 도시 메타 — 다른 시·도의 ‘중구’와 겹치지 않도록 ‘대전 ○○구’로 적는다.
+CITY_META_DAEDEON = {
+    "동구": {"slug": "dong-gu", "province": DAEDEON_PROVINCE, "province_slug": DAEDEON_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "중구": {"slug": "jung-gu", "province": DAEDEON_PROVINCE, "province_slug": DAEDEON_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "서구": {"slug": "seo-gu", "province": DAEDEON_PROVINCE, "province_slug": DAEDEON_PROVINCE_SLUG,
+           "dong_page_min_lots": 3},
+    "유성구": {"slug": "yuseong-gu", "province": DAEDEON_PROVINCE, "province_slug": DAEDEON_PROVINCE_SLUG,
+             "dong_page_min_lots": 3},
+    "대덕구": {"slug": "daedeok-gu", "province": DAEDEON_PROVINCE, "province_slug": DAEDEON_PROVINCE_SLUG,
+             "dong_page_min_lots": 3},
+}
+
+
+def daejeon_addr(row) -> str:
+    return (row.get("소재지지번주소") or "").strip() or (row.get("소재지도로명주소") or "").strip()
+
+
+def daejeon_dong_of(addr: str):
+    """주소에서 법정동을 읽는다(대전은 자치구 아래 법정동이 지역 단위).
+
+    지번주소의 세 번째 낱말이 법정동인 행이 대부분이고, 표준데이터는 ‘덕명동171-96’처럼
+    동 이름과 번지를 붙여 적기도 한다. ‘중앙로1가’처럼 ‘가’가 붙은 이름은 그대로 둔다.
+    """
+    if not addr:
+        return None
+    parts = addr.split()
+    if len(parts) >= 3:
+        d = parts[2]
+        if d.endswith(("동", "가", "읍", "면")):
+            _stem = re.sub(r"\d+가$", "", d)
+            if _stem.endswith("동"):
+                d = _stem
+            return d or None
+        _m = re.match(r"^([가-힣]+(?:동|읍|면))(?:산)?\d", d)
+        if _m:
+            return _m.group(1) or None
+    return None
+
+
+def daejeon_district_of(row):
+    """이 행이 어느 구에 속하는지 — 지번주소(없으면 도로명주소)의 두 번째 낱말이 구 이름이다."""
+    for _k in ("소재지지번주소", "소재지도로명주소"):
+        parts = (row.get(_k) or "").split()
+        if len(parts) > 1 and parts[0].startswith("대전") and parts[1] in DAEDEON_DISTRICTS:
+            return parts[1]
+    return None
+
+
+def daejeon_operator(row) -> str:
+    mgmt = (row.get("관리기관명") or "").strip()
+    return DAEDEON_OPERATORS.get(mgmt) or (mgmt or "관리기관")
+
+
+def daejeon_fee(row, conf, district, note_bits, note_fixed, grade_fixed):
+    """대전 공영주차장 한 곳의 요금 — 등록값을 쓰고 조례 별표1(1~4급지)과 대조한다."""
+    name = (row.get("주차장명") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip() or "노외"
+    street = ptype == "노상"
+    raw_type = (row.get("요금정보") or "").strip()
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    grade_raw = (row.get("급지구분") or "").strip()
+    grade = grade_raw if grade_raw in ("1", "2", "3", "4") else None
+    label = f"{grade}급지" if grade else (f"급지 {grade_raw}" if grade_raw else None)
+    note = row.get("특기사항") or ""
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": grade, "grade_label": label, "std_grade": grade_raw or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": True,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    ref = DAEDEON_FEES.get(grade)
+    if base_fee == 0 and (unit_fee or 0) > 0 and (base_min or 0) > 0:
+        # 유성구처럼 ‘최초 60분 0원 + 10분당 N원’으로 등록된 주차장.
+        fee.update({"base_min": base_min, "base_fee": 0,
+                    "unit_min": unit_min or 10, "unit_fee": unit_fee,
+                    "basis": f"표준데이터 등록요금(최초 {base_min}분 무료 뒤 {unit_min or 10}분 단위)"})
+        note_fixed.append(f"{name}: 기본 {base_min}분 0원으로 등록되어 최초 {base_min}분 무료로 계산")
+        note_bits.append(f"표준데이터에 기본 {base_min}분 0원으로 등록되어 최초 {base_min}분은 무료이고 "
+                         f"그 뒤 {unit_min or 10}분마다 {unit_fee:,}원입니다")
+    elif not base_fee:
+        if ref:
+            fee.update({"base_min": 10, "base_fee": ref[0], "unit_min": 10, "unit_fee": ref[1],
+                        "basis": "조례 별표1 급지 요금(표준데이터에 시간 요금 없음)"})
+            note_fixed.append(f"{name}: 표준데이터에 시간 요금이 없어 조례 별표1 {label} 요금으로 계산")
+            note_bits.append(f"표준데이터에 시간 요금이 없어 조례 별표1의 {label} 요금(최초 10분 "
+                             f"{ref[0]:,}원·10분마다 {ref[1]:,}원)으로 계산합니다")
+        else:
+            fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+            note_fixed.append(f"{name}: 요금 정보가 비어 있어 ‘요금 정보 없음’으로 두었습니다")
+            return fee
+    else:
+        fee["base_min"] = base_min or 10
+        fee["base_fee"] = base_fee
+        if not base_min:
+            note_fixed.append(f"{name}: 주차기본시간이 ‘0분’으로 등록되어 10분 단위로 계산")
+            note_bits.append("표준데이터에 주차기본시간이 0분으로 등록되어 있어 10분 단위로 계산합니다")
+        if unit_min is None and unit_fee is None:
+            fee["unit_min"], fee["unit_fee"] = fee["base_min"], base_fee
+            note_fixed.append(f"{name}: 추가단위 요금이 없어 기본요금과 같은 "
+                              f"{fee['base_min']}분당 {base_fee:,}원으로 계산")
+        else:
+            fee["unit_min"] = unit_min or 10
+            fee["unit_fee"] = unit_fee if unit_fee is not None else base_fee
+    # 2시간 초과 요율 — 특기사항의 ‘2시간 이후 10분마다 N원 부과’를 먼저 읽고, 없으면 조례
+    #  별표1·비고7(2시간 초과 요금은 요금표 금액의 2배)대로 10분 요금의 2배를 쓴다.
+    _m2 = re.search(r"2시간\s*이후\s*10분마다\s*([\d,]+)\s*원", note)
+    over2 = int(_m2.group(1).replace(",", "")) if _m2 else None
+    if over2 is not None and fee.get("unit_fee") and over2 < fee["unit_fee"]:
+        # ‘2시간 이후 10분마다 200원’이 2시간까지 요금(300원)보다 낮게 등록된 행이 있다
+        #  (서구 월평1동 제4공영주차장). 조례 별표1과 어긋나므로 조례대로 2배로 계산한다.
+        note_fixed.append(f"{name}: 특기사항의 2시간 초과 {over2:,}원이 10분 요금 "
+                          f"{fee['unit_fee']:,}원보다 낮아 조례 별표1(2배)로 계산")
+        note_bits.append(f"표준데이터 특기사항에 2시간 초과 10분마다 {over2:,}원으로 적혀 있지만 "
+                         f"2시간까지 요금({fee['unit_fee']:,}원/10분)보다 낮아, 조례 별표1대로 "
+                         "2시간 초과분은 2배로 계산합니다(현장 확인)")
+        over2 = None
+    if over2 is None:
+        over2 = (fee["unit_fee"] * 2) if fee.get("unit_fee") else (ref[2] if ref else None)
+    if fee.get("unit_fee") and over2:
+        fee["steps"] = [{"until": 120, "unit_min": fee["unit_min"], "unit_fee": fee["unit_fee"]},
+                        {"until": None, "unit_min": fee["unit_min"], "unit_fee": over2}]
+        fee["steps_label"] = (f"2시간까지 {fee['unit_min']}분당 {fee['unit_fee']:,}원 → "
+                              f"2시간 초과 {fee['unit_min']}분당 {over2:,}원")
+    # 1일 주차권 — 조례는 노외주차장에만 받도록 정하고(구청장이 인정한 노상 포함), 24시간
+    #  운영 주차장은 입차부터 24시간이다.
+    if day:
+        fee["daily_fee"] = day
+    elif ref and not street:
+        fee["daily_fee"] = ref[3]
+        note_fixed.append(f"{name}: 1일 주차권 요금이 없어 조례 별표1 {label} 1일 주차요금으로 계산")
+        note_bits.append(f"표준데이터에 1일 주차권 요금이 없어 조례 별표1의 {label} 1일 주차요금"
+                         f"({fee['daily_fee']:,}원)을 상한으로 계산합니다")
+    # 월 정기권 — 등록값이 있으면 그 금액(전일), 없으면 조례의 주간 요금을 적는다.
+    if month:
+        fee["monthly_all"] = month
+        fee["monthly_label"] = "전일"
+    elif ref and not street:
+        fee["monthly_day"] = ref[4]
+        fee["monthly_night"] = ref[5]
+        fee["monthly_all"] = ref[4]
+        fee["monthly_label"] = "주간·조례 별표1"
+        note_bits.append(f"표준데이터에 월 정기권이 없어 조례 별표1의 주간 {ref[4]:,}원·야간 "
+                         f"{ref[5]:,}원을 함께 적었습니다")
+    fee["monthly"] = fee["monthly_all"]
+    # 급지 vs 등록요금 — 등록요금을 10분 환산해 조례 별표1과 견준다.
+    if ref and fee.get("base_fee") is not None and fee.get("base_min"):
+        _bin = fee["base_fee"] * 10 / fee["base_min"]
+        if abs(_bin - ref[0]) > 1 and abs(_bin - ref[1]) > 1:
+            grade_fixed.append(f"{name}: {label} 조례 {ref[0]:,}원(최초 10분)·{ref[1]:,}원(10분) ↔ "
+                               f"등록 {_bin:,.0f}원/10분")
+            note_bits.append(f"{label} 조례 별표1은 최초 10분 {ref[0]:,}원·10분 초과 후 매 10분 "
+                             f"{ref[1]:,}원인데, 이 주차장은 등록요금({fee['base_fee']:,}원/"
+                             f"{fee['base_min']}분)으로 계산합니다")
+    if raw_type == "혼합":
+        note_bits.append("요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다")
+    if grade_raw == "기타":
+        note_bits.append("급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다")
+    if "공한지" in note:
+        note_bits.append("사유지(공한지)를 빌려 구청이 운영하는 주차장입니다")
+    if "물건구입시" in note:
+        note_bits.append("특기사항의 ‘물건구입시 N시간 무료’는 그 상가에서 물건을 산 경우에만 "
+                         "해당하는 조건이라 계산에 넣지 않았습니다(현장 확인)")
+    if "공사중" in note:
+        note_bits.append("표준데이터에 ‘공사중’으로 적혀 있어 지금은 이용이 어려울 수 있습니다(현장 확인)")
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    fee["basis"] = ("표준데이터 등록요금(대전 10분 단위)" if raw_type != "혼합"
+                    else "표준데이터 등록요금 — 요금 구분 ‘혼합’")
+    if not street and fee.get("daily_fee"):
+        note_bits.append(f"1일 주차요금 {fee['daily_fee']:,}원 — 시간 요금이 이 금액을 넘으면 "
+                         "1일 주차요금을 받습니다")
+    return fee
+
+
+def build_daejeon_district(name: str):
+    """대전광역시 구 하나(동·중·서·유성·대덕구)를 표준데이터 + 시·구 조례로 추출한다."""
+    conf = DAEDEON_CONF[name]
+    city_name = conf["city"]
+    rows_all = read_csv_kr(STD_CSV)
+    rows_std = [r for r in rows_all if daejeon_district_of(r) == name]
+    rows_city = list(rows_std)
+
+    # 같은 자리·같은 이름·같은 면수로 두 번 등록된 스냅숏(기준일만 다른 행)을 걷어낸다.
+    #  대전은 한 지번에 서로 다른 노상 구간(제1노상·제2노상)과 다른 노외 주차장이 함께
+    #  등록된 곳이 많아, 이름·지번·면수가 모두 같을 때만 같은 시설로 본다.
+    def _name_key(r):
+        return re.sub(r"\s+", "", (r.get("주차장명") or ""))
+
+    def _plot_key(r):
+        j = (r.get("소재지지번주소") or "").strip().split(",")[0].strip()
+        while True:
+            _j2 = re.sub(r"\s*(번지|일원|외)$", "", j).strip()
+            if _j2 == j:
+                break
+            j = _j2
+        return j
+
+    _snap = {}
+    for _i, r in enumerate(rows_city):
+        _key = (_name_key(r), (r.get("주차장유형") or "").strip(), _plot_key(r),
+                to_int(r.get("주차구획수")) or 0)
+        _snap.setdefault(_key, []).append(_i)
+    _drop, merged = set(), []
+    for _key, _idxs in _snap.items():
+        if len(_idxs) < 2:
+            continue
+        _keep = max(_idxs, key=lambda i: (rows_city[i].get("데이터기준일자") or "",
+                                          to_int(rows_city[i].get("주차구획수")) or 0))
+        for _i in _idxs:
+            if _i == _keep:
+                continue
+            _drop.add(_i)
+            merged.append({"name": rows_city[_i]["주차장명"], "addr": daejeon_addr(rows_city[_i]),
+                           "spaces": to_int(rows_city[_i].get("주차구획수")),
+                           "note": "이름·지번·면수가 같은 옛 등록(스냅숏 중복)",
+                           "base_date": rows_city[_i].get("데이터기준일자"),
+                           "kept": rows_city[_keep].get("데이터기준일자"),
+                           "kept_spaces": to_int(rows_city[_keep].get("주차구획수"))})
+    rows_dedup = [r for i, r in enumerate(rows_city) if i not in _drop]
+
+    lots, excluded = [], []
+    note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed = [], [], [], [], []
+    for r in rows_dedup:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun == "민영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": "민영 주차장(공영 아님)"})
+            continue
+        _fix = DAEDEON_FIX.get((name, std_name))
+        if _fix and _fix.get("drop"):
+            excluded.append({"name": std_name, "reason": _fix["reason"]})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+
+        dong = daejeon_dong_of(jibun) or daejeon_dong_of(road)
+        dong_src = "지번주소" if daejeon_dong_of(jibun) else ("도로명주소" if dong else "없음")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        _raw_oper = (r.get("운영요일") or "").replace(" ", "")
+        _missing = []
+        for _day, _label in (("sat", "토요일"), ("sun", "일요일·공휴일")):
+            if oper.get(_day):
+                continue
+            _missing.append(_label)
+            hour_fixed.append(f"{std_name}: 운영요일 ‘{_raw_oper}’ → {_label} 미운영(등록값)")
+        if _missing and _raw_oper:
+            note_bits.append(f"표준데이터 운영요일이 ‘{_raw_oper}’로 등록되어 " + "·".join(_missing)
+                             + "은 운영일에서 빠져 있습니다(현장 확인)")
+        if "할인" in note or "감면" in note:
+            note_bits.append("감면 대상은 아래 계산기에서 골라 계산할 수 있습니다")
+        fee = daejeon_fee(r, conf, name, note_bits, note_fixed, grade_fixed)
+        free_days = parse_free_days(note)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        mgmt = (r.get("관리기관명") or "").strip()
+        oper_label = DAEDEON_OPERATORS.get(mgmt)
+        if oper_label:
+            note_bits.append(f"{oper_label} 주차장")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": city_name, "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": None,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": "", "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": parse_free_window(note), "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": city_name, "city_slug": conf["slug"],
+        })
+
+    # 이름이 같은 주차장이 다른 자리에 따로 있는 경우 — 카드에서 구분되도록 이름 뒤에
+    #  법정동과 번지를 붙인다(‘대동공영주차장’ 대동25-15·대동2-10).
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        for l in lots:
+            if l["name"] not in _name_dups:
+                continue
+            _beonji = ((l.get("addr_jibun") or "").split() or [""])[-1]
+            _suffix = (f"({l['dong']} {_beonji})" if l.get("dong") and _beonji else
+                       f"({l['dong']})" if l.get("dong") else f"({_beonji})" if _beonji else "")
+            if not _suffix:
+                continue
+            _note = (f"같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소"
+                     f"{_suffix}를 붙여 구분했습니다")
+            l["name"] = f"{l['name']}{_suffix}"
+            l["notice"] = " · ".join(x for x in (l.get("notice"), _note) if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소를 붙여 구분")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"dj-{conf['slug']}-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"dj-{conf['slug']}-s{n_street:03d}"
+
+    fee_table = daejeon_fee_table(name, conf, lots)
+    quality = check_quality_daejeon(name, rows_all, rows_std, rows_city, lots, excluded, merged,
+                                    note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-06",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-16 22:03 (KST)",
+        "note": (f"{name}로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 요금·운영시간·"
+                 "급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 "
+                 "상한으로 계산한다. 같은 주차장이 같은 이름·지번·면수로 두 번 등록된 행은 최근 값 "
+                 "하나만 남겼다."),
+    }
+    ord_url, ord_note = conf["ordinance"][1], conf["ordinance"][2]
+    _gu_ord_file = None
+    for _cand in (RAW / f"daejeon-{conf['slug']}.law.go.kr_주차장조례_별표1_20261118.txt",
+                  RAW / f"daejeon-{conf['slug']}.law.go.kr_주차장조례_20261118.txt"):
+        if _cand.exists():
+            _gu_ord_file = _cand
+            break
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance",
+            "name": "「대전광역시 주차장 조례」 별표1 공영주차장 주차요금표 · 제6조 주차요금의 경감",
+            "org": "대전광역시 교통정책과",
+            "url": DAEDEON_ORD_URL,
+            "file": DAEDEON_ORD1_TXT.name if DAEDEON_ORD1_TXT.exists() else None,
+            "sha256": sha256(DAEDEON_ORD1_TXT) if DAEDEON_ORD1_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": DAEDEON_ORD_NOTE,
+            "rows_total": None, "fetched_at": _sync_time(DAEDEON_ORD1_TXT),
+            "note": ("시장이 설치한 공영주차장에 적용하는 요금표다. 1~4급지 1구획 최초 10분 "
+                     "400·300·150·100원, 10분 초과 후 매 10분 300·200·150·100원, 2시간 초과 매 10분 "
+                     "600·400·300·200원(요금표 금액의 2배), 1일 주차권 12,000·8,700·6,500·2,400원, "
+                     "월 정기 주간 140,000·104,000·72,000·43,000원·야간 100,000·69,000·43,000·"
+                     "26,000원이다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:30이고 나머지가 야간이다. "
+                     "급지는 월평·둔산·용문·유성 지역이 1급지, 노은·월드컵경기장·원도심·용전동·"
+                     "만년동·탄방괴정동·서대전 지역이 2급지, 그 밖의 상업·준주거지역이 3급지, "
+                     "나머지가 4급지다. 제6조는 긴급·국가 소유 차·성실납세증 차를 면제하고, "
+                     "국가유공자·장애인·경차·고엽제환자·전통시장 상인과 고객·환경친화차·"
+                     "꿈나무사랑카드·승용차요일제·보훈보상대상자·한부모가족·병역명문가를 50퍼센트 "
+                     "경감한다."),
+        },
+        {
+            "id": "gu_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"],
+            "url": ord_url,
+            "file": _gu_ord_file.name if _gu_ord_file else None,
+            "sha256": sha256(_gu_ord_file) if _gu_ord_file else None,
+            "license": "자치법규(공개)", "base_date": ord_note,
+            "rows_total": None, "fetched_at": "2026-11-18 (KST)",
+            "note": f"구청장이 설치·관리하는 주차장에 적용하는 조례다. {conf['notes']}",
+        },
+    ]
+
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": DAEDEON_PROVINCE, "city": name},
+            "sources": sources,
+        },
+        "districts": [{"name": city_name, "slug": conf["slug"]}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update(CITY_META_DAEDEON[name] | {
+        "city": city_name,
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": DAEDEON_CITY_DISCOUNTS,
+        "realtime": False,
+    })
+    (DATA / f"daejeon_{conf['slug']}_parking.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+def daejeon_charge(fee, minutes):
+    """요금표의 1시간·2시간 예상요금(2시간 초과 누진·1일 주차요금 상한 적용)."""
+    if fee.get("base_min") is None or fee.get("base_fee") is None:
+        return None
+    raw = fee["base_fee"]
+    t = fee["base_min"]
+    unit = fee.get("unit_min") or 10
+    while t < minutes:
+        step = next((st["unit_fee"] for st in (fee.get("steps") or [])
+                     if st.get("until") is None or t < st["until"]),
+                    fee.get("unit_fee"))
+        if step is None:
+            return None
+        raw += step
+        t += unit
+    cap = fee.get("daily_fee")
+    return min(raw, cap) if cap else raw
+
+
+def daejeon_fee_table(name, conf, lots):
+    """급지별 10분 요금표 — 이 구 주차장의 등록값과 시·구 조례 별표1로 만든다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    by_grade = {}
+    for l in paid:
+        by_grade.setdefault(l["fee"]["grade"], []).append(l)
+    rows = []
+    for grade in ("1", "2", "3", "4"):
+        gl = by_grade.get(grade) or []
+        if not gl:
+            continue
+        pool = [l for l in gl if l["list_mode"] == "card"] or gl
+        key = Counter((l["fee"]["base_min"], l["fee"]["base_fee"]) for l in pool).most_common(1)[0][0]
+        sample = next(l for l in pool if (l["fee"]["base_min"], l["fee"]["base_fee"]) == key)
+        fees = [l["fee"]["base_fee"] * 10 / l["fee"]["base_min"] for l in gl
+                if l["fee"].get("base_fee") and l["fee"].get("base_min")]
+        if not key[1] and sample["fee"].get("unit_fee"):
+            # 유성구처럼 ‘최초 60분 0원 + 10분당 100원’으로 등록된 주차장.
+            unit_label = (f"최초 {key[0]}분 무료 후 {sample['fee']['unit_min']}분 "
+                          f"{sample['fee']['unit_fee']:,}원")
+        else:
+            unit_label = (f"{key[1]:,}원/{key[0]}분" if len(set(fees)) <= 1
+                          else f"{min(fees):,.0f}~{max(fees):,.0f}원/10분")
+        months = [l["fee"]["monthly_all"] for l in gl if l["fee"].get("monthly_all")]
+        days = [l["fee"]["daily_fee"] for l in gl if l["fee"].get("daily_fee")]
+        rows.append({
+            "label": f"{grade}급지", "grade": grade,
+            "unit_label": unit_label,
+            "hour": daejeon_charge(sample["fee"], 60),
+            "two_hour": daejeon_charge(sample["fee"], 120),
+            "day": (sorted(days)[len(days) // 2] if days else None),
+            "month": (sorted(months)[len(months) // 2] if months else None),
+            "lots": len(gl),
+        })
+    other = [l for l in paid if not l["fee"]["grade"]]
+    if other:
+        rows.append({"label": "급지 기타", "grade": "기타",
+                     "unit_label": "주차장별로 다름", "hour": None, "two_hour": None,
+                     "day": None, "month": None, "lots": len(other)})
+    city_rows = [{"label": f"{g}급지", "first10": v[0], "over10": v[1], "over2h": v[2],
+                  "day": v[3], "month_day": v[4], "month_night": v[5]}
+                 for g, v in DAEDEON_FEES.items()]
+    _ft = {
+        "style": "daejeon_grade",
+        "unit_min": 10,
+        "base_min": 10,
+        "applies": DAEDEON_ORD_NOTE,
+        "rows": rows,
+        "city_rows": city_rows,
+        "county": False,
+        "windows": [{"group": "주간", "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+                     "free": "나머지 시간이 야간이고, 요금은 주간·야간이 같다"}],
+        "notes": conf["notes"],
+        "corp": {
+            "paid": len([l for l in paid if l["list_mode"] == "card"]),
+            "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+            "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+            "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+            "si": len([l for l in lots if (l.get("manager") or "") == "대전광역시"]),
+            "gu": len([l for l in lots if (l.get("manager") or "") != "대전광역시"]),
+        },
+        "basis": (f"「대전광역시 주차장 조례」 별표1({DAEDEON_ORD_NOTE}) · "
+                  f"{conf['ordinance'][0]}({conf['ordinance'][2]}) · "
+                  "전국주차장정보표준데이터(2026-10-06 기준) 등록요금"),
+    }
+    return _ft
+
+
+def check_quality_daejeon(name, std_all, rows_std, rows_city, lots, excluded, merged,
+                          note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    conf = DAEDEON_CONF[name]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{name}행수": len(rows_std),
+        "원자료_받은행수": len(rows_city),
+        "구별": name,
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": hour_fixed,
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": grade_fixed,
+        "좌표_보정": [],
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": (f"「대전광역시 주차장 조례」 제6조(시장이 설치한 주차장)와 {conf['ordinance'][0]}"
+                      f"({conf['ordinance'][2]})"),
+        "무료시간_출처": ("대전광역시·구 조례 별표1은 별도의 최초 무료시간을 두지 않고 10분 단위로 "
+                          "요금을 매긴다(10분 미만은 10분으로 계산). 표준데이터에 ‘최초 N분 0원’으로 "
+                          "등록된 유성구 주차장만 그 시간을 무료로 계산했다"),
+        "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다",
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len(paid))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
 
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
@@ -24426,6 +25288,7 @@ def main():
           "busanbuk", "busangangseo", "busansuyeong", "busansasang", "busangijang",
           "daegujung", "daegudong", "daeguseo", "daegunam", "daegubuk",
           "daegususeong", "daegudalseo", "daegudalseong", "daegungunwi",
+          "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -24439,7 +25302,8 @@ def main():
                 "부산 연제구", "부산 북구", "부산 강서구", "부산 수영구", "부산 사상구",
                 "부산 기장군",
                 "대구 중구", "대구 동구", "대구 서구", "대구 남구", "대구 북구",
-                "대구 수성구", "대구 달서구", "대구 달성군", "대구 군위군"] if args.city == "all" else \
+                "대구 수성구", "대구 달서구", "대구 달성군", "대구 군위군",
+                "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -24481,7 +25345,9 @@ def main():
              "daegujung": ["대구 중구"], "daegudong": ["대구 동구"], "daeguseo": ["대구 서구"],
              "daegunam": ["대구 남구"], "daegubuk": ["대구 북구"],
              "daegususeong": ["대구 수성구"], "daegudalseo": ["대구 달서구"],
-             "daegudalseong": ["대구 달성군"], "daegungunwi": ["대구 군위군"]}[args.city])
+             "daegudalseong": ["대구 달성군"], "daegungunwi": ["대구 군위군"],
+             "daejeondong": ["대전 동구"], "daejeonjung": ["대전 중구"], "daejeonseo": ["대전 서구"],
+             "daejeonyuseong": ["대전 유성구"], "daejeondaedeok": ["대전 대덕구"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -24569,6 +25435,10 @@ def main():
                        ("달성군", "대구 달성군"), ("군위군", "대구 군위군")):
         if _city in want:
             cities.append(build_daegu_district(_gu))
+    for _gu, _city in (("동구", "대전 동구"), ("중구", "대전 중구"), ("서구", "대전 서구"),
+                       ("유성구", "대전 유성구"), ("대덕구", "대전 대덕구")):
+        if _city in want:
+            cities.append(build_daejeon_district(_gu))
 
     if args.city == "all":
         site = build_site_payload(cities)
