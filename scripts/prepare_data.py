@@ -288,6 +288,16 @@ def derive_free_fields(lot):
             fd["sat"] = True
         if sun:
             fd["sun"] = True
+    # 특기사항이 ‘토+일+공휴일 개방’이라고 적었는데 운영요일 칸에 그 요일이 없어 휴무로
+    # 계산되던 곳(부천시 부설주차장 20곳)은, 개방 문구를 따라 그날을 ‘개방(시간 미등록)’으로 둔다.
+    # 시간은 원자료에 없으므로 지어내지 않고 note_open 으로 표시만 한다.
+    for _day in ("sat", "sun"):
+        _h = (lot.get("hours") or {}).get(_day)
+        if _h and fd.get(_day) and not _h.get("open") and not _h.get("listed"):
+            _h["open"] = True
+            _h["start"] = _h["end"] = None
+            _h["note_open"] = True
+            lot.setdefault("oper", {})[_day] = True
     lot["free_holiday"] = bool(holiday)
     lot["free_day_note"] = raw
     fw = parse_free_window_min(lot.get("free_window"))

@@ -4609,6 +4609,9 @@ def hours_text(lot) -> str:
         h = hs[k]
         if not h["open"]:
             parts.append(f"{label} 휴무")
+        elif h.get("note_open"):
+            # 특기사항에 개방만 적히고 운영시간은 등록돼 있지 않은 날(부천시 부설 등)
+            parts.append(f"{label} 개방(시간 미등록)")
         elif free_weekend_city and k in ("sat", "sun") and lot["free_days"].get(k):
             parts.append(f"{label} 무료 개방")
         elif h["24h"]:
@@ -4976,7 +4979,7 @@ def nav_html(city, url, nav_active) -> str:
         opts.append(f'<optgroup label="{esc(prov)}">')
         for c in cities:
             sel = " selected" if city and c["city"] == city["city"] else ""
-            n = len(c.get("_lots") or [])
+            n = len(c.get("_card_lots") or [])
             opts.append(f'<option value="{url(city_path(c))}"{sel}>{esc(c["city"])} ({n}곳)</option>')
         opts.append('</optgroup>')
     if city and not is_city_wide(city):
@@ -5010,7 +5013,7 @@ def footer_directory(url) -> str:
             continue
         links = " · ".join(f'<a href="{url(city_path(c))}">{esc(c["city"])}</a>' for c in cities)
         blocks.append(f'<p><b>{esc(prov)}</b> {links}</p>')
-    total = sum(len(c.get("_lots") or []) for c in SITE_CITIES)
+    total = sum(len(c.get("_card_lots") or []) for c in SITE_CITIES)
     return ('<details class="foot-dir">'
             f'<summary>지역 전체 보기 — {len(SITE_CITIES)}개 시·군·구 · {total:,}곳</summary>'
             f'{"".join(blocks)}'
@@ -9327,15 +9330,17 @@ def city_free_path(city) -> str:
 
 def free_hub_link(city, path, lots=None) -> str:
     """목록 페이지 머리에서 무료 개방 허브로 가는 짧은 안내(5곳 이상일 때만)."""
-    n = free_counts(lots if lots is not None else (city.get("_lots") or []))["union"]
-    if n < 5:
+    c = free_counts(lots if lots is not None else (city.get("_card_lots") or []))
+    if c["union"] < 5:
         return ""
-    return (f'<p class="updated"><b>무료로 쓸 수 있는 주차장 {n}곳</b> — 요금 무료·주말·공휴일·야간 무료 개방. '
+    return (f'<p class="updated"><b>무료 개방 주차장</b> — 요금 구분 무료 {c["free"]}곳 · '
+            f'주말·공휴일 무료 {c["weekend"]}곳 · 야간 무료 {c["night"]}곳. '
             f'<a class="btn" href="{rel(path, city_free_path(city))}">무료 개방 목록 보기 →</a></p>')
 
 
 def city_free_count(city) -> int:
-    return free_counts(city.get("_lots") or city.get("_card_lots") or [])["union"]
+    """시·군·구의 무료로 쓸 수 있는 카드 주차장 수(노상 구간 제외 — 페이지에서 따로 적는다)."""
+    return free_counts(city.get("_card_lots") or [])["union"]
 
 
 # 애드센스 — 11-24 신청 전에는 enabled=false 이고, 이때는 빈 문자열을 돌려준다(코드가 페이지에 남지 않음).
@@ -9354,7 +9359,7 @@ def build_free_hub(site):
     지역 허브(/parking/{prov}/{city}/free/)로 바로 연결한다.
     """
     path = "/parking/free/"
-    all_lots = [l for c in site["cities"] for l in (c.get("_lots") or [])]
+    all_lots = [l for c in site["cities"] for l in (c.get("_card_lots") or [])]
     total = free_counts(all_lots)
     weekend = sorted([l for l in free_open_lots(all_lots)
                       if "주말" in lot_free_tags(l) or "공휴일" in lot_free_tags(l)],
@@ -9367,7 +9372,7 @@ def build_free_hub(site):
     for prov in province_order(site):
         cards = []
         for city in [c for c in site["cities"] if (c.get("province") or "지역") == prov]:
-            c = free_counts(city.get("_lots") or [])
+            c = free_counts(city.get("_card_lots") or [])
             if not c["union"]:
                 continue
             href = city_free_path(city) if c["union"] >= 5 else city_path(city)
@@ -9386,6 +9391,9 @@ def build_free_hub(site):
             for l in sorted(items, key=lambda x: -(x["spaces"] or 0))[:12])
         return rows
 
+    street_free_n = sum(
+        1 for c in site["cities"] for l in (c.get("_street_lots") or [])
+        if lot_free_tags(l) and not is_permit(l))
     top = sorted(free_open_lots(all_lots), key=lambda l: (-(l["spaces"] or 0)))[:40]
 
     def day_label(l):
@@ -9442,6 +9450,8 @@ def build_free_hub(site):
 <div class="note-box" style="margin-top:14px">
   <p><b>야간 무료 개방</b> {total['night']}곳 · <b>공휴일에만 무료</b> {len([l for l in free_open_lots(all_lots) if '공휴일' in lot_free_tags(l)])}곳.
   주차장 카드의 ‘무료’ 표기와 무료 시간을 함께 보세요.</p>
+  <p>노상(거리) 주차구간은 카드로 세지 않았습니다 — 무료로 쓸 수 있는 노상 구간 {street_free_n}곳은 각 지역의
+  <a href="{rel(path, '/parking/regions/')}">지역 페이지</a> 안 노상주차장 요금 페이지와 무료 개방 페이지 표에 있습니다.</p>
 </div>
 {ad_slot()}
 <nav class="free-tabs" aria-label="무료 개방 유형">
@@ -9498,7 +9508,8 @@ def build_city_free(city, site):
     그리면 위치·면수를 오해하기 쉽다(다른 페이지와 같은 규칙).
     """
     path = city_free_path(city)
-    lots = [l for l in (city.get("_lots") or [])]
+    # 통계와 목록은 카드(노외·부설) 기준으로 센다 — 노상 구간은 아래 표에서 따로 적는다.
+    lots = [l for l in (city.get("_card_lots") or [])]
     usable = free_open_lots(lots)
     c = free_counts(lots)
     weekend = [l for l in usable if "주말" in lot_free_tags(l) or "공휴일" in lot_free_tags(l)]
@@ -9543,7 +9554,8 @@ def build_city_free(city, site):
 {ad_slot()}
 <div class="note-box" style="margin-top:14px">
   <p><b>야간 무료</b> {len(night)}곳 · <b>공휴일 무료</b> {len([l for l in usable if '공휴일' in lot_free_tags(l)])}곳 ·
-  <b>요금 구분 무료</b> {len(free_type)}곳. 같은 주차장이 여러 항목에 들어갈 수 있습니다.
+  <b>요금 구분 무료</b> {len(free_type)}곳{' · 이 밖에 무료인 노상 구간 ' + str(len(street_free)) + '곳' if street_free else ''}.
+  같은 주차장이 여러 항목에 들어갈 수 있습니다.
   전체 목록·요금 계산기는 <a href="{rel(path, city_path(city))}">{esc(city['city'])} 공영주차장 전체</a>에서 볼 수 있습니다.</p>
 </div>
 <div class="toolbar">
@@ -9579,7 +9591,7 @@ def build_regions(site):
     for prov in province_order(site):
         rows = []
         for city in [c for c in site["cities"] if (c.get("province") or "지역") == prov]:
-            n = stats_for(city.get("_lots") or [])["n"]
+            n = len(city.get("_card_lots") or [])
             sub = []
             for d in ([] if is_city_wide(city) else city["districts"]):
                 dl = [l for l in (city.get("_card_lots") or []) if l["gu"] == d["name"]]

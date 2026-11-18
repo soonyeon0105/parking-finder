@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-18 08:53",
-  "generated_at_iso": "2026-11-18T08:53:31+09:00",
+  "generated_at": "2026-11-18 09:56",
+  "generated_at_iso": "2026-11-18T09:56:24+09:00",
   "snapshot_at": "2026-11-16 19:11",
   "region": {
    "province": "경기도",
@@ -6538,7 +6538,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-18 08:53",
+  "generated_at": "2026-11-18 09:56",
   "총_주차장": 72,
   "원자료_전국행수": 18994,
   "원자료_수원시행수": 59,
@@ -6711,7 +6711,7 @@
  "slug": "suwon",
  "province": "경기도",
  "province_slug": "gyeonggi",
- "dong_page_min_lots": 1,
+ "dong_page_min_lots": 3,
  "city": "수원시",
  "weekend_free_pages": true,
  "discounts": [

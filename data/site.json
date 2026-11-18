@@ -1,7 +1,7 @@
 {
  "ga_measurement_id": "G-X99KL3RGWD",
  "meta": {
-  "generated_at": "2026-11-18 09:33",
+  "generated_at": "2026-11-18 09:56",
   "snapshot_at": "2026-11-16 19:11",
   "provinces": [
    {
@@ -3351,7 +3351,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "총_주차장": 72,
     "원자료_전국행수": 18994,
     "원자료_수원시행수": 59,
@@ -3578,7 +3578,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_성남시행수": 164,
@@ -3765,7 +3765,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 214,
     "원자료_용인시행수": 214,
@@ -3959,7 +3959,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 127,
     "원자료_화성시행수": 127,
@@ -4098,7 +4098,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 107,
     "원자료_안양시행수": 107,
@@ -4285,7 +4285,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 161,
     "원자료_평택시행수": 161,
@@ -4452,7 +4452,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 109,
     "원자료_부천시행수": 109,
@@ -4671,7 +4671,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 88,
     "원자료_고양시행수": 88,
@@ -4876,7 +4876,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 84,
     "원자료_남양주시행수": 84,
@@ -5110,7 +5110,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 228,
     "원자료_안산시행수": 153,
@@ -5845,7 +5845,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 199,
     "원자료_시흥시행수": 199,
@@ -6208,7 +6208,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 72,
     "원자료_의정부시행수": 72,
@@ -6488,7 +6488,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_김포시행수": 50,
@@ -6735,7 +6735,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 155,
     "원자료_파주시행수": 155,
@@ -7014,7 +7014,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_광주시행수": 55,
@@ -7249,7 +7249,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 35,
     "원자료_하남시행수": 35,
@@ -7516,7 +7516,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 80,
     "원자료_군포시행수": 80,
@@ -7863,7 +7863,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 28,
     "원자료_광명시행수": 28,
@@ -8084,7 +8084,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 15,
     "원자료_구리시행수": 15,
@@ -8308,7 +8308,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 44,
     "원자료_오산시행수": 44,
@@ -8771,7 +8771,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 115,
     "원자료_이천시행수": 115,
@@ -9550,7 +9550,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 52,
     "원자료_안성시행수": 52,
@@ -9916,7 +9916,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 89,
     "원자료_양주시행수": 49,
@@ -10483,7 +10483,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 82,
     "원자료_포천시행수": 82,
@@ -10954,7 +10954,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 55,
     "원자료_의왕시행수": 55,
@@ -11631,7 +11631,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 40,
     "원자료_여주시행수": 40,
@@ -12265,7 +12265,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 64,
     "원자료_동두천시행수": 64,
@@ -12730,7 +12730,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 101,
     "원자료_과천시행수": 101,
@@ -13670,7 +13670,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 49,
     "원자료_가평군행수": 49,
@@ -14189,7 +14189,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 51,
     "원자료_양평군행수": 51,
@@ -14490,7 +14490,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 10,
     "원자료_연천군행수": 10,
@@ -14648,7 +14648,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 32,
     "원자료_종로구행수": 32,
@@ -14974,7 +14974,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 60,
     "원자료_중구행수": 60,
@@ -15357,7 +15357,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 26,
     "원자료_용산구행수": 26,
@@ -15615,7 +15615,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 68,
     "원자료_강남구행수": 68,
@@ -16088,7 +16088,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 39,
     "원자료_서초구행수": 39,
@@ -16369,7 +16369,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 25,
     "원자료_송파구행수": 25,
@@ -16672,7 +16672,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 23,
     "원자료_강동구행수": 23,
@@ -16941,7 +16941,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 31,
     "원자료_마포구행수": 31,
@@ -17295,7 +17295,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 41,
     "원자료_영등포구행수": 41,
@@ -17645,7 +17645,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 32,
     "원자료_서대문구행수": 32,
@@ -17933,7 +17933,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 60,
     "원자료_양천구행수": 60,
@@ -18294,7 +18294,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 37,
     "원자료_강서구행수": 37,
@@ -18647,7 +18647,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 1,
     "원자료_성동구행수": 1,
@@ -18965,7 +18965,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 18,
     "원자료_광진구행수": 18,
@@ -19216,7 +19216,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 22,
     "원자료_동대문구행수": 22,
@@ -19472,7 +19472,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 25,
     "원자료_중랑구행수": 25,
@@ -19726,7 +19726,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 12,
     "원자료_성북구행수": 12,
@@ -19965,7 +19965,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 36,
     "원자료_강북구행수": 36,
@@ -20275,7 +20275,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 44,
     "원자료_도봉구행수": 44,
@@ -20615,7 +20615,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 26,
     "원자료_노원구행수": 26,
@@ -20973,7 +20973,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 14,
     "원자료_은평구행수": 14,
@@ -21243,7 +21243,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 65,
     "원자료_구로구행수": 65,
@@ -21688,7 +21688,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 50,
     "원자료_금천구행수": 50,
@@ -22118,7 +22118,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 18,
     "원자료_동작구행수": 18,
@@ -22397,7 +22397,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 52,
     "원자료_관악구행수": 52,
@@ -22775,7 +22775,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 164,
     "원자료_미추홀구행수": 164,
@@ -23067,7 +23067,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 77,
     "원자료_연수구행수": 77,
@@ -23395,7 +23395,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 250,
     "원자료_남동구행수": 250,
@@ -24434,7 +24434,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 211,
     "원자료_제물포구행수": 211,
@@ -24811,7 +24811,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 13,
     "원자료_영종구행수": 13,
@@ -25117,7 +25117,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 87,
     "원자료_부평구행수": 87,
@@ -25442,7 +25442,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 73,
     "원자료_계양구행수": 73,
@@ -25802,7 +25802,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 19,
     "원자료_서해구행수": 19,
@@ -26063,7 +26063,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 0,
     "원자료_검단구행수": 0,
@@ -26315,7 +26315,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 61,
     "원자료_강화군행수": 61,
@@ -26529,7 +26529,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 48,
     "원자료_옹진군행수": 48,
@@ -26730,7 +26730,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 26,
     "원자료_중구행수": 26,
@@ -26997,7 +26997,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 43,
     "원자료_서구행수": 43,
@@ -27325,7 +27325,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 59,
     "원자료_동구행수": 59,
@@ -27553,7 +27553,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 31,
     "원자료_영도구행수": 31,
@@ -27788,7 +27788,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 9,
     "원자료_부산진구행수": 9,
@@ -28019,7 +28019,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 12,
     "원자료_동래구행수": 12,
@@ -28242,7 +28242,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 7,
     "원자료_남구행수": 7,
@@ -28502,7 +28502,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 166,
     "원자료_해운대구행수": 166,
@@ -29344,7 +29344,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 32,
     "원자료_사하구행수": 32,
@@ -29586,7 +29586,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 28,
     "원자료_금정구행수": 28,
@@ -29809,7 +29809,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 14,
     "원자료_연제구행수": 14,
@@ -30031,7 +30031,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 29,
     "원자료_북구행수": 29,
@@ -30273,7 +30273,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 97,
     "원자료_강서구행수": 97,
@@ -30865,7 +30865,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 7,
     "원자료_수영구행수": 7,
@@ -31103,7 +31103,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 32,
     "원자료_사상구행수": 32,
@@ -31372,7 +31372,7 @@
     }
    ],
    "quality": {
-    "generated_at": "2026-11-18 09:33",
+    "generated_at": "2026-11-18 09:56",
     "원자료_전국행수": 18994,
     "원자료_행수": 61,
     "원자료_기장군행수": 61,
@@ -118041,8 +118041,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -118057,26 +118057,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -118702,8 +118704,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -118718,26 +118720,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -121234,7 +121238,7 @@
    "oper": {
     "weekday": true,
     "sat": true,
-    "sun": false
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -121260,15 +121264,16 @@
      ]
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -121347,7 +121352,7 @@
    "oper": {
     "weekday": true,
     "sat": true,
-    "sun": false
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -121373,15 +121378,16 @@
      ]
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -121459,8 +121465,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -121475,26 +121481,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -121682,8 +121690,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -121698,26 +121706,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -122343,8 +122353,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -122359,26 +122369,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -122782,8 +122794,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -122798,26 +122810,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -123005,8 +123019,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -123021,26 +123035,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -123778,8 +123794,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -123794,26 +123810,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -123889,8 +123907,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -123905,26 +123923,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -124000,8 +124020,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -124016,26 +124036,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -124111,8 +124133,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -124127,26 +124149,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -124222,8 +124246,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -124238,26 +124262,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -124333,8 +124359,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -124349,26 +124375,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -124774,8 +124802,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -124790,26 +124818,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -126315,8 +126345,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -126331,26 +126361,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -128080,8 +128112,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -128096,26 +128128,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -128631,8 +128665,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -128647,26 +128681,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -129183,7 +129219,7 @@
    "oper": {
     "weekday": true,
     "sat": true,
-    "sun": false
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -129209,15 +129245,16 @@
      ]
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -154259,8 +154296,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -154275,26 +154312,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -170082,8 +170121,8 @@
    },
    "oper": {
     "weekday": true,
-    "sat": false,
-    "sun": false
+    "sat": true,
+    "sun": true
    },
    "hours": {
     "weekday": {
@@ -170098,26 +170137,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -269479,26 +269520,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -269735,26 +269778,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -269863,26 +269908,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -270591,26 +270638,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -270719,26 +270768,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271231,26 +271282,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271359,26 +271412,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271487,26 +271542,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271615,26 +271672,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271743,26 +271802,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271871,26 +271932,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -271999,26 +272062,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -272127,26 +272192,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -273756,26 +273823,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -273884,26 +273953,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -274012,26 +274083,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -274140,26 +274213,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -274268,26 +274343,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -274396,26 +274473,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
@@ -274524,26 +274603,28 @@
      ]
     },
     "sat": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     },
     "sun": {
-     "open": false,
-     "start": 0,
-     "end": 0,
+     "open": true,
+     "start": null,
+     "end": null,
      "24h": false,
      "listed": false,
      "raw": [
       "00:00",
       "00:00"
-     ]
+     ],
+     "note_open": true
     }
    },
    "free_days": {
