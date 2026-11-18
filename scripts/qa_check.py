@@ -4892,6 +4892,155 @@ for _u in ("https://parking.9welfare.com/parking/busan/jung-gu/",
 
 
 
+# ---------------------------------------------------------------- 대구광역시 구 (T-03 Phase 40)
+#  대구는 1~3급지이고, 시 조례 별표1(공단)은 10분 단위 600·350·200원·1일 14,000·8,000·4,000원,
+#  구 조례 별표1(구청)은 최초 30분 기본요금 + 30분 초과 10분마다 체계다.
+DAEGU_EXPECT = {
+    # 구: (슬러그, 카드, 노상 구간, 카드 3곳 이상 법정동 페이지, 구 조례 ordinSeq)
+    "대구 중구": {"slug": "jung-gu", "cards": 13, "street": 8,
+                "dong_pages": ["dongin-dong"], "ordin": "1883941"},
+    "대구 동구": {"slug": "dong-gu", "cards": 28, "street": 20,
+                "dong_pages": ["hyomok-dong", "jijeo-dong", "jinin-dong"], "ordin": "1509249"},
+    "대구 서구": {"slug": "seo-gu", "cards": 20, "street": 65,
+                "dong_pages": ["bisan-dong", "ihyeon-dong", "pyeongri-dong"], "ordin": "1927181"},
+    "대구 남구": {"slug": "nam-gu", "cards": 35, "street": 5,
+                "dong_pages": ["bongdeok-dong", "daemyeong-dong", "icheon-dong"], "ordin": "1913713"},
+    "대구 북구": {"slug": "buk-gu", "cards": 52, "street": 193,
+                "dong_pages": ["bokhyeon-dong", "chilseong-dong", "guam-dong", "gwaneum-dong",
+                               "nowon-dong", "sangyeok-dong"], "ordin": "1920431"},
+}
+_dg_pages = 0
+for _gu, _exp in DAEGU_EXPECT.items():
+    _slug = _exp["slug"]
+    _hub = DIST / "parking" / "daegu" / _slug / "index.html"
+    if not _hub.exists():
+        fails.append(f"대구 {_gu}: 구 페이지 없음")
+        continue
+    _dg_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"대구 {_gu}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    if "대구광역시" not in _h:
+        fails.append(f"대구 {_gu}: breadcrumb 에 대구광역시 없음")
+    if 'href="https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091151"' not in _h:
+        fails.append(f"대구 {_gu}: 대구광역시 조례 출처 링크 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"대구 {_gu}: 구 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if 'href="https://dgparking.or.kr/park/fee"' not in _h:
+        fails.append(f"대구 {_gu}: 대구시 주차포털 출처 링크 없음")
+    if 'href=""' in _h:
+        fails.append(f"대구 {_gu}: 빈 링크가 있음")
+    if "급지별 주차요금표" not in _h:
+        fails.append(f"대구 {_gu}: 급지별 주차요금표 없음")
+    if "대구광역시 조례 별표1" not in _h or "조례 별표1 — 구청이 맡은 주차장" not in _h:
+        fails.append(f"대구 {_gu}: 시·구 조례 별표1 표가 없음")
+    # 다른 시·도 자료가 섞이지 않았는지 — 대구 페이지에 부산·인천·서울 자료가 나오면 안 된다.
+    _main = _h.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    for _bad in ("부산광역시", "부산시설공단", "인천광역시", "서울특별시"):
+        if _bad in _main:
+            fails.append(f"대구 {_gu}: 본문에 다른 시·도 자료 ‘{_bad}’")
+    _street = _hub.parent / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"대구 {_gu}: 노상 페이지 없음")
+        else:
+            _dg_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"대구 {_gu}: 노상 페이지 행이 구간 수보다 적음")
+    for _d in _exp["dong_pages"]:
+        _dp = _hub.parent / _d / "index.html"
+        if not _dp.exists():
+            fails.append(f"대구 {_gu}: {_d} 법정동 페이지 없음")
+        else:
+            _dg_pages += 1
+    if _leaked_nan(_h):
+        fails.append(f"대구 {_gu}: 페이지에 None/nan 문자열")
+
+# 법정동 페이지는 카드 3곳 이상인 동에만 있어야 한다(빈 페이지 방지).
+for _gu, _exp in DAEGU_EXPECT.items():
+    _root = DIST / "parking" / "daegu" / _exp["slug"]
+    if not _root.exists():
+        continue
+    _have = {p.parent.name for p in _root.glob("*/index.html")
+             if p.parent.name not in ("street-parking", "free", _exp["slug"])}
+    if _have != set(_exp["dong_pages"]):
+        fails.append(f"대구 {_gu}: 법정동 페이지 {sorted(_have)} ≠ 기준 {sorted(_exp['dong_pages'])}")
+
+# 표본 계산 — 대구광역시·구 조례 별표1과 대구시 주차포털로 확인한 값.
+_dg_by_key = {(l["city"], l["name"]): l for l in LOTS if l.get("city") in DAEGU_EXPECT}
+for _city, _name, _min, _day, _want_state, _want in (
+        ("대구 중구", "삼덕네거리남편주차장", 60, "weekday", "paid", 3600),    # 시영 1급지 10분 600×6
+        ("대구 중구", "삼덕네거리남편주차장", 120, "weekday", "paid", 7000),   # 1일 7,000원 상한
+        ("대구 중구", "성내공영주차장", 120, "weekday", "paid", 5500),        # 구영 30분 1,000 + 10분 500
+        ("대구 중구", "성내공영주차장", 1440, "weekday", "paid", 10000),      # 1일 10,000원 상한
+        ("대구 중구", "성내공영주차장", 120, "sun", "closed", None),          # 평일만 운영
+        ("대구 중구", "서문주차빌딩 주차장", 120, "weekday", "paid", 3600),    # 전통시장 50% 10분 300
+        ("대구 중구", "국채보상운동기념공원주차장", 60, "weekday", "paid", 2160),  # 지역여건 40% 10분 360
+        ("대구 동구", "공항2공영주차장", 120, "weekday", "paid", 2400),        # 3급지 10분 200×12
+        ("대구 동구", "공항2공영주차장", 1440, "weekday", "paid", 4000),       # 3급지 1일 4,000
+        ("대구 동구", "동대구역맞이 주차장", 60, "weekday", "paid", 4000),     # 최초 20분 무료 뒤 10분 1,000
+        ("대구 동구", "미대동 공영주차장", 120, "weekday", "free", None),
+        ("대구 서구", "염색산업단지 제1공영주차장", 120, "weekday", "paid", 1200),  # 산업단지 50% 10분 100
+        ("대구 서구", "달서천복개도로공영주차장", 120, "weekday", "paid", 3100),    # 30분 400 + 10분 300
+        ("대구 남구", "앞산공원주차장", 120, "weekday", "paid", 1000),           # 공원 2시간 1,000
+        ("대구 남구", "앞산공원주차장", 240, "weekday", "paid", 2000),           # 공원 2시간 초과 2,000
+        ("대구 남구", "대명시장공영주차장", 120, "weekday", "paid", 2100),       # 경감 30분 300 + 10분 200
+        ("대구 북구", "신천둔치(공영)", 120, "weekday", "paid", 2750),          # 30분 500 + 10분 250
+        ("대구 북구", "칠성시장남편", 60, "weekday", "paid", 1250),             # 전통시장 30분 500
+        ("대구 북구", "임시공영(관음동)", 120, "weekday", "free", None),
+):
+    _lot = _dg_by_key.get((_city, _name))
+    if not _lot:
+        fails.append(f"대구 표본 주차장 없음: {_city} {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"대구 계산 불일치: {_city} {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 구 페이지 문구 — 급지·조례·공단 안내가 본문에 있어야 한다.
+_dg_texts = {
+    "jung-gu": ("1급지", "민영 주차장", "130행", "서문주차빌딩", "노상 8구간"),
+    "dong-gu": ("3급지", "동대구역 맞이주차장", "무료 주차장이 7곳", "갓바위"),
+    "seo-gu": ("염색산업단지", "서대구역 남편", "노상 65구간", "60구간이 무료"),
+    "nam-gu": ("남구 조례 별표1은 다른 구와 달리", "앞산공원주차장", "무료 주차장이 14곳", "1·2급지만"),
+    "buk-gu": ("칠성시장 주변 노상 8구간", "산업단지", "무료 186곳", "북구청앞1·2"),
+}
+for _slug, _needles in _dg_texts.items():
+    _hp = DIST / "parking" / "daegu" / _slug / "index.html"
+    if not _hp.exists():
+        fails.append(f"대구 페이지 없음: {_slug}")
+        continue
+    _t = _hp.read_text()
+    for _n in _needles:
+        if _n not in _t:
+            fails.append(f"대구 {_slug}: 문구 ‘{_n}’ 없음")
+    if _leaked_nan(_t):
+        fails.append(f"대구 {_slug}: 페이지에 None/nan 문자열")
+
+print(f"대구광역시 구 검사 완료 ({len(DAEGU_EXPECT)}개 구 · 페이지 {_dg_pages})")
+
+if 'id="daegu"' not in (DIST / "index.html").read_text():
+    fails.append("랜딩에 대구광역시 지역 묶음(#daegu) 없음")
+for _u in ("https://parking.9welfare.com/parking/daegu/jung-gu/",
+           "https://parking.9welfare.com/parking/daegu/jung-gu/dongin-dong/",
+           "https://parking.9welfare.com/parking/daegu/jung-gu/street-parking/",
+           "https://parking.9welfare.com/parking/daegu/dong-gu/",
+           "https://parking.9welfare.com/parking/daegu/dong-gu/jijeo-dong/",
+           "https://parking.9welfare.com/parking/daegu/dong-gu/street-parking/",
+           "https://parking.9welfare.com/parking/daegu/seo-gu/",
+           "https://parking.9welfare.com/parking/daegu/seo-gu/ihyeon-dong/",
+           "https://parking.9welfare.com/parking/daegu/seo-gu/street-parking/",
+           "https://parking.9welfare.com/parking/daegu/nam-gu/",
+           "https://parking.9welfare.com/parking/daegu/nam-gu/daemyeong-dong/",
+           "https://parking.9welfare.com/parking/daegu/nam-gu/street-parking/",
+           "https://parking.9welfare.com/parking/daegu/buk-gu/",
+           "https://parking.9welfare.com/parking/daegu/buk-gu/chilseong-dong/",
+           "https://parking.9welfare.com/parking/daegu/buk-gu/sangyeok-dong/",
+           "https://parking.9welfare.com/parking/daegu/buk-gu/street-parking/"):
+    if _u not in (DIST / "sitemap.xml").read_text():
+        fails.append(f"대구 주소가 사이트맵에 없음: {_u}")
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")

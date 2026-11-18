@@ -1,0 +1,9415 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 10:39",
+  "generated_at_iso": "2026-11-18T10:39:04+09:00",
+  "snapshot_at": "2026-11-18 10:39",
+  "region": {
+   "province": "대구광역시",
+   "city": "서구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 85,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "서구로 등록된 행 85행(노외·부설 20·노상 65)을 읽어 노외·부설 20곳과 노상 65구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 두 이름·두 시점으로 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「대구광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제2조의2 감면",
+    "org": "대구광역시 교통정책과(053-803-4882)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091151",
+    "file": "daegu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "fcef71c53b43a9d2b94b0177d867a8186e51bce4d24e99186eb07f879f128b80",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-12-10 · 대구광역시조례 제6420호(일부개정, 별표1은 2025-07-10 개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 10:25 (KST)",
+    "note": "시영(대구공공시설관리공단) 공영주차장에 적용하는 요금표다. 1~3급지 1구획 10분마다 600·350·200원, 1일 주차권 14,000·8,000·4,000원, 월정기 주간 100,000·80,000·40,000원·야간 75,000·60,000·30,000원이고, 공원시설 주차장은 2시간 이내 1,000원·2시간 초과 2,000원이다(어린이세상역앞 제외). 동대구역 맞이주차장은 최초 20분 무료 뒤 10분당 1,000원·1일 50,000원, 서대구역 남편·광장1은 최초 20분 무료 뒤 10분당 200원·1일 10,000원으로 따로 정한다. 급지는 도시철도역 출입구 반경 200m·중심상업지역 기초구역이 1급지, 역 400m·거점 버스정류소 200m·그 밖의 상업지역이 2급지, 나머지가 3급지다. 제2조의2는 장애인·국가유공자 등 2시간 면제 뒤 50퍼센트, 경차·환경친화 60퍼센트, 전통시장·승용차요일제·아이조아카드 50퍼센트, 성실납세증·우수자원봉사자 면제를 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「대구광역시 서구 주차장 설치 및 관리 조례」 제2조 주차요금·제2조의2 감면(별표1)",
+    "org": "서구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1927181",
+    "file": "daegu-seo-gu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "0bb673a10ca057be44d57b7bbf25d87b58445fd090bf39f46ce93728ed161693",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2024-05-10 · 대구광역시서구조례 제1474호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 서구 조례 별표1은 1~3급지 30분 기본요금 체계(1급지 1,000원·2급지 600원·3급지 400원, 30분 초과 10분마다 500·300·200원, 1일 10,000·6,000·4,000원, 월 주간 100,000·80,000·40,000원·야간 75,000·60,000·30,000원·주야 동시 120,000·100,000·50,000원)이고, 제2조의2가 감면을 정합니다. 서구는 표준데이터 85행 가운데 65구간이 노상인데 61곳이 무료(동네 주차장)이고, 염색산업단지 3곳은 산업단지 50퍼센트 할인(10분 100원)을 받습니다. 서대구역 주차장 3곳은 최초 20분 무료입니다."
+   },
+   {
+    "id": "dg_portal",
+    "name": "대구시 주차포털(dgparking.or.kr) 급지별·주차장별 요금표",
+    "org": "대구공공시설관리공단(1577-6446)",
+    "url": "https://dgparking.or.kr/park/fee",
+    "file": "dgparking.or.kr_주차장별_요금표_20261118.txt",
+    "sha256": "e34c29db7619b6c04d8026e089c64734f3e6ebe12f8a87a39766fd0a53e14100",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "2026-11-18 확인",
+    "rows_total": 164,
+    "fetched_at": "2026-11-18 10:25 (KST)",
+    "note": "대구공공시설관리공단이 맡은 공영주차장의 주차장별 요금표(164행)를 내려받아 급지·운영시간·10분 요금·1일 한도·휴일 운영·직영/민간위탁을 대조했다. 공단은 전통시장·지역여건·산업단지·환승 등 주차장별 할인을 따로 매기므로, 이 사이트는 표준데이터에 등록된 주차장별 요금으로 계산하고 차이가 큰 곳은 카드에 적었다. 급지별 기본 요금(1급지 10분 600원·2급지 350원·3급지 200원)은 시 조례 별표1과 같다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "대구 서구",
+   "slug": "seo-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dg-seo-gu-001",
+   "mgmt_no": "152-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내당4동공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 내당동 426-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "053-663-3034",
+   "lat": 35.85682079,
+   "lng": 128.5458873,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-002",
+   "mgmt_no": "152-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반고개무침회",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 내당동 885",
+   "addr_road": "대구광역시 서구 달구벌대로 1879-24(내당동)",
+   "road": null,
+   "spaces": 32,
+   "tel": "053-663-3034",
+   "lat": 35.86248561,
+   "lng": 128.5707592,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-003",
+   "mgmt_no": "152-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "달성토성",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 130-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "053-663-3034",
+   "lat": 35.87519411,
+   "lng": 128.5761551,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 1일 주차요금 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 120000,
+    "monthly_all": 120000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 120000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-004",
+   "mgmt_no": "152-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비산1동공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 716-42",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "053-663-3034",
+   "lat": 35.88100172,
+   "lng": 128.5688019,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-005",
+   "mgmt_no": "152-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비산6동공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 525-2",
+   "addr_road": "대구광역시 서구 문화로69길 23-2",
+   "road": null,
+   "spaces": 26,
+   "tel": "053-663-3034",
+   "lat": 35.87809316,
+   "lng": 128.5701114,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-006",
+   "mgmt_no": "152-2-000101",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서부시장 공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 434-7",
+   "addr_road": "대구광역시 서구 달서로30길 16-19",
+   "road": null,
+   "spaces": 46,
+   "tel": "053-567-1544",
+   "lat": 35.87553864,
+   "lng": 128.5729594,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-007",
+   "mgmt_no": "152-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "염색산업단지 제1공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 3184",
+   "addr_road": "대구광역시 서구 염색공단천로19길 26",
+   "road": null,
+   "spaces": 67,
+   "tel": "053-603-4064",
+   "lat": 35.88657326,
+   "lng": 128.544358,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(100원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 20000,
+    "monthly_all": 20000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2000,
+     "monthly": 20000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-008",
+   "mgmt_no": "152-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "염색산업단지 제2공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 2024-21",
+   "addr_road": "대구광역시 서구 염색공단천로11길 33",
+   "road": null,
+   "spaces": 88,
+   "tel": "053-603-4064",
+   "lat": 35.88770659,
+   "lng": 128.5497455,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(100원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 20000,
+    "monthly_all": 20000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2000,
+     "monthly": 20000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-009",
+   "mgmt_no": "152-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "염색산업단지 제3공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 2037-37",
+   "addr_road": "대구광역시 서구 염색공단천로13길 41",
+   "road": null,
+   "spaces": 96,
+   "tel": "053-603-4064",
+   "lat": 35.88353961,
+   "lng": 128.5509995,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(100원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 20000,
+    "monthly_all": 20000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2000,
+     "monthly": 20000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-010",
+   "mgmt_no": "152-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인동촌시장주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 비산동 71-17",
+   "addr_road": "대구광역시 서구 북비산로 74길 8",
+   "road": null,
+   "spaces": 41,
+   "tel": "053-603-4064",
+   "lat": 35.87859788,
+   "lng": 128.573928,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시 조례 별표1의 1급지은 10분 600원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(350원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 8,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 350,
+    "unit_min": 10,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 48000,
+    "monthly_all": 48000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 350,
+     "unit_min": 10,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 48000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 720,
+     "end": 1260,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "12:00",
+      "21:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 350,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-011",
+   "mgmt_no": "152-2-000100",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원대신시장공영주차장",
+   "gu": "대구 서구",
+   "dong": "원대동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 원대동3가 1300-36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "053-351-7614",
+   "lat": 35.885874,
+   "lng": 128.5753391,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/60분)으로 계산합니다 · 1일 주차요금 5,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-012",
+   "mgmt_no": "152-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "달서교하부주차장",
+   "gu": "대구 서구",
+   "dong": "이현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 이현동 423-3",
+   "addr_road": "대구광역시 서구 가르뱅이로6길",
+   "road": null,
+   "spaces": 80,
+   "tel": "053-603-4064",
+   "lat": 35.88088315,
+   "lng": 128.5338376,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일+토요일’로 등록되어 일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": 120,
+     "unit_fee": 1000,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-013",
+   "mgmt_no": "152-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서대구역 1주차장(4광장)",
+   "gu": "대구 서구",
+   "dong": "이현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 이현동 268-3",
+   "addr_road": "대구광역시 서구 북비산로 13길1",
+   "road": null,
+   "spaces": 124,
+   "tel": "053-603-4064",
+   "lat": 35.87961826,
+   "lng": 128.5407805,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 기본 20분 0원으로 등록되어 최초 20분은 무료이고 그 뒤 10분마다 200원입니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(0원/20분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 20,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 20,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-014",
+   "mgmt_no": "152-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서대구역 2주차장(3광장)",
+   "gu": "대구 서구",
+   "dong": "이현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 이현동 182-3",
+   "addr_road": "대구광역시 서구 문화로13길 39",
+   "road": null,
+   "spaces": 152,
+   "tel": "053-603-4064",
+   "lat": 35.877987,
+   "lng": 128.540653,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 기본 20분 0원으로 등록되어 최초 20분은 무료이고 그 뒤 10분마다 200원입니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(0원/20분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 20,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 20,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-015",
+   "mgmt_no": "152-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서대구역남편 공영주차장",
+   "gu": "대구 서구",
+   "dong": "이현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 이현동 236-1",
+   "addr_road": "대구광역시 서구 북비산로 55",
+   "road": null,
+   "spaces": 143,
+   "tel": "053-603-4064",
+   "lat": 35.88050022,
+   "lng": 128.5399797,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 기본 20분 0원으로 등록되어 최초 20분은 무료이고 그 뒤 10분마다 200원입니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(0원/20분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 20,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 20,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-016",
+   "mgmt_no": "152-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상리공원주차장",
+   "gu": "대구 서구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 중리동 1174-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "053-663-3034",
+   "lat": 35.86312705,
+   "lng": 128.5335732,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-017",
+   "mgmt_no": "152-2-000102",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신평리시장 공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 평리동 1206-1",
+   "addr_road": "대구광역시 서구 통학로17길 24",
+   "road": null,
+   "spaces": 37,
+   "tel": "053-566-4003",
+   "lat": 35.86796443,
+   "lng": 128.5609543,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 600,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-018",
+   "mgmt_no": "152-2-000099",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원고개시장 공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 평리동 764-10",
+   "addr_road": "대구광역시 서구 통학로46길 42-15",
+   "road": null,
+   "spaces": 32,
+   "tel": "053-552-2221",
+   "lat": 35.88018801,
+   "lng": 128.5677443,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(300원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 660,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 660,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 660,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "11:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-019",
+   "mgmt_no": "152-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평리1동공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 평리동 791-5",
+   "addr_road": "대구광역시 서구 문화로 303",
+   "road": null,
+   "spaces": 15,
+   "tel": "053-663-3034",
+   "lat": 35.87597604,
+   "lng": 128.5660678,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/60분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-020",
+   "mgmt_no": "152-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평리4동공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 서구 평리동 1207-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "053-663-3034",
+   "lat": 35.8684101,
+   "lng": 128.5612302,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,500원/60분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1500,
+    "unit_min": 30,
+    "unit_fee": 1000,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1500,
+     "unit_min": 30,
+     "unit_fee": 1000,
+     "day": 6000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1500,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s001",
+   "mgmt_no": "152-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "경운초등학교 인근",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 302-31",
+   "addr_road": "대구광역시 서구 서대구로11길 37",
+   "road": null,
+   "spaces": 30,
+   "tel": "053-663-3034",
+   "lat": 35.86197935,
+   "lng": 128.551888,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s002",
+   "mgmt_no": "152-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "다담뜰 유로주차장 주변",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 1291",
+   "addr_road": "대구광역시 서구 달구벌대로 1781-1",
+   "road": null,
+   "spaces": 73,
+   "tel": "053-663-3034",
+   "lat": 35.85889951,
+   "lng": 128.5597691,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s003",
+   "mgmt_no": "152-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달구벌대로337길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 459-11",
+   "addr_road": "대구광역시 서구 달구벌대로337길 19",
+   "road": null,
+   "spaces": 51,
+   "tel": "053-663-3034",
+   "lat": 35.85662447,
+   "lng": 128.5498622,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s004",
+   "mgmt_no": "152-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대구N타워 인근",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 219-10",
+   "addr_road": "대구광역시 서구 달구벌대로361길 3",
+   "road": null,
+   "spaces": 31,
+   "tel": "053-663-3034",
+   "lat": 35.85982639,
+   "lng": 128.561781,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s005",
+   "mgmt_no": "152-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대구두류초등학교 후문",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 213-19",
+   "addr_road": "대구광역시 서구 서대구로6길 22",
+   "road": null,
+   "spaces": 33,
+   "tel": "053-663-3034",
+   "lat": 35.86103344,
+   "lng": 128.560083,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s006",
+   "mgmt_no": "152-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼익뉴타운1차아파트 인근",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 356-1",
+   "addr_road": "대구광역시 서구 서대구로5길 63",
+   "road": null,
+   "spaces": 54,
+   "tel": "053-663-3034",
+   "lat": 35.859328,
+   "lng": 128.5496035,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s007",
+   "mgmt_no": "152-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼익뉴타운3차아파트인근",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 302-37",
+   "addr_road": "대구광역시 서구 평리로50길 9-1",
+   "road": null,
+   "spaces": 76,
+   "tel": "053-663-3034",
+   "lat": 35.86171573,
+   "lng": 128.5506908,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s008",
+   "mgmt_no": "152-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼익뉴타운아파트인근",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 341-7",
+   "addr_road": "대구광역시 서구 평리로42길 24(내당동)",
+   "road": null,
+   "spaces": 150,
+   "tel": "053-663-3034",
+   "lat": 35.85932516,
+   "lng": 128.5476652,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s009",
+   "mgmt_no": "152-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로3길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 463-54",
+   "addr_road": "대구광역시 서구 서대구로3길 59-24",
+   "road": null,
+   "spaces": 95,
+   "tel": "053-663-3034",
+   "lat": 35.85762495,
+   "lng": 128.549997,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s010",
+   "mgmt_no": "152-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로7길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 306-29",
+   "addr_road": "대구광역시 서구 서대구로7길 43",
+   "road": null,
+   "spaces": 77,
+   "tel": "053-663-3034",
+   "lat": 35.8605594,
+   "lng": 128.5516583,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s011",
+   "mgmt_no": "152-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "석화빌 앞",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 224-3",
+   "addr_road": "대구광역시 서구 서대구로4길 18-1",
+   "road": null,
+   "spaces": 38,
+   "tel": "053-663-3034",
+   "lat": 35.86023698,
+   "lng": 128.5589447,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s012",
+   "mgmt_no": "152-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "소망교회 앞",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 239-19",
+   "addr_road": "대구광역시 서구 서대구로10길 21",
+   "road": null,
+   "spaces": 76,
+   "tel": "053-663-3034",
+   "lat": 35.86347344,
+   "lng": 128.558681,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s013",
+   "mgmt_no": "152-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로2길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 64-5",
+   "addr_road": "대구광역시 서구 통학로2길 8-1",
+   "road": null,
+   "spaces": 47,
+   "tel": "053-663-3034",
+   "lat": 35.86117679,
+   "lng": 128.5653193,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s014",
+   "mgmt_no": "152-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "평리로52길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 341-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "053-663-3034",
+   "lat": 35.86146303,
+   "lng": 128.552253,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s015",
+   "mgmt_no": "152-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "평리로62길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 341-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "053-663-3034",
+   "lat": 35.86351194,
+   "lng": 128.5632779,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s016",
+   "mgmt_no": "152-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "홍실타운아파트 정문인근",
+   "gu": "대구 서구",
+   "dong": "내당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 내당동 24-35",
+   "addr_road": "대구광역시 서구 서대구로8길 50",
+   "road": null,
+   "spaces": 58,
+   "tel": "053-663-3034",
+   "lat": 35.86195437,
+   "lng": 128.562026,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s017",
+   "mgmt_no": "152-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서로16안길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 219-22",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "053-663-3034",
+   "lat": 35.869229,
+   "lng": 128.5728764,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s018",
+   "mgmt_no": "152-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서로43길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 575-1",
+   "addr_road": "대구광역시 서구 달서로43길 19(비산동)",
+   "road": null,
+   "spaces": 19,
+   "tel": "053-663-3034",
+   "lat": 35.8817917,
+   "lng": 128.5698889,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s019",
+   "mgmt_no": "152-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천로41길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 875",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "053-663-3034",
+   "lat": 35.8862321,
+   "lng": 128.5624536,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s020",
+   "mgmt_no": "152-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천로57길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 875",
+   "addr_road": "",
+   "road": null,
+   "spaces": 103,
+   "tel": "053-663-3034",
+   "lat": 35.8862321,
+   "lng": 128.5624536,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s021",
+   "mgmt_no": "152-1-000035",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천로61길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1199-7",
+   "addr_road": "대구광역시 서구 달서천로61길 34",
+   "road": null,
+   "spaces": 37,
+   "tel": "053-663-3034",
+   "lat": 35.88713971,
+   "lng": 128.5693522,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s022",
+   "mgmt_no": "152-1-000036",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천로61안길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1187-13",
+   "addr_road": "대구광역시 서구 달서천로61안길 26",
+   "road": null,
+   "spaces": 11,
+   "tel": "053-663-3034",
+   "lat": 35.88566755,
+   "lng": 128.570914,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s023",
+   "mgmt_no": "152-1-000037",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천로65길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1194-84",
+   "addr_road": "대구광역시 서구 달서천로65길 30",
+   "road": null,
+   "spaces": 14,
+   "tel": "053-663-3034",
+   "lat": 35.886826,
+   "lng": 128.5705527,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s024",
+   "mgmt_no": "152-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천복개도로공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 3418-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 504,
+   "tel": "053-663-3034",
+   "lat": 35.88298938,
+   "lng": 128.552069,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": 50000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 4000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s025",
+   "mgmt_no": "152-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대구제일고등학교 인근",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 258-11",
+   "addr_road": "대구광역시 서구 국채보상로78길 12",
+   "road": null,
+   "spaces": 42,
+   "tel": "053-663-3034",
+   "lat": 35.87101669,
+   "lng": 128.5728105,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s026",
+   "mgmt_no": "152-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "만평R남편주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1249-6",
+   "addr_road": "대구광역시 서구 서대구로 376",
+   "road": null,
+   "spaces": 58,
+   "tel": "053-603-4064",
+   "lat": 35.8889988,
+   "lng": 128.562426,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시 조례 별표1의 2급지은 10분 350원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(150원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 150,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": 50000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 150,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": 3000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 150,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s027",
+   "mgmt_no": "152-1-000038",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "북비산로51길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 816-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "053-663-3034",
+   "lat": 35.88161266,
+   "lng": 128.5607022,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s028",
+   "mgmt_no": "152-1-000041",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "북비산로65길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 698-83",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "053-663-3034",
+   "lat": 35.88335605,
+   "lng": 128.5689242,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s029",
+   "mgmt_no": "152-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "비산2.3동복개공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2744",
+   "addr_road": "대구광역시 서구 달성공원로 83",
+   "road": null,
+   "spaces": 57,
+   "tel": "053-663-3034",
+   "lat": 35.87727188,
+   "lng": 128.5778452,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 서구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 요금 구분이 ‘혼합’이라 적힌 운영시간에만 요금을 받습니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 120000,
+    "monthly_all": 120000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 120000
+    },
+    "basis": "표준데이터 등록요금 — 요금 구분 ‘혼합’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s030",
+   "mgmt_no": "152-1-000043",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로62길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 875",
+   "addr_road": "",
+   "road": null,
+   "spaces": 160,
+   "tel": "053-663-3034",
+   "lat": 35.8862321,
+   "lng": 128.5624536,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s031",
+   "mgmt_no": "152-1-000044",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로63안길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2008-198",
+   "addr_road": "대구광역시 서구 서대구로63안길 35",
+   "road": null,
+   "spaces": 74,
+   "tel": "053-663-3034",
+   "lat": 35.88521112,
+   "lng": 128.5534714,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s032",
+   "mgmt_no": "152-1-000045",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로64길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 875",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "053-663-3034",
+   "lat": 35.8862321,
+   "lng": 128.5624536,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s033",
+   "mgmt_no": "152-1-000048",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단로11길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2008-14",
+   "addr_road": "대구광역시 서구 염색공단로11길 27",
+   "road": null,
+   "spaces": 52,
+   "tel": "053-663-3034",
+   "lat": 35.88543505,
+   "lng": 128.5529004,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s034",
+   "mgmt_no": "152-1-000049",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단로21인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1890-1",
+   "addr_road": "대구광역시 서구 염색공단로 21",
+   "road": null,
+   "spaces": 79,
+   "tel": "053-663-3034",
+   "lat": 35.88815488,
+   "lng": 128.5535145,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s035",
+   "mgmt_no": "152-1-000050",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단로5길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1890-2",
+   "addr_road": "대구광역시 서구 염색공단로5길 4",
+   "road": null,
+   "spaces": 12,
+   "tel": "053-663-3034",
+   "lat": 35.88795844,
+   "lng": 128.5535554,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s036",
+   "mgmt_no": "152-1-000051",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단로7길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1890-60",
+   "addr_road": "대구광역시 서구 염색공단로7길 3",
+   "road": null,
+   "spaces": 16,
+   "tel": "053-663-3034",
+   "lat": 35.887654,
+   "lng": 128.5536259,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s037",
+   "mgmt_no": "152-1-000052",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단중앙로12길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2009-57",
+   "addr_road": "대구광역시 서구 염색공단중앙로12길 36",
+   "road": null,
+   "spaces": 110,
+   "tel": "053-663-3034",
+   "lat": 35.88519181,
+   "lng": 128.5523655,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s038",
+   "mgmt_no": "152-1-000053",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단중앙로14길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2010-2",
+   "addr_road": "대구광역시 서구 염색공단중앙로14길 23",
+   "road": null,
+   "spaces": 96,
+   "tel": "053-663-3034",
+   "lat": 35.88655447,
+   "lng": 128.5503535,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s039",
+   "mgmt_no": "152-1-000055",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단중앙로22길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2024-13",
+   "addr_road": "대구광역시 서구 염색공단천로11길 19",
+   "road": null,
+   "spaces": 109,
+   "tel": "053-663-3034",
+   "lat": 35.88879474,
+   "lng": 128.5487738,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s040",
+   "mgmt_no": "152-1-000056",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단중앙로23길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 2041-35",
+   "addr_road": "대구광역시 서구 염색공단중앙로23길 2",
+   "road": null,
+   "spaces": 121,
+   "tel": "053-663-3034",
+   "lat": 35.88847051,
+   "lng": 128.5452155,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s041",
+   "mgmt_no": "152-1-000057",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "염색공단천로3길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 1802",
+   "addr_road": "대구광역시 서구 염색공단천로3길 33",
+   "road": null,
+   "spaces": 55,
+   "tel": "053-663-3034",
+   "lat": 35.8892084,
+   "lng": 128.5539884,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s042",
+   "mgmt_no": "152-1-000059",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로50길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 764-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "053-663-3034",
+   "lat": 35.88210702,
+   "lng": 128.5634999684,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s043",
+   "mgmt_no": "152-1-000060",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로51길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 810",
+   "addr_road": "",
+   "road": null,
+   "spaces": 159,
+   "tel": "053-663-3034",
+   "lat": 35.88232758,
+   "lng": 128.5614542,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s044",
+   "mgmt_no": "152-1-000062",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "비산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 비산동 752-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "053-663-3034",
+   "lat": 35.88277903,
+   "lng": 128.5630792,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s045",
+   "mgmt_no": "152-1-000064",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가르뱅이로9길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "상리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 상리동 239-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "053-663-3034",
+   "lat": 35.88149984,
+   "lng": 128.5322859,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s046",
+   "mgmt_no": "152-1-000066",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "새방로25길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "상리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 상리동 554-6",
+   "addr_road": "대구광역시 서구 새방로25길 4(상리동)",
+   "road": null,
+   "spaces": 21,
+   "tel": "053-663-3034",
+   "lat": 35.8678521,
+   "lng": 128.5289992,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s047",
+   "mgmt_no": "152-1-000067",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "새방로27길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "상리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 상리동 472-1",
+   "addr_road": "대구광역시 서구 새방로27길 6(상리동)",
+   "road": null,
+   "spaces": 3,
+   "tel": "053-663-3034",
+   "lat": 35.868108,
+   "lng": 128.5292601,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s048",
+   "mgmt_no": "152-1-000071",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서천로인근",
+   "gu": "대구 서구",
+   "dong": "원대동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 원대동1가 258",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "053-663-3034",
+   "lat": 35.88053078,
+   "lng": 128.5777546,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s049",
+   "mgmt_no": "152-1-000074",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "달서초등학교 인근",
+   "gu": "대구 서구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 중리동 64-19",
+   "addr_road": "대구광역시 서구 국채보상로36길 28",
+   "road": null,
+   "spaces": 186,
+   "tel": "053-663-3034",
+   "lat": 35.86722262,
+   "lng": 128.5510421,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s050",
+   "mgmt_no": "152-1-000075",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "당산로69길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 중리동 756-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "053-663-3034",
+   "lat": 35.86715755,
+   "lng": 128.5447075,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s051",
+   "mgmt_no": "152-1-000078",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로25길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 중리동 730",
+   "addr_road": "대구광역시 서구 국채보상로156",
+   "road": null,
+   "spaces": 25,
+   "tel": "053-663-3034",
+   "lat": 35.86900755,
+   "lng": 128.5481281,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s052",
+   "mgmt_no": "152-1-000082",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "평리로35길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "중리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 중리동 765",
+   "addr_road": "",
+   "road": null,
+   "spaces": 89,
+   "tel": "053-663-3034",
+   "lat": 35.8641104,
+   "lng": 128.5433335,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s053",
+   "mgmt_no": "152-1-000083",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "국채보상로39길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1650",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "053-663-3034",
+   "lat": 35.87355027,
+   "lng": 128.54868,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s054",
+   "mgmt_no": "152-1-000084",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "국채보상로41길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1519-13",
+   "addr_road": "대구광역시 서구 국채보상로41길 16",
+   "road": null,
+   "spaces": 17,
+   "tel": "053-663-3034",
+   "lat": 35.87159754,
+   "lng": 128.5532165,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s055",
+   "mgmt_no": "152-1-000056",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대평리시장옆주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 684-29",
+   "addr_road": "대구광역시 서구 문화로 217",
+   "road": null,
+   "spaces": 49,
+   "tel": "053-603-4064",
+   "lat": 35.8757472,
+   "lng": 128.5562845,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시 조례 별표1의 2급지은 10분 350원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(175원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 175,
+    "unit_min": 10,
+    "unit_fee": 175,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 175,
+     "unit_min": 10,
+     "unit_fee": 175,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 175,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s056",
+   "mgmt_no": "152-1-000057",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "북비산R서편주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 657-24",
+   "addr_road": "대구광역시 서구 북비산로 301",
+   "road": null,
+   "spaces": 18,
+   "tel": "053-603-4064",
+   "lat": 35.87963479,
+   "lng": 128.5661795,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 350,
+    "unit_min": 10,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": 60000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 350,
+     "unit_min": 10,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 60000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 350,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s057",
+   "mgmt_no": "152-1-000090",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "북비산로61길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 764-20",
+   "addr_road": "대구광역시 서구 북비산로61길 6-1(평리동)",
+   "road": null,
+   "spaces": 43,
+   "tel": "053-663-3034",
+   "lat": 35.88012316,
+   "lng": 128.5671826,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s058",
+   "mgmt_no": "152-1-000091",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서대구로18길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1353-5",
+   "addr_road": "대구광역시 서구 서대구로18길 13",
+   "road": null,
+   "spaces": 35,
+   "tel": "053-663-3034",
+   "lat": 35.86576414,
+   "lng": 128.5574327,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s059",
+   "mgmt_no": "152-1-000095",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서도초등학교 인근",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1179-64",
+   "addr_road": "대구광역시 서구 통학로16길 17",
+   "road": null,
+   "spaces": 67,
+   "tel": "053-663-3034",
+   "lat": 35.86751782,
+   "lng": 128.5662447,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s060",
+   "mgmt_no": "152-1-000096",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로18길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1174-118",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "053-663-3034",
+   "lat": 35.8684511,
+   "lng": 128.5658219,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s061",
+   "mgmt_no": "152-1-000097",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로20길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1174-86",
+   "addr_road": "대구광역시 서구 통학로20길 20",
+   "road": null,
+   "spaces": 35,
+   "tel": "053-663-3034",
+   "lat": 35.86918652,
+   "lng": 128.5662087,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s062",
+   "mgmt_no": "152-1-000058",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통학로24길인근 노상공영주차장",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1678",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "053-663-3034",
+   "lat": 35.87124163,
+   "lng": 128.5654733,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s063",
+   "mgmt_no": "152-1-000092",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "평리5동경로당 인근",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1517-5",
+   "addr_road": "대구광역시 서구 서대구로31길 13",
+   "road": null,
+   "spaces": 22,
+   "tel": "053-663-3034",
+   "lat": 35.87176112,
+   "lng": 128.5525817,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1110,
+     "end": 1440,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "18:30",
+      "08:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s064",
+   "mgmt_no": "152-1-000040",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "풍년막창 인근",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 657-17",
+   "addr_road": "대구광역시 서구 북비산로59길 4",
+   "road": null,
+   "spaces": 14,
+   "tel": "053-663-3034",
+   "lat": 35.87973677,
+   "lng": 128.5655853,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  },
+  {
+   "id": "dg-seo-gu-s065",
+   "mgmt_no": "152-1-000085",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한국폴리텍6대학 운동장 인근",
+   "gu": "대구 서구",
+   "dong": "평리동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 서구 평리동 1494-26",
+   "addr_road": "대구광역시 서구 국채보상로43길 30",
+   "road": null,
+   "spaces": 44,
+   "tel": "053-663-3034",
+   "lat": 35.87379548,
+   "lng": 128.5540141,
+   "base_date": "2026-04-20",
+   "manager": "대구광역시 서구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(서구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 서구",
+   "city_slug": "seo-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 10:39",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 85,
+  "원자료_서구행수": 85,
+  "원자료_받은행수": 85,
+  "구별": "서구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 20,
+  "노외_부설": {
+   "노외": 20
+  },
+  "노상_구간": 65,
+  "총_구획수": 1135,
+  "노상_구획수": 3918,
+  "동별": {
+   "비산동": 8,
+   "이현동": 4,
+   "평리동": 4,
+   "내당동": 2,
+   "원대동": 1,
+   "중리동": 1
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 20
+  },
+  "요금구분": {
+   "유료": 24,
+   "무료": 61
+  },
+  "요금_미상": [],
+  "유료_노상": 5,
+  "유료_노외": 19,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "달서교하부주차장: 운영요일 ‘평일+토요일’ → 일요일·공휴일 미운영(등록값)",
+   "인동촌시장주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "인동촌시장주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "북비산R서편주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "북비산R서편주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "대평리시장옆주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "대평리시장옆주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)"
+  ],
+  "등록값_차이": [
+   "서대구역 2주차장(3광장): 기본 20분 0원으로 등록되어 최초 20분 무료로 계산",
+   "서대구역 1주차장(4광장): 기본 20분 0원으로 등록되어 최초 20분 무료로 계산",
+   "서대구역남편 공영주차장: 기본 20분 0원으로 등록되어 최초 20분 무료로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "원대신시장공영주차장: 2급지 조례 300원/10분 ↔ 등록 167원/10분",
+   "평리4동공영주차장: 2급지 조례 300원/10분 ↔ 등록 250원/10분",
+   "신평리시장 공영주차장: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "비산2.3동복개공영주차장: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "평리1동공영주차장: 2급지 조례 300원/10분 ↔ 등록 167원/10분",
+   "원고개시장 공영주차장: 2급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "비산1동공영주차장: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "서부시장 공영주차장: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "비산6동공영주차장: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "달서천복개도로공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "반고개무침회: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "내당4동공영주차장: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "달성토성: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "서대구역 2주차장(3광장): 3급지 조례 200원/10분 ↔ 등록 0원/10분",
+   "서대구역 1주차장(4광장): 3급지 조례 200원/10분 ↔ 등록 0원/10분",
+   "염색산업단지 제3공영주차장: 3급지 조례 200원/10분 ↔ 등록 100원/10분",
+   "염색산업단지 제2공영주차장: 3급지 조례 200원/10분 ↔ 등록 100원/10분",
+   "염색산업단지 제1공영주차장: 3급지 조례 200원/10분 ↔ 등록 100원/10분",
+   "서대구역남편 공영주차장: 3급지 조례 200원/10분 ↔ 등록 0원/10분",
+   "만평R남편주차장: 2급지 조례 350원/10분 ↔ 등록 150원/10분",
+   "인동촌시장주차장: 1급지 조례 600원/10분 ↔ 등록 350원/10분",
+   "대평리시장옆주차장: 2급지 조례 350원/10분 ↔ 등록 175원/10분"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「대구광역시 주차장 설치 및 관리 조례」 제2조의2, 구영은 「대구광역시 서구 주차장 설치 및 관리 조례」 제2조 주차요금·제2조의2 감면(별표1)(시행 2024-05-10 · 대구광역시서구조례 제1474호(일부개정))",
+  "무료시간_출처": "대구광역시·구 조례 별표1은 최초 무료시간을 두지 않고 30분(구영)·10분(시영) 단위로 요금을 매긴다. 서대구역 남편·광장1과 동대구역 맞이주차장만 최초 20분이 무료이고, 표준데이터 특기사항에 ‘N분 무료’가 적힌 곳은 그 시간을 뺐다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼고, 공단 주차포털의 휴일 운영(토·일 무료 여부)과 다른 곳은 카드에 등록값을 적었다",
+  "무료개방_표기": [],
+  "무료_요금구분": 61,
+  "무료_구획수": 3279,
+  "평균_기본요금": 505,
+  "토요일_미운영": 3,
+  "일공휴일_미운영": 4,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "152-2-000004",
+   "152-1-000020",
+   "152-1-000056",
+   "152-1-000057"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-15",
+   "2026-04-20"
+  ],
+  "공단안내_주차장": [
+   "염색산업단지 제1공영주차장",
+   "염색산업단지 제2공영주차장",
+   "염색산업단지 제3공영주차장",
+   "인동촌시장주차장",
+   "달서교하부주차장",
+   "서대구역 1주차장(4광장)",
+   "서대구역 2주차장(3광장)",
+   "서대구역남편 공영주차장",
+   "만평R남편주차장",
+   "대평리시장옆주차장",
+   "북비산R서편주차장"
+  ]
+ },
+ "fee_table": {
+  "style": "daegu_grade",
+  "unit_min": 10,
+  "applies": "2025-07-10",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "1",
+    "unit_label": "333~350원/10분",
+    "hour": 2500,
+    "two_hour": 5500,
+    "day": 10000,
+    "month": 120000,
+    "lots": 3
+   },
+   {
+    "label": "2급지",
+    "grade": "2",
+    "unit_label": "100~350원/10분",
+    "hour": 1500,
+    "two_hour": 3300,
+    "day": 6000,
+    "month": 80000,
+    "lots": 13
+   },
+   {
+    "label": "3급지",
+    "grade": "3",
+    "unit_label": "100~133원/10분",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 4000,
+    "month": 40000,
+    "lots": 7
+   },
+   {
+    "label": "급지 기타",
+    "grade": "기타",
+    "unit_label": "주차장별로 다름",
+    "hour": null,
+    "two_hour": null,
+    "day": null,
+    "month": null,
+    "lots": 1
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "unit": 600,
+    "day": 14000,
+    "month_day": 100000,
+    "month_night": 75000
+   },
+   {
+    "label": "2급지",
+    "unit": 350,
+    "day": 8000,
+    "month_day": 80000,
+    "month_night": 60000
+   },
+   {
+    "label": "3급지",
+    "unit": 200,
+    "day": 4000,
+    "month_day": 40000,
+    "month_night": 30000
+   }
+  ],
+  "gu_rows": [
+   {
+    "label": "1급지",
+    "base30": 1000,
+    "unit10": 500,
+    "day": 10000,
+    "month_day": 100000,
+    "month_night": 75000
+   },
+   {
+    "label": "2급지",
+    "base30": 600,
+    "unit10": 300,
+    "day": 6000,
+    "month_day": 80000,
+    "month_night": 60000
+   },
+   {
+    "label": "3급지",
+    "base30": 400,
+    "unit10": 200,
+    "day": 4000,
+    "month_day": 40000,
+    "month_night": 30000
+   }
+  ],
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+    "free": "조례에 시각을 숫자로 두지 않고 시장·구청장이 따로 정한다"
+   }
+  ],
+  "notes": "서구 조례 별표1은 1~3급지 30분 기본요금 체계(1급지 1,000원·2급지 600원·3급지 400원, 30분 초과 10분마다 500·300·200원, 1일 10,000·6,000·4,000원, 월 주간 100,000·80,000·40,000원·야간 75,000·60,000·30,000원·주야 동시 120,000·100,000·50,000원)이고, 제2조의2가 감면을 정합니다. 서구는 표준데이터 85행 가운데 65구간이 노상인데 61곳이 무료(동네 주차장)이고, 염색산업단지 3곳은 산업단지 50퍼센트 할인(10분 100원)을 받습니다. 서대구역 주차장 3곳은 최초 20분 무료입니다",
+  "corp": {
+   "paid": 19,
+   "free": 61,
+   "unknown": 0,
+   "street_paid": 5,
+   "si": 11,
+   "gu": 74,
+   "park": 0
+  },
+  "basis": "「대구광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-12-10 · 대구광역시조례 제6420호(일부개정, 별표1은 2025-07-10 개정)) · 「대구광역시 서구 주차장 설치 및 관리 조례」 제2조 주차요금·제2조의2 감면(별표1)(시행 2024-05-10 · 대구광역시서구조례 제1474호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "seo-gu",
+ "province": "대구광역시",
+ "province_slug": "daegu",
+ "dong_page_min_lots": 3,
+ "city": "대구 서구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인·국가유공자·고엽제후유의증 환자가 자가운전하거나 동승한 차 — 하루 한 번 2시간 면제, 2시간 초과분 50퍼센트(서구 조례 제2조의2②)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "경형자동차(배기량 1,000cc 미만) 60퍼센트(제2조의2③1호)"
+  },
+  {
+   "label": "환경친화·저공해 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환경친화적·저공해자동차 표지 부착 차 60퍼센트(제2조의2③6호)"
+  },
+  {
+   "label": "임산부 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부가 탑승한 비사업용 차(육안 식별 또는 임산부 수첩 제시) 50퍼센트"
+  },
+  {
+   "label": "아이조아카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "아이조아카드를 소지한 사람의 비사업용 차 50퍼센트"
+  },
+  {
+   "label": "전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "구청장이 지정한 전통시장 안 주차장과 그 인근 주차장 50퍼센트 — 원대신시장·신평리시장·서부시장·원고개시장이 해당합니다"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차요일제 전자태그를 붙이고 참여일을 지킨 차 50퍼센트"
+  },
+  {
+   "label": "성실납세증·우수자원봉사자 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "성실납세증을 붙인 차(1년), 우수자원봉사자증 소지자가 봉사활동으로 주차한 경우(1일 1회 4시간 이내) — 면제(제2조의2①)"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인 등록증 소지자(본인 운전·동승), 국가유공자 상이자, 고엽제후유증·후유의증 환자, 병역명문가, 의상자, 장기·인체조직 기증자 — 1일 1회 2시간까지 면제, 2시간 초과분과 1일·월 정기권은 50퍼센트(조례 제2조의2②)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000cc 미만) 60퍼센트"
+  },
+  {
+   "label": "환경친화·저공해 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환경친화적 자동차·저공해자동차 표지를 부착한 차 60퍼센트 — 전기자동차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 전통시장 활성화를 위해 지정한 전통시장 안 주차장과 그 인근 주차장 50퍼센트 (조례 제2조의2③2호)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 교통유발부담금 경감 등에 관한 조례」 제2조제6호 승용차요일제 참여 차량이 참여일을 지킨 경우 50퍼센트"
+  },
+  {
+   "label": "아이조아카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 출산장려 및 양육지원에 관한 조례」 제13조 아이조아카드를 소지한 사람의 비사업용 차량 50퍼센트"
+  },
+  {
+   "label": "성실납세증·우수자원봉사자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 소유 차, 시장·국세청장이 발급한 성실납세증을 붙인 차(1년), 우수자원봉사자증(연 50시간 이상) 소지자가 봉사활동으로 당일 주차한 경우 — 면제(조례 제2조의2①)"
+  }
+ ],
+ "realtime": false
+}

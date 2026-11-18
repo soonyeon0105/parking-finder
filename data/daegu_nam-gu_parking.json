@@ -1,0 +1,4718 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 10:39",
+  "generated_at_iso": "2026-11-18T10:39:04+09:00",
+  "snapshot_at": "2026-11-18 10:39",
+  "region": {
+   "province": "대구광역시",
+   "city": "남구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 40,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "남구로 등록된 행 40행(노외·부설 35·노상 5)을 읽어 노외·부설 35곳과 노상 5구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 두 이름·두 시점으로 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「대구광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제2조의2 감면",
+    "org": "대구광역시 교통정책과(053-803-4882)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091151",
+    "file": "daegu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "fcef71c53b43a9d2b94b0177d867a8186e51bce4d24e99186eb07f879f128b80",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-12-10 · 대구광역시조례 제6420호(일부개정, 별표1은 2025-07-10 개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 10:25 (KST)",
+    "note": "시영(대구공공시설관리공단) 공영주차장에 적용하는 요금표다. 1~3급지 1구획 10분마다 600·350·200원, 1일 주차권 14,000·8,000·4,000원, 월정기 주간 100,000·80,000·40,000원·야간 75,000·60,000·30,000원이고, 공원시설 주차장은 2시간 이내 1,000원·2시간 초과 2,000원이다(어린이세상역앞 제외). 동대구역 맞이주차장은 최초 20분 무료 뒤 10분당 1,000원·1일 50,000원, 서대구역 남편·광장1은 최초 20분 무료 뒤 10분당 200원·1일 10,000원으로 따로 정한다. 급지는 도시철도역 출입구 반경 200m·중심상업지역 기초구역이 1급지, 역 400m·거점 버스정류소 200m·그 밖의 상업지역이 2급지, 나머지가 3급지다. 제2조의2는 장애인·국가유공자 등 2시간 면제 뒤 50퍼센트, 경차·환경친화 60퍼센트, 전통시장·승용차요일제·아이조아카드 50퍼센트, 성실납세증·우수자원봉사자 면제를 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「대구광역시 남구 주차장 설치 및 관리 조례」 제3조 주차요금(별표1)",
+    "org": "남구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1913713",
+    "file": "daegu-nam-gu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "624064518046c488a4d67ab75890db865ab0fa969c0958ccfb9d7ad8a16fabde",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2024-03-20 · 대구광역시남구조례 제1518호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 남구 조례 별표1(2024-03-20 개정)은 다른 구와 달리 1·2급지만 두고 1급지 최초 30분 600원·10분마다 300원·1일 6,000원·월 주간 80,000원, 2급지 400원·200원·4,000원·40,000원입니다. 비고6은 구청장이 도시교통수요 관리를 위해 필요하다고 인정한 주차장의 요금을 50퍼센트까지 경감할 수 있게 해, 대명동·봉덕동 동네 주차장과 시장 주차장이 30분 300원·200원으로 등록되어 있습니다. 표준데이터 40행 가운데 14곳은 무료입니다."
+   },
+   {
+    "id": "dg_portal",
+    "name": "대구시 주차포털(dgparking.or.kr) 급지별·주차장별 요금표",
+    "org": "대구공공시설관리공단(1577-6446)",
+    "url": "https://dgparking.or.kr/park/fee",
+    "file": "dgparking.or.kr_주차장별_요금표_20261118.txt",
+    "sha256": "e34c29db7619b6c04d8026e089c64734f3e6ebe12f8a87a39766fd0a53e14100",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "2026-11-18 확인",
+    "rows_total": 164,
+    "fetched_at": "2026-11-18 10:25 (KST)",
+    "note": "대구공공시설관리공단이 맡은 공영주차장의 주차장별 요금표(164행)를 내려받아 급지·운영시간·10분 요금·1일 한도·휴일 운영·직영/민간위탁을 대조했다. 공단은 전통시장·지역여건·산업단지·환승 등 주차장별 할인을 따로 매기므로, 이 사이트는 표준데이터에 등록된 주차장별 요금으로 계산하고 차이가 큰 곳은 카드에 적었다. 급지별 기본 요금(1급지 10분 600원·2급지 350원·3급지 200원)은 시 조례 별표1과 같다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "대구 남구",
+   "slug": "nam-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dg-nam-gu-001",
+   "mgmt_no": "153-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관문시장(2)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1150-3",
+   "addr_road": "대구광역시 남구 대명서로 122",
+   "road": null,
+   "spaces": 53,
+   "tel": "",
+   "lat": 35.83407147,
+   "lng": 128.558243,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-002",
+   "mgmt_no": "153-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관문시장공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1158-9",
+   "addr_road": "대구광역시 남구 관문시장1길 36",
+   "road": null,
+   "spaces": 98,
+   "tel": "",
+   "lat": 35.836169,
+   "lng": 128.5591306,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-003",
+   "mgmt_no": "153-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명1동(2)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1673-22",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "",
+   "lat": 35.8426232,
+   "lng": 128.5788178,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 1급지 1일 주차요금(6,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 80,000원을 함께 적었습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/90분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-004",
+   "mgmt_no": "153-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명1동공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 794-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.84093821,
+   "lng": 128.577694,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-005",
+   "mgmt_no": "153-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명2동공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1803-10",
+   "addr_road": "대구광역시 남구 중앙대로45길 57",
+   "road": null,
+   "spaces": 29,
+   "tel": "",
+   "lat": 35.85511649,
+   "lng": 128.5893588,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-006",
+   "mgmt_no": "153-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명4동(2)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 3010-40",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "",
+   "lat": 35.84899938,
+   "lng": 128.5767758,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-007",
+   "mgmt_no": "153-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명4동(3)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 3038-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.84713174,
+   "lng": 128.571494,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-008",
+   "mgmt_no": "153-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명4동공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 3029-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "",
+   "lat": 35.84526906,
+   "lng": 128.5740434,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 1급지 1일 주차요금(6,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 80,000원을 함께 적었습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/90분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 150,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-009",
+   "mgmt_no": "153-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대명시장공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 2277-2",
+   "addr_road": "대구광역시 남구 명덕로10길 13",
+   "road": null,
+   "spaces": 43,
+   "tel": "",
+   "lat": 35.85840069,
+   "lng": 128.576429,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-010",
+   "mgmt_no": "153-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "바다맛길공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1225-31",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "",
+   "lat": 35.8404153,
+   "lng": 128.560434,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-011",
+   "mgmt_no": "153-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성당시장공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 3024-6",
+   "addr_road": "대구광역시 남구 대경길 342",
+   "road": null,
+   "spaces": 61,
+   "tel": "",
+   "lat": 35.849558,
+   "lng": 128.5736995,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-012",
+   "mgmt_no": "153-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안지랑곱창(1)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 902-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.8385016,
+   "lng": 128.5761934,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-013",
+   "mgmt_no": "153-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안지랑곱창(2)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 874-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "",
+   "lat": 35.836031,
+   "lng": 128.5743386,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(400원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-014",
+   "mgmt_no": "153-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "앞산 행복마을 공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 614-6",
+   "addr_road": "대구광역시 남구 안지랑로7길 2",
+   "road": null,
+   "spaces": 11,
+   "tel": "",
+   "lat": 35.833683,
+   "lng": 128.571189,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-015",
+   "mgmt_no": "153-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "앞산맛둘레길제3공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 584-4",
+   "addr_road": "대구광역시 남구 앞산순환로 383-2",
+   "road": null,
+   "spaces": 24,
+   "tel": "",
+   "lat": 35.83218085,
+   "lng": 128.5678893,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-016",
+   "mgmt_no": "153-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "앞산빨래터공원 공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1501-2",
+   "addr_road": "대구광역시 남구 앞산순환로 365",
+   "road": null,
+   "spaces": 89,
+   "tel": "",
+   "lat": 35.832126,
+   "lng": 128.5656916,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(4,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 남구 별표1의 2급지은 10분 200원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(400원/90분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-017",
+   "mgmt_no": "153-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "앞산카페거리 공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 501-3",
+   "addr_road": "대구광역시 남구 현충로 39",
+   "road": null,
+   "spaces": 32,
+   "tel": "",
+   "lat": 35.83648958,
+   "lng": 128.5794024,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 2급지은 10분 200원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(400원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-018",
+   "mgmt_no": "153-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양지로공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 2152-5",
+   "addr_road": "대구광역시 남구 양지남길 101",
+   "road": null,
+   "spaces": 34,
+   "tel": "",
+   "lat": 35.8509827,
+   "lng": 128.5787884,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-019",
+   "mgmt_no": "153-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영선시장공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 2014-62",
+   "addr_road": "대구광역시 남구 중앙대로50길 46",
+   "road": null,
+   "spaces": 48,
+   "tel": "",
+   "lat": 35.8527892,
+   "lng": 128.5938469,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-020",
+   "mgmt_no": "153-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 982-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "",
+   "lat": 35.83701933,
+   "lng": 128.568436,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-021",
+   "mgmt_no": "153-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청소년블루존(1)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1800-14",
+   "addr_road": "대구광역시 남구 중앙대로45길 74",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.85579085,
+   "lng": 128.589581,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(200원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-022",
+   "mgmt_no": "153-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청소년블루존(2)공영주차장",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 대명동 1809-5",
+   "addr_road": "대구광역시 남구 명덕로34길 17",
+   "road": null,
+   "spaces": 11,
+   "tel": "",
+   "lat": 35.85578511,
+   "lng": 128.587569,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(200원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-023",
+   "mgmt_no": "153-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "강당골공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 1272-18",
+   "addr_road": "대구광역시 남구 앞산순환로 672",
+   "road": null,
+   "spaces": 179,
+   "tel": "",
+   "lat": 35.83254423,
+   "lng": 128.5982178,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(4,000원)을 상한으로 계산합니다 · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 남구 별표1의 2급지은 10분 200원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(400원/120분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-024",
+   "mgmt_no": "153-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고산골공영주차빌딩",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 1257-1",
+   "addr_road": "대구광역시 남구 용두2길 40",
+   "road": null,
+   "spaces": 133,
+   "tel": "",
+   "lat": 35.83045474,
+   "lng": 128.6030891,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 2급지 1일 주차요금(4,000원)을 상한으로 계산합니다 · 남구 별표1의 2급지은 10분 200원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(200원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 20000,
+    "monthly_all": 20000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": null,
+     "monthly": 20000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-025",
+   "mgmt_no": "153-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고산골공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 1256",
+   "addr_road": "대구광역시 남구 용두2길 43",
+   "road": null,
+   "spaces": 75,
+   "tel": "",
+   "lat": 35.82991311,
+   "lng": 128.6033925,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 2급지은 10분 200원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(200원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 20000,
+    "monthly_all": 20000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 2000,
+     "monthly": 20000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-026",
+   "mgmt_no": "153-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남구청북편공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 523-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "",
+   "lat": 35.846556,
+   "lng": 128.597236,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-027",
+   "mgmt_no": "153-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉덕2동공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 538-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.843874,
+   "lng": 128.601848,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-028",
+   "mgmt_no": "153-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉명공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 705-8",
+   "addr_road": "대구광역시 남구 봉덕로11길 11",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 35.84556112,
+   "lng": 128.5957812,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(300원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 3,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 3000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-029",
+   "mgmt_no": "153-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉삼공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 687-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 35.84280862,
+   "lng": 128.5972092,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 표준데이터에 1일 주차권 요금이 없어 조례 별표1의 1급지 1일 주차요금(6,000원)을 상한으로 계산합니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(400원/30분)으로 계산합니다(남구 별표1 비고6) · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-030",
+   "mgmt_no": "153-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼정골(1)공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 1350-1",
+   "addr_road": "대구광역시 남구 효서길 75",
+   "road": null,
+   "spaces": 17,
+   "tel": "",
+   "lat": 35.83790855,
+   "lng": 128.594761,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-031",
+   "mgmt_no": "153-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼정골(2)공영주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 1336-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.83606386,
+   "lng": 128.5949019,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-032",
+   "mgmt_no": "153-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "앞산공원주차장",
+   "gu": "대구 남구",
+   "dong": "봉덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 봉덕동 산 173",
+   "addr_road": "대구광역시 남구 앞산순환로 574-45",
+   "road": null,
+   "spaces": 73,
+   "tel": "053-603-4064",
+   "lat": 35.83082613,
+   "lng": 128.5889722,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-033",
+   "mgmt_no": "153-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "2000배 행복마을 제3공영주차장",
+   "gu": "대구 남구",
+   "dong": "이천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 이천동 193-14",
+   "addr_road": "대구광역시 남구 대봉로34길 58-5",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.8541661,
+   "lng": 128.6038808,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-034",
+   "mgmt_no": "153-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "2000배행복마을 제1공영주차장",
+   "gu": "대구 남구",
+   "dong": "이천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 이천동 408-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "",
+   "lat": 35.85305729,
+   "lng": 128.5989767,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-035",
+   "mgmt_no": "153-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "2000배행복마을 제2공영주차장",
+   "gu": "대구 남구",
+   "dong": "이천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 남구 이천동 291-4",
+   "addr_road": "대구광역시 남구 대봉로34길 25",
+   "road": null,
+   "spaces": 5,
+   "tel": "",
+   "lat": 35.8533357,
+   "lng": 128.6042843,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-s001",
+   "mgmt_no": "153-1-000044",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대명1동행정복지센터앞",
+   "gu": "대구 남구",
+   "dong": "대명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 남구 대명동 810-2",
+   "addr_road": "대구광역시 남구 두류공원로 11",
+   "road": null,
+   "spaces": 49,
+   "tel": "053-603-4064",
+   "lat": 35.83966096,
+   "lng": 128.5752878,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시 조례 별표1의 2급지은 10분 350원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(600원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 14000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 14000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-s002",
+   "mgmt_no": "153-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "봉덕1동 봉덕북길 노상공영주차장",
+   "gu": "대구 남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대구광역시 남구 봉덕로 21길",
+   "road": null,
+   "spaces": 70,
+   "tel": "",
+   "lat": 35.8432165,
+   "lng": 128.5983833,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(600원/30분)으로 계산합니다(남구 별표1 비고6) · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-s003",
+   "mgmt_no": "153-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "봉덕2동 주민센터 앞 노상공영주차장",
+   "gu": "대구 남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대구광역시 남구 봉덕로 20길",
+   "road": null,
+   "spaces": 31,
+   "tel": "",
+   "lat": 35.844968,
+   "lng": 128.5924992,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(600원/30분)으로 계산합니다(남구 별표1 비고6) · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-s004",
+   "mgmt_no": "153-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영대병원정문 노상공영주차장",
+   "gu": "대구 남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대구광역시 남구 중앙대로 29길",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 35.8462317,
+   "lng": 128.589628,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(600원/30분)으로 계산합니다(남구 별표1 비고6) · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  },
+  {
+   "id": "dg-nam-gu-s005",
+   "mgmt_no": "153-1-000029",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이천동 복개로 노상공영주차장",
+   "gu": "대구 남구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대구광역시 남구 이천로 28길",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 35.8455454,
+   "lng": 128.6007662,
+   "base_date": "2026-10-07",
+   "manager": "대구광역시 남구청",
+   "note": "",
+   "notice": "감면 대상은 아래 계산기에서 골라 계산할 수 있습니다 · 남구 별표1의 1급지은 10분 300원인데, 구청장이 도시교통수요 관리를 위해 요금을 경감한 주차장이라 등록요금(600원/30분)으로 계산합니다(남구 별표1 비고6) · 구영(남구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 남구",
+   "city_slug": "nam-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 10:39",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 40,
+  "원자료_남구행수": 40,
+  "원자료_받은행수": 40,
+  "구별": "남구",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 35,
+  "노외_부설": {
+   "노외": 35
+  },
+  "노상_구간": 5,
+  "총_구획수": 1336,
+  "노상_구획수": 208,
+  "동별": {
+   "대명동": 22,
+   "봉덕동": 10,
+   "이천동": 3
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 35
+  },
+  "요금구분": {
+   "유료": 26,
+   "무료": 14
+  },
+  "요금_미상": [],
+  "유료_노상": 5,
+  "유료_노외": 21,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "대명1동행정복지센터앞: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "대명1동행정복지센터앞: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)"
+  ],
+  "등록값_차이": [
+   "고산골공영주차빌딩: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차요금으로 계산",
+   "앞산빨래터공원 공영주차장: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차요금으로 계산",
+   "대명1동(2)공영주차장: 1일 주차권 요금이 없어 조례 별표1 1급지 1일 주차요금으로 계산",
+   "강당골공영주차장: 1일 주차권 요금이 없어 조례 별표1 2급지 1일 주차요금으로 계산",
+   "대명4동공영주차장: 1일 주차권 요금이 없어 조례 별표1 1급지 1일 주차요금으로 계산",
+   "봉삼공영주차장: 1일 주차권 요금이 없어 조례 별표1 1급지 1일 주차요금으로 계산",
+   "앞산공원주차장: 추가단위 요금이 없어 기본요금과 같은 120분당 1,000원으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "고산골공영주차빌딩: 2급지 조례 200원/10분 ↔ 등록 67원/10분",
+   "앞산빨래터공원 공영주차장: 2급지 조례 200원/10분 ↔ 등록 44원/10분",
+   "대명1동(2)공영주차장: 1급지 조례 300원/10분 ↔ 등록 33원/10분",
+   "앞산카페거리 공영주차장: 2급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "영대병원정문 노상공영주차장: 1급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "강당골공영주차장: 2급지 조례 200원/10분 ↔ 등록 33원/10분",
+   "이천동 복개로 노상공영주차장: 1급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "봉덕1동 봉덕북길 노상공영주차장: 1급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "봉덕2동 주민센터 앞 노상공영주차장: 1급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "청소년블루존(2)공영주차장: 1급지 조례 300원/10분 ↔ 등록 67원/10분",
+   "청소년블루존(1)공영주차장: 1급지 조례 300원/10분 ↔ 등록 67원/10분",
+   "양지로공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "봉명공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "대명4동공영주차장: 1급지 조례 300원/10분 ↔ 등록 33원/10분",
+   "안지랑곱창(2)공영주차장: 1급지 조례 300원/10분 ↔ 등록 133원/10분",
+   "중앙시장공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "영선시장공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "대명시장공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "성당시장공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "관문시장(2)공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "관문시장공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "고산골공영주차장: 2급지 조례 200원/10분 ↔ 등록 67원/10분",
+   "대명2동공영주차장: 1급지 조례 300원/10분 ↔ 등록 100원/10분",
+   "봉삼공영주차장: 1급지 조례 300원/10분 ↔ 등록 133원/10분",
+   "대명1동행정복지센터앞: 2급지 조례 350원/10분 ↔ 등록 600원/10분"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「대구광역시 주차장 설치 및 관리 조례」 제2조의2, 구영은 「대구광역시 남구 주차장 설치 및 관리 조례」 제3조 주차요금(별표1)(시행 2024-03-20 · 대구광역시남구조례 제1518호(일부개정))",
+  "무료시간_출처": "대구광역시·구 조례 별표1은 최초 무료시간을 두지 않고 30분(구영)·10분(시영) 단위로 요금을 매긴다. 서대구역 남편·광장1과 동대구역 맞이주차장만 최초 20분이 무료이고, 표준데이터 특기사항에 ‘N분 무료’가 적힌 곳은 그 시간을 뺐다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼고, 공단 주차포털의 휴일 운영(토·일 무료 여부)과 다른 곳은 카드에 등록값을 적었다",
+  "무료개방_표기": [],
+  "무료_요금구분": 14,
+  "무료_구획수": 203,
+  "평균_기본요금": 388,
+  "토요일_미운영": 1,
+  "일공휴일_미운영": 1,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "153-2-000009"
+  ],
+  "전화번호_없음": 38,
+  "데이터기준일": [
+   "2026-04-15",
+   "2026-10-07"
+  ],
+  "공단안내_주차장": [
+   "앞산공원주차장",
+   "대명1동행정복지센터앞"
+  ]
+ },
+ "fee_table": {
+  "style": "daegu_grade",
+  "unit_min": 10,
+  "applies": "2025-07-10",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "1",
+    "unit_label": "33~200원/10분",
+    "hour": 900,
+    "two_hour": 2100,
+    "day": 3000,
+    "month": 40000,
+    "lots": 19
+   },
+   {
+    "label": "2급지",
+    "grade": "2",
+    "unit_label": "33~600원/10분",
+    "hour": 500,
+    "two_hour": 1100,
+    "day": 4000,
+    "month": 40000,
+    "lots": 6
+   },
+   {
+    "label": "급지 기타",
+    "grade": "기타",
+    "unit_label": "주차장별로 다름",
+    "hour": null,
+    "two_hour": null,
+    "day": null,
+    "month": null,
+    "lots": 1
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "unit": 600,
+    "day": 14000,
+    "month_day": 100000,
+    "month_night": 75000
+   },
+   {
+    "label": "2급지",
+    "unit": 350,
+    "day": 8000,
+    "month_day": 80000,
+    "month_night": 60000
+   },
+   {
+    "label": "3급지",
+    "unit": 200,
+    "day": 4000,
+    "month_day": 40000,
+    "month_night": 30000
+   }
+  ],
+  "gu_rows": [
+   {
+    "label": "1급지",
+    "base30": 600,
+    "unit10": 300,
+    "day": 6000,
+    "month_day": 80000,
+    "month_night": 60000
+   },
+   {
+    "label": "2급지",
+    "base30": 400,
+    "unit10": 200,
+    "day": 4000,
+    "month_day": 40000,
+    "month_night": 30000
+   }
+  ],
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+    "free": "조례에 시각을 숫자로 두지 않고 시장·구청장이 따로 정한다"
+   }
+  ],
+  "notes": "남구 조례 별표1(2024-03-20 개정)은 다른 구와 달리 1·2급지만 두고 1급지 최초 30분 600원·10분마다 300원·1일 6,000원·월 주간 80,000원, 2급지 400원·200원·4,000원·40,000원입니다. 비고6은 구청장이 도시교통수요 관리를 위해 필요하다고 인정한 주차장의 요금을 50퍼센트까지 경감할 수 있게 해, 대명동·봉덕동 동네 주차장과 시장 주차장이 30분 300원·200원으로 등록되어 있습니다. 표준데이터 40행 가운데 14곳은 무료입니다",
+  "corp": {
+   "paid": 21,
+   "free": 14,
+   "unknown": 0,
+   "street_paid": 5,
+   "si": 2,
+   "gu": 38,
+   "park": 0
+  },
+  "basis": "「대구광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-12-10 · 대구광역시조례 제6420호(일부개정, 별표1은 2025-07-10 개정)) · 「대구광역시 남구 주차장 설치 및 관리 조례」 제3조 주차요금(별표1)(시행 2024-03-20 · 대구광역시남구조례 제1518호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "nam-gu",
+ "province": "대구광역시",
+ "province_slug": "daegu",
+ "dong_page_min_lots": 3,
+ "city": "대구 남구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인 등록증 소지자(본인 운전·동승), 국가유공자 상이자, 고엽제후유증·후유의증 환자, 병역명문가, 의상자, 장기·인체조직 기증자 — 1일 1회 2시간까지 면제, 2시간 초과분과 1일·월 정기권은 50퍼센트(조례 제2조의2②)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000cc 미만) 60퍼센트"
+  },
+  {
+   "label": "환경친화·저공해 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환경친화적 자동차·저공해자동차 표지를 부착한 차 60퍼센트 — 전기자동차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 전통시장 활성화를 위해 지정한 전통시장 안 주차장과 그 인근 주차장 50퍼센트 (조례 제2조의2③2호)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 교통유발부담금 경감 등에 관한 조례」 제2조제6호 승용차요일제 참여 차량이 참여일을 지킨 경우 50퍼센트"
+  },
+  {
+   "label": "아이조아카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 출산장려 및 양육지원에 관한 조례」 제13조 아이조아카드를 소지한 사람의 비사업용 차량 50퍼센트"
+  },
+  {
+   "label": "성실납세증·우수자원봉사자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 소유 차, 시장·국세청장이 발급한 성실납세증을 붙인 차(1년), 우수자원봉사자증(연 50시간 이상) 소지자가 봉사활동으로 당일 주차한 경우 — 면제(조례 제2조의2①)"
+  },
+  {
+   "label": "지역여건 50% 경감(주차장별)",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "구청장이 도시교통수요 관리를 위해 필요하다고 인정한 공영주차장은 요금의 50퍼센트를 경감합니다(남구 별표1 비고6가) — 카드의 등록요금이 이미 경감된 금액입니다"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인 등록증 소지자(본인 운전·동승), 국가유공자 상이자, 고엽제후유증·후유의증 환자, 병역명문가, 의상자, 장기·인체조직 기증자 — 1일 1회 2시간까지 면제, 2시간 초과분과 1일·월 정기권은 50퍼센트(조례 제2조의2②)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000cc 미만) 60퍼센트"
+  },
+  {
+   "label": "환경친화·저공해 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환경친화적 자동차·저공해자동차 표지를 부착한 차 60퍼센트 — 전기자동차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 전통시장 활성화를 위해 지정한 전통시장 안 주차장과 그 인근 주차장 50퍼센트 (조례 제2조의2③2호)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 교통유발부담금 경감 등에 관한 조례」 제2조제6호 승용차요일제 참여 차량이 참여일을 지킨 경우 50퍼센트"
+  },
+  {
+   "label": "아이조아카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 출산장려 및 양육지원에 관한 조례」 제13조 아이조아카드를 소지한 사람의 비사업용 차량 50퍼센트"
+  },
+  {
+   "label": "성실납세증·우수자원봉사자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 소유 차, 시장·국세청장이 발급한 성실납세증을 붙인 차(1년), 우수자원봉사자증(연 50시간 이상) 소지자가 봉사활동으로 당일 주차한 경우 — 면제(조례 제2조의2①)"
+  }
+ ],
+ "realtime": false
+}

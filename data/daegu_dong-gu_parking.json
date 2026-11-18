@@ -1,0 +1,5811 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 10:39",
+  "generated_at_iso": "2026-11-18T10:39:04+09:00",
+  "snapshot_at": "2026-11-18 10:39",
+  "region": {
+   "province": "대구광역시",
+   "city": "동구"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 59,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "동구로 등록된 행 59행(노외·부설 31·노상 28)을 읽어 노외·부설 28곳과 노상 20구간을 실었다. 요금·운영시간·급지·면수는 주차장별 등록값을 그대로 썼고, 1일 주차요금이 있으면 그 금액을 그날의 상한으로 계산한다. 같은 주차장이 두 이름·두 시점으로 등록된 행은 최근 값 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「대구광역시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표 · 제2조의2 감면",
+    "org": "대구광역시 교통정책과(053-803-4882)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091151",
+    "file": "daegu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "fcef71c53b43a9d2b94b0177d867a8186e51bce4d24e99186eb07f879f128b80",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-12-10 · 대구광역시조례 제6420호(일부개정, 별표1은 2025-07-10 개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 10:25 (KST)",
+    "note": "시영(대구공공시설관리공단) 공영주차장에 적용하는 요금표다. 1~3급지 1구획 10분마다 600·350·200원, 1일 주차권 14,000·8,000·4,000원, 월정기 주간 100,000·80,000·40,000원·야간 75,000·60,000·30,000원이고, 공원시설 주차장은 2시간 이내 1,000원·2시간 초과 2,000원이다(어린이세상역앞 제외). 동대구역 맞이주차장은 최초 20분 무료 뒤 10분당 1,000원·1일 50,000원, 서대구역 남편·광장1은 최초 20분 무료 뒤 10분당 200원·1일 10,000원으로 따로 정한다. 급지는 도시철도역 출입구 반경 200m·중심상업지역 기초구역이 1급지, 역 400m·거점 버스정류소 200m·그 밖의 상업지역이 2급지, 나머지가 3급지다. 제2조의2는 장애인·국가유공자 등 2시간 면제 뒤 50퍼센트, 경차·환경친화 60퍼센트, 전통시장·승용차요일제·아이조아카드 50퍼센트, 성실납세증·우수자원봉사자 면제를 정한다."
+   },
+   {
+    "id": "gu_ordinance",
+    "name": "「대구광역시 동구 주차장 설치 및 관리 조례」 제2조 주차요금·감면(별표1)",
+    "org": "동구청 주차관리 부서",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1509249",
+    "file": "daegu-dong-gu.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "23f9d76a7a7cd1e1202b06de244b9166fc2521fd924b33f43bc87b382d2045f2",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2020-06-30 · 대구광역시동구조례 제1373호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 (KST)",
+    "note": "구영(구청 직영) 주차장에 적용하는 조례다. 동구 조례 별표1은 1~3급지 30분 기본요금 체계(1급지 1,000원·2급지 600원·3급지 400원, 30분 초과 10분마다 500·300·200원, 1일 10,000·6,000·4,000원, 월 주간 100,000·80,000·40,000원)이고, 급지는 2차순환선 안이 1급지·3차순환선 안이 2급지·나머지가 3급지입니다. 안심·율하·동촌유원지처럼 3급지(30분 400원) 주차장이 많고, 공항1·2·갓바위·동대구역 맞이주차장은 대구공공시설관리공단이 맡습니다. 표준데이터 59행 가운데 7곳은 요금을 받지 않습니다."
+   },
+   {
+    "id": "dg_portal",
+    "name": "대구시 주차포털(dgparking.or.kr) 급지별·주차장별 요금표",
+    "org": "대구공공시설관리공단(1577-6446)",
+    "url": "https://dgparking.or.kr/park/fee",
+    "file": "dgparking.or.kr_주차장별_요금표_20261118.txt",
+    "sha256": "e34c29db7619b6c04d8026e089c64734f3e6ebe12f8a87a39766fd0a53e14100",
+    "license": "공공기관 공개 웹페이지",
+    "base_date": "2026-11-18 확인",
+    "rows_total": 164,
+    "fetched_at": "2026-11-18 10:25 (KST)",
+    "note": "대구공공시설관리공단이 맡은 공영주차장의 주차장별 요금표(164행)를 내려받아 급지·운영시간·10분 요금·1일 한도·휴일 운영·직영/민간위탁을 대조했다. 공단은 전통시장·지역여건·산업단지·환승 등 주차장별 할인을 따로 매기므로, 이 사이트는 표준데이터에 등록된 주차장별 요금으로 계산하고 차이가 큰 곳은 카드에 적었다. 급지별 기본 요금(1급지 10분 600원·2급지 350원·3급지 200원)은 시 조례 별표1과 같다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "대구 동구",
+   "slug": "dong-gu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "dg-dong-gu-001",
+   "mgmt_no": "151-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "나불지 공영주차장",
+   "gu": "대구 동구",
+   "dong": "각산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 각산동 1131",
+   "addr_road": "",
+   "road": null,
+   "spaces": 115,
+   "tel": "053-662-3595",
+   "lat": 35.87958149,
+   "lng": 128.7181757,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-002",
+   "mgmt_no": "151-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안심 공영주차장",
+   "gu": "대구 동구",
+   "dong": "괴전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 괴전동 401-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 254,
+   "tel": "053-662-2983",
+   "lat": 35.86954023,
+   "lng": 128.7353094,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 도시과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-003",
+   "mgmt_no": "151-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도평동 공영주차장",
+   "gu": "대구 동구",
+   "dong": "도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 도동 978-401",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "053-662-3595",
+   "lat": 35.9099924,
+   "lng": 128.6526542,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-004",
+   "mgmt_no": "151-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도평동 제2공영주차장",
+   "gu": "대구 동구",
+   "dong": "도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 도동 978-401",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "053-662-3595",
+   "lat": 35.9099924,
+   "lng": 128.6526542,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-005",
+   "mgmt_no": "151-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미대동 공영주차장",
+   "gu": "대구 동구",
+   "dong": "미대동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 미대동 514-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "053-662-3595",
+   "lat": 35.95258719,
+   "lng": 128.6766746,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-006",
+   "mgmt_no": "151-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방촌시장 공영주차장(전통)",
+   "gu": "대구 동구",
+   "dong": "방촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 방촌동 1072-1",
+   "addr_road": "대구광역시 동구 동촌로42길 19-12",
+   "road": null,
+   "spaces": 49,
+   "tel": "053-662-3595",
+   "lat": 35.88120296,
+   "lng": 128.6631112,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-007",
+   "mgmt_no": "151-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해안동 공영주차장",
+   "gu": "대구 동구",
+   "dong": "방촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 방촌동 126-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "053-662-3595",
+   "lat": 35.89132596,
+   "lng": 128.67702,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-008",
+   "mgmt_no": "151-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불로동공영주차장",
+   "gu": "대구 동구",
+   "dong": "불로동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 불로동 661",
+   "addr_road": "대구광역시 동구 팔공로23길 14-6",
+   "road": null,
+   "spaces": 29,
+   "tel": "053-662-3595",
+   "lat": 35.9096902,
+   "lng": 128.6398772,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-009",
+   "mgmt_no": "151-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불로전통시장공영주차장",
+   "gu": "대구 동구",
+   "dong": "불로동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 불로동 483-3",
+   "addr_road": "대구광역시 동구 팔공로30길 7-6",
+   "road": null,
+   "spaces": 49,
+   "tel": "053-662-2983",
+   "lat": 35.91223341,
+   "lng": 128.6420237,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 도시과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-010",
+   "mgmt_no": "151-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반야월동편공영주차장(전통)",
+   "gu": "대구 동구",
+   "dong": "신기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신기동 182-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "053-662-3595",
+   "lat": 35.87213228,
+   "lng": 128.7035166,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-011",
+   "mgmt_no": "151-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반야월서편공영주차장",
+   "gu": "대구 동구",
+   "dong": "신기동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신기동 174",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "053-662-3595",
+   "lat": 35.87257768,
+   "lng": 128.7019733,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/24분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 24,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 24,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-012",
+   "mgmt_no": "151-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "혁신도시 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신서동 1152-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 179,
+   "tel": "053-662-3595",
+   "lat": 35.87922001,
+   "lng": 128.7347389,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-013",
+   "mgmt_no": "151-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동대구역맞이 주차장",
+   "gu": "대구 동구",
+   "dong": "신암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신암동 294",
+   "addr_road": "대구광역시 동구 동대구로 550",
+   "road": null,
+   "spaces": 56,
+   "tel": "053-956-1400",
+   "lat": 35.87943614,
+   "lng": 128.6287755,
+   "base_date": "2026-04-14",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 50,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 표준데이터에는 30분 1,000원으로 등록되어 있으나, 같은 시설의 다른 등록(신암동 294)과 조례 별표1 비고·대구시 주차포털은 최초 20분 무료 뒤 10분마다 1,000원(1일 50,000원)으로 적고 있어 그 값으로 계산합니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 20,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 1000,
+    "daily_fee": 50000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 1000,
+     "day": 50000,
+     "monthly": null
+    },
+    "basis": "조례 별표1 비고·공단 주차포털(같은 시설의 다른 등록과 대조)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-014",
+   "mgmt_no": "151-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화시장 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신암동 604-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "053-662-3595",
+   "lat": 35.88427648,
+   "lng": 128.6198107,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 2급지은 10분 300원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(600원/30분)으로 계산합니다 · 1일 주차요금 6,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-015",
+   "mgmt_no": "151-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신천1,2동 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신천동 544-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "053-662-3595",
+   "lat": 35.87486373,
+   "lng": 128.6150706,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 1일 주차요금 10,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-016",
+   "mgmt_no": "151-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신천3동주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 신천동 281-10",
+   "addr_road": "대구광역시 동구 송라로14길 46-2",
+   "road": null,
+   "spaces": 25,
+   "tel": "053-603-4064",
+   "lat": 35.874552,
+   "lng": 128.621271,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 표준데이터에 월 정기권이 없어 조례 별표1의 주간 100,000원을 함께 적었습니다 · 시 조례 별표1의 1급지은 10분 600원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(300원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 1일 주차요금 7,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 300,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 7000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-017",
+   "mgmt_no": "151-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "율암동 공영주차장",
+   "gu": "대구 동구",
+   "dong": "율암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 율암동 524-416",
+   "addr_road": "대구광역시 동구 용계로 89",
+   "road": null,
+   "spaces": 31,
+   "tel": "053-662-3595",
+   "lat": 35.88000835,
+   "lng": 128.7013913,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-018",
+   "mgmt_no": "151-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공항1공영주차장",
+   "gu": "대구 동구",
+   "dong": "지저동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 지저동 669-60",
+   "addr_road": "대구광역시 동구 해동로 6",
+   "road": null,
+   "spaces": 80,
+   "tel": "053-982-6444",
+   "lat": 35.8974446,
+   "lng": 128.637719,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-019",
+   "mgmt_no": "151-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공항2공영주차장",
+   "gu": "대구 동구",
+   "dong": "지저동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 지저동 669-60",
+   "addr_road": "대구광역시 동구 해동로 6",
+   "road": null,
+   "spaces": 172,
+   "tel": "053-982-6444",
+   "lat": 35.8974446,
+   "lng": 128.637719,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터에 월 정기권이 없어 조례 별표1의 주간 40,000원을 함께 적었습니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "주간·조례 별표1",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-020",
+   "mgmt_no": "151-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공항시장 공영주차장",
+   "gu": "대구 동구",
+   "dong": "지저동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 지저동 694-51",
+   "addr_road": "대구광역시 동구 해동로 19-2",
+   "road": null,
+   "spaces": 40,
+   "tel": "053-662-4714",
+   "lat": 35.89616391,
+   "lng": 128.6380569,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 민생경제과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-021",
+   "mgmt_no": "151-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갓바위1주차장",
+   "gu": "대구 동구",
+   "dong": "진인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 진인동 123-74",
+   "addr_road": "대구광역시 동구 갓바위로 227",
+   "road": null,
+   "spaces": 60,
+   "tel": "053-982-4857",
+   "lat": 35.9708814,
+   "lng": 128.7261682,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-022",
+   "mgmt_no": "151-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갓바위2주차장",
+   "gu": "대구 동구",
+   "dong": "진인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 진인동 123-74",
+   "addr_road": "대구광역시 동구 갓바위로 227",
+   "road": null,
+   "spaces": 95,
+   "tel": "053-982-4857",
+   "lat": 35.9708814,
+   "lng": 128.7261682,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-023",
+   "mgmt_no": "151-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갓바위3주차장",
+   "gu": "대구 동구",
+   "dong": "진인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 진인동 123-74",
+   "addr_road": "대구광역시 동구 갓바위로 227",
+   "road": null,
+   "spaces": 58,
+   "tel": "053-982-4857",
+   "lat": 35.9708814,
+   "lng": 128.7261682,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-024",
+   "mgmt_no": "151-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갓바위4주차장",
+   "gu": "대구 동구",
+   "dong": "진인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 진인동 123-74",
+   "addr_road": "대구광역시 동구 갓바위로 227",
+   "road": null,
+   "spaces": 13,
+   "tel": "053-982-4857",
+   "lat": 35.9708814,
+   "lng": 128.7261682,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-025",
+   "mgmt_no": "151-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갓바위5주차장",
+   "gu": "대구 동구",
+   "dong": "진인동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 진인동 123-74",
+   "addr_road": "대구광역시 동구 갓바위로 227",
+   "road": null,
+   "spaces": 124,
+   "tel": "053-982-4857",
+   "lat": 35.9708814,
+   "lng": 128.7261682,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "급지 구분이 ‘기타’로 등록된 주차장이라 등록요금으로 계산합니다 · 1일 주차요금 2,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 1000,
+    "unit_min": 120,
+    "unit_fee": 1000,
+    "daily_fee": 2000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "급지 기타",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 120,
+     "base_fee": 1000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 2000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-026",
+   "mgmt_no": "151-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동촌유원지 1 공영주차장",
+   "gu": "대구 동구",
+   "dong": "효목동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 효목동 1025",
+   "addr_road": "",
+   "road": null,
+   "spaces": 158,
+   "tel": "053-662-3595",
+   "lat": 35.87898424,
+   "lng": 128.6498128,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-027",
+   "mgmt_no": "151-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동촌유원지 2 공영주차장",
+   "gu": "대구 동구",
+   "dong": "효목동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 효목동 1040",
+   "addr_road": "",
+   "road": null,
+   "spaces": 240,
+   "tel": "053-662-3595",
+   "lat": 35.87998501,
+   "lng": 128.6495852,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-028",
+   "mgmt_no": "151-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동촌유원지 3 공영주차장",
+   "gu": "대구 동구",
+   "dong": "효목동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "대구광역시 동구 효목동 1202",
+   "addr_road": "",
+   "road": null,
+   "spaces": 137,
+   "tel": "053-662-3595",
+   "lat": 35.87776138,
+   "lng": 128.6548199,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 1일 주차요금 4,000원 — 시간 요금이 이 금액을 넘으면 1일 주차요금을 받습니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s001",
+   "mgmt_no": "151-1-000053",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동호정형외과앞주차장",
+   "gu": "대구 동구",
+   "dong": "신서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신서동 528-2",
+   "addr_road": "대구광역시 동구 금강로 5",
+   "road": null,
+   "spaces": 28,
+   "tel": "053-603-4064",
+   "lat": 35.8673563,
+   "lng": 128.7244971,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시 조례 별표1의 3급지은 10분 200원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(350원/10분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 350,
+    "unit_min": 10,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 350,
+     "unit_min": 10,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 350,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s002",
+   "mgmt_no": "151-1-000040",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대구역 고가교 하단 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신암동 294",
+   "addr_road": "대구광역시 동구 동대구로 550",
+   "road": null,
+   "spaces": 36,
+   "tel": "053-603-4064",
+   "lat": 35.87943614,
+   "lng": 128.6287755,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 14000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 14000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s003",
+   "mgmt_no": "151-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대구초등서편주차장",
+   "gu": "대구 동구",
+   "dong": "신암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신암동 184-12",
+   "addr_road": "대구광역시 동구 아양로8길 36",
+   "road": null,
+   "spaces": 28,
+   "tel": "053-603-4064",
+   "lat": 35.87889844,
+   "lng": 128.619885,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 350,
+    "unit_min": 10,
+    "unit_fee": 350,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 350,
+     "unit_min": 10,
+     "unit_fee": 350,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 350,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s004",
+   "mgmt_no": "151-1-000097",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신천희망로주차장",
+   "gu": "대구 동구",
+   "dong": "신천3동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천3동 741",
+   "addr_road": "대구광역시 동구 장등로 33",
+   "road": null,
+   "spaces": 45,
+   "tel": "053-603-4064",
+   "lat": 35.8704209,
+   "lng": 128.6232384,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 7000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 70000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 7000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s005",
+   "mgmt_no": "151-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대구로1 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 285-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "053-662-3596",
+   "lat": 35.87619293,
+   "lng": 128.6267294,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s006",
+   "mgmt_no": "151-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대구로2 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 289-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "053-662-3596",
+   "lat": 35.87364781,
+   "lng": 128.6260553,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s007",
+   "mgmt_no": "151-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동서식품동편주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 292-24",
+   "addr_road": "대구광역시 동구 동부로 22길 46",
+   "road": null,
+   "spaces": 30,
+   "tel": "053-603-4064",
+   "lat": 35.872691,
+   "lng": 128.6265879,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장 · 표준데이터에 같은 자리 주차장이 함께 등록되어 있어 가장 최근 값을 적었습니다(다른 등록: 30면(2026-04-14))",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 7000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": 60000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 7000,
+     "monthly": 60000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s008",
+   "mgmt_no": "151-1-000035",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동원빌딩앞주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 325-7",
+   "addr_road": "대구광역시 동구 동부로 22길 27",
+   "road": null,
+   "spaces": 25,
+   "tel": "053-603-4064",
+   "lat": 35.8741386,
+   "lng": 128.6270981,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 7000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": 60000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 7000,
+     "monthly": 60000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s009",
+   "mgmt_no": "151-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상공회의소 뒤편1",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 78-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "053-662-3596",
+   "lat": 35.87522369,
+   "lng": 128.6241975,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s010",
+   "mgmt_no": "151-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상공회의소 뒤편2",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 90-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "053-662-3596",
+   "lat": 35.87367287,
+   "lng": 128.6248626,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s011",
+   "mgmt_no": "151-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상공회의소 뒤편3",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 101-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "053-662-3596",
+   "lat": 35.87138466,
+   "lng": 128.6241578,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s012",
+   "mgmt_no": "151-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신천희망로",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 194-30",
+   "addr_road": "대구광역시 동구 장등로 77",
+   "road": null,
+   "spaces": 31,
+   "tel": "1577-6446",
+   "lat": 35.87425433,
+   "lng": 128.6235046,
+   "base_date": "2026-04-14",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시 조례 별표1의 1급지은 10분 600원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(1,000원/30분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s013",
+   "mgmt_no": "151-1-000120",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영남일보앞주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 110-7",
+   "addr_road": "대구광역시 동구 동대구로 445",
+   "road": null,
+   "spaces": 14,
+   "tel": "053-603-4064",
+   "lat": 35.8699325,
+   "lng": 128.6252865,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 7000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 7000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s014",
+   "mgmt_no": "151-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙고속 차고지 앞",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 331-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "053-662-3596",
+   "lat": 35.87547908,
+   "lng": 128.62819,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s015",
+   "mgmt_no": "151-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "현대아울렛 앞 노상공영주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 294-5",
+   "addr_road": "대구광역시 동구 동대구로 454",
+   "road": null,
+   "spaces": 44,
+   "tel": "053-603-4064",
+   "lat": 35.87073052,
+   "lng": 128.6265483,
+   "base_date": "2026-04-15",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "표준데이터 운영요일이 ‘평일’로 등록되어 토요일·일요일·공휴일은 운영일에서 빠져 있습니다(현장 확인) · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 600,
+    "daily_fee": 7000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": 60000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 10,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 600,
+     "day": 7000,
+     "monthly": 60000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s016",
+   "mgmt_no": "151-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화랑로9길 공영주차장",
+   "gu": "대구 동구",
+   "dong": "신천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 신천동 1513",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "053-662-3596",
+   "lat": 35.8711326653,
+   "lng": 128.6318487619,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 1급지은 10분 500원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(1,000원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 100000,
+    "monthly_label": "전일",
+    "grade": "1",
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s017",
+   "mgmt_no": "151-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "율하1 공영주차장",
+   "gu": "대구 동구",
+   "dong": "율하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 율하동 1433",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "053-662-3596",
+   "lat": 35.86315869,
+   "lng": 128.6978073,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s018",
+   "mgmt_no": "151-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "율하2 공영주차장",
+   "gu": "대구 동구",
+   "dong": "율하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 율하동 1418",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "053-662-3596",
+   "lat": 35.86297128,
+   "lng": 128.6945762,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s019",
+   "mgmt_no": "151-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "율하3 공영주차장",
+   "gu": "대구 동구",
+   "dong": "율하동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "대구광역시 동구 율하동 1423",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "053-662-3596",
+   "lat": 35.86279499,
+   "lng": 128.6961426,
+   "base_date": "2026-04-14",
+   "manager": "대구광역시 동구청 교통과",
+   "note": "",
+   "notice": "동구 조례 별표1의 3급지은 10분 200원인데, 전통시장·지역여건 등으로 요금을 달리 받는 주차장이라 등록요금(400원/30분)으로 계산합니다 · 구영(동구청 직영) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": 40000,
+    "monthly_label": "전일",
+    "grade": "3",
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 400,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  },
+  {
+   "id": "dg-dong-gu-s020",
+   "mgmt_no": "151-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신암3동행정복지센터 앞",
+   "gu": "대구 동구",
+   "dong": null,
+   "dong_src": "없음",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "대구광역시 동구 신암남로 67",
+   "road": null,
+   "spaces": 22,
+   "tel": "1577-6446",
+   "lat": 35.87958757,
+   "lng": 128.6231421,
+   "base_date": "2026-04-14",
+   "manager": "대구공공시설관리공단",
+   "note": "",
+   "notice": "시 조례 별표1의 2급지은 10분 350원인데, 대구공공시설관리공단이 맡은 주차장은 전통시장·지역여건·산업단지 등 주차장별 할인을 적용해 등록요금(600원/30분)으로 계산합니다 — 공단 주차포털 주차장별 요금표 · 시영(대구공공시설관리공단) 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": 80000,
+    "monthly_label": "전일",
+    "grade": "2",
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1170,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "대구 동구",
+   "city_slug": "dong-gu"
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 10:39",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 59,
+  "원자료_동구행수": 59,
+  "원자료_받은행수": 59,
+  "구별": "동구",
+  "민영_제외": 0,
+  "제외_행수": 1,
+  "제외_행": [
+   {
+    "name": "동대구맞이주차장",
+    "reason": "노외 ‘동대구역맞이 주차장’(동대구로 550·56면)과 같은 시설이 유형만 달리 두 번 등록"
+   }
+  ],
+  "중복제거_행수": 10,
+  "중복제거_행": [
+   {
+    "name": "공항2공영주차장",
+    "addr": "대구광역시 동구 지저동 460-4",
+    "spaces": 172,
+    "note": "이름·유형이 같아 한 곳으로 묶음",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 172
+   },
+   {
+    "name": "공항1공영주차장",
+    "addr": "대구광역시 동구 지저동 460-4",
+    "spaces": 80,
+    "note": "이름·유형이 같아 한 곳으로 묶음",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 80
+   },
+   {
+    "name": "동서식품 동편 도로",
+    "addr": "대구광역시 동구 신천동 292-24",
+    "spaces": 30,
+    "note": "같은 지번·같은 구간의 옛 등록",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 30
+   },
+   {
+    "name": "신천3동 공영주차장(전통시장",
+    "addr": "대구광역시 동구 신천동 281-3",
+    "spaces": 25,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 25
+   },
+   {
+    "name": "동대구역 고가교 하단",
+    "addr": "대구광역시 동구 신암동 368",
+    "spaces": 36,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 36
+   },
+   {
+    "name": "동호정형외과",
+    "addr": "대구광역시 동구 동호동 366-4",
+    "spaces": 28,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 28
+   },
+   {
+    "name": "동대구초등 서편 도로",
+    "addr": "대구광역시 동구 아양로8길 36",
+    "spaces": 28,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 28
+   },
+   {
+    "name": "영남일보 앞 도로",
+    "addr": "대구광역시 동구 동대구로 423",
+    "spaces": 14,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 14
+   },
+   {
+    "name": "동원빌딩 앞 공영주차장",
+    "addr": "대구광역시 동구 신천동 323-3",
+    "spaces": 25,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 25
+   },
+   {
+    "name": "현대아울렛 앞",
+    "addr": "대구광역시 동구 신천동 296-1",
+    "spaces": 44,
+    "note": "이름·유형·면수가 같은데 지번만 달리 등록된 같은 구간",
+    "base_date": "2026-04-14",
+    "kept": "2026-04-15",
+    "kept_spaces": 44
+   }
+  ],
+  "총_주차장": 28,
+  "노외_부설": {
+   "노외": 28
+  },
+  "노상_구간": 20,
+  "총_구획수": 2288,
+  "노상_구획수": 646,
+  "동별": {
+   "진인동": 5,
+   "지저동": 3,
+   "효목동": 3,
+   "도동": 2,
+   "방촌동": 2,
+   "불로동": 2,
+   "신기동": 2,
+   "신암동": 2,
+   "신천동": 2,
+   "각산동": 1,
+   "괴전동": 1,
+   "미대동": 1,
+   "신서동": 1,
+   "율암동": 1
+  },
+  "동수": 14,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 28
+  },
+  "요금구분": {
+   "무료": 7,
+   "유료": 41
+  },
+  "요금_미상": [],
+  "유료_노상": 20,
+  "유료_노외": 21,
+  "유료_부설": 0,
+  "운영시간_보정": [
+   "동원빌딩앞주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "동원빌딩앞주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "동서식품동편주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "동서식품동편주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "동대구초등서편주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "동대구초등서편주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "현대아울렛 앞 노상공영주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "현대아울렛 앞 노상공영주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "신천3동주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "신천3동주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "영남일보앞주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "영남일보앞주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "신천희망로주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "신천희망로주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)",
+   "동호정형외과앞주차장: 운영요일 ‘평일’ → 토요일 미운영(등록값)",
+   "동호정형외과앞주차장: 운영요일 ‘평일’ → 일요일·공휴일 미운영(등록값)"
+  ],
+  "등록값_차이": [
+   "갓바위1주차장: 추가단위 요금이 없어 기본요금과 같은 120분당 1,000원으로 계산",
+   "갓바위5주차장: 추가단위 요금이 없어 기본요금과 같은 120분당 1,000원으로 계산",
+   "갓바위4주차장: 추가단위 요금이 없어 기본요금과 같은 120분당 1,000원으로 계산",
+   "갓바위3주차장: 추가단위 요금이 없어 기본요금과 같은 120분당 1,000원으로 계산",
+   "갓바위2주차장: 추가단위 요금이 없어 기본요금과 같은 120분당 1,000원으로 계산"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "안심 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "혁신도시 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "동촌유원지 3 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "동촌유원지 2 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "동촌유원지 1 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "동대구역맞이 주차장: 등록 30분 요금 ↔ 조례·포털 최초 20분 무료 뒤 10분 1,000원",
+   "반야월동편공영주차장(전통): 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "공항시장 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "반야월서편공영주차장: 3급지 조례 200원/10분 ↔ 등록 167원/10분",
+   "불로전통시장공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "방촌시장 공영주차장(전통): 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "신천1,2동 공영주차장: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "평화시장 공영주차장: 2급지 조례 300원/10분 ↔ 등록 200원/10분",
+   "화랑로9길 공영주차장: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "동대구로2 공영주차장: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "동대구로1 공영주차장: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "중앙고속 차고지 앞: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "상공회의소 뒤편3: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "상공회의소 뒤편2: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "상공회의소 뒤편1: 1급지 조례 500원/10분 ↔ 등록 333원/10분",
+   "율하3 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "율하2 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "율하1 공영주차장: 3급지 조례 200원/10분 ↔ 등록 133원/10분",
+   "신천희망로: 1급지 조례 600원/10분 ↔ 등록 333원/10분",
+   "신암3동행정복지센터 앞: 2급지 조례 350원/10분 ↔ 등록 200원/10분",
+   "신천3동주차장: 1급지 조례 600원/10분 ↔ 등록 300원/10분",
+   "동호정형외과앞주차장: 3급지 조례 200원/10분 ↔ 등록 350원/10분"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "시영은 「대구광역시 주차장 설치 및 관리 조례」 제2조의2, 구영은 「대구광역시 동구 주차장 설치 및 관리 조례」 제2조 주차요금·감면(별표1)(시행 2020-06-30 · 대구광역시동구조례 제1373호(일부개정))",
+  "무료시간_출처": "대구광역시·구 조례 별표1은 최초 무료시간을 두지 않고 30분(구영)·10분(시영) 단위로 요금을 매긴다. 서대구역 남편·광장1과 동대구역 맞이주차장만 최초 20분이 무료이고, 표준데이터 특기사항에 ‘N분 무료’가 적힌 곳은 그 시간을 뺐다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼고, 공단 주차포털의 휴일 운영(토·일 무료 여부)과 다른 곳은 카드에 등록값을 적었다",
+  "무료개방_표기": [],
+  "무료_요금구분": 7,
+  "무료_구획수": 277,
+  "평균_기본요금": 620,
+  "토요일_미운영": 8,
+  "일공휴일_미운영": 8,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "151-2-000020"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-14",
+   "2026-04-15"
+  ],
+  "공단안내_주차장": [
+   "동대구역맞이 주차장",
+   "신천3동주차장",
+   "공항1공영주차장",
+   "공항2공영주차장",
+   "갓바위1주차장",
+   "갓바위2주차장",
+   "갓바위3주차장",
+   "갓바위4주차장",
+   "갓바위5주차장",
+   "동호정형외과앞주차장",
+   "동대구역 고가교 하단 공영주차장",
+   "동대구초등서편주차장",
+   "신천희망로주차장",
+   "동서식품동편주차장",
+   "동원빌딩앞주차장",
+   "신천희망로",
+   "영남일보앞주차장",
+   "현대아울렛 앞 노상공영주차장",
+   "신암3동행정복지센터 앞"
+  ]
+ },
+ "fee_table": {
+  "style": "daegu_grade",
+  "unit_min": 10,
+  "applies": "2025-07-10",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "1",
+    "unit_label": "300~600원/10분",
+    "hour": 2500,
+    "two_hour": 5500,
+    "day": 10000,
+    "month": 100000,
+    "lots": 16
+   },
+   {
+    "label": "2급지",
+    "grade": "2",
+    "unit_label": "200~350원/10분",
+    "hour": 1500,
+    "two_hour": 3300,
+    "day": 6000,
+    "month": 80000,
+    "lots": 3
+   },
+   {
+    "label": "3급지",
+    "grade": "3",
+    "unit_label": "133~350원/10분",
+    "hour": 1000,
+    "two_hour": 2200,
+    "day": 4000,
+    "month": 40000,
+    "lots": 16
+   },
+   {
+    "label": "급지 기타",
+    "grade": "기타",
+    "unit_label": "주차장별로 다름",
+    "hour": null,
+    "two_hour": null,
+    "day": null,
+    "month": null,
+    "lots": 6
+   }
+  ],
+  "city_rows": [
+   {
+    "label": "1급지",
+    "unit": 600,
+    "day": 14000,
+    "month_day": 100000,
+    "month_night": 75000
+   },
+   {
+    "label": "2급지",
+    "unit": 350,
+    "day": 8000,
+    "month_day": 80000,
+    "month_night": 60000
+   },
+   {
+    "label": "3급지",
+    "unit": 200,
+    "day": 4000,
+    "month_day": 40000,
+    "month_night": 30000
+   }
+  ],
+  "gu_rows": [
+   {
+    "label": "1급지",
+    "base30": 1000,
+    "unit10": 500,
+    "day": 10000,
+    "month_day": 100000,
+    "month_night": 75000
+   },
+   {
+    "label": "2급지",
+    "base30": 600,
+    "unit10": 300,
+    "day": 6000,
+    "month_day": 80000,
+    "month_night": 60000
+   },
+   {
+    "label": "3급지",
+    "base30": 400,
+    "unit10": 200,
+    "day": 4000,
+    "month_day": 40000,
+    "month_night": 30000
+   }
+  ],
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+    "free": "조례에 시각을 숫자로 두지 않고 시장·구청장이 따로 정한다"
+   }
+  ],
+  "notes": "동구 조례 별표1은 1~3급지 30분 기본요금 체계(1급지 1,000원·2급지 600원·3급지 400원, 30분 초과 10분마다 500·300·200원, 1일 10,000·6,000·4,000원, 월 주간 100,000·80,000·40,000원)이고, 급지는 2차순환선 안이 1급지·3차순환선 안이 2급지·나머지가 3급지입니다. 안심·율하·동촌유원지처럼 3급지(30분 400원) 주차장이 많고, 공항1·2·갓바위·동대구역 맞이주차장은 대구공공시설관리공단이 맡습니다. 표준데이터 59행 가운데 7곳은 요금을 받지 않습니다",
+  "corp": {
+   "paid": 21,
+   "free": 7,
+   "unknown": 0,
+   "street_paid": 20,
+   "si": 19,
+   "gu": 29,
+   "park": 0
+  },
+  "basis": "「대구광역시 주차장 설치 및 관리 조례」 별표1(시행 2025-12-10 · 대구광역시조례 제6420호(일부개정, 별표1은 2025-07-10 개정)) · 「대구광역시 동구 주차장 설치 및 관리 조례」 제2조 주차요금·감면(별표1)(시행 2020-06-30 · 대구광역시동구조례 제1373호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록요금"
+ },
+ "slug": "dong-gu",
+ "province": "대구광역시",
+ "province_slug": "daegu",
+ "dong_page_min_lots": 3,
+ "city": "대구 동구",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인 등록증 소지자(본인 운전·동승), 국가유공자 상이자, 고엽제후유증·후유의증 환자, 병역명문가, 의상자, 장기·인체조직 기증자 — 1일 1회 2시간까지 면제, 2시간 초과분과 1일·월 정기권은 50퍼센트(조례 제2조의2②)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000cc 미만) 60퍼센트"
+  },
+  {
+   "label": "환경친화·저공해 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환경친화적 자동차·저공해자동차 표지를 부착한 차 60퍼센트 — 전기자동차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 전통시장 활성화를 위해 지정한 전통시장 안 주차장과 그 인근 주차장 50퍼센트 (조례 제2조의2③2호)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 교통유발부담금 경감 등에 관한 조례」 제2조제6호 승용차요일제 참여 차량이 참여일을 지킨 경우 50퍼센트"
+  },
+  {
+   "label": "아이조아카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 출산장려 및 양육지원에 관한 조례」 제13조 아이조아카드를 소지한 사람의 비사업용 차량 50퍼센트"
+  },
+  {
+   "label": "성실납세증·우수자원봉사자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 소유 차, 시장·국세청장이 발급한 성실납세증을 붙인 차(1년), 우수자원봉사자증(연 50시간 이상) 소지자가 봉사활동으로 당일 주차한 경우 — 면제(조례 제2조의2①)"
+  },
+  {
+   "label": "구 소유 차량·행사 참석 차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "국가·지방자치단체 소유 차, 선거 투표 참여 차, 국가·지방자치단체 행사 참석 차 — 면제(동구 조례 제2조③)"
+  }
+ ],
+ "city_discounts": [
+  {
+   "label": "장애인·국가유공자 등 2시간 면제 후 50%",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "장애인 등록증 소지자(본인 운전·동승), 국가유공자 상이자, 고엽제후유증·후유의증 환자, 병역명문가, 의상자, 장기·인체조직 기증자 — 1일 1회 2시간까지 면제, 2시간 초과분과 1일·월 정기권은 50퍼센트(조례 제2조의2②)"
+  },
+  {
+   "label": "경차 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000cc 미만) 60퍼센트"
+  },
+  {
+   "label": "환경친화·저공해 60%",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "환경친화적 자동차·저공해자동차 표지를 부착한 차 60퍼센트 — 전기자동차가 충전을 위해 주차하면 최초 1시간 면제"
+  },
+  {
+   "label": "전통시장 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "시장이 전통시장 활성화를 위해 지정한 전통시장 안 주차장과 그 인근 주차장 50퍼센트 (조례 제2조의2③2호)"
+  },
+  {
+   "label": "승용차요일제 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 교통유발부담금 경감 등에 관한 조례」 제2조제6호 승용차요일제 참여 차량이 참여일을 지킨 경우 50퍼센트"
+  },
+  {
+   "label": "아이조아카드 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「대구광역시 출산장려 및 양육지원에 관한 조례」 제13조 아이조아카드를 소지한 사람의 비사업용 차량 50퍼센트"
+  },
+  {
+   "label": "성실납세증·우수자원봉사자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "긴급자동차, 국가·지방자치단체 소유 차, 시장·국세청장이 발급한 성실납세증을 붙인 차(1년), 우수자원봉사자증(연 50시간 이상) 소지자가 봉사활동으로 당일 주차한 경우 — 면제(조례 제2조의2①)"
+  }
+ ],
+ "realtime": false
+}
