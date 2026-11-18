@@ -378,6 +378,9 @@ for pg in pages:
             fails.append(f"{pg.relative_to(DIST)}: JSON-LD URL 이 배포 도메인 아님")
 print("슬러그·canonical 검사 완료")
 
+_STREET_IDS = {l["id"] for l in LOTS if l.get("list_mode") == "street"}
+_STREET_NAMES = {l["id"]: l["name"] for l in LOTS if l.get("list_mode") == "street"}
+
 # ---------------------------------------------------------------- 도시별 확장 규칙
 # 1) 수원시 페이지 구성: 허브 1 + 구 4 + 주말 4 + 동(카드 3곳 이상) + 무료 1.
 #    2026-11-18 이전에는 동 29(1곳부터 생성)였고, 1~2곳짜리 18개를 301 로 구 허브에 넘겼다.
@@ -703,6 +706,14 @@ for _slug in ("jung-gu", "seo-gu", "dong-gu", "yeongdo-gu", "busanjin-gu", "dong
               "suyeong-gu", "sasang-gu", "gijang-gun"):
     MIX[_slug] = _busan_outside
 
+_ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
+                     | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
+_ALL_NAMES = [l["name"] for l in LOTS]
+_MIX_NAMES = {k: sorted({n for n in _ALL_NAMES if any(b in n for b in v)}, key=len, reverse=True)
+              for k, v in MIX.items()}
+_MIX_ADDRS = {k: [a for a in _ALL_ADDRS if len(a) > 4 and any(b in a for b in v)]
+              for k, v in MIX.items()}
+
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     _hits = [k for k in MIX if f"/{k}/" in f"/{rel}"]
@@ -714,14 +725,12 @@ for p in pages:
     # 주차장 이름 자체가 다른 도시 이름을 담은 경우(예: 용인 영덕동의 노상 구간 '수원교회 인근')는
     # 자료 혼입이 아니므로, 이름을 지운 나머지 본문에서만 다른 도시 이름을 찾는다.
     probe = main
-    for n in sorted({l["name"] for l in LOTS
-                     if any(b in l["name"] for b in MIX[city_key])}, key=len, reverse=True):
+    for n in _MIX_NAMES[city_key]:
         probe = probe.replace(n, "")
     # 주소에 든 상호·건물 이름(예: 시흥 배곧동 ‘안양축산농협’)도 자료 혼입이 아니므로 함께 지운다.
-    for a in sorted({l.get("addr_jibun") or "" for l in LOTS} | {l.get("addr_road") or "" for l in LOTS},
-                    key=len, reverse=True):
-        if len(a) > 4:
-            probe = probe.replace(a, "")
+    #   다른 시·도 이름이 든 주소만 지우면 되므로, 주소 전체(8,800건)를 페이지마다 replace 하지 않는다.
+    for a in _MIX_ADDRS[city_key]:
+        probe = probe.replace(a, "")
     # 법정동·도로 이름이 다른 도시 이름으로 시작하는 경우(금천구 시흥동·시흥대로 ↔ 경기도 시흥시)는
     # 자료 혼입이 아니므로 그 낱말을 지우고 본다.
     for bad in MIX[city_key]:
@@ -733,11 +742,11 @@ for p in pages:
     # 껍데기 방지: 카드·표·계산기 중 하나는 있어야 한다(시 허브는 표, 노상 페이지는 표)
     if not re.search(r'class="card lot|class="data"|class="calc"', main):
         fails.append(f"{rel}: 본문에 카드·표·계산기가 없는 페이지(껍데기)")
-    # 노상 구간이 카드로 그려지지 않았는지
-    for lot in LOTS:
-        if lot.get("list_mode") == "street" and f'data-lot="{lot["id"]}"' in html:
-            fails.append(f"{rel}: 노상 구간이 카드로 렌더링됨({lot['name']})")
-            break
+    # 노상 구간이 카드로 그려지지 않았는지 — 페이지에 그려진 카드 id 와 노상 구간 id 를 맞춰 본다
+    # (페이지 수 × 전체 주차장 수로 문자열을 훑으면 900페이지 × 8,800곳이라 너무 느리다).
+    for _lid in {m for m in re.findall(r'data-lot="([^"]+)"', html)} & _STREET_IDS:
+        fails.append(f"{rel}: 노상 구간이 카드로 렌더링됨({_STREET_NAMES.get(_lid, _lid)})")
+        break
 
 # 3-1) 시 페이지의 '가장 저렴한 곳' 표 링크(#lot-N)가 구 페이지의 같은 주차장 카드를 가리켜야 한다.
 #      (카드 번호는 구 페이지 정렬 순서이고, 표의 순위와 다르다)
@@ -5250,6 +5259,177 @@ for _u in ("https://parking.9welfare.com/parking/daejeon/dong-gu/",
            "https://parking.9welfare.com/parking/daejeon/daedeok-gu/free/"):
     if _u not in (DIST / "sitemap.xml").read_text():
         fails.append(f"대전 주소가 사이트맵에 없음: {_u}")
+
+# ---------------------------------------------------------------- 세종·제주 (T-03 Phase 45)
+#  세종특별자치시와 제주 제주시·서귀포시는 시·도 조례 하나가 요금표를 정한다.
+#    · 세종 별표1 — 최초 30분 500원 · 10분마다 300원 · 2시간 초과 15분마다 500원 · 1일 8,000원
+#    · 제주 별표5 — 동지역 30분 1,000원 / 읍면지역 500원 · 15분마다 500원 · 1일 10,000·8,000원
+#  계산기는 세종의 2시간 초과 15분 단위를 단계별 단위 시간으로 센다.
+SEJONG_JEJU_EXPECT = {
+    "세종특별자치시": {
+        "province_slug": "sejong", "slug": "sejong-si", "cards": 77, "street": 3,
+        "free_hub": True, "ordin": "2056965", "page_count": 8,
+        "dong_pages": ["bugang-myeon", "geumnam-myeon", "goun-dong", "jochiwon-eup", "naseong-dong"],
+        "texts": ("최초 30분 500원", "2시간 초과 15분마다", "정부세종청사 BRT환승센터", "나성동(CDS1)",
+                  "세종전통시장", "5부제"),
+    },
+    "제주시": {
+        "province_slug": "jeju", "slug": "jeju-si", "cards": 896, "street": 642,
+        "free_hub": True, "ordin": "2142187", "page_count": 37,
+        "dong_pages": ["aewol-eup", "arai-dong", "arail-dong", "chuja-myeon",
+                       "doduil-dong", "donam-dong", "doryeonil-dong", "geonip-dong", "gujwa-eup",
+                       "hallim-eup", "hangyeong-myeon", "hwabuki-dong", "hwabukil-dong",
+                       "idoi-dong", "idoil-dong", "ihoi-dong", "ihoil-dong", "ildoi-dong",
+                       "ildoil-dong", "jocheon-eup", "nohyeong-dong", "oedoi-dong", "oedoil-dong",
+                       "orai-dong", "orail-dong", "samdoi-dong", "samdoil-dong", "samyangi-dong",
+                       "samyangil-dong", "udo-myeon", "yeon-dong", "yongdami-dong",
+                       "yongdamil-dong", "yongdamsam-dong"],
+        "texts": ("동지역 최초 30분 1,000원", "읍면지역", "민속오일시장", "공항입구", "15분마다 500원",
+                  "관광지 공영주차장"),
+    },
+    "서귀포시": {
+        "province_slug": "jeju", "slug": "seogwipo-si", "cards": 113, "street": 0,
+        "free_hub": True, "ordin": "2142187", "page_count": 13,
+        "dong_pages": ["andeok-myeon", "beophwan-dong", "daejeong-eup", "donghong-dong",
+                       "hahyo-dong", "jungmun-dong", "namwon-eup", "pyoseon-myeon",
+                       "seogwi-dong", "seohong-dong", "seongsan-eup"],
+        "texts": ("성산포항", "월드컵경기장", "매일올레시장", "성산일출봉", "관광지 공영주차장",
+                  "정기주차권"),
+    },
+}
+_sj_pages = 0
+for _city, _exp in SEJONG_JEJU_EXPECT.items():
+    _root = DIST / "parking" / _exp["province_slug"] / _exp["slug"]
+    _hub = _root / "index.html"
+    if not _hub.exists():
+        fails.append(f"{_city}: 시 페이지 없음(/parking/{_exp['province_slug']}/{_exp['slug']}/)")
+        continue
+    _sj_pages += 1
+    _h = _hub.read_text()
+    if _h.count('class="card lot') != _exp["cards"]:
+        fails.append(f"{_city}: 카드 {_h.count(chr(34) + 'card lot')}장 ≠ {_exp['cards']}곳")
+    _prov_name = "세종특별자치시" if _exp["province_slug"] == "sejong" else "제주특별자치도"
+    if _prov_name not in _h:
+        fails.append(f"{_city}: breadcrumb·본문에 {_prov_name} 없음")
+    if f"ordinSeq={_exp['ordin']}" not in _h:
+        fails.append(f"{_city}: 조례 출처 링크 없음(ordinSeq={_exp['ordin']})")
+    if "별표" not in _h:
+        fails.append(f"{_city}: 조례 별표 요금표가 없음")
+    if "주차요금표" not in _h:
+        fails.append(f"{_city}: 요금표 절이 없음")
+    if 'href=""' in _h:
+        fails.append(f"{_city}: 빈 링크가 있음")
+    for _needle in _exp["texts"]:
+        if _needle not in _h:
+            fails.append(f"{_city}: 문구 ‘{_needle}’ 없음")
+    if _leaked_nan(_h):
+        fails.append(f"{_city}: 페이지에 None/nan 문자열")
+    # 다른 시·도 자료가 본문에 섞이지 않았는지(푸터 지역 링크는 본문 밖이다).
+    _main = _h.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    _bad_tokens = (("제주특별자치도", "제주시", "경기도", "서울특별시") if _exp["province_slug"] == "sejong"
+                   else ("세종특별자치시", "경기도", "서울특별시"))
+    for _bad in _bad_tokens:
+        if _bad in _main:
+            fails.append(f"{_city}: 본문에 다른 시·도 자료 ‘{_bad}’")
+    # 노상 페이지
+    _street = _root / "street-parking" / "index.html"
+    if _exp["street"]:
+        if not _street.exists():
+            fails.append(f"{_city}: 노상 페이지 없음")
+        else:
+            _sj_pages += 1
+            if _street.read_text().count("<tr><td>") < _exp["street"]:
+                fails.append(f"{_city}: 노상 페이지 행이 구간 수보다 적음")
+    elif _street.exists():
+        fails.append(f"{_city}: 등록 노상 구간이 없는데 노상 페이지가 있음")
+    # 무료 개방 페이지
+    _free = _root / "free" / "index.html"
+    if _exp["free_hub"] != _free.exists():
+        fails.append(f"{_city}: 무료 개방 페이지 존재 여부 불일치")
+    elif _free.exists():
+        _sj_pages += 1
+    # 동·읍·면 페이지 — 카드 3곳 이상인 곳에만 있어야 한다.
+    _have = {p.parent.name for p in _root.glob("*/index.html")
+             if p.parent.name not in ("free", "street-parking")}
+    _sj_pages += len(_have)
+    if _have != set(_exp["dong_pages"]):
+        fails.append(f"{_city}: 동·읍·면 페이지 {sorted(_have)} ≠ 기준 {sorted(_exp['dong_pages'])}")
+    _total = len([p for p in _root.rglob('index.html')])
+    if _total != _exp["page_count"]:
+        fails.append(f"{_city}: 페이지 {_total}장 ≠ 기준 {_exp['page_count']}장")
+
+# 표본 계산 — 세종(30분 500 → 10분 300 → 2시간 초과 15분 500 · 1일 8,000),
+#   제주(동지역 30분 1,000 / 읍면 500 · 15분 500 · 1일 10,000·8,000).
+_sj_by_key = {(l["city"], l["name"]): l for l in LOTS if l.get("city") in SEJONG_JEJU_EXPECT}
+for _city, _name, _min, _day, _want_state, _want in (
+        ("세종특별자치시", "나성동 공영주차장", 20, "weekday", "paid", 500),      # 30분 미만은 30분
+        ("세종특별자치시", "나성동 공영주차장", 30, "weekday", "paid", 500),
+        ("세종특별자치시", "나성동 공영주차장", 60, "weekday", "paid", 1400),     # 500 + 300×3
+        ("세종특별자치시", "나성동 공영주차장", 120, "weekday", "paid", 3200),
+        ("세종특별자치시", "나성동 공영주차장", 130, "weekday", "paid", 3700),    # 2시간 초과 15분 500
+        ("세종특별자치시", "나성동 공영주차장", 1440, "weekday", "paid", 8000),   # 1일 주차권 상한
+        ("세종특별자치시", "세종전통시장 제1공영주차장", 60, "weekday", "free", None),   # 최초 60분 무료
+        ("세종특별자치시", "세종전통시장 제1공영주차장", 120, "weekday", "paid", 1600),  # 400×4
+        ("세종특별자치시", "정리 공영주차장", 120, "weekday", "paid", 3200),      # 노상도 같은 요금표
+        ("제주시", "신제주", 30, "weekday", "paid", 1000),                        # 동지역
+        ("제주시", "신제주", 60, "weekday", "paid", 2000),
+        ("제주시", "신제주", 120, "weekday", "paid", 4000),
+        ("제주시", "신제주", 1440, "weekday", "paid", 10000),
+        ("제주시", "한림 상두거리", 30, "weekday", "paid", 500),                  # 읍면지역
+        ("제주시", "한림 상두거리", 120, "weekday", "paid", 3500),
+        ("제주시", "한림 상두거리", 1440, "weekday", "paid", 8000),
+        ("서귀포시", "성산포항 공영주차장(지평식. 대형주차장 포함)", 120, "weekday", "paid", 3500),
+        ("서귀포시", "중앙공영주차빌딩(공작물)", 120, "weekday", "paid", 4000),
+        ("서귀포시", "성산일출봉 주차장", 120, "weekday", "free", None),
+):
+    _lot = _sj_by_key.get((_city, _name))
+    if not _lot:
+        fails.append(f"세종·제주 표본 주차장 없음: {_city} {_name}")
+        continue
+    _r = _pf(_lot, _min, _day)
+    if _r.get("state") != _want_state or (_want is not None and _r.get("amount") != _want):
+        fails.append(f"세종·제주 계산 불일치: {_city} {_name} {_min}분 {_day} → {_r} "
+                     f"(기대 {_want_state}/{_want})")
+
+# 감면 표본 — 세종 전통시장 1시간 면제·경차 50%, 제주 심한 장애인 3시간 면제 뒤 50%·경차 50%.
+_lot = _sj_by_key.get(("세종특별자치시", "나성동 공영주차장"))
+if _lot:
+    _r = _pf(_lot, 60, "weekday", 1.0, 60)
+    if _r.get("state") != "free" or not _r.get("exempt"):
+        fails.append(f"세종 감면 불일치(전통시장 1시간 면제): {_r}")
+    _r = _pf(_lot, 120, "weekday", 0.5, 0)
+    if _r.get("state") != "paid" or _r.get("amount") != 1600:
+        fails.append(f"세종 감면 불일치(경차 50%): {_r}")
+_lot = _sj_by_key.get(("제주시", "신제주"))
+if _lot:
+    _r = _pf(_lot, 180, "weekday", 0.5, 180)
+    if _r.get("state") != "free" or not _r.get("exempt"):
+        fails.append(f"제주 감면 불일치(심한 장애인 3시간 면제): {_r}")
+    _r = _pf(_lot, 240, "weekday", 0.5, 180)
+    if _r.get("state") != "paid" or _r.get("amount") != 4000:
+        fails.append(f"제주 감면 불일치(3시간 초과 50%): {_r}")
+
+print(f"세종·제주 검사 완료 ({len(SEJONG_JEJU_EXPECT)}개 시 · 페이지 {_sj_pages})")
+
+_landing = (DIST / "index.html").read_text()
+for _anchor in ("#sejong", "#jeju"):
+    if f'id="{_anchor.lstrip("#")}"' not in _landing:
+        fails.append(f"랜딩에 시·도 묶음({_anchor}) 없음")
+_sm_text = (DIST / "sitemap.xml").read_text()
+for _u in ("https://parking.9welfare.com/parking/sejong/sejong-si/",
+           "https://parking.9welfare.com/parking/sejong/sejong-si/jochiwon-eup/",
+           "https://parking.9welfare.com/parking/sejong/sejong-si/street-parking/",
+           "https://parking.9welfare.com/parking/sejong/sejong-si/free/",
+           "https://parking.9welfare.com/parking/jeju/jeju-si/",
+           "https://parking.9welfare.com/parking/jeju/jeju-si/aewol-eup/",
+           "https://parking.9welfare.com/parking/jeju/jeju-si/street-parking/",
+           "https://parking.9welfare.com/parking/jeju/jeju-si/free/",
+           "https://parking.9welfare.com/parking/jeju/seogwipo-si/",
+           "https://parking.9welfare.com/parking/jeju/seogwipo-si/seongsan-eup/",
+           "https://parking.9welfare.com/parking/jeju/seogwipo-si/free/"):
+    if _u not in _sm_text:
+        fails.append(f"세종·제주 주소가 사이트맵에 없음: {_u}")
+
 
 print()
 if warns:

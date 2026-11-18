@@ -142,18 +142,19 @@
         }
       } else if (f.steps && f.steps.length) {
         // 시간대별 누진 할증 (예: 안양시 — 1시간까지 10분당 300원, 2시간까지 600원 …)
-        var unit = f.unit_min || 10, t = f.base_min;
+        var t = f.base_min;
         raw = f.base_fee;
         while (t < mins) {
-          var stepFee = f.steps[f.steps.length - 1].unit_fee;
+          var step = f.steps[f.steps.length - 1];
           for (var i = 0; i < f.steps.length; i++) {
             if (f.steps[i].until === null || f.steps[i].until === undefined || t < f.steps[i].until) {
-              stepFee = f.steps[i].unit_fee;
+              step = f.steps[i];
               break;
             }
           }
-          raw += stepFee;
-          t += unit;
+          raw += step.unit_fee;
+          // 단계마다 단위 시간이 다를 수 있다(세종 — 2시간까지 10분, 2시간 초과 15분).
+          t += step.unit_min || f.unit_min || 10;
         }
       } else if (mins <= f.base_min) {
         raw = f.base_fee;

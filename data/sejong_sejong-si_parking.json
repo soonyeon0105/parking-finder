@@ -1,0 +1,9799 @@
+{
+ "meta": {
+  "generated_at": "2026-11-18 14:18",
+  "generated_at_iso": "2026-11-18T14:18:35+09:00",
+  "snapshot_at": "2026-11-18 14:18",
+  "region": {
+   "province": "세종특별자치시",
+   "city": "세종특별자치시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 102,
+    "fetched_at": "2026-11-16 22:03 (KST)",
+    "note": "세종특별자치시로 등록된 행 102행(노외·부설 97·노상 5)을 읽어 노외·부설 77곳과 노상 3구간을 실었다. 요금·운영시간·면수는 등록값을 쓰고 조례 별표와 대조했으며, 같은 주차장이 이름·자리로 두 번 등록된 행은 최근 등록 하나만 남겼다."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「세종특별자치시 주차장 설치 및 관리 조례」 제5조 주차요금 및 가산금·별표1",
+    "org": "세종특별자치시 교통정책과(044-300-5533)",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2056965",
+    "file": "sejong.law.go.kr_주차장조례_별표1_20261118.txt",
+    "sha256": "355437bb81afb7f9ee8fb1b04095b1ec2d8758a578acb249df84a8d3b2056d87",
+    "license": "자치법규(공개)",
+    "base_date": "시행 2025-07-14 · 세종특별자치시조례 제2804호(일부개정)",
+    "rows_total": null,
+    "fetched_at": "2026-11-18 13:30 (KST)",
+    "note": "세종특별자치시이 설치·관리하는 공영주차장에 적용하는 조례다. 세종특별자치시 조례 별표1(2025-07-14 개정)은 한 줄 요금표다 — 1구획 최초 30분 500원, 30분을 넘으면 매 10분 300원, 2시간을 넘으면 15분마다 500원이고, 1일 주차권 8,000원·월 주차권 75,000원이다(비고4: 주차시간이 30분 미만이면 30분으로 계산). 운영시간은 08:00~22:00이며 시장이 주변 여건에 따라 조정할 수 있다(비고2). (조례 본문 원자료: sejong.law.go.kr_주차장조례_20261118.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "세종특별자치시",
+   "slug": "sejong-si"
+  }
+ ],
+ "lots": [
+  {
+   "id": "sj-sejong-001",
+   "mgmt_no": "413-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가람동(주S-3)",
+   "gu": "세종특별자치시",
+   "dong": "가람동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 가람동 65",
+   "addr_road": "",
+   "road": null,
+   "spaces": 180,
+   "tel": "044-300-5533",
+   "lat": 36.46939307,
+   "lng": 127.2531644,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-002",
+   "mgmt_no": "413-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고운동(주1-10)",
+   "gu": "세종특별자치시",
+   "dong": "고운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 고운동 1527",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "044-300-5533",
+   "lat": 36.50735711,
+   "lng": 127.2317493,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-003",
+   "mgmt_no": "413-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고운동(주1-12)",
+   "gu": "세종특별자치시",
+   "dong": "고운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 고운동 1785",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "044-300-5533",
+   "lat": 36.50198043,
+   "lng": 127.2388442,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-004",
+   "mgmt_no": "413-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고운동(주1-13)",
+   "gu": "세종특별자치시",
+   "dong": "고운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 고운동 1812",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "044-300-7923",
+   "lat": 36.5012893,
+   "lng": 127.2358746,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-005",
+   "mgmt_no": "413-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고운동(주1-14)",
+   "gu": "세종특별자치시",
+   "dong": "고운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 고운동 1910",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "044-300-7923",
+   "lat": 36.50130085,
+   "lng": 127.2364885,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-006",
+   "mgmt_no": "413-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고운동(주1-7)",
+   "gu": "세종특별자치시",
+   "dong": "고운동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 고운동 1218",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "044-300-5533",
+   "lat": 36.51683709,
+   "lng": 127.2350177,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-007",
+   "mgmt_no": "413-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금남면",
+   "gu": "세종특별자치시",
+   "dong": "금남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 금남면 용포리 86-1",
+   "addr_road": "세종특별자치시 금남면 용포로 37-1",
+   "road": null,
+   "spaces": 108,
+   "tel": "044-300-5533",
+   "lat": 36.46193665,
+   "lng": 127.280204,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-008",
+   "mgmt_no": "413-2-000073",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종대평시장 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "금남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 금남면 용포리 146-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "044-850-1295",
+   "lat": 36.465293,
+   "lng": 127.281752,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 60분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-009",
+   "mgmt_no": "413-2-000069",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용포로 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "금남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 금남면 신촌리 297-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "044-850-1295",
+   "lat": 36.46840169,
+   "lng": 127.282307,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 60분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-010",
+   "mgmt_no": "413-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "나성동 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "나성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 나성동 42-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "044-850-1295",
+   "lat": 36.48343751,
+   "lng": 127.2679595,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "5부제 적용 공영주차장",
+   "notice": "5부제 적용 공영주차장입니다(차량 끝번호에 따라 이용일이 다를 수 있음) · 조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-011",
+   "mgmt_no": "413-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "나성동(CDS1)",
+   "gu": "세종특별자치시",
+   "dong": "나성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 나성동 361-55",
+   "addr_road": "",
+   "road": null,
+   "spaces": 665,
+   "tel": "044-300-7923",
+   "lat": 36.48859775,
+   "lng": 127.2585226,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-012",
+   "mgmt_no": "413-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도시상징광장주차장",
+   "gu": "세종특별자치시",
+   "dong": "나성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 나성동 836",
+   "addr_road": "세종특별자치시 어울누리로 30",
+   "road": null,
+   "spaces": 262,
+   "tel": "044-850-1295",
+   "lat": 36.48519056,
+   "lng": 127.2621038,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-013",
+   "mgmt_no": "413-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "첫마을 BRT환승센터A",
+   "gu": "세종특별자치시",
+   "dong": "나성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 나성동 719",
+   "addr_road": "세종특별자치시 한솔동로 26",
+   "road": null,
+   "spaces": 269,
+   "tel": "044-850-1295",
+   "lat": 36.48081974,
+   "lng": 127.261498,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-014",
+   "mgmt_no": "413-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "첫마을 BRT환승센터B",
+   "gu": "세종특별자치시",
+   "dong": "나성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 나성동 778",
+   "addr_road": "세종특별자치시 나성남로 7-7",
+   "road": null,
+   "spaces": 269,
+   "tel": "044-850-1295",
+   "lat": 36.48125005,
+   "lng": 127.2623967,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-015",
+   "mgmt_no": "413-2-000075",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다정동 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "다정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 다정동 696",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "044-850-1295",
+   "lat": 36.497916,
+   "lng": 127.235462,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 15,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-016",
+   "mgmt_no": "413-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대평동",
+   "gu": "세종특별자치시",
+   "dong": "대평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 대평동 666",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "044-300-7923",
+   "lat": 36.4758394,
+   "lng": 127.2769765,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-017",
+   "mgmt_no": "413-2-000071",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반곡동 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "반곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 반곡동 824",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "044-850-1295",
+   "lat": 36.497926,
+   "lng": 127.309578,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "5부제 적용 공영주차장",
+   "notice": "5부제 적용 공영주차장입니다(차량 끝번호에 따라 이용일이 다를 수 있음) · 조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-018",
+   "mgmt_no": "413-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보람동1 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "보람동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 보람동 748",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "044-850-1295",
+   "lat": 36.477648,
+   "lng": 127.289592,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "5부제 적용 공영주차장",
+   "notice": "5부제 적용 공영주차장입니다(차량 끝번호에 따라 이용일이 다를 수 있음) · 조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-019",
+   "mgmt_no": "413-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보람동2 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "보람동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 보람동 750",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "044-850-1295",
+   "lat": 36.477651,
+   "lng": 127.2886718,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "5부제 적용 공영주차장",
+   "notice": "5부제 적용 공영주차장입니다(차량 끝번호에 따라 이용일이 다를 수 있음) · 조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-020",
+   "mgmt_no": "413-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부강리1",
+   "gu": "세종특별자치시",
+   "dong": "부강면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 부강면 부강리 462-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "044-300-5533",
+   "lat": 36.52927377,
+   "lng": 127.368217,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-021",
+   "mgmt_no": "413-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부강리2",
+   "gu": "세종특별자치시",
+   "dong": "부강면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 부강면 부강리 467-2",
+   "addr_road": "세종특별자치시 부강면 부촌길 24",
+   "road": null,
+   "spaces": 15,
+   "tel": "044-300-5533",
+   "lat": 36.52869512,
+   "lng": 127.3678869,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-022",
+   "mgmt_no": "413-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부강리3",
+   "gu": "세종특별자치시",
+   "dong": "부강면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 부강면 부강리 434-30",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "044-300-5533",
+   "lat": 36.52842168,
+   "lng": 127.3673136,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-023",
+   "mgmt_no": "413-2-000072",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종남부 BRT환승센터",
+   "gu": "세종특별자치시",
+   "dong": "소담동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 소담동 554",
+   "addr_road": "",
+   "road": null,
+   "spaces": 464,
+   "tel": "044-850-1295",
+   "lat": 36.486519,
+   "lng": 127.302364,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-024",
+   "mgmt_no": "413-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소담동(주3-7)",
+   "gu": "세종특별자치시",
+   "dong": "소담동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 소담동 549",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "044-300-5533",
+   "lat": 36.48481709,
+   "lng": 127.2946232,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-025",
+   "mgmt_no": "413-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아름동 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "아름동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 아름동 1352",
+   "addr_road": "세종특별자치시 보듬3로 105",
+   "road": null,
+   "spaces": 233,
+   "tel": "044-850-1295",
+   "lat": 36.511372,
+   "lng": 127.247876,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "5부제 적용 공영주차장",
+   "notice": "5부제 적용 공영주차장입니다(차량 끝번호에 따라 이용일이 다를 수 있음) · 조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-026",
+   "mgmt_no": "413-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어진동(C47)",
+   "gu": "세종특별자치시",
+   "dong": "어진동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 어진동 645",
+   "addr_road": "",
+   "road": null,
+   "spaces": 208,
+   "tel": "044-300-5533",
+   "lat": 36.49734559,
+   "lng": 127.2674606,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-027",
+   "mgmt_no": "413-2-000074",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정부세종청사 BRT환승센터",
+   "gu": "세종특별자치시",
+   "dong": "어진동",
+   "dong_src": "좌표 인근(어진동(C47), 889m)",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "세종특별자치시 도움3로 5",
+   "road": null,
+   "spaces": 568,
+   "tel": "044-850-1295",
+   "lat": 36.502083,
+   "lng": 127.2594886,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 15,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-028",
+   "mgmt_no": "413-2-000070",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고복자연공원 방문자센터",
+   "gu": "세종특별자치시",
+   "dong": "연서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 연서면 용암리 203-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "044-301-3962",
+   "lat": 36.59986238,
+   "lng": 127.2276795,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-029",
+   "mgmt_no": "413-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "교리",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 교리 1-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "044-300-5533",
+   "lat": 36.6064637,
+   "lng": 127.2989399,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-030",
+   "mgmt_no": "413-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남리",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 남리 433",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "044-300-5533",
+   "lat": 36.5949536,
+   "lng": 127.2996409,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-031",
+   "mgmt_no": "413-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "번암리1",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 번암리 90-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "044-300-5533",
+   "lat": 36.5859156,
+   "lng": 127.2943109,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-032",
+   "mgmt_no": "413-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "번암리2",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 번암리 209-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "044-300-5533",
+   "lat": 36.5829588,
+   "lng": 127.2904448,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-033",
+   "mgmt_no": "413-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉산리",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 봉산리 382",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "044-300-5533",
+   "lat": 36.6023591,
+   "lng": 127.2826619,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-034",
+   "mgmt_no": "413-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상리",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 상리 19-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "044-300-5533",
+   "lat": 36.60282502,
+   "lng": 127.3032063,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-035",
+   "mgmt_no": "413-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서창리1",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 서창리 291-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "044-300-5533",
+   "lat": 36.6071061,
+   "lng": 127.2934859,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-036",
+   "mgmt_no": "413-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서창리2",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 서창리 289-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "044-300-5533",
+   "lat": 36.60801006,
+   "lng": 127.2930005,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-037",
+   "mgmt_no": "413-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종전통시장 제1공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "세종특별자치시 조치원읍 새내로 99",
+   "road": null,
+   "spaces": 193,
+   "tel": "044-850-1295",
+   "lat": 36.60063524,
+   "lng": 127.297778,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 60분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-038",
+   "mgmt_no": "413-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종전통시장 제2공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "세종특별자치시 조치원읍 조치원6길 38",
+   "road": null,
+   "spaces": 146,
+   "tel": "044-850-1295",
+   "lat": 36.599883,
+   "lng": 127.299338,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 60분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-039",
+   "mgmt_no": "413-2-000080",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종전통시장 제3공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 정리 110-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "044-850-1295",
+   "lat": 36.59884803,
+   "lng": 127.297507,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 60분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-040",
+   "mgmt_no": "413-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종전통시장주차타워",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "세종특별자치시 조치원읍 새내8길 17-1",
+   "road": null,
+   "spaces": 149,
+   "tel": "044-850-1295",
+   "lat": 36.599883,
+   "lng": 127.299338,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 30분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-041",
+   "mgmt_no": "413-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신안리",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 신안리 541",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "044-300-5533",
+   "lat": 36.6167035,
+   "lng": 127.2847418,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-042",
+   "mgmt_no": "413-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신흥리1",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 신흥리 1-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "044-300-5533",
+   "lat": 36.59718139,
+   "lng": 127.2948157,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-043",
+   "mgmt_no": "413-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신흥리2",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 신흥리 41",
+   "addr_road": "세종특별자치시 조치원읍 신흥샛터길 21",
+   "road": null,
+   "spaces": 16,
+   "tel": "044-300-5533",
+   "lat": 36.5970124,
+   "lng": 127.2929002,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-044",
+   "mgmt_no": "413-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원리1",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 원리 154-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 129,
+   "tel": "044-300-5533",
+   "lat": 36.59695663,
+   "lng": 127.2968062,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-045",
+   "mgmt_no": "413-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원리2",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 원리 154-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "044-300-5533",
+   "lat": 36.5975716,
+   "lng": 127.2971762,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-046",
+   "mgmt_no": "413-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원리3",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 원리 154-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "044-300-5533",
+   "lat": 36.59686001,
+   "lng": 127.2974185,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-047",
+   "mgmt_no": "413-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이벤트광장",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "세종특별자치시 조치원읍 장안길 14",
+   "road": null,
+   "spaces": 24,
+   "tel": "044-850-1295",
+   "lat": 36.59986255,
+   "lng": 127.3000256,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "최초 60분이 무료이고 그 뒤 15분마다 400원입니다(전통시장 안팎 주차장 — 조례 제5조②는 전통시장 이용객에게 1일 1시간을 감면합니다) · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 15,
+    "unit_fee": 400,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 400,
+     "day": 8000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록요금(최초 60분 무료 뒤 15분 단위)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-048",
+   "mgmt_no": "413-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리1",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 97-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "044-300-5533",
+   "lat": 36.5922536,
+   "lng": 127.2957203,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-049",
+   "mgmt_no": "413-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리2",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 97-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "044-300-5533",
+   "lat": 36.59212688,
+   "lng": 127.2954506,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-050",
+   "mgmt_no": "413-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리3",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 139",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "044-300-5533",
+   "lat": 36.5914934,
+   "lng": 127.2925297,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-051",
+   "mgmt_no": "413-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리4",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 130",
+   "addr_road": "세종특별자치시 조치원읍 죽림본로 48-1",
+   "road": null,
+   "spaces": 32,
+   "tel": "044-300-5533",
+   "lat": 36.5909418,
+   "lng": 127.2933655,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-052",
+   "mgmt_no": "413-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리5",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 136",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "044-300-5533",
+   "lat": 36.5909599,
+   "lng": 127.2931045,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-053",
+   "mgmt_no": "413-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리6",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 212-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "044-300-5533",
+   "lat": 36.59143398,
+   "lng": 127.2973612,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-054",
+   "mgmt_no": "413-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리7",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 359-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "044-300-5533",
+   "lat": 36.5897515,
+   "lng": 127.2921139,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-055",
+   "mgmt_no": "413-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림리8",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 죽림리 156-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "044-300-5533",
+   "lat": 36.5914303,
+   "lng": 127.2954557,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-056",
+   "mgmt_no": "413-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리1",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 254-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "044-300-5533",
+   "lat": 36.6052085,
+   "lng": 127.2929447,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-057",
+   "mgmt_no": "413-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리10",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 252-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "044-300-5533",
+   "lat": 36.6051481,
+   "lng": 127.2916974,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-058",
+   "mgmt_no": "413-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리11",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 255-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "044-300-5533",
+   "lat": 36.60589417,
+   "lng": 127.2934734,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-059",
+   "mgmt_no": "413-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리12",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 259-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "044-300-5533",
+   "lat": 36.6044805,
+   "lng": 127.2936375,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-060",
+   "mgmt_no": "413-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리13",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 268-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "044-300-5533",
+   "lat": 36.6037189,
+   "lng": 127.2904399,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-061",
+   "mgmt_no": "413-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리14",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 284-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "044-300-5533",
+   "lat": 36.5995664,
+   "lng": 127.289066,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-062",
+   "mgmt_no": "413-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리15",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 251-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "044-300-5533",
+   "lat": 36.6050106,
+   "lng": 127.2909562,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-063",
+   "mgmt_no": "413-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리16",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 264-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "044-300-5533",
+   "lat": 36.6043613,
+   "lng": 127.292332,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-064",
+   "mgmt_no": "413-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리17",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 277-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "044-300-5533",
+   "lat": 36.60192428,
+   "lng": 127.2883287,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-065",
+   "mgmt_no": "413-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리18",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 251-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "044-300-5533",
+   "lat": 36.6048758,
+   "lng": 127.2910161,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-066",
+   "mgmt_no": "413-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리19",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 252-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "044-300-5533",
+   "lat": 36.6049246,
+   "lng": 127.2914987,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-067",
+   "mgmt_no": "413-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리2",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 253-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "044-300-5533",
+   "lat": 36.605094,
+   "lng": 127.2927184,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-068",
+   "mgmt_no": "413-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리20",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 259-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "044-300-5533",
+   "lat": 36.6040541,
+   "lng": 127.2937427,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-069",
+   "mgmt_no": "413-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리3",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 272-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "044-300-5533",
+   "lat": 36.6022069,
+   "lng": 127.291497,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-070",
+   "mgmt_no": "413-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리4",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 266-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "044-300-5533",
+   "lat": 36.6045048,
+   "lng": 127.2907768,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-071",
+   "mgmt_no": "413-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리5",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 254-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "044-300-5533",
+   "lat": 36.6054656,
+   "lng": 127.2930825,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-072",
+   "mgmt_no": "413-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리6",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 251-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "044-300-5533",
+   "lat": 36.6047987,
+   "lng": 127.2902572,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-073",
+   "mgmt_no": "413-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리7",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 260-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "044-300-5533",
+   "lat": 36.6039083,
+   "lng": 127.2933385,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-074",
+   "mgmt_no": "413-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리8",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 270-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "044-300-5533",
+   "lat": 36.6030928,
+   "lng": 127.2908008,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-075",
+   "mgmt_no": "413-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "침산리9",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 조치원읍 침산리 284-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "044-300-5533",
+   "lat": 36.5996042,
+   "lng": 127.2894163,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-076",
+   "mgmt_no": "413-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "종촌동 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "종촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 종촌동 664",
+   "addr_road": "세종특별자치시 달빛로 53",
+   "road": null,
+   "spaces": 163,
+   "tel": "044-850-1295",
+   "lat": 36.503721,
+   "lng": 127.249759,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "5부제 적용 공영주차장",
+   "notice": "5부제 적용 공영주차장입니다(차량 끝번호에 따라 이용일이 다를 수 있음) · 조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "전일",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 75000
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-077",
+   "mgmt_no": "413-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한솔동",
+   "gu": "세종특별자치시",
+   "dong": "한솔동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "세종특별자치시 한솔동 961-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "044-300-5533",
+   "lat": 36.47658585,
+   "lng": 127.2562744,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 시 직영 주차장",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1380,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "23:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-s001",
+   "mgmt_no": "413-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "나성노상무인 주차기",
+   "gu": "세종특별자치시",
+   "dong": "나성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "세종특별자치시 나성동 724",
+   "addr_road": "세종특별자치시 한솔동로",
+   "road": "한솔동로",
+   "spaces": 33,
+   "tel": "044-850-1295",
+   "lat": 36.48137667,
+   "lng": 127.2606046,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 15,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-s002",
+   "mgmt_no": "413-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "도담노상무인 주차기",
+   "gu": "세종특별자치시",
+   "dong": "도담동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "세종특별자치시 도담동 920",
+   "addr_road": "세종특별자치시 보듬3로",
+   "road": "보듬3로",
+   "spaces": 13,
+   "tel": "044-850-1295",
+   "lat": 36.51427158,
+   "lng": 127.2582387,
+   "base_date": "2026-05-12",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 15,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  },
+  {
+   "id": "sj-sejong-s003",
+   "mgmt_no": "413-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "정리 공영주차장",
+   "gu": "세종특별자치시",
+   "dong": "조치원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "세종특별자치시 조치원읍 정리 110-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "044-850-1295",
+   "lat": 36.59884803,
+   "lng": 127.297507,
+   "base_date": "2026-04-20",
+   "manager": "세종특별자치시시설관리공단",
+   "note": "",
+   "notice": "조례 별표1(최초 30분 500원·10분마다 300원·2시간 초과 15분마다 500원)로 계산합니다 · 시설관리공단 위탁 주차장",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 75000,
+    "monthly_all": 75000,
+    "monthly_label": "요금표",
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": true,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": null
+    },
+    "steps": [
+     {
+      "until": 40,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 50,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 60,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 70,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 80,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 90,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 100,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 110,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 300
+     },
+     {
+      "until": null,
+      "unit_min": 15,
+      "unit_fee": 500
+     }
+    ],
+    "steps_label_only": true,
+    "steps_label": "30분 초과 10분마다 300원 (2시간 초과 15분마다 500원)",
+    "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 별표1 공영주차장 주차요금표"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "세종특별자치시",
+   "city_slug": "sejong-si",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-18 14:18",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 102,
+  "원자료_세종특별자치시행수": 102,
+  "원자료_받은행수": 102,
+  "구별": "세종특별자치시",
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 22,
+  "중복제거_행": [
+   {
+    "name": "정부세종청사 BRT환승센터 / 정부세종청사BRT환승센터",
+    "addr": "세종특별자치시 도움3로 5",
+    "spaces": 568,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "정부세종청사 BRT환승센터"
+   },
+   {
+    "name": "세종대평시장 공영주차장 / 세종대평시장공영주차장",
+    "addr": "세종특별자치시 금남면 용포리 146-1",
+    "spaces": 41,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "세종대평시장 공영주차장"
+   },
+   {
+    "name": "세종남부 BRT환승센터 / 세종남부brt 환승센터",
+    "addr": "세종특별자치시 소담동 554",
+    "spaces": 464,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "세종남부 BRT환승센터"
+   },
+   {
+    "name": "대평동",
+    "addr": "세종특별자치시 대평동 666",
+    "spaces": 56,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "대평동"
+   },
+   {
+    "name": "나성동(CDS1)",
+    "addr": "세종특별자치시 나성동 361-55",
+    "spaces": 665,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "나성동(CDS1)"
+   },
+   {
+    "name": "고복자연공원 방문자센터",
+    "addr": "세종특별자치시 연서면 용암리 203-6",
+    "spaces": 43,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "고복자연공원 방문자센터"
+   },
+   {
+    "name": "용포로 공영주차장",
+    "addr": "세종특별자치시 금남면 신촌리 297-11",
+    "spaces": 55,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "용포로 공영주차장"
+   },
+   {
+    "name": "2생활권 환승주차장B / 첫마을 BRT환승센터B",
+    "addr": "세종특별자치시 나성동 778",
+    "spaces": 270,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "첫마을 BRT환승센터B"
+   },
+   {
+    "name": "2생활권 환승주차장A / 첫마을 BRT환승센터A",
+    "addr": "세종특별자치시 나성동 719",
+    "spaces": 270,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "첫마을 BRT환승센터A"
+   },
+   {
+    "name": "고운동(주1-14)",
+    "addr": "세종특별자치시 고운동 1910",
+    "spaces": 14,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "고운동(주1-14)"
+   },
+   {
+    "name": "보람동2 공영주차장",
+    "addr": "세종특별자치시 보람동 750",
+    "spaces": 61,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "보람동2 공영주차장"
+   },
+   {
+    "name": "나성동 공영주차장",
+    "addr": "세종특별자치시 나성동 42-1",
+    "spaces": 71,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "나성동 공영주차장"
+   },
+   {
+    "name": "보람동1 공영주차장",
+    "addr": "세종특별자치시 보람동 748",
+    "spaces": 61,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "보람동1 공영주차장"
+   },
+   {
+    "name": "종촌동 공영주차장 / 종촌동공영주차장",
+    "addr": "세종특별자치시 종촌동 664",
+    "spaces": 163,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "종촌동 공영주차장"
+   },
+   {
+    "name": "아름동 공영주차장 / 아름동공영주차장",
+    "addr": "세종특별자치시 아름동 1352",
+    "spaces": 271,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "아름동 공영주차장"
+   },
+   {
+    "name": "이벤트광장",
+    "addr": "세종특별자치시 조치원읍 장안길 14",
+    "spaces": 25,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "이벤트광장"
+   },
+   {
+    "name": "세종전통시장 제1공영주차장 / 조치원주차타워",
+    "addr": "세종특별자치시 조치원읍 새내로 99",
+    "spaces": 200,
+    "note": "같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "세종전통시장 제1공영주차장"
+   },
+   {
+    "name": "도담노상무인 주차기",
+    "addr": "세종특별자치시 도담동 920",
+    "spaces": 13,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "도담노상무인 주차기"
+   },
+   {
+    "name": "고운동(주1-13)",
+    "addr": "세종특별자치시 고운동 1812",
+    "spaces": 14,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "고운동(주1-13)"
+   },
+   {
+    "name": "나성노상무인 주차기",
+    "addr": "세종특별자치시 나성동 724",
+    "spaces": 33,
+    "note": "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김",
+    "base_date": "2026-04-20",
+    "kept": "나성노상무인 주차기"
+   },
+   {
+    "name": "반곡동",
+    "addr": "세종특별자치시 반곡동 41-9",
+    "spaces": 54,
+    "note": "같은 이름·같은 면수로 자리만 다르게 두 번 등록 — 옛 등록의 주소가 바뀐 것으로 보고 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "2026-05-12"
+   },
+   {
+    "name": "도시상징광장주차장",
+    "addr": "세종특별자치시 나성동 248",
+    "spaces": 262,
+    "note": "같은 이름·같은 면수로 자리만 다르게 두 번 등록 — 옛 등록의 주소가 바뀐 것으로 보고 최근 등록만 남김",
+    "base_date": "2026-04-20",
+    "kept": "2026-05-12"
+   }
+  ],
+  "총_주차장": 77,
+  "노외_부설": {
+   "노외": 77
+  },
+  "노상_구간": 3,
+  "총_구획수": 5633,
+  "노상_구획수": 97,
+  "동별": {
+   "조치원읍": 47,
+   "고운동": 5,
+   "나성동": 5,
+   "금남면": 3,
+   "부강면": 3,
+   "보람동": 2,
+   "소담동": 2,
+   "어진동": 2,
+   "가람동": 1,
+   "다정동": 1,
+   "대평동": 1,
+   "반곡동": 1,
+   "아름동": 1,
+   "연서면": 1,
+   "종촌동": 1,
+   "한솔동": 1
+  },
+  "동수": 16,
+  "동_미상": [],
+  "동_보정": [
+   "정부세종청사 BRT환승센터: 동 미상 → 어진동(좌표 889m 인근 어진동(C47))"
+  ],
+  "동_근거": {
+   "지번주소": 72,
+   "좌표 인근(어진동(C47), 889m)": 1,
+   "도로명주소": 4
+  },
+  "요금구분": {
+   "무료": 58,
+   "유료": 22
+  },
+  "요금_미상": [],
+  "유료_노상": 3,
+  "유료_노외": 19,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「세종특별자치시 주차장 설치 및 관리 조례」 제5조 주차요금 및 가산금·별표1(시행 2025-07-14 · 세종특별자치시조례 제2804호(일부개정))",
+  "무료시간_출처": "조례 별표는 최초 무료시간을 정하지 않아 무료시간 없이 계산했다(세종은 주차시간이 30분 미만이면 30분으로 계산). 전통시장 안팎 주차장은 등록값의 최초 60분 무료를 썼다",
+  "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다(조례에 주말 무료 규정 없음)",
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 58,
+  "무료_구획수": 2469,
+  "평균_기본요금": 341,
+  "토요일_미운영": 2,
+  "일공휴일_미운영": 2,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "413-2-000059"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-20",
+   "2026-05-12"
+  ],
+  "관리기관": {
+   "세종특별자치시청": 53,
+   "세종특별자치시시설관리공단": 27
+  }
+ },
+ "fee_table": {
+  "style": "sejong_2h",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "시행 2025-07-14 · 세종특별자치시조례 제2804호(일부개정)",
+  "rows": [
+   {
+    "label": "조례 별표1(급지 구분 없음)",
+    "unit_label": "최초 30분 500원 → 10분마다 300원 → 2시간 초과 15분마다 500원",
+    "hour": 1400,
+    "two_hour": 3200,
+    "day": 8000,
+    "month": 75000,
+    "lots": 22
+   }
+  ],
+  "ord_rows": [
+   {
+    "label": "공영주차장",
+    "base": 500,
+    "unit": 300,
+    "over": 500,
+    "day": 8000,
+    "month": 75000
+   }
+  ],
+  "corp": {
+   "paid": 19,
+   "free": 58,
+   "unknown": 0,
+   "street_paid": 3
+  },
+  "windows": [
+   {
+    "group": "주간",
+    "hours": "08:00~22:00",
+    "free": "세종은 조례 별표1 비고2가 운영시간을 08:00~22:00으로 정하고, 그 밖의 시간은 요금을 받지 않는 것으로 봅니다"
+   }
+  ],
+  "notes": "세종특별자치시 조례 별표1(2025-07-14 개정)은 한 줄 요금표다 — 1구획 최초 30분 500원, 30분을 넘으면 매 10분 300원, 2시간을 넘으면 15분마다 500원이고, 1일 주차권 8,000원·월 주차권 75,000원이다(비고4: 주차시간이 30분 미만이면 30분으로 계산). 운영시간은 08:00~22:00이며 시장이 주변 여건에 따라 조정할 수 있다(비고2).",
+  "corp_extra": {
+   "paid": 19,
+   "free": 58,
+   "unknown": 0,
+   "street_paid": 3
+  },
+  "basis": "「세종특별자치시 주차장 설치 및 관리 조례」 제5조 주차요금 및 가산금·별표1(시행 2025-07-14 · 세종특별자치시조례 제2804호(일부개정)) · 전국주차장정보표준데이터(2026-10-06 기준) 등록값 대조"
+ },
+ "slug": "sejong-si",
+ "province": "세종특별자치시",
+ "province_slug": "sejong",
+ "dong_page_min_lots": 3,
+ "city": "세종특별자치시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "「도로교통법」 제2조제22호 긴급자동차와 국가·지방자치단체 소유 공사·업무수행 차량은 전액 면제합니다(세종특별자치시 조례 제5조②1·2호)"
+  },
+  {
+   "label": "장애인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「장애인복지법」에 따른 등록 장애인이 장애인등록증을 소지하고 장애인자동차표지를 붙인 차 50퍼센트(제5조②4호)"
+  },
+  {
+   "label": "경차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」에 따른 경형자동차 50퍼센트 — 다른 시의 60퍼센트와 다릅니다(제5조②3호)"
+  },
+  {
+   "label": "요일제·함께타기 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "승용차 요일제와 함께타기에 참여한 차 50퍼센트(제5조②5호)"
+  },
+  {
+   "label": "저공해·환경친화 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "저공해자동차·배출가스저감장치 부착 차, 환경친화적 자동차(표지 부착) 50퍼센트(제5조②6·10호)"
+  },
+  {
+   "label": "병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「세종특별자치시 병역명문가 예우 및 지원에 관한 조례」 예우대상자와 그 가족이 운전하는 차 50퍼센트(제5조②8호)"
+  },
+  {
+   "label": "임산부·국가보훈대상자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "임산부가 탑승해 산모수첩 등을 낸 차, 세종특별자치시 국가보훈대상자 신분증을 낸 사람의 차 50퍼센트(제5조②11·12호)"
+  },
+  {
+   "label": "성실납세자 1년 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "성실납세자로 인정받은 날부터 1년간 50퍼센트(제5조②14호)"
+  },
+  {
+   "label": "제대군인 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「제대군인지원에 관한 법률」 제2조제1항제2호의 제대군인으로서 자격 서류를 낸 사람 50퍼센트(2025-07-14 신설, 제5조②16호)"
+  },
+  {
+   "label": "전통시장 이용객 1일 1시간 면제",
+   "rate": 1.0,
+   "exempt_min": 60,
+   "note": "전통시장·상권활성화구역 공영주차장을 상인·고객이 쓰면 1일 1시간 이내 전액 감면합니다(제5조②14호의2)"
+  },
+  {
+   "label": "점심시간(11:30~13:30) 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "지역경제 활성화를 위해 점심시간대(11:30~13:30)에 주차한 차의 그 시간 요금을 면제합니다(제5조②13호, 2020-10-30 신설) — 계산기는 입차 시각을 받지 않아 시간대 계산은 하지 않습니다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
