@@ -10191,6 +10191,52 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "gunsan_grade":
+        # 군산시 — 공영 176곳(노외 136·노상 40, 무료 174·요금 미상 2).
+        #   유료로 등록된 곳은 옥도면 장자1·선유2(고군산군도) 2곳뿐인데
+        #   기본·추가·1일·월정기 금액이 전부 공란이라 금액을 확정할 수
+        #   없어 요금 미상으로 싣고(화성 선례), 아래 표는 「군산시 주차장
+        #   조례」 제2475호 별표 1의 조례 기준 요금 참고표로만 싣는다
+        #   (서천·예산·보은·영동·진천 선례). 별표 1은 급지(1급지 동 지역·
+        #   2급지 읍·면 지역·도서지역)와 차종(소형·대형)으로 나뉘고, 표는
+        #   소형 기준이며 대형 값은 요율 칸에 병기했다. 1시간 요금이
+        #   0원인 것은 비고 13(총 주차시간 1시간까지 면제) 때문이다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">군산 공영주차장 176곳 가운데 <b>174곳은 무료</b>이고, 유료로 등록된
+곳은 옥도면 장자1·선유2(고군산군도) <b>2곳</b>뿐인데 이 두 곳도 요금 금액이
+등록돼 있지 않아 금액은 군산시청 확인이 필요합니다. 「군산시 주차장 조례」
+제2475호 별표 1은 급지를 <b>1급지(동 지역)</b>·<b>2급지(읍·면 지역)</b>·
+<b>도서지역(연륙교로 연결된 도서지역)</b>으로 나누고, 소형차 기준으로 총
+<b>1시간까지는 요금을 면제</b>하며, 1시간 초과 1시간 30분까지 기본요금
+(1급지 <b>500원</b>·2급지 <b>500원</b>·도서지역 <b>1,000원</b>), 이후 30분마다
+추가요금(1급지 <b>1,000원</b>·2급지 <b>500원</b>·도서지역 <b>1,500원</b>),
+5시간 초과 시 1일 주차요금(1급지 <b>8,000원</b>·2급지 <b>4,500원</b>·도서지역
+<b>12,000원</b>)을 적용합니다. 아래 표는 이 조례 기준 요금의 <b>참고표</b>로,
+무료로 운영되는 곳의 실제 요금이 아닙니다. 주간 적용시간은 1급지 4~10월
+08:00~20:00·11~3월 09:00~18:00, 2급지·도서지역은 연중 09:00~18:00입니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1, 소형 기준)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월 정기권(주·야간)</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료이며, 유료로 등록됐으나 금액이 없는 {corp.get('unknown', 0)}곳은 요금 미상으로
+표시했습니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
