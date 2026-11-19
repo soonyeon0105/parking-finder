@@ -1,0 +1,2596 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 06:36",
+  "generated_at_iso": "2026-11-20T06:36:56+09:00",
+  "snapshot_at": "2026-11-20 06:36",
+  "region": {
+   "province": "충청북도",
+   "city": "옥천군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 21,
+    "fetched_at": "2026-11-20 06:36 (KST)",
+    "note": "옥천군으로 등록된 행 21행(노외 14곳·노상 7구간)을 읽어 실었다. 옥천군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·면수는 등록값을 그대로 썼다. 조례 대조 완료 — 「옥천군 주차장 조례」 제3445호(시행 2026-08-20, ordinSeq 2164169) 제3조·별표1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「옥천군 주차장 조례」 제3445호(시행 2026-08-20, 일부개정)",
+    "org": "충청북도 옥천군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2164169&efYd=20260820",
+    "file": "okcheon-ordinance-b1.hwp",
+    "sha256": "ae6aebf44625b3e45fa2ca3f34d3beef6924a8a2845949dd40b594ca700db762",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-20",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 06:36 (KST)",
+    "note": "옥천군이 설치·관리하는 공영주차장에 적용하는 조례다. 옥천군 공영주차장 21곳 중 16곳은 무료이고 유료는 5곳(옥천 공설시장 공영주차타워·창의어울림센터 주차장·보건소 앞 주차장·옥천농협 공영주차장·금구 공영주차타워)뿐이다. 「옥천군 주차장 조례」 제3445호(시행 2026-08-20, ordinSeq 2164169) 제3조제1항·별표1은 급지 구분 없이 주간(08:00~19:00) 1회주차권 최초 1시간30분까지 무료, 1시간30분 초과 후 30분마다 500원, 1일주차 7,000원(노상주차장 제외), 월정기권 40,000원, 야간(19:00~익일 08:00) 무료다. 다만 유료 5곳의 표준데이터 등록값은 기본 90분 500원·추가 30분당 500원·1일 7,000원·월정기 40,000원(보건소 앞 주차장만 월정기 공란)으로 기본요금이 별표의 '최초 1시간30분 무료'와 어긋난다. 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례 별표1 값으로 표기했으며 차이는 급지_요금_차이에 기록했다(실제 징수 기준은 군청 확인 필요). 조례 별표1의 1일주차는 노상주차장을 제외하는데 노상 유료 2곳에도 1일주차권 7,000원이 등록돼 있어 등록값 그대로 실었다. 감면은 조례 제3조를 따른다(긴급자동차·공무용 차량 면제, 경차량 60%, 장애인·국가유공자·고엽제·5·18·저공해·병역명문가 50%, 전통시장 주차장 전액, 승용차 10부제·함께타기 20% — 중복 시 감면율이 높은 하나만 적용). 유료 5곳의 평일 운영시간은 조례 주간 시간과 같은 08:00~19:00로 등록돼 있으나 토요일·공휴일은 00:00~23:59로 등록돼 있어, 야간 무료가 실제로 어떻게 적용되는지는 군청 확인이 필요하다. (조례 본문: data/raw/okcheon-ordinance.txt, 별표1 원문 HWP: data/raw/okcheon-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "옥천군",
+   "slug": "okcheon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "cb-okcheon-001",
+   "mgmt_no": "276-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)채소시장 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 6-2",
+   "addr_road": "충청북도 옥천군 옥천읍 중앙로6길 6-6",
+   "road": null,
+   "spaces": 25,
+   "tel": "043-730-3533",
+   "lat": 36.30197032,
+   "lng": 127.5690047,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-002",
+   "mgmt_no": "276-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구 옥천신협 옆 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 23-30",
+   "addr_road": "충청북도 옥천군 옥천읍 중앙로9길 16",
+   "road": null,
+   "spaces": 4,
+   "tel": "043-730-3533",
+   "lat": 36.30116421,
+   "lng": 127.570709,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-003",
+   "mgmt_no": "276-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금구천 하상주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 184-2",
+   "addr_road": "충청북도 옥천군 옥천읍 금장로 14",
+   "road": null,
+   "spaces": 136,
+   "tel": "043-730-3533",
+   "lat": 36.30169895,
+   "lng": 127.5658387,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-004",
+   "mgmt_no": "276-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건소 앞 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 삼양리 161-81",
+   "addr_road": "충청북도 옥천군 옥천읍 삼양로 8길 5-6",
+   "road": null,
+   "spaces": 43,
+   "tel": "043-730-3533",
+   "lat": 36.30410469,
+   "lng": 127.5689992,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "경차·장애인차량·국가유공자 50프로 할인",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 90분 500원이고 이후 30분마다 500원입니다 · 「옥천군 주차장 조례」 별표1은 최초 1시간30분을 무료로 정하고 있어 실제 징수와 다를 수 있습니다 · 감면은 조례 제3조 기준입니다 — 경차는 조례상 60% 감면입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 7000,
+    "daily_hours": 11,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 90분 500원 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(옥천군, 기준일 2026-10-19) — 조례 별표1(최초 1시간30분 무료)과 기본요금이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-005",
+   "mgmt_no": "276-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "새터 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 154",
+   "addr_road": "충청북도 옥천군 옥천읍 중앙로2길 1-2",
+   "road": null,
+   "spaces": 23,
+   "tel": "043-730-3533",
+   "lat": 36.30008357,
+   "lng": 127.5686086,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-006",
+   "mgmt_no": "276-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선관위 일원 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 113-2",
+   "addr_road": "충청북도 옥천군 옥천읍 중앙로1길 22",
+   "road": null,
+   "spaces": 42,
+   "tel": "043-730-3533",
+   "lat": 36.29691929,
+   "lng": 127.5670839,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-007",
+   "mgmt_no": "276-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시외버스터미널 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 삼양리 42-7",
+   "addr_road": "충청북도 옥천군 옥천읍 삼양로 8",
+   "road": null,
+   "spaces": 54,
+   "tel": "043-730-3533",
+   "lat": 36.30805555,
+   "lng": 127.5630549,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-008",
+   "mgmt_no": "276-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥천 공설시장 공영주차타워",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 삼양리 222-160",
+   "addr_road": "충청북도 옥천군 옥천읍 삼양로 7길 9-5",
+   "road": null,
+   "spaces": 102,
+   "tel": "043-730-3533",
+   "lat": 36.3033773,
+   "lng": 127.5680306,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "경차·장애인차량·국가유공자 50프로 할인",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 90분 500원이고 이후 30분마다 500원입니다 · 「옥천군 주차장 조례」 별표1은 최초 1시간30분을 무료로 정하고 있어 실제 징수와 다를 수 있습니다 · 감면은 조례 제3조 기준입니다 — 경차는 조례상 60% 감면입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 7000,
+    "daily_hours": 11,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 90분 500원 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": 40000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(옥천군, 기준일 2026-10-19) — 조례 별표1(최초 1시간30분 무료)과 기본요금이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-009",
+   "mgmt_no": "276-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥천공영주차타워",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 184-2",
+   "addr_road": "충청북도 옥천군 옥천읍 금장로 14",
+   "road": null,
+   "spaces": 138,
+   "tel": "043-730-3533",
+   "lat": 36.30169995,
+   "lng": 127.565821,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-010",
+   "mgmt_no": "276-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥천여중 옆 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 문정리 464-22",
+   "addr_road": "충청북도 옥천군 옥천읍 중앙로 80",
+   "road": null,
+   "spaces": 11,
+   "tel": "043-730-3533",
+   "lat": 36.30392333,
+   "lng": 127.5711059,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-011",
+   "mgmt_no": "276-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장야리 주거지 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 장야리 308-79",
+   "addr_road": "충청북도 옥천군 옥천읍 장야4길 46-2",
+   "road": null,
+   "spaces": 89,
+   "tel": "043-730-3533",
+   "lat": 36.29494617,
+   "lng": 127.5792383,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-012",
+   "mgmt_no": "276-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창의어울림센터 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 23-4",
+   "addr_road": "충청북도 옥천군 옥천읍 금장로 53-14",
+   "road": null,
+   "spaces": 49,
+   "tel": "043-730-3533",
+   "lat": 36.3010066,
+   "lng": 127.5703536,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "경차·장애인차량·국가유공자 50프로 할인",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 90분 500원이고 이후 30분마다 500원입니다 · 「옥천군 주차장 조례」 별표1은 최초 1시간30분을 무료로 정하고 있어 실제 징수와 다를 수 있습니다 · 감면은 조례 제3조 기준입니다 — 경차는 조례상 60% 감면입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 7000,
+    "daily_hours": 11,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 90분 500원 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": 40000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(옥천군, 기준일 2026-10-19) — 조례 별표1(최초 1시간30분 무료)과 기본요금이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-013",
+   "mgmt_no": "276-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충혼탑 옆 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 104-12",
+   "addr_road": "충청북도 옥천군 옥천읍 성암1길 52",
+   "road": null,
+   "spaces": 24,
+   "tel": "043-730-3533",
+   "lat": 36.29650948,
+   "lng": 127.5722302,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-014",
+   "mgmt_no": "276-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청산 공영주차장",
+   "gu": "옥천군",
+   "dong": "청산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 옥천군 청산면 교평리 257-3",
+   "addr_road": "충청북도 옥천군 청산면 지전길 10",
+   "road": null,
+   "spaces": 57,
+   "tel": "043-730-3533",
+   "lat": 36.3442363,
+   "lng": 127.7956816,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s001",
+   "mgmt_no": "276-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가화 공영주차타워",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 230-21",
+   "addr_road": "충청북도 옥천군 옥천읍 가화4길 8",
+   "road": "가화4길",
+   "spaces": 136,
+   "tel": "043-730-3533",
+   "lat": 36.30518291,
+   "lng": 127.5619457,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s002",
+   "mgmt_no": "276-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "금구 공영주차타워",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 23-1",
+   "addr_road": "충청북도 옥천군 옥천읍 중앙로9길 8",
+   "road": "중앙로9길",
+   "spaces": 160,
+   "tel": "043-730-3533",
+   "lat": 36.30161811,
+   "lng": 127.570116,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "경차·장애인차량·국가유공자 50프로 할인",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 90분 500원이고 이후 30분마다 500원입니다 · 「옥천군 주차장 조례」 별표1은 최초 1시간30분을 무료로 정하고 있어 실제 징수와 다를 수 있습니다 · 감면은 조례 제3조 기준입니다 — 경차는 조례상 60% 감면입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 7000,
+    "daily_hours": 11,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 90분 500원 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": 40000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(옥천군, 기준일 2026-10-19) — 조례 별표1(최초 1시간30분 무료)과 기본요금이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s003",
+   "mgmt_no": "276-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "문정리 주거지 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 문정리 430-1",
+   "addr_road": "충청북도 옥천군 옥천읍 동부로 16",
+   "road": "동부로",
+   "spaces": 36,
+   "tel": "043-730-3533",
+   "lat": 36.30608229,
+   "lng": 127.5736803,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s004",
+   "mgmt_no": "276-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥천교회 앞 주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 193-1",
+   "addr_road": "충청북도 옥천군 옥천읍 삼금로 1길24",
+   "road": "삼금로",
+   "spaces": 25,
+   "tel": "043-730-3533",
+   "lat": 36.30147767,
+   "lng": 127.5653903,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s005",
+   "mgmt_no": "276-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥천농협 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 164-69",
+   "addr_road": "충청북도 옥천군 옥천읍 삼금로 21",
+   "road": "삼금로",
+   "spaces": 113,
+   "tel": "043-730-3533",
+   "lat": 36.30125522,
+   "lng": 127.5669257,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "경차·장애인차량·국가유공자 50프로 할인",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 90분 500원이고 이후 30분마다 500원입니다 · 「옥천군 주차장 조례」 별표1은 최초 1시간30분을 무료로 정하고 있어 실제 징수와 다를 수 있습니다 · 감면은 조례 제3조 기준입니다 — 경차는 조례상 60% 감면입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 7000,
+    "daily_hours": 11,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 90분 500원 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": 40000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(옥천군, 기준일 2026-10-19) — 조례 별표1(최초 1시간30분 무료)과 기본요금이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s006",
+   "mgmt_no": "276-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥천농협~가화교",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 금구리 164-69",
+   "addr_road": "충청북도 옥천군 옥천읍 삼금로 21",
+   "road": "삼금로",
+   "spaces": 25,
+   "tel": "043-730-3533",
+   "lat": 36.30125522,
+   "lng": 127.5669257,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  },
+  {
+   "id": "cb-okcheon-s007",
+   "mgmt_no": "276-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "죽향 공영주차장",
+   "gu": "옥천군",
+   "dong": "옥천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 옥천군 옥천읍 죽향리 156",
+   "addr_road": "충청북도 옥천군 옥천읍 향수2길 29-10",
+   "road": "향수2길",
+   "spaces": 114,
+   "tel": "043-730-3533",
+   "lat": 36.31608112,
+   "lng": 127.5785897,
+   "base_date": "2026-10-19",
+   "manager": "충청북도 옥천군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "옥천군",
+   "city_slug": "okcheon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 06:36",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 21,
+  "원자료_옥천군행수": 21,
+  "원자료_받은행수": 21,
+  "구별": {
+   "옥천군": 14
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 14,
+  "노외_부설": {
+   "노외": 14
+  },
+  "노상_구간": 7,
+  "총_구획수": 797,
+  "노상_구획수": 609,
+  "동별": {
+   "옥천읍": 13,
+   "청산면": 1
+  },
+  "동수": 2,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 14
+  },
+  "요금구분": {
+   "무료": 16,
+   "유료": 5
+  },
+  "요금_미상": [],
+  "유료_노상": 2,
+  "유료_노외": 3,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "옥천공영주차타워(노외·무료·138면)와 금구천 하상주차장(노외·무료·136면)은 같은 지번(옥천읍 금구리 184-2)·같은 도로명주소(금장로 14)에 이름만 다르게 등록돼 있고 좌표도 약 2m 차이라 사실상 같은 자리다 — 이름이 달라 중복으로 합치지 않고 둘 다 실었다. 타워와 하상주차장이 별개 시설인지, 면수 138/136 중 어느 쪽이 맞는지는 옥천군청 확인 필요",
+   "옥천농협 공영주차장(노상·유료·113면)과 옥천농협~가화교(노상·무료·25면)는 같은 지번(옥천읍 금구리 164-69)·같은 도로명주소(삼금로 21)·같은 좌표에 이름·요금만 다르게 등록돼 있다 — 구간이 다른 등록으로 보고 둘 다 실었고 군청 확인 필요",
+   "주차타워 2곳(금구 공영주차타워 160면·가화 공영주차타워 136면)이 주차장유형 '노상'으로 등록돼 있어 등록값 그대로 노상 구간으로 실었다 — 실제 시설 형태(타워)와 등록 유형이 달라 군청 확인 필요",
+   "유료 5곳의 토요일·공휴일 운영시간이 00:00~23:59로 등록돼 있으나 조례 별표1의 징수 시간은 주간(08:00~19:00)이고 야간은 무료다 — 등록값 그대로 실었고 실제 징수 시간은 군청 확인 필요"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "옥천 공설시장 공영주차타워: 등록 기본 90분 500원 ↔ 조례 별표1 최초 1시간30분 무료·초과 후 30분마다 500원 — 기본요금이 달라, 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "창의어울림센터 주차장: 등록 기본 90분 500원 ↔ 조례 별표1 최초 1시간30분 무료·초과 후 30분마다 500원 — 기본요금이 달라, 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "보건소 앞 주차장: 등록 기본 90분 500원 ↔ 조례 별표1 최초 1시간30분 무료·초과 후 30분마다 500원 — 기본요금이 달라, 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "옥천농협 공영주차장: 등록 기본 90분 500원 ↔ 조례 별표1 최초 1시간30분 무료·초과 후 30분마다 500원 — 기본요금이 달라, 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "옥천농협 공영주차장: 노상주차장인데 1일주차권 7000원이 등록돼 있다 — 조례 별표1의 1일주차는 '노상주차장 제외'라 등록값 그대로 실었고 군청 확인 필요",
+   "금구 공영주차타워: 등록 기본 90분 500원 ↔ 조례 별표1 최초 1시간30분 무료·초과 후 30분마다 500원 — 기본요금이 달라, 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "금구 공영주차타워: 노상주차장인데 1일주차권 7000원이 등록돼 있다 — 조례 별표1의 1일주차는 '노상주차장 제외'라 등록값 그대로 실었고 군청 확인 필요",
+   "등록 급지구분은 21행 전부 '기타'이나 조례 별표1에는 급지 구분이 없다 — 요금 결과에는 영향이 없다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「옥천군 주차장 조례」 제3445호 제3조 — 제2항 면제할 수 있다(긴급자동차, 국가·지방자치단체 공무용 차량, 군수가 인정하는 차량), 제4항 감면할 수 있다(제1호 장애인 자가운전 50%, 제2호 승용차 10부제·함께타기 20%, 제3호 국가유공자 자가운전 50%·보철대상자 전액, 제4호 경차량 60%, 제5호 고엽제후유의증 환자 등 50%, 제6호 5·18민주화운동 부상자 50%, 제7호 전통시장 특별법 제19조제1항에 따른 주차요금 전액, 제8호 저공해·환경친화적 표지 부착 50%, 제9호 병역명문가 예우대상자 50%), 제5항 중복 시 감면율이 높은 하나만 적용 — 본문·별표1 원문 HWP(data/raw/okcheon-ordinance-b1.hwp) 대조 완료(2026-11-20)",
+  "무료시간_출처": "조례 별표1 — 주간 최초 1시간30분까지 무료. 다만 유료 5곳의 표준데이터 등록값은 기본 90분·500원이라 계산기는 등록값을 유지하고 차이를 급지_요금_차이에 기록했다(군청 확인 필요)",
+  "주말무료_출처": "조례에 요일별 무료 조항은 없고 별표1의 야간(19:00~익일 08:00) 무료만 있다 — 유료 5곳의 토요일·공휴일 등록 운영시간이 00:00~23:59라 실제 야간 무료 적용은 군청 확인 필요",
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 16,
+  "무료_구획수": 939,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-19"
+  ],
+  "관리기관": {
+   "충청북도 옥천군청": 21
+  }
+ },
+ "fee_table": {
+  "style": "okcheon_grade",
+  "unit_min": 30,
+  "base_min": 90,
+  "applies": "조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「옥천군 주차장 조례」 제3445호(2026-08-20 시행, 일부개정), ordinSeq 2164169. 본문 사본 data/raw/okcheon-ordinance.txt, 별표1(공영주차장 주차요금표) 원문 HWP data/raw/okcheon-ordinance-b1.hwp.",
+  "rows": [
+   {
+    "label": "전 지역 (급지 구분 없음)",
+    "grade": "paid_base",
+    "unit_label": "최초 1시간30분 무료 · 초과 30분마다 500원",
+    "hour": 0,
+    "two_hour": 500,
+    "day": 7000,
+    "month": 40000,
+    "lots": 5
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 3,
+   "free": 16,
+   "unknown": 0,
+   "street_paid": 2
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "08:00~19:00",
+    "free": "조례 별표1의 주간 시간이다 — 야간(19:00~익일 08:00)은 조례상 무료다. 유료 5곳의 등록 운영시간은 평일 08:00~19:00, 토요일·공휴일 00:00~23:59다"
+   }
+  ],
+  "notes": "옥천군 공영주차장 21곳 중 16곳은 무료이고 유료는 5곳(옥천 공설시장 공영주차타워·창의어울림센터 주차장·보건소 앞 주차장·옥천농협 공영주차장·금구 공영주차타워)뿐이다. 「옥천군 주차장 조례」 제3445호(시행 2026-08-20, ordinSeq 2164169) 제3조제1항·별표1은 급지 구분 없이 주간(08:00~19:00) 1회주차권 최초 1시간30분까지 무료, 1시간30분 초과 후 30분마다 500원, 1일주차 7,000원(노상주차장 제외), 월정기권 40,000원, 야간(19:00~익일 08:00) 무료다. 다만 유료 5곳의 표준데이터 등록값은 기본 90분 500원·추가 30분당 500원·1일 7,000원·월정기 40,000원(보건소 앞 주차장만 월정기 공란)으로 기본요금이 별표의 '최초 1시간30분 무료'와 어긋난다. 계산기는 공주시·청양군 선례대로 등록값을 유지하고 요금표는 조례 별표1 값으로 표기했으며 차이는 급지_요금_차이에 기록했다(실제 징수 기준은 군청 확인 필요). 조례 별표1의 1일주차는 노상주차장을 제외하는데 노상 유료 2곳에도 1일주차권 7,000원이 등록돼 있어 등록값 그대로 실었다. 감면은 조례 제3조를 따른다(긴급자동차·공무용 차량 면제, 경차량 60%, 장애인·국가유공자·고엽제·5·18·저공해·병역명문가 50%, 전통시장 주차장 전액, 승용차 10부제·함께타기 20% — 중복 시 감면율이 높은 하나만 적용). 유료 5곳의 평일 운영시간은 조례 주간 시간과 같은 08:00~19:00로 등록돼 있으나 토요일·공휴일은 00:00~23:59로 등록돼 있어, 야간 무료가 실제로 어떻게 적용되는지는 군청 확인이 필요하다.",
+  "corp_extra": {
+   "paid": 3,
+   "free": 16,
+   "unknown": 0,
+   "street_paid": 2
+  },
+  "basis": "「옥천군 주차장 조례」 제3445호(시행 2026-08-20, ordinSeq 2164169) 제3조·별표1 · 전국주차장정보표준데이터(옥천군, 기준일 2026-10-19) 등록값 — 별표1 원문 대조 완료. 유료 5곳의 등록 기본요금(90분 500원)은 조례(최초 1시간30분 무료)와 달라 계산기는 등록값으로 계산한다"
+ },
+ "slug": "okcheon",
+ "province": "충청북도",
+ "province_slug": "chungbuk",
+ "dong_page_min_lots": 3,
+ "city": "옥천군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무용 차량 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차와 국가 또는 지방자치단체의 공무용 차량, 그 밖에 군수가 특별한 사유가 있다고 인정하는 차량은 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "경차량 60%",
+   "rate": 0.6,
+   "exempt_min": null,
+   "note": "조례 제3조제4항제4호 — 「자동차관리법」에 의한 경차량은 주차요금의 100분의 60 감면. 유료 5곳 특기사항의 '경차 50프로 할인' 표기와 달라 조례를 따랐다"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18·저공해·병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": null,
+   "note": "조례 제3조제4항제1호(장애인 자가운전)·제3호(국가유공자 자가운전 — 보철대상자 운전 차량은 전액)·제5호(고엽제후유의증 환자 등)·제6호(5·18민주화운동 부상자)·제8호(저공해·환경친화적 표지 부착)·제9호(병역명문가 예우대상자)"
+  },
+  {
+   "label": "전통시장 주차장 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제7호 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조제1항에 따른 주차요금의 전액 감면. 같은 항 제2호의 승용차 10부제·함께타기 참여 차량 20% 감면은 버튼에 넣지 않고 안내로만 적는다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
