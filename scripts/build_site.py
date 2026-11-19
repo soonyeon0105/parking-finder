@@ -5963,6 +5963,10 @@ def fee_text(lot) -> str:
         return "요금 정보 없음 · 현장 확인"
     if f["type"] == "무료":
         return "무료"
+    if f.get("monthly_only"):
+        # 아산시 캠핑용자동차 전용주차장 — 월정기 전용(시간제 없음).
+        return (f"월정기 전용 · 월 {won(f['monthly'])}"
+                + (f"({f['monthly_label']})" if f.get("monthly_label") else ""))
     if f.get("grade_label") == "청사 부설" and f.get("free_min"):
         # 여주시 시청부설주차장 — 최초 40분 무료 → 40분 초과 1시간 이내 500원 → 1시간 초과 10분당 300원.
         return (f"최초 {f['free_min']}분 무료 · {f['free_min']}분 초과 1시간 이내 {won(f['base_fee'])}"
@@ -9122,6 +9126,53 @@ def fee_table_block(city) -> str:
 임산부는 <b>면제</b>, 경차·장애인·국가보훈대상자·저공해차·다자녀 등은 <b>2시간 면제 후
 50퍼센트 감면</b>입니다. 조례 별표1 원문은 국가법령정보센터에서 첨부파일로만 제공되어,
 요율 대조는 표준데이터 특기사항과 천안도시공사 안내의 교차확인으로 한정했습니다.</p>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "asan_grade":
+        # 아산시 조례 별표1(1~3급지 · 최초 30분 무료 · 1시간까지/초과 10분 단위) +
+        #   전통시장 조례 별표·부설 시행규칙 별표 (요금 소관이 나뉜다)
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"]) if r["day"] else "—"}</td>'
+            f'<td class="num">{won(r["month"]) if r["month"] else "—"}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        ord_rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{won(r["base"])}</td>'
+            f'<td class="num">{won(r["unit"])}</td><td class="num">{won(r["over"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td></tr>'
+            for r in ft["ord_rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">아산 공영주차장은 조례 별표1의 <b>1~3급지</b>로 나뉩니다 — <b>최초 30분 무료</b>에
+<b>1시간까지 10분마다</b>, <b>1시간 초과부터는 10분마다</b> 더 비싼 요금이 붙는 방식이고, 급지는
+설치 위치와 주차수요를 참작해 시장이 지정합니다(별표1 비고4). 아래 첫 표는 이 사이트에 실린
+주차장의 <b>등록요금</b>을 급지·소관별로 묶은 것입니다.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월 정기권(종일)</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<h3>아산시 주차장 조례 별표1 — 공영주차장 주차요금표</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">30분 초과 10분마다</th>
+  <th class="num">1시간 초과 10분마다</th>
+  <th class="num">1일 주차요금</th><th class="num">월 정기권(종일)</th></tr></thead>
+  <tbody>{ord_rows_html}</tbody>
+</table>
+<p class="updated">월 정기권은 주간·야간·종일권으로 나뉩니다(1급지 주간 60,000원·야간 30,000원,
+2급지 주간 50,000원·야간 25,000원). 노상주차장은 공휴일에 무료로 운영합니다(별표1 비고3).
+전통시장권 주차장은 「아산시 전통시장 및 상점가 주차장 관리ㆍ운영에 관한 조례」 별표,
+공공청사 부설주차장은 「아산시 공공청사 부설주차장 요금징수 조례」 시행규칙 별표를 따릅니다.</p>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
 <p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
 {corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
