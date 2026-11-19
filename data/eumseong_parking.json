@@ -1,0 +1,3559 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 07:25",
+  "generated_at_iso": "2026-11-20T07:25:32+09:00",
+  "snapshot_at": "2026-11-20 07:25",
+  "region": {
+   "province": "충청북도",
+   "city": "음성군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 29,
+    "fetched_at": "2026-11-20 07:25 (KST)",
+    "note": "음성군으로 등록된 행 29행(전부 공영)을 읽어 노외 25곳과 노상 4구간을 실었다. 무료 28곳·혼합 1곳이며, 혼합 1곳은 등록 기본 구간이 불완전해 계산기가 조례 별표 1의 누진 구조로 계산한다. 좌표는 전 행 등록돼 있어 보완이 필요 없었다. 조례 대조 완료 — 「음성군 주차장 조례」 제2879호(시행 2022-12-30, ordinSeq 1773701) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「음성군 주차장 조례」 제2879호(시행 2022-12-30, 일부개정)",
+    "org": "충청북도 음성군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1773701",
+    "file": "eumseong-ordinance-b1.hwp",
+    "sha256": "67601db25d69993f8ebd816f94eeb39df13eb76ddd5fe1d487adebc64f35e720",
+    "license": "자치법규(공개)",
+    "base_date": "2022-12-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 07:25 (KST)",
+    "note": "음성군이 설치·관리하는 공영주차장에 적용하는 조례다. 음성군 공영주차장 29곳은 노외 25곳·노상 4구간이고 총 2,406면이다(무료 28곳, 혼합 1곳). 「음성군 주차장 조례」 제2879호(시행 2022-12-30, ordinSeq 1773701) 별표 1은 1급지 30분당 500원(2시간까지)·2시간 초과 후 30분당 1,000원·월정기 40,000원, 2급지 30분당 200원·2시간 초과 후 30분당 400원·월정기 30,000원으로 정하고 1일 주차권은 두지 않는다. 급지는 1급지가 도시지역에 설치된 주차장, 2급지는 그 밖의 지역이다. 요금을 받는 곳은 맹동면 혁신도시 공영주차장(동성리 486-1, 194면, 1급지) 1곳뿐인데, 이 주차장의 등록값은 기본요금이 없고 기본시간이 '2'로만 적혀 있어 기본 구간을 확정할 수 없다 — 추가단위요금(30분당 1,000원)은 별표 1의 2시간 초과 단가와 일치하고 월정기 등록값(40,000원)도 1급지와 일치한다. 계산기는 논산·부여 선례대로 조례 별표 1의 누진 구조로 계산하고 차이는 급지_요금_차이에 기록했다(군청 확인 필요). 무료 28곳은 조례 제3조제1항 단서(주차질서 확립 또는 주차장 관리에 필요한 경우 특별히 일정한 기간을 정하여 그 요금을 감면할 수 있다)에 따른 무료 운영으로 본다. 감면은 조례 제3조제4항을 따른다(국가유공자 보철대상자 100%, 국가유공자·장애인 자가운전·경형·저공해·환경친화적 50% — 전기차 충전 시 최초 2시간 면제, 승용차 10부제·함께타기 30%, 긴급자동차는 제3조제2항으로 면제 가능). 좌표는 29곳 전부 등록돼 있고 전부 음성군 범위 안이다. (조례 본문: data/raw/eumseong-ordinance.txt, 별표 1 원문 HWP: data/raw/eumseong-ordinance-b1.hwp, 추출문: data/raw/eumseong-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "음성군",
+   "slug": "eumseong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "cj-eumseong-001",
+   "mgmt_no": "281-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "감곡면 공영주차장(감곡면 오향리 1113)",
+   "gu": "음성군",
+   "dong": "감곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 감곡면 오향리 1113",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "043-871-4142",
+   "lat": 37.108309,
+   "lng": 127.645867,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(감곡면 오향리 1113)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-002",
+   "mgmt_no": "281-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "감곡면 공영주차장(감곡면 왕장리 526-23)",
+   "gu": "음성군",
+   "dong": "감곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 감곡면 왕장리 526-23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "043-871-4142",
+   "lat": 37.117924,
+   "lng": 127.639397,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(감곡면 왕장리 526-23)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-003",
+   "mgmt_no": "281-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "감곡면 공영주차장(감곡면 왕장리 535-1)",
+   "gu": "음성군",
+   "dong": "감곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 감곡면 왕장리 535-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "043-871-4142",
+   "lat": 37.116947,
+   "lng": 127.636438,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(감곡면 왕장리 535-1)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-004",
+   "mgmt_no": "281-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금왕읍 공영주차장(금왕읍 무극리 503-3)",
+   "gu": "음성군",
+   "dong": "금왕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 금왕읍 무극리 503-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 113,
+   "tel": "043-871-4142",
+   "lat": 36.99349107,
+   "lng": 127.5890631,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(금왕읍 무극리 503-3)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-005",
+   "mgmt_no": "281-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금왕읍 공영주차장(금왕읍 무극리 515)",
+   "gu": "음성군",
+   "dong": "금왕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 금왕읍 무극리 515",
+   "addr_road": "",
+   "road": null,
+   "spaces": 224,
+   "tel": "043-871-4142",
+   "lat": 36.99091884,
+   "lng": 127.5902024,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(금왕읍 무극리 515)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-006",
+   "mgmt_no": "281-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금왕읍 공영주차장(금왕읍 무극리 75-2)",
+   "gu": "음성군",
+   "dong": "금왕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 금왕읍 무극리 75-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 498,
+   "tel": "043-871-4142",
+   "lat": 36.99190459,
+   "lng": 127.5954264,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(금왕읍 무극리 75-2)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-007",
+   "mgmt_no": "281-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대소읍 공영주차장(대소면 오산리 121-11)",
+   "gu": "음성군",
+   "dong": "대소면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 대소면 오산리 121-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "043-871-4142",
+   "lat": 36.96837266,
+   "lng": 127.48532,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(대소면 오산리 121-11)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-008",
+   "mgmt_no": "281-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대소읍 공영주차장(대소면 오산리 180-9)",
+   "gu": "음성군",
+   "dong": "대소면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 대소면 오산리 180-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "043-871-4142",
+   "lat": 36.967073,
+   "lng": 127.486888,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(대소면 오산리 180-9)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-009",
+   "mgmt_no": "281-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대소읍 공영주차장(대소면 오산리 190-2)",
+   "gu": "음성군",
+   "dong": "대소면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 대소면 오산리 190-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "043-871-4142",
+   "lat": 36.96631539,
+   "lng": 127.484284,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(대소면 오산리 190-2)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 5,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-010",
+   "mgmt_no": "281-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대소읍 공영주차장(대소면 오산리 385)",
+   "gu": "음성군",
+   "dong": "대소면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 대소면 오산리 385",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "043-871-4142",
+   "lat": 36.968569,
+   "lng": 127.488611,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(대소면 오산리 385)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-011",
+   "mgmt_no": "281-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대소읍 공영주차장(대소면 태생리 산33-1)",
+   "gu": "음성군",
+   "dong": "대소면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 대소면 태생리 산33-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "043-871-4142",
+   "lat": 36.96404306,
+   "lng": 127.4971722,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(대소면 태생리 산33-1)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-012",
+   "mgmt_no": "281-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맹동면 혁신도시 공영주차장(맹동면 동성리 476)",
+   "gu": "음성군",
+   "dong": "맹동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 맹동면 동성리 476",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "043-871-4142",
+   "lat": 36.90965167,
+   "lng": 127.5426417,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(맹동면 동성리 476)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 3,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-013",
+   "mgmt_no": "281-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맹동면 혁신도시 공영주차장(맹동면 동성리 486-1)",
+   "gu": "음성군",
+   "dong": "맹동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 맹동면 동성리 486-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 194,
+   "tel": "043-871-4142",
+   "lat": 36.91000276,
+   "lng": 127.5413461,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금은 「음성군 주차장 조례」 별표 1의 급지 기준(30분 단위 누진)으로 계산합니다 — 표준데이터 등록 기본요금이 없어 조례 구조를 적용했습니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(맹동면 동성리 486-1)로 구분했습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": true,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분당 500원 · 2시간 초과 후 30분당 1,000원",
+    "pay": "신용카드",
+    "std": {
+     "base_min": 2,
+     "base_fee": null,
+     "unit_min": 30,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": 40000
+    },
+    "basis": "「음성군 주차장 조례」 제2879호 별표 1(1급지) — 등록 기본요금이 없고 기본시간 단위가 불명해, 논산·부여 선례대로 조례 누진 구조로 계산한다. 등록 추가단위요금(30분당 1,000원)은 별표 1의 2시간 초과 단가와 일치하고 월정기 등록값(40,000원)도 1급지와 일치한다(군청 확인 필요)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-014",
+   "mgmt_no": "281-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맹동면 혁신도시 공영주차장(맹동면 동성리 510)",
+   "gu": "음성군",
+   "dong": "맹동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 맹동면 동성리 510",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "043-871-4142",
+   "lat": 36.90868078,
+   "lng": 127.5403276,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(맹동면 동성리 510)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 2,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-015",
+   "mgmt_no": "281-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맹동면 혁신도시 공영주차장(맹동면 본성리 42)",
+   "gu": "음성군",
+   "dong": "맹동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 맹동면 본성리 42",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "043-871-4142",
+   "lat": 36.92610717,
+   "lng": 127.5452173,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(맹동면 본성리 42)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 4,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-016",
+   "mgmt_no": "281-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성면 공영주차장(삼성면 덕정리 1275)",
+   "gu": "음성군",
+   "dong": "삼성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 삼성면 덕정리 1275",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "043-871-4142",
+   "lat": 37.015538,
+   "lng": 127.493322,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(삼성면 덕정리 1275)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-017",
+   "mgmt_no": "281-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성면 공영주차장(삼성면 덕정리 1291)",
+   "gu": "음성군",
+   "dong": "삼성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 삼성면 덕정리 1291",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "043-871-4142",
+   "lat": 37.014527,
+   "lng": 127.493804,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(삼성면 덕정리 1291)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-018",
+   "mgmt_no": "281-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성면 공영주차장(삼성면 덕정리 515-3)",
+   "gu": "음성군",
+   "dong": "삼성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 삼성면 덕정리 515-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "043-871-4142",
+   "lat": 37.020184,
+   "lng": 127.498478,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(삼성면 덕정리 515-3)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-019",
+   "mgmt_no": "281-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성면 공영주차장(삼성면 덕정리 520-5)",
+   "gu": "음성군",
+   "dong": "삼성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 삼성면 덕정리 520-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 189,
+   "tel": "043-871-4142",
+   "lat": 37.019444,
+   "lng": 127.499678,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(삼성면 덕정리 520-5)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-020",
+   "mgmt_no": "281-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성면 공영주차장(삼성면 덕정리 542-2)",
+   "gu": "음성군",
+   "dong": "삼성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 삼성면 덕정리 542-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "043-871-4142",
+   "lat": 37.019088,
+   "lng": 127.499993,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(삼성면 덕정리 542-2)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-021",
+   "mgmt_no": "281-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "생극면 공영주차장",
+   "gu": "음성군",
+   "dong": "생극면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 생극면 신양리 436-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 72,
+   "tel": "043-871-4142",
+   "lat": 37.032232,
+   "lng": 127.60498,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-022",
+   "mgmt_no": "281-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "음성읍 공영주차장(음성읍 읍내리 405-27)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 405-27",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "043-871-4142",
+   "lat": 36.92880027,
+   "lng": 127.6899013,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(음성읍 읍내리 405-27)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-023",
+   "mgmt_no": "281-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "음성읍 공영주차장(음성읍 읍내리 616)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 616",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "043-871-4142",
+   "lat": 36.93823054,
+   "lng": 127.6901626,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(음성읍 읍내리 616)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-024",
+   "mgmt_no": "281-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "음성읍 공영주차장(음성읍 읍내리 817-229)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 817-229",
+   "addr_road": "",
+   "road": null,
+   "spaces": 244,
+   "tel": "043-871-4142",
+   "lat": 36.93651517,
+   "lng": 127.6910639,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(음성읍 읍내리 817-229)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-025",
+   "mgmt_no": "281-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "음성읍 공영주차장(음성읍 읍내리 918)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 918",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "043-871-4142",
+   "lat": 36.93796681,
+   "lng": 127.6963446,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(음성읍 읍내리 918)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1419,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "23:39"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-s001",
+   "mgmt_no": "281-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "음성읍 공영주차장(노상 10면)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 650-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "043-871-4142",
+   "lat": 36.940531,
+   "lng": 127.688189,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(노상 10면)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-s002",
+   "mgmt_no": "281-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "음성읍 공영주차장(노상 34면)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 244-105",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "043-871-4142",
+   "lat": 36.93893308,
+   "lng": 127.6913753,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(노상 34면)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-s003",
+   "mgmt_no": "281-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "음성읍 공영주차장(노상 50면)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 825-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "043-871-4142",
+   "lat": 36.942023,
+   "lng": 127.688255,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(노상 50면)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  },
+  {
+   "id": "cj-eumseong-s004",
+   "mgmt_no": "281-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "음성읍 공영주차장(노상 57면)",
+   "gu": "음성군",
+   "dong": "음성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청북도 음성군 음성읍 읍내리 366-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "043-871-4142",
+   "lat": 36.932088,
+   "lng": 127.690829,
+   "base_date": "2026-10-06",
+   "manager": "충청북도 음성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(노상 57면)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "음성군",
+   "city_slug": "eumseong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 07:25",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 29,
+  "원자료_음성군행수": 29,
+  "원자료_받은행수": 29,
+  "구별": {
+   "음성군": 25
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 25,
+  "노외_부설": {
+   "노외": 25
+  },
+  "노상_구간": 4,
+  "총_구획수": 2255,
+  "노상_구획수": 151,
+  "동별": {
+   "대소면": 5,
+   "삼성면": 5,
+   "맹동면": 4,
+   "음성읍": 4,
+   "감곡면": 3,
+   "금왕읍": 3,
+   "생극면": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 감곡면 공영주차장, 금왕읍 공영주차장, 대소읍 공영주차장, 맹동면 혁신도시 공영주차장, 삼성면 공영주차장, 음성읍 공영주차장 — 이름 뒤에 주소·면수·구간 표시를 붙여 구분"
+  ],
+  "동_근거": {
+   "지번주소": 25
+  },
+  "요금구분": {
+   "무료": 28,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "음성군 등록 29행은 전부 공영이고 관리기관은 전부 충청북도 음성군청, 데이터기준일자는 전부 2026-10-06, 전화번호는 전부 043-871-4142이다 — 조례 본문에 적힌 담당(건설교통과) 전화 043-871-4141과 끝자리가 다르다",
+   "도로명주소는 29곳 전부 등록돼 있지 않아 지번주소로만 안내한다",
+   "좌표는 29곳 전부 등록돼 있고 전부 음성군 범위 안이라 지오코딩 보완이 필요 없었다",
+   "이름이 같은 주차장이 많다 — 음성읍 공영주차장 8곳(노외 4·노상 4), 삼성면 공영주차장 5곳, 대소읍 공영주차장 5곳, 맹동면 혁신도시 공영주차장 4곳, 금왕읍 공영주차장 3곳, 감곡면 공영주차장 2곳. 전부 자리(필지)가 달라 중복 제거 대상이 아니며 이름 뒤에 주소(리·번지)를 붙여 구분했다",
+   "무료 28곳에도 주차기본시간에 0~5의 값이 들어 있으나 요금 구분이 ‘무료’라 요금 계산에 쓰지 않았다 — 단위와 의미가 분명하지 않아 값은 그대로 두고 기록만 남긴다",
+   "평일 운영 종료시각이 23:39로 등록된 곳이 8곳(맹동면 혁신도시 4곳·대소읍 오산리 190-2·음성읍 노외 3곳)이고 나머지 21곳은 23:59다 — 등록값 그대로 표기했다",
+   "장애인전용주차구역보유여부는 Y 13곳·N 16곳으로 등록돼 있다",
+   "혼합 1곳(맹동면 혁신도시 공영주차장 동성리 486-1)의 결제방법은 ‘신용카드’로 등록돼 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "맹동면 혁신도시 공영주차장: 등록값은 기본요금 없이 기본시간 '2'·추가 30분당 1,000원·월정기 40,000원으로, 기본 구간의 금액과 기본시간의 단위(표준데이터 명세는 분)를 확정할 수 없어 등록값만으로는 계산이 되지 않는다. 추가단위요금은 조례 별표 1 1급지의 2시간 초과 단가(30분당 1,000원)와 일치하고 월정기도 1급지(40,000원)와 일치해, 계산기는 논산·부여 선례대로 조례 별표 1의 누진 구조(30분당 500원, 2시간 초과 후 30분당 1,000원)를 적용했다(군청 확인 필요 — 특히 기본시간 '2'가 최초 2시간을 뜻하는지 확인 필요)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "감곡면 공영주차장(감곡면 오향리 1113)",
+   "감곡면 공영주차장(감곡면 왕장리 526-23)",
+   "감곡면 공영주차장(감곡면 왕장리 535-1)",
+   "금왕읍 공영주차장(금왕읍 무극리 503-3)",
+   "금왕읍 공영주차장(금왕읍 무극리 515)",
+   "금왕읍 공영주차장(금왕읍 무극리 75-2)",
+   "대소읍 공영주차장(대소면 오산리 121-11)",
+   "대소읍 공영주차장(대소면 오산리 180-9)",
+   "대소읍 공영주차장(대소면 오산리 190-2)",
+   "대소읍 공영주차장(대소면 오산리 385)",
+   "대소읍 공영주차장(대소면 태생리 산33-1)",
+   "맹동면 혁신도시 공영주차장(맹동면 동성리 476)",
+   "맹동면 혁신도시 공영주차장(맹동면 동성리 486-1)",
+   "맹동면 혁신도시 공영주차장(맹동면 동성리 510)",
+   "맹동면 혁신도시 공영주차장(맹동면 본성리 42)",
+   "삼성면 공영주차장(삼성면 덕정리 1275)",
+   "삼성면 공영주차장(삼성면 덕정리 1291)",
+   "삼성면 공영주차장(삼성면 덕정리 515-3)",
+   "삼성면 공영주차장(삼성면 덕정리 520-5)",
+   "삼성면 공영주차장(삼성면 덕정리 542-2)",
+   "생극면 공영주차장",
+   "음성읍 공영주차장(음성읍 읍내리 405-27)",
+   "음성읍 공영주차장(음성읍 읍내리 616)",
+   "음성읍 공영주차장(음성읍 읍내리 817-229)",
+   "음성읍 공영주차장(음성읍 읍내리 918)",
+   "음성읍 공영주차장(노상 10면)",
+   "음성읍 공영주차장(노상 34면)",
+   "음성읍 공영주차장(노상 50면)",
+   "음성읍 공영주차장(노상 57면)"
+  ],
+  "감면_출처": "「음성군 주차장 조례」 제2879호 제3조제4항 — 국가유공자 보철대상자 100%, 국가유공자·장애인 자가운전 차량·경형자동차·저공해자동차 표지 부착 차량·환경친화적 자동차 표지 부착 차량 50%(전기자동차 충전 시 최초 2시간 면제), 승용차 10부제·함께타기 참여 차량 30%. 둘 이상이면 감면율이 높은 하나만 적용. 긴급자동차는 제3조제2항으로 면제할 수 있다. 본문 원문(data/raw/eumseong-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 별표 1 — 1급지 30분당 500원(2시간까지)·2시간 초과 후 30분당 1,000원·월정기 40,000원, 2급지 30분당 200원·2시간 초과 후 30분당 400원·월정기 30,000원. 1일 주차권은 별표 1에 없다. 요금을 받는 혼합 1곳은 등록 기본 구간이 불완전해 조례 누진 구조로 계산하고 차이를 급지_요금_차이에 전건 기록했다",
+  "급지_출처": "조례 별표 1 비고 — 1급지: 「국토의 계획 및 이용에 관한 법률」 제36조에 따른 도시지역에 설치된 주차장, 2급지: 1급지 이외의 지역. 표준데이터 등록 급지는 1급지 16곳·2급지 13곳이라 그대로 썼다",
+  "무료요일_출처": "조례에 토·일·공휴일 무료 규정이 없어 free_days를 적용하지 않았다. 무료 28곳은 요금구분 자체가 ‘무료’다",
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 28,
+  "무료_구획수": 2212,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-06"
+  ],
+  "관리기관": {
+   "충청북도 음성군청": 29
+  }
+ },
+ "fee_table": {
+  "style": "eumseong_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「음성군 주차장 조례」 제2879호(시행 2022-12-30, 일부개정), ordinSeq 1773701. 본문 사본 data/raw/eumseong-ordinance.txt. 별표 1(공영주차장 주차요금표) 원문 HWP data/raw/eumseong-ordinance-b1.hwp·추출문 eumseong-ordinance-b1.txt.",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "es_g1",
+    "unit_label": "30분당 500원 · 2시간 초과 후 30분당 1,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": null,
+    "month": 40000,
+    "lots": 1
+   },
+   {
+    "label": "2급지",
+    "grade": "es_g2",
+    "unit_label": "30분당 200원 · 2시간 초과 후 30분당 400원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": null,
+    "month": 30000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "free": 28,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+    "free": "별표 1 비고 — 주간 시간구분이며 나머지 시간은 야간이다. 16인승 이상·2.5톤 이상 차량은 기준 요금의 2배, 45인승 이상·11톤 이상 차량은 3배를 적용한다"
+   }
+  ],
+  "notes": "음성군 공영주차장 29곳은 노외 25곳·노상 4구간이고 총 2,406면이다(무료 28곳, 혼합 1곳). 「음성군 주차장 조례」 제2879호(시행 2022-12-30, ordinSeq 1773701) 별표 1은 1급지 30분당 500원(2시간까지)·2시간 초과 후 30분당 1,000원·월정기 40,000원, 2급지 30분당 200원·2시간 초과 후 30분당 400원·월정기 30,000원으로 정하고 1일 주차권은 두지 않는다. 급지는 1급지가 도시지역에 설치된 주차장, 2급지는 그 밖의 지역이다. 요금을 받는 곳은 맹동면 혁신도시 공영주차장(동성리 486-1, 194면, 1급지) 1곳뿐인데, 이 주차장의 등록값은 기본요금이 없고 기본시간이 '2'로만 적혀 있어 기본 구간을 확정할 수 없다 — 추가단위요금(30분당 1,000원)은 별표 1의 2시간 초과 단가와 일치하고 월정기 등록값(40,000원)도 1급지와 일치한다. 계산기는 논산·부여 선례대로 조례 별표 1의 누진 구조로 계산하고 차이는 급지_요금_차이에 기록했다(군청 확인 필요). 무료 28곳은 조례 제3조제1항 단서(주차질서 확립 또는 주차장 관리에 필요한 경우 특별히 일정한 기간을 정하여 그 요금을 감면할 수 있다)에 따른 무료 운영으로 본다. 감면은 조례 제3조제4항을 따른다(국가유공자 보철대상자 100%, 국가유공자·장애인 자가운전·경형·저공해·환경친화적 50% — 전기차 충전 시 최초 2시간 면제, 승용차 10부제·함께타기 30%, 긴급자동차는 제3조제2항으로 면제 가능). 좌표는 29곳 전부 등록돼 있고 전부 음성군 범위 안이다.",
+  "corp_extra": {
+   "paid": 1,
+   "free": 28,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "basis": "「음성군 주차장 조례」 제2879호(시행 2022-12-30, ordinSeq 1773701) 제3조·별표 1 · 전국주차장정보표준데이터(음성군청, 기준일 2026-10-06) 등록값 — 별표 1 원문 대조 완료. 요금을 받는 1곳의 등록 기본 구간이 불완전해 계산기가 조례 누진 구조로 계산한다"
+ },
+ "slug": "eumseong",
+ "province": "충청북도",
+ "province_slug": "chungbuk",
+ "dong_page_min_lots": 3,
+ "city": "음성군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "국가유공자 보철대상자 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항 — 국가유공자 자가운전자 중 보철대상자 운전차량은 주차요금의 100퍼센트를 감면할 수 있다. 「도로교통법 시행령」 제2조에 따른 긴급자동차는 제3조제2항으로 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자·장애인 자가운전·경형·저공해·환경친화적 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항 — 국가유공자 및 장애인의 자가운전 차량, 경형 자동차, 저공해자동차 표지 부착 차량, 군에서 발급한 환경친화적 자동차 표지가 부착된 차량은 주차요금의 50퍼센트를 감면할 수 있다. 다만 전기자동차가 충전을 위하여 주차하는 경우 최초 2시간 주차요금은 면제한다. 감면 규정이 둘 이상 적용되면 감면율이 높은 하나만 적용한다"
+  },
+  {
+   "label": "승용차 10부제·함께타기 참여 차량 30%",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항 — 승용차 10부제 및 함께 타기 참여 차량은 주차요금의 30퍼센트를 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
