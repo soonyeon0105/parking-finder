@@ -781,6 +781,7 @@ def t06_apply_seongnam(lots):
             tel = street_tel          # 노상 구간은 성남도시개발공사 노상주차처 대표번호로 안내한다
         if not tel:
             tel = T06_SEONGNAM_OFFICE_TEL   # 주차장별 번호가 공개되지 않은 노외는 공사 노외주차처로
+            lot["tel_rep"] = True           # T-06 후속: 그 주차장 직통이 아닌 대표번호임을 카드에 표기
             office.append(lot["name"])
         if tel:
             lot["tel"] = tel
