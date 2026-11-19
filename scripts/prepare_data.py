@@ -42988,6 +42988,663 @@ def build_jeonju():
     return payload
 
 
+
+# ---------------------------------------------------------------- 익산시 (T-03 전북 3)
+# 익산시는 표준데이터 120행 전부 공영이다(민영 0). 노외 35·노상 85,
+#   총 4,943면이고 요금은 무료 108·유료 12다. 유료 12곳은 전부 급지
+#   '1'로 등록된 도시관리공단 운영 노외 11곳 + 노상 1구간으로, 등록값
+#   (기본 30분 0원·추가 30분당 500원·1일 6,000원·월정기 3곳 50,000원)이
+#   조례 별표 1의 1급지 소형 요금과 전부 일치한다 — 계산기는 등록값을
+#   유지하고 요금표는 조례값으로 표기한다(공주·청양 선례). 차이는 둘
+#   뿐이다: ① 1일 주차요금 적용시간이 등록 6시간인데 조례 별표 1은
+#   '5시간 이상'이라 fee_diff에 전건 남긴다. ② 월정기는 9곳이 미등록
+#   이라 조례값(주간 50,000원·야간 40,000원·주야간 85,000원)은 요금표
+#   에만 싣는다. 조례는 「익산시 주차장 설치 및 관리 조례」 제2823호
+#   (시행 2026-11-11, 일부개정, ordinSeq 2184393) 제3조와 별표 1
+#   (개정 2016-09-28)을 국가법령정보센터에서 직접 대조했다. 함께 잡힌
+#   「익산시주차장특별회계설치조례」(제980호)는 요금 조례가 아니어서
+#   근거로 쓰지 않았다. 별표 1의 급지는 1급지(상업지역+개별공시지가
+#   ㎡당 10만원 이상)·2급지(그 외)뿐인데, 무료 102곳의 등록 급지는
+#   조례에 없는 '3'이다 — 무료 운영이라 계산에는 영향이 없고 급지
+#   판정은 시청 확인 과제로 남긴다. 무료 108곳은 별표 1 비고 1(이
+#   요금표는 시장이 설치한 주차장에 적용한다)에 따라 시가 무료로
+#   운영하는 곳으로 보고, 요금표는 조례 기준 요금의 참고표로 싣되
+#   유료 12곳은 등록값이 조례와 일치하므로 함께 표기한다(서천·군산
+#   선례와 공주 선례의 병용). 좌표 결측이 67곳으로 많은데, 이 중
+#   노상 구간 66곳은 주소가 'A에서 B 사이' 구간으로만 등록돼 있다 —
+#   구간 시작점 주소를 ArcGIS World Geocoding으로 대조해 반환 주소가
+#   시작점 주소와 번지까지 일치(score 100·PointAddress)한 경우만
+#   시작점 좌표로 채우고 근거를 좌표 오버레이에 남겼다. 노외 1곳
+#   (미륵산별장가든입구)은 등록 주소가 '금마면 기양리 209외 2'라 대표
+#   번지 209의 반환 주소를 번지까지 일치로 볼 수 없어 좌표 없음으로
+#   남겼다. 이름 중복·관리번호 중복·같은 이름+같은 자리 중복은 없고,
+#   이름이 다른 주차장이 200m 안에 이웃한 쌍은 전부 다른 등록이라
+#   합치지 않았다. 노상 구간 이름은 행정동 기준 코드(마-노-9, 영1-노-6
+#   등)인데 동 판정은 지번주소(구간은 시작점) 기준으로 했고, 이름
+#   코드와 다른 행은 동_보정에 남겼다(대표: 인화-노-3은 지번 구간
+#   시작점이 평화동 111-1이라 평화동으로 판정).
+IKSAN_PROVINCE = "전북특별자치도"
+IKSAN_PROVINCE_SLUG = "jeonbuk"
+IKSAN_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2184393"
+IKSAN_ORD_HWP = RAW / "iksan-ordinance-b1.hwp"
+IKSAN_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「익산시 주차장 설치 및 관리 조례」 제2823호(시행 2026-11-11, "
+                  "일부개정), ordinSeq 2184393. 본문 사본 data/raw/iksan-ordinance.txt. "
+                  "별표 1(공영주차장 요금표, 개정 2016-09-28) 원문 HWP "
+                  "data/raw/iksan-ordinance-b1.hwp·추출문 iksan-ordinance-b1.txt.")
+
+IKSAN_DISCOUNTS = [
+    {"label": "긴급자동차·성실납세자·모범납세자 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제3항·제4항제9호·제10호 — 긴급자동차는 주차요금을 면제할 수 있고, 성실납세자·모범납세자 지원대상자로 선정된 경우 인증서 표지를 부착하거나 소지하면 교부일부터 1년간 100퍼센트 감면한다"},
+    {"label": "KTX익산역 이용 100% 감면 (24시간 한도)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제4항제11호 — KTX익산역을 이용하는 경우 100퍼센트 감면하되 24시간에 한한다. 유료 12곳 중 익산역 공영 주차타워·문화공영주차장·역골지구공영주차장·송학공영주차장 4곳은 표준데이터 특기사항에도 '익산역 이용객 1일 무료할인(승차권 확인)'으로 등록돼 있다"},
+    {"label": "관광활성화 이용권·카드 2시간 무료", "rate": 0.0, "exempt_min": 120,
+     "note": "조례 제3조제4항제3호 — 전북특별자치도 관광활성화를 위한 이용권 또는 카드를 소지한 경우 100퍼센트 감면하되 공영주차장 1개소당 2시간 이내에 한한다"},
+    {"label": "전기·하이브리드 충전 1시간 무료", "rate": 0.0, "exempt_min": 60,
+     "note": "조례 제3조제4항제12호 — 전기자동차 또는 하이브리드자동차가 전기 충전할 경우 전기충전 영수증을 제시하면 1시간 범위에서 100퍼센트 감면한다"},
+    {"label": "경형자동차 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "조례 제3조제4항제2호 — 「자동차관리법 시행규칙」 별표 1에 따른 경형자동차는 60퍼센트 감면한다"},
+    {"label": "장애인·국가유공상이자·저공해·수급자·차상위·다자녀·다문화·장기기증·병역명문가·우수자원봉사자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제1호·제4호·제5호·제6호·제7호·제8호·제13호·제14호 — 장애인 및 국가유공상이자 자가운전, 저공해 자동차표지 부착, 수급자 및 차상위계층 자가운전(소형 한), 아이조아카드 소지 다자녀 가정, 다문화가족, 장기 기증자, 병역명문가 예우대상자, 우수자원봉사자증 소지·직접 운전은 50퍼센트 감면하고, 우수자원봉사자가 봉사활동을 위해 주차한 사실이 확인되면 당일에 한해 100퍼센트 감면한다. 감면 규정이 둘 이상 적용되면 감면율이 높은 것 하나만 적용한다(제3조제5항)"},
+]
+
+IKSAN_CONF = {
+    "city": "익산시",
+    "slug": "iksan",
+    "manager": "전북특별자치도 익산시청",
+    "manager_inquiry": "익산시청(표준데이터 등록 전화 063-859-5695)·익산시 도시관리공단(063-839-2878, 유료 12곳)",
+    "ordinance": ("「익산시 주차장 설치 및 관리 조례」 제2823호(시행 2026-11-11, 일부개정)",
+                  IKSAN_ORD_URL, IKSAN_ORD_NOTE),
+    "notes": ("익산시 공영주차장 120곳은 노외 35곳·노상 85구간이고 총 4,943면이다"
+              "(무료 108곳, 유료 12곳). 「익산시 주차장 설치 및 관리 조례」 "
+              "제2823호(시행 2026-11-11, ordinSeq 2184393) 별표 1은 급지를 "
+              "1급지(상업지역과 개별공시지가 ㎡당 10만원 이상인 지역)·2급지"
+              "(1급지 이외 지역)로 나누고, 소형 기준 1급지는 30분 미만 무료·"
+              "30분 초과 후 30분마다 500원·1일(5시간 이상) 6,000원·월정기 "
+              "주간 50,000원/야간 40,000원/주야간 85,000원, 2급지는 400원·"
+              "2,400원·30,000원/24,000원/50,000원이다(대형은 요금표에 병기). "
+              "유료 12곳(전부 1급지 등록, 익산시 도시관리공단 운영)의 등록값은 "
+              "별표 1의 1급지 소형과 전부 일치한다. 다만 1일 주차요금 적용시간은 "
+              "등록 6시간·조례 5시간으로 달라 차이를 데이터 품질 기록에 남겼고, "
+              "월정기는 3곳만 50,000원으로 등록돼 있어 나머지 9곳은 요금표의 "
+              "조례값으로만 표기한다. 무료 102곳의 등록 급지 '3'은 별표 1에 없는 "
+              "구분이다. 무료 108곳은 별표 1 비고 1에 따라 시가 무료로 운영하는 "
+              "곳으로 본다. 감면은 조례 제3조를 따른다(긴급자동차 면제, 성실·"
+              "모범납세자 100%, KTX익산역 이용 100%·24시간 한도, 관광활성화 "
+              "이용권·카드 2시간 무료, 전기·하이브리드 충전 1시간 무료, 경형 "
+              "60%, 장애인·국가유공상이자·저공해·수급자·차상위·다자녀·다문화·"
+              "장기기증·병역명문가·우수자원봉사자 50%, 중복 시 높은 것 하나만 "
+              "적용). 좌표가 없던 노상 구간 66곳 중 58곳은 구간 시작점 주소를 지오코딩으로 "
+              "대조해 시작점 좌표를 채웠고, 9곳(노상 구간 8곳과 "
+              "미륵산별장가든입구 주차장)은 좌표가 없다."),
+    "discounts": IKSAN_DISCOUNTS,
+}
+
+IKSAN_BBOX = (35.88, 36.10, 126.84, 127.09)
+
+# 노상 구간 이름의 행정동 코드 — 동 판정은 지번주소를 우선하고, 지번주소로
+#   가릴 수 없는 구간만 이름 코드로 보정한다. 영1·영2는 행정동(영등1동·
+#   영등2동) 구분이나 법정동은 영등동 하나라 영등동으로 합친다.
+IKSAN_NAME_DONG = {"마": "마동", "남중": "남중동", "모현": "모현동",
+                   "영1": "영등동", "영2": "영등동", "인화": "인화동",
+                   "동산": "동산동", "어양": "어양동", "부송": "부송동",
+                   "신": "신동", "중앙": "중앙동", "평화": "평화동",
+                   "송학": "송학동", "황등": "황등면", "함열": "함열읍",
+                   "오산": "오산면", "금마": "금마면", "함라": "함라면"}
+
+
+IKSAN_DONGS = {"중앙동1가", "중앙동2가", "중앙동3가", "창인동1가", "창인동2가",
+               "인화동1가", "인화동2가", "평화동", "마동", "남중동", "모현동1가",
+               "모현동2가", "송학동", "영등동", "어양동", "부송동", "동산동",
+               "신동", "주현동", "갈산동", "함열읍", "오산면", "황등면", "금마면",
+               "함라면", "웅포면", "성당면", "용안면", "낭산면", "망성면",
+               "여산면", "왕궁면", "춘포면", "삼기면", "용동면"}
+
+
+def iksan_dong_of(addr, name=None):
+    """익산시 동(법정동)·읍·면 판정 — 지번주소의 익산시 다음 토큰이 법정동
+    (창인동1가처럼 '동+숫자+가' 포함)이거나 읍·면이다. 구간 주소('A에서
+    B 사이')는 시작점 토큰으로만 판정한다(끝점 토큰을 읽으면 마-노-1처럼
+    이웃 동으로 새는 경우가 있다). 도로명주소는 도로 이름으로는 동을
+    가릴 수 없어 None을 돌려주고, 이름 코드로 보정한다. 이름에서는
+    법정동·읍·면 목록에 있는 토큰만 인정한다('함열소도읍주차장' 같은
+    이름 속 단어를 동으로 오인하지 않기 위해서다)."""
+    if addr:
+        head = addr.split("에서")[0]
+        m = re.search(r"익산시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", head)
+        if m:
+            return m.group(1)
+    if name:
+        code = name.strip().split("-")[0]
+        if code in IKSAN_NAME_DONG:
+            return IKSAN_NAME_DONG[code]
+        m = re.search(r"([가-힣]+?(?:읍|면|동\d가|동))(?![가-힣0-9])", name)
+        if m and (m.group(1) in IKSAN_DONGS or m.group(1) in IKSAN_NAME_DONG.values()):
+            return m.group(1)
+    return None
+
+
+def _iksan_tier_of(lot):
+    """요금표 급지 행 판정 — 등록 급지 기준. 유료는 전부 '1'이다."""
+    g = lot["fee"].get("std_grade")
+    if g == "1":
+        return "g1"
+    if g == "2":
+        return "g2"
+    return "etc"
+
+
+def iksan_fee(row, name, note_bits, fee_diff):
+    """익산시 공영주차장 한 곳의 요금 — 무료 108·유료 12.
+    유료 12곳의 등록값은 조례 별표 1의 1급지 소형(30분 미만 무료·30분
+    초과 매 30분 500원·1일 6,000원)과 전부 일치해 계산기는 등록값을
+    유지하고 요금표는 조례값으로 표기한다(공주·청양 선례). 차이 둘은
+    fee_diff에 전건 남긴다: ① 1일 주차요금 적용시간 등록 6시간 vs
+    조례 '5시간 이상', ② 월정기 9곳 미등록(조례 주간 50,000원)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 별표 1 비고 1(이 주차요금표는 시장이 설치한 주차장에 적용한다)에 따라 시가 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    if day and day_hours and day_hours != 5:
+        fee_diff.append(f"{name}: 1일 주차요금 적용시간이 {day_hours}시간으로 등록돼 "
+                        "있으나 조례 별표 1은 '1일주차요금(5시간이상)'으로 정한다 — "
+                        "등록값이 완전한 구조라 계산기는 공주 선례대로 등록값"
+                        f"({day_hours}시간)을 유지하고 차이는 여기에 남긴다")
+    if not month:
+        fee_diff.append(f"{name}: 월정기권요금이 미등록이다 — 조례 별표 1의 1급지 "
+                        "소형 월정기(주간 50,000원·야간 40,000원·주야간 85,000원)는 "
+                        "요금표에만 싣는다")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours,
+                "monthly": month if month else None,
+                "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "steps": None,
+                "steps_label": (f"기본 {base_min}분 {'무료' if base_fee == 0 else format(base_fee, ',') + '원'}"
+                                f" · 이후 {unit_min}분마다 {unit_fee:,}원"),
+                "basis": ("전국주차장정보표준데이터 등록값(익산시 도시관리공단, 기준일 "
+                          "2026-04-16) — 「익산시 주차장 설치 및 관리 조례」 별표 1과 "
+                          "대조 완료. 등록값은 별표 1의 1급지 소형(30분 미만 무료·"
+                          "30분마다 500원·1일 6,000원)과 전부 일치한다")})
+    return fee
+
+
+def iksan_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 값으로 표기한다(공주·청양 선례: 계산기는
+    등록값 유지, 요금표는 조례값). 유료 12곳의 등록값은 1급지 소형과
+    전부 일치하고, 무료 108곳에 대해서는 조례 기준 요금의 참고표다
+    (서천·군산 선례). 월정기 열은 주야간 값을 대표로 싣고 주간·야간
+    값은 요율 칸에 함께 적는다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    g1 = {"base_min": 30, "base_fee": 0, "unit_min": 30, "unit_fee": 500,
+          "daily_fee": 6000}
+    g2 = {"base_min": 30, "base_fee": 0, "unit_min": 30, "unit_fee": 400,
+          "daily_fee": 2400}
+    rows = [
+        {"label": "1급지 (상업지역·개별공시지가 ㎡당 10만원 이상 지역)", "grade": "g1",
+         "unit_label": "소형: 30분 미만 무료 · 30분 초과 후 30분마다 500원 · 월정기 주간 50,000원·야간 40,000원·주야간 85,000원 (대형 600원·1일 8,000원·월정기 65,000원/52,000원/115,000원)",
+         "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+         "day": 6000, "month": 85000,
+         "lots": len([l for l in paid if _iksan_tier_of(l) == "g1"])},
+        {"label": "2급지 (1급지 이외 지역)", "grade": "g2",
+         "unit_label": "소형: 30분 미만 무료 · 30분 초과 후 30분마다 400원 · 월정기 주간 30,000원·야간 24,000원·주야간 50,000원 (대형 500원·1일 3,000원·월정기 35,000원/28,000원/60,000원)",
+         "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
+         "day": 2400, "month": 50000,
+         "lots": len([l for l in paid if _iksan_tier_of(l) == "g2"])},
+    ]
+    return {
+        "style": "iksan_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "공통", "hours": "4~10월 08:00~20:00 · 11~3월 09:00~19:30",
+                     "free": ("조례 별표 1 비고 2의 주간 적용시간 구분(나머지 시간은 "
+                              "야간)이다 — 등록 운영시간은 전 곳 00:00~23:59다")}],
+        "notes": ("월정기는 1급지 주간 50,000원·야간 40,000원·주야간 85,000원, "
+                  "2급지 주간 30,000원·야간 24,000원·주야간 50,000원이고 표의 "
+                  "월정기 칸은 주야간 값이다. 표준데이터에는 월정기가 3곳"
+                  "(모현제1공영주차장·영등1동 공영주차장·중앙동 공영주차장)만 "
+                  "50,000원으로 등록돼 있다. 1일 주차요금은 조례상 5시간 이상"
+                  "부터 적용하는데 유료 12곳의 등록 적용시간은 6시간이다(데이터 "
+                  "품질 기록 참조). 주차시간이 10분 미만이면 10분으로 보고"
+                  "(비고 7), 자동차가 2면 이상을 점유하면 점유 면수를 곱한 "
+                  "요금을 적용한다(비고 4). 감면은 긴급자동차 면제, 성실·"
+                  "모범납세자 100%, KTX익산역 이용 100%(24시간 한도), 관광"
+                  "활성화 이용권·카드 2시간 무료, 전기·하이브리드 충전 1시간 "
+                  "무료, 경형 60%, 장애인·국가유공상이자·저공해·수급자·차상위·"
+                  "다자녀·다문화·장기기증·병역명문가·우수자원봉사자 50%이며, "
+                  "감면이 중복되면 높은 요율 하나만 적용한다."),
+        "basis": ("요금표는 「익산시 주차장 설치 및 관리 조례」 제2823호(시행 "
+                  "2026-11-11) 별표 1(개정 2016-09-28)과 표준데이터(기준일 "
+                  "2026-04-16)를 대조해 실었다. 유료 12곳의 등록값은 별표 1의 "
+                  "1급지 소형과 전부 일치하고, 무료 108곳에 대해서는 조례 기준 "
+                  "요금의 참고표다. (조례 본문: data/raw/iksan-ordinance.txt, "
+                  "별표 1 원문 HWP: data/raw/iksan-ordinance-b1.hwp)"),
+    }
+
+
+def iksan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「익산시 주차장 설치 및 관리 조례」 제2823호 제3조 — 면제할 수 "
+                      "있다: 긴급자동차(제3항). 100% 감면: 관광활성화 이용권·카드"
+                      "(1개소당 2시간 이내), 성실납세자·모범납세자(교부일부터 1년), "
+                      "KTX익산역 이용(24시간 한도), 전기·하이브리드 충전(영수증 "
+                      "제시, 1시간 범위). 경형자동차 60%. 50% 감면: 장애인·국가유공"
+                      "상이자 자가운전, 저공해 표지, 수급자·차상위 자가운전(소형 한), "
+                      "다자녀(아이조아카드), 다문화가족, 장기 기증자, 병역명문가, "
+                      "우수자원봉사자(봉사활동 확인 시 당일 100%). 감면 중복 시 높은 "
+                      "것 하나만 적용(제5항). 본문 원문(data/raw/iksan-ordinance.txt) "
+                      "대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표 1(개정 2016-09-28) — 소형 기준 1급지 30분 미만 무료·"
+                      "30분 초과 매 30분 500원·1일(5시간 이상) 6,000원·월정기 주간 "
+                      "50,000원/야간 40,000원/주야간 85,000원, 2급지 400원·2,400원·"
+                      "30,000원/24,000원/50,000원. 대형은 1급지 600원·8,000원·"
+                      "65,000원/52,000원/115,000원, 2급지 500원·3,000원·35,000원/"
+                      "28,000원/60,000원. 표준데이터 유료 12곳의 등록값은 1급지 "
+                      "소형과 전부 일치하고, 1일 적용시간만 등록 6시간·조례 5시간"
+                      "으로 다르다(급지_요금_차이에 전건 기록)"),
+        "급지_출처": ("조례 별표 1 비고 3 — 1급지는 상업지역과 개별공시지가 ㎡당 "
+                      "10만원 이상인 지역, 2급지는 1급지 이외 지역이다. 표준데이터 "
+                      "등록 급지는 '1' 13곳·'2' 5곳·'3' 102곳인데 '3'은 조례에 없는 "
+                      "구분이라, 유료 12곳(전부 '1')만 급지를 요금 대조에 쓰고 "
+                      "무료 102곳의 '3'은 시청 확인 과제로 남긴다"),
+        "무료요일_출처": ("조례에 주말·공휴일 무료 개방 규정이 없어 free_days는 적용하지 "
+                          "않았다. 무료 108곳은 요금구분 자체가 '무료'다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 익산시 등록 120행 전부 공영 — 민영 제외 0건",
+            "「익산시 주차장 설치 및 관리 조례」 제2823호(시행 2026-11-11, 일부개정, ordinSeq 2184393) 본문 원문(data/raw/iksan-ordinance.txt) 대조 완료(2026-11-20)",
+            "별표 1(개정 2016-09-28) 원문 HWP(data/raw/iksan-ordinance-b1.hwp) 파싱으로 급지·차종별 요금 확정 — 함께 잡힌 「익산시주차장특별회계설치조례」는 요금 조례가 아니어서 제외",
+            "유료 12곳의 등록값은 별표 1의 1급지 소형과 전부 일치해 계산기는 등록값을 유지하고 요금표는 조례값으로 표기했다(공주·청양 선례) — 1일 적용시간(등록 6시간·조례 5시간)과 월정기 미등록 9곳은 급지_요금_차이에 전건 기록",
+            "무료 108곳은 별표 1 비고 1(요금표는 시장이 설치한 주차장에 적용)에 따른 무료 운영으로 보고 요금표는 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례)",
+            "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍(200m 이내 19쌍)은 전부 다른 등록이라 합치지 않았다",
+            "좌표 결측 67곳 중 노상 구간 58곳은 구간 시작점 주소를 ArcGIS World Geocoding으로 대조해 반환 주소가 시작점 주소와 번지까지 일치(score 100·PointAddress)한 경우만 시작점 좌표로 채웠다(근거는 좌표 오버레이 data/raw/좌표누락_지오코딩_20261118.json에 전건 기록). 나머지 노상 구간 8곳(남중-노-7·남중-노-14·마-노-1·부송-노-1·송학-노-2·모현-홀-4·인화-노-1·평화-노-2)은 반환 주소가 번지까지 일치하지 않거나(score 100이나 StreetAddress인 2곳 포함) 후보가 없어 채우지 않았고, 미륵산별장가든입구 주차장은 등록 주소가 '기양리 209외 2'라 번지까지 일치로 볼 수 없어 좌표 없음으로 남겼다 — 시청 확인 과제",
+            "동 판정은 지번주소(구간은 시작점) 기준이고, 지번주소로 가릴 수 없는 구간만 이름 코드(행정동 기준)로 보정했다 — 이름 코드와 주소의 동이 다른 행은 동_보정에 남겼다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_iksan():
+    """익산시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「익산시 주차장 설치 및 관리 조례」 제2823호
+    (시행 2026-11-11, ordinSeq 2184393) 제3조·별표 1 원문 대조 완료
+    (2026-11-20). 표준데이터 등록 120행 전부 공영(무료 108·유료 12)을
+    싣는다. 유료 12곳의 등록값은 별표 1의 1급지 소형과 전부 일치하고,
+    좌표 결측 노상 구간 66곳은 구간 시작점 지오코딩으로 좌표를 채운다
+    (apply_coord_fix가 좌표 오버레이를 적용한다 — 66곳 중 58곳이 채워진다)."""
+    conf = IKSAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "익산시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "익산시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 익산시는
+    #   해당 중복이 0건이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (IKSAN_BBOX[0] < lat < IKSAN_BBOX[1]
+                                                        and IKSAN_BBOX[2] < lng < IKSAN_BBOX[3]):
+            # 익산시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 익산시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = iksan_dong_of(jibun) or iksan_dong_of(road)
+        name_dong = iksan_dong_of(None, std_name)
+        if iksan_dong_of(jibun):
+            dong_src = "지번주소"
+        elif iksan_dong_of(road):
+            dong_src = "도로명주소"
+        elif dong is None and name_dong:
+            dong = name_dong
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 주소에서 동·읍면을 가릴 수 없어 이름 코드에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        if dong and name_dong and name_dong != dong and dong_src in ("지번주소", "도로명주소"):
+            dong_fixed.append(f"{std_name}: 이름 코드의 동({name_dong})과 지번주소 기준 동"
+                              f"({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = iksan_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if "익산역 이용객" in note:
+            note_bits.append("익산역 이용객은 승차권 확인 시 1일 무료할인이 등록돼 "
+                             "있습니다(조례 제3조제4항제11호 — KTX익산역 이용 시 "
+                             "100% 감면, 24시간 한도)")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "익산시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    fee_diff.append("무료 102곳의 등록 급지 '3'은 조례 별표 1의 급지 구분(1급지·2급지)에 "
+                    "없는 값이다 — 전부 요금 구분이 '무료'라 요금 계산에는 영향이 없고, "
+                    "급지 판정 기준은 시청 확인 과제다")
+    fee_diff.append("무료로 등록된 영등동 공영주차타워는 급지 '1', 영등동 무료공영주차장·"
+                    "영1-노-10·영1-노-11·영2-홀-1·영2-홀-2는 급지 '2'로 등록돼 있다 — "
+                    "전부 요금 구분이 '무료'라 조례 급지 요금을 적용하지 않고 무료로 "
+                    "실었다(서천·군산 선례)")
+    note_fixed.append("표준데이터 등록 120행은 전부 공영이고 관리기관은 익산시청 108곳·"
+                      "익산시 도시관리공단 12곳(유료 전곳), 데이터기준일자는 전부 "
+                      "2026-04-16이다")
+    note_fixed.append("운영요일은 전부 평일+토요일+공휴일, 운영시간은 전부 00:00~23:59, "
+                      "결제방법은 유료 12곳만 '신용카드', 특기사항은 유료 4곳만 "
+                      "'익산역 이용객 1일 무료할인(승차권 확인)'으로 등록돼 있다")
+    note_fixed.append("좌표가 없던 67곳 중 노상 구간 66곳은 주소가 'A에서 B 사이' "
+                      "구간으로 등록돼 있어, 구간 시작점 주소를 ArcGIS World "
+                      "Geocoding으로 대조해 반환 주소가 시작점 주소와 번지까지 일치"
+                      "(score 100·PointAddress)한 경우만 시작점 좌표로 채웠다"
+                      "(근거는 좌표 오버레이에 전건 기록). 나머지 노상 구간 8곳"
+                      "(남중-노-7·남중-노-14·마-노-1·부송-노-1·송학-노-2·모현-홀-4·"
+                      "인화-노-1·평화-노-2)은 번지까지 일치하는 후보가 없어(남중-노-14·"
+                      "마-노-1은 score 100이나 Addr_type이 StreetAddress라 채택하지 "
+                      "않았다) 좌표 없음으로 남겼고, 미륵산별장가든입구 "
+                      "주차장(노외)은 등록 주소가 '금마면 기양리 209외 2'라 대표 "
+                      "번지 209의 반환 주소를 번지까지 일치로 볼 수 없어 좌표 "
+                      "없음으로 남겼다 — 시청 확인 과제")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jb-iksan-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jb-iksan-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 좌표가 이미 있는 행은 건드리지 않는다(익산시는 구간 시작점
+    #   지오코딩 66곳이 여기서 채워진다).
+    apply_coord_fix(lots)
+
+    fee_table = iksan_fee_table(conf, lots)
+    quality = iksan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"익산시로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 제거 "
+                 f"{len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이며, 유료 "
+                 f"12곳의 등록값은 조례 별표 1의 1급지 소형과 전부 일치한다. 좌표가 "
+                 f"없던 노상 구간 66곳 중 58곳은 구간 시작점 지오코딩으로 좌표를 "
+                 f"채웠고 9곳은 좌표가 없다. 조례 대조 완료 — "
+                 f"「익산시 주차장 설치 및 관리 조례」 제2823호(시행 2026-11-11, "
+                 f"ordinSeq 2184393) 제3조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": IKSAN_ORD_HWP.name if IKSAN_ORD_HWP.exists() else None,
+            "sha256": sha256(IKSAN_ORD_HWP) if IKSAN_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-11-11",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"익산시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/iksan-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/iksan-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/iksan-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": IKSAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "익산시", "slug": "iksan"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": IKSAN_PROVINCE,
+        "province_slug": IKSAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "iksan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -43000,7 +43657,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "iksan",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -43018,7 +43675,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "익산시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -43071,7 +43728,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "iksan": ["익산시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -43226,6 +43883,8 @@ def main():
         cities.append(build_danyang())
     if "전주시" in want:
         cities.append(build_jeonju())
+    if "익산시" in want:
+        cities.append(build_iksan())
 
     if args.city == "all":
         site = build_site_payload(cities)
