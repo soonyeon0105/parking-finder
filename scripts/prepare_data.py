@@ -43563,6 +43563,634 @@ def build_gunsan():
 
 
 
+# ---------------------------------------------------------------- 정읍시 (T-03 전북 4)
+# 정읍시는 표준데이터 26행 전부 공영·노외이다(민영 0). 총 999면이고
+#   요금은 무료 16·유료 10이다. 유료 10곳은 전부 급지 '1'로 등록돼 있고
+#   요금 구조가 한 가지로 같다(기본 120분 500원·추가 10분당 200원·1일
+#   5,000원(적용 8시간)·월정기 30,000원·카드 결제). 조례는 「정읍시
+#   주차장 조례」 제2353호(시행 2026-07-10, 일부개정, ordinSeq
+#   2148155) 제8조와 별표 1을 국가법령정보센터에서 직접 대조했다.
+#   함께 잡힌 「정읍시 주차장 조례 시행규칙」(제809호)은 요금 조례가
+#   아니어서 근거로 쓰지 않았다. 등록값과 별표 1(1급지 소형)의 차이는
+#   둘이다: ① 기본요금이 등록 500원인데 별표 1은 '최초 120분 이내
+#   무료'다. ② 1일 주차요금 적용시간이 등록 8시간인데 별표 1은
+#   '1일 주차요금(6시간초과)'이다. 추가요금(10분당 200원)·1일 요금
+#   (5,000원)·월정기(등록 30,000원 = 별표 주간 30,000원)는 일치한다.
+#   등록값은 기본·추가·1일·월정기가 전부 차 있는 완전한 구조이고
+#   데이터기준일(2026-10-13)이 조례 공포일(2026-07-10)보다 뒤이며,
+#   별표 1 비고 5가 '주차요금은 시의 특성 및 차종에 따라 시장이
+#   정하되 체증 또는 체감방식을 적용할 수 있다'고 시장 재량을 열어
+#   두었으므로, 계산기는 등록값을 유지하고 요금표는 조례값으로
+#   표기하며 차이는 fee_diff에 전건 남긴다(공주·청양·익산 선례).
+#   무료 16곳은 조례에 무료 운영의 근거 조항이 따로 없어 시가 무료로
+#   운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 싣는다
+#   (서천·군산 선례) — 무료 운영의 근거(고시 등)는 시청 확인 과제다.
+#   좌표 결측은 0곳이라 지오코딩 보완이 필요 없다. 이름·중복·관리번호
+#   중복은 없고, 이름이 다른 주차장이 200m 안에 이웃한 쌍은 전부
+#   다른 등록이라 합치지 않았다. 등록 특이 2건은 그대로 싣고 품질
+#   기록에 남긴다: '각시다리(쌍화차거리)도심공영주차장)'은 이름 끝에
+#   닫는 괄호가 하나 더 붙어 있고, 조곡천 들풀마당은 지번주소에
+#   '전븍특별자치도' 오기가 있다. '초산동 유창2차 공영주차장'은
+#   이름과 달리 지번주소가 시기동이라 동은 지번주소 기준으로 했다.
+JEONGEUP_PROVINCE = "전북특별자치도"
+JEONGEUP_PROVINCE_SLUG = "jeonbuk"
+JEONGEUP_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2148155"
+JEONGEUP_ORD_HWP = RAW / "jeongeup-ordinance-b1.hwp"
+JEONGEUP_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                     "「정읍시 주차장 조례」 제2353호(시행 2026-07-10, "
+                     "일부개정), ordinSeq 2148155. 본문 사본 data/raw/jeongeup-ordinance.txt. "
+                     "별표 1(공영주차장 주차요금표) 원문 HWP "
+                     "data/raw/jeongeup-ordinance-b1.hwp·추출문 jeongeup-ordinance-b1.txt.")
+
+JEONGEUP_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제8조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차에 대해서는 주차요금을 면제할 수 있다"},
+    {"label": "저공해자동차 충전 최초 2시간 면제", "rate": 0.0, "exempt_min": 120,
+     "note": "조례 제8조제5항제4호 — 식별이 가능한 표지가 붙어 있는 저공해자동차가 배터리 충전을 위해 주차하는 경우 최초 2시간은 면제한다"},
+    {"label": "국가유공자·고엽제후유의증환자·장애인·75세 이상·장기기증자·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제8조제4항제1호·제2호·제3호·제4호·제6호·제7호 — 국가유공자 및 고엽제후유의증환자가 자가운전하는 차량, 장애인이 자가운전 또는 동승한 차량, 75세 이상 고령 운전자, 장기기증자 및 장기기증희망자가 자가운전하는 차량, 병역명문가증을 소지한 사람이 운전하는 차량은 주차요금의 100분의 50을 경감할 수 있다"},
+    {"label": "관광활성화 이용권·카드 50% (개소당 2시간 한도)", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제8조제4항제5호 — 관광활성화를 위한 이용권 또는 카드 등을 소지한 사람이 운전하는 차량은 주차요금의 100분의 50을 경감할 수 있고, 감면 적용은 주차장 1개소당 2시간까지 개별 적용한다"},
+    {"label": "경형·저공해·환경친화적 자동차 50% 이상", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제8조제5항제1호·제2호·제3호 — 배기량 1000cc 미만 경형자동차, 저공해자동차 표지를 부착한 차량, 환경친화적 자동차는 주차요금의 100분의 50 이상을 경감한다. 조례가 '이상'으로 정해 실제 경감률은 현장 확인이 필요하다"},
+]
+
+JEONGEUP_CONF = {
+    "city": "정읍시",
+    "slug": "jeongeup",
+    "manager": "전북특별자치도 정읍시청",
+    "manager_inquiry": "정읍시청 교통과(063-539-5943, 조례 담당·표준데이터 등록 전화)·063-539-6833(조곡천 들풀마당·시기도심중앙주차장 등록 전화)",
+    "ordinance": ("「정읍시 주차장 조례」 제2353호(시행 2026-07-10, 일부개정)",
+                  JEONGEUP_ORD_URL, JEONGEUP_ORD_NOTE),
+    "notes": ("정읍시 공영주차장 26곳은 전부 노외이고 총 999면이다(무료 16곳, "
+              "유료 10곳). 「정읍시 주차장 조례」 제2353호(시행 2026-07-10, "
+              "ordinSeq 2148155) 별표 1은 급지를 1급지·2급지로 나누고(구분은 "
+              "시장이 지정), 소형 기준 1급지는 최초 120분 이내 무료·120분 "
+              "초과 후 10분마다 200원·1일(6시간 초과) 5,000원·월 정기 주간 "
+              "30,000원/야간 20,000원/주야간 45,000원, 2급지는 150원·3,000원·"
+              "20,000원/15,000원/30,000원이다(대형은 요금표에 병기). 유료 "
+              "10곳(전부 1급지 등록)의 등록값은 기본 120분 500원·추가 10분당 "
+              "200원·1일 5,000원(적용 8시간)·월정기 30,000원으로 한 가지 "
+              "구조인데, 추가요금·1일 요금·월정기(주간)는 별표 1과 일치하고 "
+              "기본요금(등록 500원 vs 조례 무료)과 1일 적용시간(등록 8시간 "
+              "vs 조례 6시간 초과)만 다르다. 등록값이 완전한 구조이고 기준일"
+              "(2026-10-13)이 조례 공포 뒤이며 별표 1 비고 5가 시장이 요금을 "
+              "정할 수 있게 하므로, 계산기는 등록값으로 계산하고 요금표는 "
+              "조례값으로 표기한다(차이는 데이터 품질 기록에 전건 기록). "
+              "무료 16곳은 시가 무료로 운영하는 곳으로 보고 요금표는 조례 "
+              "기준 요금의 참고표로 싣는다. 감면은 조례 제8조를 따른다"
+              "(긴급자동차 면제, 저공해 충전 최초 2시간 면제, 국가유공자·"
+              "고엽제·장애인·75세 이상·장기기증자·병역명문가 50%, 관광활성화 "
+              "이용권·카드 50%·개소당 2시간 한도, 경형·저공해·환경친화적 "
+              "50% 이상). 좌표는 26곳 전부 등록돼 있다."),
+    "discounts": JEONGEUP_DISCOUNTS,
+}
+
+JEONGEUP_BBOX = (35.50, 35.70, 126.78, 127.12)
+
+JEONGEUP_DONGS = {"시기동", "연지동", "수성동", "금붕동", "상동", "장명동",
+                  "초산동", "내장동",
+                  "농소동", "하모동", "공평동", "망제동", "신정동", "쌍암동",
+                  "구룡동", "용계동", "교암동", "부전동", "신태인읍", "북면",
+                  "입암면", "소성면", "고부면", "영원면", "덕천면", "이평면",
+                  "정우면", "태인면", "감곡면", "옹동면", "칠보면", "산내면",
+                  "산외면"}
+
+
+def jeongeup_dong_of(addr):
+    """정읍시 동(법정동)·읍·면 판정 — 지번주소의 정읍시 다음 토큰이
+    법정동이거나 읍·면이다. 도로명주소는 도로 이름으로는 동을 가릴 수
+    없어 None을 돌려준다. 이름 기반 보정은 쓰지 않는다('초산동
+    유창2차 공영주차장'처럼 이름의 동과 지번주소의 동이 다른 경우가
+    있어 지번주소를 기준으로만 판정한다)."""
+    if addr:
+        m = re.search(r"정읍시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _jeongeup_tier_of(lot):
+    """요금표 급지 행 판정 — 등록 급지 기준. 유료는 전부 '1'이다."""
+    g = lot["fee"].get("std_grade")
+    if g == "1":
+        return "g1"
+    if g == "2":
+        return "g2"
+    return "etc"
+
+
+def jeongeup_fee(row, name, note_bits, fee_diff):
+    """정읍시 공영주차장 한 곳의 요금 — 무료 16·유료 10.
+    유료 10곳의 등록값(기본 120분 500원·추가 10분당 200원·1일
+    5,000원·월정기 30,000원)은 추가요금·1일 요금·월정기(주간)가 조례
+    별표 1의 1급지 소형과 일치하고, 기본요금(등록 500원 vs 조례 최초
+    120분 무료)과 1일 적용시간(등록 8시간 vs 조례 6시간 초과)만
+    다르다. 등록값이 완전한 구조이고 기준일이 조례 공포 뒤라 계산기는
+    등록값을 유지하고 요금표는 조례값으로 표기한다(공주·청양 선례).
+    차이 둘은 fee_diff에 전건 남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례에 무료 운영의 근거 조항이 따로 없어 시가 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    if base_fee:
+        fee_diff.append(f"{name}: 기본요금이 기본 {base_min}분 {base_fee:,}원으로 등록돼 "
+                        "있으나 조례 별표 1의 1급지 소형은 '최초 120분 이내 무료'다 — "
+                        "등록값이 완전한 구조이고 기준일(2026-10-13)이 조례 공포"
+                        "(2026-07-10) 뒤이며 별표 1 비고 5가 시장이 요금을 정할 "
+                        "수 있게 하므로 계산기는 공주 선례대로 등록값을 유지하고 "
+                        "차이는 여기에 남긴다")
+    if day and day_hours and day_hours != 6:
+        fee_diff.append(f"{name}: 1일 주차요금 적용시간이 {day_hours}시간으로 등록돼 "
+                        "있으나 조례 별표 1은 '1일 주차요금(6시간초과)'으로 정한다 — "
+                        "계산기는 공주 선례대로 등록값"
+                        f"({day_hours}시간)을 유지하고 차이는 여기에 남긴다")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours,
+                "monthly": month if month else None,
+                "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "steps": None,
+                "steps_label": (f"기본 {base_min}분 {base_fee:,}원"
+                                f" · 이후 {unit_min}분마다 {unit_fee:,}원"),
+                "basis": ("전국주차장정보표준데이터 등록값(정읍시청, 기준일 "
+                          "2026-10-13) — 「정읍시 주차장 조례」 별표 1과 대조 "
+                          "완료. 추가요금(10분당 200원)·1일 요금(5,000원)·월정기"
+                          "(30,000원, 조례 주간값)는 별표 1의 1급지 소형과 "
+                          "일치하고, 기본요금(등록 500원 vs 조례 최초 120분 "
+                          "무료)과 1일 적용시간(등록 8시간 vs 조례 6시간 "
+                          "초과)은 데이터 품질 기록에 남겼다")})
+    return fee
+
+
+def jeongeup_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 값으로 표기한다(공주·청양 선례: 계산기는
+    등록값 유지, 요금표는 조례값). 유료 10곳은 전부 1급지 등록이고
+    차종 구분이 등록돼 있지 않아 1급지 소형 행에 몰아 센다. 무료
+    16곳에 대해서는 조례 기준 요금의 참고표다(서천·군산 선례).
+    월정기 열은 주야간 값을 대표로 싣고 주간·야간 값은 요율 칸에
+    함께 적는다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    g1s = {"base_min": 120, "base_fee": 0, "unit_min": 10, "unit_fee": 200,
+           "daily_fee": 5000}
+    g1l = {"base_min": 120, "base_fee": 0, "unit_min": 10, "unit_fee": 300,
+           "daily_fee": 8000}
+    g2s = {"base_min": 120, "base_fee": 0, "unit_min": 10, "unit_fee": 150,
+           "daily_fee": 3000}
+    g2l = {"base_min": 120, "base_fee": 0, "unit_min": 10, "unit_fee": 200,
+           "daily_fee": 4000}
+    rows = [
+        {"label": "1급지 · 소형", "grade": "g1",
+         "unit_label": "소형: 최초 120분 이내 무료 · 120분 초과 매 10분 200원 · 월정기 주간 30,000원·야간 20,000원·주야간 45,000원",
+         "hour": sj_charge(g1s, 60), "two_hour": sj_charge(g1s, 120),
+         "day": 5000, "month": 45000,
+         "lots": len([l for l in paid if _jeongeup_tier_of(l) == "g1"])},
+        {"label": "1급지 · 대형", "grade": "g1",
+         "unit_label": "대형: 최초 120분 이내 무료 · 120분 초과 매 10분 300원 · 월정기 주간 45,000원·야간 35,000원·주야간 75,000원",
+         "hour": sj_charge(g1l, 60), "two_hour": sj_charge(g1l, 120),
+         "day": 8000, "month": 75000,
+         "lots": 0},
+        {"label": "2급지 · 소형", "grade": "g2",
+         "unit_label": "소형: 최초 120분 이내 무료 · 120분 초과 매 10분 150원 · 월정기 주간 20,000원·야간 15,000원·주야간 30,000원",
+         "hour": sj_charge(g2s, 60), "two_hour": sj_charge(g2s, 120),
+         "day": 3000, "month": 30000,
+         "lots": len([l for l in paid if _jeongeup_tier_of(l) == "g2"])},
+        {"label": "2급지 · 대형", "grade": "g2",
+         "unit_label": "대형: 최초 120분 이내 무료 · 120분 초과 매 10분 200원 · 월정기 주간 35,000원·야간 25,000원·주야간 55,000원",
+         "hour": sj_charge(g2l, 60), "two_hour": sj_charge(g2l, 120),
+         "day": 4000, "month": 55000,
+         "lots": 0},
+    ]
+    return {
+        "style": "jeongeup_grade",
+        "unit_min": 10,
+        "base_min": 120,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "공통", "hours": "주간 09:00~18:00 · 야간 그 밖의 시간",
+                     "free": ("조례 별표 1 비고 3의 월 정기 주간·야간 구분이다 — "
+                              "등록 운영시간은 전 곳 00:00~23:59다")}],
+        "notes": ("월정기는 1급지 소형 주간 30,000원·야간 20,000원·주야간 45,000원, "
+                  "대형 45,000원·35,000원·75,000원이고 2급지 소형 20,000원·"
+                  "15,000원·30,000원, 대형 35,000원·25,000원·55,000원이며 표의 "
+                  "월정기 칸은 주야간 값이다. 표준데이터에는 유료 10곳 전부 "
+                  "월정기 30,000원(조례 1급지 소형 주간값과 일치)으로 등록돼 "
+                  "있다. 급지 구분은 주차장의 실태와 주차수요를 참작해 시장이 "
+                  "지정한다(별표 1 비고 4). 1회 주차요금을 초과하면 매 10분 "
+                  "단위로 세분화한 금액의 가산금을 합산해 부과한다(비고 2). "
+                  "감면은 긴급자동차 면제, 저공해 충전 최초 2시간 면제, 국가"
+                  "유공자·고엽제후유의증환자·장애인·75세 이상·장기기증자·"
+                  "병역명문가 50%, 관광활성화 이용권·카드 50%(개소당 2시간 "
+                  "한도), 경형·저공해·환경친화적 50% 이상이다."),
+        "basis": ("요금표는 「정읍시 주차장 조례」 제2353호(시행 2026-07-10) "
+                  "별표 1과 표준데이터(기준일 2026-10-13)를 대조해 실었다. "
+                  "유료 10곳의 등록값은 추가요금·1일 요금·월정기(주간)가 별표 "
+                  "1의 1급지 소형과 일치하고 기본요금·1일 적용시간만 다르며, "
+                  "무료 16곳에 대해서는 조례 기준 요금의 참고표다. (조례 본문: "
+                  "data/raw/jeongeup-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/jeongeup-ordinance-b1.hwp)"),
+    }
+
+
+def jeongeup_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                     space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「정읍시 주차장 조례」 제2353호 제8조 — 긴급자동차는 면제할 수 "
+                      "있다(제2항). 50% 경감(제4항): 국가유공자·고엽제후유의증환자 "
+                      "자가운전, 장애인 자가운전·동승, 75세 이상 고령 운전자, 관광"
+                      "활성화 이용권·카드 소지(개소당 2시간 한도), 장기기증자·희망자, "
+                      "병역명문가증 소지. 50% 이상 경감(제5항): 경형(1000cc 미만)·"
+                      "저공해 표지·환경친화적 자동차, 저공해 충전 시 최초 2시간은 "
+                      "면제. 본문 원문(data/raw/jeongeup-ordinance.txt) 대조 완료"
+                      "(2026-11-20)"),
+        "요금_출처": ("조례 별표 1 — 소형 기준 1급지 최초 120분 이내 무료·120분 초과 "
+                      "매 10분 200원·1일(6시간 초과) 5,000원·월 정기 주간 30,000원/"
+                      "야간 20,000원/주야간 45,000원, 2급지 150원·3,000원·20,000원/"
+                      "15,000원/30,000원. 대형은 1급지 300원·8,000원·45,000원/"
+                      "35,000원/75,000원, 2급지 200원·4,000원·35,000원/25,000원/"
+                      "55,000원. 표준데이터 유료 10곳의 등록값은 추가요금·1일 요금·"
+                      "월정기(주간)가 1급지 소형과 일치하고, 기본요금(등록 500원·"
+                      "조례 무료)과 1일 적용시간(등록 8시간·조례 6시간 초과)만 "
+                      "달라 급지_요금_차이에 전건 기록했다"),
+        "급지_출처": ("조례 별표 1 비고 4 — 급지 구분은 주차장의 실태 및 주차수요를 "
+                      "참작하여 시장이 지정하되 시의 특성 및 주차장의 위치에 따라 "
+                      "세분할 수 있다. 표준데이터 등록 급지는 26곳 전부 '1'이다"),
+        "무료요일_출처": ("조례에 주말·공휴일 무료 개방 규정이 없어 free_days는 적용하지 "
+                          "않았다. 무료 16곳은 요금구분 자체가 '무료'다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 정읍시 등록 26행 전부 공영·노외 — 민영 제외 0건",
+            "「정읍시 주차장 조례」 제2353호(시행 2026-07-10, 일부개정, ordinSeq 2148155) 본문 원문(data/raw/jeongeup-ordinance.txt) 대조 완료(2026-11-20)",
+            "별표 1 원문 HWP(data/raw/jeongeup-ordinance-b1.hwp) 파싱으로 급지·차종별 요금 확정 — 함께 잡힌 「정읍시 주차장 조례 시행규칙」(제809호)은 요금 조례가 아니어서 제외",
+            "유료 10곳의 등록값은 추가요금·1일 요금·월정기(주간)가 별표 1의 1급지 소형과 일치하고 기본요금·1일 적용시간만 달라, 등록값이 완전한 구조이고 기준일(2026-10-13)이 조례 공포 뒤이며 별표 1 비고 5가 시장 재량을 열어 두었으므로 계산기는 등록값을 유지하고 요금표는 조례값으로 표기했다(공주·청양·익산 선례) — 차이는 급지_요금_차이에 전건 기록",
+            "무료 16곳은 조례에 무료 운영의 근거 조항이 따로 없어 시가 무료로 운영하는 곳으로 보고 요금표는 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례) — 무료 운영의 근거(고시 등)는 시청 확인 과제다",
+            "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍은 전부 다른 등록이라 합치지 않았다",
+            "좌표는 26곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 정읍시 범위 밖 좌표도 없었다",
+            "동 판정은 지번주소 기준이다 — '초산동 유창2차 공영주차장'은 이름의 동(초산동)과 지번주소의 동(시기동)이 달라 지번주소 기준으로 판정했고 동_보정에 남겼다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_jeongeup():
+    """정읍시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「정읍시 주차장 조례」 제2353호(시행 2026-07-10,
+    ordinSeq 2148155) 제8조·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 26행 전부 공영·노외(무료 16·유료 10)를 싣는다.
+    유료 10곳의 등록값은 기본요금·1일 적용시간만 조례와 달라 계산기는
+    등록값을 유지하고(공주 선례) 차이는 품질 기록에 전건 남긴다.
+    좌표는 전부 등록돼 있다."""
+    conf = JEONGEUP_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "정읍시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "정읍시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 정읍시는
+    #   해당 중복이 0건이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (JEONGEUP_BBOX[0] < lat < JEONGEUP_BBOX[1]
+                                                        and JEONGEUP_BBOX[2] < lng < JEONGEUP_BBOX[3]):
+            # 정읍시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 정읍시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = jeongeup_dong_of(jibun) or jeongeup_dong_of(road)
+        if jeongeup_dong_of(jibun):
+            dong_src = "지번주소"
+        elif jeongeup_dong_of(road):
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 법정동·읍면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다 — '초산동 유창2차 공영주차장').
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in JEONGEUP_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = jeongeup_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "정읍시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 26행은 전부 공영·노외이고 관리기관은 전부 "
+                      "정읍시청, 데이터기준일자는 전부 2026-10-13이다")
+    note_fixed.append("운영요일은 전부 평일+토요일+공휴일, 운영시간은 전부 00:00~23:59, "
+                      "결제방법은 유료 10곳만 '카드', 특기사항은 전 곳 공란이다")
+    note_fixed.append("등록 전화는 063-539-5943이 24곳, 063-539-6833이 2곳"
+                      "(조곡천 들풀마당·시기도심중앙주차장)이다")
+    note_fixed.append("등록 특이 2건은 원자료 그대로 실었다 — '각시다리(쌍화차거리)"
+                      "도심공영주차장)'은 이름 끝에 닫는 괄호가 하나 더 붙어 있고, "
+                      "조곡천 들풀마당의 지번주소는 '전븍특별자치도'로 오기돼 있다")
+    note_fixed.append("중앙상가공영주차장의 지번주소는 '시기동204-14, 204-19,204-135, "
+                      "204-135-14, 204-19'처럼 동과 번지가 붙고 여러 필지가 쉼표로 "
+                      "나열돼 있다 — 원자료 그대로 실었다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jb-jeongeup-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jb-jeongeup-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 정읍시는 좌표 결측이 없어 채워지는 곳은 없다.
+    apply_coord_fix(lots)
+
+    fee_table = jeongeup_fee_table(conf, lots)
+    quality = jeongeup_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                               fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-13",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"정읍시로 등록된 행 {len(rows_std)}행(전부 공영·노외)을 읽어 중복 제거 "
+                 f"{len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이며, 유료 "
+                 f"10곳의 등록값은 기본요금·1일 적용시간만 조례 별표 1과 다르고 "
+                 f"나머지는 일치한다. 좌표는 전부 등록돼 있다. 조례 대조 완료 — "
+                 f"「정읍시 주차장 조례」 제2353호(시행 2026-07-10, "
+                 f"ordinSeq 2148155) 제8조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": JEONGEUP_ORD_HWP.name if JEONGEUP_ORD_HWP.exists() else None,
+            "sha256": sha256(JEONGEUP_ORD_HWP) if JEONGEUP_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-07-10",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"정읍시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/jeongeup-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/jeongeup-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/jeongeup-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": JEONGEUP_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "정읍시", "slug": "jeongeup"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": JEONGEUP_PROVINCE,
+        "province_slug": JEONGEUP_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "jeongeup_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
@@ -43576,7 +44204,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "jeongeup",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -43594,7 +44222,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "정읍시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -43647,7 +44275,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "jeongeup": ["정읍시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -43804,6 +44432,8 @@ def main():
         cities.append(build_jeonju())
     if "군산시" in want:
         cities.append(build_gunsan())
+    if "정읍시" in want:
+        cities.append(build_jeongeup())
 
     if args.city == "all":
         site = build_site_payload(cities)
