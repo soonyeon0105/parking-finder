@@ -1,0 +1,3065 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 06:07",
+  "generated_at_iso": "2026-11-20T06:07:08+09:00",
+  "snapshot_at": "2026-11-20 06:07",
+  "region": {
+   "province": "충청남도",
+   "city": "서천군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 28,
+    "fetched_at": "2026-11-20 06:07 (KST)",
+    "note": "서천군으로 등록된 행 28행(전부 노외)을 읽어 같은 자리 재등록 3쌍을 합치고 노외 25곳을 실었다. 서천군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·면수는 등록값을 그대로 썼다. 조례 대조 완료 — 「서천군 주차장 조례」 제2907호(시행 2023-12-20, ordinSeq 1884647) 별표1·제4조·제5조 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「서천군 주차장 조례」 제2907호(시행 2023-12-20, 일부개정)",
+    "org": "충청남도 서천군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1884647&efYd=20231220",
+    "file": "seocheon-ordinance-b1.hwp",
+    "sha256": "9901989e598c82c6d0cba0073c3c5c99585b94fdb7be2e662c23756f48a31915",
+    "license": "자치법규(공개)",
+    "base_date": "2023-12-20",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 06:07 (KST)",
+    "note": "서천군이 설치·관리하는 공영주차장에 적용하는 조례다. 서천군 공영주차장은 조례 별표1이 읍 지역 1급지·면 지역 2급지로 나눠 유료 요금표를 두고 있다: 1급지는 1시간 500원에 초과 30분마다 500원, 1일 5,000원, 월정기 주간 45,000원·야간 35,000원이고, 2급지는 1시간 500원에 초과 30분마다 250원, 1일 3,000원, 월정기 주간 30,000원·야간 20,000원이다. 다만 표준데이터에는 25곳 전부 무료로 등록돼 있어 실제 요금은 받지 않는 것으로 보이며, 무료 운영의 근거는 서천군청 확인이 필요하다. 주간 시간구분은 4~10월 08:00~20:00, 11~3월 08:00~19:00이고 나머지는 야간이다. (조례 본문: data/raw/seocheon-ordinance.txt, 별표1 원문 HWP: data/raw/seocheon-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "서천군",
+   "slug": "seocheon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-seocheon-001",
+   "mgmt_no": "295-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(1) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 563-1",
+   "addr_road": "충청남도 서천군 서천읍 군사길 1-3",
+   "road": null,
+   "spaces": 80,
+   "tel": "041-950-4354",
+   "lat": 36.07634754,
+   "lng": 126.6950426,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-002",
+   "mgmt_no": "295-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(10) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 861-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "041-950-4354",
+   "lat": 36.07681561,
+   "lng": 126.6892102,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-003",
+   "mgmt_no": "295-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(11) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 734-1, 2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-950-4354",
+   "lat": 36.0786498,
+   "lng": 126.6897294,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-004",
+   "mgmt_no": "295-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(12) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 642-106, -134",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-950-4354",
+   "lat": 36.07623453,
+   "lng": 126.6913504,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-005",
+   "mgmt_no": "295-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(13) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "충청남도 서천군 서천읍 군사안길 26",
+   "road": null,
+   "spaces": 13,
+   "tel": "041-950-4354",
+   "lat": 36.07675592,
+   "lng": 126.696301,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-006",
+   "mgmt_no": "295-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(14) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 700-1, -3, -4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "041-950-4354",
+   "lat": 36.07710095,
+   "lng": 126.6894943,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-007",
+   "mgmt_no": "295-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(15) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 855-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "041-950-4354",
+   "lat": 36.07601181,
+   "lng": 126.6873706,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-008",
+   "mgmt_no": "295-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(18) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 861-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-950-4354",
+   "lat": 36.0767732,
+   "lng": 126.6900122,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-009",
+   "mgmt_no": "295-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(2) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 859-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "041-950-4354",
+   "lat": 36.0764747,
+   "lng": 126.6880375,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-010",
+   "mgmt_no": "295-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(3) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 861-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-950-4354",
+   "lat": 36.07664859,
+   "lng": 126.6895505,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-011",
+   "mgmt_no": "295-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(4) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 481-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "041-950-4354",
+   "lat": 36.0780596,
+   "lng": 126.689845,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-012",
+   "mgmt_no": "295-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(5) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 862-6,7",
+   "addr_road": "충청남도 서천군 서천읍 충절로59번길 23",
+   "road": null,
+   "spaces": 40,
+   "tel": "041-950-4354",
+   "lat": 36.0760744508,
+   "lng": 126.6897181496,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-013",
+   "mgmt_no": "295-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(6) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 729",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "041-950-4354",
+   "lat": 36.07830936,
+   "lng": 126.6897238,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-014",
+   "mgmt_no": "295-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(7) 공영주차장",
+   "gu": "서천군",
+   "dong": "서천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 서천읍 군사리 860-7, -8, -9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "041-950-4354",
+   "lat": 36.0770723,
+   "lng": 126.6887744,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-015",
+   "mgmt_no": "295-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(1) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선2리 508-1",
+   "addr_road": "충청남도 서천군 장항읍 장서로44번길 10",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-950-4354",
+   "lat": 36.01150572,
+   "lng": 126.6990817,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-016",
+   "mgmt_no": "295-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(10) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선2리 232-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "041-950-4354",
+   "lat": 36.01368472,
+   "lng": 126.6958156,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-017",
+   "mgmt_no": "295-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(2) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선2리 632-9",
+   "addr_road": "충청남도 서천군 장항읍 장항로157번길 8",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-950-4354",
+   "lat": 36.01156116,
+   "lng": 126.6953411,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-018",
+   "mgmt_no": "295-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(3) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선2리 606-2",
+   "addr_road": "충청남도 서천군 장항읍 장서로43번길 27",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-950-4354",
+   "lat": 36.01168382,
+   "lng": 126.6968004,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-019",
+   "mgmt_no": "295-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(4) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선1리 229-3",
+   "addr_road": "충청남도 서천군 장항읍 장항로172번길 16",
+   "road": null,
+   "spaces": 48,
+   "tel": "041-950-4354",
+   "lat": 36.0103035,
+   "lng": 126.6962175754,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-020",
+   "mgmt_no": "295-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(5) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선1리 215",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "041-950-4354",
+   "lat": 36.01039819,
+   "lng": 126.6968584,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-021",
+   "mgmt_no": "295-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(6) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선1리 204-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "041-950-4354",
+   "lat": 36.0099461,
+   "lng": 126.6967737,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-022",
+   "mgmt_no": "295-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(7) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 창선2리 545-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "041-950-4354",
+   "lat": 36.01153149,
+   "lng": 126.6976072,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-023",
+   "mgmt_no": "295-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(8) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 신창리 44-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "041-950-4354",
+   "lat": 36.0135904,
+   "lng": 126.6909879,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-024",
+   "mgmt_no": "295-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장항(9) 공영주차장",
+   "gu": "서천군",
+   "dong": "장항읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 장항읍 신창리 171-58",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "041-950-4354",
+   "lat": 36.0106378,
+   "lng": 126.6907725,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  },
+  {
+   "id": "ca-seocheon-025",
+   "mgmt_no": "295-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서천(19) 공영주차장",
+   "gu": "서천군",
+   "dong": "판교면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 서천군 판교면 현암리 224-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "041-950-4354",
+   "lat": 36.15422793,
+   "lng": 126.6876139,
+   "base_date": "2026-04-21",
+   "manager": "충청남도 서천군청",
+   "note": "해당없음",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "해당없음",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "서천군",
+   "city_slug": "seocheon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 06:07",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 28,
+  "원자료_서천군행수": 28,
+  "원자료_받은행수": 28,
+  "구별": {
+   "서천군": 25
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 3,
+  "중복제거_행": [
+   {
+    "name": "서천(16) 공영주차장",
+    "addr": "충청남도 서천군 서천읍 군사리 563-1",
+    "spaces": 80,
+    "note": "같은 자리·좌표 200m 이내의 재등록(이름의 괄호 번호만 다름) — 도로명주소가 있는 등록, 없으면 면수가 큰 등록만 남김",
+    "base_date": "2026-04-21",
+    "kept": "서천(1) 공영주차장"
+   },
+   {
+    "name": "서천(17) 공영주차장",
+    "addr": "충청남도 서천군 서천읍 군사리 862-6, 862-7",
+    "spaces": 40,
+    "note": "같은 자리·좌표 200m 이내의 재등록(이름의 괄호 번호만 다름) — 도로명주소가 있는 등록, 없으면 면수가 큰 등록만 남김",
+    "base_date": "2026-04-21",
+    "kept": "서천(5) 공영주차장"
+   },
+   {
+    "name": "서천(8) 공영주차장",
+    "addr": "충청남도 서천군 서천읍 군사리 861-6",
+    "spaces": 10,
+    "note": "같은 자리·좌표 200m 이내의 재등록(이름의 괄호 번호만 다름) — 도로명주소가 있는 등록, 없으면 면수가 큰 등록만 남김",
+    "base_date": "2026-04-21",
+    "kept": "서천(18) 공영주차장"
+   }
+  ],
+  "총_주차장": 25,
+  "노외_부설": {
+   "노외": 25
+  },
+  "노상_구간": 0,
+  "총_구획수": 645,
+  "노상_구획수": 0,
+  "동별": {
+   "서천읍": 14,
+   "장항읍": 10,
+   "판교면": 1
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 24,
+   "도로명주소": 1
+  },
+  "요금구분": {
+   "무료": 25
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "주차장관리번호 295-2-000010·000015·000022·000023·000024가 서로 다른 주차장에 중복 사용돼 있다 — 관리번호를 식별자로 쓰지 않고 이름·주소·좌표로 구분했다",
+   "Instinct 사전 검증(2026-11-20)이 인용한 최신 가공본(표준데이터 기준일 2026-10-26)은 서천군 22곳·640면(서천읍 13·장항읍 9)인데, 이 저장소의 표준데이터(기준일 2026-04-21)는 28행·775면이라 같은 자리 재등록 3쌍을 합쳐도 25곳·645면으로 3곳·5면이 많다 — 최신본에서 빠진 서천읍 1곳·장항읍 1곳·판교면 1곳의 폐쇄·통합 여부는 서천군청 확인 필요",
+   "조례 제12조에 노상주차장 설치 근거는 있으나 표준데이터에 노상 등록은 0곳이다 — 실제 미운영인지 서천군청 확인 필요"
+  ],
+  "면수_차이": [
+   "서천(18) 공영주차장·서천(8) 공영주차장: 같은 자리 재등록 2행의 면수가 10면/12면으로 다르다 — 남긴 등록(서천(18) 공영주차장)의 12면으로 실었고 서천군청 확인 필요"
+  ],
+  "급지_요금_차이": [
+   "조례 별표1은 1급지(읍) 1시간 500원·초과 30분당 500원·1일 5,000원·월정기 주간 45,000/야간 35,000원, 2급지(면) 1시간 500원·초과 30분당 250원·1일 3,000원·월정기 주간 30,000/야간 20,000원의 유료 요금표인데 표준데이터 25곳은 전부 '무료'(요금 칸 전부 0)로 등록돼 있다 — 조례에 무료 운영 재량 조항이 없어 무료 운영의 근거(고시 등)는 서천군청 확인 필요. 유료로 계산할 주차장이 없어 요금표는 조례 별표 참고표로만 실었다",
+   "등록 급지구분은 28행 전부 '1'이나 조례 별표1 비고3의 급지는 읍 지역 1급지·면 지역 2급지다 — 판교면 서천(19) 공영주차장은 조례 기준 2급지이며, 전량 무료라 요금 결과에는 영향이 없다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「서천군 주차장 조례」 제2907호 제5조 — 제1호 50%(장애인 자가운전·동반, 저공해자동차, 경차), 제2호 20%(승용차 10부제·함께타기 참여차량). 긴급자동차 전액 면제 조항 없음 — 본문·별표1 원문 HWP(data/raw/seocheon-ordinance-b1.hwp) 대조 완료(2026-11-20)",
+  "무료시간_출처": "조례 별표1에 최초 무료 시간 없음 — 25곳의 무료는 표준데이터 요금구분 ‘무료’ 등록 기준",
+  "주말무료_출처": "조례에 요일별 무료 조항 없음 — 전량 무료 등록이라 요일과 관계없이 무료",
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 25,
+  "무료_구획수": 645,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "295-2-000010",
+   "295-2-000022",
+   "295-2-000024",
+   "295-2-000015"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-21"
+  ],
+  "관리기관": {
+   "충청남도 서천군청": 25
+  }
+ },
+ "fee_table": {
+  "style": "seocheon_grade",
+  "rows": [
+   {
+    "label": "1급지 (읍 지역)",
+    "grade": "grade1",
+    "unit_label": "1시간 500원 · 초과 30분마다 500원",
+    "hour": 500,
+    "two_hour": 1500,
+    "day": 5000,
+    "month": 45000,
+    "lots": 24
+   },
+   {
+    "label": "2급지 (면 지역)",
+    "grade": "grade2",
+    "unit_label": "1시간 500원 · 초과 30분마다 250원",
+    "hour": 500,
+    "two_hour": 1000,
+    "day": 3000,
+    "month": 30000,
+    "lots": 1
+   }
+  ],
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "00:00~23:59",
+    "free": "25곳 전부 등록 운영시간이며 요금은 전량 무료로 등록돼 있다"
+   }
+  ],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 25
+  },
+  "notes": "감면(조례 제5조)은 장애인·저공해자동차·경차 50%, 승용차 10부제·함께타기 참여차량 20%이며, 긴급자동차 전액 면제 조항은 이 조례에 없습니다. 노상주차장 가산금(조례 제4조제2항)은 요금을 내지 않으면 요금의 4배, 주차소요 밀집시간(09:00~11:00)에 주차하면 요금의 50%가 가산됩니다. 월정기는 표에 주간 요금을 적었고 야간은 1급지 35,000원·2급지 20,000원입니다(주간 시간구분: 4~10월 08:00~20:00, 11~3월 08:00~19:00).",
+  "basis": "요금표는 「서천군 주차장 조례」 제2907호(2023-12-20 시행) 별표1(공영주차장 주차요금표)와 표준데이터(서천군청, 기준일 2026-04-21)를 대조해 적용했다. (조례 본문: data/raw/seocheon-ordinance.txt, 별표1 원문 HWP: data/raw/seocheon-ordinance-b1.hwp)"
+ },
+ "slug": "seocheon",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "서천군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·저공해자동차·경차",
+   "rate": 0.5,
+   "exempt_min": null,
+   "note": "조례 제5조제1호 (장애인 자가운전·동반 차량, 저공해자동차, 경차 — 50% 감면)"
+  },
+  {
+   "label": "승용차 10부제·함께타기 참여차량",
+   "rate": 0.2,
+   "exempt_min": null,
+   "note": "조례 제5조제2호 (20% 감면)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
