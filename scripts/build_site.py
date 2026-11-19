@@ -9304,6 +9304,48 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "boryeong_mixed":
+        # 보령시 — 무료 45곳·혼합 8곳뿐이고 순수 유료는 없다. 혼합 8곳은 등록
+        #   특기사항의 유료운영 시간(월~토)에만 요금을 받는다: 제2시민행복·노상
+        #   4곳 09:00~20:00, 전통시장 노외 3곳 09:00~18:00. 그 밖의 시간과
+        #   일요일은 무료이고, 공휴일은 특기사항에 언급이 없어 무료로 적지 않는다.
+        #   요금은 등록값 그대로 — 시장 3곳 기본 60분 1,000원, 제2시민행복·노상
+        #   3곳 기본 60분 500원, 번영로 기본 30분 500원, 추가 전부 30분당 500원.
+        #   조례 별표1(소형)은 기본 30분 500원·1일 5,000원·월정기 주간 50,000원
+        #   으로, 추가요금과 시장 3곳의 1시간 환산액은 등록값과 일치한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">보령 공영주차장 53곳 중 요금을 받는 곳은 <b>8곳</b>뿐이고 모두 요금 구분이 <b>‘혼합’</b>입니다.
+등록 특기사항에 적힌 <b>유료운영 시간(월~토)</b>에만 요금을 받습니다 — 제2시민행복주차장과 노상 4곳은
+<b>09:00~20:00</b>, 전통시장 노외 3곳(동부시장·중앙시장 제1·제3)은 <b>09:00~18:00</b>이고, 그 밖의 시간과
+<b>일요일은 무료</b>입니다. 공휴일은 특기사항에 언급이 없어, 공휴일이 평일이면 유료운영 시간에 요금이
+붙는 것으로 보고 표기했습니다. 요금은 시장 3곳이 <b>기본 60분 1,000원</b>, 제2시민행복·노상 3곳이
+<b>기본 60분 500원</b>, 번영로 노상이 <b>기본 30분 500원</b>이고 추가는 전부 <b>30분마다 500원</b>입니다.
+「보령시 주차장 조례」 제2208호 별표1은 급지 구분 없이 소형 기준 <b>기본 30분 500원·1일 5,000원·
+월정기 주간 50,000원</b>으로, 등록 추가요금과 시장 3곳의 1시간 환산액은 조례와 일치합니다.
+전통시장 3곳은 시장 이용자 <b>최초 1시간이 무료</b>입니다(조례 제3조의2제5항). 현장 확인이 필요하면
+보령시청(041-930-3975)에 문의하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "nonsan_grade":
         # 논산시 — 유료 5곳(1급지 3곳 화지시장, 2급지 2곳 대흥시장). 기본요금은 등록값
         #   (1급지 30분 500원·2급지 30분 400원), 추가요금은 조례 별표1 기준 steps
