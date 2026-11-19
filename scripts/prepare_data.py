@@ -309,8 +309,10 @@ def derive_free_fields(lot):
     if fd["sat"] or fd["sun"]:
         tags.append("주말")
     # 공주시는 조례 별표1 비고 4에 일요일만 무료라, sun=True만으로 공휴일 태그를 붙이지 않는다.
+    # 보령시도 마찬가지다 — 혼합 8곳의 일요일 무료는 등록 특기사항 '유료운영(월~토)' 근거뿐이고
+    # 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 태그를 붙이지 않는다.
     # (다른 도시는 '주말 및 공휴일 무료' 특기사항 관행대로 sun=True면 공휴일도 무료로 본다.)
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") != "공주시"):
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -31674,6 +31676,557 @@ def build_gongju():
     return payload
 
 
+BORYEONG_PROVINCE = "충청남도"
+BORYEONG_PROVINCE_SLUG = "chungnam"
+
+# 「보령시 주차장 조례」 — law.go.kr 라이브 확인 완료(2026-11-19).
+#   제2208호(시행 2025-09-10, 일부개정), ordinSeq 2066813이 현행본이다.
+#   담당 충청남도 보령시(교통과) 041-930-3952. 별표1 원문 HWP
+#   (data/raw/boryeong-ordinance-b1.hwp) 확보 + 본문(data/raw/boryeong-ordinance.txt) 저장.
+#   요금은 제3조·별표1: 급지 구분이 없고 차종으로만 나뉜다. 소형(승용자동차·
+#   15인승 이하 승합·1톤 이하 화물) 기본 30분 500원·초과 매 30분 500원·1일
+#   5,000원·월정기 주간 50,000원·야간 35,000원. 대형 800원·800원·8,000원·
+#   80,000원·56,000원. 비고1: 시장은 표 범위 내에서 주차요금을 달리 정하거나
+#   무료로 운영할 수 있고, 전통시장주변 노상주차장은 기본요금을 1시간으로
+#   적용하며 1일 주차·월 정기주차를 적용하지 않는다. 비고4: 주간 4~10월
+#   08:00~20:00, 11~3월 08:00~19:00, 나머지는 야간. 비고6: 주차시간이 1시간
+#   이내면 기본 1시간 요금 적용. 비고7: 30분 미만은 30분으로 본다.
+#   제3조의2 감면: 제1항 면제 1호 긴급자동차·2호 국가/지자체 공용차량·3호
+#   성실납세증(선정일부터 1년)·4호 시장 인정 차량. 제2항 50% 1호 장애인·
+#   국가유공자·고엽제·5·18(본인 직접운전 또는 심한 장애 동승 대리운전)·2호
+#   경형(1,000cc 미만)·3호 환경친화적·저공해(표지 부착)·4호 장기기증 등록증·
+#   5호 다자녀(보령시 주소, 둘째 이상, 막내 19세 이하, 가정당 1차량)·6호
+#   병역명문가. 제3항 투표확인증 2,000원 면제·할인. 제4항 승용차 10부제·
+#   함께타기 20% 경감. 제5항 전통시장 상인·고객 최초 1시간 감면.
+#   일요일·공휴일 무료 조항은 본문·별표1 어디에도 없다. 혼합 8곳의 일요일
+#   무료는 조례가 아니라 표준데이터 등록 특기사항 '유료운영(월~토 …)'의 직접
+#   근거로만 표기하고, 공휴일은 특기사항에 언급이 없어 무료로 표기하지 않는다
+#   (derive_free_fields의 공휴일 태그 예외에 보령시를 공주시와 함께 둔다).
+#   등록값과 차이(기본요금은 등록값 우선, 차이는 fee_diff에 기록): 시장 노외
+#   3곳 기본 60분 1,000원은 조례 소형 1시간 환산액(500+500)과 일치하고 비고1의
+#   전통시장 기본 1시간 적용과도 맞는다. 제2시민행복·노상 3곳의 기본 60분
+#   500원은 조례 1시간 환산액 1,000원보다 싸다(비고1 재량 범위 내로 보이나 실제
+#   징수 기준은 시청 확인 필요). 번영로 기본 30분 500원은 조례와 일치한다.
+#   추가요금 30분당 500원은 유료 8곳 전부 조례 소형 초과요금과 일치한다.
+#   1일·월정기 등록값은 제2시민행복(1일 5,000원·월정기 50,000원 — 조례 소형
+#   1일·월주간과 일치)에만 있고 나머지 7곳에는 없다.
+BORYEONG_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2066813"
+BORYEONG_ORD_HWP = RAW / "boryeong-ordinance-b1.hwp"
+BORYEONG_ORD_NOTE = "충청남도보령시조례 제2208호(시행 2025-09-10, 일부개정), ordinSeq 2066813"
+
+# 조례 제3조의2 감면 — 본문 대조 완료(2026-11-19). 면제 1개·50% 3개 버튼으로
+#   묶는다(논산 패턴). 투표확인증 2,000원(제3항)·10부제·함께타기 20%(제4항)·
+#   전통시장 최초 1시간(제5항)은 고정액·조건부라 버튼으로 만들지 않고 안내문에 적는다.
+BORYEONG_DISCOUNTS = [
+    {"label": "긴급자동차·공용차량·성실납세자 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "「도로교통법」 제2조제22호에 따른 긴급자동차(제3조의2제1항제1호) · 국가 또는 지방자치단체의 공용차량(제2호) · 성실납세증을 부착한 차량 — 선정된 날부터 1년간(제3호). 그 밖에 시장이 특별한 사유가 있다고 인정하는 차량도 면제할 수 있다(제4호)"},
+    {"label": "장애인·국가유공자·고엽제·5·18 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「장애인복지법」에 따른 장애인, 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 국가유공자, 고엽제후유의증환자, 5·18민주유공자가 본인의 자동차를 직접 운전하거나 장애 정도가 심하여 동승하고 타인으로 하여금 대리운전하게 하는 경우 — 주차요금의 2분의 1 감면(제3조의2제2항제1호)"},
+    {"label": "경형·환경친화적·저공해 자동차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「자동차관리법 시행규칙」 제2조에 따른 1,000cc 미만의 경형자동차(제2호) · 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따른 환경친화적 자동차 및 저공해자동차로 외부에서 식별이 가능한 표지를 부착한 자동차(제3호) — 2분의 1 감면(제3조의2제2항)"},
+    {"label": "장기기증·다자녀·병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "보령시 장기기증 등록증을 소지한 사람이 운전하는 자동차(제4호) · 보령시에 주소를 두고 둘째 이상 자녀를 출산 또는 입양하여 양육하는 가정 중 막내가 19세 이하인 다자녀 가정(가정당 1차량에 한정, 제5호) · 「보령시 병역명문가 예우 및 지원에 관한 조례」에 따른 병역명문가 예우 대상자(제6호) — 2분의 1 감면(제3조의2제2항)"},
+]
+
+
+BORYEONG_CONF = {
+    "city": "보령시",
+    "slug": "boryeong",
+    "manager": "충청남도 보령시 교통과",
+    "manager_inquiry": "보령시청(041-930-3975)",
+    "ordinance": ("「보령시 주차장 조례」 제2208호(시행 2025-09-10, 일부개정)",
+                  BORYEONG_ORD_URL, BORYEONG_ORD_NOTE),
+    "notes": ("보령시 공영주차장 53곳 중 45곳은 무료이고 요금을 받는 곳은 '혼합' 8곳뿐이다. 혼합 8곳은 "
+              "등록 특기사항에 적힌 유료운영 시간(월~토)에만 요금을 받는다 — 제2시민행복주차장과 노상 4곳"
+              "(대흥로·중앙로·남대천로·번영로)은 09:00~20:00, 전통시장 노외 3곳(동부시장·중앙시장 "
+              "제1·제3)은 09:00~18:00이고, 그 밖의 시간과 일요일은 무료다. 공휴일은 특기사항에 언급이 없어 "
+              "공휴일이 평일이면 유료운영 시간에 요금이 붙는 것으로 보고 표기했다. 요금은 등록값을 그대로 "
+              "썼다 — 시장 3곳은 기본 60분 1,000원에 추가 30분마다 500원, 제2시민행복·노상 3곳은 기본 "
+              "60분 500원에 추가 30분마다 500원, 번영로 노상은 기본 30분 500원에 추가 30분마다 500원이다. "
+              "「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 별표1은 급지 구분 없이 "
+              "차종으로만 나뉘어 소형 기본 30분 500원·초과 매 30분 500원·1일 5,000원·월정기 주간 "
+              "50,000원·야간 35,000원이다. 등록 추가요금(30분당 500원)은 8곳 전부 조례와 일치하고, 시장 "
+              "3곳의 기본 60분 1,000원도 조례 1시간 환산액과 일치한다(별표 비고1은 전통시장 주변 기본요금을 "
+              "1시간으로 적용한다). 제2시민행복·노상 3곳의 기본 60분 500원은 조례 환산액 1,000원보다 싸 "
+              "비고1의 '표 범위 내에서 달리 정할 수 있다'에 해당해 보이나, 실제 징수 기준은 보령시청 확인이 "
+              "필요하다. 1일·월정기 등록값은 제2시민행복(1일 5,000원·월정기 50,000원 — 조례 소형 1일·월주간과 "
+              "일치)에만 있고 나머지 7곳에는 없다. 전통시장 3곳은 시장 이용자 최초 1시간 무료가 등록 "
+              "특기사항과 조례 제3조의2제5항에 있다. 감면은 조례 제3조의2를 따른다(긴급·공용차량·성실납세자 "
+              "전액 면제, 장애인·국가유공자 등·경형·환경친화적·저공해·장기기증·다자녀·병역명문가 50%, "
+              "투표확인증 2,000원, 승용차 10부제·함께타기 20%). 표준데이터에는 보령시 53행이 등록되어 있고 "
+              "제외·중복 없이 전부 실었다. 중앙시장 주차장은 제1·제3만 등록되어 있어 제2주차장의 존재 여부는 "
+              "시청 확인이 필요하다."),
+    "discounts": BORYEONG_DISCOUNTS,
+}
+
+
+def boryeong_dong_of(addr, name=None):
+    """보령시 주소에서 법정동·읍·면을 읽는다 — '보령시' 다음 낱말이 동·읍·면이다."""
+    if addr:
+        m = re.search(r"보령시\s*([가-힣]{1,6}(?:동|읍|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r"^\s*([가-힣]{1,6}(?:읍|면))", name)
+        if m:
+            return m.group(1)
+        m = re.search(r",\s*([가-힣]{1,5}(?:동|읍|면))\s+\d", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def boryeong_fee(row, name, note_bits, fee_diff):
+    """보령시 공영주차장 한 곳의 요금 — 등록값 기준, 조례 별표1과 대조.
+    무료 45곳·혼합 8곳뿐이고 순수 '유료'는 없다. 혼합 8곳은 등록 특기사항에
+    유료운영 시간(월~토)이 적혀 있어 그 시간에만 요금을 받는다(무료 요일·시간은
+    build_boryeong에서 특기사항을 읽어 채운다). 조례 별표1(소형)은 기본 30분
+    500원·초과 매 30분 500원·1일 5,000원·월정기 주간 50,000원·야간 35,000원
+    으로 급지 구분이 없다. 추가요금(30분당 500원)은 8곳 전부 조례와 일치한다.
+    기본요금은 등록값 우선 — 시장 3곳 60분 1,000원은 조례 1시간 환산액과
+    일치하고, 제2시민행복·노상 3곳 60분 500원은 조례 환산액보다 싸 차이를
+    fee_diff에 기록한다. 1일·월정기는 제2시민행복만 등록값이 있다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        return fee
+    if not (base_fee or 0) and not (unit_fee or 0) and not day and not month:
+        fee.update({"type": "미상", "basis": "‘유료’로 등록됐지만 요금표 등록값이 없음"})
+        fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                      "unit_fee": unit_fee, "day": day, "monthly": month}
+        return fee
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    fee.update({"base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day, "daily_hours": None,
+                "monthly": month, "monthly_all": None, "monthly_label": None,
+                "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 "
+                         "제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용"
+                         "(차이는 fee_diff에 기록)"})
+    if base_min == 60 and base_fee == 1000:
+        fee_diff.append(f"{name}: 등록 기본 60분 1,000원 ↔ 조례 별표1 소형 기본 30분 500원·초과 "
+                        "매 30분 500원 — 1시간 환산액 1,000원으로 일치(별표 비고1 전통시장 주변 "
+                        "기본 1시간 적용). 추가 30분 500원도 조례와 일치해 등록값을 그대로 적용")
+    elif base_min == 60 and base_fee == 500:
+        fee_diff.append(f"{name}: 등록 기본 60분 500원 ↔ 조례 별표1 소형 기본 30분 500원·초과 "
+                        "매 30분 500원(1시간 환산 1,000원) — 등록값이 더 싸 비고1의 '표 범위 내에서 "
+                        "달리 정할 수 있다' 범위로 보이나 실제 징수 기준은 시청 확인 필요. 등록값 "
+                        "우선 적용")
+    if raw_type == "혼합":
+        note_bits.append("요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다")
+    return fee
+
+
+def boryeong_fee_table(conf, lots):
+    """요금표 — 혼합 8곳을 등록 요금 패턴 4개로 나눈다. 시장 노외 3곳(기본 60분
+    1,000원), 제2시민행복(기본 60분 500원·1일 5,000원·월정기 50,000원), 노상
+    3곳(기본 60분 500원), 번영로 노상(기본 30분 500원). 추가요금은 전부 30분당
+    500원으로 조례 별표1 소형 초과요금과 일치한다. 1일·월정기는 제2시민행복만
+    등록값이 있어 나머지는 '—'로 둔다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+
+    def _row(label, group):
+        if not group:
+            return None
+        f0 = group[0]["fee"]
+        rep = {"base_min": f0["base_min"], "base_fee": f0["base_fee"],
+               "unit_min": f0["unit_min"], "unit_fee": f0["unit_fee"],
+               "daily_fee": f0["daily_fee"]}
+        return {"label": label, "grade": "paid_base",
+                "unit_label": (f"기본 {f0['base_min']}분 {f0['base_fee']:,}원 → 추가 "
+                               f"{f0['unit_min']}분마다 {f0['unit_fee']:,}원"),
+                "hour": sj_charge(rep, 60), "two_hour": sj_charge(rep, 120),
+                "day": f0["daily_fee"], "month": f0["monthly"], "lots": len(group)}
+
+    rows = [r for r in (
+        _row("노외 — 전통시장(동부시장·중앙시장 제1·제3)",
+             [l for l in paid if l["list_mode"] == "card" and "시장" in l["name"]]),
+        _row("노외 — 제2시민행복주차장",
+             [l for l in paid if l["name"] == "제2시민행복주차장"]),
+        _row("노상 — 중앙로·남대천로·대흥로",
+             [l for l in paid if l["list_mode"] == "street" and l["fee"]["base_min"] == 60]),
+        _row("노상 — 번영로",
+             [l for l in paid if l["list_mode"] == "street" and l["fee"]["base_min"] == 30]),
+    ) if r]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "boryeong_mixed",
+        "unit_min": 30,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "유료운영", "hours": "월~토 09:00~20:00 (전통시장 3곳은 09:00~18:00)",
+                     "free": ("등록 특기사항에 적힌 유료운영 시간에만 요금을 받고, 그 밖의 "
+                              "시간과 일요일은 무료입니다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 별표1 · "
+                  "전국주차장정보표준데이터(2026-10-12 기준) 등록값 — 별표1 원문 대조 완료"),
+    }
+
+
+def boryeong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                     space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {"보령시": len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": ("「보령시 주차장 조례」 제3조의2(제1항 면제: 긴급·공용차량·성실납세증·시장 인정 / "
+                      "제2항 50%: 장애인·국가유공자·고엽제·5·18·경형·환경친화적·저공해·장기기증·다자녀·"
+                      "병역명문가 / 제3항 투표확인증 2,000원 / 제4항 10부제·함께타기 20% / 제5항 전통시장 "
+                      "최초 1시간) — 별표1 원문 HWP"
+                      "(data/raw/boryeong-ordinance-b1.hwp) 대조 완료(2026-11-19)"),
+        "무료시간_출처": ("등록 특기사항 '유료운영(월~토 09:00~20:00 또는 09:00~18:00)' — 혼합 8곳은 "
+                          "유료운영 시간 밖과 일요일에 요금을 받지 않는다. 조례에 일요일·공휴일 무료 "
+                          "조항은 없고 공휴일은 특기사항에 언급이 없어 무료로 표기하지 않았다"),
+        "주말무료_출처": ("등록 특기사항의 유료운영 요일(월~토) 기준 — 혼합 8곳 일요일만 무료, "
+                          "공휴일 무료 표기 없음"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                              / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_boryeong():
+    """보령시 하나를 표준데이터로 추출한다 (build_nonsan 의 보령시 변형). 조례 대조
+    완료 — 「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813)
+    제3조·별표1·제3조의2 원문 대조 완료(2026-11-19). 요금은 등록값 기준이고,
+    혼합 8곳은 등록 특기사항의 유료운영 시간(월~토)에만 요금을 받는다 — 일요일
+    무료는 특기사항 근거로만 표기하고 공휴일은 무료로 표기하지 않는다."""
+    conf = BORYEONG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "보령시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "보령시" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. (보령시는 53행 전부 이름·관리번호가 달라
+    #   합칠 행이 없다.)
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.05 < lat < 36.60 and 126.30 < lng < 126.85):
+            # 보령시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 보령시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = boryeong_dong_of(jibun, std_name) or boryeong_dong_of(road, std_name)
+        if boryeong_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif boryeong_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 지번주소에 면 이름이 빠져 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        free_window = None
+        fee = boryeong_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        elif fee.get("mixed"):
+            # 혼합은 등록 특기사항의 유료운영 시간(월~토)에만 요금을 받는다. 일요일
+            #   무료는 특기사항의 직접 근거로만 표기하고, 공휴일은 특기사항에 언급이
+            #   없어 무료로 표기하지 않는다(조례에도 일요일·공휴일 무료 조항 없음).
+            m = re.search(r"유료운영\(월~토\s*(\d{1,2}:\d{2})~(\d{1,2}:\d{2})\)", note)
+            if m:
+                free_days = {"sat": False, "sun": True}
+                free_window = f"{m.group(2)}~{m.group(1)}"
+                note_bits.append(f"월~토 {m.group(1)}~{m.group(2)}에만 요금을 받고, 그 밖의 "
+                                 "시간과 일요일은 무료입니다(등록 특기사항 기준)")
+            if "전통시장 이용자 1시간 무료" in note:
+                note_bits.append("전통시장 이용자는 최초 1시간 무료입니다(등록 특기사항·조례 "
+                                 "제3조의2제5항)")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "보령시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    note_fixed.append("중앙시장 제2주차장: 표준데이터 53행에 중앙시장 제1·제3주차장만 있고 제2주차장이 "
+                      "없다 — 존재 여부·미등록 사유 보령시청 확인 필요")
+    note_fixed.append("제2시민행복주차장: 1일주차권요금적용시간이 330으로 등록되어 있다 — 분(5시간 "
+                      "30분)으로 읽히나 단위를 확정할 수 없어 요금표에는 1일 요금 5,000원만 적고 "
+                      "적용시간은 표기하지 않았다(시청 확인 필요)")
+    note_fixed.append("혼합 8곳 공휴일: 등록 특기사항이 '유료운영(월~토 …)'이라 일요일은 무료로 "
+                      "표기했지만 공휴일 언급은 없어 공휴일 무료로 표기하지 않았다 — 공휴일이 평일이면 "
+                      "유료운영 시간에 요금이 붙는 것으로 보이며 실제 운영은 시청 확인 필요")
+    note_fixed.append("대천해수욕장 제1~제9주차장·무창포해수욕장 제1~제6주차장: 전부 무료로 등록되어 "
+                      "있어 그대로 실었다")
+    fee_diff.append("보령시 유료 8곳 중 7곳: 등록 1일·월정기 없음 ↔ 조례 별표1 소형 1일 5,000원·"
+                    "월정기 주간 50,000원·야간 35,000원 — 등록값이 없어 카드·요금표에 비워 둠(노상 "
+                    "4곳은 별표 비고1의 전통시장주변 노상 미적용 해당 여부, 시장 노외 3곳은 미운영 "
+                    "사유 시청 확인 필요)")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"ca-boryeong-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"ca-boryeong-s{n_street:03d}"
+
+    fee_table = boryeong_fee_table(conf, lots)
+    quality = boryeong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                               fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"보령시로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 제외·중복 없이 "
+                 f"전부 실었다. 요금·운영시간·면수는 등록값을 그대로 썼고, 혼합 8곳의 무료 요일·시간은 "
+                 f"등록 특기사항의 유료운영 시간(월~토) 기준으로 표기했다. 조례 대조 완료 — 「보령시 "
+                 f"주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 제3조·별표1·제3조의2 "
+                 f"원문 대조 완료(2026-11-19)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": BORYEONG_ORD_HWP.name if BORYEONG_ORD_HWP.exists() else None,
+            "sha256": sha256(BORYEONG_ORD_HWP) if BORYEONG_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": conf["ordinance"][2],
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"보령시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 별표1 원문 HWP: data/raw/boryeong-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": BORYEONG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "보령시", "slug": "boryeong"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": BORYEONG_PROVINCE,
+        "province_slug": BORYEONG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "boryeong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 NONSAN_PROVINCE = "충청남도"
 NONSAN_PROVINCE_SLUG = "chungnam"
 
@@ -32750,7 +33303,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "gyeryong", "gyeryong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -32768,7 +33321,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "계룡시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -32821,7 +33374,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "gyeryong": ["계룡시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -32938,8 +33491,8 @@ def main():
         cities.append(build_gongju())
     if "논산시" in want:
         cities.append(build_nonsan())
-    if "계룡시" in want:
-        cities.append(build_gyeryong())
+    if "보령시" in want:
+        cities.append(build_boryeong())
 
     if args.city == "all":
         site = build_site_payload(cities)
