@@ -42986,6 +42986,582 @@ def build_jeonju():
     })
     (DATA / "jeonju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
+# ---------------------------------------------------------------- 군산시 (T-03 전북 2)
+# 군산시는 표준데이터 177행 전부 공영이다(민영 0). 노외 136·노상 41,
+#   총 10,963면이고 요금은 무료 175·유료 2다. 유료 2곳(옥도면 장자1·
+#   선유2 — 고군산군도 도서지역)은 기본시간 60분만 등록돼 있고 기본·
+#   추가·1일·월정기 금액이 전부 공란이라 금액을 확정할 수 없어 요금
+#   미상으로 싣고(화성 캠핑카 전용 선례) 차이는 급지_요금_차이에 전건
+#   남긴다. 조례는 「군산시 주차장 조례」 제2475호(시행 2026-09-15,
+#   일부개정, ordinSeq 2168177) 제3조·제3조의2와 별표 1(개정
+#   2025-12-15)을 국가법령정보센터에서 직접 대조했다. 검색에서 함께
+#   잡힌 「군산시 교통사업특별회계 설치 조례」(ordinSeq 2088379)와
+#   개방 주차장 지원 조례는 요금 조례가 아니어서 근거로 쓰지 않았다.
+#   별표 1은 급지(1급지=동 지역, 2급지=읍·면 지역, 도서지역=연륙교로
+#   연결된 도서지역) × 차종(소형·대형) 표로, 1회 주차요금은 '기본:
+#   최초 1시간 초과 1시간 30분까지' 정액 + '1시간 30분 초과 매 30분
+#   마다' 추가요금 구조이고 비고 13(2026-09-15 개정)은 총 주차시간
+#   1시간까지 주차요금을 면제한다 — 개정 전 공포본(제2074호, ordinSeq
+#   1838349)의 별표 1과 머리글·값이 같아 이 구조로 확정했다. 무료
+#   175곳은 별표 1 비고 1(이 요금표는 시장이 설치한 유료주차장에
+#   적용한다)에 따라 시가 무료로 운영하는 곳으로 보고, 요금표는 조례
+#   기준 요금의 참고표로만 싣는다(서천·예산·보은·영동·진천 선례).
+#   중복 판정은 전체 이름 기준 가드(옥천·영동 선례)로 청암산 주차장
+#   1건만 합쳤다(노외·노상 이중 등록, 좌표 동일). 이름이 겹치는
+#   34개 그룹은 전부 다른 자리라 접미사로 구분해 모두 실었다. 이름은
+#   행정동 기준(월명동·해신동·미성동 등)이 많아 주소(법정동)와 다른
+#   행이 65건이고, 동 판정은 전부 지번주소 기준으로 했다. 관리번호
+#   307-2-000125~128은 본토 주차장과 옥도면 도서 주차장에 겹쳐 등록
+#   돼 있으나 관리번호는 조인 키가 아니므로 기록만 남긴다. 좌표·
+#   주소 결측은 없고 도로명주소만 없는 곳이 10곳이다.
+GUNSAN_PROVINCE = "전북특별자치도"
+GUNSAN_PROVINCE_SLUG = "jeonbuk"
+GUNSAN_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2168177"
+GUNSAN_ORD_HWP = RAW / "gunsan-ordinance-b1.hwp"
+GUNSAN_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                   "「군산시 주차장 조례」 제2475호(시행 2026-09-15, 일부개정), "
+                   "ordinSeq 2168177. 본문 사본 data/raw/gunsan-ordinance.txt. "
+                   "별표 1(공영주차장 주차요금표, 개정 2025-12-15) 원문 HWP "
+                   "data/raw/gunsan-ordinance-b1.hwp·추출문 gunsan-ordinance-b1.txt.")
+
+GUNSAN_DISCOUNTS = [
+    {"label": "긴급자동차·시장 소유 업무용·성실납세증 표지(1년) 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항·제3조의2제1호·별표 1 비고 7 — 긴급자동차는 주차요금을 면제할 수 있고, 시장 소유의 업무용 차량은 전액 감면, 국세청장 또는 지방자치단체의 장이 지정한 성실납세자로서 성실납세증 표지를 부착한 차량은 지정받은 날부터 1년간 면제한다"},
+    {"label": "관광활성화 이용권·카드·다자녀 등록 차량·전통시장 이용확인증 2시간 무료", "rate": 0.0, "exempt_min": 120,
+     "note": "조례 제3조의2제4호·제6호와 별표 1 비고 15·20 — 관광활성화를 위한 이용권 또는 카드 등을 소지한 차량과 다자녀 가정으로 사전에 감면 등록을 마친 차량은 2시간 무료이고, 전통시장 이용확인증을 소지한 차량은 최고 2시간 한도에서 100퍼센트 감면한다"},
+    {"label": "경형·승용차요일제(10부제)·저공해·환경친화적·장애인·국가유공자·고엽제 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제5호와 별표 1 비고 6·9·10·11·17 — 저공해자동차 표지 부착 차량, 환경친화적 자동차, 경형자동차, 승용차요일제(10부제) 참여 차량, 장애인이 자가운전하는 차량, 국가유공자 중 상이자가 자가운전하는 차량, 고엽제후유의증환자 등이 자가운전하는 차량은 50퍼센트를 감면한다"},
+]
+
+GUNSAN_CONF = {
+    "city": "군산시",
+    "slug": "gunsan",
+    "manager": "전북특별자치도 군산시청",
+    "manager_inquiry": "군산시 교통행정과 교통기획계(063-454-3773)·표준데이터 등록 전화(063-454-3812)",
+    "ordinance": ("「군산시 주차장 조례」 제2475호(시행 2026-09-15, 일부개정)",
+                  GUNSAN_ORD_URL, GUNSAN_ORD_NOTE),
+    "notes": ("군산시 공영주차장 176곳은 노외 136곳·노상 40곳이고 총 10,919면이다"
+              "(무료 174곳, 요금 미상 2곳). 「군산시 주차장 조례」 제2475호"
+              "(시행 2026-09-15, ordinSeq 2168177) 별표 1은 급지를 1급지(동 지역)·"
+              "2급지(읍·면 지역)·도서지역(연륙교로 연결된 도서지역)으로 나누고, "
+              "1회 주차요금은 총 1시간까지 면제(비고 13), 1시간 초과 1시간 "
+              "30분까지 기본요금(1급지 소형 500원·2급지 소형 500원·도서지역 소형 "
+              "1,000원), 1시간 30분 초과 후 30분마다 추가요금(1급지 소형 1,000원·"
+              "2급지 소형 500원·도서지역 소형 1,500원), 5시간 초과 시 1일 주차요금"
+              "(1급지 소형 8,000원·2급지 소형 4,500원·도서지역 소형 12,000원), "
+              "월정기는 1급지 주간 60,000원·야간 50,000원·주야간 100,000원, "
+              "2급지 주간 40,000원·야간 30,000원·주야간 60,000원이고 도서지역은 "
+              "월정기가 없다(대형은 요금표 비고에 병기). 표준데이터에는 급지가 "
+              "전부 '기타'로 등록돼 있고 월정기는 176곳 전부 미등록이라 조례값은 "
+              "요금표에만 싣는다. 무료 174곳은 별표 1 비고 1(이 요금표는 시장이 "
+              "설치한 유료주차장에 적용한다)에 따라 시가 무료로 운영하는 곳으로 "
+              "본다. 유료로 등록된 옥도면 장자1·선유2는 금액 항목이 전부 비어 "
+              "있어 요금 미상으로 실었다. 감면은 조례 제3조의2와 별표 1 비고를 "
+              "따른다(긴급자동차·업무용·성실납세증 면제, 관광활성화 이용권·"
+              "다자녀 등록·전통시장 이용확인증 2시간 무료, 경형·10부제·저공해·"
+              "환경친화적·장애인·국가유공자·고엽제 50%, 선납 3~6개월 15%·"
+              "6개월 이상 20%, 투표확인증 2,000원 한도 감면). 좌표와 주소는 "
+              "전부 등록돼 있다."),
+    "discounts": GUNSAN_DISCOUNTS,
+}
+
+GUNSAN_BBOX = (35.78, 36.06, 126.36, 126.90)
+
+
+def gunsan_dong_of(addr, name=None):
+    """군산시 동(법정동)·읍·면 판정 — 지번주소의 두 번째 토큰이 법정동이거나
+    읍·면이다. 번지가 붙은 토큰(중앙로1가18-1·내흥동1044-1)도 떼어 읽는다.
+    읍·면 지역은 읍·면 자체가 동 단위이고, 이름이 행정동 기준인 행이 많아
+    이름은 주소로 판정할 수 없을 때만 쓴다."""
+    if addr:
+        m = re.search(r"군산시\s*([가-힣0-9]+?(?:읍|면|동|로\d+가))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.match(r"([가-힣0-9]+?(?:읍|면|동|로\d+가))\s*\d*\s*$", name.strip())
+        if m:
+            return m.group(1)
+    return None
+
+
+def _gunsan_region(lot):
+    """조례 별표 1 비고 3의 급지 구분 — 동 지역 1급지, 읍·면 지역 2급지,
+    옥도면(연륙교로 연결된 도서지역) 도서지역."""
+    dong = lot.get("dong") or ""
+    if dong == "옥도면":
+        return "island"
+    if dong.endswith(("읍", "면")):
+        return "g2"
+    return "g1"
+
+
+def gunsan_fee(row, name, note_bits, fee_diff):
+    """군산시 공영주차장 한 곳의 요금 — 무료 175·유료 2(금액 전부 공란).
+    유료 2곳은 기본시간 60분만 있고 금액 항목이 전부 비어 있어 금액을
+    확정할 수 없으므로 요금 미상으로 싣는다(화성 캠핑카 전용 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 별표 1 비고 1(이 주차요금표는 시장이 설치한 유료주차장에 적용한다)에 따라 시가 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type == "유료" and base_fee is None and unit_fee is None and not day and not month:
+        fee_diff.append(f"{name}: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "공란이고 기본시간 60분만 등록돼 있어 금액을 확정할 수 없다 — "
+                        "조례 별표 1의 도서지역 요금(소형 기본 1,000원·30분당 1,500원·"
+                        "1일 12,000원, 총 1시간까지 면제)은 요금표 참고표에만 싣고 "
+                        "이 곳은 요금 미상으로 표기한다(시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 등록돼 있지 않음 — "
+                             "조례 별표 1 도서지역 요금은 요금표 참고표에 있고, 금액은 군산시청 확인 필요"})
+        return fee
+    fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+    return fee
+
+
+def gunsan_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 값의 참고표다(서천·예산·보은·영동·진천 선례:
+    무료 운영이 전제라 조례값을 계산기에 적용하지 않는다). 별표 1은
+    소형·대형을 나누는데 이 표는 소형(승용차·16인승 미만 승합차·2.5톤
+    미만 화물차) 기준으로 적고 대형 값은 단위 표기에 병기한다. 1시간
+    요금이 0원인 것은 비고 13(총 주차시간 1시간까지 면제) 때문이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    reg = [l for l in lots if l["fee"]["type"] in ("유료", "혼합", "미상")]
+    g1 = {"base_min": 90, "base_fee": 500, "unit_min": 30, "unit_fee": 1000,
+          "daily_fee": 8000, "free_min": 60}
+    g2 = {"base_min": 90, "base_fee": 500, "unit_min": 30, "unit_fee": 500,
+          "daily_fee": 4500, "free_min": 60}
+    gi = {"base_min": 90, "base_fee": 1000, "unit_min": 30, "unit_fee": 1500,
+          "daily_fee": 12000, "free_min": 60}
+    rows = [
+        {"label": "1급지 (동 지역)", "grade": "g1",
+         "unit_label": "소형: 1시간까지 무료 · 1시간 초과 1시간 30분까지 500원 · 이후 30분마다 1,000원 (대형 1,000원 · 1,500원)",
+         "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+         "day": 8000, "month": 100000,
+         "lots": len([l for l in reg if _gunsan_region(l) == "g1"])},
+        {"label": "2급지 (읍·면 지역)", "grade": "g2",
+         "unit_label": "소형: 1시간까지 무료 · 1시간 초과 1시간 30분까지 500원 · 이후 30분마다 500원 (대형 1,000원 · 1,000원)",
+         "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
+         "day": 4500, "month": 60000,
+         "lots": len([l for l in reg if _gunsan_region(l) == "g2"])},
+        {"label": "도서지역 (연륙교 연결 도서)", "grade": "island",
+         "unit_label": "소형: 1시간까지 무료 · 1시간 초과 1시간 30분까지 1,000원 · 이후 30분마다 1,500원 (대형 2,000원 · 2,500원)",
+         "hour": sj_charge(gi, 60), "two_hour": sj_charge(gi, 120),
+         "day": 12000, "month": None,
+         "lots": len([l for l in reg if _gunsan_region(l) == "island"])},
+    ]
+    return {
+        "style": "gunsan_grade",
+        "unit_min": 30,
+        "base_min": 90,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len(paid), "street_paid": len([l for l in street
+                                                       if l["fee"]["type"] in ("유료", "혼합")]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "1급지 (동 지역)", "hours": "4~10월 08:00~20:00 · 11~3월 09:00~18:00",
+                     "free": "조례 별표 1 비고 2의 주간 적용시간 — 등록 운영시간은 전 곳 00:00~23:59다"},
+                    {"group": "2급지 (읍·면 지역)·도서지역", "hours": "연중 09:00~18:00",
+                     "free": "같은 비고의 주간 적용시간"}],
+        "notes": ("월정기는 1급지 주간 60,000원·야간 50,000원·주·야간 100,000원, "
+                  "2급지 주간 40,000원·야간 30,000원·주·야간 60,000원이고 도서지역은 "
+                  "월정기가 없으며, 표의 월 정기권 칸은 주·야간 값이다. 1일 주차요금은 "
+                  "5시간을 초과할 때 적용하고 대형은 1급지 12,000원·2급지 8,500원·"
+                  "도서지역 20,000원이다. 감면은 긴급자동차·시장 소유 업무용·"
+                  "성실납세증 표지(1년) 면제, 관광활성화 이용권·카드와 다자녀 등록 "
+                  "차량·전통시장 이용확인증 2시간 무료, 경형·10부제·저공해·"
+                  "환경친화적·장애인·국가유공자·고엽제 50%, 선납 3~6개월 15%·"
+                  "6개월 이상 20%, 투표확인증 2,000원 한도 감면이며, 도서지역은 "
+                  "상가 10,000원 이상 구매 영수증 제시 시 2시간 무료, 숙박 확인 시 "
+                  "숙박 1일당 다음 날 14시까지 1일 요금을 적용한다. 할인·감면이 "
+                  "중복되면 높은 요율 하나만 적용한다."),
+        "basis": ("요금표는 「군산시 주차장 조례」 제2475호(시행 2026-09-15) 별표 1"
+                  "(개정 2025-12-15)과 표준데이터(군산시청, 기준일 2026-10-16)를 "
+                  "대조해 실었다. 등록된 176곳 중 174곳이 무료이고 유료 등록 2곳"
+                  "(옥도면 장자1·선유2)도 금액이 비어 있어, 이 표는 조례 기준 "
+                  "요금의 참고표이며 실제 계산에는 쓰지 않는다. (조례 본문: "
+                  "data/raw/gunsan-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/gunsan-ordinance-b1.hwp)"),
+    }
+
+
+def gunsan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「군산시 주차장 조례」 제2475호 제3조제2항·제3조의2와 별표 1 비고 — "
+                      "면제: 긴급자동차(면제할 수 있다), 시장 소유 업무용 차량 전액, "
+                      "성실납세증 표지 부착 차량(지정된 날부터 1년간). 2시간 무료: "
+                      "관광활성화 이용권·카드 소지 차량, 다자녀 가정으로 사전 감면 "
+                      "등록을 마친 차량, 전통시장 이용확인증 소지 차량(최고 2시간 "
+                      "100%). 50% 감면: 저공해자동차 표지, 환경친화적 자동차, "
+                      "경형자동차, 승용차요일제(10부제) 참여, 장애인·국가유공자 "
+                      "상이자·고엽제후유의증환자 등 자가운전. 선납 할인 3개월분 "
+                      "이상 6개월분 미만 15%·6개월분 이상 20%, 중복 시 높은 요율 "
+                      "적용. 투표확인증은 2,000원 한도 감면. 본문 원문"
+                      "(data/raw/gunsan-ordinance.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표 1(개정 2025-12-15) — 1회 주차요금은 총 1시간까지 면제"
+                      "(비고 13), 1시간 초과 1시간 30분까지 기본요금, 1시간 30분 초과 "
+                      "매 30분마다 추가요금. 소형 기준 1급지 기본 500원·추가 1,000원·"
+                      "1일 8,000원·월정기 주간 60,000원/야간 50,000원/주야간 100,000원, "
+                      "2급지 기본 500원·추가 500원·1일 4,500원·월정기 40,000원/30,000원"
+                      "/60,000원, 도서지역 기본 1,000원·추가 1,500원·1일 12,000원·"
+                      "월정기 없음. 대형은 기본·추가·1일이 각각 더 크다(요금표 비고 "
+                      "병기). 머리글 '기본: 최초 1시간 초과 1시간 30분까지'는 개정 전 "
+                      "공포본(제2074호, ordinSeq 1838349) 별표 1과 같아 같은 구조로 "
+                      "확정했다. 표준데이터 등록 급지는 177행 전부 '기타'이고 월정기는 "
+                      "전부 미등록이라 조례값은 요금표에만 싣는다"),
+        "급지_출처": ("조례 별표 1 비고 3 — 1급지는 동 지역, 2급지는 읍·면 지역, "
+                      "도서지역은 연륙교로 연결된 도서지역이다. 표준데이터 등록 급지가 "
+                      "전부 '기타'라 급지는 주소의 동·읍·면으로 판정했고, 요금표의 "
+                      "급지별 유료 곳수는 유료 등록(요금 미상 포함) 기준이다"),
+        "무료요일_출처": ("조례에 주말·공휴일 무료 개방 규정이 없어 free_days는 적용하지 "
+                          "않았다. 무료 174곳은 요금구분 자체가 '무료'다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 군산시 등록 177행 전부 공영 — 민영 제외 0건",
+            "「군산시 주차장 조례」 제2475호(시행 2026-09-15, 일부개정, ordinSeq 2168177) 본문 원문(data/raw/gunsan-ordinance.txt) 대조 완료(2026-11-20)",
+            "별표 1(개정 2025-12-15) 원문 HWP(data/raw/gunsan-ordinance-b1.hwp) 셀 구조 파싱으로 급지·차종별 요금 확정 — 개정 전 공포본(제2074호, ordinSeq 1838349) 별표 1과 교차 확인",
+            "무료 174곳은 별표 1 비고 1(유료주차장에만 요금표 적용)에 따른 무료 운영으로 보고 요금표는 참고표로만 실었다(서천·예산·보은·영동·진천 선례)",
+            "유료 등록 2곳(옥도면 장자1·선유2)은 금액 항목이 전부 공란이라 요금 미상으로 실었다(화성 선례) — 시청 확인 과제",
+            "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 청암산 주차장 노외·노상 이중 등록 1건만 합치고, 이름이 겹치는 34개 그룹은 전부 다른 자리라 접미사로 구분해 실었다",
+            "관리번호 307-2-000125~128이 본토 주차장과 옥도면 도서 주차장에 겹쳐 등록돼 있으나 관리번호는 조인 키가 아니므로 합치지 않았다",
+            "이름이 행정동 기준인 행이 많아 이름동과 주소(법정동)동이 다른 행이 65건 — 동 판정은 전부 지번주소 기준",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gunsan():
+    """군산시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「군산시 주차장 조례」 제2475호(시행 2026-09-15,
+    ordinSeq 2168177) 제3조·제3조의2·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 177행 전부 공영(무료 175·유료 2)을 싣되 청암산
+    주차장의 노외·노상 이중 등록 1건을 합쳐 176곳이 된다. 유료 2곳은
+    금액이 전부 공란이라 요금 미상으로 싣는다."""
+    conf = GUNSAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "군산시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "군산시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 군산시는
+    #   청암산 주차장(노외·노상, 회현면 세장리 455, 좌표 동일) 1건만 해당한다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GUNSAN_BBOX[0] < lat < GUNSAN_BBOX[1]
+                                                        and GUNSAN_BBOX[2] < lng < GUNSAN_BBOX[3]):
+            # 군산시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 군산시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gunsan_dong_of(jibun, std_name) or gunsan_dong_of(road, std_name)
+        if gunsan_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif gunsan_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 주소에서 동·읍면을 가릴 수 없어 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = gunsan_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if fee["type"] == "미상":
+            note_bits.append("유료로 등록돼 있으나 요금 금액이 등록돼 있지 않아, 금액은 "
+                             "군산시청에 확인이 필요합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "군산시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    if merged:
+        note_fixed.append("청암산 주차장은 노외(44면)와 노상(44면)으로 같은 자리"
+                          "(회현면 세장리 455)에 이중 등록돼 있어 노외 등록만 남겼다")
+    note_fixed.append("관리번호 307-2-000125~128이 본토 주차장과 옥도면 도서 주차장에 "
+                      "겹쳐 등록돼 있으나 관리번호는 조인 키가 아니므로 합치지 않고 "
+                      "전부 실었다")
+    note_fixed.append("급지구분은 177행 전부 '기타', 부제시행구분은 전부 '미시행', "
+                      "결제방법과 특기사항은 전부 공란, 월정기권요금은 전부 공란이다")
+    note_fixed.append("운영요일은 전부 평일+토요일+공휴일, 운영시간은 전부 00:00~23:59, "
+                      "관리기관은 전부 군산시청, 데이터기준일자는 전부 2026-10-16이다")
+    note_fixed.append("이름이 행정동 기준인 행이 많아 이름의 동과 지번주소의 법정동이 "
+                      "다른 행이 65건 있다 — 동 판정은 전부 지번주소 기준으로 했다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jb-gunsan-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jb-gunsan-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 좌표가 이미 있는 행은 건드리지 않는다(군산시는 전 행 좌표가
+    #   등록돼 있어 실제로 바뀌는 행은 없다).
+    apply_coord_fix(lots)
+
+    fee_table = gunsan_fee_table(conf, lots)
+    quality = gunsan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"군산시로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 청암산 주차장의 "
+                 f"이중 등록 1건을 합친 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·요금 미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이며, 요금 미상 "
+                 f"2곳은 유료로 등록됐으나 금액이 전부 공란이다. 좌표와 주소는 전 행 "
+                 f"등록돼 있다. 조례 대조 완료 — 「군산시 주차장 조례」 제2475호"
+                 f"(시행 2026-09-15, ordinSeq 2168177) 제3조·제3조의2·별표 1 원문 "
+                 f"대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GUNSAN_ORD_HWP.name if GUNSAN_ORD_HWP.exists() else None,
+            "sha256": sha256(GUNSAN_ORD_HWP) if GUNSAN_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-09-15",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"군산시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/gunsan-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/gunsan-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/gunsan-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GUNSAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "군산시", "slug": "gunsan"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GUNSAN_PROVINCE,
+        "province_slug": GUNSAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gunsan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 
 
 def main():
@@ -43000,7 +43576,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -43018,7 +43594,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -43071,7 +43647,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -43226,6 +43802,8 @@ def main():
         cities.append(build_danyang())
     if "전주시" in want:
         cities.append(build_jeonju())
+    if "군산시" in want:
+        cities.append(build_gunsan())
 
     if args.city == "all":
         site = build_site_payload(cities)
