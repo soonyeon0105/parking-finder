@@ -7406,6 +7406,12 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
         for k in ("weekday", "sat", "sun")
     )
     opts = discounts if discounts else default_discounts()
+    # 감면 목록에 rate=0(일반 차량)이 없으면 앞에 보완한다 — JS 초기 할인율(0)과
+    # aria-pressed=true인 첫 버튼이 일치해야 한다 (논산 Instinct 보류 건, 2026-11-19).
+    #   일반 차량이 없는 도시(논산·공주·당진·청주·천안·아산·서산·세종·제주·서울 등
+    #   16개 목록) 전부 이 렌더러에서 함께 정리된다. 감면 종류 자체는 그대로 둔다.
+    if opts and opts[0].get("rate", 0) != 0:
+        opts = [{"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""}] + list(opts)
     disc_btn = "".join(
         f'<button type="button" class="seg-btn" data-rate="{o["rate"]}" data-exempt="{o.get("exempt_min") or 0}"'
         f' aria-pressed="{"true" if i == 0 else "false"}">{esc(o["label"])}'
