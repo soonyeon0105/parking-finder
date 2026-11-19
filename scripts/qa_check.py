@@ -399,8 +399,23 @@ if len(suwon_pages) != _suwon_expect:
                  f"(기대 {_suwon_expect} = 허브 1 + 구 {len(_suwon['districts'])} + 주말 "
                  f"{len(_suwon['districts'])} + 동 {_suwon_dong_ok} + 무료 1)")
 _removed = [ln for ln in _redirects_txt.splitlines() if "suwon" in ln and ln.endswith("301")]
-if len(_removed) != 18:
-    fails.append(f"수원시 옛 동 페이지 301 규칙 수 이상: {len(_removed)} (기대 18)")
+# 2026-11-19 T-06: 수원 카드의 구·동을 주소 기준으로 바로잡아 옛 동 페이지가 5개 더 줄었다.
+#   고정 숫자 대신 규칙 자체를 검사한다 — 중복 없음 · 페이지가 없는 주소만 · 넘길 곳은 실제 존재.
+_seen_src = set()
+for _ln in _removed:
+    _parts = _ln.split()
+    if len(_parts) < 3:
+        fails.append(f"301 규칙 형식 오류: {_ln}")
+        continue
+    _src, _dst = _parts[0], _parts[1]
+    if _src in _seen_src:
+        fails.append(f"301 규칙 중복: {_src}")
+    _seen_src.add(_src)
+    if (DIST / _src.strip("/") / "index.html").exists():
+        fails.append(f"301 규칙이 있는데 페이지도 있음: {_src}")
+    if not (DIST / _dst.strip("/") / "index.html").exists():
+        fails.append(f"301 규칙 대상 페이지 없음: {_src} → {_dst}")
+print(f"수원시 옛 동 페이지 301 규칙 {len(_removed)}건 — 중복·잔여 페이지·대상 존재 검사 통과")
 
 # 2) 도시별 페이지 구성: 허브 1 + 구 1 + (주말 페이지) + 동 페이지(기준 이상) + (노상 페이지)
 for city in CITIES:

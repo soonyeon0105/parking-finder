@@ -416,6 +416,12 @@ def load_nooe():
 
 
 # ---------------------------------------------------------------- 수원시
+# T-06 보정 자료 (2026-11-19) — 원자료에 비어 있는 값만 1차 출처로 채운다.
+T06_COORD_JSON = RAW / "좌표누락_지오코딩_20261118.json"
+T06_SUWON_JSON = RAW / "parking.suwonudc.co.kr_searchParkingList_20261119.json"
+T06_SUWON_DETAIL_JSON = RAW / "parking.suwonudc.co.kr_detail_20261119.json"
+T06_SEONGNAM_JSON = RAW / "park.isdc.co.kr_parkmap_20261119.json"
+
 CITY_META = {
     # dong_page_min_lots: 동별 페이지를 만드는 최소 노외 주차장 수.
     #   2026-11-18: 수원시도 3곳으로 올렸다. 1곳부터 만들던 1~2곳짜리 동 페이지 18개가
@@ -588,6 +594,201 @@ SUWON_DISCOUNTS = [
     {"label": "모범·유공납세자 100%", "rate": 1.0, "exempt_min": 0,
      "note": "모범·유공·성실납세자 인증서 소지 차량(1년)"},
 ]
+
+
+# ---------------------------------------------------------------- T-06 보정
+# 표준데이터·도시공사 자료에 비어 있는 값만 1차 출처(수원도시공사 통합홈페이지,
+# 성남도시개발공사 지도 서비스, 지번 지오코딩)로 채운다. 원자료에 없는 값은 지어내지 않고
+# 채우지 않은 채 사유를 남긴다(scripts/t06_report.json).
+T06_SUWON_FEE_UNIT_FIX = {
+    # 도시공사 등록값의 간격요금(300원)과 수원시 요금표(10분 200원)가 다르다 — 요금표를 따른다.
+    30400: (200, "도시공사 표의 간격요금 300원 ↔ 수원시 요금표 10분 200원, 요금표 적용"),
+}
+
+
+def t06_tel(v: str) -> str:
+    """‘0316950900’ → ‘031-695-0900’. ‘현장문의’ 같은 글자는 전화번호가 아니므로 비운다."""
+    v = (v or "").strip()
+    m = re.match(r"^(0\d{1,2})-?(\d{3,4})-?(\d{4})$", v)
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+    if not v or "문의" in v:
+        return ""
+    return v
+
+
+def t06_split_addr(raw: str):
+    """도시공사 주소 → (주소, 괄호 안 법정동, 도로명 여부).
+
+    ‘경기 수원시 장안구 경수대로743번길 57 (연무동) 지하 1층’
+    → (‘경기도 수원시 장안구 경수대로743번길 57’, ‘연무동’, True)
+    """
+    raw = (raw or "").strip()
+    dong_hint = None
+    m = re.search(r"\(([^)]*)\)", raw)
+    if m:
+        for tok in re.split(r"[,\s]+", m.group(1)):
+            if re.fullmatch(r"[가-힣]{1,5}(?:동|읍|면)", tok):
+                dong_hint = tok
+                break
+        raw = (raw[:m.start()] + " " + raw[m.end():]).strip()
+    raw = re.sub(r"\s*지하\s*\d+층\s*$", "", raw)
+    raw = re.sub(r"\s*일원\s*$", "", raw)
+    raw = re.sub(r"\s+", " ", raw).strip()
+    if raw.startswith("경기 "):
+        raw = "경기도 " + raw[3:]
+    return raw, dong_hint, bool(re.search(r"[로길]\s*\d", raw))
+
+
+def t06_suwon_fee(rec: dict):
+    """도시공사 목록의 요금 칸 → 사이트 fee 객체.
+
+    수원 공영주차장은 ‘60분 무료 회차 뒤 10분당 N원’이라 DFLT_TM 이 10 으로만 적혀 있다.
+    표준데이터가 같은 도시를 「60분 기본요금」으로 적어 둔 것과 맞춰 기본시간을 60분으로 두고,
+    기본요금은 10분당 요율(DFLT_AMT)을 쓴다. 일월수목원처럼 구간제인 곳은 그 값을 그대로 쓴다.
+    """
+    dflt_tm = rec.get("DFLT_TM") or 0
+    dflt_amt = rec.get("DFLT_AMT")
+    intv_tm = rec.get("INTVL_TM") or 10
+    intv_amt = rec.get("INTVL_AMT")
+    day = rec.get("DAY_PARKING_AMT")
+    if not dflt_amt:
+        return None
+    base_min = 60 if dflt_tm <= 10 else int(dflt_tm)
+    unit_fee = intv_amt if intv_amt else dflt_amt
+    fix = T06_SUWON_FEE_UNIT_FIX.get(rec.get("PARKING_ID"))
+    if fix:
+        unit_fee = fix[0]
+    return {"type": "유료", "base_min": base_min, "base_fee": dflt_amt,
+            "unit_min": int(intv_tm), "unit_fee": unit_fee,
+            "daily_hours": 24 if day else None, "daily_fee": day,
+            "monthly": rec.get("PERIOD_TICKET_AMT") or None, "pay": "카드"}
+
+
+def t06_apply_suwon(lots):
+    """수원시 주소·전화·요금 미상 결함 보정 — 수원도시공사 통합홈페이지 주차장 목록."""
+    if not T06_SUWON_JSON.exists():
+        return {"skipped": True}
+    rows = json.loads(T06_SUWON_JSON.read_text())["rows"]
+    by_id = {r["PARKING_ID"]: r for r in rows}
+    by_nm = {norm_name(r.get("PARKING_NM") or ""): r for r in rows}
+    fixed = {"addr": [], "tel": [], "fee": [], "gu_dong": []}
+    for lot in lots:
+        rec = by_id.get(lot.get("udc_id")) or by_nm.get(norm_name(lot["name"]))
+        if not rec:
+            continue
+        if not (lot["addr_jibun"] or lot["addr_road"]):
+            addr, dong_hint, is_road = t06_split_addr(rec.get("CELL_ADDR_JIBUN") or "")
+            if addr:
+                if is_road:
+                    lot["addr_road"] = addr
+                else:
+                    lot["addr_jibun"] = addr
+                fixed["addr"].append(lot["name"])
+                gu = gu_from_addr(addr)
+                dong = dong_hint or dong_from_jibun(lot["addr_jibun"])
+                if gu and gu != lot["gu"]:
+                    lot["gu"] = gu
+                    fixed["gu_dong"].append(f"{lot['name']}:{gu}")
+                if dong and dong != lot["dong"]:
+                    lot["dong"] = dong
+                    lot["dong_src"] = "주소(수원도시공사)"
+        if not lot["tel"]:
+            tel = t06_tel(rec.get("TEL_NO"))
+            if tel:
+                lot["tel"] = tel
+                fixed["tel"].append(lot["name"])
+        if lot["fee"]["type"] == "미상":
+            fee = t06_suwon_fee(rec)
+            if fee:
+                lot["fee"] = fee
+                fixed["fee"].append(lot["name"])
+        # 주소의 구·동과 카드의 구·동이 어긋나는 곳(좌표 근접 추정 오류)을 주소 기준으로 바로잡는다.
+        addr_all = lot["addr_jibun"] or lot["addr_road"]
+        gu_addr = gu_from_addr(addr_all)
+        if gu_addr and lot["gu"] and gu_addr != lot["gu"]:
+            fixed["gu_dong"].append(f"{lot['name']}:{lot['gu']}→{gu_addr}")
+            lot["gu"] = gu_addr
+            d = dong_from_jibun(lot["addr_jibun"])
+            if not d:
+                m = re.search(r"([가-힣]{2,5}동)", lot["name"])
+                if m:
+                    d = m.group(1)
+            if d:
+                lot["dong"] = d
+                lot["dong_src"] = "지번주소(T-06 보정)"
+    return fixed
+
+
+T06_SEONGNAM_NOTE = ("성남시 표준데이터 164행은 전화번호 칸이 모두 비어 있다(제공기관 미입력). "
+                     "성남도시개발공사 지도 서비스의 주차장별 번호로 채웠고, 주차장별 번호가 공개되지 않은 "
+                     "곳은 공사 노외주차처 대표번호(031-725-9400)로 안내한다.")
+# 성남도시개발공사 노외주차처 대표번호(공사 홈페이지 푸터·전화번호안내).
+T06_SEONGNAM_OFFICE_TEL = "031-725-9400"
+
+
+def t06_name_key(name: str) -> str:
+    """주차장 이름 비교용 — 괄호·‘주차장’·‘공영’·‘제/호’·공백을 지운다.
+
+    ‘복정제4공영주차장’과 ‘복정4호공영주차장(복정제4)’을 같은 이름으로 본다.
+    """
+    n = re.sub(r"\([^)]*\)", "", name or "")
+    n = re.sub(r"주차장|공영|주차타워|노외|노상|제|호", "", n)
+    n = re.sub(r"\s+", "", n)
+    return n.lower()
+
+
+def t06_name_keys(name: str) -> list[str]:
+    """이름과 괄호 안 별칭을 모두 열쇠로 — 도시공사 표기는 ‘본이름(별칭)’ 꼴이 많다."""
+    keys = [t06_name_key(name or "")]
+    for alias in re.findall(r"\(([^)]*)\)", name or ""):
+        keys.append(t06_name_key(alias))
+    return [k for k in keys if k]
+
+
+def t06_apply_seongnam(lots):
+    """성남시 전화번호 보강 — 성남도시개발공사 ‘성남시 주차장 지도 서비스’(park.isdc.co.kr/parkmap.do)."""
+    if not T06_SEONGNAM_JSON.exists():
+        return {"skipped": True}
+    rows = json.loads(T06_SEONGNAM_JSON.read_text())["rows"]
+    out, mapped = {}, []
+    for r in rows:
+        tel = t06_tel(r.get("tel"))
+        if not tel:
+            continue
+        for k in t06_name_keys(r.get("name")):
+            out.setdefault(k, tel)
+        if r.get("lat") and r.get("lng"):
+            mapped.append((r["lat"], r["lng"], tel))
+    street_tel = next((t06_tel(r.get("tel")) for r in rows
+                       if r.get("type") == "IN" and t06_tel(r.get("tel"))), "")
+    fixed, missing = [], []
+    office = []
+    for lot in lots:
+        if lot.get("tel"):
+            continue
+        tel = None
+        for k in t06_name_keys(lot["name"]):
+            if out.get(k):
+                tel = out[k]
+                break
+        if not tel and lot.get("lat") and lot.get("lng"):
+            # 이름 표기가 달라도 같은 자리(120m 안)면 같은 주차장으로 본다.
+            near = min(mapped, key=lambda m: km(lot["lat"], lot["lng"], m[0], m[1]), default=None)
+            if near and km(lot["lat"], lot["lng"], near[0], near[1]) <= 0.12:
+                tel = near[2]
+        if not tel and lot.get("list_mode") == "street":
+            tel = street_tel          # 노상 구간은 성남도시개발공사 노상주차처 대표번호로 안내한다
+        if not tel:
+            tel = T06_SEONGNAM_OFFICE_TEL   # 주차장별 번호가 공개되지 않은 노외는 공사 노외주차처로
+            office.append(lot["name"])
+        if tel:
+            lot["tel"] = tel
+            fixed.append(lot["name"])
+        else:
+            missing.append(lot["name"])
+    return {"fixed": len(fixed), "missing": missing, "office_tel": office,
+            "note": T06_SEONGNAM_NOTE}
 
 
 def build_suwon():
@@ -801,12 +1002,16 @@ def build_suwon():
         })
         added += 1
 
+    # --- T-06: 주소·전화·요금 미상 결함 보정(수원도시공사 통합홈페이지 목록)
+    t06_fixed = t06_apply_suwon(lots)
+
     # --- 정렬용 파생값
     for lot in lots:
         lot["price_key"] = lot["fee"]["base_fee"] if lot["fee"]["type"] != "미상" else None
 
     # --- 정합성 점검
     quality = check_quality(std_all, std_suwon, udc, lots, added)
+    quality["T06_보정"] = t06_fixed
 
     payload = {
         "meta": {
@@ -1115,6 +1320,7 @@ def build_seongnam():
         })
 
     quality = check_quality_seongnam(rows_all, rows, lots, excluded)
+    quality["T06_보정"] = t06_apply_seongnam(lots)
     payload = {
         "meta": {
             "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
@@ -7454,6 +7660,75 @@ def build_summary_city(payload):
     return "\n".join(lines) + "\n"
 
 
+# T-06 ④ 인천 강화군 ‘운영시간 미표기’ 1곳 — 매음 제1공영주차장(ganghwa-043).
+#   표준데이터(2026-10-27)는 운영요일을 ‘토요일+공휴일’로, 평일 운영시각을 00:00~00:00(값 없음)으로
+#   등록했고 강화군청 공영주차장안내에는 운영시간이 없다. 등록값대로 평일은 운영요일이 아니므로
+#   비어 있는 평일 칸을 ‘미운영(운영요일 아님)’으로 명시하고, 개방 여부는 현장·관리기관 확인으로 남긴다.
+T06_HOURS_FIX = {
+    "ganghwa-043": {
+        "note": ("평일 운영시간은 원자료에 없습니다(등록 운영요일: 토요일+공휴일) — "
+                 "평일 개방 여부는 강화군청 도로교통과(032-930-3366)에 확인하세요."),
+    },
+}
+
+
+def apply_hours_fix(lots):
+    fixed = []
+    for lot in lots:
+        spec = T06_HOURS_FIX.get(lot["id"])
+        if not spec:
+            continue
+        for key in ("weekday", "sat", "sun"):
+            h = lot["hours"].get(key)
+            if h and not h.get("open") and not h.get("listed"):
+                h["listed"] = True
+                h["closed_registered"] = True
+        note = spec.get("note")
+        if note and note not in (lot.get("note") or ""):
+            lot["note"] = (lot.get("note") + " " + note).strip() if lot.get("note") else note
+        fixed.append(lot["name"])
+    return fixed
+
+
+def apply_coord_fix(lots):
+    """T-06: 표준데이터에 좌표가 비어 있는 주차장을 검증된 지오코딩 결과로 채운다.
+
+scripts/geocode_missing_coords.py 가 남긴 후보 가운데 ① 같은 구·시로 확인되고
+② 후보가 검증 규칙(시·군 좌표 분포 상자·출처 간 거리)을 통과해 고른 것만 쓴다.
+confidence 가 'review' 인 후보는 쓰지 않는다. 주소도 비어 있으면 함께 채운다.
+"""
+    if not T06_COORD_JSON.exists():
+        return {"filled": 0}
+    data = json.loads(T06_COORD_JSON.read_text())
+    by_id = {r["id"]: r for r in data.get("rows", []) if r.get("chosen")}
+    filled, by_city, kept = 0, Counter(), []
+    for lot in lots:
+        if lot.get("lat") and lot.get("lng"):
+            continue
+        rec = by_id.get(lot["id"])
+        if not rec:
+            continue
+        ch = rec["chosen"]
+        if ch.get("confidence") == "review":
+            kept.append(lot["name"])
+            continue
+        lot["lat"], lot["lng"] = ch["lat"], ch["lng"]
+        lot["coord_src"] = f"지오코딩({ch.get('how')}·{ch.get('source')})" + (
+            "·교차확인" if ch.get("agree") else "")
+        if not lot.get("addr_jibun") and rec.get("addr_jibun"):
+            lot["addr_jibun"] = rec["addr_jibun"]
+        # 빌더가 좌표 없음을 전제로 붙여 둔 안내 문구를 걷어낸다.
+        for key in ("notice", "note"):
+            txt = lot.get(key) or ""
+            if "좌표가 등록되어 있지 않아" in txt:
+                kept = [p.strip() for p in txt.split(" · ")
+                        if "좌표가 등록되어 있지 않아" not in p and p.strip()]
+                lot[key] = " · ".join(kept) or None
+        filled += 1
+        by_city[lot["city"]] += 1
+    return {"filled": filled, "by_city": dict(by_city), "review": kept}
+
+
 def build_site_payload(cities):
     """도시 결과를 사이트 생성기용 단일 파일(data/site.json)로 합친다.
 
@@ -7472,6 +7747,8 @@ def build_site_payload(cities):
         for l in c["lots"]:
             derive_free_fields(l)
         lots.extend(c["lots"])
+    coord_fix = apply_coord_fix(lots)
+    hours_fixed = apply_hours_fix(lots)
     provinces = []
     for c in cities:
         key = (c["province"], c["province_slug"])
@@ -7499,6 +7776,7 @@ def build_site_payload(cities):
                                           "dong_page_min_lots", "fee_table")}
                    for c in cities],
         "lots": lots,
+        "t06": {"coord_fix": coord_fix, "hours_fix": hours_fixed},
     }
 
 
