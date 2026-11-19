@@ -9785,6 +9785,40 @@ def fee_table_block(city) -> str:
 전부 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다. 노상 구간도 전부 무료입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "jincheon_grade":
+        # 진천군 — 등록된 16곳(노외 10·노상 6) 전부 무료. 조례 별표 1은
+        #   급지별 유료 요금표(1급지 최초 30분 무료·30분~2시간 30분마다
+        #   800원·2시간 초과 후 30분마다 500원·1일 6,000원·30일 정기권
+        #   80,000원 등)를 두고 있어 표는 조례 참고표로 싣는다. 등록 급지가
+        #   전부 '기타'라 급지별 대수 열은 표시하지 않는다. 무료 운영의
+        #   고시 여부는 진천군청 확인 필요.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">진천 공영주차장 16곳은 표준데이터에 <b>전부 무료</b>로 등록돼 있습니다.
+다만 「진천군 주차장 조례」 제3340호 별표 1은 급지별 유료 요금표를 두고 있어, 아래 표는
+그 조례 요금표(참고)입니다 — 1급지 최초 <b>30분 무료</b>, 30분부터 2시간까지
+<b>30분마다 800원</b>, 2시간 초과 후 <b>30분마다 500원</b>, <b>1일 주차권 6,000원</b>,
+<b>30일 정기권 80,000원</b>이고, 급지 적용은 군수가 결정 고시합니다. 등록된 급지는
+16곳 전부 ‘기타’라 어느 급지에 드는지는 고시 확인이 필요하고, 무료로 운영하는 고시
+여부도 진천군청(043-539-3721)에 확인이 필요합니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">30일 정기권</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 진천군 공영주차장 <b>{corp.get('free', 0)}곳</b>을 실었고,
+전부 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다. 노상 구간도 전부 무료입니다.
+16곳 중 12곳은 주소·좌표가 동일하게 등록돼 있어, 일부 주차장은 지도 위치가 실제와
+다를 수 있습니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "okcheon_grade":
         # 옥천군 — 유료 5곳(옥천 공설시장 공영주차타워 102면·창의어울림센터
         #   주차장 49면·보건소 앞 주차장 43면·옥천농협 공영주차장(노상)
