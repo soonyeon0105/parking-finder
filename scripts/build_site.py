@@ -6003,6 +6003,10 @@ def fee_text(lot) -> str:
         if f.get("monthly"):
             bits.append(f"월 {won(f['monthly'])}")
         return " · ".join(bits)
+    if f.get("monthly_only"):
+        # 천안 목천 캠핑카전용주차장 — 월정기 전용(시간제 없음).
+        return (f"월정기 전용 · 월 {won(f['monthly'])}"
+                + (f"({f['monthly_label']})" if f.get("monthly_label") else ""))
     # 기본요금 없이 최초 N분 무료 뒤 요율이 붙는 요금(평택시 1급지 90분 무료)은 그렇게 적는다.
     free_first = (not f["base_fee"] and f.get("free_min"))
     bits = [f"최초 {f['free_min']}분 무료" if free_first
@@ -9103,7 +9107,8 @@ def fee_table_block(city) -> str:
 <p class="lede">천안 공영주차장의 표준 요율은 <b>최초 30분 무료</b>에 <b>2시간까지 10분마다
 200원</b>, <b>2시간을 넘기면 10분마다 300원</b>으로 오르는 누진 방식입니다(1급지).
 <b>환승주차장</b>(두정역 제1·신부 제1)은 10분마다 100원·2시간 초과 200원으로 절반 수준이고,
-전통시장 주차장은 기본 30분 500원부터 받는 등록 형태가 따로 있습니다. 아래 표는 이 사이트에
+전통시장 주차장은 기본 30분 500원부터 받는 등록 형태가 따로 있습니다(별표1 원문에는 시장 전용
+요율이 없어 등록값을 그대로 표기하고 차이를 카드에 명시했습니다). 아래 표는 이 사이트에
 실린 주차장의 <b>등록요금과 특기사항</b>을 대조해 묶은 것입니다.</p>
 <table class="data">
   <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
