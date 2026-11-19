@@ -30195,6 +30195,470 @@ def build_cheonan():
     return payload
 
 
+DANGJIN_PROVINCE = "충청남도"
+DANGJIN_PROVINCE_SLUG = "chungnam"
+
+# 「당진시 주차장 조례」 — law.go.kr 현행본 확인 완료(2026-11-19).
+#   제1489호(2026-04-15 일부개정·시행), ordinSeq 2123395. 별표 원문(HWP)은
+#   law.go.kr 본문 뷰어가 JS 렌더링이라 이 환경에서 추출 불가 — 당진시청 공식
+#   유료 공영주차장 요금표 페이지로 대조 완료. 등록값은 시 공식 요금표와 전수 일치해
+#   조례 기준 보완이 필요 없다.
+DANGJIN_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2123395"
+DANGJIN_CITY_URL = "https://www.dangjin.go.kr/prog/pblmngPrkplceInfo/kor/sub05_07_06/list.do"
+DANGJIN_ORD_NOTE = "충청남도당진시조례 제1489호(2026-04-15 일부개정·시행), ordinSeq 2123395"
+DANGJIN_ORD_TXT = RAW / "dangjin.go.kr_유료공영주차장요금표_20261119.txt"
+
+# 조례 감면 조항 원문은 미확보(law.go.kr 본문 뷰어 미노출)라 조문 인용 감면 목록을
+# 넣지 않는다. 시 공식 페이지 확인분은 요금·무료 요일에만 반영한다:
+#   일요일·설·추석·연휴기간 무료(유료 6곳 free_days sun=True),
+#   버스터미널 최초 10분 면제·왕복승차권 제출 시 당일 50% 감면(해당 카드 비고).
+DANGJIN_DISCOUNTS = []
+
+
+DANGJIN_CONF = {
+    "city": "당진시",
+    "slug": "dangjin",
+    "manager": "충청남도 당진시청",
+    "manager_inquiry": "당진시청 교통과 교통관리팀(041-350-4543)",
+    "ordinance": ("「당진시 주차장 조례」 제1489호(2026-04-15 시행)",
+                  DANGJIN_ORD_URL, DANGJIN_ORD_NOTE),
+    "notes": ("당진시 공영주차장 10곳 중 6곳은 유료, 4곳은 무료이다. 유료 6곳은 1급지 5곳"
+              "(남부·당진공영버스터미널·동문·계성·중앙, 기본 30분 400원·추가 10분마다 200원·"
+              "1일 7,000원·월정기 50,000원)과 2급지 1곳(당진시장공영주차장, 기본 30분 300원·"
+              "추가 10분마다 100원·1일 3,600원·월정기 40,000원)이다. 등록값은 당진시청 공식 "
+              "유료 공영주차장 요금표(「당진시 주차장 조례」 제1489호, 시행 2026-04-15, "
+              "ordinSeq 2123395)와 전수 일치한다. 일요일·설·추석·연휴기간은 주차요금 무료"
+              "(당진시청 운영안내)라 유료 6곳에 일요일 무료를 표기했다. 당진공영버스터미널"
+              "공영주차장은 최초 10분 무료, 시외버스 왕복승차권 제출 시 당일 요금 50% 감면"
+              "(당진시청 운영안내). 조례 감면 조항 원문은 law.go.kr 본문 뷰어가 이 환경에서 "
+              "노출되지 않아 미확보 — 후속 확인 필요. 표준데이터에는 당진시 10행만 등록되어 "
+              "있다(당진시청 현황 페이지에는 노상 구간 등 39건 이상이 있으나 표준데이터 범위 "
+              "밖이라 이번 빌드 미포함)."),
+    "discounts": DANGJIN_DISCOUNTS,
+}
+
+
+def dangjin_dong_of(addr, name=None):
+    """당진시 주소에서 법정동·읍·면을 읽는다 — '당진시' 다음 낱말이 동·읍·면이다."""
+    if addr:
+        m = re.search(r"당진시\s*([가-힣]{1,6}(?:동|읍|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r",\s*([가-힣]{1,5}(?:동|읍|면))\s+\d", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def dangjin_fee(row, name, note_bits, fee_diff):
+    """당진시 공영주차장 한 곳의 요금 — 등록값을 그대로 쓴다. 등록값은 당진시청 공식
+    요금표(「당진시 주차장 조례」 제1489호 별표 기준)와 전수 일치한다."""
+    raw_type = (row.get("요금정보") or "").strip()
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        return fee
+    if not (base_fee or 0) and not (unit_fee or 0) and not day and not month:
+        fee.update({"type": "미상", "basis": "‘유료’로 등록됐지만 요금표 등록값이 없음"})
+        fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                      "unit_fee": unit_fee, "day": day, "monthly": month}
+        return fee
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    # 유료 6곳 모두 기본요금형. 등록값은 당진시청 공식 요금표와 전수 일치한다
+    #   (1급지 5곳: 30분 400원·10분 200원·1일 7,000원·월정기 50,000원 /
+    #    2급지 1곳: 30분 300원·10분 100원·1일 3,600원·월정기 40,000원).
+    #   1일권 적용시간 360분(6시간)은 시 운영안내("6시간 이상 주차는 1일 요금 적용")와 같다.
+    fee.update({"base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min or 10, "unit_fee": unit_fee,
+                "daily_fee": day, "daily_hours": day_hours // 60 if day_hours else None,
+                "monthly": month, "monthly_all": month, "monthly_label": "전일",
+                "grade": int(grade) if grade.isdigit() else None,
+                "grade_label": f"{grade}급지" if grade else None,
+                "basis": "「당진시 주차장 조례」 제1489호 별표(당진시청 공식 요금표)와 일치"})
+    fee_diff.append(f"{name}: 등록 기본 {base_min}분 {base_fee:,}원·추가 {unit_min}분마다 "
+                    f"{unit_fee:,}원·1일 {day:,}원·월정기 {month:,}원 — 당진시청 공식 요금표 "
+                    f"{grade}급지와 일치")
+    if "버스터미널" in name:
+        # 당진공영버스터미널 — 최초 10분 면제 + 시외버스 왕복승차권 제출 시 당일 50% 감면
+        #   (당진시청 운영안내). 터미널 전용이라 도시 전체 감면 목록이 아니라 카드 비고로 싣는다.
+        fee["free_min"] = 10
+        note_bits.append("최초 10분 무료 · 시외버스 왕복승차권 제출 시 당일 요금 50% 감면"
+                         "(당진시청 운영안내)")
+    if raw_type == "혼합":
+        note_bits.append("요금 구분이 ‘혼합’이라 요금을 받는 시간에만 계산합니다")
+    return fee
+
+
+def _dj_tier_of(lot):
+    f = lot["fee"]
+    if f["type"] in ("유료", "혼합") and f.get("base_fee"):
+        return "paid_base"
+    return "other"
+
+
+def dangjin_fee_table(conf, lots):
+    """요금표 — 1급지 5곳 + 2급지 1곳(기본요금형). 등록값이 당진시청 공식 요금표
+    (「당진시 주차장 조례」 제1489호)와 전수 일치한다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    g1 = {"base_min": 30, "base_fee": 400, "unit_min": 10, "unit_fee": 200,
+          "daily_fee": 7_000}
+    g2 = {"base_min": 30, "base_fee": 300, "unit_min": 10, "unit_fee": 100,
+          "daily_fee": 3_600}
+    rows = []
+    n1 = len([l for l in paid if l["fee"].get("grade") == 1])
+    n2 = len([l for l in paid if l["fee"].get("grade") == 2])
+    if n1:
+        rows.append({"label": "1급지(기본요금형)", "grade": "paid_base",
+                     "unit_label": "기본 30분 400원 → 추가 10분마다 200원",
+                     "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+                     "day": 7_000, "month": 50_000, "lots": n1})
+    if n2:
+        rows.append({"label": "2급지(기본요금형)", "grade": "paid_base",
+                     "unit_label": "기본 30분 300원 → 추가 10분마다 100원",
+                     "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
+                     "day": 3_600, "month": 40_000, "lots": n2})
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "dangjin_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "주차장별 운영시간",
+                     "free": ("요금은 표준데이터에 등록된 주차장별 운영시간을 "
+                              "카드에 그대로 적었습니다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「당진시 주차장 조례」 제1489호(2026-04-15 시행, ordinSeq 2123395) 별표 · "
+                  "당진시청 공식 유료 공영주차장 요금표 · 전국주차장정보표준데이터(2026-04-21 기준) "
+                  "등록값 대조 — 등록값과 시 공식 요금표 전수 일치"),
+    }
+
+
+def dangjin_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {"당진시": len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": "조례 감면 조항 원문 미확보(law.go.kr 본문 뷰어 미노출) — 당진시청 운영안내 확인분만 반영(일요일·설·추석·연휴 무료, 버스터미널 최초 10분 면제·왕복승차권 50%)",
+        "무료시간_출처": "당진시청 유료 공영주차장 운영안내 — 일요일·설·추석·연휴기간 무료",
+        "주말무료_출처": "당진시청 유료 공영주차장 운영안내 — 일요일 무료(유료 6곳 free_days sun=True)",
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_dangjin():
+    """당진시 하나를 표준데이터로 추출한다 (build_seosan 의 당진시 변형). 조례 대조 완료
+    (제1489호, ordinSeq 2123395, 당진시청 공식 요금표 기준 — 등록값 전수 일치)."""
+    conf = DANGJIN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "당진시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "당진시청" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. (당진은 이름·관리번호 중복이 0건이다.)
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.75 < lat < 37.0 and 126.55 < lng < 126.85):
+            # 당진시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 당진시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = dangjin_dong_of(jibun, std_name) or dangjin_dong_of(road, std_name)
+        dong_src = "지번주소" if dangjin_dong_of(jibun, std_name) else ("도로명주소" if dong else "없음")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        fee = dangjin_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        else:
+            # 일요일·설·추석·연휴기간 무료(당진시청 운영안내) — 유료 6곳에 일요일 무료 표기.
+            free_days["sun"] = True
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "당진시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 면수 차이 (당진시청 현황 페이지 기준 — 등록값 유지)
+    _by_name = {l["name"]: l for l in lots}
+    if "계성공영주차장" in _by_name:
+        space_diff.append("계성공영주차장: 표준데이터 39면 ↔ 당진시청 현황 40면 — 등록값 유지")
+    if "동문공영주차장" in _by_name:
+        space_diff.append("동문공영주차장: 표준데이터 30면 ↔ 당진시청 현황 32면 — 등록값 유지")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"ca-dangjin-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"ca-dangjin-s{n_street:03d}"
+
+    fee_table = dangjin_fee_table(conf, lots)
+    quality = dangjin_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-21",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-19 18:10 (KST)",
+        "note": (f"당진시로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 이름·관리번호 "
+                 "중복이 없어 합친 행이 없고, 요금·운영시간·면수는 등록값을 그대로 썼다. "
+                 "조례 대조 완료 — 등록값은 당진시청 공식 요금표(「당진시 주차장 조례」 제1489호)와 "
+                 "전수 일치한다."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": DANGJIN_ORD_TXT.name if DANGJIN_ORD_TXT.exists() else None,
+            "sha256": sha256(DANGJIN_ORD_TXT) if DANGJIN_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": conf["ordinance"][2],
+            "rows_total": None, "fetched_at": _sync_time(DANGJIN_ORD_TXT) if DANGJIN_ORD_TXT.exists() else None,
+            "note": f"당진시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(당진시청 공식 요금표 원자료: {DANGJIN_ORD_TXT.name if DANGJIN_ORD_TXT.exists() else 'dangjin.go.kr — 원문 미확보'})",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": DANGJIN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "당진시", "slug": "dangjin"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": DANGJIN_PROVINCE,
+        "province_slug": DANGJIN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "dangjin_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -30207,7 +30671,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "dangjin",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -30225,7 +30689,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "당진시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -30278,7 +30742,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "dangjin": ["당진시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -30387,6 +30851,8 @@ def main():
         cities.append(build_cheonan())
     if "아산시" in want:
         cities.append(build_asan())
+    if "당진시" in want:
+        cities.append(build_dangjin())
 
     if args.city == "all":
         site = build_site_payload(cities)

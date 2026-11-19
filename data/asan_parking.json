@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-19 17:22",
-  "generated_at_iso": "2026-11-19T17:22:28+09:00",
-  "snapshot_at": "2026-11-19 17:22",
+  "generated_at": "2026-11-19 18:12",
+  "generated_at_iso": "2026-11-19T18:12:38+09:00",
+  "snapshot_at": "2026-11-19 18:12",
   "region": {
    "province": "충청남도",
    "city": "아산시"
@@ -28,7 +28,7 @@
     "org": "충청남도 아산시 교통행정과(041-540-2390)",
     "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2079413",
     "file": "asan.law.go.kr_주차장조례_별표1_20261119.txt",
-    "sha256": "bafd0004a20e899af2870dbbda0295345fba22d311ad442fcafeccbc141ec2e1",
+    "sha256": "47946d924c7867831f77c0f1946ff6258f736784bd6b92a5ec461b83c34b4800",
     "license": "자치법규(공개)",
     "base_date": "공포 2025-10-15 · 아산시조례 제2665호(일부개정) · 시행 2025-10-15",
     "rows_total": null,
@@ -7615,7 +7615,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-19 17:22",
+  "generated_at": "2026-11-19 18:12",
   "원자료_전국행수": 18994,
   "원자료_행수": 71,
   "원자료_아산시행수": 71,
