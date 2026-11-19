@@ -7406,6 +7406,12 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
         for k in ("weekday", "sat", "sun")
     )
     opts = discounts if discounts else default_discounts()
+    # 감면 목록에 rate=0(일반 차량)이 없으면 앞에 보완한다 — JS 초기 할인율(0)과
+    # aria-pressed=true인 첫 버튼이 일치해야 한다 (논산 Instinct 보류 건, 2026-11-19).
+    #   일반 차량이 없는 도시(논산·공주·당진·청주·천안·아산·서산·세종·제주·서울 등
+    #   16개 목록) 전부 이 렌더러에서 함께 정리된다. 감면 종류 자체는 그대로 둔다.
+    if opts and opts[0].get("rate", 0) != 0:
+        opts = [{"label": "일반 차량", "rate": 0.0, "exempt_min": 0, "note": ""}] + list(opts)
     disc_btn = "".join(
         f'<button type="button" class="seg-btn" data-rate="{o["rate"]}" data-exempt="{o.get("exempt_min") or 0}"'
         f' aria-pressed="{"true" if i == 0 else "false"}">{esc(o["label"])}'
@@ -9280,6 +9286,47 @@ def fee_table_block(city) -> str:
 운영합니다(별표1 비고 4). 6시간 이상 주차하면 1일 요금을 적용하고, 노상 3곳에도 월정기 40,000원이
 적용됩니다(별표1 비고 1). 유료 10곳은 모두 부제시행구분 '2부제'로 등록되어 있어 번호 끝자리에 따른
 이용 제한이 있을 수 있으니 방문 전 공주시청(041-840-7773)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "nonsan_grade":
+        # 논산시 — 유료 5곳(1급지 3곳 화지시장, 2급지 2곳 대흥시장). 기본요금은 등록값
+        #   (1급지 30분 500원·2급지 30분 400원), 추가요금은 조례 별표1 기준 steps
+        #   (30분 초과 10분당 200원, 2시간 초과 10분마다 300원) — 등록 추가요금값
+        #   (화지시장 30분 500원·대흥시장 미등록 0/0)은 조례와 달라 조례 기준으로 적용.
+        #   1일 요금은 별표1·등록값 모두 없음. 월정기는 별표1에만 있어 표에는 주간
+        #   요금을 적고 야간 요금은 안내문에 적는다. 주간 4~10월 08:00~20:00,
+        #   11~3월 09:00~19:30, 나머지 야간. 일요일·공휴일 무료 조항 없음.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">논산 공영주차장 127곳 중 유료는 <b>5곳</b>뿐이고, 1급지 3곳은 <b>기본 30분 500원</b>,
+2급지 2곳은 <b>기본 30분 400원</b>입니다. 30분을 넘기면 <b>10분마다 200원</b>씩, 2시간을 넘기면
+<b>10분마다 300원</b>씩 추가됩니다(「논산시 주차장 조례」 제2003호 별표1). <b>1일 요금은 없습니다</b>.
+월정기는 1급지 <b>주간 45,000원·야간 35,000원</b>, 2급지 <b>주간 30,000원·야간 22,000원</b>입니다
+(조례 별표1; 표준데이터 등록값에는 월정기가 없습니다). 주간 시간은 4~10월 <b>08:00~20:00</b>,
+11~3월 <b>09:00~19:30</b>이고 나머지는 야간입니다. 급지는 동지역이 1급지, 읍·면지역이 2급지입니다.
+유료 5곳은 모두 시장 주차장(화지시장 1·2·3, 강경 대흥시장 1·2)으로, 평일·토요일 운영시간이 시장
+영업시간(09:00~18:00 등)으로 등록되어 있습니다. 등록된 추가요금값(화지시장 30분 500원, 대흥시장
+미등록)은 조례와 달라 계산기는 조례 기준으로 적용했습니다. 조례에 일요일·공휴일 무료 개방 조항이
+없어 유료 5곳 모두 무료 요일이 없습니다. 현장 확인이 필요하면 논산시청(041-746-6257)에 문의하세요.</p>
 <table class="data">
   <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
