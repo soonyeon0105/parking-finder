@@ -28879,6 +28879,632 @@ def build_cheongju():
     return payload
 
 
+# 천안시 (충청남도) — T-03 전국 확장, 충청 나머지 첫 도시 (2026-11-19).
+# 표준데이터 등록값·특기사항을 1차로 쓰고 「천안시 주차장 조례」 제3조(면제·감면)와 대조한다.
+# 조례 별표1은 law.go.kr에서 첨부파일로만 제공되어 원문을 텍스트로 뽑지 못했다 —
+# 요율은 표준데이터 특기사항(유료·혼합 21행 중 13행이 요율을 문장으로 적어 둠)과
+# 천안도시공사 정기권 안내가 서로 일치하는 범위에서만 확정하고, 어긋나는 행은 차이로 남긴다.
+CHEONAN_PROVINCE = "충청남도"
+CHEONAN_PROVINCE_SLUG = "chungnam"
+
+CHEONAN_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1939871"
+CHEONAN_ORD_NOTE = "공포 2024-06-21 · 천안시조례 제2635호(일부개정) · 시행 2024-06-21"
+CHEONAN_ORD1_TXT = RAW / "cheonan.law.go.kr_주차장조례_별표1_20261119.txt"
+CHEONAN_ORD_TXT = RAW / "cheonan.law.go.kr_주차장조례_20261119.txt"
+
+# 천안시 공영주차장 요율 — 표준데이터 특기사항·천안도시공사 안내 교차확인.
+#   std1    : 최초 30분 무료 → 2시간까지 10분마다 200원 → 2시간 초과 10분마다 300원.
+#   transfer: 환승주차장 — 10분마다 100원 → 2시간 초과 200원.
+CHEONAN_FEE = {
+    "std1": {"free_min": 30, "unit_min": 10, "unit_fee": 200, "over_from": 120,
+             "over_fee": 300, "day": 10_000, "month": 80_000},
+    "transfer": {"free_min": 30, "unit_min": 10, "unit_fee": 100, "over_from": 120,
+                 "over_fee": 200, "day": 5_000, "month": 40_000},
+}
+
+# 「천안시 주차장 조례」 제3조③ — 면제.
+CHEONAN_DISCOUNTS = [
+    {"label": "긴급자동차 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제합니다(천안시 조례 제3조③1호)"},
+    {"label": "성실납세증 100%", "rate": 1.0, "exempt_min": 0,
+     "note": "시장·도지사·국세청장이 교부하는 성실납세증을 붙인 자동차 — 교부일부터 1년 면제(제3조③2호)"},
+    {"label": "임산부 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "임산부 주차증을 붙인 자동차는 주차요금을 면제합니다(제3조③5호)"},
+    {"label": "우수자원봉사자 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": "우수자원봉사자증 소지자 명의 자동차 — 1일 2시간 한도, 연 12회까지 면제(제3조③4호)"},
+    {"label": "경차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "배기량 1,000cc 미만 자동차 — 2시간까지 면제, 초과분부터 50퍼센트 감면(제3조④1호)"},
+    {"label": "장애인 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "장애인등록증을 소지한 등록장애인 — 2시간까지 면제, 초과분부터 50퍼센트 감면(제3조④3호)"},
+    {"label": "국가보훈대상자 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "국가보훈대상자의 자가운전 또는 동승 차량 — 2시간까지 면제, 초과분부터 50퍼센트 감면(제3조④2호)"},
+    {"label": "저공해·친환경차 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "저공해자동차·환경친화적자동차 표지 부착 자동차 — 2시간까지 면제, 초과분부터 50퍼센트 감면(제3조④6호)"},
+    {"label": "다자녀 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "천안시에 주민등록을 둔 2자녀 이상 세대(막내 18세 이하) 부모 소유 자동차 — 2시간까지 면제, 초과분부터 50퍼센트 감면(제3조④7호)"},
+    {"label": "의사상자·병역명문가 2시간 면제 후 50%", "rate": 0.5, "exempt_min": 120,
+     "note": "의사자 유족·의상자, 병역명문가 예우대상자와 가족 — 2시간까지 면제, 초과분부터 50퍼센트 감면(제3조④4·5호)"},
+]
+
+CHEONAN_GU = [("동남구", "cheonan-dongnam"), ("서북구", "cheonan-seobuk")]
+
+CHEONAN_CONF = {
+    "city": "천안시",
+    "slug": "cheonan",
+    "manager": "충청남도 천안시 교통정책과(041-521-2453)",
+    "manager_inquiry": "천안시 교통정책과(041-521-2453) · 천안도시공사 공영주차장 운영사무실(041-529-5120)",
+    "ordinance": ("「천안시 주차장 조례」 제3조(주차요금·면제·감면)·별표1 공영주차장 요금표",
+                  CHEONAN_ORD_URL, CHEONAN_ORD_NOTE),
+    "notes": ("천안시 공영주차장의 표준 요율은 최초 30분 무료, 2시간까지 10분마다 200원, "
+              "2시간 초과 10분마다 300원의 누진 구조이고 1일 10,000원·월 80,000원이다. "
+              "환승주차장(두정역 제1·신부 제1)은 10분마다 100원·2시간 초과 200원, 1일 5,000원·"
+              "월 40,000원이다. 조례 별표1 원문은 국가법령정보센터에서 첨부파일로만 제공되어 "
+              "이 대조는 표준데이터 특기사항의 요율 문구와 천안도시공사 정기권 안내가 서로 "
+              "일치하는 범위로 한정했다 — 전통시장 주차장 7곳은 1급지로 등록됐지만 기본 30분 "
+              "500원부터 받는 형태라 별표1 원문 확인이 필요한 차이로 남겼다. 감면은 조례 "
+              "제3조③(면제)·④(2시간 면제 후 50%)를 따랐다."),
+    "discounts": CHEONAN_DISCOUNTS,
+}
+
+
+def ca_gu_of(addr):
+    """‘충청남도 천안시 동남구 …’에서 자치구를 읽는다."""
+    if not addr:
+        return None
+    parts = addr.split()
+    for i, tok in enumerate(parts):
+        if tok == "천안시" and i + 1 < len(parts) and parts[i + 1].endswith("구"):
+            return parts[i + 1]
+    return None
+
+
+def ca_dong_of(addr, name=None):
+    """천안시 주소에서 법정동·읍·면을 읽는다 — 구 다음 낱말이 동·읍·면이다."""
+    if addr:
+        m = re.search(r"\(([가-힣]{1,5}(?:동|읍|면))\)", addr)
+        if m:
+            return m.group(1)
+        parts = addr.split()
+        for i, tok in enumerate(parts):
+            if tok.endswith("구") and i + 1 < len(parts) \
+                    and parts[i + 1].endswith(("동", "읍", "면")):
+                return parts[i + 1]
+            if tok.endswith("구") and i + 1 < len(parts) \
+                    and re.fullmatch(r"[가-힣]{1,5}리", parts[i + 1]):
+                return parts[i + 1]
+            if tok.endswith(("읍", "면")) and i + 1 < len(parts) \
+                    and re.fullmatch(r"[가-힣]{1,5}리", parts[i + 1]):
+                return parts[i + 1]
+    if name:
+        m = re.search(r",\s*([가-힣]{1,5}(?:동|읍|면))\s+\d", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _ca_won(s):
+    return int(str(s).replace(",", "")) if s else None
+
+
+def cheonan_fee(row, name, note_bits, fee_diff):
+    """천안시 공영주차장 한 곳의 요금 — 등록값·특기사항 요율을 쓰고 조례와 대조한다."""
+    raw_type = (row.get("요금정보") or "").strip()
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    note = row.get("특기사항") or ""
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": (row.get("급지구분") or "").strip() or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        return fee
+    if not (base_fee or 0) and not (unit_fee or 0) and not day and not month:
+        fee.update({"type": "미상", "basis": "‘유료’로 등록됐지만 요금표 등록값이 없음"})
+        fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                      "unit_fee": unit_fee, "day": day, "monthly": month}
+        return fee
+    # 특기사항의 요율 문구 — ‘최초30분 무료 / 30분초과 시 10분마다 200원(2시간 이내)
+    #   +2시간 초과 시 10분마다 300원’ 같은 누진 표기를 단계 요금으로 옮긴다.
+    m_free = re.search(r"최초\s*(\d+)\s*분\s*무료", note)
+    free_min = int(m_free.group(1)) if m_free else None
+    m_step = re.search(r"10분마다\s*([\d,]+)원\((\d+)시간 ?이내\)\s*\+\s*(\d+)시간 초과 시 10분마다\s*([\d,]+)원",
+                       note)
+    if m_step:
+        u1, until_h, _h2, u2 = (_ca_won(m_step.group(1)), int(m_step.group(2)),
+                                int(m_step.group(3)), _ca_won(m_step.group(4)))
+        until = until_h * 60
+        fee.update({"base_min": free_min or base_min or 30, "base_fee": 0,
+                    "free_min": free_min or 30,
+                    "unit_min": 10, "unit_fee": u1, "progressive": True,
+                    "steps": [{"until": until, "unit_min": 10, "unit_fee": u1},
+                              {"until": None, "unit_min": 10, "unit_fee": u2}],
+                    "steps_label": (f"{until_h}시간까지 10분당 {u1:,}원 → "
+                                    f"{until_h}시간 초과 10분당 {u2:,}원"),
+                    "basis": "표준데이터 특기사항 요율(조례 별표1 교차확인)"})
+        if unit_fee and unit_fee != u1:
+            fee_diff.append(f"{name}: 추가단위요금 등록 10분 {unit_fee:,}원 ↔ 특기사항 요율 "
+                            f"10분 {u1:,}원({until_h}시간 이내) — 특기사항을 따름")
+        tier = None
+        if u1 == CHEONAN_FEE["std1"]["unit_fee"] and u2 == CHEONAN_FEE["std1"]["over_fee"]:
+            tier = "std1"
+            fee["grade"] = 1
+            fee["grade_label"] = "1급지"
+        elif u1 == CHEONAN_FEE["transfer"]["unit_fee"] and u2 == CHEONAN_FEE["transfer"]["over_fee"]:
+            tier = "transfer"
+            fee["grade_label"] = "환승주차장"
+        if tier:
+            tf = CHEONAN_FEE[tier]
+            if day and day != tf["day"]:
+                fee_diff.append(f"{name}: 1일 주차권 등록 {day:,}원 ↔ 교차확인 요율 {tf['day']:,}원")
+            if month and month != tf["month"]:
+                fee_diff.append(f"{name}: 월 정기 등록 {month:,}원 ↔ 교차확인 요율 {tf['month']:,}원")
+        fee["daily_fee"] = day or (CHEONAN_FEE[tier]["day"] if tier else None)
+        note_bits.append(f"요율은 특기사항 기준 최초 {fee['free_min']}분 무료, {until_h}시간까지 "
+                         f"10분마다 {u1:,}원, {until_h}시간 초과 10분마다 {u2:,}원입니다")
+    elif base_fee:
+        # 전통시장 주차장·주민센터처럼 기본요금부터 받는 등록 형태.
+        fee.update({"base_min": base_min or 30, "base_fee": base_fee,
+                    "unit_min": unit_min or 10, "unit_fee": unit_fee,
+                    "daily_fee": day,
+                    "basis": "표준데이터 등록요금(조례 별표1 원문 대조 미확정)"})
+        if "전통시장" in note:
+            note_bits.append("전통시장 이용자는 특기사항 기준으로 1시간 무료입니다")
+        if (row.get("급지구분") or "").strip() == "1":
+            fee_diff.append(f"{name}: 1급지로 등록됐지만 기본 {base_min or 30}분 {base_fee:,}원부터 "
+                            "과금 — 1급지 표준 요율(최초 30분 무료·누진)과 달라 별표1 원문 확인 필요")
+    else:
+        # 기본요금 0원 + 단위요금만 등록된 곳(목천 캠핑카전용) — 최초 기본시간 무료로 읽는다.
+        fee.update({"base_min": base_min or 30, "base_fee": 0,
+                    "free_min": free_min or base_min or 30,
+                    "unit_min": unit_min or 10, "unit_fee": unit_fee,
+                    "daily_fee": day,
+                    "basis": "표준데이터 등록요금(최초 무료 뒤 단위요금)"})
+        note_bits.append(f"최초 {fee['free_min']}분이 무료이고 그 뒤 {fee['unit_min']}분마다 "
+                         f"{unit_fee or 0:,}원입니다")
+    if month:
+        fee["monthly_all"] = month
+        fee["monthly_label"] = "전일"
+    fee["monthly"] = fee["monthly_all"]
+    if raw_type == "혼합":
+        m_paid_hours = re.search(r"유료 운영시간:\s*([^/]+)", note)
+        if m_paid_hours:
+            note_bits.append(f"유료 운영시간은 {m_paid_hours.group(1).strip()}입니다(특기사항)")
+        else:
+            note_bits.append("요금 구분이 ‘혼합’이라 요금을 받는 시간에만 계산합니다")
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    return fee
+
+
+def _ca_tier_of(lot):
+    """요금표 묶음 판정 — 단계 요금이면 1급지/환승, 기본요금형이면 시장형으로 본다."""
+    f = lot["fee"]
+    steps = f.get("steps")
+    if steps:
+        if steps[0]["unit_fee"] == 100 and steps[-1]["unit_fee"] == 200:
+            return "transfer"
+        if steps[0].get("until") == 120 and steps[0]["unit_fee"] == 200 \
+                and steps[-1]["unit_fee"] == 300:
+            return "std1"
+        return "other"
+    if f.get("base_fee"):
+        return "market"
+    return "other"
+
+
+def cheonan_fee_table(conf, lots):
+    """요금표 — 교차확인한 요율 3묶음(1급지 누진·환승·기본요금형)."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    g1 = CHEONAN_FEE["std1"]
+    tr = CHEONAN_FEE["transfer"]
+    samples = {
+        "std1": {"base_min": 30, "base_fee": 0, "free_min": 30, "unit_min": 10,
+                 "unit_fee": g1["unit_fee"], "daily_fee": g1["day"],
+                 "steps": [{"until": 120, "unit_min": 10, "unit_fee": g1["unit_fee"]},
+                           {"until": None, "unit_min": 10, "unit_fee": g1["over_fee"]}]},
+        "transfer": {"base_min": 30, "base_fee": 0, "free_min": 30, "unit_min": 10,
+                     "unit_fee": tr["unit_fee"], "daily_fee": tr["day"],
+                     "steps": [{"until": 120, "unit_min": 10, "unit_fee": tr["unit_fee"]},
+                               {"until": None, "unit_min": 10, "unit_fee": tr["over_fee"]}]},
+        "market": {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200,
+                   "daily_fee": 10_000},
+    }
+    labels = {
+        "std1": ("1급지", "최초 30분 무료 → 2시간까지 10분마다 200원 → 2시간 초과 10분마다 300원"),
+        "transfer": ("환승주차장", "최초 30분 무료 → 2시간까지 10분마다 100원 → 2시간 초과 10분마다 200원"),
+        "market": ("기본요금형(시장 등)", "기본 30분 500원 → 10분마다 200원"),
+    }
+    rows = []
+    for key in ("std1", "transfer", "market"):
+        gl = [l for l in paid if _ca_tier_of(l) == key]
+        if not gl:
+            continue
+        sf = samples[key]
+        rows.append({"label": labels[key][0], "grade": key,
+                     "unit_label": labels[key][1],
+                     "hour": sj_charge(sf, 60), "two_hour": sj_charge(sf, 120),
+                     "day": sf["daily_fee"],
+                     "month": (g1["month"] if key == "std1" else
+                               tr["month"] if key == "transfer" else 80_000),
+                     "lots": len(gl)})
+    ord_rows = [
+        {"label": "1급지", "base": 0, "unit": 200, "day": g1["day"], "month": g1["month"]},
+        {"label": "환승주차장", "base": 0, "unit": 100, "day": tr["day"], "month": tr["month"]},
+    ]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "cheonan_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": ord_rows,
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "주차장별 운영시간",
+                     "free": ("조례 별표1 원문은 첨부파일로만 제공되어, 요금은 표준데이터에 "
+                              "등록된 주차장별 운영시간·특기사항을 카드에 그대로 적었습니다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": (f"{conf['ordinance'][0]}({conf['ordinance'][2]}) · "
+                  "전국주차장정보표준데이터(2026-04-16 기준) 등록값·특기사항 대조"),
+    }
+
+
+def cheonan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": dict(sorted(Counter(l["gu"] for l in card).items())),
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": [],
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": f"{conf['ordinance'][0]}({conf['ordinance'][2]})",
+        "무료시간_출처": ("표준데이터 특기사항의 ‘최초 N분 무료’ 표기를 그대로 썼다. "
+                          "조례 별표1 원문(첨부파일)은 텍스트로 확보하지 못해 교차확인으로 대신했다"),
+        "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다(대흥로 제1노상 ‘주말·공휴일 무료 운영’)",
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_cheonan():
+    """천안시 하나를 표준데이터 + 시 조례로 추출한다 (build_cheongju 의 충청남도 변형)."""
+    conf = CHEONAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "천안시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "도시공사" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    dropped, merged = set(), []
+    by_no = {}
+    for i, r in enumerate(rows_std):
+        no = (r.get("주차장관리번호") or "").strip()
+        if no:
+            by_no.setdefault(no, []).append(i)
+    for no, idxs in by_no.items():
+        # 천안은 같은 관리번호를 서로 다른 주차장이 나눠 쓰는 행이 4쌍 있다
+        #   (예: 301-2-000030 신방 제1 ↔ 천안역전시장1). 자리(주소)가 같을 때만 합친다.
+        if len(idxs) < 2 or len({_plot(rows_std[i]) for i in idxs}) > 1:
+            continue
+        keep = max(idxs, key=_rank)
+        names = sorted({rows_std[i]["주차장명"] for i in idxs})
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": " / ".join(names) if len(names) > 1 else rows_std[i]["주차장명"],
+                           "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차장구획수") or rows_std[i].get("주차구획수")),
+                           "note": ("같은 주차장관리번호·같은 자리로 두 번 등록(관리기관 표기만 다름) — 최근 등록만 남김"
+                                    if len(names) > 1 else
+                                    "같은 주차장관리번호·같은 자리의 같은 등록(스냅숏 중복) — 하나만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    rest = [i for i in range(len(rows_std)) if i not in dropped]
+    group = {}
+    for i in rest:
+        r = rows_std[i]
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          ca_dong_of(r.get("소재지지번주소") or r.get("소재지도로명주소"),
+                                     r.get("주차장명")),
+                          to_int(r.get("주차구획수")) or 0), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2:
+            continue
+        # 이름 기반 중복 제거는 같은 주차장의 재등록일 때만 (청주 T-03 교차검증 가드와 동일):
+        # 이름이 비었거나 유형·구가 다르거나 주소·좌표가 다르면 합치지 않는다.
+        if not key[0]:
+            continue
+        _ptypes = {(rows_std[i].get("주차장유형") or "").strip() for i in idxs}
+        _gus = {ca_gu_of(_owner(rows_std[i])) for i in idxs}
+        if len(_ptypes) > 1 or len(_gus) > 1:
+            continue
+        _plots = {_plot(rows_std[i]) for i in idxs}
+        if len(_plots) > 1:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": "같은 이름·같은 자리·같은 면수의 옛 등록(스냅숏 중복) — 최근 등록만 남김",
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep].get("데이터기준일자")})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff = [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        gu = ca_gu_of(jibun) or ca_gu_of(road) or "천안시"
+        dong = ca_dong_of(jibun, std_name) or ca_dong_of(road, std_name)
+        dong_src = "지번주소" if ca_dong_of(jibun, std_name) else ("도로명주소" if dong else "없음")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        fee = cheonan_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if "환승" in note:
+            note_bits.append("환승주차장으로 등록되어 있습니다")
+        if "주말" in note and "무료" in note:
+            free_days = {"sat": True, "sun": True}
+            note_bits.append("특기사항 기준으로 주말·공휴일은 무료로 운영합니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": gu, "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _known = [l for l in lots if l["dong"] and l["lat"] is not None and l["lng"] is not None]
+    if _known:
+        for l in lots:
+            if l["dong"] or l["lat"] is None or l["lng"] is None:
+                continue
+
+            def _near_dist(o, _l=l):
+                return (o["lat"] - _l["lat"]) ** 2 + ((o["lng"] - _l["lng"]) * 0.81) ** 2
+
+            _near = min(_known, key=_near_dist)
+            _d = 111000 * math.sqrt(_near_dist(_near))
+            if _d <= 1500:
+                l["dong"] = _near["dong"]
+                l["dong_src"] = f"좌표 인근({_near['name']}, {_d:.0f}m)"
+                dong_fixed.append(f"{l['name']}: 동 미상 → {_near['dong']}(좌표 {_d:.0f}m 인근 {_near['name']})")
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"ca-cheonan-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"ca-cheonan-s{n_street:03d}"
+
+    fee_table = cheonan_fee_table(conf, lots)
+    quality = cheonan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-16 22:03 (KST)",
+        "note": (f"천안시로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 요금·운영시간·면수는 "
+                 "등록값과 특기사항 요율을 쓰고 조례 제3조(면제·감면)와 대조했으며, 같은 관리번호를 "
+                 "다른 주차장이 나눠 쓰는 행은 합치지 않았다."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": CHEONAN_ORD1_TXT.name if CHEONAN_ORD1_TXT.exists() else None,
+            "sha256": sha256(CHEONAN_ORD1_TXT) if CHEONAN_ORD1_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": conf["ordinance"][2],
+            "rows_total": None, "fetched_at": _sync_time(CHEONAN_ORD1_TXT) if CHEONAN_ORD1_TXT.exists() else None,
+            "note": f"천안시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문 원자료: {CHEONAN_ORD_TXT.name if CHEONAN_ORD_TXT.exists() else 'law.go.kr'})",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": CHEONAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": gu_name, "slug": gu_slug} for gu_name, gu_slug in CHEONAN_GU],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": CHEONAN_PROVINCE,
+        "province_slug": CHEONAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "cheonan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -28891,7 +29517,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -28909,7 +29535,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -28961,7 +29587,8 @@ def main():
              "ulsandong": ["울산 동구"], "ulsanbuk": ["울산 북구"],
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
-             "seogwiposi": ["서귀포시"], "cheongju": ["청주시"]}[args.city])
+             "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
+             "cheonan": ["천안시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -29066,6 +29693,8 @@ def main():
             cities.append(build_sj_city(_city))
     if "청주시" in want:
         cities.append(build_cheongju())
+    if "천안시" in want:
+        cities.append(build_cheonan())
 
     if args.city == "all":
         site = build_site_payload(cities)

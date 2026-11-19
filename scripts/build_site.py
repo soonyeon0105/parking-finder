@@ -9073,6 +9073,41 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "cheonan_grade":
+        # 천안시 — 최초 30분 무료 + 2시간까지 10분당 200원 + 2시간 초과 300원 누진(1급지).
+        #   조례 별표1 원문은 첨부파일로만 제공되어, 표는 등록값·특기사항 교차확인으로 묶었다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">천안 공영주차장의 표준 요율은 <b>최초 30분 무료</b>에 <b>2시간까지 10분마다
+200원</b>, <b>2시간을 넘기면 10분마다 300원</b>으로 오르는 누진 방식입니다(1급지).
+<b>환승주차장</b>(두정역 제1·신부 제1)은 10분마다 100원·2시간 초과 200원으로 절반 수준이고,
+전통시장 주차장은 기본 30분 500원부터 받는 등록 형태가 따로 있습니다. 아래 표는 이 사이트에
+실린 주차장의 <b>등록요금과 특기사항</b>을 대조해 묶은 것입니다.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">감면은 「천안시 주차장 조례」 제3조를 따릅니다 — 긴급자동차·성실납세증·
+임산부는 <b>면제</b>, 경차·장애인·국가보훈대상자·저공해차·다자녀 등은 <b>2시간 면제 후
+50퍼센트 감면</b>입니다. 조례 별표1 원문은 국가법령정보센터에서 첨부파일로만 제공되어,
+요율 대조는 표준데이터 특기사항과 천안도시공사 안내의 교차확인으로 한정했습니다.</p>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
