@@ -32768,6 +32768,577 @@ def build_nonsan():
     return payload
 
 
+# ---------------------------------------------------------------- 태안군 (T-03)
+# 「태안군 주차장 조례」 제1951호(시행 2025-12-15, 일부개정), ordinSeq 2092329.
+#   제3조제1항 주차요금은 별표1(개정 2024-05-31) — 승용 60분까지 무료·추가
+#   30분당 200원·1일 4,000원·월정기 40,000원, 대형 60분까지 무료·추가
+#   30분당 400원·1일 8,000원·월정기 80,000원. 급지 구분 없음. 단서에
+#   군수가 필요하다고 인정하는 경우 요금을 징수하지 않고 무료로 운영할
+#   수 있다. 별표1 비고1: 태안공영버스터미널 공영주차장(남문리 705-6)은
+#   월정기 미적용. 비고4: 1일·월정기 요금에는 제4조 감면을 적용하지 않는다.
+# 감면: 제4조제1항 — 긴급자동차 전액, 성실납세증 스티커 부착차량 전액
+#   (발급일부터 1년), 장애인·국가유공자(1~7급)·고엽제·경로우대·임산부·
+#   전통시장 상인·고객·경형(1000cc 미만)·환경친화적·저공해·병역명문가·
+#   우수자원봉사자(2025-07-14 신설)·의사상자(2025-12-15 신설) 50%.
+#   제4조제2항의 토요일·공휴일 무료 개방은 군수 재량("개방할 수 있다")이라
+#   별도 고시 확인 전에는 free_days를 적용하지 않는다.
+# 태안군 표준데이터 37행: 전부 공영·노외, 총 2,278면. 유료 1곳
+#   (남문공영주차장 414면 — 등록값이 별표1 승용 요금과 정확히 일치),
+#   혼합 36곳(1,864면 — 전부 '기본 30분 0원·추가 10분당 100원', 1일권·
+#   월정기는 공란). 혼합 36곳의 등록값은 조례(60분 무료·30분당 200원)와
+#   어긋난다 — 원본대로면 60분 주차 300원, 조례로는 0원이다. Instinct 사전
+#   검증 3묶음(2026-11-20)은 원본 그대로 계산도, 조례 일괄 덮어쓰기도 모두
+#   보류를 권고했다. 등록 기준일(2026-05-14)이 조례 시행(2025-12-15)·별표
+#   개정(2024-05-31)보다 뒤이고, 36곳 전 행이 같은 완전한 구조로 등록돼
+#   있으며, 조례 제3조 단서에 무료 운영 재량이 있어, 계산기는 공주·청양·
+#   홍성 선례대로 등록값을 유지하고 요금표는 조례 별표1 값으로 표기하며
+#   차이는 fee_diff에 전건 남긴다(군청 확인 필요 — 머지 시 최종 판단 지점).
+#   논산·부여가 조례 우선이었던 것과 다른 이유: 논산은 등록 추가요금
+#   자체가 미등록·불완전했고, 부여는 조례 개정(2026-08-25)이 데이터
+#   기준일보다 최신이었다 — 태안은 그 반대 조건이다.
+# 도로명주소는 37행 전부 결측, 좌표는 남면 우체국 옆 주차장(299-2-000034)
+#   1곳만 결측이다. 등록 급지 '5'는 전 행 동일하고 조례에 급지 구분이
+#   없어 std_grade에만 남긴다.
+TAEAN_PROVINCE = "충청남도"
+TAEAN_PROVINCE_SLUG = "chungnam"
+TAEAN_ORD_URL = ("https://www.law.go.kr/ordinInfoP.do?ordinSeq=2092329"
+                 "&efYd=20251215")
+TAEAN_ORD_DL = ("https://www.law.go.kr/flDownload.do?gubun=ELIS"
+                "&flSeq=159192847&ordinSeq=2092329")
+TAEAN_ORD_HWP = RAW / "taean-ordinance-b1.hwp"
+TAEAN_ORD_NOTE = ("조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「태안군 주차장 조례」 제1951호(2025-12-15 시행, 일부개정), "
+                  "ordinSeq 2092329. 본문 사본 data/raw/taean-ordinance.txt, 별표1"
+                  "(공영주차장 주차요금표) 원문 HWP data/raw/taean-ordinance-b1.hwp·"
+                  "추출문 taean-ordinance-b1.txt.")
+
+TAEAN_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조제1항제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 전액 감면"},
+    {"label": "성실납세자 전액 면제 (스티커 발급일부터 1년)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조제1항제2호 — 모범납세자로 표창을 받은 사람으로서 성실납세증 표지(스티커)를 부착한 차량. 면제기간은 표지를 발급한 날부터 1년"},
+    {"label": "장애인·국가유공자·고엽제·경로우대·임산부·전통시장 상인·고객·경형·환경친화적·저공해·병역명문가·우수자원봉사자·의사상자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조제1항제3호~제9호 — 국가유공자는 1급부터 7급까지의 상이자, 경형은 배기량 1000cc 미만. 전통시장 상인·고객은 시장이나 상권활성화 구역에 있거나 이웃한 주차장만 해당한다. 1일 주차요금과 월정기 요금에는 감면을 적용하지 않는다(별표1 비고4)"},
+]
+
+# 지번주소에 읍·면이 빠진 행(남면 우체국 옆 주차장 — 달산리)은 법정리로 가른다.
+TAEAN_RI_DONG = {"달산리": "남면"}
+
+TAEAN_CONF = {
+    "city": "태안군",
+    "slug": "taean",
+    "manager": "충청남도 태안군청",
+    "manager_inquiry": "태안군청(041-670-2718)",
+    "ordinance": ("「태안군 주차장 조례」 제1951호(시행 2025-12-15, 일부개정)",
+                  TAEAN_ORD_URL, TAEAN_ORD_NOTE),
+    "notes": ("태안군 공영주차장 37곳은 전부 노외이고 총 2,278면이다. 유료는 남문공영주차장"
+              "(414면) 1곳뿐으로 등록값(기본 60분 0원·추가 30분당 200원·1일 4,000원·월정기 "
+              "40,000원)이 「태안군 주차장 조례」 제1951호(시행 2025-12-15, ordinSeq 2092329) "
+              "별표1의 승용자동차 요금과 정확히 일치한다. 나머지 36곳은 요금 구분이 '혼합'으로 "
+              "전부 '기본 30분 0원·추가 10분당 100원'으로 등록돼 있고 1일권·월정기는 공란인데, "
+              "이는 별표1(60분까지 무료·추가 30분당 200원·1일 4,000원·월정기 40,000원)과 "
+              "어긋난다 — 등록값대로면 60분 주차가 300원이고 조례로는 0원이다. 등록 기준일"
+              "(2026-05-14)이 조례 시행·별표 개정(2024-05-31)보다 뒤이고 36곳 전 행이 같은 "
+              "완전한 구조로 등록돼 있으며 조례 제3조제1항 단서에 무료 운영 재량이 있어, "
+              "계산기는 공주·청양·홍성 선례대로 등록값을 유지하고 요금표는 조례 별표1 값으로 "
+              "표기했으며 차이는 급지_요금_차이에 전건 기록했다(혼합 36곳의 실제 요금·징수시간은 "
+              "군청 확인 필요 — 머지 시 최종 판단 지점). '혼합'은 조례에 없는 표준데이터의 "
+              "요금 구분 표기이고, 등록 급지 '5'는 조례에 급지 구분이 없어 대응값이 없다. "
+              "대형자동차 요금(60분 무료·30분당 400원·1일 8,000원·월정기 80,000원)은 별표1에 "
+              "있으나 표준데이터에 차종 구분이 없어 계산기는 승용 기준으로 계산한다. 토요일·"
+              "공휴일 무료 개방은 조례 제4조제2항상 군수가 정할 수 있는 재량 사항이라 별도 "
+              "고시 확인 전에는 적용하지 않았다. 감면은 조례 제4조제1항을 따른다(긴급자동차 "
+              "전액, 성실납세자 스티커 1년 전액, 장애인·국가유공자·고엽제·경로우대·임산부·"
+              "전통시장 상인·고객·경형·환경친화적·저공해·병역명문가·우수자원봉사자·의사상자 "
+              "50% — 1일·월정기 요금은 감면 제외). 도로명주소는 37곳 전부 등록돼 있지 않고 "
+              "좌표는 남면 우체국 옆 주차장 1곳만 비어 있다."),
+    "discounts": TAEAN_DISCOUNTS,
+}
+
+
+def taean_dong_of(addr, name=None):
+    """태안군 읍·면 판정 — 지번주소에 읍·면이 대부분 들어 있고, 빠진 행은
+    법정리(달산리→남면)로, 그래도 안 되면 이름의 읍·면 표기로 가른다."""
+    if addr:
+        m = re.search(r"태안군\s*([가-힣]{1,6}(?:읍|면))", addr)
+        if m:
+            return m.group(1)
+        m = re.search(r"([가-힣]+리)\s*\d", addr)
+        if m and m.group(1) in TAEAN_RI_DONG:
+            return TAEAN_RI_DONG[m.group(1)]
+    if name:
+        m = re.search(r"(태안읍|안면읍|고남면|근흥면|남면|소원면|원북면|이원면)", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def taean_fee(row, name, note_bits, fee_diff):
+    """태안군 공영주차장 한 곳의 요금 — 유료 1곳(남문공영주차장)은 등록값이
+    조례 별표1 승용 요금과 정확히 일치한다. 혼합 36곳은 전부 '기본 30분
+    0원·추가 10분당 100원'으로 등록돼 있고 1일권·월정기는 공란인데, 조례
+    별표1(60분까지 무료·추가 30분당 200원·1일 4,000원·월정기 40,000원)과
+    어긋난다(등록값 60분 300원 ↔ 조례 0원). 등록 기준일(2026-05-14)이
+    조례 시행(2025-12-15)·별표 개정(2024-05-31)보다 뒤이고 36곳 전 행이
+    같은 완전한 구조이며 조례 제3조 단서에 무료 운영 재량이 있어, 계산기는
+    공주·청양·홍성 선례대로 등록값을 유지하고 차이는 fee_diff에 전건
+    남긴다(군청 확인 필요 — 머지 시 최종 판단 지점)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if raw_type == "유료":
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day,
+                    "daily_hours": to_int(row.get("1일주차권요금적용시간")),
+                    "monthly": month, "monthly_all": None, "monthly_label": None,
+                    "grade": None, "grade_label": None,
+                    "steps": None,
+                    "steps_label": "60분까지 무료 · 이후 30분마다 200원",
+                    "basis": "전국주차장정보표준데이터 등록값(태안군, 기준일 2026-05-14) — "
+                             "「태안군 주차장 조례」 별표1 승용자동차 요금(60분까지 무료·추가 "
+                             "30분당 200원·1일 4,000원·월정기 40,000원)과 정확히 일치"})
+        note_bits.append("요금은 「태안군 주차장 조례」 별표1의 승용자동차 요금과 같습니다 — "
+                         "60분까지 무료, 이후 30분마다 200원, 1일 4,000원, 월정기 40,000원입니다")
+        note_bits.append("대형자동차 요금(60분까지 무료·30분당 400원·1일 8,000원·월정기 "
+                         "80,000원)은 조례 별표1에 있으나 표준데이터에 차종 구분이 없어 "
+                         "계산기는 승용 기준으로 계산합니다")
+        return fee
+    fee_diff.append(f"{name}: 등록 기본 30분 0원·추가 10분당 100원(1일권·월정기 공란) ↔ "
+                    "조례 별표1 승용 60분까지 무료·추가 30분당 200원·1일 4,000원·월정기 "
+                    "40,000원 — 등록값대로면 60분 300원, 조례로는 0원이라 어긋난다. 계산기는 "
+                    "공주·청양·홍성 선례대로 등록값을 유지하고 요금표는 조례값으로 표기"
+                    "(군청 확인 필요)")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": None,
+                "daily_hours": to_int(row.get("1일주차권요금적용시간")),
+                "monthly": None, "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "steps": None,
+                "steps_label": "기본 30분 무료 · 이후 10분마다 100원 (표준데이터 등록 기준)",
+                "basis": "전국주차장정보표준데이터 등록값(태안군, 기준일 2026-05-14) — "
+                         "조례 별표1(60분까지 무료·추가 30분당 200원)과 달라 차이를 "
+                         "급지_요금_차이에 전건 기록"})
+    note_bits.append("요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 "
+                     "10분마다 100원입니다")
+    note_bits.append("「태안군 주차장 조례」 별표1의 요금(60분까지 무료·이후 30분마다 "
+                     "200원)과는 달라, 실제 징수 기준은 군청 확인이 필요합니다")
+    return fee
+
+
+def _taean_tier_of(lot):
+    return "ord_car" if not lot["fee"].get("mixed") else "std_mixed"
+
+
+def taean_fee_table(conf, lots):
+    """요금표 — 조례 별표1 값으로 표기한다(공주·청양·홍성 선례: 계산기는
+    등록값 유지, 요금표는 조례값). 별표1은 급지 구분 없이 차종별이다 —
+    승용 60분까지 무료·추가 30분당 200원·1일 4,000원·월정기 40,000원,
+    대형 60분까지 무료·추가 30분당 400원·1일 8,000원·월정기 80,000원.
+    등록값과 조례가 일치하는 곳은 남문공영주차장 1곳뿐이고, 혼합 36곳은
+    등록 요금(기본 30분 무료·10분당 100원)이 별표1과 다르다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    gs = {"base_min": 60, "base_fee": 0, "unit_min": 30, "unit_fee": 200, "daily_fee": 4000}
+    gl = {"base_min": 60, "base_fee": 0, "unit_min": 30, "unit_fee": 400, "daily_fee": 8000}
+    rows = [
+        {"label": "승용자동차", "grade": "ord_car",
+         "unit_label": "60분까지 무료 · 이후 30분마다 200원",
+         "hour": sj_charge(gs, 60), "two_hour": sj_charge(gs, 120),
+         "day": 4000, "month": 40000,
+         "lots": len([l for l in paid if not l["fee"].get("mixed")])},
+        {"label": "대형자동차", "grade": "ord_large",
+         "unit_label": "60분까지 무료 · 이후 30분마다 400원",
+         "hour": sj_charge(gl, 60), "two_hour": sj_charge(gl, 120),
+         "day": 8000, "month": 80000, "lots": 0},
+    ]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len(free),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "taean_grade",
+        "unit_min": 30,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "01:00~23:59",
+                     "free": ("표준데이터에 등록된 운영시간이다 — 조례에 별도 징수시간 "
+                              "규정은 확인되지 않았다. 토요일·공휴일 무료 개방은 조례 "
+                              "제4조제2항상 군수가 정할 수 있는 재량 사항이라 별도 고시 "
+                              "확인 전에는 무료로 표기하지 않았다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「태안군 주차장 조례」 제1951호(시행 2025-12-15, ordinSeq 2092329) "
+                  "제3조·별표1 · 전국주차장정보표준데이터(태안군, 기준일 2026-05-14) "
+                  "등록값 — 별표1 원문 대조 완료. 남문공영주차장 1곳은 등록값이 별표1과 "
+                  "일치하고, 혼합 36곳은 등록값이 별표1과 달라 계산기는 등록값으로 계산한다"),
+    }
+
+
+def taean_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    mixed = [l for l in lots if l["fee"].get("mixed")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "혼합_등록": [l["name"] for l in mixed],
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「태안군 주차장 조례」 제1951호 제4조제1항 — 긴급자동차 전액, "
+                      "성실납세증 스티커 부착차량 전액(발급일부터 1년), 장애인·국가유공자"
+                      "(1~7급)·고엽제·경로우대·임산부·전통시장 상인·고객·경형(1000cc "
+                      "미만)·환경친화적·저공해·병역명문가·우수자원봉사자·의사상자 50%. "
+                      "1일·월정기 요금은 감면 적용 제외(별표1 비고4). 본문·별표1 원문"
+                      "(data/raw/taean-ordinance.txt, data/raw/taean-ordinance-b1.hwp) "
+                      "대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표1 승용 — 60분까지 무료·추가 30분당 200원·1일 4,000원·월정기 "
+                      "40,000원. 남문공영주차장 1곳은 등록값이 별표1과 정확히 일치한다. "
+                      "혼합 36곳은 등록값(기본 30분 무료·추가 10분당 100원)이 별표1과 "
+                      "어긋나 계산기는 등록값을 유지하고 차이를 급지_요금_차이에 전건 "
+                      "기록했다(군청 확인 필요)"),
+        "토공휴일_출처": ("조례 제4조제2항 — 군수는 설·추석·일요일 등 공휴일 및 토요일에 "
+                          "한정하여 공영주차장을 무료로 개방할 수 있다(재량). 별도 고시가 "
+                          "확인되지 않아 free_days를 적용하지 않았다"),
+        "급지_출처": ("조례 별표1에 급지 구분이 없다. 표준데이터 등록 급지 '5'는 37행 전부 "
+                      "동일하고 조례 대응값이 없어 std_grade에만 남겼다"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_taean():
+    """태안군 하나를 표준데이터로 추출한다 (build_cheongyang 의 태안군 변형).
+    조례 대조 완료 — 「태안군 주차장 조례」 제1951호(시행 2025-12-15,
+    ordinSeq 2092329) 제3조·제4조·별표1 원문 대조 완료(2026-11-20).
+    37행 전부 공영·노외라 민영 제외는 없고, 유료 1곳(남문공영주차장)은
+    등록값이 별표1과 일치하며, 혼합 36곳은 등록값과 별표1이 어긋나
+    계산기는 등록값을 유지하고 차이를 전건 기록한다."""
+    conf = TAEAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "태안군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "태안군" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. 태안군은 이름+자리가 같은 행이 없어
+    #   실제로 합쳐지는 행은 없다 — 남면 신장리 374-26의 2행(하나로마트 주변·
+    #   진흥아파트 옆)은 이름이 서로 달라 합쳐지지 않는다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.40 < lat < 37.00 and 126.05 < lng < 126.75):
+            # 태안군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 태안군 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = taean_dong_of(jibun, std_name) or taean_dong_of(road, std_name)
+        if taean_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif taean_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 주소에서 읍·면을 가릴 수 없어 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        fee = taean_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "태안군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    note_fixed.append("태안군 등록 37행은 전부 공영(민영 0)·노외이고 특기사항이 전부 "
+                      "비어 있다 — 운영시간은 등록값(연중 01:00~23:59)을 그대로 썼다")
+    note_fixed.append("도로명주소는 37행 전부 비어 있고 좌표는 남면 우체국 옆 주차장"
+                      "(299-2-000034) 1곳만 비어 있다 — 좌표는 지어내지 않고 없음으로 실었다")
+    note_fixed.append("남면 우체국 옆 주차장은 지번주소에 읍·면이 빠져 있어(충청남도 태안군 "
+                      "달산리 1185-5) 법정리(달산리→남면)와 이름으로 남면으로 갈랐다")
+    note_fixed.append("남면 신장리 374-26 같은 지번의 2행(하나로마트 주변 주차장 20면·"
+                      "진흥아파트 옆 주차장 27면)은 이름이 서로 다른 별개 주차장이라 합치지 "
+                      "않고 전부 실었다")
+    note_fixed.append("공영버스터미널 뒤 주차장(태안읍 남문리 705-6, 79면)은 조례 별표1 "
+                      "비고1이 월정기 미적용으로 정한 태안공영버스터미널 공영주차장과 같은 "
+                      "지번이다 — 이 곳은 혼합 등록이라 월정기가 원래 공란이고, 이름이 달라 "
+                      "같은 곳인지는 군청 확인 필요")
+    note_fixed.append("등록 급지 '5'는 37행 전부 동일하고 조례에 급지 구분이 없어 "
+                      "std_grade에만 남겼다")
+    note_fixed.append("토요일·공휴일 무료 개방은 조례 제4조제2항상 군수 재량('개방할 수 "
+                      "있다')이라 별도 고시 확인 전에는 free_days를 적용하지 않았다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"ca-taean-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"ca-taean-s{n_street:03d}"
+
+    fee_table = taean_fee_table(conf, lots)
+    quality = taean_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"태안군으로 등록된 행 {len(rows_std)}행(전부 노외)을 읽어 노외 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 태안군 "
+                 f"등록 행은 전부 공영이라 민영 제외는 없다. 유료 1곳(남문공영주차장)은 "
+                 f"등록값이 조례 별표1과 일치하고, 혼합 36곳은 등록값이 별표1과 어긋나 "
+                 f"계산기는 등록값을 유지하고 차이를 전건 기록했다. 조례 대조 완료 — "
+                 f"「태안군 주차장 조례」 제1951호(시행 2025-12-15, ordinSeq 2092329) "
+                 f"제3조·제4조·별표1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": TAEAN_ORD_HWP.name if TAEAN_ORD_HWP.exists() else None,
+            "sha256": sha256(TAEAN_ORD_HWP) if TAEAN_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-12-15",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"태안군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/taean-ordinance.txt, 별표1 원문 HWP: "
+                    f"data/raw/taean-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": TAEAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "태안군", "slug": "taean"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": TAEAN_PROVINCE,
+        "province_slug": TAEAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "taean_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -32780,7 +33351,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "taean",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -32798,7 +33369,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "태안군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -32851,7 +33422,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "taean": ["태안군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -32970,6 +33541,8 @@ def main():
         cities.append(build_nonsan())
     if "보령시" in want:
         cities.append(build_boryeong())
+    if "태안군" in want:
+        cities.append(build_taean())
 
     if args.city == "all":
         site = build_site_payload(cities)
