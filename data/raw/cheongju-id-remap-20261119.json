@@ -1,0 +1,3531 @@
+{
+ "generated_at": "2026-11-19",
+ "from_build": "436곳(2026-11-19 14:41)",
+ "to_build": "440곳(2026-11-19 15:02)",
+ "rows": [
+  {
+   "old_id": "cj-cheongju-001",
+   "new_id": "cj-cheongju-001",
+   "mgmt_no": "271-2-000061",
+   "name": "가경동 노외주차장",
+   "addr": "충청북도 청주시 흥덕구 가경동 910",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-002",
+   "new_id": "cj-cheongju-002",
+   "mgmt_no": "271-2-000035",
+   "name": "가경배수지 카풀주차장",
+   "addr": "충청북도 청주시 흥덕구 가경동 296-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-003",
+   "new_id": "cj-cheongju-003",
+   "mgmt_no": "271-2-000001",
+   "name": "가경터미널시장주차장(60면)",
+   "addr": "충청북도 청주시 흥덕구 가경동 1286",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-004",
+   "new_id": "cj-cheongju-004",
+   "mgmt_no": "271-2-000033",
+   "name": "공한지주차장(흥덕구 가경동 1845)",
+   "addr": "충청북도 청주시 흥덕구 가경동 1845",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-005",
+   "new_id": "cj-cheongju-005",
+   "mgmt_no": "271-2-000049",
+   "name": "공한지주차장(흥덕구 가경동 413 등 7)",
+   "addr": "충청북도 청주시 흥덕구 가경동 413 등 7",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-006",
+   "new_id": "cj-cheongju-006",
+   "mgmt_no": "271-2-000044",
+   "name": "서현2지구",
+   "addr": "충청북도 청주시 흥덕구 가경동 2273",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-007",
+   "new_id": "cj-cheongju-007",
+   "mgmt_no": "271-2-000043",
+   "name": "서현지구",
+   "addr": "충청북도 청주시 흥덕구 가경동 2255",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-008",
+   "new_id": "cj-cheongju-008",
+   "mgmt_no": "271-2-000034",
+   "name": "환승주차장",
+   "addr": "충청북도 청주시 흥덕구 가경동 1449",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-009",
+   "new_id": "cj-cheongju-009",
+   "mgmt_no": "284-2-000035",
+   "name": "견인차보관소",
+   "addr": "충청북도 청주시 청원구 각리 641-15",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-010",
+   "new_id": "cj-cheongju-010",
+   "mgmt_no": "271-2-000052",
+   "name": "가경서부지구",
+   "addr": "충청북도 청주시 흥덕구 강서동 577",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-011",
+   "new_id": "cj-cheongju-011",
+   "mgmt_no": "284-2-000024",
+   "name": "구룡공원주차장1",
+   "addr": "충청북도 청주시 청원구 구룡리 376-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-012",
+   "new_id": "cj-cheongju-012",
+   "mgmt_no": "270-2-000048",
+   "name": "공한지주차장(상당구 금천동 163-4)",
+   "addr": "충청북도 청주시 상당구 금천동 163-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-013",
+   "new_id": "cj-cheongju-013",
+   "mgmt_no": "270-2-000036",
+   "name": "팔각정공원주차장",
+   "addr": "충청북도 청주시 상당구 금천동 329",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-014",
+   "new_id": "cj-cheongju-014",
+   "mgmt_no": "283-2-000023",
+   "name": "양촌리 카풀주차장",
+   "addr": "충청북도 청주시 서원구 남이면 양촌리 262-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-015",
+   "new_id": "cj-cheongju-015",
+   "mgmt_no": "283-2-000022",
+   "name": "척산리공영주차장",
+   "addr": "충청북도 청주시 서원구 남이면 척산리 591-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-016",
+   "new_id": "cj-cheongju-016",
+   "mgmt_no": "271-2-000048",
+   "name": "공한지주차장(흥덕구 남촌동 62)",
+   "addr": "충청북도 청주시 흥덕구 남촌동 62",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-017",
+   "new_id": "cj-cheongju-017",
+   "mgmt_no": "284-2-000037",
+   "name": "공한지주차장(청원구 내덕동 392-14)",
+   "addr": "충청북도 청주시 청원구 내덕동 392-14",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-018",
+   "new_id": "cj-cheongju-018",
+   "mgmt_no": "284-2-000041",
+   "name": "공한지주차장(청원구 내덕동 528-5)",
+   "addr": "충청북도 청주시 청원구 내덕동 528-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-019",
+   "new_id": "cj-cheongju-019",
+   "mgmt_no": "284-2-000005",
+   "name": "공한지주차장(청원구 내덕동 595-22)",
+   "addr": "충청북도 청주시 청원구 내덕동 595-22",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-020",
+   "new_id": "cj-cheongju-021",
+   "mgmt_no": "284-2-000007",
+   "name": "내덕동공영주차장",
+   "addr": "충청북도 청주시 청원구 내덕동 406-12",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-021",
+   "new_id": "cj-cheongju-022",
+   "mgmt_no": "284-3-000002",
+   "name": "덕벌나눔허브센터",
+   "addr": "충청북도 청주시 청원구 내덕동 173-9",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-022",
+   "new_id": "cj-cheongju-023",
+   "mgmt_no": "284-2-000045",
+   "name": "밤고개 자연시장 주차장",
+   "addr": "충청북도 청주시 청원구 내덕동 393-30",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-023",
+   "new_id": "cj-cheongju-024",
+   "mgmt_no": "284-2-000006",
+   "name": "시민주차장",
+   "addr": "충청북도 청주시 청원구 내덕동 845",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-024",
+   "new_id": "cj-cheongju-025",
+   "mgmt_no": "284-3-000003",
+   "name": "청주도시첨단문화산업단지 복합 공영주차장",
+   "addr": "충청북도 청주시 청원구 상당로 314",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-025",
+   "new_id": "cj-cheongju-026",
+   "mgmt_no": "284-2-000012",
+   "name": "내수리재래시장주차장",
+   "addr": "충청북도 청주시 청원구 내수리 36-11",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-026",
+   "new_id": "cj-cheongju-027",
+   "mgmt_no": "284-2-000017",
+   "name": "마을공동주차장",
+   "addr": "충청북도 청주시 청원구 내추리 347",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-027",
+   "new_id": "cj-cheongju-028",
+   "mgmt_no": "284-2-000016",
+   "name": "북이면문화마을 내",
+   "addr": "충청북도 청주시 청원구 내추리 347",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-028",
+   "new_id": "cj-cheongju-029",
+   "mgmt_no": "270-2-000034",
+   "name": "공한지주차장(상당구 대성동 121-2)",
+   "addr": "충청북도 청주시 상당구 대성동 121-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-029",
+   "new_id": "cj-cheongju-030",
+   "mgmt_no": "270-2-000033",
+   "name": "대성동 공영주차장",
+   "addr": "충청북도 청주시 상당구 대성동 122-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-030",
+   "new_id": "cj-cheongju-031",
+   "mgmt_no": "270-2-000032",
+   "name": "동부배수지",
+   "addr": "충청북도 청주시 상당구 대성동 150",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-031",
+   "new_id": "cj-cheongju-032",
+   "mgmt_no": "284-2-000014",
+   "name": "내수초 뒤",
+   "addr": "충청북도 청주시 청원구 마산리 159-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-032",
+   "new_id": "cj-cheongju-033",
+   "mgmt_no": "284-2-000015",
+   "name": "내수초교앞주차장",
+   "addr": "충청북도 청주시 청원구 마산리 165-64",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-033",
+   "new_id": "cj-cheongju-035",
+   "mgmt_no": "271-2-000039",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 799)",
+   "addr": "충청북도 청주시 흥덕구 오송옵 만수리 799",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-034",
+   "new_id": "cj-cheongju-036",
+   "mgmt_no": "271-2-000038",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 821)",
+   "addr": "충청북도 청주시 흥덕구 오송옵 만수리 821",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-035",
+   "new_id": "cj-cheongju-037",
+   "mgmt_no": "270-2-000027",
+   "name": "명암유원지(상당구 명암동 103-4)",
+   "addr": "충청북도 청주시 상당구 명암동 103-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-036",
+   "new_id": "cj-cheongju-038",
+   "mgmt_no": "270-2-000026",
+   "name": "명암유원지(상당구 명암동 155-6)",
+   "addr": "충청북도 청주시 상당구 명암동 155-6",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-037",
+   "new_id": "cj-cheongju-039",
+   "mgmt_no": "283-2-000024",
+   "name": "공한지주차장(서원구 모충동 133-24)",
+   "addr": "충청북도 청주시 서원구 모충동 133-24",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-038",
+   "new_id": "cj-cheongju-040",
+   "mgmt_no": "283-2-000002",
+   "name": "모충동공영주차장",
+   "addr": "충청북도 청주시 서원구 모충동 125-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-039",
+   "new_id": "cj-cheongju-041",
+   "mgmt_no": "271-2-000001",
+   "name": "문암생태공원 주차장",
+   "addr": "충청북도 청주시 흥덕구 문암동 100",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-040",
+   "new_id": "cj-cheongju-042",
+   "mgmt_no": "270-2-000045",
+   "name": "재래시장",
+   "addr": "충청북도 청주시 상당구 미원면 미원리 433-9",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-041",
+   "new_id": "cj-cheongju-043",
+   "mgmt_no": "270-2-000046",
+   "name": "하상주차장",
+   "addr": "충청북도 청주시 상당구 미원면 미원리 518-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-042",
+   "new_id": "cj-cheongju-044",
+   "mgmt_no": "283-2-000019",
+   "name": "청주여자교도소",
+   "addr": "충청북도 청주시 서원구 미평동 142-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-043",
+   "new_id": "cj-cheongju-045",
+   "mgmt_no": "271-2-000028",
+   "name": "공영주차장(흥덕구 복대동 2249)",
+   "addr": "충청북도 청주시 흥덕구 복대동 2249",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-044",
+   "new_id": "cj-cheongju-046",
+   "mgmt_no": "271-2-000055",
+   "name": "공한지주차장(흥덕구 복대동 2229)",
+   "addr": "충청북도 청주시 흥덕구 복대동 2229",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-045",
+   "new_id": "cj-cheongju-047",
+   "mgmt_no": "271-2-000051",
+   "name": "공한지주차장(흥덕구 복대동 288-128)",
+   "addr": "충청북도 청주시 흥덕구 복대동 288-128",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-046",
+   "new_id": "cj-cheongju-048",
+   "mgmt_no": "271-2-000030",
+   "name": "공한지주차장(흥덕구 복대동 288-8)",
+   "addr": "충청북도 청주시 흥덕구 복대동 288-8",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-047",
+   "new_id": "cj-cheongju-049",
+   "mgmt_no": "271-2-000003",
+   "name": "대농3지구",
+   "addr": "충청북도 청주시 흥덕구 복대동 3392",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-048",
+   "new_id": "cj-cheongju-050",
+   "mgmt_no": "271-2-000004",
+   "name": "복대가경시장",
+   "addr": "충청북도 청주시 흥덕구 복대동 1102",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-049",
+   "new_id": "cj-cheongju-051",
+   "mgmt_no": "271-2-000002",
+   "name": "하복대근린공원 주차장",
+   "addr": "충청북도 청주시 흥덕구 복대동 3388",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-050",
+   "new_id": "cj-cheongju-052",
+   "mgmt_no": "271-2-000062",
+   "name": "하복대지구 노외주차장",
+   "addr": "충청북도 청주시 흥덕구 복대동 3153",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-051",
+   "new_id": "cj-cheongju-053",
+   "mgmt_no": "271-2-000007",
+   "name": "공영주차장(흥덕구 봉명동 1491)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 1491",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-052",
+   "new_id": "cj-cheongju-054",
+   "mgmt_no": "271-2-000029",
+   "name": "공영주차장(흥덕구 봉명동 204-13)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 204-13",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-053",
+   "new_id": "cj-cheongju-055",
+   "mgmt_no": "271-2-000047",
+   "name": "공한지주차장(흥덕구 봉명동 213-20)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 213-20",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-054",
+   "new_id": "cj-cheongju-056",
+   "mgmt_no": "271-2-000041",
+   "name": "공한지주차장(흥덕구 봉명동 668-1)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 668-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-055",
+   "new_id": "cj-cheongju-057",
+   "mgmt_no": "271-2-000012",
+   "name": "노외주차장(흥덕구 봉명동 2666)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 2666",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-056",
+   "new_id": "cj-cheongju-058",
+   "mgmt_no": "271-3-000001",
+   "name": "도매시장",
+   "addr": "충청북도 청주시 흥덕구 봉명동 89-9",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-057",
+   "new_id": "cj-cheongju-059",
+   "mgmt_no": "271-2-000060",
+   "name": "봉명동 498-7번지 일원 노외주차장",
+   "addr": "충청북도 청주시 흥덕구 봉명동 498-7",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-058",
+   "new_id": "cj-cheongju-060",
+   "mgmt_no": "271-2-000058",
+   "name": "봉명동 967번지 일원 노외주차장",
+   "addr": "충청북도 청주시 흥덕구 봉명동 967",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-059",
+   "new_id": "cj-cheongju-061",
+   "mgmt_no": "271-2-000059",
+   "name": "봉명동 노외주차장",
+   "addr": "충청북도 청주시 흥덕구 봉명동 2171",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-060",
+   "new_id": "cj-cheongju-062",
+   "mgmt_no": "271-2-000008",
+   "name": "봉명동주차장(흥덕구 봉명동 1414)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 1414",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-061",
+   "new_id": "cj-cheongju-063",
+   "mgmt_no": "271-2-000009",
+   "name": "봉명동주차장(흥덕구 봉명동 565)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 565",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-062",
+   "new_id": "cj-cheongju-064",
+   "mgmt_no": "271-2-000010",
+   "name": "봉명동주차장(흥덕구 봉명동 853-1)",
+   "addr": "충청북도 청주시 흥덕구 봉명동 853-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-063",
+   "new_id": "cj-cheongju-065",
+   "mgmt_no": "271-2-000063",
+   "name": "직지시장 주차장",
+   "addr": "충청북도 청주시 흥덕구 봉명동 472-12",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-064",
+   "new_id": "cj-cheongju-066",
+   "mgmt_no": "271-2-000027",
+   "name": "공한지주차장(흥덕구 비하동 59-5)",
+   "addr": "충청북도 청주시 흥덕구 비하동 59-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-065",
+   "new_id": "cj-cheongju-067",
+   "mgmt_no": "271-2-000002",
+   "name": "공한지주차장(흥덕구 비하동 686-10)",
+   "addr": "충청북도 청주시 흥덕구 비하동 686-10",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-066",
+   "new_id": "cj-cheongju-068",
+   "mgmt_no": "283-2-000013",
+   "name": "공한지 무료주차장",
+   "addr": "충청북도 청주시 서원구 사직동 688-19",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-067",
+   "new_id": "cj-cheongju-070",
+   "mgmt_no": "283-2-000006",
+   "name": "공한지주차장(서원구 사직동 223-13)",
+   "addr": "충청북도 청주시 서원구 사직동 223-13",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-068",
+   "new_id": "cj-cheongju-071",
+   "mgmt_no": "283-2-000004",
+   "name": "공한지주차장(서원구 사직동 549-1)",
+   "addr": "충청북도 청주시 서원구 사직동 549-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-069",
+   "new_id": "cj-cheongju-072",
+   "mgmt_no": "283-2-000010",
+   "name": "공한지주차장(서원구 사직동 690)",
+   "addr": "충청북도 청주시 서원구 사직동 690",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-070",
+   "new_id": "cj-cheongju-073",
+   "mgmt_no": "283-2-000009",
+   "name": "공한지주차장(서원구 사직동 691-3)",
+   "addr": "충청북도 청주시 서원구 사직동 691-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-071",
+   "new_id": "cj-cheongju-074",
+   "mgmt_no": "283-2-000008",
+   "name": "공한지주차장(서원구 사직동 829-1)",
+   "addr": "충청북도 청주시 서원구 사직동 829-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-072",
+   "new_id": "cj-cheongju-075",
+   "mgmt_no": "283-2-000011",
+   "name": "사직동935주차장",
+   "addr": "충청북도 청주시 서원구 사직동 935",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-073",
+   "new_id": "cj-cheongju-076",
+   "mgmt_no": "283-2-000012",
+   "name": "사직동공영주차장",
+   "addr": "충청북도 청주시 서원구 사직동 930",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-074",
+   "new_id": "cj-cheongju-077",
+   "mgmt_no": "283-2-000029",
+   "name": "사직시장 주차장",
+   "addr": "충청북도 청주시 서원구 사직동 558-38",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-075",
+   "new_id": "cj-cheongju-078",
+   "mgmt_no": "283-3-000002",
+   "name": "청주체육관주차장",
+   "addr": "충청북도 청주시 서원구 사직동 888-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-076",
+   "new_id": "cj-cheongju-079",
+   "mgmt_no": "283-3-000001",
+   "name": "체육시설전용주차장",
+   "addr": "충청북도 청주시 서원구 사직동 880",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-077",
+   "new_id": "cj-cheongju-080",
+   "mgmt_no": "283-2-000015",
+   "name": "공영주차장(서원구 사창동 250-34)",
+   "addr": "충청북도 청주시 서원구 사창동 250-34",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-078",
+   "new_id": "cj-cheongju-081",
+   "mgmt_no": "283-2-000016",
+   "name": "공영주차장(서원구 사창동 356-21)",
+   "addr": "충청북도 청주시 서원구 사창동 356-21",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-079",
+   "new_id": "cj-cheongju-082",
+   "mgmt_no": "283-2-000026",
+   "name": "공한지주차장(서원구 사창동 130-10)",
+   "addr": "충청북도 청주시 서원구 사창동 130-10",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-080",
+   "new_id": "cj-cheongju-083",
+   "mgmt_no": "283-2-000025",
+   "name": "공한지주차장(서원구 사창동 316-11)",
+   "addr": "충청북도 청주시 서원구 사창동 316-11",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-081",
+   "new_id": "cj-cheongju-084",
+   "mgmt_no": "283-2-000014",
+   "name": "사창동공영주차장",
+   "addr": "충청북도 청주시 서원구 사창동 131-13",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-082",
+   "new_id": "cj-cheongju-085",
+   "mgmt_no": "283-2-000030",
+   "name": "사창시장 주차장",
+   "addr": "충청북도 청주시 서원구 사창동 290-6",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-083",
+   "new_id": "cj-cheongju-086",
+   "mgmt_no": "284-2-000031",
+   "name": "공한지주차장(청원구 사천동 109-5)",
+   "addr": "충청북도 청주시 청원구 사천동 109-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-084",
+   "new_id": "cj-cheongju-087",
+   "mgmt_no": "284-2-000032",
+   "name": "공한지주차장(청원구 사천동 407-2)",
+   "addr": "충청북도 청주시 청원구 사천동 407-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-085",
+   "new_id": "cj-cheongju-088",
+   "mgmt_no": "283-2-000017",
+   "name": "공한지주차장(서원구 산남동 632)",
+   "addr": "충청북도 청주시 서원구 산남동 632",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-086",
+   "new_id": "cj-cheongju-089",
+   "mgmt_no": "283-2-000018",
+   "name": "공한지주차장(서원구 산남동 664)",
+   "addr": "충청북도 청주시 서원구 산남동 664",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-087",
+   "new_id": "cj-cheongju-090",
+   "mgmt_no": "270-2-000021",
+   "name": "공영주차장(상당구 산성동 105-4)",
+   "addr": "충청북도 청주시 상당구 산성동 105-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-088",
+   "new_id": "cj-cheongju-091",
+   "mgmt_no": "270-2-000018",
+   "name": "공영주차장(상당구 산성동 181)",
+   "addr": "충청북도 청주시 상당구 산성동 181",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-089",
+   "new_id": "cj-cheongju-092",
+   "mgmt_no": "270-2-000019",
+   "name": "산성 한옥마을입구",
+   "addr": "충청북도 청주시 상당구 산성동 172",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-090",
+   "new_id": "cj-cheongju-093",
+   "mgmt_no": "270-2-000017",
+   "name": "상당산성 남문 소형",
+   "addr": "충청북도 청주시 상당구 산성동 180",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-091",
+   "new_id": "cj-cheongju-094",
+   "mgmt_no": "270-2-000022",
+   "name": "상당산성1",
+   "addr": "충청북도 청주시 상당구 산성동 87",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-092",
+   "new_id": "cj-cheongju-095",
+   "mgmt_no": "270-2-000024",
+   "name": "상당산성2",
+   "addr": "충청북도 청주시 상당구 산성동 162",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-093",
+   "new_id": "cj-cheongju-096",
+   "mgmt_no": "270-2-000023",
+   "name": "상당산성3",
+   "addr": "충청북도 청주시 상당구 산성동 163",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-094",
+   "new_id": "cj-cheongju-097",
+   "mgmt_no": "270-2-000020",
+   "name": "상당산성4",
+   "addr": "충청북도 청주시 상당구 산성동 48-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-095",
+   "new_id": "cj-cheongju-098",
+   "mgmt_no": "271-2-000023",
+   "name": "공영주차장(흥덕구 오송옵 상정리 686)",
+   "addr": "충청북도 청주시 흥덕구 오송옵 상정리 686",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-096",
+   "new_id": "cj-cheongju-099",
+   "mgmt_no": "270-2-000053",
+   "name": "서문시장 주차장",
+   "addr": "충청북도 청주시 상당구 서문동 166-12",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-097",
+   "new_id": "cj-cheongju-100",
+   "mgmt_no": "270-2-000054",
+   "name": "성안길 상점가 주차장",
+   "addr": "충청북도 청주시 상당구 서문동 109-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-098",
+   "new_id": "cj-cheongju-101",
+   "mgmt_no": "270-2-000028",
+   "name": "공한지주차장(상당구 서운동 1-1)",
+   "addr": "충청북도 청주시 상당구 서운동 1-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-099",
+   "new_id": "cj-cheongju-102",
+   "mgmt_no": "270-2-000031",
+   "name": "공한지주차장(상당구 석교동 434)",
+   "addr": "충청북도 청주시 상당구 석교동 434",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-100",
+   "new_id": "cj-cheongju-103",
+   "mgmt_no": "270-2-000030",
+   "name": "육거리 제1주차장",
+   "addr": "충청북도 청주시 상당구 석교동 60-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-101",
+   "new_id": "cj-cheongju-104",
+   "mgmt_no": "270-2-000029",
+   "name": "육거리 제2주차장",
+   "addr": "충청북도 청주시 상당구 석교동 125-88",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-102",
+   "new_id": "cj-cheongju-105",
+   "mgmt_no": "270-2-000052",
+   "name": "육거리 제3주차장",
+   "addr": "충청북도 청주시 상당구 석교동 125-79",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-103",
+   "new_id": "cj-cheongju-106",
+   "mgmt_no": "284-2-000027",
+   "name": "미래지농촌테마공원 주차장(청원구 성산리 320번지)",
+   "addr": "충청북도 청주시 청원구 성산리 320번지",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-104",
+   "new_id": "cj-cheongju-107",
+   "mgmt_no": "283-2-000001",
+   "name": "공한지주차장(서원구 성화동 972)",
+   "addr": "충청북도 청주시 서원구 성화동 972",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-105",
+   "new_id": "cj-cheongju-108",
+   "mgmt_no": "271-2-000050",
+   "name": "공한지주차장(흥덕구 송절동 735)",
+   "addr": "충청북도 청주시 흥덕구 송절동 735",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-106",
+   "new_id": "cj-cheongju-109",
+   "mgmt_no": "271-2-000006",
+   "name": "솔밭공원",
+   "addr": "충청북도 청주시 흥덕구 송정동 314",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-107",
+   "new_id": "cj-cheongju-110",
+   "mgmt_no": "283-2-000020",
+   "name": "공한지주차장(서원구 수곡동 39-3)",
+   "addr": "충청북도 청주시 서원구 수곡동 39-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-108",
+   "new_id": "cj-cheongju-111",
+   "mgmt_no": "283-2-000021",
+   "name": "공한지주차장(서원구 수곡동 39-5)",
+   "addr": "충청북도 청주시 서원구 수곡동 39-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-109",
+   "new_id": "cj-cheongju-112",
+   "mgmt_no": "283-2-000028",
+   "name": "수곡동 공한지주차장",
+   "addr": "충청북도 청주시 서원구 수곡동 61-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-110",
+   "new_id": "cj-cheongju-113",
+   "mgmt_no": "283-2-000027",
+   "name": "수곡지구 우수저류시설",
+   "addr": "충청북도 청주시 서원구 수곡동 84-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-111",
+   "new_id": "cj-cheongju-114",
+   "mgmt_no": "270-2-000050",
+   "name": "공한지주차장(상당구 수동 81-245)",
+   "addr": "충청북도 청주시 상당구 수동 81-245",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-112",
+   "new_id": "cj-cheongju-115",
+   "mgmt_no": "270-2-000013",
+   "name": "삼일공원주차장",
+   "addr": "충청북도 청주시 상당구 수동 159-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-113",
+   "new_id": "cj-cheongju-116",
+   "mgmt_no": "270-2-000009",
+   "name": "수암골1",
+   "addr": "충청북도 청주시 상당구 수동 112-60",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-114",
+   "new_id": "cj-cheongju-117",
+   "mgmt_no": "270-2-000007",
+   "name": "수암골2",
+   "addr": "충청북도 청주시 상당구 수동 81-153",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-115",
+   "new_id": "cj-cheongju-118",
+   "mgmt_no": "270-2-000006",
+   "name": "수암골3",
+   "addr": "충청북도 청주시 상당구 수동 81-146",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-116",
+   "new_id": "cj-cheongju-119",
+   "mgmt_no": "270-2-000012",
+   "name": "수암골4",
+   "addr": "충청북도 청주시 상당구 수동 115-7",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-117",
+   "new_id": "cj-cheongju-120",
+   "mgmt_no": "270-2-000010",
+   "name": "수암골5",
+   "addr": "충청북도 청주시 상당구 수동 112-21",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-118",
+   "new_id": "cj-cheongju-121",
+   "mgmt_no": "270-2-000008",
+   "name": "수암골6",
+   "addr": "충청북도 청주시 상당구 수동 80-19",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-119",
+   "new_id": "cj-cheongju-122",
+   "mgmt_no": "270-2-000011",
+   "name": "수암골7",
+   "addr": "충청북도 청주시 상당구 수동 112-45",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-120",
+   "new_id": "cj-cheongju-123",
+   "mgmt_no": "271-2-000011",
+   "name": "노외주차장(흥덕구 신봉동 139-5)",
+   "addr": "충청북도 청주시 흥덕구 신봉동 139-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-121",
+   "new_id": "cj-cheongju-124",
+   "mgmt_no": "271-2-000032",
+   "name": "공한지주차장(도공)",
+   "addr": "충청북도 청주시 흥덕구 신성동 41-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-122",
+   "new_id": "cj-cheongju-125",
+   "mgmt_no": "284-2-000036",
+   "name": "공한지주차장(청원구 양청리 683-3)",
+   "addr": "충청북도 청주시 청원구 양청리 683-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-123",
+   "new_id": "cj-cheongju-126",
+   "mgmt_no": "284-2-000034",
+   "name": "공한지주차장(청원구 양청리 810-17)",
+   "addr": "충청북도 청주시 청원구 양청리 810-17",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-124",
+   "new_id": "cj-cheongju-127",
+   "mgmt_no": "284-2-000023",
+   "name": "오창호수공원",
+   "addr": "충청북도 청주시 청원구 양청리 753",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-125",
+   "new_id": "cj-cheongju-128",
+   "mgmt_no": "271-2-000031",
+   "name": "공한지주차장(흥덕구 연제리 836-1)",
+   "addr": "충청북도 청주시 흥덕구 연제리 836-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-126",
+   "new_id": "cj-cheongju-129",
+   "mgmt_no": "270-2-000002",
+   "name": "공영주차장(상당구 영동 10-3)",
+   "addr": "충청북도 청주시 상당구 영동 10-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-127",
+   "new_id": "cj-cheongju-130",
+   "mgmt_no": "270-2-000003",
+   "name": "공영주차장(상당구 영동 13-3)",
+   "addr": "충청북도 청주시 상당구 영동 13-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-128",
+   "new_id": "cj-cheongju-131",
+   "mgmt_no": "270-2-000004",
+   "name": "공한지주차장(상당구 영동 41-25)",
+   "addr": "충청북도 청주시 상당구 영동 41-25",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-129",
+   "new_id": "cj-cheongju-132",
+   "mgmt_no": "270-3-000001",
+   "name": "도시재생허브센터 지하주차장",
+   "addr": "충청북도 청주시 상당구 북문로2가 113-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-130",
+   "new_id": "cj-cheongju-133",
+   "mgmt_no": "270-2-000005",
+   "name": "일진주차장",
+   "addr": "충청북도 청주시 상당구 북문로3가 65-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-131",
+   "new_id": "cj-cheongju-134",
+   "mgmt_no": "270-3-000002",
+   "name": "청주역사전시관 지하주차장",
+   "addr": "충청북도 청주시 상당구 북문로2가 113-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-132",
+   "new_id": "cj-cheongju-135",
+   "mgmt_no": "270-2-000037",
+   "name": "공영무료주차장",
+   "addr": "충청북도 청주시 상당구 영운동 112-27",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-133",
+   "new_id": "cj-cheongju-136",
+   "mgmt_no": "270-3-000003",
+   "name": "어울림센터",
+   "addr": "충청북도 청주시 상당구 영운동 163",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-134",
+   "new_id": "cj-cheongju-137",
+   "mgmt_no": "270-2-000038",
+   "name": "영운동주차장",
+   "addr": "충청북도 청주시 상당구 영운동 88-11",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-135",
+   "new_id": "cj-cheongju-138",
+   "mgmt_no": "284-2-000029",
+   "name": "북부권 환승센터(카풀)",
+   "addr": "충청북도 청주시 청원구 오동동 21-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-136",
+   "new_id": "cj-cheongju-139",
+   "mgmt_no": "271-2-000016",
+   "name": "옥산면공영주차장",
+   "addr": "충청북도 청주시 흥덕구 오산리 204-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-137",
+   "new_id": "cj-cheongju-140",
+   "mgmt_no": "271-2-000025",
+   "name": "오송역A주차장",
+   "addr": "충청북도 청주시 흥덕구 오송옵 오송리 6-8",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-138",
+   "new_id": "cj-cheongju-141",
+   "mgmt_no": "271-2-000026",
+   "name": "오송역C주차장",
+   "addr": "충청북도 청주시 흥덕구 오송옵 오송리 6-8",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-139",
+   "new_id": "cj-cheongju-142",
+   "mgmt_no": "271-2-000022",
+   "name": "공영주차장(흥덕구 오송읍 오송리 143-20)",
+   "addr": "충청북도 청주시 흥덕구 오송읍 오송리 143-20",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-140",
+   "new_id": "cj-cheongju-143",
+   "mgmt_no": "271-2-000054",
+   "name": "공한지주차장(흥덕구 오송읍 봉산리 861)",
+   "addr": "충청북도 청주시 흥덕구 오송읍 봉산리 861",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-141",
+   "new_id": "cj-cheongju-144",
+   "mgmt_no": "271-2-000053",
+   "name": "쌍청리 공영주차장",
+   "addr": "충청북도 청주시 흥덕구 오송읍 쌍청리 108-10",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-142",
+   "new_id": "cj-cheongju-145",
+   "mgmt_no": "271-2-000056",
+   "name": "오송바이오폴리스 공한지주차장",
+   "addr": "충청북도 청주시 흥덕구 오송읍 봉산리 826",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-143",
+   "new_id": "cj-cheongju-146",
+   "mgmt_no": "271-2-000021",
+   "name": "공영1주차장",
+   "addr": "충청북도 청주시 흥덕구 옥산면 남촌리 1116-6",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-144",
+   "new_id": "cj-cheongju-147",
+   "mgmt_no": "271-2-000020",
+   "name": "공영2주차장",
+   "addr": "충청북도 청주시 흥덕구 옥산면 남촌리 1116-2",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-145",
+   "new_id": "cj-cheongju-148",
+   "mgmt_no": "271-2-000018",
+   "name": "금정아파트(흥덕구 옥산면 오산리 560)",
+   "addr": "충청북도 청주시 흥덕구 옥산면 오산리 560",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-146",
+   "new_id": "cj-cheongju-149",
+   "mgmt_no": "271-2-000017",
+   "name": "금정아파트(흥덕구 옥산면 오산리 561)",
+   "addr": "충청북도 청주시 흥덕구 옥산면 오산리 561",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-147",
+   "new_id": "cj-cheongju-150",
+   "mgmt_no": "271-2-000019",
+   "name": "금정아파트(흥덕구 옥산면 오산리 730)",
+   "addr": "충청북도 청주시 흥덕구 옥산면 오산리 730",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-148",
+   "new_id": "cj-cheongju-151",
+   "mgmt_no": "271-2-000045",
+   "name": "옥산리버파크자이",
+   "addr": "충청북도 청주시 흥덕구 옥산면가락리 969",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-149",
+   "new_id": "cj-cheongju-152",
+   "mgmt_no": "284-2-000001",
+   "name": "오근장역",
+   "addr": "충청북도 청주시 청원구 외남동 241-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-150",
+   "new_id": "cj-cheongju-153",
+   "mgmt_no": "271-2-000046",
+   "name": "공한지주차장(흥덕구 외북동 308)",
+   "addr": "충청북도 청주시 흥덕구 외북동 308",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-151",
+   "new_id": "cj-cheongju-154",
+   "mgmt_no": "270-2-000014",
+   "name": "공영주차장(상당구 용담동 174-4)",
+   "addr": "충청북도 청주시 상당구 용담동 174-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-152",
+   "new_id": "cj-cheongju-155",
+   "mgmt_no": "270-2-000047",
+   "name": "공한지주차장(상당구 용담동 156-108)",
+   "addr": "충청북도 청주시 상당구 용담동 156-108",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-153",
+   "new_id": "cj-cheongju-156",
+   "mgmt_no": "270-2-000025",
+   "name": "명암유원지(상당구 용담동 272)",
+   "addr": "충청북도 청주시 상당구 용담동 272",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-154",
+   "new_id": "cj-cheongju-157",
+   "mgmt_no": "270-2-000016",
+   "name": "명암유원지쉼터광장",
+   "addr": "충청북도 청주시 상당구 용담동 460",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-155",
+   "new_id": "cj-cheongju-158",
+   "mgmt_no": "270-2-000015",
+   "name": "명암유원지주차장",
+   "addr": "충청북도 청주시 상당구 용담동 324-87",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-156",
+   "new_id": "cj-cheongju-159",
+   "mgmt_no": "284-2-000025",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 15-13번지)",
+   "addr": "충청북도 청주시 청원구 용두리 15-13번지",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-157",
+   "new_id": "cj-cheongju-160",
+   "mgmt_no": "284-2-000028",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 15-2번지)",
+   "addr": "충청북도 청주시 청원구 용두리 15-2번지",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-158",
+   "new_id": "cj-cheongju-161",
+   "mgmt_no": "284-2-000026",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 1번지)",
+   "addr": "충청북도 청주시 청원구 용두리 1번지",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-159",
+   "new_id": "cj-cheongju-162",
+   "mgmt_no": "270-2-000041",
+   "name": "공한지무료주차장",
+   "addr": "충청북도 청주시 상당구 용암동 2645",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-160",
+   "new_id": "cj-cheongju-163",
+   "mgmt_no": "270-2-000040",
+   "name": "공한지주차장(상당구 용암동 2569)",
+   "addr": "충청북도 청주시 상당구 용암동 2569",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-161",
+   "new_id": "cj-cheongju-164",
+   "mgmt_no": "270-2-000049",
+   "name": "공한지주차장(상당구 용암동 3398)",
+   "addr": "충청북도 청주시 상당구 용암동 3398",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-162",
+   "new_id": "cj-cheongju-165",
+   "mgmt_no": "270-2-000039",
+   "name": "공영주차장(상당구 용정동 1226)",
+   "addr": "충청북도 청주시 상당구 용정동 1226",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-163",
+   "new_id": "cj-cheongju-166",
+   "mgmt_no": "270-2-000042",
+   "name": "공한지주차장(상당구 용정동 915)",
+   "addr": "충청북도 청주시 상당구 용정동 915",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-164",
+   "new_id": "cj-cheongju-167",
+   "mgmt_no": "284-2-000008",
+   "name": "공영주차장(청원구 우암동 410-3)",
+   "addr": "충청북도 청주시 청원구 우암동 410-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-165",
+   "new_id": "cj-cheongju-168",
+   "mgmt_no": "270-2-000001",
+   "name": "공한지주차장(상당구 우암동 370-24)",
+   "addr": "충청북도 청주시 상당구 우암동 370-24",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-166",
+   "new_id": "cj-cheongju-169",
+   "mgmt_no": "284-2-000039",
+   "name": "공한지주차장(청원구 우암동 325-9)",
+   "addr": "충청북도 청주시 청원구 우암동 325-9",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-167",
+   "new_id": "cj-cheongju-170",
+   "mgmt_no": "284-2-000009",
+   "name": "공한지주차장(청원구 우암동 390-6)",
+   "addr": "충청북도 청주시 청원구 우암동 390-6",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-168",
+   "new_id": "cj-cheongju-171",
+   "mgmt_no": "284-2-000010",
+   "name": "북부시장 주차장",
+   "addr": "충청북도 청주시 청원구 우암동 347-7",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-169",
+   "new_id": "cj-cheongju-172",
+   "mgmt_no": "284-2-000044",
+   "name": "북부시장 주차장(주차타워)",
+   "addr": "충청북도 청주시 청원구 우암동 347-1",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-170",
+   "new_id": "cj-cheongju-173",
+   "mgmt_no": "284-2-000011",
+   "name": "북부시장주차장",
+   "addr": "충청북도 청주시 청원구 우암동 344-10",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-171",
+   "new_id": "cj-cheongju-174",
+   "mgmt_no": "284-2-000043",
+   "name": "새싹어린이공원 지하주차장",
+   "addr": "충청북도 청주시 청원구 우암동 360",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-172",
+   "new_id": "cj-cheongju-175",
+   "mgmt_no": "284-3-000001",
+   "name": "청춘허브센터",
+   "addr": "충청북도 청주시 청원구 우암동 1213",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-173",
+   "new_id": "cj-cheongju-176",
+   "mgmt_no": "271-2-000015",
+   "name": "공영주차장(흥덕구 운천동 1073)",
+   "addr": "충청북도 청주시 흥덕구 운천동 1073",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-174",
+   "new_id": "cj-cheongju-177",
+   "mgmt_no": "271-2-000042",
+   "name": "공한지주차장(흥덕구 운천동 761)",
+   "addr": "충청북도 청주시 흥덕구 운천동 761",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-175",
+   "new_id": "cj-cheongju-178",
+   "mgmt_no": "271-2-000057",
+   "name": "운천동 1394번지 일원 노외주차장",
+   "addr": "충청북도 청주시 흥덕구 운천동 1394",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-176",
+   "new_id": "cj-cheongju-179",
+   "mgmt_no": "271-2-000013",
+   "name": "운천동 주차장",
+   "addr": "충청북도 청주시 흥덕구 운천동 1409",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-177",
+   "new_id": "cj-cheongju-180",
+   "mgmt_no": "271-2-000014",
+   "name": "청주 고인쇄박물관",
+   "addr": "충청북도 청주시 흥덕구 운천동 522-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-178",
+   "new_id": "cj-cheongju-181",
+   "mgmt_no": "270-2-000043",
+   "name": "공영주차장(상당구 월오동 93)",
+   "addr": "충청북도 청주시 상당구 월오동 93",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-179",
+   "new_id": "cj-cheongju-182",
+   "mgmt_no": "284-2-000004",
+   "name": "공원주차장",
+   "addr": "충청북도 청주시 청원구 율량동 2237",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-180",
+   "new_id": "cj-cheongju-183",
+   "mgmt_no": "284-2-000030",
+   "name": "공한지주차장(청원구 율량동 1671)",
+   "addr": "충청북도 청주시 청원구 율량동 1671",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-181",
+   "new_id": "cj-cheongju-184",
+   "mgmt_no": "284-2-000042",
+   "name": "율량주차타워",
+   "addr": "충청북도 청주시 청원구 율량동 2177",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-182",
+   "new_id": "cj-cheongju-185",
+   "mgmt_no": "284-2-000022",
+   "name": "공영주차장(청원구 장대리 183-28)",
+   "addr": "충청북도 청주시 청원구 장대리 183-28",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-183",
+   "new_id": "cj-cheongju-186",
+   "mgmt_no": "284-2-000020",
+   "name": "공영주차장(청원구 장대리 429-4)",
+   "addr": "충청북도 청주시 청원구 장대리 429-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-184",
+   "new_id": "cj-cheongju-187",
+   "mgmt_no": "284-2-000019",
+   "name": "농협하나로마트인근",
+   "addr": "충청북도 청주시 청원구 장대리 281-28",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-185",
+   "new_id": "cj-cheongju-188",
+   "mgmt_no": "284-2-000021",
+   "name": "대농마트앞",
+   "addr": "충청북도 청주시 청원구 장대리 429-8",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-186",
+   "new_id": "cj-cheongju-189",
+   "mgmt_no": "270-2-000044",
+   "name": "카풀주차장",
+   "addr": "충청북도 청주시 상당구 지북동산5-5",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-187",
+   "new_id": "cj-cheongju-190",
+   "mgmt_no": "271-2-000024",
+   "name": "조천하상주차장",
+   "addr": "충청북도 청주시 흥덕구 오송옵 정중리 554",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-188",
+   "new_id": "cj-cheongju-191",
+   "mgmt_no": "284-2-000038",
+   "name": "공한지주차장(청원구 정하동 35-3)",
+   "addr": "충청북도 청주시 청원구 정하동 35-3",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-189",
+   "new_id": "cj-cheongju-192",
+   "mgmt_no": "284-2-000002",
+   "name": "백화산등산로입구",
+   "addr": "충청북도 청주시 청원구 주성동 124-23",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-190",
+   "new_id": "cj-cheongju-193",
+   "mgmt_no": "284-2-000003",
+   "name": "수름재카풀주차장",
+   "addr": "충청북도 청주시 청원구 주성동 164-48",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-191",
+   "new_id": "cj-cheongju-194",
+   "mgmt_no": "284-2-000033",
+   "name": "공한지주차장(청원구 주성리 575)",
+   "addr": "충청북도 청주시 청원구 주성리 575",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-192",
+   "new_id": "cj-cheongju-195",
+   "mgmt_no": "271-2-000036",
+   "name": "서청주ic만남의광장",
+   "addr": "충청북도 청주시 흥덕구 지동동 390-4",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-193",
+   "new_id": "cj-cheongju-196",
+   "mgmt_no": "270-2-000051",
+   "name": "공한지주차장(상당구 탑동 6-19)",
+   "addr": "충청북도 청주시 상당구 탑동 6-19",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-194",
+   "new_id": "cj-cheongju-197",
+   "mgmt_no": "270-2-000035",
+   "name": "탑동1구역주차장",
+   "addr": "충청북도 청주시 상당구 탑동 347",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-195",
+   "new_id": "cj-cheongju-198",
+   "mgmt_no": "284-2-000013",
+   "name": "내수초교직원주차장",
+   "addr": "충청북도 청주시 청원구 학평리 140-10",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-196",
+   "new_id": "cj-cheongju-199",
+   "mgmt_no": "271-2-000005",
+   "name": "공영주차장(흥덕구 장구봉로137번길 67)",
+   "addr": "충청북도 청주시 흥덕구 장구봉로137번길 67",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-197",
+   "new_id": "cj-cheongju-200",
+   "mgmt_no": "284-2-000018",
+   "name": "오창시장주차장",
+   "addr": "충청북도 청주시 청원구 팔결로 712",
+   "mode": "card"
+  },
+  {
+   "old_id": "cj-cheongju-s001",
+   "new_id": "cj-cheongju-s001",
+   "mgmt_no": "271-1-000005",
+   "name": "KT가경지사부근",
+   "addr": "충청북도 청주시 흥덕구 가경로 161번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s002",
+   "new_id": "cj-cheongju-s002",
+   "mgmt_no": "271-1-000004",
+   "name": "가경동행정복지센터",
+   "addr": "충청북도 청주시 흥덕구 풍년로 180번길 25-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s003",
+   "new_id": "cj-cheongju-s003",
+   "mgmt_no": "271-1-000007",
+   "name": "가경레저타운근처",
+   "addr": "충청북도 청주시 흥덕구 풍산로 34번길 11",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s004",
+   "new_id": "cj-cheongju-s004",
+   "mgmt_no": "271-1-000090",
+   "name": "가경터미널시장주차장(노상 20면)",
+   "addr": "충청북도 청주시 흥덕구 가경동 1286",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s005",
+   "new_id": "cj-cheongju-s005",
+   "mgmt_no": "271-1-000089",
+   "name": "경덕중학교",
+   "addr": "충청북도 청주시 흥덕구 가경동 1540",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s006",
+   "new_id": "cj-cheongju-s006",
+   "mgmt_no": "271-1-000002",
+   "name": "삼천리자전거",
+   "addr": "충청북도 청주시 흥덕구 풍년로 206번길 24-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s007",
+   "new_id": "cj-cheongju-s007",
+   "mgmt_no": "271-1-000006",
+   "name": "장충동뚱뚱이족발",
+   "addr": "충청북도 청주시 흥덕구 풍산로 47번길 61",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s008",
+   "new_id": "cj-cheongju-s008",
+   "mgmt_no": "271-1-000001",
+   "name": "초정한우부근",
+   "addr": "충청북도 청주시 흥덕구 풍년로 206번길 24-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s009",
+   "new_id": "cj-cheongju-s009",
+   "mgmt_no": "271-1-000003",
+   "name": "풍년골공원부근",
+   "addr": "충청북도 청주시 흥덕구 풍년로 194번길 35",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s010",
+   "new_id": "cj-cheongju-s010",
+   "mgmt_no": "271-1-000008",
+   "name": "풍년로(발산공원)",
+   "addr": "충청북도 청주시 흥덕구 풍년로 142번길 29",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s011",
+   "new_id": "cj-cheongju-s011",
+   "mgmt_no": "271-1-000091",
+   "name": "강서지구 노상주차장",
+   "addr": "충청북도 청주시 흥덕구 강서동 539",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s012",
+   "new_id": "cj-cheongju-s012",
+   "mgmt_no": "283-1-000031",
+   "name": "공영주차장(노상 40면)",
+   "addr": "충청북도 청주시 서원구 구룡산로 431번길 91",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s013",
+   "new_id": "cj-cheongju-s013",
+   "mgmt_no": "270-1-000023",
+   "name": "금천동 효성병원 앞",
+   "addr": "충청북도 청주시 상당구 쇠내로 16",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s014",
+   "new_id": "cj-cheongju-s014",
+   "mgmt_no": "283-1-000032",
+   "name": "무심천(모충동 103)",
+   "addr": "충청북도 청주시 서원구 구룡산로 431번길 53",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s015",
+   "new_id": "cj-cheongju-s015",
+   "mgmt_no": "284-1-000016",
+   "name": "그린환경부근",
+   "addr": "충청북도 청주시 청원구 새터로111번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s016",
+   "new_id": "cj-cheongju-s016",
+   "mgmt_no": "284-1-000025",
+   "name": "금호전기모터부근",
+   "addr": "충청북도 청주시 청원구 새터로 63",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s017",
+   "new_id": "cj-cheongju-s017",
+   "mgmt_no": "284-1-000037",
+   "name": "대암사부근",
+   "addr": "충청북도 청주시 청원구 1순환로225번길 44",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s018",
+   "new_id": "cj-cheongju-s018",
+   "mgmt_no": "284-1-000035",
+   "name": "대우불고기부근",
+   "addr": "충청북도 청주시 청원구 새터로 19-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s019",
+   "new_id": "cj-cheongju-s019",
+   "mgmt_no": "284-1-000040",
+   "name": "덕일연립부근",
+   "addr": "충청북도 청주시 청원구 공항로64번길 62",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s020",
+   "new_id": "cj-cheongju-s020",
+   "mgmt_no": "284-1-000009",
+   "name": "럭키율량아파트~진화하이츠아파트(노상 21면)",
+   "addr": "충청북도 청주시 청원구 율봉로 211",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s021",
+   "new_id": "cj-cheongju-s021",
+   "mgmt_no": "284-1-000010",
+   "name": "럭키율량아파트~진화하이츠아파트(노상 34면)",
+   "addr": "충청북도 청주시 청원구 충청대로139번길 37",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s022",
+   "new_id": "cj-cheongju-s023",
+   "mgmt_no": "284-1-000028",
+   "name": "미덕어린이공원부근",
+   "addr": "충청북도 청주시 청원구 내덕로17번길 6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s023",
+   "new_id": "cj-cheongju-s024",
+   "mgmt_no": "284-1-000008",
+   "name": "삼정2차아파트~공원",
+   "addr": "충청북도 청주시 청원구 공항로150번길 136",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s024",
+   "new_id": "cj-cheongju-s025",
+   "mgmt_no": "284-1-000045",
+   "name": "서울우유앞",
+   "addr": "충청북도 청주시 청원구 새터로111번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s025",
+   "new_id": "cj-cheongju-s026",
+   "mgmt_no": "284-1-000030",
+   "name": "슈어방수부근",
+   "addr": "충청북도 청주시 청원구 내덕로 33",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s026",
+   "new_id": "cj-cheongju-s027",
+   "mgmt_no": "284-1-000042",
+   "name": "아파트부근",
+   "addr": "충청북도 청주시 청원구 우암로 71-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s027",
+   "new_id": "cj-cheongju-s028",
+   "mgmt_no": "284-1-000026",
+   "name": "영보상사부근",
+   "addr": "충청북도 청주시 청원구 새터로 91",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s028",
+   "new_id": "cj-cheongju-s029",
+   "mgmt_no": "284-1-000027",
+   "name": "오색간판~학도령",
+   "addr": "충청북도 청주시 청원구 1순환로311번길 15",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s029",
+   "new_id": "cj-cheongju-s030",
+   "mgmt_no": "284-1-000034",
+   "name": "우리마트부근,미라클빌라부근",
+   "addr": "충청북도 청주시 청원구 우암로 71-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s030",
+   "new_id": "cj-cheongju-s031",
+   "mgmt_no": "284-1-000046",
+   "name": "우암로(노상 26면)",
+   "addr": "충청북도 청주시 청원구 우암로 71-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s031",
+   "new_id": "cj-cheongju-s032",
+   "mgmt_no": "284-1-000051",
+   "name": "우암로(노상 36면)",
+   "addr": "충청북도 청주시 청원구 우암로 71-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s032",
+   "new_id": "cj-cheongju-s033",
+   "mgmt_no": "284-1-000023",
+   "name": "육아종합지원센터",
+   "addr": "충청북도 청주시 청원구 내덕로 13-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s033",
+   "new_id": "cj-cheongju-s034",
+   "mgmt_no": "284-1-000022",
+   "name": "주택가쪽(노상 10면)",
+   "addr": "충청북도 청주시 청원구 향군로160번길 22",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s034",
+   "new_id": "cj-cheongju-s035",
+   "mgmt_no": "284-1-000044",
+   "name": "주택부근(노상 10면)",
+   "addr": "충청북도 청주시 청원구 새터로23번길 5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s035",
+   "new_id": "cj-cheongju-s036",
+   "mgmt_no": "284-1-000047",
+   "name": "주택부근(노상 34면)",
+   "addr": "충청북도 청주시 청원구 우암로 71-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s036",
+   "new_id": "cj-cheongju-s037",
+   "mgmt_no": "284-1-000038",
+   "name": "천주교회부근",
+   "addr": "충청북도 청주시 청원구 공항로13번길 2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s037",
+   "new_id": "cj-cheongju-s038",
+   "mgmt_no": "284-1-000024",
+   "name": "청북어린이공원 앞",
+   "addr": "충청북도 청주시 청원구 향군로160번길 22",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s038",
+   "new_id": "cj-cheongju-s039",
+   "mgmt_no": "284-1-000012",
+   "name": "청주여자고등학교",
+   "addr": "충청북도 청주시 청원구 충청대로107번길 82",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s039",
+   "new_id": "cj-cheongju-s040",
+   "mgmt_no": "284-1-000031",
+   "name": "충청축산~정관장",
+   "addr": "충청북도 청주시 청원구 우암로 87",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s040",
+   "new_id": "cj-cheongju-s041",
+   "mgmt_no": "284-1-000006",
+   "name": "한국환경공단부근",
+   "addr": "충청북도 청주시 청원구 공항로150번길 136",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s041",
+   "new_id": "cj-cheongju-s042",
+   "mgmt_no": "284-1-000007",
+   "name": "현대2단지,롯데리아",
+   "addr": "충청북도 청주시 청원구 율봉로 197",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s042",
+   "new_id": "cj-cheongju-s043",
+   "mgmt_no": "270-1-000020",
+   "name": "대성동주민센터 옆",
+   "addr": "충청북도 청주시 상당구 당산로 7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s043",
+   "new_id": "cj-cheongju-s044",
+   "mgmt_no": "270-1-000022",
+   "name": "우성아파트부근",
+   "addr": "충청북도 청주시 상당구 당산로 21",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s044",
+   "new_id": "cj-cheongju-s045",
+   "mgmt_no": "283-1-000021",
+   "name": "무심천쪽(주택가쪽)(노상 3면)",
+   "addr": "충청북도 청주시 서원구 모충동 76-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s045",
+   "new_id": "cj-cheongju-s046",
+   "mgmt_no": "271-1-000029",
+   "name": "교회부근",
+   "addr": "충청북도 청주시 흥덕구 신율로103번길 42",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s046",
+   "new_id": "cj-cheongju-s047",
+   "mgmt_no": "283-1-000017",
+   "name": "빌라부근(노상 10면)",
+   "addr": "충청북도 청주시 서원구 신율로 52",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s047",
+   "new_id": "cj-cheongju-s048",
+   "mgmt_no": "271-1-000025",
+   "name": "성광아파트부근",
+   "addr": "충청북도 청주시 흥덕구 신율로 174",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s048",
+   "new_id": "cj-cheongju-s049",
+   "mgmt_no": "271-1-000031",
+   "name": "세원아파트 근처",
+   "addr": "충청북도 청주시 흥덕구 신율로103번길 42",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s049",
+   "new_id": "cj-cheongju-s050",
+   "mgmt_no": "271-1-000014",
+   "name": "송담추어탕부근",
+   "addr": "충청북도 청주시 흥덕구 진재로 110번길 13",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s050",
+   "new_id": "cj-cheongju-s051",
+   "mgmt_no": "271-1-000049",
+   "name": "조광피혁~비케이엘",
+   "addr": "충청북도 청주시 흥덕구 직지대로436번길 76",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s051",
+   "new_id": "cj-cheongju-s052",
+   "mgmt_no": "271-1-000032",
+   "name": "주찬양교회부근",
+   "addr": "충청북도 청주시 흥덕구 신율로103번길 42",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s052",
+   "new_id": "cj-cheongju-s053",
+   "mgmt_no": "271-1-000028",
+   "name": "주택가부근(노상 22면)",
+   "addr": "충청북도 청주시 흥덕구 신율로135번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s053",
+   "new_id": "cj-cheongju-s054",
+   "mgmt_no": "271-1-000026",
+   "name": "주택가부근(노상 33면)",
+   "addr": "충청북도 청주시 흥덕구 풍산로 119",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s054",
+   "new_id": "cj-cheongju-s055",
+   "mgmt_no": "271-1-000016",
+   "name": "주택가쪽(노상 21면)",
+   "addr": "충청북도 청주시 흥덕구 죽천로 131번길 8-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s055",
+   "new_id": "cj-cheongju-s056",
+   "mgmt_no": "271-1-000030",
+   "name": "청주중앙교회부근",
+   "addr": "충청북도 청주시 흥덕구 신율로103번길 42",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s056",
+   "new_id": "cj-cheongju-s057",
+   "mgmt_no": "271-1-000027",
+   "name": "형석타운아파트 근처",
+   "addr": "충청북도 청주시 흥덕구 장구봉로101번길 27",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s057",
+   "new_id": "cj-cheongju-s058",
+   "mgmt_no": "271-1-000015",
+   "name": "흥덕구청부근",
+   "addr": "충청북도 청주시 흥덕구 진재로 110번길 13",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s058",
+   "new_id": "cj-cheongju-s059",
+   "mgmt_no": "271-1-000035",
+   "name": "kocas부근",
+   "addr": "충청북도 청주시 흥덕구 월명로201번길 2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s059",
+   "new_id": "cj-cheongju-s060",
+   "mgmt_no": "271-1-000022",
+   "name": "고물상부근",
+   "addr": "충청북도 청주시 흥덕구 월명로13번길 9-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s060",
+   "new_id": "cj-cheongju-s061",
+   "mgmt_no": "271-1-000046",
+   "name": "공원~BYC지명상사",
+   "addr": "충청북도 청주시 흥덕구 과상미로 101번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s061",
+   "new_id": "cj-cheongju-s062",
+   "mgmt_no": "271-1-000061",
+   "name": "공원부근",
+   "addr": "충청북도 청주시 흥덕구 봉명로177번길 33",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s062",
+   "new_id": "cj-cheongju-s063",
+   "mgmt_no": "271-1-000020",
+   "name": "교직원아파트부근",
+   "addr": "충청북도 청주시 흥덕구 봉명로 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s063",
+   "new_id": "cj-cheongju-s064",
+   "mgmt_no": "271-1-000042",
+   "name": "네슬레부근",
+   "addr": "충청북도 청주시 흥덕구 백봉로90번길 5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s064",
+   "new_id": "cj-cheongju-s065",
+   "mgmt_no": "271-1-000056",
+   "name": "동아오츠카~한국도자기부근",
+   "addr": "충청북도 청주시 흥덕구 직지대로516번길 39",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s065",
+   "new_id": "cj-cheongju-s066",
+   "mgmt_no": "271-1-000063",
+   "name": "뚝배기마을~다성왕족발",
+   "addr": "충청북도 청주시 흥덕구 봉명로 124",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s066",
+   "new_id": "cj-cheongju-s067",
+   "mgmt_no": "271-1-000023",
+   "name": "모텔큰린부근",
+   "addr": "충청북도 청주시 흥덕구 월명로13번길 9-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s067",
+   "new_id": "cj-cheongju-s068",
+   "mgmt_no": "271-1-000044",
+   "name": "백봉아파트부근",
+   "addr": "충청북도 청주시 흥덕구 과상미로 101번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s068",
+   "new_id": "cj-cheongju-s069",
+   "mgmt_no": "271-1-000064",
+   "name": "백제공인중개사무소~토탈세엔씨",
+   "addr": "충청북도 청주시 흥덕구봉명로 124",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s069",
+   "new_id": "cj-cheongju-s070",
+   "mgmt_no": "271-1-000017",
+   "name": "복대119~삼화전기",
+   "addr": "충청북도 청주시 흥덕구 공단로 98번길 77",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s070",
+   "new_id": "cj-cheongju-s071",
+   "mgmt_no": "271-1-000021",
+   "name": "빌라부근(노상 12면)",
+   "addr": "충청북도 청주시 흥덕구 봉명로 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s071",
+   "new_id": "cj-cheongju-s072",
+   "mgmt_no": "271-1-000057",
+   "name": "삼립식품~동아오츠카",
+   "addr": "충청북도 청주시 흥덕구 월명로75번길 10",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s072",
+   "new_id": "cj-cheongju-s073",
+   "mgmt_no": "271-1-000045",
+   "name": "삼정아파트부근",
+   "addr": "충청북도 청주시 흥덕구 과상미로 101번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s073",
+   "new_id": "cj-cheongju-s074",
+   "mgmt_no": "271-1-000018",
+   "name": "삼화전기부근(노상 52면)",
+   "addr": "충청북도 청주시 흥덕구 직지대로 456번길 72",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s074",
+   "new_id": "cj-cheongju-s075",
+   "mgmt_no": "271-1-000019",
+   "name": "삼화전기부근(노상 8면)",
+   "addr": "충청북도 청주시 흥덕구 봉명로 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s075",
+   "new_id": "cj-cheongju-s076",
+   "mgmt_no": "271-1-000047",
+   "name": "신봉동성당~송정지구대",
+   "addr": "충청북도 청주시 흥덕구 1순환로512번길 28",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s076",
+   "new_id": "cj-cheongju-s077",
+   "mgmt_no": "271-1-000054",
+   "name": "심영산업~지트론",
+   "addr": "충청북도 청주시 흥덕구 공단로98번길 143",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s077",
+   "new_id": "cj-cheongju-s078",
+   "mgmt_no": "271-1-000052",
+   "name": "원풍~로얄파마",
+   "addr": "충청북도 청주시 흥덕구 직지대로474번길 39",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s078",
+   "new_id": "cj-cheongju-s079",
+   "mgmt_no": "271-1-000055",
+   "name": "일양화학~한국사료향미양행",
+   "addr": "충청북도 청주시 흥덕구 봉명로 31",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s079",
+   "new_id": "cj-cheongju-s080",
+   "mgmt_no": "271-1-000048",
+   "name": "자영~조광피혁부근",
+   "addr": "충청북도 청주시 흥덕구 공단로126번길 123",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s080",
+   "new_id": "cj-cheongju-s081",
+   "mgmt_no": "271-1-000051",
+   "name": "조광피혁~대양화학",
+   "addr": "충청북도 청주시 흥덕구 공단로126번길 123",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s081",
+   "new_id": "cj-cheongju-s082",
+   "mgmt_no": "271-1-000024",
+   "name": "주택가부근(노상 18면)",
+   "addr": "충청북도 청주시 흥덕구 월명로13번길 9-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s082",
+   "new_id": "cj-cheongju-s083",
+   "mgmt_no": "271-1-000062",
+   "name": "청주치과기공소~빛과소리교회",
+   "addr": "충청북도 청주시 흥덕구 봉명로 124",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s083",
+   "new_id": "cj-cheongju-s084",
+   "mgmt_no": "271-1-000041",
+   "name": "티케이씨부근",
+   "addr": "충청북도 청주시 흥덕구 백봉로72번길 21",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s084",
+   "new_id": "cj-cheongju-s085",
+   "mgmt_no": "271-1-000058",
+   "name": "한국도자기~경일옵틱스",
+   "addr": "충청북도 청주시 흥덕구 월명로55번길 40",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s085",
+   "new_id": "cj-cheongju-s086",
+   "mgmt_no": "271-1-000050",
+   "name": "한국도자기~비케이엘",
+   "addr": "충청북도 청주시 흥덕구 공단로98번길 77",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s086",
+   "new_id": "cj-cheongju-s087",
+   "mgmt_no": "271-1-000053",
+   "name": "한세이프~일양화학",
+   "addr": "충청북도 청주시 흥덕구 직지대로456번길 72",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s087",
+   "new_id": "cj-cheongju-s088",
+   "mgmt_no": "283-1-000011",
+   "name": "공영주차장(노상 30면)",
+   "addr": "충청북도 청주시 서원구 창직로 104",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s088",
+   "new_id": "cj-cheongju-s089",
+   "mgmt_no": "270-1-000019",
+   "name": "구 남궁병원~남사교",
+   "addr": "충청북도 청주시 상당구 남사로 70-3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s089",
+   "new_id": "cj-cheongju-s090",
+   "mgmt_no": "283-1-000002",
+   "name": "국민은행근처",
+   "addr": "충청북도 청주시 서원구 충렬로 53번길 17",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s090",
+   "new_id": "cj-cheongju-s091",
+   "mgmt_no": "270-1-000029",
+   "name": "무심동로제내지",
+   "addr": "충청북도 청주시 상당구 무심동로372번길 2-15",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s091",
+   "new_id": "cj-cheongju-s093",
+   "mgmt_no": "283-1-000040",
+   "name": "미호아파트근처",
+   "addr": "충청북도 청주시 서원구 사운로 99번길 23",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s092",
+   "new_id": "cj-cheongju-s094",
+   "mgmt_no": "283-1-000018",
+   "name": "빌라부근(노상 20면)",
+   "addr": "충청북도 청주시 서원구 모충로 9번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s093",
+   "new_id": "cj-cheongju-s095",
+   "mgmt_no": "283-1-000001",
+   "name": "사직분수대",
+   "addr": "충청북도 청주시 서원구 사직동 710-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s094",
+   "new_id": "cj-cheongju-s096",
+   "mgmt_no": "283-1-000030",
+   "name": "삼호1차아파트근처",
+   "addr": "충청북도 청주시 서원구 모충로 104번길 25",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s095",
+   "new_id": "cj-cheongju-s097",
+   "mgmt_no": "283-1-000043",
+   "name": "서문교, 남사교 사이",
+   "addr": "충청북도 청주시 서원구 사직동 114",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s096",
+   "new_id": "cj-cheongju-s098",
+   "mgmt_no": "283-1-000042",
+   "name": "서문교밑(사직동114)",
+   "addr": "충청북도 청주시 서원구 사직대로 308-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s097",
+   "new_id": "cj-cheongju-s099",
+   "mgmt_no": "283-1-000041",
+   "name": "용궁탕부근",
+   "addr": "충청북도 청주시 서원구 충렬로 42",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s098",
+   "new_id": "cj-cheongju-s102",
+   "mgmt_no": "270-1-000013",
+   "name": "청주공업고등학교앞",
+   "addr": "충청북도 청주시 상당구 교서로 17",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s099",
+   "new_id": "cj-cheongju-s103",
+   "mgmt_no": "283-1-000033",
+   "name": "청주의료원 장례식장",
+   "addr": "충청북도 청주시 서원구 사북로 18번길 9",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s100",
+   "new_id": "cj-cheongju-s104",
+   "mgmt_no": "283-1-000005",
+   "name": "해풍하구찜(사창동주민센터)",
+   "addr": "충청북도 청주시 서원구 봉명로 230-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s101",
+   "new_id": "cj-cheongju-s105",
+   "mgmt_no": "283-1-000035",
+   "name": "현대자동차사직점",
+   "addr": "충청북도 청주시 서원구 사북로 18번길 9",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s102",
+   "new_id": "cj-cheongju-s106",
+   "mgmt_no": "283-1-000009",
+   "name": "GS25 충북대사랑점 앞",
+   "addr": "충청북도 청주시 서원구 1순환로 674번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s103",
+   "new_id": "cj-cheongju-s107",
+   "mgmt_no": "271-1-000060",
+   "name": "봉명주공1단지부근(노상 12면)",
+   "addr": "충청북도 청주시 흥덕구 봉명로149번길 6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s104",
+   "new_id": "cj-cheongju-s108",
+   "mgmt_no": "283-1-000010",
+   "name": "사창동 창직로",
+   "addr": "충청북도 청주시 서원구 내수동로 102번길 40",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s105",
+   "new_id": "cj-cheongju-s109",
+   "mgmt_no": "283-1-000004",
+   "name": "사창동주민센터",
+   "addr": "충청북도 청주시 서원구 사직대로 157번길 30",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s106",
+   "new_id": "cj-cheongju-s110",
+   "mgmt_no": "283-1-000003",
+   "name": "이마트24편의점 청주스마일점 앞",
+   "addr": "충청북도 청주시 서원구 1순환로 648번길 10",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s107",
+   "new_id": "cj-cheongju-s111",
+   "mgmt_no": "283-1-000008",
+   "name": "창신신협 본점",
+   "addr": "충청북도 청주시 서원구 사직대로 144번길 22",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s108",
+   "new_id": "cj-cheongju-s112",
+   "mgmt_no": "283-1-000007",
+   "name": "창신신협부근",
+   "addr": "충청북도 청주시 서원구 1순환로 704번길 30",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s109",
+   "new_id": "cj-cheongju-s113",
+   "mgmt_no": "283-1-000006",
+   "name": "청주스포트타운근처",
+   "addr": "충청북도 청주시 서원구 내수동로 108",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s110",
+   "new_id": "cj-cheongju-s022",
+   "mgmt_no": "284-1-000018",
+   "name": "로얄볼링장부근",
+   "addr": "충청북도 청주시 청원구 무심동로660번길 23",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s111",
+   "new_id": "cj-cheongju-s114",
+   "mgmt_no": "284-1-000004",
+   "name": "보성아파트",
+   "addr": "충청북도 청주시 청원구 율봉로56번길 5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s112",
+   "new_id": "cj-cheongju-s115",
+   "mgmt_no": "284-1-000017",
+   "name": "엄마네손칼국수 앞",
+   "addr": "충청북도 청주시 청원구 율천남로34번길5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s113",
+   "new_id": "cj-cheongju-s116",
+   "mgmt_no": "283-1-000012",
+   "name": "공영주차장(노상 24면)",
+   "addr": "충청북도 청주시 서원구 산남로 62번길 51",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s114",
+   "new_id": "cj-cheongju-s117",
+   "mgmt_no": "283-1-000028",
+   "name": "세원청실아파트쪽",
+   "addr": "충청북도 청주시 서원구 수곡로 106번길 11",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s115",
+   "new_id": "cj-cheongju-s118",
+   "mgmt_no": "283-1-000029",
+   "name": "수곡중학교",
+   "addr": "충청북도 청주시 서원구 수곡로 46",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s116",
+   "new_id": "cj-cheongju-s119",
+   "mgmt_no": "283-1-000013",
+   "name": "장평교 부근",
+   "addr": "충청북도 청주시 서원구 산남로 70번길 51",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s117",
+   "new_id": "cj-cheongju-s120",
+   "mgmt_no": "270-1-000015",
+   "name": "낙원장부근",
+   "addr": "충청북도 청주시 상당구 성내로 124번길 2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s118",
+   "new_id": "cj-cheongju-s121",
+   "mgmt_no": "270-1-000002",
+   "name": "상공회의소",
+   "addr": "충청북도 청주시 상당구 상당로 102",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s119",
+   "new_id": "cj-cheongju-s122",
+   "mgmt_no": "270-1-000014",
+   "name": "상호저축은행앞",
+   "addr": "충청북도 청주시 상당구 사직대로350번길 53",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s120",
+   "new_id": "cj-cheongju-s123",
+   "mgmt_no": "270-1-000016",
+   "name": "우리은행앞",
+   "addr": "충청북도 청주시 상당구 성안로 52",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s121",
+   "new_id": "cj-cheongju-s124",
+   "mgmt_no": "270-1-000018",
+   "name": "제일조명앞",
+   "addr": "충청북도 청주시 상당구 남사로94번길 2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s122",
+   "new_id": "cj-cheongju-s125",
+   "mgmt_no": "270-1-000012",
+   "name": "현대자동차앞",
+   "addr": "충청북도 청주시 상당구 교서로 4-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s123",
+   "new_id": "cj-cheongju-s126",
+   "mgmt_no": "270-1-000017",
+   "name": "청주문화원앞",
+   "addr": "충청북도 청주시 상당구 남문로2가 120-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s124",
+   "new_id": "cj-cheongju-s127",
+   "mgmt_no": "283-1-000019",
+   "name": "KBS부근",
+   "addr": "충청북도 청주시 서원구 용호로 39번길 17",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s125",
+   "new_id": "cj-cheongju-s128",
+   "mgmt_no": "283-1-000020",
+   "name": "무심천쪽(주택가쪽)(노상 20면)",
+   "addr": "충청북도 청주시 서원구 신화로 42",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s126",
+   "new_id": "cj-cheongju-s129",
+   "mgmt_no": "271-1-000033",
+   "name": "sk청주공장 인근",
+   "addr": "충청북도 청주시 흥덕구 월명로235번길 50",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s127",
+   "new_id": "cj-cheongju-s130",
+   "mgmt_no": "271-1-000034",
+   "name": "봉명지구대 인근",
+   "addr": "충청북도 청주시 흥덕구 송절로64번길 13",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s128",
+   "new_id": "cj-cheongju-s131",
+   "mgmt_no": "271-1-000013",
+   "name": "SK하이닉스 청주사업장 제3공장",
+   "addr": "충청북도 청주시 흥덕구 2순환로 971번길 93",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s129",
+   "new_id": "cj-cheongju-s132",
+   "mgmt_no": "271-1-000039",
+   "name": "농협사료충청지사",
+   "addr": "충청북도 청주시 흥덕구 대신로164번길 61",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s130",
+   "new_id": "cj-cheongju-s133",
+   "mgmt_no": "271-1-000040",
+   "name": "대원부근",
+   "addr": "충청북도 청주시 흥덕구 직지대로409번길 37",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s131",
+   "new_id": "cj-cheongju-s134",
+   "mgmt_no": "271-1-000036",
+   "name": "솔밭공원 부근(노상 16면)",
+   "addr": "충청북도 청주시 흥덕구 직지대로351번길 56",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s132",
+   "new_id": "cj-cheongju-s135",
+   "mgmt_no": "271-1-000012",
+   "name": "솔밭공원 부근(노상 17면)",
+   "addr": "충청북도 청주시 흥덕구 직지대로 351번길 56",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s133",
+   "new_id": "cj-cheongju-s136",
+   "mgmt_no": "271-1-000037",
+   "name": "솔밭공원 부근(노상 44면)",
+   "addr": "충청북도 청주시 흥덕구 2순환로971번길 93",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s134",
+   "new_id": "cj-cheongju-s137",
+   "mgmt_no": "271-1-000043",
+   "name": "한국도자기부근",
+   "addr": "충청북도 청주시 흥덕구 대신로146번길 30",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s135",
+   "new_id": "cj-cheongju-s138",
+   "mgmt_no": "271-1-000038",
+   "name": "한국존슨앤존슨부근",
+   "addr": "충청북도 청주시 흥덕구 대신로164번길 61",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s136",
+   "new_id": "cj-cheongju-s139",
+   "mgmt_no": "283-1-000016",
+   "name": "개신주공1단지부근",
+   "addr": "충청북도 청주시 서원구 1순환로 1063번길 61-54",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s137",
+   "new_id": "cj-cheongju-s140",
+   "mgmt_no": "283-1-000024",
+   "name": "두진한라아파트쪽",
+   "addr": "충청북도 청주시 서원구 수영로 66번길 48",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s138",
+   "new_id": "cj-cheongju-s141",
+   "mgmt_no": "283-1-000027",
+   "name": "보혜빌라근처",
+   "addr": "충청북도 청주시 서원구 수곡로 68번길 21-74",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s139",
+   "new_id": "cj-cheongju-s142",
+   "mgmt_no": "283-1-000022",
+   "name": "사랑나눔교회쪽",
+   "addr": "충청북도 청주시 서원구 수영로 65번길 35",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s140",
+   "new_id": "cj-cheongju-s143",
+   "mgmt_no": "283-1-000025",
+   "name": "산남주공4단지쪽",
+   "addr": "충청북도 청주시 서원구 청남로 2022번길 7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s141",
+   "new_id": "cj-cheongju-s144",
+   "mgmt_no": "283-1-000023",
+   "name": "주택가쪽(노상 35면)",
+   "addr": "충청북도 청주시 서원구 수영로 66번길 48",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s142",
+   "new_id": "cj-cheongju-s145",
+   "mgmt_no": "283-1-000026",
+   "name": "한마음1차아파트",
+   "addr": "충청북도 청주시 서원구 수곡로 68번길 21-74",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s143",
+   "new_id": "cj-cheongju-s146",
+   "mgmt_no": "270-1-000004",
+   "name": "고려삼계탕",
+   "addr": "충청북도 청주시 상당구 교동로3번길 48-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s144",
+   "new_id": "cj-cheongju-s147",
+   "mgmt_no": "270-1-000005",
+   "name": "메리츠화재",
+   "addr": "충청북도 청주시 상당구 교동로3번길 127",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s145",
+   "new_id": "cj-cheongju-s148",
+   "mgmt_no": "270-1-000003",
+   "name": "명문식당",
+   "addr": "충청북도 청주시 상당구 우암산로4",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s146",
+   "new_id": "cj-cheongju-s149",
+   "mgmt_no": "270-1-000007",
+   "name": "제일학원 앞",
+   "addr": "충청북도 청주시 상당구 교동로3번길 153",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s147",
+   "new_id": "cj-cheongju-s150",
+   "mgmt_no": "271-1-000010",
+   "name": "제닉스 앞",
+   "addr": "충청북도 청주시 흥덕구 직지대로307번길 107",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s148",
+   "new_id": "cj-cheongju-s151",
+   "mgmt_no": "271-1-000009",
+   "name": "하이닉스문화센터 아트홀 앞",
+   "addr": "충청북도 청주시 흥덕구 직지대로307번길 107",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s149",
+   "new_id": "cj-cheongju-s152",
+   "mgmt_no": "271-1-000011",
+   "name": "하이닉스문화센터아트홀 앞 택시전용",
+   "addr": "충청북도 청주시 흥덕구 직지대로307번길 107",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s150",
+   "new_id": "cj-cheongju-s153",
+   "mgmt_no": "270-1-000006",
+   "name": "교서로(지하상가~주성초교)",
+   "addr": "충청북도 청주시 상당구 교서로 45",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s151",
+   "new_id": "cj-cheongju-s092",
+   "mgmt_no": "283-1-000038",
+   "name": "무심천쪽(노상 30면)",
+   "addr": "충청북도 청주시 서원구 무심서로 565",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s152",
+   "new_id": "cj-cheongju-s100",
+   "mgmt_no": "283-1-000039",
+   "name": "용화사근처(노상 20면)",
+   "addr": "충청북도 청주시 서원구 무심서로 565",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s153",
+   "new_id": "cj-cheongju-s101",
+   "mgmt_no": "283-1-000037",
+   "name": "용화사근처(노상 50면)",
+   "addr": "충청북도 청주시 서원구 무심서로 565",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s154",
+   "new_id": "cj-cheongju-s154",
+   "mgmt_no": "270-1-000009",
+   "name": "청주병원",
+   "addr": "충청북도 청주시 상당구 중앙로 59",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s155",
+   "new_id": "cj-cheongju-s155",
+   "mgmt_no": "270-1-000011",
+   "name": "청중후문앞",
+   "addr": "충청북도 청주시 상당구 사직대로361번길 125",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s156",
+   "new_id": "cj-cheongju-s156",
+   "mgmt_no": "270-1-000010",
+   "name": "한전아파트앞",
+   "addr": "충청북도 청주시 상당구 사직대로361번길 113",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s157",
+   "new_id": "cj-cheongju-s157",
+   "mgmt_no": "270-1-000027",
+   "name": "금선의할인매장근처",
+   "addr": "충청북도 청주시 상당구 영운로 21번길 26",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s158",
+   "new_id": "cj-cheongju-s158",
+   "mgmt_no": "270-1-000026",
+   "name": "미림아파트부근",
+   "addr": "충청북도 청주시 상당구 영운로 21번길 26",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s159",
+   "new_id": "cj-cheongju-s159",
+   "mgmt_no": "270-1-000031",
+   "name": "상가부근(노상 95면)",
+   "addr": "충청북도 청주시 상당구 1순환로 1253번길 38",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s160",
+   "new_id": "cj-cheongju-s160",
+   "mgmt_no": "270-1-000030",
+   "name": "용암광장",
+   "addr": "충청북도 청주시 상당구 월평로 184번길 57",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s161",
+   "new_id": "cj-cheongju-s161",
+   "mgmt_no": "270-1-000032",
+   "name": "운암1교 부근",
+   "addr": "충청북도 청주시 상당구 원봉로 95",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s162",
+   "new_id": "cj-cheongju-s162",
+   "mgmt_no": "270-1-000028",
+   "name": "태암수정아파트부근",
+   "addr": "충청북도 청주시 상당구 영운천로 55번길 11",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s163",
+   "new_id": "cj-cheongju-s163",
+   "mgmt_no": "270-1-000025",
+   "name": "노스페이스 상가근처",
+   "addr": "충청북도 청주시 상당구 산성로 98번길 8",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s164",
+   "new_id": "cj-cheongju-s164",
+   "mgmt_no": "270-1-000021",
+   "name": "동화반점부근",
+   "addr": "충청북도 청주시 상당구 용담로 91번길 2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s165",
+   "new_id": "cj-cheongju-s165",
+   "mgmt_no": "270-1-000001",
+   "name": "청주랜드, 동물원",
+   "addr": "충청북도 청주시 상당구 명암로 171",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s166",
+   "new_id": "cj-cheongju-s166",
+   "mgmt_no": "284-1-000033",
+   "name": "두산빌라부근",
+   "addr": "충청북도 청주시 청원구 상당로 273-3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s167",
+   "new_id": "cj-cheongju-s167",
+   "mgmt_no": "284-1-000041",
+   "name": "목화아파트~대원밧데리",
+   "addr": "충청북도 청주시 청원구 교서로 214",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s168",
+   "new_id": "cj-cheongju-s168",
+   "mgmt_no": "284-1-000021",
+   "name": "바이더웨이내덕점",
+   "addr": "충청북도 청주시 청원구 내덕로 5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s169",
+   "new_id": "cj-cheongju-s169",
+   "mgmt_no": "284-1-000020",
+   "name": "삼일아파트부근",
+   "addr": "충청북도 청주시 청원구 1순환로353번길 27",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s170",
+   "new_id": "cj-cheongju-s170",
+   "mgmt_no": "284-1-000053",
+   "name": "새싹경로당부근(노상 12면)",
+   "addr": "충청북도 청주시 청원구 중앙로185번길 29",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s171",
+   "new_id": "cj-cheongju-s171",
+   "mgmt_no": "284-1-000054",
+   "name": "새싹경로당부근(노상 20면)",
+   "addr": "충청북도 청주시 청원구 우암로54번길 36",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s172",
+   "new_id": "cj-cheongju-s172",
+   "mgmt_no": "284-1-000043",
+   "name": "우암빌라부근",
+   "addr": "충청북도 청주시 청원구 향군로94번길 7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s173",
+   "new_id": "cj-cheongju-s173",
+   "mgmt_no": "284-1-000036",
+   "name": "주택가쪽(노상 2면)",
+   "addr": "충청북도 청주시 청원구 중앙로185번길 29",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s174",
+   "new_id": "cj-cheongju-s174",
+   "mgmt_no": "284-1-000050",
+   "name": "주택부근(노상 11면)",
+   "addr": "충청북도 청주시 청원구 교서로144번길 28",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s175",
+   "new_id": "cj-cheongju-s175",
+   "mgmt_no": "284-1-000058",
+   "name": "주택부근(노상 14면)",
+   "addr": "충청북도 청주시 청원구 대성로288번길 30",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s176",
+   "new_id": "cj-cheongju-s176",
+   "mgmt_no": "284-1-000059",
+   "name": "주택부근(노상 2면)",
+   "addr": "충청북도 청주시 청원구 중앙로103번길 16",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s177",
+   "new_id": "cj-cheongju-s177",
+   "mgmt_no": "284-1-000048",
+   "name": "주택부근(노상 4면)",
+   "addr": "충청북도 청주시 청원구 교서로162번길 31-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s178",
+   "new_id": "cj-cheongju-s179",
+   "mgmt_no": "284-1-000049",
+   "name": "주택부근(노상 8면)",
+   "addr": "충청북도 청주시 청원구 교서로156번길 4",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s179",
+   "new_id": "cj-cheongju-s180",
+   "mgmt_no": "284-1-000055",
+   "name": "주택부근(노상 9면)",
+   "addr": "충청북도 청주시 청원구 중앙로173번길 1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s180",
+   "new_id": "cj-cheongju-s181",
+   "mgmt_no": "284-1-000032",
+   "name": "청북신협부근",
+   "addr": "충청북도 청주시 청원구 상당로 273-3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s181",
+   "new_id": "cj-cheongju-s182",
+   "mgmt_no": "284-1-000029",
+   "name": "카카오모텔부근",
+   "addr": "충청북도 청주시 청원구 향군로136번길 21",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s182",
+   "new_id": "cj-cheongju-s183",
+   "mgmt_no": "284-1-000056",
+   "name": "택시전용주차장",
+   "addr": "충청북도 청주시 청원구 직지대로877번길 10",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s183",
+   "new_id": "cj-cheongju-s184",
+   "mgmt_no": "284-1-000057",
+   "name": "평화아파트부근",
+   "addr": "충청북도 청주시 청원구 상당로244번길 6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s184",
+   "new_id": "cj-cheongju-s185",
+   "mgmt_no": "284-1-000019",
+   "name": "홍굴이해물짬뽕부근",
+   "addr": "충청북도 청주시 청원구 교서로 142-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s185",
+   "new_id": "cj-cheongju-s186",
+   "mgmt_no": "271-1-000068",
+   "name": "대림빌라 앞",
+   "addr": "충청북도 청주시 흥덕구 사운로206번길 33-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s186",
+   "new_id": "cj-cheongju-s187",
+   "mgmt_no": "271-1-000088",
+   "name": "무심서로 주차장",
+   "addr": "충청북도 청주시 흥덕구 운천동 333",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s187",
+   "new_id": "cj-cheongju-s188",
+   "mgmt_no": "284-1-000062",
+   "name": "무심천쪽(노상 123면)",
+   "addr": "충청북도 청주시 청원구 교서로 129",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s188",
+   "new_id": "cj-cheongju-s189",
+   "mgmt_no": "271-1-000067",
+   "name": "운천신봉동행정복지센터",
+   "addr": "충청북도 청주시 흥덕구 흥덕로172번길 3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s189",
+   "new_id": "cj-cheongju-s190",
+   "mgmt_no": "284-1-000061",
+   "name": "충북석유",
+   "addr": "충청북도 청주시 청원구 교서로 129",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s190",
+   "new_id": "cj-cheongju-s191",
+   "mgmt_no": "271-1-000066",
+   "name": "한울테크근처",
+   "addr": "충청북도 청주시 흥덕구 흥덕로 133",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s191",
+   "new_id": "cj-cheongju-s192",
+   "mgmt_no": "271-1-000065",
+   "name": "행복이발관부근",
+   "addr": "충청북도 청주시 흥덕구 흥덕로 133",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s192",
+   "new_id": "cj-cheongju-s193",
+   "mgmt_no": "283-1-000034",
+   "name": "흥덕 성당 부근",
+   "addr": "충청북도 청주시 서원구 사북로 7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s193",
+   "new_id": "cj-cheongju-s194",
+   "mgmt_no": "284-1-000063",
+   "name": "흥덕대교~방아다리(노상 20면)",
+   "addr": "충청북도 청주시 청원구 교서로 129",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s194",
+   "new_id": "cj-cheongju-s195",
+   "mgmt_no": "284-1-000060",
+   "name": "흥덕대교~방아다리(노상 36면)",
+   "addr": "충청북도 청주시 청원구 교서로 129",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s195",
+   "new_id": "cj-cheongju-s196",
+   "mgmt_no": "283-1-000036",
+   "name": "흥덕모범운전자회",
+   "addr": "충청북도 청주시 서원구 사북로 7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s196",
+   "new_id": "cj-cheongju-s197",
+   "mgmt_no": "284-1-000039",
+   "name": "삼일연립부근",
+   "addr": "충청북도 청주시 청원구 안덕벌로19번길 116",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s197",
+   "new_id": "cj-cheongju-s198",
+   "mgmt_no": "284-1-000013",
+   "name": "양지뜰 앞(노상 13면)",
+   "addr": "충청북도 청주시 청원구 율량로190번길 63",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s198",
+   "new_id": "cj-cheongju-s199",
+   "mgmt_no": "284-1-000014",
+   "name": "양지뜰 앞(노상 14면)",
+   "addr": "충청북도 청주시 청원구 율량로190번길 63",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s199",
+   "new_id": "cj-cheongju-s200",
+   "mgmt_no": "284-1-000005",
+   "name": "율량골프연습장",
+   "addr": "충청북도 청주시 청원구 율봉로175번길 31",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s200",
+   "new_id": "cj-cheongju-s201",
+   "mgmt_no": "284-1-000015",
+   "name": "주차타워 2024앞",
+   "addr": "충청북도 청주시 청원구 율량로202번길 36",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s201",
+   "new_id": "cj-cheongju-s202",
+   "mgmt_no": "283-1-000015",
+   "name": "삼성프라자부근",
+   "addr": "충청북도 청주시 서원구 가장로 353번길 75-9",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s202",
+   "new_id": "cj-cheongju-s203",
+   "mgmt_no": "283-1-000014",
+   "name": "하늘야생화농원 앞",
+   "addr": "충청북도 청주시 서원구 장암동 687",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s203",
+   "new_id": "cj-cheongju-s204",
+   "mgmt_no": "284-1-000003",
+   "name": "율량동 미니스톱",
+   "addr": "충청북도 청주시 청원구 주성로279번길 27-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s204",
+   "new_id": "cj-cheongju-s205",
+   "mgmt_no": "284-1-000001",
+   "name": "청주농협 북부지점",
+   "addr": "충청북도 청주시 청원구 주성로233번길 32",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s205",
+   "new_id": "cj-cheongju-s206",
+   "mgmt_no": "284-1-000011",
+   "name": "학교부근",
+   "addr": "충청북도 청주시 청원구 율봉로 229",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s206",
+   "new_id": "cj-cheongju-s207",
+   "mgmt_no": "284-1-000002",
+   "name": "외평문화생활관 근처",
+   "addr": "충청북도 청주시 청원구 주중동 398-49",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s207",
+   "new_id": "cj-cheongju-s208",
+   "mgmt_no": "270-1-000033",
+   "name": "용담광장 부근",
+   "addr": "충청북도 청주시 상당구 중고개로 328-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s208",
+   "new_id": "cj-cheongju-s209",
+   "mgmt_no": "270-1-000024",
+   "name": "파란음악학원~백작미용실",
+   "addr": "충청북도 청주시 상당구 쇠내로59번길 77-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s209",
+   "new_id": "cj-cheongju-s210",
+   "mgmt_no": "271-1-000086",
+   "name": "ALT세미콘부근",
+   "addr": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s210",
+   "new_id": "cj-cheongju-s211",
+   "mgmt_no": "271-1-000084",
+   "name": "LG화학부근",
+   "addr": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s211",
+   "new_id": "cj-cheongju-s212",
+   "mgmt_no": "284-1-000064",
+   "name": "내수농협 앞",
+   "addr": "충청북도 청주시 청원구 내수로 735-2",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s212",
+   "new_id": "cj-cheongju-s213",
+   "mgmt_no": "271-1-000078",
+   "name": "노마축산 앞",
+   "addr": "충청북도 청주시 흥덕구 옥산시내2길 5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s213",
+   "new_id": "cj-cheongju-s214",
+   "mgmt_no": "271-1-000069",
+   "name": "대가숯불구이앞",
+   "addr": "충청북도 청주시 흥덕구 월곡길 38",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s214",
+   "new_id": "cj-cheongju-s215",
+   "mgmt_no": "284-1-000070",
+   "name": "대성베르힐아파트 뒤",
+   "addr": "충청북도 청주시 청원구 주성1길 18-6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s215",
+   "new_id": "cj-cheongju-s216",
+   "mgmt_no": "284-1-000066",
+   "name": "대성철물건재 앞",
+   "addr": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s216",
+   "new_id": "cj-cheongju-s217",
+   "mgmt_no": "271-1-000076",
+   "name": "대신아파트 앞",
+   "addr": "충청북도 청주시 흥덕구 옥산시내1길 3-4",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s217",
+   "new_id": "cj-cheongju-s218",
+   "mgmt_no": "271-1-000085",
+   "name": "메타바이오메드부근",
+   "addr": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s218",
+   "new_id": "cj-cheongju-s219",
+   "mgmt_no": "271-1-000059",
+   "name": "봉명주공1단지부근(노상 16면)",
+   "addr": "충청북도 청주시 흥덕구 직지대로582번길 6",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s219",
+   "new_id": "cj-cheongju-s220",
+   "mgmt_no": "284-1-000074",
+   "name": "상가~테라셈",
+   "addr": "충청북도 청주시 청원구 과학산업3로 105",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s220",
+   "new_id": "cj-cheongju-s221",
+   "mgmt_no": "284-1-000072",
+   "name": "상가부근(노상 8면)",
+   "addr": "충청북도 청주시 청원구 과학산업2로 283",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s221",
+   "new_id": "cj-cheongju-s222",
+   "mgmt_no": "271-1-000077",
+   "name": "성심의원",
+   "addr": "충청북도 청주시 흥덕구 청주역로 628",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s222",
+   "new_id": "cj-cheongju-s223",
+   "mgmt_no": "270-1-000008",
+   "name": "시청후문",
+   "addr": "충청북도 청주시 상당구 상당로143번길 16",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s223",
+   "new_id": "cj-cheongju-s224",
+   "mgmt_no": "271-1-000080",
+   "name": "신용협동조합부근(노상 4면)",
+   "addr": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s224",
+   "new_id": "cj-cheongju-s225",
+   "mgmt_no": "271-1-000081",
+   "name": "신용협동조합부근(노상 6면)",
+   "addr": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s225",
+   "new_id": "cj-cheongju-s226",
+   "mgmt_no": "271-1-000072",
+   "name": "신협앞",
+   "addr": "충청북도 청주시 흥덕구 가로수로 188-7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s226",
+   "new_id": "cj-cheongju-s227",
+   "mgmt_no": "271-1-000073",
+   "name": "오송약국부근",
+   "addr": "충청북도 청주시 흥덕구 가로수로 188-7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s227",
+   "new_id": "cj-cheongju-s228",
+   "mgmt_no": "284-1-000068",
+   "name": "오창시외버스터미널",
+   "addr": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s228",
+   "new_id": "cj-cheongju-s229",
+   "mgmt_no": "284-1-000065",
+   "name": "오창읍사무소 부근",
+   "addr": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s229",
+   "new_id": "cj-cheongju-s230",
+   "mgmt_no": "284-1-000071",
+   "name": "오창프라자 앞",
+   "addr": "충청북도 청주시 청원구 중심상업로 7",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s230",
+   "new_id": "cj-cheongju-s231",
+   "mgmt_no": "271-1-000074",
+   "name": "옥산 시내",
+   "addr": "충청북도 청주시 흥덕구 옥산시내4길 4-1",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s231",
+   "new_id": "cj-cheongju-s232",
+   "mgmt_no": "271-1-000075",
+   "name": "옥산119지역대부근",
+   "addr": "충청북도 청주시 흥덕구 옥산시내1길 43",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s232",
+   "new_id": "cj-cheongju-s233",
+   "mgmt_no": "271-1-000079",
+   "name": "옥산농협부근",
+   "addr": "충청북도 청주시 흥덕구 청주역로 658",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s233",
+   "new_id": "cj-cheongju-s234",
+   "mgmt_no": "271-1-000070",
+   "name": "이덕마트앞",
+   "addr": "충청북도 청주시 흥덕구 월곡길 38",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s234",
+   "new_id": "cj-cheongju-s235",
+   "mgmt_no": "271-1-000083",
+   "name": "이조복집~오송119안전센터",
+   "addr": "충청북도 청주시 흥덕구 오송생명3로 71-5",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s235",
+   "new_id": "cj-cheongju-s236",
+   "mgmt_no": "284-1-000069",
+   "name": "칠갑산 식당 앞",
+   "addr": "충청북도 청주시 청원구 두릉유리로 1124-3",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s236",
+   "new_id": "cj-cheongju-s237",
+   "mgmt_no": "271-1-000082",
+   "name": "칸타빌아파트부근",
+   "addr": "충청북도 청주시 흥덕구 연제만수길 20",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s237",
+   "new_id": "cj-cheongju-s238",
+   "mgmt_no": "284-1-000067",
+   "name": "파리바게트 앞",
+   "addr": "충청북도 청주시 청원구 두릉유리로 1130",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s238",
+   "new_id": "cj-cheongju-s239",
+   "mgmt_no": "271-1-000087",
+   "name": "폐수종말처리장",
+   "addr": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "mode": "street"
+  },
+  {
+   "old_id": "cj-cheongju-s239",
+   "new_id": "cj-cheongju-s240",
+   "mgmt_no": "284-1-000073",
+   "name": "현대아반시스,AGC",
+   "addr": "충청북도 청주시 청원구 과학산업3로 78-15",
+   "mode": "street"
+  },
+  {
+   "old_id": null,
+   "new_id": "cj-cheongju-020",
+   "mgmt_no": "284-2-000040",
+   "name": "공한지주차장(청원구 내덕동 734-15)",
+   "addr": "충청북도 청주시 청원구 내덕동 734-15",
+   "mode": "card",
+   "note": "복원(재검증 2026-11-19)"
+  },
+  {
+   "old_id": null,
+   "new_id": "cj-cheongju-034",
+   "mgmt_no": "271-2-000037",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 609)",
+   "addr": "충청북도 청주시 흥덕구 오송옵 만수리 609",
+   "mode": "card",
+   "note": "복원(재검증 2026-11-19)"
+  },
+  {
+   "old_id": null,
+   "new_id": "cj-cheongju-069",
+   "mgmt_no": "283-2-000005",
+   "name": "공한지주차장(서원구 사직동 200-6)",
+   "addr": "충청북도 청주시 서원구 사직동 200-6",
+   "mode": "card",
+   "note": "복원(재검증 2026-11-19)"
+  },
+  {
+   "old_id": null,
+   "new_id": "cj-cheongju-s178",
+   "mgmt_no": "284-1-000052",
+   "name": "주택부근(노상 4면) #2",
+   "addr": "충청북도 청주시 청원구 향군로74번길 31",
+   "mode": "street",
+   "note": "복원(재검증 2026-11-19)"
+  }
+ ]
+}
