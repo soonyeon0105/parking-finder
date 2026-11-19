@@ -7721,9 +7721,9 @@ confidence 가 'review' 인 후보는 쓰지 않는다. 주소도 비어 있으�
         for key in ("notice", "note"):
             txt = lot.get(key) or ""
             if "좌표가 등록되어 있지 않아" in txt:
-                kept = [p.strip() for p in txt.split(" · ")
-                        if "좌표가 등록되어 있지 않아" not in p and p.strip()]
-                lot[key] = " · ".join(kept) or None
+                parts = [p.strip() for p in txt.split(" · ")
+                         if "좌표가 등록되어 있지 않아" not in p and p.strip()]
+                lot[key] = " · ".join(parts) or None
         filled += 1
         by_city[lot["city"]] += 1
     return {"filled": filled, "by_city": dict(by_city), "review": kept}

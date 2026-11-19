@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""생성물 정적 검사: JSON-LD 유효성, 내부 링크, 계산 규칙 표본, 도시별 확장 안전 규칙."""
+"""생성물 정적 검사: JSON-LD 유효성, 내부 링크, 계산 규칙 표본, 도시별 확장 안전 규칙, 데이터 완전성 게이트(T-07).
+
+연결 키 규칙: 원자료 관리번호(mgmt_no)는 비유일하므로 어떤 코드도 연결·조인 키로 쓰지 않는다. 유일 키는 내부 id뿐이다.
+"""
 import json
 import re
 import sys
@@ -5839,6 +5842,68 @@ for _u in ("https://parking.9welfare.com/parking/ulsan/jung-gu/",
         fails.append(f"울산 주소가 사이트맵에 없음: {_u}")
 
 
+
+# ---------------------------------------------------------------- 데이터 완전성 게이트 (T-07)
+# 2026-11-18 전수 감사 후속: 특정 지역 데이터가 통째로 비는 사고(예: 성남시 전화번호
+# 164곳 전무 — 원자료 칸 자체가 비어 있던 케이스)를 배포 전에 잡기 위한 게이트.
+# 기준은 2026-11-19 실측(전체 8,776곳: 주소 없음 0곳 · 좌표 없음 6곳(0.07%) · 요금 미상
+# 102곳(1.16%))에 여유를 둔 값이다. 지역별 요금 미상은 원자료 편차가 커서(관악구 48%가
+# 실측 최대) '지역 붕괴' 수준에서만 실패시킨다. 기준의 절반을 넘으면 주의로 남긴다.
+# ⚠ 연결 키 규칙: 원자료 관리번호(mgmt_no)는 비유일하다(2026-11-19 실측 8,628건 중
+# 고유 8,398건 — 수원 7쌍 등 중복 다수). 어떤 코드도 mgmt_no를 연결·조인 키로 쓰지
+# 않는다. 유일 키는 내부 id뿐이며, 중복은 아래에서 실패로 잡는다.
+COMPLETE_GLOBAL = {"addr": 0.01, "coord": 0.01, "fee": 0.03}
+COMPLETE_CITY = {"addr": 0.05, "coord": 0.10, "fee": 0.60}
+COMPLETE_CITY_MIN = 50
+
+
+def _missing_addr(lot):
+    return not str(lot.get("addr_jibun") or "").strip() and not str(lot.get("addr_road") or "").strip()
+
+
+def _missing_coord(lot):
+    return not lot.get("lat") or not lot.get("lng")
+
+
+def _fee_unknown(lot):
+    return (lot.get("fee") or {}).get("type") == "미상"
+
+
+_total = len(LOTS)
+_counts = {
+    "addr": sum(1 for _l in LOTS if _missing_addr(_l)),
+    "coord": sum(1 for _l in LOTS if _missing_coord(_l)),
+    "fee": sum(1 for _l in LOTS if _fee_unknown(_l)),
+}
+_labels = {"addr": "주소 없음", "coord": "좌표 없음", "fee": "요금 미상"}
+for _k, _lim in COMPLETE_GLOBAL.items():
+    _r = _counts[_k] / _total if _total else 0
+    if _r > _lim:
+        fails.append(f"완전성 게이트(전체): {_labels[_k]} {_counts[_k]}곳 ({_r:.1%}) — 기준 {_lim:.0%} 초과")
+    elif _r > _lim / 2:
+        warns.append(f"완전성 게이트(전체): {_labels[_k]} {_counts[_k]}곳 ({_r:.1%}) — 기준 {_lim:.0%}의 절반 초과")
+
+_by_city = {}
+for _l in LOTS:
+    _by_city.setdefault(_l.get("city"), []).append(_l)
+for _city, _cl in sorted(_by_city.items()):
+    if len(_cl) < COMPLETE_CITY_MIN:
+        continue
+    _cc = {"addr": sum(1 for _l in _cl if _missing_addr(_l)),
+           "coord": sum(1 for _l in _cl if _missing_coord(_l)),
+           "fee": sum(1 for _l in _cl if _fee_unknown(_l))}
+    for _k, _lim in COMPLETE_CITY.items():
+        _r = _cc[_k] / len(_cl)
+        if _r > _lim:
+            fails.append(f"완전성 게이트({_city}): {_labels[_k]} {_cc[_k]}/{len(_cl)}곳 ({_r:.1%}) — 기준 {_lim:.0%} 초과")
+
+_id_counts = Counter(_l.get("id") for _l in LOTS)
+_dup_ids = [_i for _i, _n in _id_counts.items() if _n > 1]
+if _dup_ids:
+    fails.append(f"내부 id 중복 {len(_dup_ids)}건 (유일 키 위반): {_dup_ids[:5]}")
+print(f"데이터 완전성 게이트 완료: 전체 {_total}곳 · 주소 없음 {_counts['addr']} · 좌표 없음 {_counts['coord']} · 요금 미상 {_counts['fee']} · id 중복 {len(_dup_ids)}건")
+
+
 print()
 if warns:
     print(f"주의 {len(warns)}건")
@@ -5860,4 +5925,4 @@ if fails:
     for f in fails[:20]:
         print(" -", f)
     sys.exit(1)
-print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙, 지도 QA")
+print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙, 데이터 완전성, 지도 QA")

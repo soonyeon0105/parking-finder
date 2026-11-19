@@ -808,7 +808,7 @@ python3 -m http.server 8000 --directory dist   # 확인용 (종료: Ctrl+C)
 ## 검증 스크립트
 
 ```bash
-python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·개인정보처리방침·GA4 조건·슬러그/canonical·도시별 확장 규칙·계산 표본
+python3 scripts/qa_check.py                 # JSON-LD·내부 링크·404·개인정보처리방침·GA4 조건·슬러그/canonical·도시별 확장 규칙·계산 표본·데이터 완전성 게이트(T-07)
 python3 scripts/verify_site.py              # headless Chromium: 클릭·정렬·뷰포트·file:// 검증 + 스크린샷
 python3 scripts/crosscheck_calc.py          # Chromium으로 JS 계산 vs Python 규칙 전수 교차검증
 python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은 JS 함수 대조(553,410건)
@@ -856,6 +856,7 @@ python3 scripts/crosscheck_calc_nobrowser.py # Chromium 없이 quickjs로 같은
 
 - 요금: `기본시간 이하 = 기본요금`, 초과 시 `기본요금 + ceil((총시간-기본시간)/추가단위시간) × 추가단위요금`
 - 1일 주차권 요금이 있으면 상한(Cap) 적용, 그다음 감면율 적용
+- 연결 키: 원자료 관리번호(`mgmt_no`)는 비유일(중복 다수)하므로 **연결·조인 키로 쓰지 않는다**. 유일 키는 내부 `id`뿐이다 (T-07 — `qa_check.py` 완전성 게이트가 id 중복을 실패로 잡는다)
 - 요금 필드가 비어 있으면 0원이 아니라 **요금 정보 미상(현장 확인)**
 - 무료 판정: `요금정보=무료` 이거나 특기사항의 '일+공휴일 무료개방' 같은 표기가 있는 요일
 - 미운영(휴무)은 무료와 구분해 표시 (`운영요일`, `00:00~00:00` 처리)
