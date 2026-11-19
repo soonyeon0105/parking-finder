@@ -9427,6 +9427,44 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "buyo_grade":
+        # 부여군 — 유료는 부여읍 5곳뿐(노외 4·노상 1). 조례 별표는 급지 구분 없이
+        #   최초 40분 무료, 40분 초과 1시간 이내 500원, 1시간 초과 10분마다 300원,
+        #   1일 최대 7,000원, 월정기 50,000원. 표준데이터 등록 표기(기본 40분
+        #   500원)는 개정 전 구조의 잔재로 보고 별표 구조로 적용한다(군청 확인
+        #   필요). 사비로유료주차장(노상)은 월정기 미등록. 같은 자리(구아리 66-7)에
+        #   무료 성왕로터리노상주차장과 유료 사비로유료주차장이 함께 등록돼 있다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">부여 공영주차장 72곳 중 요금을 받는 곳은 부여읍 <b>5곳</b>뿐입니다.
+「부여군 주차장 조례」 제3147호 별표는 급지 구분 없이 <b>최초 40분 무료</b>, 40분을 넘기면
+<b>1시간까지 500원</b>, 1시간을 넘기면 <b>10분마다 300원</b>이고, <b>하루 최대 7,000원</b>을
+넘지 않으며 <b>월정기 50,000원</b>입니다. 표준데이터에는 유료 5곳이 '기본 40분 500원'으로
+등록돼 있으나, 2026년 개정으로 무료 시간이 40분으로 확대된 별표 구조와 달라 이 표는 조례
+기준으로 적용했습니다(실제 징수 기준은 부여군청 확인이 필요합니다). 유료 5곳의 운영시간은
+<b>08:00~19:00</b>으로 등록돼 있고, 사비로유료주차장(노상)은 월정기가 등록돼 있지 않습니다.
+현장 확인이 필요하면 부여군청 경제교통과(041-830-2284)에 문의하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
