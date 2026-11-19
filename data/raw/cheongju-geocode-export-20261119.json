@@ -1,0 +1,2232 @@
+{
+ "generated_at": "2026-11-19 (KST)",
+ "source_file": "data/raw/좌표누락_지오코딩_20261118.json (청주 66행 중 chosen 50행)",
+ "note": "카카오맵 웹 확인. lot_lat/lng는 site.json 빌드 반영값(apply_coord_fix). chosen 50행 전부 lot 좌표와 일치. s239·s211·s212 3행은 2026-11-19 Instinct 교차검증으로 정정(쿼리 지번 오류).",
+ "geocoded_rows": [
+  {
+   "lot_id": "cj-cheongju-005",
+   "mgmt_no": "271-2-000049",
+   "name": "공한지주차장(흥덕구 가경동 413 등 7)",
+   "addr_jibun": "충청북도 청주시 흥덕구 가경동 413 등 7",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 가경동 413 등 7",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.62496,
+   "lng": 127.43665,
+   "lot_lat": 36.62496,
+   "lot_lng": 127.43665,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-009",
+   "mgmt_no": "284-2-000035",
+   "name": "견인차보관소",
+   "addr_jibun": "충청북도 청주시 청원구 각리 641-15",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 각리 641-15",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.70597,
+   "lng": 127.4343,
+   "lot_lat": 36.70597,
+   "lot_lng": 127.4343,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-011",
+   "mgmt_no": "284-2-000024",
+   "name": "구룡공원주차장1",
+   "addr_jibun": "충청북도 청주시 청원구 구룡리 376-1",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 구룡리 376-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.71491,
+   "lng": 127.41464,
+   "lot_lat": 36.71491,
+   "lot_lng": 127.41464,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-026",
+   "mgmt_no": "284-2-000012",
+   "name": "내수리재래시장주차장",
+   "addr_jibun": "충청북도 청주시 청원구 내수리 36-11",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내수리 36-11",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.72674,
+   "lng": 127.53522,
+   "lot_lat": 36.72674,
+   "lot_lng": 127.53522,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-027",
+   "mgmt_no": "284-2-000017",
+   "name": "마을공동주차장",
+   "addr_jibun": "충청북도 청주시 청원구 내추리 347",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내추리 347",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.7617,
+   "lng": 127.54604,
+   "lot_lat": 36.7617,
+   "lot_lng": 127.54604,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-028",
+   "mgmt_no": "284-2-000016",
+   "name": "북이면문화마을 내",
+   "addr_jibun": "충청북도 청주시 청원구 내추리 347",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내추리 347",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색) — 같은 지번(내추리 347)의 다른 시설과 동일 좌표",
+   "lat": 36.7617,
+   "lng": 127.54604,
+   "lot_lat": 36.7617,
+   "lot_lng": 127.54604,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색) — 같은 지번(내추리 347)의 다른 시설과 동일 좌표·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-032",
+   "mgmt_no": "284-2-000014",
+   "name": "내수초 뒤",
+   "addr_jibun": "충청북도 청주시 청원구 마산리 159-1",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내수읍 마산리 159-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.72502,
+   "lng": 127.53583,
+   "lot_lat": 36.72502,
+   "lot_lng": 127.53583,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-033",
+   "mgmt_no": "284-2-000015",
+   "name": "내수초교앞주차장",
+   "addr_jibun": "충청북도 청주시 청원구 마산리 165-64",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내수읍 마산리 165-64",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.72539,
+   "lng": 127.53634,
+   "lot_lat": 36.72539,
+   "lot_lng": 127.53634,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-035",
+   "mgmt_no": "271-2-000039",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 799)",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 만수리 799",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 만수리 799",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.6232,
+   "lng": 127.32805,
+   "lot_lat": 36.6232,
+   "lot_lng": 127.32805,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-036",
+   "mgmt_no": "271-2-000038",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 821)",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 만수리 821",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 만수리 821",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.62303,
+   "lng": 127.3282,
+   "lot_lat": 36.62303,
+   "lot_lng": 127.3282,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-037",
+   "mgmt_no": "270-2-000027",
+   "name": "명암유원지(상당구 명암동 103-4)",
+   "addr_jibun": "충청북도 청주시 상당구 명암동 103-4",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 상당구 명암동 103-4",
+   "provider": "Kakao Map",
+   "how": "카카오맵 장소 기준(명암유원지 주차장, 등록 주소 용담동 324-87 — 표준데이터 주소와 다름)",
+   "lat": 36.64471,
+   "lng": 127.51185,
+   "lot_lat": 36.64471,
+   "lot_lng": 127.51185,
+   "coord_src": "지오코딩(카카오맵 장소 기준(명암유원지 주차장, 등록 주소 용담동 324-87 — 표준데이터 주소와 다름)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-098",
+   "mgmt_no": "271-2-000023",
+   "name": "공영주차장(흥덕구 오송옵 상정리 686)",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 상정리 686",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 상정리 686",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.65091,
+   "lng": 127.33145,
+   "lot_lat": 36.65091,
+   "lot_lng": 127.33145,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-106",
+   "mgmt_no": "284-2-000027",
+   "name": "미래지농촌테마공원 주차장(청원구 성산리 320번지)",
+   "addr_jibun": "충청북도 청주시 청원구 성산리 320번지",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 성산리 320",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.73164,
+   "lng": 127.40587,
+   "lot_lat": 36.73164,
+   "lot_lng": 127.40587,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-125",
+   "mgmt_no": "284-2-000036",
+   "name": "공한지주차장(청원구 양청리 683-3)",
+   "addr_jibun": "충청북도 청주시 청원구 양청리 683-3",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 양청리 683-3",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.72298,
+   "lng": 127.43464,
+   "lot_lat": 36.72298,
+   "lot_lng": 127.43464,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-126",
+   "mgmt_no": "284-2-000034",
+   "name": "공한지주차장(청원구 양청리 810-17)",
+   "addr_jibun": "충청북도 청주시 청원구 양청리 810-17",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 양청리 810-17",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.71237,
+   "lng": 127.43776,
+   "lot_lat": 36.71237,
+   "lot_lng": 127.43776,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-127",
+   "mgmt_no": "284-2-000023",
+   "name": "오창호수공원",
+   "addr_jibun": "충청북도 청주시 청원구 양청리 753",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 양청리 753",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.71475,
+   "lng": 127.42503,
+   "lot_lat": 36.71475,
+   "lot_lng": 127.42503,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-128",
+   "mgmt_no": "271-2-000031",
+   "name": "공한지주차장(흥덕구 연제리 836-1)",
+   "addr_jibun": "충청북도 청주시 흥덕구 연제리 836-1",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 연제리 836-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.62486,
+   "lng": 127.32426,
+   "lot_lat": 36.62486,
+   "lot_lng": 127.32426,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-139",
+   "mgmt_no": "271-2-000016",
+   "name": "옥산면공영주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오산리 204-1",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 오산리 204-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.66495,
+   "lng": 127.37344,
+   "lot_lat": 36.66495,
+   "lot_lng": 127.37344,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-140",
+   "mgmt_no": "271-2-000025",
+   "name": "오송역A주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 오송리 6-8",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 오송리 6-8",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.61959,
+   "lng": 127.32964,
+   "lot_lat": 36.61959,
+   "lot_lng": 127.32964,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-141",
+   "mgmt_no": "271-2-000026",
+   "name": "오송역C주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 오송리 6-8",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 오송리 6-8",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색) — 오송역A와 동일 주소·동일 좌표",
+   "lat": 36.61959,
+   "lng": 127.32964,
+   "lot_lat": 36.61959,
+   "lot_lng": 127.32964,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색) — 오송역A와 동일 주소·동일 좌표·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-160",
+   "mgmt_no": "284-2-000028",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 15-2번지)",
+   "addr_jibun": "충청북도 청주시 청원구 용두리 15-2번지",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 용두리 15-2",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.73207,
+   "lng": 127.40162,
+   "lot_lat": 36.73207,
+   "lot_lng": 127.40162,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-161",
+   "mgmt_no": "284-2-000026",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 1번지)",
+   "addr_jibun": "충청북도 청주시 청원구 용두리 1번지",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 용두리 1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.73176,
+   "lng": 127.4047,
+   "lot_lat": 36.73176,
+   "lot_lng": 127.4047,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-168",
+   "mgmt_no": "270-2-000001",
+   "name": "공한지주차장(상당구 우암동 370-24)",
+   "addr_jibun": "충청북도 청주시 상당구 우암동 370-24",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 우암동 370-24",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색) — 카카오맵상 청원구 우암동으로 확인(표준데이터는 상당구 표기)",
+   "lat": 36.65545,
+   "lng": 127.48262,
+   "lot_lat": 36.65545,
+   "lot_lng": 127.48262,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색) — 카카오맵상 청원구 우암동으로 확인(표준데이터는 상당구 표기)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-185",
+   "mgmt_no": "284-2-000022",
+   "name": "공영주차장(청원구 장대리 183-28)",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 183-28",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 장대리 183-28",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.74095,
+   "lng": 127.45656,
+   "lot_lat": 36.74095,
+   "lot_lng": 127.45656,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-186",
+   "mgmt_no": "284-2-000020",
+   "name": "공영주차장(청원구 장대리 429-4)",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 429-4",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 장대리 429-4",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.74281,
+   "lng": 127.45732,
+   "lot_lat": 36.74281,
+   "lot_lng": 127.45732,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-187",
+   "mgmt_no": "284-2-000019",
+   "name": "농협하나로마트인근",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 281-28",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 장대리 281-28",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.74137,
+   "lng": 127.45658,
+   "lot_lat": 36.74137,
+   "lot_lng": 127.45658,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-188",
+   "mgmt_no": "284-2-000021",
+   "name": "대농마트앞",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 429-8",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 장대리 429-8",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색) — 대농마트 앞 핀",
+   "lat": 36.74256,
+   "lng": 127.45687,
+   "lot_lat": 36.74256,
+   "lot_lng": 127.45687,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색) — 대농마트 앞 핀·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-190",
+   "mgmt_no": "271-2-000024",
+   "name": "조천하상주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 정중리 554",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 정중리 554",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.60526,
+   "lng": 127.30425,
+   "lot_lat": 36.60526,
+   "lot_lng": 127.30425,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-194",
+   "mgmt_no": "284-2-000033",
+   "name": "공한지주차장(청원구 주성리 575)",
+   "addr_jibun": "충청북도 청주시 청원구 주성리 575",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 주성리 575",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.73297,
+   "lng": 127.44897,
+   "lot_lat": 36.73297,
+   "lot_lng": 127.44897,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-198",
+   "mgmt_no": "284-2-000013",
+   "name": "내수초교직원주차장",
+   "addr_jibun": "충청북도 청주시 청원구 학평리 140-10",
+   "addr_road": "",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내수읍 학평리 140-10",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(주소 검색)",
+   "lat": 36.72707,
+   "lng": 127.53792,
+   "lot_lat": 36.72707,
+   "lot_lng": 127.53792,
+   "coord_src": "지오코딩(카카오맵 웹 확인(주소 검색)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-200",
+   "mgmt_no": "284-2-000018",
+   "name": "오창시장주차장",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 팔결로 712",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 장대리 183-36",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오창시장 주차장)",
+   "lat": 36.74183,
+   "lng": 127.45621,
+   "lot_lat": 36.74183,
+   "lot_lng": 127.45621,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오창시장 주차장)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s210",
+   "mgmt_no": "271-1-000086",
+   "name": "ALT세미콘부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 남촌리 1112-7",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(에이엘티(ALT) — 오창과학산업단지)",
+   "lat": 36.69661,
+   "lng": 127.40835,
+   "lot_lat": 36.69661,
+   "lot_lng": 127.40835,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(에이엘티(ALT) — 오창과학산업단지)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s211",
+   "mgmt_no": "271-1-000084",
+   "name": "LG화학부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(LG화학 오창2공장 내 우리은행 365코너 기준 — 'LG화학' 등록 장소 없음) — 2026-11-19 Instinct 교차검증 정정: 쿼리가 엉뚱한 지번(오창읍 주성리 648)을 써 약 3.8km 오차, 도로명 주소 기준 재확인",
+   "lat": 36.6973,
+   "lng": 127.42,
+   "lot_lat": 36.6973,
+   "lot_lng": 127.42,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(LG화학 오창2공장 내 우리은행 365코너 기준 — 'LG화학' 등록 장소 없음)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s212",
+   "mgmt_no": "284-1-000064",
+   "name": "내수농협 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 내수로 735-2",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 내수로 735-2",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(내수농협 본점) — 2026-11-19 Instinct 교차검증 정정: 쿼리가 엉뚱한 지번(내수읍 학평리 150-7, 하나로마트)을 써 약 470m 오차·시설 오매칭, 도로명 주소 기준 재확인",
+   "lat": 36.7272,
+   "lng": 127.5365,
+   "lot_lat": 36.7272,
+   "lot_lng": 127.5365,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(내수농협 본점)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s213",
+   "mgmt_no": "271-1-000078",
+   "name": "노마축산 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내2길 5",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 오산리 537-27",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(노마축산)",
+   "lat": 36.66412,
+   "lng": 127.3747,
+   "lot_lat": 36.66412,
+   "lot_lng": 127.3747,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(노마축산)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s215",
+   "mgmt_no": "284-1-000070",
+   "name": "대성베르힐아파트 뒤",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 주성1길 18-6",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 주성리 556",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오창대성베르힐아파트 자체 기준 — '뒤' 방향 특정 불가)",
+   "lat": 36.73455,
+   "lng": 127.45281,
+   "lot_lat": 36.73455,
+   "lot_lng": 127.45281,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오창대성베르힐아파트 자체 기준 — '뒤' 방향 특정 불가)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s217",
+   "mgmt_no": "271-1-000076",
+   "name": "대신아파트 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내1길 3-4",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 오산리 384-17",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(대신아파트)",
+   "lat": 36.66303,
+   "lng": 127.3722,
+   "lot_lat": 36.66303,
+   "lot_lng": 127.3722,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(대신아파트)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s218",
+   "mgmt_no": "271-1-000085",
+   "name": "메타바이오메드부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 연제리 634",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(메타바이오메드 본사)",
+   "lat": 36.64339,
+   "lng": 127.32656,
+   "lot_lat": 36.64339,
+   "lot_lng": 127.32656,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(메타바이오메드 본사)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s222",
+   "mgmt_no": "271-1-000077",
+   "name": "성심의원",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 청주역로 628",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 가락리 730-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(성심의원)",
+   "lat": 36.66405,
+   "lng": 127.3765,
+   "lot_lat": 36.66405,
+   "lot_lng": 127.3765,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(성심의원)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s223",
+   "mgmt_no": "270-1-000008",
+   "name": "시청후문",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 상당구 상당로143번길 16",
+   "chosen": true,
+   "query": "충청북도 청주시 상당구 중앙로 63-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(CU 청주시청후문점 — 시청 후문 측)",
+   "lat": 36.64278,
+   "lng": 127.48822,
+   "lot_lat": 36.64278,
+   "lot_lng": 127.48822,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(CU 청주시청후문점 — 시청 후문 측)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s227",
+   "mgmt_no": "271-1-000073",
+   "name": "오송약국부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 가로수로 188-7",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 오송리 246-11",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오송약국)",
+   "lat": 36.61023,
+   "lng": 127.32636,
+   "lot_lat": 36.61023,
+   "lot_lng": 127.32636,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오송약국)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s228",
+   "mgmt_no": "284-1-000068",
+   "name": "오창시외버스터미널",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 양청리 821-7",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(청주북부터미널 — 오창 시외버스터미널)",
+   "lat": 36.71174,
+   "lng": 127.42725,
+   "lot_lat": 36.71174,
+   "lot_lng": 127.42725,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(청주북부터미널 — 오창 시외버스터미널)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s229",
+   "mgmt_no": "284-1-000065",
+   "name": "오창읍사무소 부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 장대리 324-6",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오창읍 행정복지센터, 구 읍사무소)",
+   "lat": 36.74235,
+   "lng": 127.45449,
+   "lot_lat": 36.74235,
+   "lot_lng": 127.45449,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오창읍 행정복지센터, 구 읍사무소)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s230",
+   "mgmt_no": "284-1-000071",
+   "name": "오창프라자 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 중심상업로 7",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 양청리 821-4",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오창프라자1)",
+   "lat": 36.71138,
+   "lng": 127.42866,
+   "lot_lat": 36.71138,
+   "lot_lng": 127.42866,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오창프라자1)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s231",
+   "mgmt_no": "271-1-000074",
+   "name": "옥산 시내",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내4길 4-1",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 오산리 540-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(옥산면 행정복지센터 — 옥산 시내 중심지)",
+   "lat": 36.66461,
+   "lng": 127.37561,
+   "lot_lat": 36.66461,
+   "lot_lng": 127.37561,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(옥산면 행정복지센터 — 옥산 시내 중심지)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s233",
+   "mgmt_no": "271-1-000079",
+   "name": "옥산농협부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 청주역로 658",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 옥산면 가락리 764",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(옥산농협)",
+   "lat": 36.66565,
+   "lng": 127.37381,
+   "lot_lat": 36.66565,
+   "lot_lng": 127.37381,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(옥산농협)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s235",
+   "mgmt_no": "271-1-000083",
+   "name": "이조복집~오송119안전센터",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 오송생명3로 71-5",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 오송읍 연제리 709-1",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오송119안전센터 — 구간 기준점)",
+   "lat": 36.63163,
+   "lng": 127.32683,
+   "lot_lat": 36.63163,
+   "lot_lng": 127.32683,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오송119안전센터 — 구간 기준점)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s236",
+   "mgmt_no": "284-1-000069",
+   "name": "칠갑산 식당 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1124-3",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 창리 46-5",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(칠갑산 식당)",
+   "lat": 36.74071,
+   "lng": 127.45396,
+   "lot_lat": 36.74071,
+   "lot_lng": 127.45396,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(칠갑산 식당)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s239",
+   "mgmt_no": "271-1-000087",
+   "name": "폐수종말처리장",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "chosen": true,
+   "query": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(오송폐수종말처리장) — 2026-11-19 Instinct 교차검증 정정: 쿼리가 엉뚱한 지번(오송읍 만수리 513)을 써 약 7.2km 오차, 도로명 주소 기준 재확인",
+   "lat": 36.6968,
+   "lng": 127.406,
+   "lot_lat": 36.6968,
+   "lot_lng": 127.406,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(오송폐수종말처리장)·Kakao Map)"
+  },
+  {
+   "lot_id": "cj-cheongju-s240",
+   "mgmt_no": "284-1-000073",
+   "name": "현대아반시스,AGC",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 과학산업3로 78-15",
+   "chosen": true,
+   "query": "충청북도 청주시 청원구 오창읍 각리 653-6",
+   "provider": "Kakao Map",
+   "how": "카카오맵 웹 확인(장소 기준)(아반시스코리아 본사 — 현대아반시스)",
+   "lat": 36.69887,
+   "lng": 127.41956,
+   "lot_lat": 36.69887,
+   "lot_lng": 127.41956,
+   "coord_src": "지오코딩(카카오맵 웹 확인(장소 기준)(아반시스코리아 본사 — 현대아반시스)·Kakao Map)"
+  }
+ ],
+ "unchosen_rows": [
+  {
+   "lot_id": "cj-cheongju-029",
+   "mgmt_no": "270-2-000034",
+   "name": "공한지주차장(상당구 대성동 121-2)",
+   "addr_jibun": "충청북도 청주시 상당구 대성동 121-2",
+   "addr_road": "",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-149",
+   "mgmt_no": "271-2-000017",
+   "name": "금정아파트(흥덕구 옥산면 오산리 561)",
+   "addr_jibun": "충청북도 청주시 흥덕구 옥산면 오산리 561",
+   "addr_road": "",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-159",
+   "mgmt_no": "284-2-000025",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 15-13번지)",
+   "addr_jibun": "충청북도 청주시 청원구 용두리 15-13번지",
+   "addr_road": "",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-199",
+   "mgmt_no": "271-2-000005",
+   "name": "공영주차장(흥덕구 장구봉로137번길 67)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 장구봉로137번길 67",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s214",
+   "mgmt_no": "271-1-000069",
+   "name": "대가숯불구이앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 월곡길 38",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s216",
+   "mgmt_no": "284-1-000066",
+   "name": "대성철물건재 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s219",
+   "mgmt_no": "271-1-000059",
+   "name": "봉명주공1단지부근(노상 16면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 직지대로582번길 6",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s220",
+   "mgmt_no": "284-1-000074",
+   "name": "상가~테라셈",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 과학산업3로 105",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s221",
+   "mgmt_no": "284-1-000072",
+   "name": "상가부근(노상 8면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 과학산업2로 283",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s224",
+   "mgmt_no": "271-1-000080",
+   "name": "신용협동조합부근(노상 4면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s225",
+   "mgmt_no": "271-1-000081",
+   "name": "신용협동조합부근(노상 6면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s226",
+   "mgmt_no": "271-1-000072",
+   "name": "신협앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 가로수로 188-7",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s232",
+   "mgmt_no": "271-1-000075",
+   "name": "옥산119지역대부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내1길 43",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s234",
+   "mgmt_no": "271-1-000070",
+   "name": "이덕마트앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 월곡길 38",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s237",
+   "mgmt_no": "271-1-000082",
+   "name": "칸타빌아파트부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 연제만수길 20",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  },
+  {
+   "lot_id": "cj-cheongju-s238",
+   "mgmt_no": "284-1-000067",
+   "name": "파리바게트 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1130",
+   "chosen": false,
+   "query": null,
+   "provider": null,
+   "how": null,
+   "lat": null,
+   "lng": null,
+   "lot_lat": null,
+   "lot_lng": null,
+   "coord_src": null
+  }
+ ],
+ "sid_remap_changed_only": [
+  {
+   "old_id": "cj-cheongju-s022",
+   "new_id": "cj-cheongju-s023",
+   "mgmt_no": "284-1-000028",
+   "name": "미덕어린이공원부근"
+  },
+  {
+   "old_id": "cj-cheongju-s023",
+   "new_id": "cj-cheongju-s024",
+   "mgmt_no": "284-1-000008",
+   "name": "삼정2차아파트~공원"
+  },
+  {
+   "old_id": "cj-cheongju-s024",
+   "new_id": "cj-cheongju-s025",
+   "mgmt_no": "284-1-000045",
+   "name": "서울우유앞"
+  },
+  {
+   "old_id": "cj-cheongju-s025",
+   "new_id": "cj-cheongju-s026",
+   "mgmt_no": "284-1-000030",
+   "name": "슈어방수부근"
+  },
+  {
+   "old_id": "cj-cheongju-s026",
+   "new_id": "cj-cheongju-s027",
+   "mgmt_no": "284-1-000042",
+   "name": "아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s027",
+   "new_id": "cj-cheongju-s028",
+   "mgmt_no": "284-1-000026",
+   "name": "영보상사부근"
+  },
+  {
+   "old_id": "cj-cheongju-s028",
+   "new_id": "cj-cheongju-s029",
+   "mgmt_no": "284-1-000027",
+   "name": "오색간판~학도령"
+  },
+  {
+   "old_id": "cj-cheongju-s029",
+   "new_id": "cj-cheongju-s030",
+   "mgmt_no": "284-1-000034",
+   "name": "우리마트부근,미라클빌라부근"
+  },
+  {
+   "old_id": "cj-cheongju-s030",
+   "new_id": "cj-cheongju-s031",
+   "mgmt_no": "284-1-000046",
+   "name": "우암로(노상 26면)"
+  },
+  {
+   "old_id": "cj-cheongju-s031",
+   "new_id": "cj-cheongju-s032",
+   "mgmt_no": "284-1-000051",
+   "name": "우암로(노상 36면)"
+  },
+  {
+   "old_id": "cj-cheongju-s032",
+   "new_id": "cj-cheongju-s033",
+   "mgmt_no": "284-1-000023",
+   "name": "육아종합지원센터"
+  },
+  {
+   "old_id": "cj-cheongju-s033",
+   "new_id": "cj-cheongju-s034",
+   "mgmt_no": "284-1-000022",
+   "name": "주택가쪽(노상 10면)"
+  },
+  {
+   "old_id": "cj-cheongju-s034",
+   "new_id": "cj-cheongju-s035",
+   "mgmt_no": "284-1-000044",
+   "name": "주택부근(노상 10면)"
+  },
+  {
+   "old_id": "cj-cheongju-s035",
+   "new_id": "cj-cheongju-s036",
+   "mgmt_no": "284-1-000047",
+   "name": "주택부근(노상 34면)"
+  },
+  {
+   "old_id": "cj-cheongju-s036",
+   "new_id": "cj-cheongju-s037",
+   "mgmt_no": "284-1-000038",
+   "name": "천주교회부근"
+  },
+  {
+   "old_id": "cj-cheongju-s037",
+   "new_id": "cj-cheongju-s038",
+   "mgmt_no": "284-1-000024",
+   "name": "청북어린이공원 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s038",
+   "new_id": "cj-cheongju-s039",
+   "mgmt_no": "284-1-000012",
+   "name": "청주여자고등학교"
+  },
+  {
+   "old_id": "cj-cheongju-s039",
+   "new_id": "cj-cheongju-s040",
+   "mgmt_no": "284-1-000031",
+   "name": "충청축산~정관장"
+  },
+  {
+   "old_id": "cj-cheongju-s040",
+   "new_id": "cj-cheongju-s041",
+   "mgmt_no": "284-1-000006",
+   "name": "한국환경공단부근"
+  },
+  {
+   "old_id": "cj-cheongju-s041",
+   "new_id": "cj-cheongju-s042",
+   "mgmt_no": "284-1-000007",
+   "name": "현대2단지,롯데리아"
+  },
+  {
+   "old_id": "cj-cheongju-s042",
+   "new_id": "cj-cheongju-s043",
+   "mgmt_no": "270-1-000020",
+   "name": "대성동주민센터 옆"
+  },
+  {
+   "old_id": "cj-cheongju-s043",
+   "new_id": "cj-cheongju-s044",
+   "mgmt_no": "270-1-000022",
+   "name": "우성아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s044",
+   "new_id": "cj-cheongju-s045",
+   "mgmt_no": "283-1-000021",
+   "name": "무심천쪽(주택가쪽)(노상 3면)"
+  },
+  {
+   "old_id": "cj-cheongju-s045",
+   "new_id": "cj-cheongju-s046",
+   "mgmt_no": "271-1-000029",
+   "name": "교회부근"
+  },
+  {
+   "old_id": "cj-cheongju-s046",
+   "new_id": "cj-cheongju-s047",
+   "mgmt_no": "283-1-000017",
+   "name": "빌라부근(노상 10면)"
+  },
+  {
+   "old_id": "cj-cheongju-s047",
+   "new_id": "cj-cheongju-s048",
+   "mgmt_no": "271-1-000025",
+   "name": "성광아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s048",
+   "new_id": "cj-cheongju-s049",
+   "mgmt_no": "271-1-000031",
+   "name": "세원아파트 근처"
+  },
+  {
+   "old_id": "cj-cheongju-s049",
+   "new_id": "cj-cheongju-s050",
+   "mgmt_no": "271-1-000014",
+   "name": "송담추어탕부근"
+  },
+  {
+   "old_id": "cj-cheongju-s050",
+   "new_id": "cj-cheongju-s051",
+   "mgmt_no": "271-1-000049",
+   "name": "조광피혁~비케이엘"
+  },
+  {
+   "old_id": "cj-cheongju-s051",
+   "new_id": "cj-cheongju-s052",
+   "mgmt_no": "271-1-000032",
+   "name": "주찬양교회부근"
+  },
+  {
+   "old_id": "cj-cheongju-s052",
+   "new_id": "cj-cheongju-s053",
+   "mgmt_no": "271-1-000028",
+   "name": "주택가부근(노상 22면)"
+  },
+  {
+   "old_id": "cj-cheongju-s053",
+   "new_id": "cj-cheongju-s054",
+   "mgmt_no": "271-1-000026",
+   "name": "주택가부근(노상 33면)"
+  },
+  {
+   "old_id": "cj-cheongju-s054",
+   "new_id": "cj-cheongju-s055",
+   "mgmt_no": "271-1-000016",
+   "name": "주택가쪽(노상 21면)"
+  },
+  {
+   "old_id": "cj-cheongju-s055",
+   "new_id": "cj-cheongju-s056",
+   "mgmt_no": "271-1-000030",
+   "name": "청주중앙교회부근"
+  },
+  {
+   "old_id": "cj-cheongju-s056",
+   "new_id": "cj-cheongju-s057",
+   "mgmt_no": "271-1-000027",
+   "name": "형석타운아파트 근처"
+  },
+  {
+   "old_id": "cj-cheongju-s057",
+   "new_id": "cj-cheongju-s058",
+   "mgmt_no": "271-1-000015",
+   "name": "흥덕구청부근"
+  },
+  {
+   "old_id": "cj-cheongju-s058",
+   "new_id": "cj-cheongju-s059",
+   "mgmt_no": "271-1-000035",
+   "name": "kocas부근"
+  },
+  {
+   "old_id": "cj-cheongju-s059",
+   "new_id": "cj-cheongju-s060",
+   "mgmt_no": "271-1-000022",
+   "name": "고물상부근"
+  },
+  {
+   "old_id": "cj-cheongju-s060",
+   "new_id": "cj-cheongju-s061",
+   "mgmt_no": "271-1-000046",
+   "name": "공원~BYC지명상사"
+  },
+  {
+   "old_id": "cj-cheongju-s061",
+   "new_id": "cj-cheongju-s062",
+   "mgmt_no": "271-1-000061",
+   "name": "공원부근"
+  },
+  {
+   "old_id": "cj-cheongju-s062",
+   "new_id": "cj-cheongju-s063",
+   "mgmt_no": "271-1-000020",
+   "name": "교직원아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s063",
+   "new_id": "cj-cheongju-s064",
+   "mgmt_no": "271-1-000042",
+   "name": "네슬레부근"
+  },
+  {
+   "old_id": "cj-cheongju-s064",
+   "new_id": "cj-cheongju-s065",
+   "mgmt_no": "271-1-000056",
+   "name": "동아오츠카~한국도자기부근"
+  },
+  {
+   "old_id": "cj-cheongju-s065",
+   "new_id": "cj-cheongju-s066",
+   "mgmt_no": "271-1-000063",
+   "name": "뚝배기마을~다성왕족발"
+  },
+  {
+   "old_id": "cj-cheongju-s066",
+   "new_id": "cj-cheongju-s067",
+   "mgmt_no": "271-1-000023",
+   "name": "모텔큰린부근"
+  },
+  {
+   "old_id": "cj-cheongju-s067",
+   "new_id": "cj-cheongju-s068",
+   "mgmt_no": "271-1-000044",
+   "name": "백봉아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s068",
+   "new_id": "cj-cheongju-s069",
+   "mgmt_no": "271-1-000064",
+   "name": "백제공인중개사무소~토탈세엔씨"
+  },
+  {
+   "old_id": "cj-cheongju-s069",
+   "new_id": "cj-cheongju-s070",
+   "mgmt_no": "271-1-000017",
+   "name": "복대119~삼화전기"
+  },
+  {
+   "old_id": "cj-cheongju-s070",
+   "new_id": "cj-cheongju-s071",
+   "mgmt_no": "271-1-000021",
+   "name": "빌라부근(노상 12면)"
+  },
+  {
+   "old_id": "cj-cheongju-s071",
+   "new_id": "cj-cheongju-s072",
+   "mgmt_no": "271-1-000057",
+   "name": "삼립식품~동아오츠카"
+  },
+  {
+   "old_id": "cj-cheongju-s072",
+   "new_id": "cj-cheongju-s073",
+   "mgmt_no": "271-1-000045",
+   "name": "삼정아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s073",
+   "new_id": "cj-cheongju-s074",
+   "mgmt_no": "271-1-000018",
+   "name": "삼화전기부근(노상 52면)"
+  },
+  {
+   "old_id": "cj-cheongju-s074",
+   "new_id": "cj-cheongju-s075",
+   "mgmt_no": "271-1-000019",
+   "name": "삼화전기부근(노상 8면)"
+  },
+  {
+   "old_id": "cj-cheongju-s075",
+   "new_id": "cj-cheongju-s076",
+   "mgmt_no": "271-1-000047",
+   "name": "신봉동성당~송정지구대"
+  },
+  {
+   "old_id": "cj-cheongju-s076",
+   "new_id": "cj-cheongju-s077",
+   "mgmt_no": "271-1-000054",
+   "name": "심영산업~지트론"
+  },
+  {
+   "old_id": "cj-cheongju-s077",
+   "new_id": "cj-cheongju-s078",
+   "mgmt_no": "271-1-000052",
+   "name": "원풍~로얄파마"
+  },
+  {
+   "old_id": "cj-cheongju-s078",
+   "new_id": "cj-cheongju-s079",
+   "mgmt_no": "271-1-000055",
+   "name": "일양화학~한국사료향미양행"
+  },
+  {
+   "old_id": "cj-cheongju-s079",
+   "new_id": "cj-cheongju-s080",
+   "mgmt_no": "271-1-000048",
+   "name": "자영~조광피혁부근"
+  },
+  {
+   "old_id": "cj-cheongju-s080",
+   "new_id": "cj-cheongju-s081",
+   "mgmt_no": "271-1-000051",
+   "name": "조광피혁~대양화학"
+  },
+  {
+   "old_id": "cj-cheongju-s081",
+   "new_id": "cj-cheongju-s082",
+   "mgmt_no": "271-1-000024",
+   "name": "주택가부근(노상 18면)"
+  },
+  {
+   "old_id": "cj-cheongju-s082",
+   "new_id": "cj-cheongju-s083",
+   "mgmt_no": "271-1-000062",
+   "name": "청주치과기공소~빛과소리교회"
+  },
+  {
+   "old_id": "cj-cheongju-s083",
+   "new_id": "cj-cheongju-s084",
+   "mgmt_no": "271-1-000041",
+   "name": "티케이씨부근"
+  },
+  {
+   "old_id": "cj-cheongju-s084",
+   "new_id": "cj-cheongju-s085",
+   "mgmt_no": "271-1-000058",
+   "name": "한국도자기~경일옵틱스"
+  },
+  {
+   "old_id": "cj-cheongju-s085",
+   "new_id": "cj-cheongju-s086",
+   "mgmt_no": "271-1-000050",
+   "name": "한국도자기~비케이엘"
+  },
+  {
+   "old_id": "cj-cheongju-s086",
+   "new_id": "cj-cheongju-s087",
+   "mgmt_no": "271-1-000053",
+   "name": "한세이프~일양화학"
+  },
+  {
+   "old_id": "cj-cheongju-s087",
+   "new_id": "cj-cheongju-s088",
+   "mgmt_no": "283-1-000011",
+   "name": "공영주차장(노상 30면)"
+  },
+  {
+   "old_id": "cj-cheongju-s088",
+   "new_id": "cj-cheongju-s089",
+   "mgmt_no": "270-1-000019",
+   "name": "구 남궁병원~남사교"
+  },
+  {
+   "old_id": "cj-cheongju-s089",
+   "new_id": "cj-cheongju-s090",
+   "mgmt_no": "283-1-000002",
+   "name": "국민은행근처"
+  },
+  {
+   "old_id": "cj-cheongju-s090",
+   "new_id": "cj-cheongju-s091",
+   "mgmt_no": "270-1-000029",
+   "name": "무심동로제내지"
+  },
+  {
+   "old_id": "cj-cheongju-s091",
+   "new_id": "cj-cheongju-s093",
+   "mgmt_no": "283-1-000040",
+   "name": "미호아파트근처"
+  },
+  {
+   "old_id": "cj-cheongju-s092",
+   "new_id": "cj-cheongju-s094",
+   "mgmt_no": "283-1-000018",
+   "name": "빌라부근(노상 20면)"
+  },
+  {
+   "old_id": "cj-cheongju-s093",
+   "new_id": "cj-cheongju-s095",
+   "mgmt_no": "283-1-000001",
+   "name": "사직분수대"
+  },
+  {
+   "old_id": "cj-cheongju-s094",
+   "new_id": "cj-cheongju-s096",
+   "mgmt_no": "283-1-000030",
+   "name": "삼호1차아파트근처"
+  },
+  {
+   "old_id": "cj-cheongju-s095",
+   "new_id": "cj-cheongju-s097",
+   "mgmt_no": "283-1-000043",
+   "name": "서문교, 남사교 사이"
+  },
+  {
+   "old_id": "cj-cheongju-s096",
+   "new_id": "cj-cheongju-s098",
+   "mgmt_no": "283-1-000042",
+   "name": "서문교밑(사직동114)"
+  },
+  {
+   "old_id": "cj-cheongju-s097",
+   "new_id": "cj-cheongju-s099",
+   "mgmt_no": "283-1-000041",
+   "name": "용궁탕부근"
+  },
+  {
+   "old_id": "cj-cheongju-s098",
+   "new_id": "cj-cheongju-s102",
+   "mgmt_no": "270-1-000013",
+   "name": "청주공업고등학교앞"
+  },
+  {
+   "old_id": "cj-cheongju-s099",
+   "new_id": "cj-cheongju-s103",
+   "mgmt_no": "283-1-000033",
+   "name": "청주의료원 장례식장"
+  },
+  {
+   "old_id": "cj-cheongju-s100",
+   "new_id": "cj-cheongju-s104",
+   "mgmt_no": "283-1-000005",
+   "name": "해풍하구찜(사창동주민센터)"
+  },
+  {
+   "old_id": "cj-cheongju-s101",
+   "new_id": "cj-cheongju-s105",
+   "mgmt_no": "283-1-000035",
+   "name": "현대자동차사직점"
+  },
+  {
+   "old_id": "cj-cheongju-s102",
+   "new_id": "cj-cheongju-s106",
+   "mgmt_no": "283-1-000009",
+   "name": "GS25 충북대사랑점 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s103",
+   "new_id": "cj-cheongju-s107",
+   "mgmt_no": "271-1-000060",
+   "name": "봉명주공1단지부근(노상 12면)"
+  },
+  {
+   "old_id": "cj-cheongju-s104",
+   "new_id": "cj-cheongju-s108",
+   "mgmt_no": "283-1-000010",
+   "name": "사창동 창직로"
+  },
+  {
+   "old_id": "cj-cheongju-s105",
+   "new_id": "cj-cheongju-s109",
+   "mgmt_no": "283-1-000004",
+   "name": "사창동주민센터"
+  },
+  {
+   "old_id": "cj-cheongju-s106",
+   "new_id": "cj-cheongju-s110",
+   "mgmt_no": "283-1-000003",
+   "name": "이마트24편의점 청주스마일점 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s107",
+   "new_id": "cj-cheongju-s111",
+   "mgmt_no": "283-1-000008",
+   "name": "창신신협 본점"
+  },
+  {
+   "old_id": "cj-cheongju-s108",
+   "new_id": "cj-cheongju-s112",
+   "mgmt_no": "283-1-000007",
+   "name": "창신신협부근"
+  },
+  {
+   "old_id": "cj-cheongju-s109",
+   "new_id": "cj-cheongju-s113",
+   "mgmt_no": "283-1-000006",
+   "name": "청주스포트타운근처"
+  },
+  {
+   "old_id": "cj-cheongju-s110",
+   "new_id": "cj-cheongju-s022",
+   "mgmt_no": "284-1-000018",
+   "name": "로얄볼링장부근"
+  },
+  {
+   "old_id": "cj-cheongju-s111",
+   "new_id": "cj-cheongju-s114",
+   "mgmt_no": "284-1-000004",
+   "name": "보성아파트"
+  },
+  {
+   "old_id": "cj-cheongju-s112",
+   "new_id": "cj-cheongju-s115",
+   "mgmt_no": "284-1-000017",
+   "name": "엄마네손칼국수 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s113",
+   "new_id": "cj-cheongju-s116",
+   "mgmt_no": "283-1-000012",
+   "name": "공영주차장(노상 24면)"
+  },
+  {
+   "old_id": "cj-cheongju-s114",
+   "new_id": "cj-cheongju-s117",
+   "mgmt_no": "283-1-000028",
+   "name": "세원청실아파트쪽"
+  },
+  {
+   "old_id": "cj-cheongju-s115",
+   "new_id": "cj-cheongju-s118",
+   "mgmt_no": "283-1-000029",
+   "name": "수곡중학교"
+  },
+  {
+   "old_id": "cj-cheongju-s116",
+   "new_id": "cj-cheongju-s119",
+   "mgmt_no": "283-1-000013",
+   "name": "장평교 부근"
+  },
+  {
+   "old_id": "cj-cheongju-s117",
+   "new_id": "cj-cheongju-s120",
+   "mgmt_no": "270-1-000015",
+   "name": "낙원장부근"
+  },
+  {
+   "old_id": "cj-cheongju-s118",
+   "new_id": "cj-cheongju-s121",
+   "mgmt_no": "270-1-000002",
+   "name": "상공회의소"
+  },
+  {
+   "old_id": "cj-cheongju-s119",
+   "new_id": "cj-cheongju-s122",
+   "mgmt_no": "270-1-000014",
+   "name": "상호저축은행앞"
+  },
+  {
+   "old_id": "cj-cheongju-s120",
+   "new_id": "cj-cheongju-s123",
+   "mgmt_no": "270-1-000016",
+   "name": "우리은행앞"
+  },
+  {
+   "old_id": "cj-cheongju-s121",
+   "new_id": "cj-cheongju-s124",
+   "mgmt_no": "270-1-000018",
+   "name": "제일조명앞"
+  },
+  {
+   "old_id": "cj-cheongju-s122",
+   "new_id": "cj-cheongju-s125",
+   "mgmt_no": "270-1-000012",
+   "name": "현대자동차앞"
+  },
+  {
+   "old_id": "cj-cheongju-s123",
+   "new_id": "cj-cheongju-s126",
+   "mgmt_no": "270-1-000017",
+   "name": "청주문화원앞"
+  },
+  {
+   "old_id": "cj-cheongju-s124",
+   "new_id": "cj-cheongju-s127",
+   "mgmt_no": "283-1-000019",
+   "name": "KBS부근"
+  },
+  {
+   "old_id": "cj-cheongju-s125",
+   "new_id": "cj-cheongju-s128",
+   "mgmt_no": "283-1-000020",
+   "name": "무심천쪽(주택가쪽)(노상 20면)"
+  },
+  {
+   "old_id": "cj-cheongju-s126",
+   "new_id": "cj-cheongju-s129",
+   "mgmt_no": "271-1-000033",
+   "name": "sk청주공장 인근"
+  },
+  {
+   "old_id": "cj-cheongju-s127",
+   "new_id": "cj-cheongju-s130",
+   "mgmt_no": "271-1-000034",
+   "name": "봉명지구대 인근"
+  },
+  {
+   "old_id": "cj-cheongju-s128",
+   "new_id": "cj-cheongju-s131",
+   "mgmt_no": "271-1-000013",
+   "name": "SK하이닉스 청주사업장 제3공장"
+  },
+  {
+   "old_id": "cj-cheongju-s129",
+   "new_id": "cj-cheongju-s132",
+   "mgmt_no": "271-1-000039",
+   "name": "농협사료충청지사"
+  },
+  {
+   "old_id": "cj-cheongju-s130",
+   "new_id": "cj-cheongju-s133",
+   "mgmt_no": "271-1-000040",
+   "name": "대원부근"
+  },
+  {
+   "old_id": "cj-cheongju-s131",
+   "new_id": "cj-cheongju-s134",
+   "mgmt_no": "271-1-000036",
+   "name": "솔밭공원 부근(노상 16면)"
+  },
+  {
+   "old_id": "cj-cheongju-s132",
+   "new_id": "cj-cheongju-s135",
+   "mgmt_no": "271-1-000012",
+   "name": "솔밭공원 부근(노상 17면)"
+  },
+  {
+   "old_id": "cj-cheongju-s133",
+   "new_id": "cj-cheongju-s136",
+   "mgmt_no": "271-1-000037",
+   "name": "솔밭공원 부근(노상 44면)"
+  },
+  {
+   "old_id": "cj-cheongju-s134",
+   "new_id": "cj-cheongju-s137",
+   "mgmt_no": "271-1-000043",
+   "name": "한국도자기부근"
+  },
+  {
+   "old_id": "cj-cheongju-s135",
+   "new_id": "cj-cheongju-s138",
+   "mgmt_no": "271-1-000038",
+   "name": "한국존슨앤존슨부근"
+  },
+  {
+   "old_id": "cj-cheongju-s136",
+   "new_id": "cj-cheongju-s139",
+   "mgmt_no": "283-1-000016",
+   "name": "개신주공1단지부근"
+  },
+  {
+   "old_id": "cj-cheongju-s137",
+   "new_id": "cj-cheongju-s140",
+   "mgmt_no": "283-1-000024",
+   "name": "두진한라아파트쪽"
+  },
+  {
+   "old_id": "cj-cheongju-s138",
+   "new_id": "cj-cheongju-s141",
+   "mgmt_no": "283-1-000027",
+   "name": "보혜빌라근처"
+  },
+  {
+   "old_id": "cj-cheongju-s139",
+   "new_id": "cj-cheongju-s142",
+   "mgmt_no": "283-1-000022",
+   "name": "사랑나눔교회쪽"
+  },
+  {
+   "old_id": "cj-cheongju-s140",
+   "new_id": "cj-cheongju-s143",
+   "mgmt_no": "283-1-000025",
+   "name": "산남주공4단지쪽"
+  },
+  {
+   "old_id": "cj-cheongju-s141",
+   "new_id": "cj-cheongju-s144",
+   "mgmt_no": "283-1-000023",
+   "name": "주택가쪽(노상 35면)"
+  },
+  {
+   "old_id": "cj-cheongju-s142",
+   "new_id": "cj-cheongju-s145",
+   "mgmt_no": "283-1-000026",
+   "name": "한마음1차아파트"
+  },
+  {
+   "old_id": "cj-cheongju-s143",
+   "new_id": "cj-cheongju-s146",
+   "mgmt_no": "270-1-000004",
+   "name": "고려삼계탕"
+  },
+  {
+   "old_id": "cj-cheongju-s144",
+   "new_id": "cj-cheongju-s147",
+   "mgmt_no": "270-1-000005",
+   "name": "메리츠화재"
+  },
+  {
+   "old_id": "cj-cheongju-s145",
+   "new_id": "cj-cheongju-s148",
+   "mgmt_no": "270-1-000003",
+   "name": "명문식당"
+  },
+  {
+   "old_id": "cj-cheongju-s146",
+   "new_id": "cj-cheongju-s149",
+   "mgmt_no": "270-1-000007",
+   "name": "제일학원 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s147",
+   "new_id": "cj-cheongju-s150",
+   "mgmt_no": "271-1-000010",
+   "name": "제닉스 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s148",
+   "new_id": "cj-cheongju-s151",
+   "mgmt_no": "271-1-000009",
+   "name": "하이닉스문화센터 아트홀 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s149",
+   "new_id": "cj-cheongju-s152",
+   "mgmt_no": "271-1-000011",
+   "name": "하이닉스문화센터아트홀 앞 택시전용"
+  },
+  {
+   "old_id": "cj-cheongju-s150",
+   "new_id": "cj-cheongju-s153",
+   "mgmt_no": "270-1-000006",
+   "name": "교서로(지하상가~주성초교)"
+  },
+  {
+   "old_id": "cj-cheongju-s151",
+   "new_id": "cj-cheongju-s092",
+   "mgmt_no": "283-1-000038",
+   "name": "무심천쪽(노상 30면)"
+  },
+  {
+   "old_id": "cj-cheongju-s152",
+   "new_id": "cj-cheongju-s100",
+   "mgmt_no": "283-1-000039",
+   "name": "용화사근처(노상 20면)"
+  },
+  {
+   "old_id": "cj-cheongju-s153",
+   "new_id": "cj-cheongju-s101",
+   "mgmt_no": "283-1-000037",
+   "name": "용화사근처(노상 50면)"
+  },
+  {
+   "old_id": "cj-cheongju-s178",
+   "new_id": "cj-cheongju-s179",
+   "mgmt_no": "284-1-000049",
+   "name": "주택부근(노상 8면)"
+  },
+  {
+   "old_id": "cj-cheongju-s179",
+   "new_id": "cj-cheongju-s180",
+   "mgmt_no": "284-1-000055",
+   "name": "주택부근(노상 9면)"
+  },
+  {
+   "old_id": "cj-cheongju-s180",
+   "new_id": "cj-cheongju-s181",
+   "mgmt_no": "284-1-000032",
+   "name": "청북신협부근"
+  },
+  {
+   "old_id": "cj-cheongju-s181",
+   "new_id": "cj-cheongju-s182",
+   "mgmt_no": "284-1-000029",
+   "name": "카카오모텔부근"
+  },
+  {
+   "old_id": "cj-cheongju-s182",
+   "new_id": "cj-cheongju-s183",
+   "mgmt_no": "284-1-000056",
+   "name": "택시전용주차장"
+  },
+  {
+   "old_id": "cj-cheongju-s183",
+   "new_id": "cj-cheongju-s184",
+   "mgmt_no": "284-1-000057",
+   "name": "평화아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s184",
+   "new_id": "cj-cheongju-s185",
+   "mgmt_no": "284-1-000019",
+   "name": "홍굴이해물짬뽕부근"
+  },
+  {
+   "old_id": "cj-cheongju-s185",
+   "new_id": "cj-cheongju-s186",
+   "mgmt_no": "271-1-000068",
+   "name": "대림빌라 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s186",
+   "new_id": "cj-cheongju-s187",
+   "mgmt_no": "271-1-000088",
+   "name": "무심서로 주차장"
+  },
+  {
+   "old_id": "cj-cheongju-s187",
+   "new_id": "cj-cheongju-s188",
+   "mgmt_no": "284-1-000062",
+   "name": "무심천쪽(노상 123면)"
+  },
+  {
+   "old_id": "cj-cheongju-s188",
+   "new_id": "cj-cheongju-s189",
+   "mgmt_no": "271-1-000067",
+   "name": "운천신봉동행정복지센터"
+  },
+  {
+   "old_id": "cj-cheongju-s189",
+   "new_id": "cj-cheongju-s190",
+   "mgmt_no": "284-1-000061",
+   "name": "충북석유"
+  },
+  {
+   "old_id": "cj-cheongju-s190",
+   "new_id": "cj-cheongju-s191",
+   "mgmt_no": "271-1-000066",
+   "name": "한울테크근처"
+  },
+  {
+   "old_id": "cj-cheongju-s191",
+   "new_id": "cj-cheongju-s192",
+   "mgmt_no": "271-1-000065",
+   "name": "행복이발관부근"
+  },
+  {
+   "old_id": "cj-cheongju-s192",
+   "new_id": "cj-cheongju-s193",
+   "mgmt_no": "283-1-000034",
+   "name": "흥덕 성당 부근"
+  },
+  {
+   "old_id": "cj-cheongju-s193",
+   "new_id": "cj-cheongju-s194",
+   "mgmt_no": "284-1-000063",
+   "name": "흥덕대교~방아다리(노상 20면)"
+  },
+  {
+   "old_id": "cj-cheongju-s194",
+   "new_id": "cj-cheongju-s195",
+   "mgmt_no": "284-1-000060",
+   "name": "흥덕대교~방아다리(노상 36면)"
+  },
+  {
+   "old_id": "cj-cheongju-s195",
+   "new_id": "cj-cheongju-s196",
+   "mgmt_no": "283-1-000036",
+   "name": "흥덕모범운전자회"
+  },
+  {
+   "old_id": "cj-cheongju-s196",
+   "new_id": "cj-cheongju-s197",
+   "mgmt_no": "284-1-000039",
+   "name": "삼일연립부근"
+  },
+  {
+   "old_id": "cj-cheongju-s197",
+   "new_id": "cj-cheongju-s198",
+   "mgmt_no": "284-1-000013",
+   "name": "양지뜰 앞(노상 13면)"
+  },
+  {
+   "old_id": "cj-cheongju-s198",
+   "new_id": "cj-cheongju-s199",
+   "mgmt_no": "284-1-000014",
+   "name": "양지뜰 앞(노상 14면)"
+  },
+  {
+   "old_id": "cj-cheongju-s199",
+   "new_id": "cj-cheongju-s200",
+   "mgmt_no": "284-1-000005",
+   "name": "율량골프연습장"
+  },
+  {
+   "old_id": "cj-cheongju-s200",
+   "new_id": "cj-cheongju-s201",
+   "mgmt_no": "284-1-000015",
+   "name": "주차타워 2024앞"
+  },
+  {
+   "old_id": "cj-cheongju-s201",
+   "new_id": "cj-cheongju-s202",
+   "mgmt_no": "283-1-000015",
+   "name": "삼성프라자부근"
+  },
+  {
+   "old_id": "cj-cheongju-s202",
+   "new_id": "cj-cheongju-s203",
+   "mgmt_no": "283-1-000014",
+   "name": "하늘야생화농원 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s203",
+   "new_id": "cj-cheongju-s204",
+   "mgmt_no": "284-1-000003",
+   "name": "율량동 미니스톱"
+  },
+  {
+   "old_id": "cj-cheongju-s204",
+   "new_id": "cj-cheongju-s205",
+   "mgmt_no": "284-1-000001",
+   "name": "청주농협 북부지점"
+  },
+  {
+   "old_id": "cj-cheongju-s205",
+   "new_id": "cj-cheongju-s206",
+   "mgmt_no": "284-1-000011",
+   "name": "학교부근"
+  },
+  {
+   "old_id": "cj-cheongju-s206",
+   "new_id": "cj-cheongju-s207",
+   "mgmt_no": "284-1-000002",
+   "name": "외평문화생활관 근처"
+  },
+  {
+   "old_id": "cj-cheongju-s207",
+   "new_id": "cj-cheongju-s208",
+   "mgmt_no": "270-1-000033",
+   "name": "용담광장 부근"
+  },
+  {
+   "old_id": "cj-cheongju-s208",
+   "new_id": "cj-cheongju-s209",
+   "mgmt_no": "270-1-000024",
+   "name": "파란음악학원~백작미용실"
+  },
+  {
+   "old_id": "cj-cheongju-s209",
+   "new_id": "cj-cheongju-s210",
+   "mgmt_no": "271-1-000086",
+   "name": "ALT세미콘부근"
+  },
+  {
+   "old_id": "cj-cheongju-s210",
+   "new_id": "cj-cheongju-s211",
+   "mgmt_no": "271-1-000084",
+   "name": "LG화학부근"
+  },
+  {
+   "old_id": "cj-cheongju-s211",
+   "new_id": "cj-cheongju-s212",
+   "mgmt_no": "284-1-000064",
+   "name": "내수농협 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s212",
+   "new_id": "cj-cheongju-s213",
+   "mgmt_no": "271-1-000078",
+   "name": "노마축산 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s213",
+   "new_id": "cj-cheongju-s214",
+   "mgmt_no": "271-1-000069",
+   "name": "대가숯불구이앞"
+  },
+  {
+   "old_id": "cj-cheongju-s214",
+   "new_id": "cj-cheongju-s215",
+   "mgmt_no": "284-1-000070",
+   "name": "대성베르힐아파트 뒤"
+  },
+  {
+   "old_id": "cj-cheongju-s215",
+   "new_id": "cj-cheongju-s216",
+   "mgmt_no": "284-1-000066",
+   "name": "대성철물건재 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s216",
+   "new_id": "cj-cheongju-s217",
+   "mgmt_no": "271-1-000076",
+   "name": "대신아파트 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s217",
+   "new_id": "cj-cheongju-s218",
+   "mgmt_no": "271-1-000085",
+   "name": "메타바이오메드부근"
+  },
+  {
+   "old_id": "cj-cheongju-s218",
+   "new_id": "cj-cheongju-s219",
+   "mgmt_no": "271-1-000059",
+   "name": "봉명주공1단지부근(노상 16면)"
+  },
+  {
+   "old_id": "cj-cheongju-s219",
+   "new_id": "cj-cheongju-s220",
+   "mgmt_no": "284-1-000074",
+   "name": "상가~테라셈"
+  },
+  {
+   "old_id": "cj-cheongju-s220",
+   "new_id": "cj-cheongju-s221",
+   "mgmt_no": "284-1-000072",
+   "name": "상가부근(노상 8면)"
+  },
+  {
+   "old_id": "cj-cheongju-s221",
+   "new_id": "cj-cheongju-s222",
+   "mgmt_no": "271-1-000077",
+   "name": "성심의원"
+  },
+  {
+   "old_id": "cj-cheongju-s222",
+   "new_id": "cj-cheongju-s223",
+   "mgmt_no": "270-1-000008",
+   "name": "시청후문"
+  },
+  {
+   "old_id": "cj-cheongju-s223",
+   "new_id": "cj-cheongju-s224",
+   "mgmt_no": "271-1-000080",
+   "name": "신용협동조합부근(노상 4면)"
+  },
+  {
+   "old_id": "cj-cheongju-s224",
+   "new_id": "cj-cheongju-s225",
+   "mgmt_no": "271-1-000081",
+   "name": "신용협동조합부근(노상 6면)"
+  },
+  {
+   "old_id": "cj-cheongju-s225",
+   "new_id": "cj-cheongju-s226",
+   "mgmt_no": "271-1-000072",
+   "name": "신협앞"
+  },
+  {
+   "old_id": "cj-cheongju-s226",
+   "new_id": "cj-cheongju-s227",
+   "mgmt_no": "271-1-000073",
+   "name": "오송약국부근"
+  },
+  {
+   "old_id": "cj-cheongju-s227",
+   "new_id": "cj-cheongju-s228",
+   "mgmt_no": "284-1-000068",
+   "name": "오창시외버스터미널"
+  },
+  {
+   "old_id": "cj-cheongju-s228",
+   "new_id": "cj-cheongju-s229",
+   "mgmt_no": "284-1-000065",
+   "name": "오창읍사무소 부근"
+  },
+  {
+   "old_id": "cj-cheongju-s229",
+   "new_id": "cj-cheongju-s230",
+   "mgmt_no": "284-1-000071",
+   "name": "오창프라자 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s230",
+   "new_id": "cj-cheongju-s231",
+   "mgmt_no": "271-1-000074",
+   "name": "옥산 시내"
+  },
+  {
+   "old_id": "cj-cheongju-s231",
+   "new_id": "cj-cheongju-s232",
+   "mgmt_no": "271-1-000075",
+   "name": "옥산119지역대부근"
+  },
+  {
+   "old_id": "cj-cheongju-s232",
+   "new_id": "cj-cheongju-s233",
+   "mgmt_no": "271-1-000079",
+   "name": "옥산농협부근"
+  },
+  {
+   "old_id": "cj-cheongju-s233",
+   "new_id": "cj-cheongju-s234",
+   "mgmt_no": "271-1-000070",
+   "name": "이덕마트앞"
+  },
+  {
+   "old_id": "cj-cheongju-s234",
+   "new_id": "cj-cheongju-s235",
+   "mgmt_no": "271-1-000083",
+   "name": "이조복집~오송119안전센터"
+  },
+  {
+   "old_id": "cj-cheongju-s235",
+   "new_id": "cj-cheongju-s236",
+   "mgmt_no": "284-1-000069",
+   "name": "칠갑산 식당 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s236",
+   "new_id": "cj-cheongju-s237",
+   "mgmt_no": "271-1-000082",
+   "name": "칸타빌아파트부근"
+  },
+  {
+   "old_id": "cj-cheongju-s237",
+   "new_id": "cj-cheongju-s238",
+   "mgmt_no": "284-1-000067",
+   "name": "파리바게트 앞"
+  },
+  {
+   "old_id": "cj-cheongju-s238",
+   "new_id": "cj-cheongju-s239",
+   "mgmt_no": "271-1-000087",
+   "name": "폐수종말처리장"
+  },
+  {
+   "old_id": "cj-cheongju-s239",
+   "new_id": "cj-cheongju-s240",
+   "mgmt_no": "284-1-000073",
+   "name": "현대아반시스,AGC"
+  }
+ ],
+ "sid_remap_note": "436곳 빌드(2026-11-19 14:41) → 440곳 빌드(2026-11-19 15:02). 노상 ID 변경 194건(복원 4건으로 인한 순번 이동). ALT세미콘부근 s209→s210, 복원 노상 공영주차장(창직로 104) s087→s088. 전체 440행 리맵표는 cheongju-id-remap-20261119.json 참조."
+}

@@ -25579,6 +25579,1132 @@
      "dong_m": null
     }
    ]
+  },
+  {
+   "id": "cj-cheongju-005",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "가경동",
+   "name": "공한지주차장(흥덕구 가경동 413 등 7)",
+   "addr_jibun": "충청북도 청주시 흥덕구 가경동 413 등 7",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 가경동 413 등 7",
+    "lat": 36.62496,
+    "lng": 127.43665,
+    "addr": "충청북도 청주시 흥덕구 가경동 413 등 7",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-009",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "각리",
+   "name": "견인차보관소",
+   "addr_jibun": "충청북도 청주시 청원구 각리 641-15",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 각리 641-15",
+    "lat": 36.70597,
+    "lng": 127.4343,
+    "addr": "충청북도 청주시 청원구 각리 641-15",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-011",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "구룡리",
+   "name": "구룡공원주차장1",
+   "addr_jibun": "충청북도 청주시 청원구 구룡리 376-1",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 구룡리 376-1",
+    "lat": 36.71491,
+    "lng": 127.41464,
+    "addr": "충청북도 청주시 청원구 구룡리 376-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-026",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "내수리",
+   "name": "내수리재래시장주차장",
+   "addr_jibun": "충청북도 청주시 청원구 내수리 36-11",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 내수리 36-11",
+    "lat": 36.72674,
+    "lng": 127.53522,
+    "addr": "충청북도 청주시 청원구 내수리 36-11",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-027",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "내추리",
+   "name": "마을공동주차장",
+   "addr_jibun": "충청북도 청주시 청원구 내추리 347",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 내추리 347",
+    "lat": 36.7617,
+    "lng": 127.54604,
+    "addr": "충청북도 청주시 청원구 내추리 347",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-028",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "내추리",
+   "name": "북이면문화마을 내",
+   "addr_jibun": "충청북도 청주시 청원구 내추리 347",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색) — 같은 지번(내추리 347)의 다른 시설과 동일 좌표",
+    "query": "충청북도 청주시 청원구 내추리 347",
+    "lat": 36.7617,
+    "lng": 127.54604,
+    "addr": "충청북도 청주시 청원구 내추리 347",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-029",
+   "city": "청주시",
+   "gu": "상당구",
+   "dong": "대성동",
+   "name": "공한지주차장(상당구 대성동 121-2)",
+   "addr_jibun": "충청북도 청주시 상당구 대성동 121-2",
+   "addr_road": "",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-032",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "마산리",
+   "name": "내수초 뒤",
+   "addr_jibun": "충청북도 청주시 청원구 마산리 159-1",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 내수읍 마산리 159-1",
+    "lat": 36.72502,
+    "lng": 127.53583,
+    "addr": "충청북도 청주시 청원구 내수읍 마산리 159-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-033",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "마산리",
+   "name": "내수초교앞주차장",
+   "addr_jibun": "충청북도 청주시 청원구 마산리 165-64",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 내수읍 마산리 165-64",
+    "lat": 36.72539,
+    "lng": 127.53634,
+    "addr": "충청북도 청주시 청원구 내수읍 마산리 165-64",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-035",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "만수리",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 799)",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 만수리 799",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 오송읍 만수리 799",
+    "lat": 36.6232,
+    "lng": 127.32805,
+    "addr": "충청북도 청주시 흥덕구 오송읍 만수리 799",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-036",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "만수리",
+   "name": "공한지주차장(흥덕구 오송옵 만수리 821)",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 만수리 821",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 오송읍 만수리 821",
+    "lat": 36.62303,
+    "lng": 127.3282,
+    "addr": "충청북도 청주시 흥덕구 오송읍 만수리 821",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-037",
+   "city": "청주시",
+   "gu": "상당구",
+   "dong": "명암동",
+   "name": "명암유원지(상당구 명암동 103-4)",
+   "addr_jibun": "충청북도 청주시 상당구 명암동 103-4",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 장소 기준(명암유원지 주차장, 등록 주소 용담동 324-87 — 표준데이터 주소와 다름)",
+    "query": "충청북도 청주시 상당구 명암동 103-4",
+    "lat": 36.64471,
+    "lng": 127.51185,
+    "addr": "충청북도 청주시 상당구 명암동 103-4",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-098",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "상정리",
+   "name": "공영주차장(흥덕구 오송옵 상정리 686)",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 상정리 686",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 오송읍 상정리 686",
+    "lat": 36.65091,
+    "lng": 127.33145,
+    "addr": "충청북도 청주시 흥덕구 오송읍 상정리 686",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-106",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "성산리",
+   "name": "미래지농촌테마공원 주차장(청원구 성산리 320번지)",
+   "addr_jibun": "충청북도 청주시 청원구 성산리 320번지",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 성산리 320",
+    "lat": 36.73164,
+    "lng": 127.40587,
+    "addr": "충청북도 청주시 청원구 오창읍 성산리 320",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-125",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "양청리",
+   "name": "공한지주차장(청원구 양청리 683-3)",
+   "addr_jibun": "충청북도 청주시 청원구 양청리 683-3",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 양청리 683-3",
+    "lat": 36.72298,
+    "lng": 127.43464,
+    "addr": "충청북도 청주시 청원구 오창읍 양청리 683-3",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-126",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "양청리",
+   "name": "공한지주차장(청원구 양청리 810-17)",
+   "addr_jibun": "충청북도 청주시 청원구 양청리 810-17",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 양청리 810-17",
+    "lat": 36.71237,
+    "lng": 127.43776,
+    "addr": "충청북도 청주시 청원구 오창읍 양청리 810-17",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-127",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "양청리",
+   "name": "오창호수공원",
+   "addr_jibun": "충청북도 청주시 청원구 양청리 753",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 양청리 753",
+    "lat": 36.71475,
+    "lng": 127.42503,
+    "addr": "충청북도 청주시 청원구 오창읍 양청리 753",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-128",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "연제리",
+   "name": "공한지주차장(흥덕구 연제리 836-1)",
+   "addr_jibun": "충청북도 청주시 흥덕구 연제리 836-1",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 오송읍 연제리 836-1",
+    "lat": 36.62486,
+    "lng": 127.32426,
+    "addr": "충청북도 청주시 흥덕구 오송읍 연제리 836-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-139",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "오산리",
+   "name": "옥산면공영주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오산리 204-1",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 옥산면 오산리 204-1",
+    "lat": 36.66495,
+    "lng": 127.37344,
+    "addr": "충청북도 청주시 흥덕구 옥산면 오산리 204-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-140",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "오송리",
+   "name": "오송역A주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 오송리 6-8",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 오송읍 오송리 6-8",
+    "lat": 36.61959,
+    "lng": 127.32964,
+    "addr": "충청북도 청주시 흥덕구 오송읍 오송리 6-8",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-141",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "오송리",
+   "name": "오송역C주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 오송리 6-8",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색) — 오송역A와 동일 주소·동일 좌표",
+    "query": "충청북도 청주시 흥덕구 오송읍 오송리 6-8",
+    "lat": 36.61959,
+    "lng": 127.32964,
+    "addr": "충청북도 청주시 흥덕구 오송읍 오송리 6-8",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-149",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "옥산면",
+   "name": "금정아파트(흥덕구 옥산면 오산리 561)",
+   "addr_jibun": "충청북도 청주시 흥덕구 옥산면 오산리 561",
+   "addr_road": "",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-159",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "용두리",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 15-13번지)",
+   "addr_jibun": "충청북도 청주시 청원구 용두리 15-13번지",
+   "addr_road": "",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-160",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "용두리",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 15-2번지)",
+   "addr_jibun": "충청북도 청주시 청원구 용두리 15-2번지",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 용두리 15-2",
+    "lat": 36.73207,
+    "lng": 127.40162,
+    "addr": "충청북도 청주시 청원구 오창읍 용두리 15-2",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-161",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "용두리",
+   "name": "미래지농촌테마공원 주차장(청원구 용두리 1번지)",
+   "addr_jibun": "충청북도 청주시 청원구 용두리 1번지",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 용두리 1",
+    "lat": 36.73176,
+    "lng": 127.4047,
+    "addr": "충청북도 청주시 청원구 오창읍 용두리 1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-168",
+   "city": "청주시",
+   "gu": "상당구",
+   "dong": "우암동",
+   "name": "공한지주차장(상당구 우암동 370-24)",
+   "addr_jibun": "충청북도 청주시 상당구 우암동 370-24",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색) — 카카오맵상 청원구 우암동으로 확인(표준데이터는 상당구 표기)",
+    "query": "충청북도 청주시 청원구 우암동 370-24",
+    "lat": 36.65545,
+    "lng": 127.48262,
+    "addr": "충청북도 청주시 청원구 우암동 370-24",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-185",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "장대리",
+   "name": "공영주차장(청원구 장대리 183-28)",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 183-28",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 장대리 183-28",
+    "lat": 36.74095,
+    "lng": 127.45656,
+    "addr": "충청북도 청주시 청원구 오창읍 장대리 183-28",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-186",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "장대리",
+   "name": "공영주차장(청원구 장대리 429-4)",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 429-4",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 장대리 429-4",
+    "lat": 36.74281,
+    "lng": 127.45732,
+    "addr": "충청북도 청주시 청원구 오창읍 장대리 429-4",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-187",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "장대리",
+   "name": "농협하나로마트인근",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 281-28",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 장대리 281-28",
+    "lat": 36.74137,
+    "lng": 127.45658,
+    "addr": "충청북도 청주시 청원구 오창읍 장대리 281-28",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-188",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "장대리",
+   "name": "대농마트앞",
+   "addr_jibun": "충청북도 청주시 청원구 장대리 429-8",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색) — 대농마트 앞 핀",
+    "query": "충청북도 청주시 청원구 오창읍 장대리 429-8",
+    "lat": 36.74256,
+    "lng": 127.45687,
+    "addr": "충청북도 청주시 청원구 오창읍 장대리 429-8",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-190",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": "정중리",
+   "name": "조천하상주차장",
+   "addr_jibun": "충청북도 청주시 흥덕구 오송옵 정중리 554",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 흥덕구 오송읍 정중리 554",
+    "lat": 36.60526,
+    "lng": 127.30425,
+    "addr": "충청북도 청주시 흥덕구 오송읍 정중리 554",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-194",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "주성리",
+   "name": "공한지주차장(청원구 주성리 575)",
+   "addr_jibun": "충청북도 청주시 청원구 주성리 575",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 오창읍 주성리 575",
+    "lat": 36.73297,
+    "lng": 127.44897,
+    "addr": "충청북도 청주시 청원구 오창읍 주성리 575",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-198",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": "학평리",
+   "name": "내수초교직원주차장",
+   "addr_jibun": "충청북도 청주시 청원구 학평리 140-10",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(주소 검색)",
+    "query": "충청북도 청주시 청원구 내수읍 학평리 140-10",
+    "lat": 36.72707,
+    "lng": 127.53792,
+    "addr": "충청북도 청주시 청원구 내수읍 학평리 140-10",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-199",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "공영주차장(흥덕구 장구봉로137번길 67)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 장구봉로137번길 67",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-200",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "오창시장주차장",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 팔결로 712",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오창시장 주차장)",
+    "query": "충청북도 청주시 청원구 오창읍 장대리 183-36",
+    "lat": 36.74183,
+    "lng": 127.45621,
+    "addr": "충청북도 청주시 청원구 오창읍 장대리 183-36",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s210",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "ALT세미콘부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(에이엘티(ALT) — 오창과학산업단지)",
+    "query": "충청북도 청주시 흥덕구 옥산면 남촌리 1112-7",
+    "lat": 36.69661,
+    "lng": 127.40835,
+    "addr": "충청북도 청주시 흥덕구 옥산면 남촌리 1112-7",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s211",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "LG화학부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(LG화학 오창2공장 내 우리은행 365코너 기준 — 'LG화학' 등록 장소 없음) — 2026-11-19 Instinct 교차검증 정정: 쿼리가 엉뚱한 지번(오창읍 주성리 648)을 써 약 3.8km 오차, 도로명 주소 기준 재확인",
+    "query": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+    "lat": 36.6973,
+    "lng": 127.42,
+    "addr": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s212",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "내수농협 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 내수로 735-2",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(내수농협 본점) — 2026-11-19 Instinct 교차검증 정정: 쿼리가 엉뚱한 지번(내수읍 학평리 150-7, 하나로마트)을 써 약 470m 오차·시설 오매칭, 도로명 주소 기준 재확인",
+    "query": "충청북도 청주시 청원구 내수로 735-2",
+    "lat": 36.7272,
+    "lng": 127.5365,
+    "addr": "충청북도 청주시 청원구 내수로 735-2",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s213",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "노마축산 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내2길 5",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(노마축산)",
+    "query": "충청북도 청주시 흥덕구 옥산면 오산리 537-27",
+    "lat": 36.66412,
+    "lng": 127.3747,
+    "addr": "충청북도 청주시 흥덕구 옥산면 오산리 537-27",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s214",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "대가숯불구이앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 월곡길 38",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s215",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "대성베르힐아파트 뒤",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 주성1길 18-6",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오창대성베르힐아파트 자체 기준 — '뒤' 방향 특정 불가)",
+    "query": "충청북도 청주시 청원구 오창읍 주성리 556",
+    "lat": 36.73455,
+    "lng": 127.45281,
+    "addr": "충청북도 청주시 청원구 오창읍 주성리 556",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s216",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "대성철물건재 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s217",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "대신아파트 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내1길 3-4",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(대신아파트)",
+    "query": "충청북도 청주시 흥덕구 옥산면 오산리 384-17",
+    "lat": 36.66303,
+    "lng": 127.3722,
+    "addr": "충청북도 청주시 흥덕구 옥산면 오산리 384-17",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s218",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "메타바이오메드부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업3로 68-6",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(메타바이오메드 본사)",
+    "query": "충청북도 청주시 흥덕구 오송읍 연제리 634",
+    "lat": 36.64339,
+    "lng": 127.32656,
+    "addr": "충청북도 청주시 흥덕구 오송읍 연제리 634",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s219",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "봉명주공1단지부근(노상 16면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 직지대로582번길 6",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s220",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "상가~테라셈",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 과학산업3로 105",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s221",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "상가부근(노상 8면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 과학산업2로 283",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s222",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "성심의원",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 청주역로 628",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(성심의원)",
+    "query": "충청북도 청주시 흥덕구 옥산면 가락리 730-1",
+    "lat": 36.66405,
+    "lng": 127.3765,
+    "addr": "충청북도 청주시 흥덕구 옥산면 가락리 730-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s223",
+   "city": "청주시",
+   "gu": "상당구",
+   "dong": null,
+   "name": "시청후문",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 상당구 상당로143번길 16",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(CU 청주시청후문점 — 시청 후문 측)",
+    "query": "충청북도 청주시 상당구 중앙로 63-1",
+    "lat": 36.64278,
+    "lng": 127.48822,
+    "addr": "충청북도 청주시 상당구 중앙로 63-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s224",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "신용협동조합부근(노상 4면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s225",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "신용협동조합부근(노상 6면)",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s226",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "신협앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 가로수로 188-7",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s227",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "오송약국부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 가로수로 188-7",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오송약국)",
+    "query": "충청북도 청주시 흥덕구 오송읍 오송리 246-11",
+    "lat": 36.61023,
+    "lng": 127.32636,
+    "addr": "충청북도 청주시 흥덕구 오송읍 오송리 246-11",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s228",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "오창시외버스터미널",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(청주북부터미널 — 오창 시외버스터미널)",
+    "query": "충청북도 청주시 청원구 오창읍 양청리 821-7",
+    "lat": 36.71174,
+    "lng": 127.42725,
+    "addr": "충청북도 청주시 청원구 오창읍 양청리 821-7",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s229",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "오창읍사무소 부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1137-1",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오창읍 행정복지센터, 구 읍사무소)",
+    "query": "충청북도 청주시 청원구 오창읍 장대리 324-6",
+    "lat": 36.74235,
+    "lng": 127.45449,
+    "addr": "충청북도 청주시 청원구 오창읍 장대리 324-6",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s230",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "오창프라자 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 중심상업로 7",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오창프라자1)",
+    "query": "충청북도 청주시 청원구 오창읍 양청리 821-4",
+    "lat": 36.71138,
+    "lng": 127.42866,
+    "addr": "충청북도 청주시 청원구 오창읍 양청리 821-4",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s231",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "옥산 시내",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내4길 4-1",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(옥산면 행정복지센터 — 옥산 시내 중심지)",
+    "query": "충청북도 청주시 흥덕구 옥산면 오산리 540-1",
+    "lat": 36.66461,
+    "lng": 127.37561,
+    "addr": "충청북도 청주시 흥덕구 옥산면 오산리 540-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s232",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "옥산119지역대부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 옥산시내1길 43",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s233",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "옥산농협부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 청주역로 658",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(옥산농협)",
+    "query": "충청북도 청주시 흥덕구 옥산면 가락리 764",
+    "lat": 36.66565,
+    "lng": 127.37381,
+    "addr": "충청북도 청주시 흥덕구 옥산면 가락리 764",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s234",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "이덕마트앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 월곡길 38",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s235",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "이조복집~오송119안전센터",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 오송생명3로 71-5",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오송119안전센터 — 구간 기준점)",
+    "query": "충청북도 청주시 흥덕구 오송읍 연제리 709-1",
+    "lat": 36.63163,
+    "lng": 127.32683,
+    "addr": "충청북도 청주시 흥덕구 오송읍 연제리 709-1",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s236",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "칠갑산 식당 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1124-3",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(칠갑산 식당)",
+    "query": "충청북도 청주시 청원구 오창읍 창리 46-5",
+    "lat": 36.74071,
+    "lng": 127.45396,
+    "addr": "충청북도 청주시 청원구 오창읍 창리 46-5",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s237",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "칸타빌아파트부근",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 연제만수길 20",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s238",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "파리바게트 앞",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 두릉유리로 1130",
+   "chosen": null,
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s239",
+   "city": "청주시",
+   "gu": "흥덕구",
+   "dong": null,
+   "name": "폐수종말처리장",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 흥덕구 과학산업1로 102",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(오송폐수종말처리장) — 2026-11-19 Instinct 교차검증 정정: 쿼리가 엉뚱한 지번(오송읍 만수리 513)을 써 약 7.2km 오차, 도로명 주소 기준 재확인",
+    "query": "충청북도 청주시 흥덕구 과학산업1로 102",
+    "lat": 36.6968,
+    "lng": 127.406,
+    "addr": "충청북도 청주시 흥덕구 과학산업1로 102",
+    "source": "Kakao Map"
+   },
+   "candidates": []
+  },
+  {
+   "id": "cj-cheongju-s240",
+   "city": "청주시",
+   "gu": "청원구",
+   "dong": null,
+   "name": "현대아반시스,AGC",
+   "addr_jibun": "",
+   "addr_road": "충청북도 청주시 청원구 과학산업3로 78-15",
+   "chosen": {
+    "kind": "geocode",
+    "how": "카카오맵 웹 확인(장소 기준)(아반시스코리아 본사 — 현대아반시스)",
+    "query": "충청북도 청주시 청원구 오창읍 각리 653-6",
+    "lat": 36.69887,
+    "lng": 127.41956,
+    "addr": "충청북도 청주시 청원구 오창읍 각리 653-6",
+    "source": "Kakao Map"
+   },
+   "candidates": []
   }
  ],
  "city_signatures": {

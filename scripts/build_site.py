@@ -9029,6 +9029,50 @@ def fee_table_block(city) -> str:
 최초 10분이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "cheongju_grade":
+        # 청주시 조례 별표1(1~3급지 · 최초 30분 + 초과 5분 단위 · 급지는 시장이 결정·고시)
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        ord_rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{won(r["base"])}</td>'
+            f'<td class="num">{won(r["unit"])}</td><td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{won(r["month"])}</td></tr>'
+            for r in ft["ord_rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 급지별 주차요금표</h2>
+<p class="lede">청주 공영주차장은 조례 별표1의 <b>1~3급지</b>로 나뉩니다 — <b>최초 30분</b> 요금에
+<b>초과 5분마다</b> 요금이 붙는 방식이고, 급지 구분은 통행량과 위치에 따라 시장이 결정·고시합니다
+(비고2). 아래 첫 표는 이 사이트에 실린 주차장의 <b>등록요금</b>이 어느 급지와 맞는지를 대조해
+묶은 것입니다.</p>
+<table class="data">
+  <thead><tr><th>급지</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<h3>청주시 주차장 조례 별표1 — 공영주차장 요금표</h3>
+<table class="data">
+  <thead><tr><th>급지</th><th class="num">최초 30분</th><th class="num">초과 5분마다</th>
+  <th class="num">1일 주차권</th><th class="num">월 정기권</th></tr></thead>
+  <tbody>{ord_rows_html}</tbody>
+</table>
+<p class="updated">주차시간이 <b>20분 이하면 무료</b>이고(비고4), 1회 주차요금은 1일 주차요금을
+넘지 않습니다(비고3). 무료로 운영되는 공영주차장도 <b>48시간 이상 장기주차</b>를 막기 위해
+2급지 요금을 부과할 수 있습니다(조례 제3조④). 시외환승주차장은 승차 당일 요금의 50퍼센트를
+경감합니다(비고6, 승차권 확인).</p>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
