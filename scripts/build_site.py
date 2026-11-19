@@ -9752,6 +9752,39 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "boeun_grade":
+        # 보은군 — 등록된 22곳(노외 16·노상 6) 전부 무료. 조례 별표1은 급지
+        #   구분 없이 주간 최초 1시간30분 무료·초과 30분마다 500원·1일 7,000원
+        #   (노상 제외)·월정기 40,000원·야간 무료의 유료 요금표를 두고 있어
+        #   표는 조례 참고표로 싣는다. 무료 운영의 근거(고시 등)는 보은군청
+        #   확인 필요.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">보은 공영주차장 22곳은 표준데이터에 <b>전부 무료</b>로 등록돼 있습니다.
+다만 「보은군 주차장 조례」 제3581호 별표1은 급지 구분 없이 주간 <b>최초 1시간30분
+무료</b>, 초과 후 <b>30분마다 500원</b>, <b>1일주차 7,000원</b>(노상주차장 제외),
+<b>월정기권 40,000원</b>, <b>야간 무료</b>의 유료 요금표를 두고 있어, 아래 표는 그 조례
+요금표(참고)입니다. 주간 시간구분은 4~10월 <b>08:00~20:00</b>, 11~3월
+<b>09:00~19:30</b>이고 나머지는 야간입니다. 무료로 운영하는 근거(고시 등)는
+보은군청(043-540-3095) 확인이 필요합니다.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 보은군 공영주차장 <b>{corp.get('free', 0)}곳</b>을 실었고,
+전부 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다. 노상 구간도 전부 무료입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
