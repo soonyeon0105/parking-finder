@@ -11863,6 +11863,9 @@ def build_nearby_data(site):
                        f"{path}#lot-{i}", fee_text(lot), hours_text(lot), addr_text(lot)]
                 if lot.get("realtime"):
                     row.append(1)
+                    # T-08 후속 (2026-11-19, Instinct 확인 1건): 주변 카드 배지에도
+                    # 상세 카드와 같은 조회 시간을 병기한다 — row[8].
+                    row.append(lot["realtime"].get("ts") or SNAPSHOT_TS)
                 rows.append(row)
     return json.dumps(rows, ensure_ascii=False, separators=(",", ":"))
 

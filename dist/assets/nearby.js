@@ -51,7 +51,8 @@
           esc(row[0]) + '</a>' +
           '<span class="nearby-dist">' + fmtDist(d) + '</span></div>' +
         (row[7] ? '<p class="nearby-rt"><span class="badge live">실시간 잔여면수</span> ' +
-          '<a href="' + esc(row[3]) + '">상세 카드에서 확인</a></p>' : '') +
+          '<a href="' + esc(row[3]) + '">상세 카드에서 확인</a>' +
+          (row[8] ? ' <span class="nearby-rt-time">' + esc(row[8]) + ' 조회</span>' : '') + '</p>' : '') +
         '<p class="nearby-meta">' + esc(row[4]) + '</p>' +
         '<p class="nearby-meta">' + esc(row[5]) + '</p>' +
         '<p class="nearby-addr">' + esc(row[6]) + '</p>' +
