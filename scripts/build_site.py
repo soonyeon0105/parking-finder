@@ -5617,6 +5617,10 @@ CITY_UI.update({
         # 보령시 혼합 8곳은 등록 특기사항 '유료운영(월~토)'이라 일요일만 무료 — 공휴일 언급 없음.
         "free_weekend_phrase": "등록 특기사항에 유료운영이 월~토로 적혀 있어 일요일 무료 개방인",
     },
+    "청양군": {
+        # 청양군 유료 2곳은 조례 별표1 비고2로 토·일·공휴일 무료 운영 — 징수시간 08:00~20:00.
+        "free_weekend_phrase": "청양군 조례 별표1 비고2에 토·일·공휴일 무료 운영인",
+    },
 })
 
 
@@ -8214,9 +8218,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
                    "은 요일과 관계없이 무료입니다.")
     free_weekend_in_gu = len([l for l in lots if l["fee"]["type"] != "무료"
                               and (l["free_days"]["sat"] or l["free_days"]["sun"])])
-    # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례·유료운영 표기인 도시(파주시·포천시·공주시·보령시)는 그 문구로 적고,
+    # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례·유료운영 표기인 도시(파주시·포천시·공주시·보령시·청양군)는 그 문구로 적고,
     # 남은 유료 주차장 수도 함께 적는다. 다른 도시 문구는 그대로 둔다.
-    if city["city"] in ("파주시", "포천시", "공주시", "보령시"):
+    if city["city"] in ("파주시", "포천시", "공주시", "보령시", "청양군"):
         weekend_extra = (f"이 밖에 유료지만 {ui.get('free_weekend_phrase')} 곳이 "
                          f"{free_weekend_in_gu}곳 있습니다. " if free_weekend_in_gu else "")
         weekend_rest = (f"나머지 {s['n'] - free_in_gu - free_weekend_in_gu}곳" if free_weekend_in_gu
@@ -9387,38 +9391,197 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "yesan_grade":
-        # 예산군 — 실린 89곳(노외 79·노상 10) 전부 표준데이터에 무료로 등록돼 있다.
-        #   「예산군 주차장 설치 조례」 제3054호(시행 2025-04-30, ordinSeq 2032883)
-        #   제10조가 유료·무료 운영을 모두 허용해 충돌이 아니고, 제7조·별표5의
-        #   급지·차종별 요금표는 유료 운영 시 적용되는 참고 값으로만 적는다.
-        #   급지는 군수가 따로 정하고(별표5 비고4), 등록 급지('1'·'기타')는
-        #   그 근거가 아니다. 좌표는 89곳 전부 결측이다.
+    if ft.get("style") == "gyeryong_grade":
+        # 계룡시 — 유료는 계룡역 공영주차장 1곳뿐. 표준데이터에는 무료로 등록돼
+        #   있으나 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로
+        #   2026-08-01부터 유료 운영·주말 및 공휴일 무료가 확인돼 조례 별표1
+        #   기준으로 적용한다: 급지 구분 없이 최초 30분 무료, 30분 초과 10분당
+        #   200원, 2시간 초과 10분당 300원. 1일 주차요금 상한액 7,000원은 공식
+        #   답변 명시로 계산기 상한에도 적용하고, 월정기 60,000원은 표에 적는다
+        #   (판매 기준 확인 필요). 당초 '2025-09-15부터 유료' 표기는 당시 '계획
+        #   중' 안내를 근거로 한 것이어서 2026-11-20 정정했다.
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
-            f'<td class="num">{won(r["day"])}</td><td class="num">{esc(r["month_label"])}</td></tr>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">계룡 공영주차장 20곳 중 요금을 받는 곳은 <b>계룡역 공영주차장 1곳</b>뿐입니다.
+「계룡시 주차장 설치 조례」 제1117호 별표 1은 급지 구분 없이 <b>최초 30분 무료</b>, 30분을 넘기면
+<b>10분마다 200원</b>, 2시간을 넘기면 <b>10분마다 300원</b>이고, <b>1일 주차요금 상한액 7,000원</b>·
+<b>월정기 60,000원</b>입니다. 계룡역은 표준데이터에 무료로 등록돼 있으나 계룡시 공식 답변
+(시장에게 바란다, 건설교통실 2026-11-09)으로 <b>2026년 8월 1일부터 유료</b>로 운영하고
+<b>주말 및 공휴일은 무료</b>라 이 표를 적용했습니다. 월정기는 유료화 발표 당시 주간 45,000원·
+야간 35,000원으로 안내돼 현행 별표와 다르니 실제 판매 기준은 시청 확인이 필요합니다.
+현장 확인이 필요하면 계룡시청(042-840-2584)에 문의하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 상한액</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "buyo_grade":
+        # 부여군 — 유료는 부여읍 5곳뿐(노외 4·노상 1). 조례 별표는 급지 구분 없이
+        #   최초 40분 무료, 40분 초과 1시간 이내 500원, 1시간 초과 10분마다 300원,
+        #   1일 최대 7,000원, 월정기 50,000원. 표준데이터 등록 표기(기본 40분
+        #   500원)는 개정 전 구조의 잔재로 보고 별표 구조로 적용한다(군청 확인
+        #   필요). 사비로유료주차장(노상)은 월정기 미등록. 같은 자리(구아리 66-7)에
+        #   무료 성왕로터리노상주차장과 유료 사비로유료주차장이 함께 등록돼 있다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">부여 공영주차장 72곳 중 요금을 받는 곳은 부여읍 <b>5곳</b>뿐입니다.
+「부여군 주차장 조례」 제3147호 별표는 급지 구분 없이 <b>최초 40분 무료</b>, 40분을 넘기면
+<b>1시간까지 500원</b>, 1시간을 넘기면 <b>10분마다 300원</b>이고, <b>하루 최대 7,000원</b>을
+넘지 않으며 <b>월정기 50,000원</b>입니다. 표준데이터에는 유료 5곳이 '기본 40분 500원'으로
+등록돼 있으나, 2026년 개정으로 무료 시간이 40분으로 확대된 별표 구조와 달라 이 표는 조례
+기준으로 적용했습니다(실제 징수 기준은 부여군청 확인이 필요합니다). 유료 5곳의 운영시간은
+<b>08:00~19:00</b>으로 등록돼 있고, 사비로유료주차장(노상)은 월정기가 등록돼 있지 않습니다.
+현장 확인이 필요하면 부여군청 경제교통과(041-830-2284)에 문의하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "seocheon_grade":
+        # 서천군 — 등록된 25곳 전부 무료. 조례 별표1은 읍 지역 1급지·면 지역
+        #   2급지의 유료 요금표를 두고 있어 표는 조례 참고표로 싣는다(월정기는
+        #   주간 요금을 적고 야간은 안내문에). 무료 운영의 근거(고시 등)는
+        #   서천군청 확인 필요. 같은 자리 재등록 3쌍을 합쳐 25곳·645면이다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         corp = ft.get("corp") or {}
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표</h2>
-<p class="lede">예산군 공영주차장 <b>89곳</b>(노외 79곳·노상 10구간, 총 3,375면)은 표준데이터에
-<b>전부 무료</b>로 등록돼 있어, 이 사이트에 실린 곳은 모두 요금을 받지 않습니다.
-「예산군 주차장 설치 조례」 제3054호 제10조는 공영주차장을 유료 또는 무료로 운영할 수 있게
-하고, 같은 조례 제7조·별표5에는 유료로 운영할 경우의 급지·차종별 요금표가 정해져 있어
-아래에 <b>참고용</b>으로 적습니다. 급지 구분은 군수가 따로 정하므로(별표5 비고4) 어느
-주차장이 몇 급지인지는 정해져 있지 않고, 표준데이터의 급지 표기(‘1’ 40곳·‘기타’ 49곳)는
-별표 급지의 근거가 아닙니다. 유료 시설이 실제로 있는지는 예산군청(041-339-7699)에
-확인하세요. 좌표는 89곳 전부 등록돼 있지 않아 각 주차장 카드는 주소·이름 검색으로
-연결됩니다.</p>
+<p class="lede">서천 공영주차장 25곳은 표준데이터에 <b>전부 무료</b>로 등록돼 있습니다.
+다만 「서천군 주차장 조례」 제2907호 별표1은 읍 지역을 <b>1급지</b>, 면 지역을 <b>2급지</b>로
+나눈 유료 요금표를 두고 있어, 아래 표는 그 조례 요금표(참고)입니다. 1급지는 <b>1시간
+500원</b>에 초과 <b>30분마다 500원</b>, 1일 5,000원, 월정기 주간 45,000원·야간 35,000원이고,
+2급지는 <b>1시간 500원</b>에 초과 <b>30분마다 250원</b>, 1일 3,000원, 월정기 주간
+30,000원·야간 20,000원입니다. 조례에 최초 무료 시간이나 요일별 무료 조항은 없습니다.
+무료로 운영하는 근거(고시 등)는 서천군청(041-950-4354) 확인이 필요합니다. 주간 시간구분은
+4~10월 <b>08:00~20:00</b>, 11~3월 <b>08:00~19:00</b>이고 나머지는 야간입니다.</p>
 <table class="data">
-  <thead><tr><th>구분 (조례 별표5)</th><th>요율</th><th class="num">1시간</th>
-  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월 정기권</th></tr></thead>
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
-<p class="updated">이 사이트에는 요금 구분이 ‘무료’인 <b>{corp.get('free', 0)}곳</b>을 실었고,
-유료 주차장은 없습니다.</p>
+<p class="updated">이 사이트에는 서천군 공영주차장 <b>{corp.get('free', 0)}곳</b>을 실었고,
+전부 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다. 이 지역에는 노상 구간이 없습니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "cheongyang_grade":
+        # 청양군 — 유료 2곳(청양시장주차타워 85면·읍내리 제6공영주차장 31면, 모두 청양읍).
+        #   조례 별표1(제2932호, 시행 2025-12-15)은 급지 구분 없이 최초 1시간 무료·
+        #   1시간 초과 30분마다 500원·1일 5,000원(6시간 이상 주차 시 적용)·월정기
+        #   80,000원, 징수시간 08:00~20:00, 토·일·공휴일 무료(비고2). 표준데이터
+        #   등록값은 두 곳 모두 기본 120분·0원으로 무료 시간이 조례보다 1시간 길고
+        #   1일권·월정기는 공란이라, 계산기는 공주시 선례대로 등록값을 유지하고
+        #   요금표는 조례값으로 표기한다(차이는 데이터 품질 기록에 남김).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">청양 공영주차장 25곳 중 유료는 <b>2곳</b>뿐이고, 두 곳 모두 청양읍에 있습니다 —
+<b>청양시장주차타워(85면)</b>와 <b>읍내리 제6공영주차장(31면)</b>입니다. 「청양군 주차장 설치 조례」
+제2932호 별표1은 급지 구분 없이 <b>최초 1시간 무료</b>, 1시간을 넘기면 <b>30분마다 500원</b>,
+<b>1일 5,000원</b>(6시간 이상 주차하면 1일 요금을 적용), <b>월정기 80,000원</b>입니다.
+징수시간은 연중 <b>08:00~20:00</b>이고 <b>토·일·공휴일은 무료</b>로 운영합니다(별표1 비고2).
+다만 표준데이터에 등록된 두 곳의 요금은 <b>기본 120분 무료</b>로 조례보다 무료 시간이 1시간
+길고 1일권·월정기는 등록돼 있지 않아, 이 사이트의 계산기는 등록값으로 계산하고 요금표는
+조례 값으로 적었습니다. 실제 징수 기준은 현장 안내나 청양군청(041-940-2602)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "hongseong_grade":
+        # 홍성군 — 유료 8곳(내포주차타워·홍주성 옆·하상 1·2·3공구·홍성천 복개·장군상~
+        #   의사총사거리·홍주교~장군상오거리, 전부 1급지인 읍 지역·내포신도시).
+        #   조례 별표1(제3195호, 시행 2025-12-15)은 1구획 차량 기준 30분까지 무료·
+        #   45분까지 500원·60분까지 800원·이후 30분당 500원(최종 잔여 15분 이내
+        #   300원)·1일 6,000원·월정기 70,000원이고, 2급지(면 지역)는 무료다.
+        #   표준데이터 등록값은 8곳 모두 기본 30분 0원·추가 30분당 500원뿐이라
+        #   계단식 기본요금이 표현되지 않아, 계산기는 공주·청양 선례대로 등록값을
+        #   유지하고 요금표는 조례값으로 표기한다(차이는 데이터 품질 기록에 남김).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">홍성 공영주차장 79곳 중 유료는 <b>8곳</b>뿐이고, 모두 1급지인 홍성읍·내포신도시에
+있습니다 — <b>내포주차타워, 홍주성 옆 공영주차장, 하상 1·2·3공구, 홍성천 복개주차장</b>과 노상
+2구간(<b>장군상~의사총사거리, 홍주교~장군상오거리</b>)입니다. 「홍성군 주차장 조례」 제3195호
+별표1은 1구획 차량 기준 <b>30분까지 무료, 45분까지 500원, 60분까지 800원</b>, 이후
+<b>30분마다 500원</b>(마지막 잔여시간이 15분 이내이면 300원), <b>1일 6,000원</b>,
+<b>월정기 70,000원</b>입니다. <b>2급지(면 지역) 공영주차장은 무료</b>입니다. 1구획을 초과하는
+차량은 별도 요금(45분까지 1,300원·60분까지 1,600원·이후 30분마다 800원·1일 10,000원·월정기
+100,000원)을 받습니다. 다만 표준데이터에 등록된 8곳의 요금은 <b>기본 30분 무료·이후 30분마다
+500원</b>으로 조례의 계단식 기본요금이 표현돼 있지 않아, 이 사이트의 계산기는 등록값으로
+계산하고 요금표는 조례 값으로 적었습니다. 실제 징수 기준은 현장 안내나 홍성군청(041-630-1898)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
     if ft.get("style") == "daejeon_grade":
