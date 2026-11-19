@@ -6073,6 +6073,14 @@ MAP_COORD_FIX = {
     "std-009": (37.2848344, 127.0777866),   # 신대호수 → 광교호수공원 신대호수주차장(하동 1008)
 }
 
+# 등록 주소가 실제 위치와 다른 곳을 가리키는 노상 구간 — 노상 표는 주소 검색 링크를
+# 쓰므로 stale 주소로 연결하면 4~6km 어긋난 곳으로 간다. 이 구간만 좌표 핀 링크로
+# 나간다(T-03 후속, Instinct 2026-11-19). 좌표는 지오코딩 오버레이 검증값이다.
+STALE_ADDR_LINK_IDS = {
+    "cj-cheongju-s218",  # 메타바이오메드부근 — 등록 주소 과학산업3로 68-6, 실제 메타바이오메드 본사 자리
+    "cj-cheongju-s228",  # 오창시외버스터미널 — 등록 주소 두릉유리로 1137-1, 실제 청주북부터미널 자리
+}
+
 # 이름에 이미 들어 있으면 덧붙이지 않는 말
 PARKING_WORDS = ("주차장", "주차타워", "주차빌딩", "차고지")
 
@@ -7609,8 +7617,13 @@ def street_rows(street_lots, *, with_price=True, with_daily=None, unit_label="�
         p2 = price_for(l, 120, "weekday")
         amount = won(p2["amount"]) if p2["state"] == "paid" else ("무료" if p2["state"] == "free" else "현장 확인")
         addr = l["addr_jibun"] or l["addr_road"] or f'{l["name"]} {l.get("city", "")}'
-        # 노상 구간은 고유 이름 대신 도로명·지번 주소로 찾는다(모바일에서는 앱 검색으로 이어진다)
-        kurl = f"https://map.kakao.com/link/search/{quote(addr)}"
+        if l["id"] in STALE_ADDR_LINK_IDS and l.get("lat") and l.get("lng"):
+            # 등록 주소가 stale인 구간 — 주소 검색 링크가 실제와 4~6km 어긋난 곳으로
+            # 가므로 좌표 핀 링크로 나간다(T-03 후속).
+            kurl, _naver = map_links(l)
+        else:
+            # 노상 구간은 고유 이름 대신 도로명·지번 주소로 찾는다(모바일에서는 앱 검색으로 이어진다)
+            kurl = f"https://map.kakao.com/link/search/{quote(addr)}"
         rows.append(
             f'<tr><td><a href="{esc(kurl)}" target="_blank" rel="nofollow noopener">{esc(l["name"])}</a></td>'
             f'<td>{esc(place(l))}</td>'
