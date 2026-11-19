@@ -9387,6 +9387,39 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "seocheon_grade":
+        # 서천군 — 등록된 25곳 전부 무료. 조례 별표1은 읍 지역 1급지·면 지역
+        #   2급지의 유료 요금표를 두고 있어 표는 조례 참고표로 싣는다(월정기는
+        #   주간 요금을 적고 야간은 안내문에). 무료 운영의 근거(고시 등)는
+        #   서천군청 확인 필요. 같은 자리 재등록 3쌍을 합쳐 25곳·645면이다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">서천 공영주차장 25곳은 표준데이터에 <b>전부 무료</b>로 등록돼 있습니다.
+다만 「서천군 주차장 조례」 제2907호 별표1은 읍 지역을 <b>1급지</b>, 면 지역을 <b>2급지</b>로
+나눈 유료 요금표를 두고 있어, 아래 표는 그 조례 요금표(참고)입니다. 1급지는 <b>1시간
+500원</b>에 초과 <b>30분마다 500원</b>, 1일 5,000원, 월정기 주간 45,000원·야간 35,000원이고,
+2급지는 <b>1시간 500원</b>에 초과 <b>30분마다 250원</b>, 1일 3,000원, 월정기 주간
+30,000원·야간 20,000원입니다. 조례에 최초 무료 시간이나 요일별 무료 조항은 없습니다.
+무료로 운영하는 근거(고시 등)는 서천군청(041-950-4354) 확인이 필요합니다. 주간 시간구분은
+4~10월 <b>08:00~20:00</b>, 11~3월 <b>08:00~19:00</b>이고 나머지는 야간입니다.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 서천군 공영주차장 <b>{corp.get('free', 0)}곳</b>을 실었고,
+전부 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다. 이 지역에는 노상 구간이 없습니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
