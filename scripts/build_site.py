@@ -9129,12 +9129,13 @@ def fee_table_block(city) -> str:
 <p class="updated">{esc(ft['basis'])}</p>
 """
     if ft.get("style") == "seosan_grade":
-        # 서산시 — 유료 9곳 단일 묶음(기본 30분 400원 → 추가 10분마다 200원).
-        #   조례 별표 원문 대조 미확정이라 표는 등록값만으로 묶었다.
+        # 서산시 — 유료 9곳 단일 묶음(기본 30분 400원 → 추가 10분마다 200원 · 1일 6,000원 ·
+        #   월정기 주간 36,000원·야간 26,000원, 조례 별표1 1급지 소형 기준).
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
-            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["day"])}</td>'
+            f'<td class="num">{esc(r["month_label"]) if r.get("month_label") else won(r["month"])}</td>'
             f'<td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         corp = ft.get("corp") or {}
@@ -9143,10 +9144,11 @@ def fee_table_block(city) -> str:
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표</h2>
 <p class="lede">서산 공영주차장 223곳 중 유료는 <b>9곳</b>뿐이고, 요율은 <b>기본 30분 400원</b>에
-<b>추가 10분마다 200원</b>입니다(1일·월 정기권 등록 없음). 아래 표는 이 사이트에 실린 주차장의
-<b>등록요금</b>을 묶은 것입니다. 「서산시 주차장 조례」 별표 원문은 2026년 11월 19일 기준
-국가법령정보센터 조례 목록에서 확인하지 못해, 등록 요율을 그대로 표기하고 별표 대조는
-미확정으로 남겼습니다.</p>
+<b>추가 10분마다 200원</b>, <b>1일 6,000원</b>, <b>월정기 주간 36,000원 · 야간 26,000원</b>입니다
+(「서산시 주차장 조례」 별표1, 1급지 소형자동차 기준). 1일·월정기는 등록값에 없어 조례 별표1
+기준으로 보완했습니다. 시장1로 노상주차장의 월정기는 동부전통시장 인근 특례 적용 여부를
+확인 중이라 금액을 단정하지 않았습니다. 대형 화물차 등 보통자동차는 별표1 보통자동차
+요율(최초 30분 800원·추가 10분 400원·1일 12,000원)이 적용될 수 있습니다.</p>
 <table class="data">
   <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>

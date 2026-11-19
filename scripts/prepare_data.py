@@ -29593,29 +29593,55 @@ def build_cheonan():
 SEOSAN_PROVINCE = "충청남도"
 SEOSAN_PROVINCE_SLUG = "chungnam"
 
-# 「서산시 주차장 조례」 — 2026-11-19 기준 law.go.kr 조례 목록 조회가 이 환경에서
-#   불가해 ordinSeq·별표 원문(HWP)을 확보하지 못했다. 요금·감면은 표준데이터
-#   등록값 그대로 표기하고 대조 미확정을 명시한다(천안 시장 7곳·아산 시장 6곳과
-#   같은 '등록값 표기 + 차이 명시' 처리). 조례 원문 확인 후 보완한다.
-SEOSAN_ORD_URL = None
-SEOSAN_ORD_NOTE = "원문 대조 미확정 — law.go.kr 조례 목록 조회 불가(2026-11-19), ordinSeq 미확인"
+# 「서산시 주차장 조례」 — law.go.kr 현행본·별표1 원문(HWP) 확인 완료(2026-11-19).
+#   제2030호(2025-08-11 일부개정·시행), ordinSeq 2063887, 별표1 요금표 최종개정
+#   2020-09-25. 시간제 등록값은 별표1 1급지 소형과 일치하고, 1일·월정기는 등록값에
+#   없어 별표1 기준으로 보완한다.
+SEOSAN_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2063887"
+SEOSAN_ORD_NOTE = "충청남도서산시조례 제2030호(2025-08-11 일부개정·시행), ordinSeq 2063887, 별표1 요금표 최종개정 2020-09-25"
 SEOSAN_ORD1_TXT = RAW / "seosan.law.go.kr_주차장조례_별표1_20261119.txt"
 SEOSAN_ORD_TXT = RAW / "seosan.law.go.kr_주차장조례_20261119.txt"
+
+SEOSAN_DISCOUNTS = [
+    {"label": "장애인 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "장애인복지법 등록장애인(운전자·동승자) — 50% 감경(조례 제4조의2 1호)"},
+    {"label": "국가유공자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "국가유공자 및 유가족·상이자 — 50% 감경(제4조의2 2호)"},
+    {"label": "경형·친환경차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "배기량 1,000cc 미만 경형자동차·환경친화적 자동차 — 50% 감경(제4조의2 3호)"},
+    {"label": "저공해차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "저공해자동차 표지 부착 자동차 — 50% 감경(제4조의2 11호)"},
+    {"label": "두 자녀 이상 가정 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "두 자녀 이상 가정의 세대원 — 50% 감경(제4조의2 15호)"},
+    {"label": "전통시장 이용고객 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "전통시장 내·인근 공영주차장 90분 이내 주차요금의 50%까지(제4조의2 10호)"},
+    {"label": "성실납세증 전액", "rate": 1.0, "exempt_min": 0,
+     "note": "국세청 성실납세증 부착 차량 — 전액 감면, 1년간(제4조의2 4호)"},
+    {"label": "헌혈증서 3시간 무료", "rate": 1.0, "exempt_min": 180,
+     "note": "헌혈증서 소지자 — 헌혈 당일에 한해 3시간 무료(제4조의2 14호)"},
+]
+
 
 SEOSAN_CONF = {
     "city": "서산시",
     "slug": "seosan",
     "manager": "충청남도 서산시청",
     "manager_inquiry": "서산시청(041-660-2114) · 서산시 콜센터(1422-45)",
-    "ordinance": ("「서산시 주차장 조례」", SEOSAN_ORD_URL, SEOSAN_ORD_NOTE),
-    "notes": ("서산시 공영주차장 223곳 중 214곳은 무료, 유료는 9곳이다. 유료 9곳은 "
-              "모두 기본 30분 400원·추가 10분마다 200원으로 등록되어 있고 1일·월정기권 "
-              "등록은 없다(노외 8곳·노상 1구간, 모두 1급지 등록). 「서산시 주차장 조례」 "
-              "별표 원문을 이 환경에서 확보하지 못해(2026-11-19 law.go.kr 조례 목록 "
-              "조회 불가) 등록 요율을 그대로 표기하고 별표 대조는 미확정으로 남긴다. "
-              "감면 정보도 원문 미확정이라 싣지 않았다 — 조례 원문 확인 후 보완한다. "
-              "표준데이터에 도로명주소는 없고 지번주소만 있다(223행 전부)."),
-    "discounts": [],
+    "ordinance": ("「서산시 주차장 조례」 제2030호(2025-08-11 시행)·제4조제1항·별표1(2020-09-25 최종개정)",
+                  SEOSAN_ORD_URL, SEOSAN_ORD_NOTE),
+    "notes": ("서산시 공영주차장 223곳 중 214곳은 무료, 유료는 9곳이다. 유료 9곳은 모두 동지역 "
+              "1급지로, 기본 30분 400원·추가 10분마다 200원이 등록되어 있고, 1일 6,000원·월정기 "
+              "주간 36,000원·야간 26,000원은 등록값에 없어 「서산시 주차장 조례」 별표1(제2030호, "
+              "ordinSeq 2063887, 별표1 최종개정 2020-09-25) 1급지 소형자동차 요율로 보완했다. "
+              "시장1로유료공영노상주차장은 동부전통시장 인근 노상이라 별표1 비고4(월정기주차권 발행 "
+              "불가 특례, 제5조제2항) 적용 여부가 불확실해 월정기 금액은 단정하지 않고 발행 여부 "
+              "확인 중으로 표기했다. 화물유료공영주차장은 대형 화물차 등 보통자동차 이용 시 별표1 "
+              "보통자동차 요율(최초 30분 800원·추가 10분 400원·1일 12,000원·월정기 주간 65,000원·"
+              "야간 45,000원)이 적용될 수 있다. 감면은 조례 제4조의2를 따랐다 — 참전유공자·병역명문가·"
+              "우수봉사자·지방세 성실납세자·장기 등 기증자 50%, 10부제 10%, 투표참여자 1회 2,000원까지"
+              "(선거일 후 3개월)도 감면 대상이다. 표준데이터에 도로명주소는 없고 지번주소만 있다"
+              "(223행 전부)."),
+    "discounts": SEOSAN_DISCOUNTS,
 }
 
 
@@ -29633,7 +29659,8 @@ def seosan_dong_of(addr, name=None):
 
 
 def seosan_fee(row, name, note_bits, fee_diff):
-    """서산시 공영주차장 한 곳의 요금 — 등록값을 쓰고 조례 별표 대조는 미확정으로 남긴다."""
+    """서산시 공영주차장 한 곳의 요금 — 시간제는 등록값(조례 별표1 1급지 소형과 일치),
+    1일·월정기는 등록값에 없어 조례 별표1 기준으로 보완한다."""
     raw_type = (row.get("요금정보") or "").strip()
     base_min = to_int(row.get("주차기본시간"))
     base_fee = to_int(row.get("주차기본요금"))
@@ -29664,19 +29691,34 @@ def seosan_fee(row, name, note_bits, fee_diff):
         return fee
     fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
                   "unit_fee": unit_fee, "day": day, "monthly": month}
-    # 유료 9곳 모두 기본요금형(기본 30분 400원·추가 10분 200원, 1일·월정기 등록 없음).
-    #   조례 별표 원문 대조 미확정이라 등록값을 그대로 표기하고 차이를 명시한다.
+    # 유료 9곳 모두 기본요금형(기본 30분 400원·추가 10분마다 200원, 모두 동지역 1급지).
+    #   시간제 등록값은 조례 별표1의 1급지 소형 요율과 일치한다. 1일·월정기는 등록값에
+    #   없으나 별표1에 있어 조례 기준으로 보완한다(ordinSeq 2063887, 별표1 최종개정 2020-09-25).
     fee.update({"base_min": base_min, "base_fee": base_fee,
                 "unit_min": unit_min or 10, "unit_fee": unit_fee,
-                "daily_fee": day,
+                "daily_fee": 6_000,
                 "grade": int(grade) if grade.isdigit() else None,
                 "grade_label": f"{grade}급지" if grade else None,
-                "basis": "표준데이터 등록요금(「서산시 주차장 조례」 별표 원문 대조 미확정)"})
+                "basis": "「서산시 주차장 조례」 별표1(제2030호, 1급지 소형자동차 요율)"})
     fee_diff.append(f"{name}: 등록 기본 {base_min}분 {base_fee:,}원·추가 {unit_min}분마다 "
-                    f"{unit_fee:,}원 — 조례 별표 원문 대조 미확정(2026-11-19 law.go.kr "
-                    "조회 불가)이라 등록값 그대로 표기")
-    note_bits.append(f"기본 {base_min}분 {base_fee:,}원·추가 {unit_min}분마다 {unit_fee:,}원은 "
-                     "등록 요율입니다 — 조례 별표 대조는 확인 중입니다(별표 원문 미확정)")
+                    f"{unit_fee:,}원 — 시간제는 별표1 1급지 소형과 일치. 1일·월정기는 등록값에 "
+                    "없어 조례 별표1(1일 6,000원·월정기 주간 36,000원·야간 26,000원)으로 보완")
+    if ptype == "노상":
+        # 시장1로유료공영노상주차장 — 동부전통시장 인근 노상이라 별표1 비고4(월정기주차권
+        #   발행 불가 특례, 제5조제2항) 적용 여부가 불확실해 월정기 금액을 단정하지 않는다.
+        fee_diff.append(f"{name}: 노상이라 1일권만 보완하고 월정기는 미표기 — 동부전통시장 "
+                        "인근 노상주차장 월정기 발행 불가 특례(별표1 비고4) 적용 여부 확인 중")
+        note_bits.append("월정기 발행 여부 확인 중 — 동부전통시장 인근 노상주차장은 조례 "
+                         "제5조제2항·별표1 비고4에 따라 월정기주차권 발행 불가 특례가 적용될 수 있습니다")
+    else:
+        fee["monthly"] = 36_000
+        fee["monthly_day"] = 36_000
+        fee["monthly_night"] = 26_000
+        fee["monthly_all"] = 36_000
+        fee["monthly_label"] = "주간"
+    if "화물" in name:
+        note_bits.append("대형 화물차 등 보통자동차 이용 시 별표1 보통자동차 요율이 적용될 수 있습니다"
+                         "(최초 30분 800원·추가 10분 400원·1일 12,000원·월정기 주간 65,000원·야간 45,000원)")
     if month:
         fee["monthly_all"] = month
         fee["monthly"] = month
@@ -29694,16 +29736,18 @@ def _ss_tier_of(lot):
 
 
 def seosan_fee_table(conf, lots):
-    """요금표 — 유료 9곳 단일 묶음(기본요금형). 조례 별표 원문 미확정이라 ord_rows 없음."""
+    """요금표 — 유료 9곳 단일 묶음(기본요금형). 조례 별표1(제2030호) 1급지 소형 기준 —
+    1일 6,000원·월정기 주간 36,000원·야간 26,000원을 별표 기준으로 보완했다."""
     paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
     sample = {"base_min": 30, "base_fee": 400, "unit_min": 10, "unit_fee": 200,
-              "daily_fee": None}
+              "daily_fee": 6_000}
     rows = []
     if paid:
         rows.append({"label": "유료(1급지·기본요금형)", "grade": "paid_base",
                      "unit_label": "기본 30분 400원 → 추가 10분마다 200원",
                      "hour": sj_charge(sample, 60), "two_hour": sj_charge(sample, 120),
-                     "day": None, "month": None, "lots": len(paid)})
+                     "day": 6_000, "month": 36_000,
+                     "month_label": "주간 36,000원 · 야간 26,000원", "lots": len(paid)})
     corp = {
         "paid": len([l for l in paid if l["list_mode"] == "card"]),
         "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
@@ -29723,8 +29767,9 @@ def seosan_fee_table(conf, lots):
                               "카드에 그대로 적었습니다")}],
         "notes": conf["notes"],
         "corp_extra": corp,
-        "basis": ("전국주차장정보표준데이터(2026-04-17 기준) 등록값 · "
-                  "「서산시 주차장 조례」 별표 원문 대조 미확정(2026-11-19)"),
+        "basis": ("「서산시 주차장 조례」 별표1(제2030호, ordinSeq 2063887, 별표1 최종개정 "
+                  "2020-09-25) 1급지 소형자동차 요율 · 전국주차장정보표준데이터(2026-04-17 기준) "
+                  "등록값 대조 — 시간제는 등록값과 별표1 일치, 1일·월정기는 별표1 기준으로 보완"),
     }
 
 
@@ -29767,8 +29812,8 @@ def seosan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, 
         "급지_요금_차이": fee_diff,
         "좌표_보정": coord_fixed,
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
-        "감면_출처": "「서산시 주차장 조례」 원문 미확정 — 감면 정보 없음(2026-11-19)",
-        "무료시간_출처": "조례 별표 원문 미확정 — 표준데이터 등록값을 그대로 썼다",
+        "감면_출처": "「서산시 주차장 조례」 제4조의2(별표1 원문 HWP, ordinSeq 2063887, 2026-11-19 확인)",
+        "무료시간_출처": "조례 별표1(제2030호) 1급지 소형 요율 — 시간제는 등록값과 일치, 1일·월정기는 별표 기준으로 보완",
         "주말무료_출처": "표준데이터 운영요일·특기사항을 그대로 썼다(특기사항 없음)",
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
@@ -29790,7 +29835,8 @@ def seosan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, 
 
 
 def build_seosan():
-    """서산시 하나를 표준데이터로 추출한다 (build_asan 의 서산시 변형 — 조례 원문 미확정)."""
+    """서산시 하나를 표준데이터로 추출한다 (build_asan 의 서산시 변형). 조례 별표1 대조 완료
+    (제2030호, ordinSeq 2063887, 별표1 HWP 원문 확보)."""
     conf = SEOSAN_CONF
     rows_all = read_csv_kr(STD_CSV)
 
@@ -29971,7 +30017,8 @@ def build_seosan():
                  f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
                  f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 이름·관리번호 "
                  "중복이 없어 합친 행이 없고, 요금·운영시간·면수는 등록값을 그대로 썼다. "
-                 "조례 별표 원문 대조는 미확정이다."),
+                 "조례 별표1 대조 완료 — 시간제 등록값은 별표1 1급지 소형과 일치하고 1일 6,000원·"
+                 "월정기 주간 36,000원·야간 26,000원은 별표1 기준으로 보완했다."),
     }
     sources = [
         city_fee_src,
