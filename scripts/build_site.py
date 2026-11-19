@@ -9541,6 +9541,49 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "hongseong_grade":
+        # 홍성군 — 유료 8곳(내포주차타워·홍주성 옆·하상 1·2·3공구·홍성천 복개·장군상~
+        #   의사총사거리·홍주교~장군상오거리, 전부 1급지인 읍 지역·내포신도시).
+        #   조례 별표1(제3195호, 시행 2025-12-15)은 1구획 차량 기준 30분까지 무료·
+        #   45분까지 500원·60분까지 800원·이후 30분당 500원(최종 잔여 15분 이내
+        #   300원)·1일 6,000원·월정기 70,000원이고, 2급지(면 지역)는 무료다.
+        #   표준데이터 등록값은 8곳 모두 기본 30분 0원·추가 30분당 500원뿐이라
+        #   계단식 기본요금이 표현되지 않아, 계산기는 공주·청양 선례대로 등록값을
+        #   유지하고 요금표는 조례값으로 표기한다(차이는 데이터 품질 기록에 남김).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">홍성 공영주차장 79곳 중 유료는 <b>8곳</b>뿐이고, 모두 1급지인 홍성읍·내포신도시에
+있습니다 — <b>내포주차타워, 홍주성 옆 공영주차장, 하상 1·2·3공구, 홍성천 복개주차장</b>과 노상
+2구간(<b>장군상~의사총사거리, 홍주교~장군상오거리</b>)입니다. 「홍성군 주차장 조례」 제3195호
+별표1은 1구획 차량 기준 <b>30분까지 무료, 45분까지 500원, 60분까지 800원</b>, 이후
+<b>30분마다 500원</b>(마지막 잔여시간이 15분 이내이면 300원), <b>1일 6,000원</b>,
+<b>월정기 70,000원</b>입니다. <b>2급지(면 지역) 공영주차장은 무료</b>입니다. 1구획을 초과하는
+차량은 별도 요금(45분까지 1,300원·60분까지 1,600원·이후 30분마다 800원·1일 10,000원·월정기
+100,000원)을 받습니다. 다만 표준데이터에 등록된 8곳의 요금은 <b>기본 30분 무료·이후 30분마다
+500원</b>으로 조례의 계단식 기본요금이 표현돼 있지 않아, 이 사이트의 계산기는 등록값으로
+계산하고 요금표는 조례 값으로 적었습니다. 실제 징수 기준은 현장 안내나 홍성군청(041-630-1898)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
