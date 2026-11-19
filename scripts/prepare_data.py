@@ -40649,109 +40649,92 @@ def build_jincheon():
     return payload
 
 
-# ---------------------------------------------------------------- 음성군 (T-03 충북 8)
-# 음성군은 표준데이터 행이 29행뿐이고 전부 공영이다(민영 0). 노외 25곳·
-#   노상 4구간(전부 음성읍), 무료 28곳·혼합 1곳(맹동면 혁신도시 공영주차장
-#   동성리 486-1, 194면)이다. 조례는 「음성군 주차장 조례」 제2879호(시행
-#   2022-12-30, ordinSeq 1773701) 본문 제3조와 별표 1(공영주차장 주차요금표)을
-#   국가법령정보센터에서 직접 대조했다. 별표 1은 1급지 30분당 500원(2시간
-#   까지)·2시간 초과 후 30분당 1,000원·월정기 40,000원, 2급지 30분당
-#   200원·2시간 초과 후 30분당 400원·월정기 30,000원이고 1일 주차권은
-#   없다. 혼합 1곳의 등록값은 기본요금이 없고 기본시간이 '2'로만 적혀 있어
-#   (표준데이터 명세상 단위는 분이나, 2분으로는 요금 구조가 성립하지
-#   않는다) 기본 구간이 불완전하다 — 추가단위요금 30분당 1,000원은 별표 1의
-#   2시간 초과 단가와 일치하고 월정기 40,000원도 1급지와 일치한다. 계산기는
-#   논산·부여 선례대로 조례 별표 1의 누진 구조를 적용하고 차이는
-#   급지_요금_차이에 전건 남긴다(군청 확인 필요 — 머지 시 최종 판단 지점).
-#   무료 28곳은 조례 제3조제1항 단서(주차질서 확립 또는 주차장 관리에
-#   필요한 경우 특별히 일정한 기간을 정하여 그 요금을 감면할 수 있다)에
-#   근거한 무료 운영으로 보고 요금표는 조례 기준 요금의 참고표로 싣는다
-#   (서천·보은·진천 선례). 좌표는 29행 전부 등록돼 있고 전부 음성군 범위
-#   안이라 지오코딩 보완은 필요 없었다. 도로명주소는 29곳 전부 결측이다.
-#   이름이 같은 주차장이 많지만(음성읍 8곳·삼성면 5곳·대소면 5곳 등) 전부
-#   자리(필지)가 다른 별개 주차장이라 중복 제거 없이 이름 뒤 주소 표시로
-#   구분한다.
-EUMSEONG_PROVINCE = "충청북도"
-EUMSEONG_PROVINCE_SLUG = "chungbuk"
-EUMSEONG_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1773701"
-EUMSEONG_ORD_HWP = RAW / "eumseong-ordinance-b1.hwp"
-EUMSEONG_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
-                   "「음성군 주차장 조례」 제2879호(시행 2022-12-30, 일부개정), "
-                   "ordinSeq 1773701. 본문 사본 data/raw/eumseong-ordinance.txt. "
-                   "별표 1(공영주차장 주차요금표) 원문 HWP data/raw/eumseong-ordinance-b1.hwp·"
-                   "추출문 eumseong-ordinance-b1.txt.")
+# ---------------------------------------------------------------- 괴산군 (T-03 충북 7)
+# 괴산군은 표준데이터 행이 31행뿐이고 전부 공영이다(민영 0). 노외 16곳·
+#   노상 15구간, 무료 27곳·유료 4곳(전부 괴산읍 노상)이다. 조례는 「괴산군
+#   주차장 조례」 제3004호(시행 2025-10-31, ordinSeq 2080925) 본문 제4조와
+#   별표 1(공영주차장요금표)을 국가법령정보센터에서 직접 대조했다. 유료 4곳의
+#   등록값(기본 30분 500원·추가 10분당 200원·1일 6,000원·월정기 50,000원)은
+#   별표 1의 1급지와 전부 일치한다. 다만 별표 1 특례(토·일·공휴일 무료 운영,
+#   월~금 11:30~14:30 무료 운영, 최초 10분 미징수) 가운데 최초 10분 무료는
+#   등록 기본요금 구조에 반영돼 있지 않아, 계산기는 공주 선례대로 등록값을
+#   유지하고 특례는 요금표에 표기하며 차이는 급지_요금_차이에 전건 남긴다
+#   (군청 확인 필요). 주말·공휴일 무료와 평일 점심시간 무료는 조례 명문이
+#   있어 free_days·free_window로 적용했다. 무료 27곳은 조례 제4조제1항
+#   단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 근거한 무료 운영으로
+#   보고 요금표는 조례 기준 요금의 참고표로 싣는다(서천·보은·진천 선례).
+#   좌표는 31행 전부 결측이라 ArcGIS World Geocoding으로 보완했다 — 반환
+#   주소가 등록 지번주소와 번지까지 일치(score 100, PointAddress)한 경우만
+#   채택했고 근거는 오버레이(data/raw/좌표누락_지오코딩_20261118.json) 각 행의
+#   chosen/candidates에 기록했다.
+GOESAN_PROVINCE = "충청북도"
+GOESAN_PROVINCE_SLUG = "chungbuk"
+GOESAN_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2080925"
+GOESAN_ORD_HWP = RAW / "goesan-ordinance-b1.hwp"
+GOESAN_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                   "「괴산군 주차장 조례」 제3004호(시행 2025-10-31, 일부개정), "
+                   "ordinSeq 2080925. 본문 사본 data/raw/goesan-ordinance.txt. "
+                   "별표 1(공영주차장요금표) 원문 HWP data/raw/goesan-ordinance-b1.hwp·"
+                   "추출문 goesan-ordinance-b1.txt.")
 
-EUMSEONG_DISCOUNTS = [
-    {"label": "국가유공자 보철대상자 전액 감면", "rate": 1.0, "exempt_min": 0,
-     "note": "조례 제3조제4항 — 국가유공자 자가운전자 중 보철대상자 운전차량은 주차요금의 100퍼센트를 감면할 수 있다. 「도로교통법 시행령」 제2조에 따른 긴급자동차는 제3조제2항으로 주차요금을 면제할 수 있다"},
-    {"label": "국가유공자·장애인 자가운전·경형·저공해·환경친화적 50%", "rate": 0.5, "exempt_min": 0,
-     "note": "조례 제3조제4항 — 국가유공자 및 장애인의 자가운전 차량, 경형 자동차, 저공해자동차 표지 부착 차량, 군에서 발급한 환경친화적 자동차 표지가 부착된 차량은 주차요금의 50퍼센트를 감면할 수 있다. 다만 전기자동차가 충전을 위하여 주차하는 경우 최초 2시간 주차요금은 면제한다. 감면 규정이 둘 이상 적용되면 감면율이 높은 하나만 적용한다"},
-    {"label": "승용차 10부제·함께타기 참여 차량 30%", "rate": 0.3, "exempt_min": 0,
-     "note": "조례 제3조제4항 — 승용차 10부제 및 함께 타기 참여 차량은 주차요금의 30퍼센트를 감면할 수 있다"},
+GOESAN_DISCOUNTS = [
+    {"label": "모범납세자(1년)·긴급자동차·군 인정 행사 공식 참여 차량 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조제4항 — 모범납세의무자로 표창을 받고 성실납세증표지(스티커)를 부착한 차량은 1년간, 「도로교통법」에 따른 긴급자동차와 괴산군 내에서 개최하는 행사에 공식적으로 참여하는 자치단체·협회 등이 운행하는 차량(괴산군에서 인정하는 행사에 한함)은 주차요금의 100퍼센트를 감면할 수 있다"},
+    {"label": "장애인·승용차부제·함께타기·국가유공자·경형·고엽제·5·18·전통시장 이용 확인·저공해·괴산읍 상점 영수증·장기복무 제대군인 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조제4항 — 장애인이 함께 탄 차량, 승용차부제·자가용 승용자동차 함께 타기 참여 차량, 국가유공자가 함께 탄 차량, 경형 자동차, 고엽제후유증환자 등으로 결정·등록된 자가 함께 탄 차량, 5·18민주유공자가 함께 탄 차량, 전통시장 이용 사실을 확인할 수 있는 자료를 제시한 차량, 저공해자동차 표지부착 자동차, 괴산읍에서 영업 중인 상점에서 구매한 영수증을 제시한 경우, 장기복무 제대군인(국가보훈등록증 제시)은 주차요금의 50퍼센트를 감면할 수 있다. 감면 규정이 둘 이상 적용되면 감면율이 높은 하나만 적용한다"},
 ]
 
-# 조례 별표 1 요금 (급지별) — 30분 단위 누진. 1일 주차권은 별표 1에 없다.
-EUMSEONG_ORD_FEES = {
-    "1": {"base_min": 30, "base_fee": 500, "unit_min": 30, "unit_fee": 500,
-          "steps": [{"until": 120, "unit_min": 30, "unit_fee": 500},
-                    {"until": None, "unit_min": 30, "unit_fee": 1000}],
-          "steps_label": "2시간까지 30분당 500원 · 2시간 초과 후 30분당 1,000원",
-          "month": 40000},
-    "2": {"base_min": 30, "base_fee": 200, "unit_min": 30, "unit_fee": 200,
-          "steps": [{"until": 120, "unit_min": 30, "unit_fee": 200},
-                    {"until": None, "unit_min": 30, "unit_fee": 400}],
-          "steps_label": "2시간까지 30분당 200원 · 2시간 초과 후 30분당 400원",
-          "month": 30000},
-}
-
-EUMSEONG_CONF = {
-    "city": "음성군",
-    "slug": "eumseong",
-    "manager": "충청북도 음성군청",
-    "manager_inquiry": "음성군청 건설교통과(043-871-4141)·주차장 등록 안내(043-871-4142)",
-    "ordinance": ("「음성군 주차장 조례」 제2879호(시행 2022-12-30, 일부개정)",
-                  EUMSEONG_ORD_URL, EUMSEONG_ORD_NOTE),
-    "notes": ("음성군 공영주차장 29곳은 노외 25곳·노상 4구간이고 총 2,406면이다(무료 28곳, "
-              "혼합 1곳). 「음성군 주차장 조례」 제2879호(시행 2022-12-30, ordinSeq 1773701) "
-              "별표 1은 1급지 30분당 500원(2시간까지)·2시간 초과 후 30분당 1,000원·월정기 "
-              "40,000원, 2급지 30분당 200원·2시간 초과 후 30분당 400원·월정기 30,000원으로 "
-              "정하고 1일 주차권은 두지 않는다. 급지는 1급지가 도시지역에 설치된 주차장, "
-              "2급지는 그 밖의 지역이다. 요금을 받는 곳은 맹동면 혁신도시 공영주차장(동성리 "
-              "486-1, 194면, 1급지) 1곳뿐인데, 이 주차장의 등록값은 기본요금이 없고 기본시간이 "
-              "'2'로만 적혀 있어 기본 구간을 확정할 수 없다 — 추가단위요금(30분당 1,000원)은 "
-              "별표 1의 2시간 초과 단가와 일치하고 월정기 등록값(40,000원)도 1급지와 "
-              "일치한다. 계산기는 논산·부여 선례대로 조례 별표 1의 누진 구조로 계산하고 "
-              "차이는 급지_요금_차이에 기록했다(군청 확인 필요). 무료 28곳은 조례 제3조제1항 "
-              "단서(주차질서 확립 또는 주차장 관리에 필요한 경우 특별히 일정한 기간을 정하여 "
-              "그 요금을 감면할 수 있다)에 따른 무료 운영으로 본다. 감면은 조례 제3조제4항을 "
-              "따른다(국가유공자 보철대상자 100%, 국가유공자·장애인 자가운전·경형·저공해·"
-              "환경친화적 50% — 전기차 충전 시 최초 2시간 면제, 승용차 10부제·함께타기 "
-              "30%, 긴급자동차는 제3조제2항으로 면제 가능). 좌표는 29곳 전부 등록돼 있고 "
-              "전부 음성군 범위 안이다."),
-    "discounts": EUMSEONG_DISCOUNTS,
+GOESAN_CONF = {
+    "city": "괴산군",
+    "slug": "goesan",
+    "manager": "충청북도 괴산군청",
+    "manager_inquiry": "괴산군청 교통팀(043-830-3561)·주차장 등록 안내(043-830-3569)",
+    "ordinance": ("「괴산군 주차장 조례」 제3004호(시행 2025-10-31, 일부개정)",
+                  GOESAN_ORD_URL, GOESAN_ORD_NOTE),
+    "notes": ("괴산군 공영주차장 31곳은 노외 16곳·노상 15구간이고 총 1,415면이다(무료 27곳, "
+              "유료 4곳). 「괴산군 주차장 조례」 제3004호(시행 2025-10-31, ordinSeq 2080925) "
+              "별표 1은 1급지 최초 30분 500원·30분 초과 후 10분마다 200원·1일 주차권 "
+              "6,000원·월정기권 50,000원, 2급지 1일 3,000원·월정기 30,000원(기본·추가요금은 "
+              "1급지와 같음)으로 정하고, 특례로 토·일·공휴일 무료 운영, 월요일~금요일 "
+              "11:30~14:30 무료 운영, 최초 10분 미징수를 둔다. 요금징수시간은 09:00~18:00이다. "
+              "유료는 괴산읍 노상 4구간뿐이고 등록값이 별표 1의 1급지와 전부 일치한다 — 다만 "
+              "최초 10분 무료 특례는 등록 기본요금(기본 30분 500원)에 반영돼 있지 않아, "
+              "계산기는 공주 선례대로 등록값을 유지하고 특례는 요금표에 표기했으며 차이는 "
+              "급지_요금_차이에 전건 기록했다(군청 확인 필요). 토·일·공휴일 무료와 평일 "
+              "점심시간 무료는 조례 명문이라 무료 요일·무료 시간대로 적용했다. 무료 27곳은 "
+              "조례 제4조제1항 단서(주차질서의 확립 또는 주차장 관리에 필요한 경우 특별히 "
+              "일정한 기간을 정하여 그 요금을 감면할 수 있다)에 따른 무료 운영으로 본다. "
+              "조례 제4조제6항(2025-10-31 신설)은 무료로 운영되는 공영주차장의 장기주차"
+              "(48시간 이상)를 방지하기 위해 1급지 요금을 부과할 수 있게 한다(군수 고시 "
+              "필요). 감면은 조례 제4조제4항을 따른다(모범납세자 1년·긴급자동차·군 인정 "
+              "행사 공식 참여 차량 면제, 장애인·국가유공자·경형·고엽제·5·18·전통시장 "
+              "이용 확인·저공해·괴산읍 상점 영수증·장기복무 제대군인 등 50%). 좌표는 "
+              "표준데이터 31행 전부 결측이라 ArcGIS World Geocoding으로 보완했다 — 반환 "
+              "주소가 등록 지번주소와 번지까지 일치(score 100)한 경우만 채택했다."),
+    "discounts": GOESAN_DISCOUNTS,
 }
 
 
-def eumseong_dong_of(addr, name=None):
-    """음성군 읍·면 판정 — 주소의 읍·면이 곧 동 단위다."""
+def goesan_dong_of(addr, name=None):
+    """괴산군 읍·면 판정 — 주소의 읍·면이 곧 동 단위다."""
     if addr:
-        m = re.search(r"음성군\s*([가-힣]{1,6}(?:읍|면))", addr)
+        m = re.search(r"괴산군\s*([가-힣]{1,6}(?:읍|면))", addr)
         if m:
             return m.group(1)
     if name:
-        m = re.search(r"(음성읍|금왕읍|소이면|원남면|맹동면|대소면|삼성면|생극면|감곡면)", name)
+        m = re.search(r"(괴산읍|감물면|연풍면|장연면|청천면|칠성면|문광면|청안면|사리면|소수면|불정면)", name)
         if m:
             return m.group(1)
     return None
 
 
-def eumseong_fee(row, name, note_bits, fee_diff):
-    """음성군 공영주차장 한 곳의 요금 — 무료 28·혼합 1(맹동면 혁신도시).
-    혼합 1곳의 등록값은 기본요금이 없고 기본시간이 '2'로만 적혀 있어 기본
-    구간이 불완전하다. 추가단위요금(30분당 1,000원)은 조례 별표 1의 2시간
-    초과 단가와, 월정기(40,000원)는 1급지 월정기와 일치한다 — 계산기는
-    논산·부여 선례대로 조례 별표 1의 누진 구조를 적용하고 차이는
-    fee_diff에 전건 남긴다(군청 확인 필요)."""
+def goesan_fee(row, name, note_bits, fee_diff):
+    """괴산군 공영주차장 한 곳의 요금 — 무료 27·유료 4(전부 노상).
+    유료 4곳의 등록값은 조례 별표 1의 1급지와 전부 일치한다. 별표 1 특례 중
+    최초 10분 미징수는 등록 기본요금 구조에 반영돼 있지 않아 계산기가 공주
+    선례대로 등록값을 유지하고 fee_diff에 전건 남긴다(군청 확인 필요).
+    토·일·공휴일 무료와 월~금 11:30~14:30 무료는 조례 명문이라 빌더가
+    free_days·free_window로 적용한다."""
     base_min = to_int(row.get("주차기본시간"))
     base_fee = to_int(row.get("주차기본요금"))
     unit_min = to_int(row.get("추가단위시간"))
@@ -40773,63 +40756,60 @@ def eumseong_fee(row, name, note_bits, fee_diff):
                   "unit_fee": unit_fee, "day": day, "monthly": month}
     if raw_type == "무료":
         fee.update({"type": "무료",
-                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"})
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항 단서(일정한 기간을 정하여 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"})
         return fee
     if raw_type not in ("유료", "혼합"):
         fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
         return fee
-    g = EUMSEONG_ORD_FEES.get(grade) or EUMSEONG_ORD_FEES["1"]
-    fee_diff.append(f"{name}: 등록값은 기본요금 없이 기본시간 '2'·추가 30분당 "
-                    f"{unit_fee:,}원·월정기 {month:,}원으로, 기본 구간의 금액과 기본시간의 "
-                    "단위(표준데이터 명세는 분)를 확정할 수 없어 등록값만으로는 계산이 "
-                    "되지 않는다. 추가단위요금은 조례 별표 1 1급지의 2시간 초과 단가"
-                    "(30분당 1,000원)와 일치하고 월정기도 1급지(40,000원)와 일치해, "
-                    "계산기는 논산·부여 선례대로 조례 별표 1의 누진 구조(30분당 500원, "
-                    "2시간 초과 후 30분당 1,000원)를 적용했다(군청 확인 필요 — 특히 "
-                    "기본시간 '2'가 최초 2시간을 뜻하는지 확인 필요)")
-    fee.update({"type": "유료", "base_min": g["base_min"], "base_fee": g["base_fee"],
-                "unit_min": g["unit_min"], "unit_fee": g["unit_fee"],
-                "steps": [dict(s) for s in g["steps"]],
-                "steps_label": g["steps_label"],
-                "progressive": True,
-                "daily_fee": None, "daily_hours": None,
+    fee_diff.append(f"{name}: 등록 기본요금 '기본 30분 500원'에는 조례 별표 1 특례 라목의 "
+                    "'최초 10분 동안은 주차요금을 징수하지 아니한다'가 반영돼 있지 않다 — "
+                    "기본·추가·1일·월정기 등록값은 별표 1의 1급지와 전부 일치하고 등록 "
+                    "기준일(2026-04-16)이 최신이라, 계산기는 공주 선례대로 등록값을 유지하고 "
+                    "특례는 요금표에 표기(군청 확인 필요)")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours if day else None,
                 "cap_fee": None, "cap_src": None,
-                "monthly": month if month else g["month"],
+                "monthly": month if month else None,
                 "monthly_all": None, "monthly_label": None,
                 "grade": None, "grade_label": None,
+                "steps": None,
+                "steps_label": (f"기본 {base_min}분 {base_fee:,}원 · 이후 {unit_min}분마다 "
+                                f"{unit_fee:,}원"),
                 "free_min": None,
-                "basis": "「음성군 주차장 조례」 제2879호 별표 1(1급지) — 등록 기본요금이 "
-                         "없고 기본시간 단위가 불명해, 논산·부여 선례대로 조례 누진 구조로 "
-                         "계산한다. 등록 추가단위요금(30분당 1,000원)은 별표 1의 2시간 초과 "
-                         "단가와 일치하고 월정기 등록값(40,000원)도 1급지와 일치한다"
-                         "(군청 확인 필요)"})
+                "basis": "전국주차장정보표준데이터 등록값(괴산군청, 기준일 2026-04-16) — "
+                         "「괴산군 주차장 조례」 별표 1과 대조 완료. 등록값은 별표 1의 1급지와 "
+                         "전부 일치하고, 특례 중 최초 10분 미징수만 등록 구조에 반영돼 있지 "
+                         "않아 급지_요금_차이에 기록했다"})
     return fee
 
 
-def _eumseong_tier_of(lot):
+def _goesan_tier_of(lot):
     return lot["fee"].get("std_grade") or ""
 
 
-def eumseong_fee_table(conf, lots):
-    """요금표 — 조례 별표 1 값으로 표기한다. 별표 1: 1급지 30분당 500원
-    (2시간까지)·2시간 초과 후 30분당 1,000원·월정기 40,000원, 2급지
-    30분당 200원·400원·월정기 30,000원이고 1일 주차권은 없다. 요금을
-    받는 곳은 1급지 1곳뿐이고 계산기도 조례 구조를 적용했다."""
+def goesan_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 값으로 표기한다(공주·청양·홍성·태안·충주 선례:
+    계산기는 등록값 유지, 요금표는 조례값). 별표 1: 1급지·2급지 모두 최초
+    30분 500원·30분 초과 후 10분당 200원이고, 1일 주차권 1급지 6,000원·
+    2급지 3,000원, 월정기권 1급지 50,000원·2급지 30,000원이다. 유료 4곳의
+    등록값은 1급지와 전부 일치한다."""
     paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
     free = [l for l in lots if l["fee"]["type"] == "무료"]
-    g1 = EUMSEONG_ORD_FEES["1"]
-    g2 = EUMSEONG_ORD_FEES["2"]
+    g1 = {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200, "daily_fee": 6000}
+    g2 = {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200, "daily_fee": 3000}
     rows = [
-        {"label": "1급지", "grade": "es_g1",
-         "unit_label": "30분당 500원 · 2시간 초과 후 30분당 1,000원",
+        {"label": "1급지", "grade": "gs_g1",
+         "unit_label": "최초 30분 500원 · 30분 초과 후 10분마다 200원",
          "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
-         "day": None, "month": 40000,
-         "lots": len([l for l in paid if _eumseong_tier_of(l) == "1"])},
-        {"label": "2급지", "grade": "es_g2",
-         "unit_label": "30분당 200원 · 2시간 초과 후 30분당 400원",
+         "day": 6000, "month": 50000,
+         "lots": len([l for l in paid if _goesan_tier_of(l) == "1"])},
+        {"label": "2급지", "grade": "gs_g2",
+         "unit_label": "최초 30분 500원 · 30분 초과 후 10분마다 200원",
          "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
-         "day": None, "month": 30000,
-         "lots": len([l for l in paid if _eumseong_tier_of(l) == "2"])},
+         "day": 3000, "month": 30000,
+         "lots": len([l for l in paid if _goesan_tier_of(l) == "2"])},
     ]
     corp = {
         "paid": len([l for l in paid if l["list_mode"] == "card"]),
@@ -40838,28 +40818,29 @@ def eumseong_fee_table(conf, lots):
         "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
     }
     return {
-        "style": "eumseong_grade",
-        "unit_min": 30,
+        "style": "goesan_grade",
+        "unit_min": 10,
         "base_min": 30,
         "applies": conf["ordinance"][2],
         "rows": rows,
         "ord_rows": [],
         "corp": corp,
-        "windows": [{"group": "공통", "hours": "주간 4~10월 08:00~20:00 · 11~3월 09:00~19:30",
-                     "free": ("별표 1 비고 — 주간 시간구분이며 나머지 시간은 야간이다. "
-                              "16인승 이상·2.5톤 이상 차량은 기준 요금의 2배, 45인승 이상·"
-                              "11톤 이상 차량은 3배를 적용한다")}],
+        "windows": [{"group": "공통", "hours": "요금징수시간 09:00~18:00",
+                     "free": ("별표 1 특례 — 토·일·공휴일은 무료로 운영하고, 월요일~금요일 "
+                              "11:30~14:30까지도 무료로 운영하며, 최초 10분 동안은 주차요금을 "
+                              "징수하지 않는다")}],
         "notes": conf["notes"],
         "corp_extra": corp,
-        "basis": ("「음성군 주차장 조례」 제2879호(시행 2022-12-30, ordinSeq 1773701) "
-                  "제3조·별표 1 · 전국주차장정보표준데이터(음성군청, 기준일 2026-10-06) "
-                  "등록값 — 별표 1 원문 대조 완료. 요금을 받는 1곳의 등록 기본 구간이 "
-                  "불완전해 계산기가 조례 누진 구조로 계산한다"),
+        "basis": ("「괴산군 주차장 조례」 제3004호(시행 2025-10-31, ordinSeq 2080925) "
+                  "제4조·별표 1 · 전국주차장정보표준데이터(괴산군청, 기준일 2026-04-16) "
+                  "등록값 — 별표 1 원문 대조 완료. 유료 4곳의 등록값은 별표 1의 1급지와 "
+                  "전부 일치하고, 특례 중 최초 10분 미징수만 등록 구조에 반영돼 있지 않아 "
+                  "계산기가 등록값으로 계산한다"),
     }
 
 
-def eumseong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
-                     space_diff, dong_fixed, coord_fixed):
+def goesan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
     card = [l for l in lots if l["list_mode"] == "card"]
     street = [l for l in lots if l["list_mode"] == "street"]
     paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
@@ -40898,22 +40879,27 @@ def eumseong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed
         "좌표_보정": coord_fixed,
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
         "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
-        "감면_출처": ("「음성군 주차장 조례」 제2879호 제3조제4항 — 국가유공자 보철대상자 "
-                      "100%, 국가유공자·장애인 자가운전 차량·경형자동차·저공해자동차 표지 "
-                      "부착 차량·환경친화적 자동차 표지 부착 차량 50%(전기자동차 충전 시 "
-                      "최초 2시간 면제), 승용차 10부제·함께타기 참여 차량 30%. 둘 이상이면 "
-                      "감면율이 높은 하나만 적용. 긴급자동차는 제3조제2항으로 면제할 수 "
-                      "있다. 본문 원문(data/raw/eumseong-ordinance.txt) 대조 완료(2026-11-20)"),
-        "요금_출처": ("조례 별표 1 — 1급지 30분당 500원(2시간까지)·2시간 초과 후 30분당 "
-                      "1,000원·월정기 40,000원, 2급지 30분당 200원·2시간 초과 후 30분당 "
-                      "400원·월정기 30,000원. 1일 주차권은 별표 1에 없다. 요금을 받는 "
-                      "혼합 1곳은 등록 기본 구간이 불완전해 조례 누진 구조로 계산하고 "
-                      "차이를 급지_요금_차이에 전건 기록했다"),
-        "급지_출처": ("조례 별표 1 비고 — 1급지: 「국토의 계획 및 이용에 관한 법률」 제36조에 "
-                      "따른 도시지역에 설치된 주차장, 2급지: 1급지 이외의 지역. 표준데이터 "
-                      "등록 급지는 1급지 16곳·2급지 13곳이라 그대로 썼다"),
-        "무료요일_출처": ("조례에 토·일·공휴일 무료 규정이 없어 free_days를 적용하지 않았다. "
-                          "무료 28곳은 요금구분 자체가 ‘무료’다"),
+        "감면_출처": ("「괴산군 주차장 조례」 제3004호 제4조제4항 — 100% 감면: 모범납세의무자 "
+                      "표창자(성실납세증표지 부착, 1년간), 긴급자동차, 괴산군 내 행사에 "
+                      "공식적으로 참여하는 자치단체·협회 등 운행 차량(군 인정 행사 한정). "
+                      "50% 감면: 장애인 동승, 승용차부제·함께타기 참여, 국가유공자 동승, "
+                      "경형자동차, 고엽제후유증환자 등 등록자 동승, 5·18민주유공자 동승, "
+                      "전통시장 이용 확인 자료 제시, 저공해자동차 표지 부착, 괴산읍 상점 구매 "
+                      "영수증 제시, 장기복무 제대군인(국가보훈등록증 제시, 2025-10-31 신설). "
+                      "둘 이상이면 감면율이 높은 하나만 적용. 본문 원문"
+                      "(data/raw/goesan-ordinance.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표 1 — 1급지 최초 30분 500원·30분 초과 후 10분당 200원·1일 "
+                      "6,000원·월정기 50,000원, 2급지 1일 3,000원·월정기 30,000원(기본·추가는 "
+                      "1급지와 같음). 특례: 토·일·공휴일 무료 운영, 월~금 11:30~14:30 무료 "
+                      "운영, 최초 10분 미징수. 요금징수시간 09:00~18:00. 유료 4곳의 등록값은 "
+                      "1급지와 전부 일치하고, 최초 10분 미징수만 등록 구조에 없어 "
+                      "급지_요금_차이에 전건 기록했다"),
+        "급지_출처": ("조례 별표 1 급지구분 — 1급지: 읍·면지역 도시지역 구역 안의 주차장, "
+                      "2급지: 그 밖의 주차장과 1급지 가운데 교통정책의 필요로 군수가 특별히 "
+                      "지정한 주차장. 표준데이터 등록 급지는 31곳 전부 '1'이라 그대로 썼다"),
+        "무료요일_출처": ("유료 4곳은 조례 별표 1 특례 3나목(토·일·공휴일은 무료로 운영한다)에 "
+                          "따라 free_days를 적용했고, 월~금 11:30~14:30 무료(특례 3다목)는 "
+                          "free_window로 적용했다. 무료 27곳은 요금구분 자체가 '무료'다"),
         "무료개방_표기": [l["name"] for l in lots
                           if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
         "거주자우선": [],
@@ -40932,19 +40918,20 @@ def eumseong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed
     }
 
 
-def build_eumseong():
-    """음성군 하나를 표준데이터로 추출한다 (build_goesan 의 음성군 변형).
-    조례 대조 완료 — 「음성군 주차장 조례」 제2879호(시행 2022-12-30,
-    ordinSeq 1773701) 제3조·별표 1 원문 대조 완료(2026-11-20).
-    표준데이터 등록 29행 전부 공영(무료 28·혼합 1)을 싣는다. 좌표는 전 행
-    등록돼 있고 전부 음성군 범위 안이다."""
-    conf = EUMSEONG_CONF
+def build_goesan():
+    """괴산군 하나를 표준데이터로 추출한다 (build_jeungpyeong 의 괴산군 변형).
+    조례 대조 완료 — 「괴산군 주차장 조례」 제3004호(시행 2025-10-31,
+    ordinSeq 2080925) 제4조·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 31행 전부 공영(무료 27·유료 4)을 싣는다. 좌표는 전 행
+    결측이라 ArcGIS World Geocoding 오버레이(반환 주소가 등록 지번주소와
+    번지까지 일치한 경우만 채택)로 채운다."""
+    conf = GOESAN_CONF
     rows_all = read_csv_kr(STD_CSV)
 
     def _owner(r):
         return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
 
-    rows_std = [r for r in rows_all if "음성군" in _owner(r)]
+    rows_std = [r for r in rows_all if "괴산군" in _owner(r)]
 
     def _plot(r):
         return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
@@ -40954,14 +40941,14 @@ def build_eumseong():
         r = rows_std[i]
         return (r.get("데이터기준일자") or "",
                 1 if (r.get("요금정보") or "").strip() != "무료" else 0,
-                1 if "음성군" in (r.get("관리기관명") or "") else 0,
+                1 if "괴산군" in (r.get("관리기관명") or "") else 0,
                 to_int(r.get("주차구획수")) or 0)
 
     # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
     #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
     #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
-    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 음성군은
-    #   이름이 같은 행이 많지만 전부 자리가 달라 실제로 합쳐지는 행은 없다.
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 괴산군은
+    #   이름+자리가 같은 행이 없어 실제로 합쳐지는 행은 없다.
     dropped, merged = set(), []
     group = {}
     for i, r in enumerate(rows_std):
@@ -41011,9 +40998,9 @@ def build_eumseong():
             lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
         except ValueError:
             lat = lng = None
-        if lat is not None and lng is not None and not (36.80 < lat < 37.20 and 127.40 < lng < 127.80):
-            # 음성군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
-            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 음성군 범위 밖 — "
+        if lat is not None and lng is not None and not (36.60 < lat < 37.10 and 127.58 < lng < 128.07):
+            # 괴산군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 괴산군 범위 밖 — "
                                "좌표 없음으로 표기")
             lat = lng = None
         if gubun and gubun != "공영":
@@ -41029,10 +41016,10 @@ def build_eumseong():
         if reason:
             excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
             continue
-        dong = eumseong_dong_of(jibun, std_name) or eumseong_dong_of(road, std_name)
-        if eumseong_dong_of(jibun, None):
+        dong = goesan_dong_of(jibun, std_name) or goesan_dong_of(road, std_name)
+        if goesan_dong_of(jibun, None):
             dong_src = "지번주소"
-        elif eumseong_dong_of(road, None):
+        elif goesan_dong_of(road, None):
             dong_src = "도로명주소"
         elif dong:
             dong_src = "이름"
@@ -41043,13 +41030,19 @@ def build_eumseong():
         note = r.get("특기사항") or ""
         note_bits = []
         raw_type = (r.get("요금정보") or "").strip()
-        fee = eumseong_fee(r, std_name, note_bits, fee_diff)
+        fee = goesan_fee(r, std_name, note_bits, fee_diff)
         free_days = {"sat": False, "sun": False}
         free_window = None
         if fee["type"] == "유료":
-            note_bits.append("요금은 「음성군 주차장 조례」 별표 1의 급지 기준(30분 단위 "
-                             "누진)으로 계산합니다 — 표준데이터 등록 기본요금이 없어 조례 "
-                             "구조를 적용했습니다")
+            # 조례 별표 1 특례 3나목(토·일·공휴일 무료 운영)·3다목(월~금
+            #   11:30~14:30 무료 운영)은 조례 명문이라 적용한다.
+            free_days = {"sat": True, "sun": True}
+            free_window = "11:30~14:30"
+            note_bits.append("조례 별표 1 특례로 토·일·공휴일과 평일 11:30~14:30은 "
+                             "무료로 운영합니다")
+        if std_name == "노상주차장 괴산교 ~ 축협(격주제 주차)":
+            note_bits.append("이름에 ‘격주제 주차’가 붙어 있으나 부제 시행 구분은 "
+                             "‘미시행’으로 등록돼 있습니다")
         if fee["type"] == "무료":
             note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
         if lat is None or lng is None:
@@ -41059,7 +41052,7 @@ def build_eumseong():
         lots.append({
             "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
             "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
-            "name": std_name, "gu": "음성군", "dong": dong, "dong_src": dong_src,
+            "name": std_name, "gu": "괴산군", "dong": dong, "dong_src": dong_src,
             "kind": gubun or "공영", "ptype": ptype,
             "addr_jibun": jibun, "addr_road": road, "road": road_name,
             "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
@@ -41109,44 +41102,44 @@ def build_eumseong():
                           + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
 
     # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
-    note_fixed.append("음성군 등록 29행은 전부 공영이고 관리기관은 전부 충청북도 음성군청, "
-                      "데이터기준일자는 전부 2026-10-06, 전화번호는 전부 043-871-4142이다 — "
-                      "조례 본문에 적힌 담당(건설교통과) 전화 043-871-4141과 끝자리가 다르다")
-    note_fixed.append("도로명주소는 29곳 전부 등록돼 있지 않아 지번주소로만 안내한다")
-    note_fixed.append("좌표는 29곳 전부 등록돼 있고 전부 음성군 범위 안이라 지오코딩 "
-                      "보완이 필요 없었다")
-    note_fixed.append("이름이 같은 주차장이 많다 — 음성읍 공영주차장 8곳(노외 4·노상 4), "
-                      "삼성면 공영주차장 5곳, 대소읍 공영주차장 5곳, 맹동면 혁신도시 "
-                      "공영주차장 4곳, 금왕읍 공영주차장 3곳, 감곡면 공영주차장 2곳. 전부 "
-                      "자리(필지)가 달라 중복 제거 대상이 아니며 이름 뒤에 주소(리·번지)를 "
-                      "붙여 구분했다")
-    note_fixed.append("무료 28곳에도 주차기본시간에 0~5의 값이 들어 있으나 요금 구분이 "
-                      "‘무료’라 요금 계산에 쓰지 않았다 — 단위와 의미가 분명하지 않아 값은 "
-                      "그대로 두고 기록만 남긴다")
-    note_fixed.append("평일 운영 종료시각이 23:39로 등록된 곳이 8곳(맹동면 혁신도시 4곳·"
-                      "대소읍 오산리 190-2·음성읍 노외 3곳)이고 나머지 21곳은 23:59다 — "
-                      "등록값 그대로 표기했다")
-    note_fixed.append("장애인전용주차구역보유여부는 Y 13곳·N 16곳으로 등록돼 있다")
-    note_fixed.append("혼합 1곳(맹동면 혁신도시 공영주차장 동성리 486-1)의 결제방법은 "
-                      "‘신용카드’로 등록돼 있다")
+    note_fixed.append("괴산군 등록 31행은 전부 공영이고 관리기관은 전부 충청북도 괴산군청, "
+                      "데이터기준일자는 전부 2026-04-16, 전화번호는 전부 043-830-3569이다 — "
+                      "조례 본문에 적힌 담당(교통팀) 전화 043-830-3561과 끝자리가 다르다")
+    note_fixed.append("좌표는 31행 전부 결측이라 ArcGIS World Geocoding으로 전량 보완했다 — "
+                      "반환 주소가 등록 지번주소와 번지까지 일치(score 100, PointAddress)한 "
+                      "경우만 채택했고, 근거는 오버레이(data/raw/좌표누락_지오코딩_20261118.json) "
+                      "각 행의 chosen/candidates에 기록했다. 도로명주소는 31곳 중 4곳만 "
+                      "등록돼 있어 나머지는 지번주소로 안내한다")
+    note_fixed.append("노상주차장(화양동야영장 앞)의 지번주소가 '충청북도 괴산군 괴산군 청천면 "
+                      "후영리 499'로 '괴산군'이 겹쳐 등록돼 있다 — 등록값은 그대로 두고 "
+                      "지오코딩 질의에서만 겹친 군명을 정리했다(군청 확인 과제)")
+    note_fixed.append("감물면남양동하상주차장은 이름과 달리 등록 주소가 감물면 오성리 787-5라 "
+                      "읍·면 분류는 등록 주소(감물면)를 따랐다")
+    note_fixed.append("노상주차장 괴산교 ~ 축협(격주제 주차)은 이름에 격주제가 붙어 있으나 "
+                      "부제시행구분은 31행 전부 '미시행'으로 등록돼 있다")
+    note_fixed.append("운영시간은 31곳 전부 전 요일 09:00~18:00으로 등록돼 조례 별표 1의 "
+                      "요금징수시간(09:00~18:00)과 일치한다")
+    note_fixed.append("장애인전용주차구역보유여부는 Y 10곳·N 21곳으로 등록돼 있다")
+    note_fixed.append("유료 4곳의 결제방법은 '없음'으로 등록돼 있다")
 
     lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
     n_card = n_street = 0
     for l in lots:
         if l["list_mode"] == "card":
             n_card += 1
-            l["id"] = f"cj-eumseong-{n_card:03d}"
+            l["id"] = f"cj-goesan-{n_card:03d}"
         else:
             n_street += 1
-            l["id"] = f"cj-eumseong-s{n_street:03d}"
+            l["id"] = f"cj-goesan-s{n_street:03d}"
 
     # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
-    #   적용한다. 음성군은 오버레이 행이 없어 실제로 바뀌는 곳은 없다.
+    #   적용한다. 좌표가 이미 있는 행은 건드리지 않고, "좌표가 등록되어 있지
+    #   않아" 안내 문구도 함께 걷어낸다.
     apply_coord_fix(lots)
 
-    fee_table = eumseong_fee_table(conf, lots)
-    quality = eumseong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
-                               fee_diff, space_diff, dong_fixed, coord_fixed)
+    fee_table = goesan_fee_table(conf, lots)
+    quality = goesan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
     city_fee_src = {
         "id": "std", "name": "전국주차장정보표준데이터",
         "org": "행정안전부·지방자치단체",
@@ -41155,27 +41148,27 @@ def build_eumseong():
         "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
         "rows_total": len(rows_all), "rows_city": len(rows_std),
         "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
-        "note": (f"음성군으로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 노외 "
+        "note": (f"괴산군으로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 노외 "
                  f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
                  f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 무료 "
-                 f"28곳·혼합 1곳이며, 혼합 1곳은 등록 기본 구간이 불완전해 계산기가 조례 "
-                 f"별표 1의 누진 구조로 계산한다. 좌표는 전 행 등록돼 있어 보완이 필요 "
-                 f"없었다. 조례 대조 완료 — 「음성군 주차장 조례」 제2879호(시행 "
-                 f"2022-12-30, ordinSeq 1773701) 제3조·별표 1 원문 대조 완료(2026-11-20)."),
+                 f"27곳·유료 4곳이며, 유료 4곳의 등록값은 조례 별표 1의 1급지와 전부 "
+                 f"일치한다. 좌표는 전 행 결측이라 ArcGIS 지오코딩 오버레이로 채웠다. "
+                 f"조례 대조 완료 — 「괴산군 주차장 조례」 제3004호(시행 2025-10-31, "
+                 f"ordinSeq 2080925) 제4조·별표 1 원문 대조 완료(2026-11-20)."),
     }
     sources = [
         city_fee_src,
         {
             "id": "city_ordinance", "name": conf["ordinance"][0],
             "org": conf["manager"], "url": conf["ordinance"][1],
-            "file": EUMSEONG_ORD_HWP.name if EUMSEONG_ORD_HWP.exists() else None,
-            "sha256": sha256(EUMSEONG_ORD_HWP) if EUMSEONG_ORD_HWP.exists() else None,
-            "license": "자치법규(공개)", "base_date": "2022-12-30",
+            "file": GOESAN_ORD_HWP.name if GOESAN_ORD_HWP.exists() else None,
+            "sha256": sha256(GOESAN_ORD_HWP) if GOESAN_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-10-31",
             "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
-            "note": f"음성군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
-                    f"(조례 본문: data/raw/eumseong-ordinance.txt, 별표 1 원문 HWP: "
-                    f"data/raw/eumseong-ordinance-b1.hwp, 추출문: "
-                    f"data/raw/eumseong-ordinance-b1.txt)",
+            "note": f"괴산군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/goesan-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/goesan-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/goesan-ordinance-b1.txt)",
         },
     ]
     payload = {
@@ -41183,25 +41176,26 @@ def build_eumseong():
             "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
             "generated_at_iso": NOW.isoformat(timespec="seconds"),
             "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
-            "region": {"province": EUMSEONG_PROVINCE, "city": conf["city"]},
+            "region": {"province": GOESAN_PROVINCE, "city": conf["city"]},
             "sources": sources,
         },
-        "districts": [{"name": "음성군", "slug": "eumseong"}],
+        "districts": [{"name": "괴산군", "slug": "goesan"}],
         "lots": lots,
         "quality": quality,
         "fee_table": fee_table,
     }
     payload.update({
-        "slug": conf["slug"], "province": EUMSEONG_PROVINCE,
-        "province_slug": EUMSEONG_PROVINCE_SLUG,
+        "slug": conf["slug"], "province": GOESAN_PROVINCE,
+        "province_slug": GOESAN_PROVINCE_SLUG,
         "dong_page_min_lots": 3, "city": conf["city"],
         "weekend_free_pages": False,
         "discounts": conf["discounts"],
         "city_discounts": [],
         "realtime": False,
     })
-    (DATA / "eumseong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    (DATA / "goesan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
+
 
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
@@ -41215,7 +41209,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "eumseong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -41233,7 +41227,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "음성군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -41286,7 +41280,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "eumseong": ["음성군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -41433,8 +41427,8 @@ def main():
         cities.append(build_jeungpyeong())
     if "진천군" in want:
         cities.append(build_jincheon())
-    if "음성군" in want:
-        cities.append(build_eumseong())
+    if "괴산군" in want:
+        cities.append(build_goesan())
 
     if args.city == "all":
         site = build_site_payload(cities)
