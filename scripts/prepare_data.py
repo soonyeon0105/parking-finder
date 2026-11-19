@@ -41751,6 +41751,592 @@ def build_eumseong():
     (DATA / "eumseong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
 
+
+# ---------------------------------------------------------------- 단양군 (T-03 충북 8·마지막)
+# 단양군은 표준데이터 행이 29행뿐이고 전부 공영·노외다(민영 0·노상 0).
+#   무료 27곳·혼합 2곳, 총 1,660면이다. 조례는 「단양군 주차장 조례」
+#   제2990호(시행 2026-10-02, ordinSeq 2175103) 제3조와 별표 1·별표 1-1을
+#   국가법령정보센터에서 직접 대조했다. 별표 1(일반 공영)은 1구획당
+#   30분마다 1급지 500원·2급지 200원, 1일 주차권 6,000원·2,400원, 월정기
+#   주간 75,000원·30,000원/야간 56,000원·22,000원이고, 비고3은 단양군
+#   공영주차장은 군 직영시 2급지로 한다 — 등록 급지는 29곳 전부 '2'라
+#   이와 정합한다. 무료 27곳은 제3조제1항 단서(일정기간을 정하여 그
+#   요금을 감면할 수 있다)에 근거한 무료 운영으로 보고 요금표는 조례
+#   기준 요금의 참고표로 싣는다(서천·예산·보은·영동·진천 선례). 혼합
+#   2곳(도담삼봉 주차장·고수동굴주차장)은 별표 1-1이 이름으로 지정한
+#   '관광지에 준하는 공영주차장'으로, 당일 정액 승용 3,000원이 등록
+#   기본요금(기본 510분 3,000원)과 일치한다 — 기본시간 510분은 두 곳의
+#   운영시간(09:00~17:30)과 같아 당일 정액(flat_day)으로 계산하고,
+#   차종별 요금(중·대형버스 6,000원·화물 4톤 미만 3,000원/이상 6,000원·
+#   이륜차 1,000원)은 등록에 없어 요금표에만 표기하며 차이는
+#   급지_요금_차이에 전건 남긴다. 별표 1 비고6(토요일 13:00 이후 및
+#   일요·공휴일 무료 개방, 관리위탁 시 예외)은 군 직영 일반 공영 기준
+#   인데 무료 등록 27곳에는 적용할 유료 대상이 없고 혼합 2곳은 별표
+#   1-1 적용 대상이라 free_days로 적용하지 않고 요금표에만 표기한다.
+#   별도의 「단양군 관광지 유료주차장 설치 운영 조례」 제2418호(시행
+#   2018-04-06, ordinSeq 1343705)는 요금표를 두지 않아 요금 근거로
+#   쓰지 않았다. 좌표는 29행 전부 등록돼 있어 지오코딩 보완이 필요
+#   없고, 도로명주소는 29행 전부 결측이다.
+DANYANG_PROVINCE = "충청북도"
+DANYANG_PROVINCE_SLUG = "chungbuk"
+DANYANG_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2175103"
+DANYANG_ORD_HWP = RAW / "danyang-ordinance-b1.hwp"
+DANYANG_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                    "「단양군 주차장 조례」 제2990호(시행 2026-10-02, 일부개정), "
+                    "ordinSeq 2175103. 본문 사본 data/raw/danyang-ordinance.txt. "
+                    "별표 1(공영주차장 주차요금표) 원문 HWP data/raw/danyang-ordinance-b1.hwp·"
+                    "추출문 danyang-ordinance-b1.txt, 별표 1-1(관광지에 준하는 공영주차장 "
+                    "주차 요금표) 원문 HWP data/raw/danyang-ordinance-b1-1.hwp·추출문 "
+                    "danyang-ordinance-b1-1.txt.")
+
+DANYANG_DISCOUNTS = [
+    {"label": "긴급자동차·국가유공자 보철대상자 운전·성실납세필증 부착(1년)·단양군 주민등록자(관광지 준하는 곳) 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항제1호 — 긴급자동차, 국가유공자 중 보철대상자가 운전하는 차량, 국세청장 또는 지방자치단체장이 지정한 성실납세자로서 성실납세필증을 부착한 차량(지정된 날부터 1년간), 단양군에 주민등록을 둔 사람으로서 주소를 확인할 수 있는 신분증이나 자동차등록증을 제시한 사람이 관광지에 준하는 공영주차장을 이용하는 차량은 주차요금을 면제할 수 있다"},
+    {"label": "경형자동차(배기량 1,000cc 미만) 60%", "rate": 0.6, "exempt_min": 0,
+     "note": "조례 제3조제2항제2호 — 「자동차관리법」에 따른 경형자동차(배기량 1,000시시 미만)는 주차요금의 60퍼센트를 감면할 수 있다"},
+    {"label": "장애인·국가유공자 자가운전·고엽제·5·18 부상자·저공해·환경친화적 자동차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제2항제3호 — 장애인이 자가운전하는 차량, 국가유공자가 자가운전하는 차량, 고엽제후유의증환자 등으로 결정·등록된 사람이 자가운전하거나 동승한 차량, 5·18민주화운동부상자로 등록된 사람이 자가운전하거나 동승한 차량, 저공해자동차 표지를 부착한 차량, 환경친화적 자동차 표지를 부착한 차량은 주차요금의 50퍼센트를 감면할 수 있다"},
+    {"label": "승용차 선택요일제 참여 차량 30%", "rate": 0.3, "exempt_min": 0,
+     "note": "조례 제3조제2항제4호 — 승용차 선택요일제 참여 차량은 주차요금의 30퍼센트를 감면할 수 있다"},
+]
+
+DANYANG_CONF = {
+    "city": "단양군",
+    "slug": "danyang",
+    "manager": "충청북도 단양군청",
+    "manager_inquiry": "단양군청 민원과(043-420-2491)·주차장 등록 안내(043-420-2498)",
+    "ordinance": ("「단양군 주차장 조례」 제2990호(시행 2026-10-02, 일부개정)",
+                  DANYANG_ORD_URL, DANYANG_ORD_NOTE),
+    "notes": ("단양군 공영주차장 29곳은 전부 노외이고 총 1,660면이다(무료 27곳, "
+              "혼합 2곳). 「단양군 주차장 조례」 제2990호(시행 2026-10-02, ordinSeq 2175103) "
+              "별표 1은 1구획당 30분마다 1급지 500원·2급지 200원, 1일 주차권 1급지 "
+              "6,000원·2급지 2,400원, 월정기 주간 1급지 75,000원·2급지 30,000원/야간 "
+              "1급지 56,000원·2급지 22,000원으로 정하고, 비고3에서 단양군 공영주차장은 "
+              "군 직영시 2급지로 하며(관리위탁 운영 시 예외 가능), 비고6에서 토요일 "
+              "13:00 이후 및 일요(공휴)일은 무료로 개방한다(관리위탁 시 예외 가능). "
+              "등록 급지는 29곳 전부 '2'다. 무료 27곳은 조례 제3조제1항 단서(일정기간을 "
+              "정하여 그 요금을 감면할 수 있다)에 따른 무료 운영으로 본다. 혼합 2곳"
+              "(도담삼봉 주차장·고수동굴주차장)은 별표 1-1이 이름으로 지정한 관광지에 "
+              "준하는 공영주차장으로, 당일 정액이 승용 및 승합차(15인승 이하) 3,000원, "
+              "중·대형버스(16인승 이상) 6,000원, 화물차 4톤 미만 3,000원·4톤 이상 "
+              "6,000원, 이륜차 1,000원이고 징수시간은 1일 단위를 원칙으로 한다. 두 곳의 "
+              "등록 기본요금 3,000원은 승용 당일요금과 일치하고 기본시간 510분은 "
+              "운영시간(09:00~17:30)과 같아 당일 정액으로 계산한다 — 차종별 요금은 "
+              "등록에 없어 계산기는 승용 기준으로 계산하고 차종별 금액은 이 표에만 "
+              "적었다. 감면은 조례 제3조제2항을 따른다(긴급자동차·국가유공자 보철대상자 "
+              "운전·성실납세필증 1년·단양군 주민등록자의 관광지 준하는 곳 이용 면제, "
+              "경형 60%, 장애인·국가유공자 자가운전·고엽제·5·18 부상자·저공해·환경친화적 "
+              "50%, 승용차 선택요일제 30%). 좌표는 표준데이터 29행 전부 등록돼 있다."),
+    "discounts": DANYANG_DISCOUNTS,
+}
+
+
+def danyang_dong_of(addr, name=None):
+    """단양군 읍·면 판정 — 주소의 읍·면이 곧 동 단위다."""
+    if addr:
+        m = re.search(r"단양군\s*([가-힣]{1,6}(?:읍|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r"(단양읍|매포읍|단성면|대강면|가곡면|영춘면|어상천면|적성면)", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def danyang_fee(row, name, note_bits, fee_diff):
+    """단양군 공영주차장 한 곳의 요금 — 무료 27·혼합 2(관광지 준하는 곳).
+    혼합 2곳은 조례 별표 1-1이 이름으로 지정한 관광지에 준하는 공영주차장으로
+    당일 정액 승용 3,000원이 등록 기본요금(기본 510분 3,000원)과 일치한다.
+    기본시간 510분은 운영시간(09:00~17:30)과 같아 flat_day 정액으로 계산하고,
+    차종별 요금은 등록에 없어 fee_diff에 전건 남긴다(군청 확인 필요)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항 단서(일정기간을 정하여 그 요금을 감면할 수 있다)에 따른 무료 운영으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if raw_type == "혼합" and base_fee and not unit_fee:
+        # 관광지에 준하는 공영주차장(별표 1-1) — 당일 정액. 등록 기본시간은
+        #   운영시간과 같은 510분이고 추가요금이 없어 시간 요금이 아니다.
+        fee_diff.append(f"{name}: 조례 별표 1-1은 차종별 당일 정액(승용 및 승합차 15인승 이하 "
+                        "3,000원·중·대형버스 16인승 이상 6,000원·화물차 4톤 미만 3,000원/4톤 "
+                        "이상 6,000원·이륜차 1,000원)이나 등록값은 기본 510분 3,000원 하나로만 "
+                        "등록돼 있어, 계산기는 승용 기준 당일 정액 3,000원으로 계산하고 차종별 "
+                        "요금은 요금표에 표기(군청 확인 필요)")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": None, "unit_fee": None,
+                    "daily_fee": base_fee, "daily_hours": None,
+                    "cap_fee": None, "cap_src": None,
+                    "monthly": None, "monthly_all": None, "monthly_label": None,
+                    "grade": None, "grade_label": None,
+                    "steps": None, "flat_day": True,
+                    "steps_label": "당일 정액 3,000원 (승용·15인승 이하 승합 기준, 조례 별표 1-1)",
+                    "free_min": None,
+                    "basis": "전국주차장정보표준데이터 등록값(단양군청, 기준일 2026-04-16) — "
+                             "「단양군 주차장 조례」 별표 1-1과 대조 완료. 별표 1-1이 이름으로 "
+                             "지정한 관광지에 준하는 공영주차장이라 당일 정액으로 계산한다"})
+        return fee
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours if day else None,
+                "cap_fee": None, "cap_src": None,
+                "monthly": month if month else None,
+                "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "steps": None,
+                "steps_label": (f"기본 {base_min}분 {base_fee:,}원 · 이후 {unit_min}분마다 "
+                                f"{unit_fee:,}원") if base_min and unit_min else None,
+                "free_min": None,
+                "basis": "전국주차장정보표준데이터 등록값(단양군청, 기준일 2026-04-16) — "
+                         "「단양군 주차장 조례」 별표 1과 대조 완료"})
+    return fee
+
+
+
+def _danyang_tier_of(lot):
+    return lot["fee"].get("std_grade") or ""
+
+
+def danyang_fee_table(conf, lots):
+    """요금표 — 조례 별표 1·별표 1-1 값으로 표기한다. 별표 1: 1구획당
+    30분마다 1급지 500원·2급지 200원, 1일 주차권 6,000원·2,400원, 월정기
+    주간 75,000원·30,000원(야간 56,000원·22,000원). 단양군 공영주차장은
+    군 직영시 2급지(비고3)이고 등록 급지도 전부 '2'다. 무료 27곳이 실려
+    있어 이 표는 조례 기준 요금의 참고표다(서천·보은·진천 선례). 별표
+    1-1(관광지 준하는 곳)은 당일 정액 행으로 따로 싣는다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    g1 = {"base_min": 30, "base_fee": 500, "unit_min": 30, "unit_fee": 500, "daily_fee": 6000}
+    g2 = {"base_min": 30, "base_fee": 200, "unit_min": 30, "unit_fee": 200, "daily_fee": 2400}
+    timed = [l for l in paid if not l["fee"].get("flat_day")]
+    rows = [
+        {"label": "1급지", "grade": "dy_g1",
+         "unit_label": "1구획당 30분마다 500원",
+         "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+         "day": 6000, "month": 75000,
+         "lots": len([l for l in timed if _danyang_tier_of(l) == "1"])},
+        {"label": "2급지", "grade": "dy_g2",
+         "unit_label": "1구획당 30분마다 200원",
+         "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
+         "day": 2400, "month": 30000,
+         "lots": len([l for l in timed if _danyang_tier_of(l) == "2"])},
+        {"label": "관광지에 준하는 곳 (별표 1-1)", "grade": "dy_tour",
+         "unit_label": "당일 정액 — 승용·15인승 이하 승합 3,000원 · 중·대형버스 6,000원 · 화물 4톤 미만 3,000원/이상 6,000원 · 이륜차 1,000원",
+         "hour": 3000, "two_hour": 3000,
+         "day": 3000, "month": None,
+         "lots": len([l for l in paid if l["fee"].get("flat_day")])},
+    ]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len(free),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "danyang_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "별표 1 주간 — 3~10월 08:00~20:00, 11~2월 09:00~19:00",
+                     "free": ("별표 1 비고6 — 토요일 13:00 이후 및 일요(공휴)일은 무료로 개방한다"
+                              "(관리위탁 운영하는 경우에는 예외로 할 수 있다). 별표 1-1 관광지 "
+                              "준하는 곳은 1일 단위 징수가 원칙이다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「단양군 주차장 조례」 제2990호(시행 2026-10-02, ordinSeq 2175103) "
+                  "제3조·별표 1·별표 1-1 · 전국주차장정보표준데이터(단양군청, 기준일 "
+                  "2026-04-16) 등록값 — 별표 원문 대조 완료. 무료 27곳은 제3조제1항 "
+                  "단서에 따른 무료 운영으로 보고 표는 조례 기준 요금의 참고표로 싣고, "
+                  "혼합 2곳은 별표 1-1의 당일 정액(승용 3,000원)으로 계산한다"),
+    }
+
+
+def danyang_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「단양군 주차장 조례」 제2990호 제3조제2항 — 면제: 긴급자동차, "
+                      "국가유공자 중 보철대상자가 운전하는 차량, 성실납세필증을 부착한 차량"
+                      "(지정된 날부터 1년간), 단양군에 주민등록을 둔 사람이 신분증이나 "
+                      "자동차등록증을 제시하고 관광지에 준하는 공영주차장을 이용하는 차량. "
+                      "60% 감면: 경형자동차(배기량 1,000cc 미만). 50% 감면: 장애인 자가운전, "
+                      "국가유공자 자가운전, 고엽제후유의증환자 등 등록자 자가운전·동승, "
+                      "5·18민주화운동부상자 등록자 자가운전·동승, 저공해자동차 표지 부착, "
+                      "환경친화적 자동차 표지 부착. 30% 감면: 승용차 선택요일제 참여 차량. "
+                      "본문 원문(data/raw/danyang-ordinance.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표 1 — 1구획당 30분마다 1급지 500원·2급지 200원, 1일 주차권 "
+                      "1급지 6,000원·2급지 2,400원, 월정기 주간 1급지 75,000원·2급지 "
+                      "30,000원/야간 1급지 56,000원·2급지 22,000원. 비고2 주간은 3~10월 "
+                      "08:00~20:00, 11~2월 09:00~19:00. 비고6 토요일 13:00 이후 및 "
+                      "일요(공휴)일은 무료로 개방(관리위탁 시 예외 가능). 별표 1-1 — 관광지에 "
+                      "준하는 공영주차장(도담삼봉·고수동굴) 당일 정액 승용 3,000원·중·대형버스 "
+                      "6,000원·화물 4톤 미만 3,000원/이상 6,000원·이륜차 1,000원, 징수는 "
+                      "1일 단위 원칙. 혼합 2곳의 등록 기본요금 3,000원은 승용 당일요금과 "
+                      "일치하고 차종별 요금은 등록에 없어 급지_요금_차이에 전건 기록했다"),
+        "급지_출처": ("조례 별표 1 비고3 — 급지구분은 주차장의 실태 및 주차수요를 참작하여 "
+                      "군수가 지정하고, 단양군 공영주차장은 군 직영시 2급지로 하며 관리위탁 "
+                      "운영하는 경우에는 예외로 할 수 있다. 표준데이터 등록 급지는 29곳 "
+                      "전부 '2'라 그대로 썼다"),
+        "무료요일_출처": ("별표 1 비고6의 토요일 13:00 이후·일요(공휴)일 무료 개방은 군 직영 "
+                          "일반 공영 기준인데, 무료 등록 27곳은 요금구분 자체가 '무료'이고 "
+                          "혼합 2곳은 별표 1-1 적용 대상이라 free_days로 적용하지 않고 "
+                          "요금표에만 표기했다"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+
+def build_danyang():
+    """단양군 하나를 표준데이터로 추출한다 (build_goesan 의 단양군 변형).
+    조례 대조 완료 — 「단양군 주차장 조례」 제2990호(시행 2026-10-02,
+    ordinSeq 2175103) 제3조·별표 1·별표 1-1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 29행 전부 공영·노외(무료 27·혼합 2)를 싣는다. 좌표는
+    전 행 등록돼 있어 지오코딩 보완이 없다."""
+    conf = DANYANG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "단양군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "단양군" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 단양군은
+    #   이름+자리가 같은 행이 없어 실제로 합쳐지는 행은 없다. 이름이 달라
+    #   가드에 걸리지 않는 가까운 쌍(매화공원 주차장·매화공원 정류장 주차장
+    #   39m, 평동5리 어린이공원 주차장·성인빌라 앞 주차장 43m)은 필지가
+    #   달라 둘 다 싣고 등록값_차이에 확인 과제로 남겼다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.75 < lat < 37.20 and 128.10 < lng < 128.70):
+            # 단양군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 단양군 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = danyang_dong_of(jibun, std_name) or danyang_dong_of(road, std_name)
+        if danyang_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif danyang_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 주소에서 읍·면을 가릴 수 없어 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        raw_type = (r.get("요금정보") or "").strip()
+        fee = danyang_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if fee.get("flat_day"):
+            note_bits.append("조례 별표 1-1의 관광지에 준하는 공영주차장으로, 당일 정액 "
+                             "3,000원(승용 기준)입니다 — 단양군에 주민등록을 둔 사람은 "
+                             "신분증·자동차등록증을 제시하면 면제됩니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "단양군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    note_fixed.append("단양군 등록 29행은 전부 공영·노외이고 관리기관은 전부 충청북도 단양군청, "
+                      "데이터기준일자는 전부 2026-04-16, 전화번호는 전부 043-420-2498이다 — "
+                      "조례 본문에 적힌 담당(민원과) 전화 043-420-2491과 다르다")
+    note_fixed.append("좌표는 29행 전부 등록돼 있고 전부 단양군 범위 안이라 지오코딩 보완이 "
+                      "없었다. 도로명주소는 29행 전부 결측이라 지번주소로만 안내한다")
+    note_fixed.append("이름이 달라 중복 가드에 걸리지 않는 가까운 쌍 2건은 필지가 달라 둘 다 "
+                      "실었다(확인 과제) — 평동리 매화공원 주차장(평동리 356, 43면)과 평동리 "
+                      "매화공원 정류장 주차장(평동리 347, 35면)은 좌표 39m 거리이고, 평동리 "
+                      "평동5리 어린이공원 주차장(평동리 105-2, 8면)과 평동리 성인빌라 앞 "
+                      "주차장(평동리 130-2, 23면)은 43m 거리다. 같은 부지의 별도 구획인지 "
+                      "군청 확인이 필요하다")
+    note_fixed.append("별곡리 하상주차장은 이름과 달리 등록 주소가 단양읍 도전리 649라 읍·면 "
+                      "분류는 등록 주소(단양읍)를 따랐다")
+    note_fixed.append("운영시간은 무료 27곳이 전 요일 00:00~23:59, 혼합 2곳(도담삼봉·고수동굴)이 "
+                      "전 요일 09:00~17:30으로 등록돼 있다. 혼합 2곳의 등록 기본시간 510분은 "
+                      "이 운영시간과 같다")
+    note_fixed.append("급지구분은 29행 전부 '2', 부제시행구분은 전부 '미시행', 결제방법과 "
+                      "특기사항은 전부 공란, 장애인전용주차구역보유여부는 전부 공란이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"cj-danyang-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"cj-danyang-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 좌표가 이미 있는 행은 건드리지 않는다(단양군은 전 행 좌표가
+    #   등록돼 있어 실제로 바뀌는 행은 없다).
+    apply_coord_fix(lots)
+
+    fee_table = danyang_fee_table(conf, lots)
+    quality = danyang_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"단양군으로 등록된 행 {len(rows_std)}행(전부 공영·노외)을 읽어 노외 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳을 실었다. 무료 "
+                 f"27곳·혼합 2곳이며, 혼합 2곳은 조례 별표 1-1이 지정한 관광지에 준하는 "
+                 f"공영주차장으로 등록 기본요금 3,000원이 승용 당일요금과 일치한다. 좌표는 "
+                 f"전 행 등록돼 있다. 조례 대조 완료 — 「단양군 주차장 조례」 제2990호"
+                 f"(시행 2026-10-02, ordinSeq 2175103) 제3조·별표 1·별표 1-1 원문 대조 "
+                 f"완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": DANYANG_ORD_HWP.name if DANYANG_ORD_HWP.exists() else None,
+            "sha256": sha256(DANYANG_ORD_HWP) if DANYANG_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-10-02",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"단양군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/danyang-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/danyang-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/danyang-ordinance-b1.txt, 별표 1-1 원문 HWP: "
+                    f"data/raw/danyang-ordinance-b1-1.hwp, 추출문: "
+                    f"data/raw/danyang-ordinance-b1-1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": DANYANG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "단양군", "slug": "danyang"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": DANYANG_PROVINCE,
+        "province_slug": DANYANG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "danyang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -41763,7 +42349,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -41781,7 +42367,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -41834,7 +42420,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -41985,6 +42571,8 @@ def main():
         cities.append(build_goesan())
     if "음성군" in want:
         cities.append(build_eumseong())
+    if "단양군" in want:
+        cities.append(build_danyang())
 
     if args.city == "all":
         site = build_site_payload(cities)
