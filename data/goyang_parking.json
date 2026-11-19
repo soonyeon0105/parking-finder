@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-20 07:50",
-  "generated_at_iso": "2026-11-20T07:50:35+09:00",
+  "generated_at": "2026-11-20 07:44",
+  "generated_at_iso": "2026-11-20T07:44:50+09:00",
   "snapshot_at": null,
   "region": {
    "province": "경기도",
@@ -9592,7 +9592,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-20 07:50",
+  "generated_at": "2026-11-20 07:44",
   "원자료_전국행수": 18994,
   "원자료_행수": 88,
   "원자료_고양시행수": 88,
