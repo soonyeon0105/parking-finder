@@ -11837,6 +11837,36 @@ def city_list_label(city) -> str:
     return "읍·면별" if is_county(city) else "구별"
 
 
+def build_nearby_data(site):
+    """T-08: 랜딩 '내 주변 주차장'용 경량 좌표 데이터셋 (dist/assets/nearby.json).
+
+    카드 표시용 최소 필드만 순서 배열로 싣는다:
+    [이름, 위도, 경도, 상세 URL(#lot-N 앵커), 요금 요약, 운영시간, 주소, (실시간이면 1)].
+    좌표가 없는 곳은 제외한다. 거리 계산은 전부 브라우저에서 하며 방문자 위치는
+    서버로 보내지도 저장하지도 않는다 — 이 파일은 정적 자산일 뿐이다.
+    앵커 번호는 build_district·build_city와 같은 district_sorted 순서를 써서 맞춘다.
+    """
+    rows = []
+    for city in site["cities"]:
+        card_lots = city["_card_lots"]
+        if is_city_wide(city):
+            groups = [(card_lots, city_path(city))]
+        else:
+            groups = [([l for l in card_lots if l["gu"] == d["name"]], district_path(city, d))
+                      for d in city["districts"]]
+        for d_lots, path in groups:
+            for i, lot in enumerate(district_sorted(d_lots), 1):
+                lat, lng = map_coords(lot)
+                if not lat or not lng:
+                    continue
+                row = [lot["name"], round(lat, 5), round(lng, 5),
+                       f"{path}#lot-{i}", fee_text(lot), hours_text(lot), addr_text(lot)]
+                if lot.get("realtime"):
+                    row.append(1)
+                rows.append(row)
+    return json.dumps(rows, ensure_ascii=False, separators=(",", ":"))
+
+
 def build_landing(site):
     path = "/"
     groups, order = {}, []
@@ -11914,6 +11944,15 @@ def build_landing(site):
   <datalist id="region-list">{''.join(search_opts)}</datalist>
 </form>
 
+<section class="nearby" id="nearby" data-data-url="{rel(path, '/assets/nearby.json')}?v={asset_ver()}">
+  <h2>내 주변 주차장</h2>
+  <p class="nearby-lede">위치를 허용하면 지금 계신 곳에서 가까운 공영주차장부터 거리순으로 보여 드립니다.</p>
+  <button type="button" class="btn solid nearby-btn" id="nearby-btn">내 주변 주차장 찾기</button>
+  <p class="nearby-note">위치는 이 기기(브라우저)에서만 계산하고 서버로 보내거나 저장하지 않아요.</p>
+  <p class="nearby-status" id="nearby-status" role="status" aria-live="polite"></p>
+  <div class="nearby-results" id="nearby-results"></div>
+</section>
+
 <div class="stats">
   <div class="stat"><span class="k">등록 주차장</span><span class="v">{total}<small>곳</small></span></div>
   <div class="stat"><span class="k">지원 지역</span><span class="v">{len(site['cities'])}<small>{region_unit}</small></span></div>
@@ -11945,6 +11984,7 @@ def build_landing(site):
 요금과 운영시간은 현장과 다를 수 있으니 방문 전에 확인하세요.</p>
 <p><a class="btn" href="{rel(path, '/about/')}">데이터 출처와 계산 기준</a>
 <a class="btn" href="{rel(path, '/contact/')}">문의·오류 제보</a></p>
+<script src="{rel(path, '/assets/nearby.js')}?v={asset_ver()}" defer></script>
 """
     home_ld = [
         {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME,
@@ -12257,8 +12297,10 @@ def main():
     if DIST.exists():
         shutil.rmtree(DIST)
     (DIST / "assets").mkdir(parents=True)
-    for f in ("style.css", "app.js"):
+    for f in ("style.css", "app.js", "nearby.js"):
         shutil.copy(ASSETS / f, DIST / "assets" / f)
+    # T-08: 랜딩 '내 주변 주차장' 좌표 데이터셋 — 페이지를 만들 때 함께 다시 만든다.
+    (DIST / "assets" / "nearby.json").write_text(build_nearby_data(site), encoding="utf-8")
 
     pages = [build_landing(site), build_privacy(site),
              build_free_hub(site), build_regions(site),
