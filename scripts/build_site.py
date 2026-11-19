@@ -9219,6 +9219,43 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "dangjin_grade":
+        # 당진시 — 유료 6곳(1급지 5곳·2급지 1곳, 기본요금형). 등록값이 당진시청 공식
+        #   요금표(「당진시 주차장 조례」 제1489호 별표1)와 전수 일치한다. 일요일·설·추석·
+        #   연휴기간 무료 개방은 당진시청 운영안내 기준(조례 제4조제8호 재량 개방 규정).
+        #   버스터미널 최초 10분 무료(별표1 비고 제11호)·당일 노선여객 승차권 50% 감면.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">당진 공영주차장 10곳 중 유료는 <b>6곳</b>뿐이고, 1급지 5곳은 <b>기본 30분 400원</b>에
+<b>추가 10분마다 200원</b>, <b>1일 7,000원</b>, <b>월정기 50,000원</b>, 2급지 1곳(당진시장)은
+<b>기본 30분 300원 · 추가 10분마다 100원 · 1일 3,600원 · 월정기 40,000원</b>입니다
+(「당진시 주차장 조례」 제1489호 별표1, 당진시청 공식 요금표와 일치 · 별표1 최종개정
+2019-09-30). 주차시간이 30분 이내는 30분 요금을 적용하고 6시간 이상 주차는 1일 요금을
+적용합니다(별표1 비고 제3호 — 원문에는 '6시간 주차요금'으로 적혀 있으나 문맥상 1일 요금).
+<b>일요일·설·추석·연휴기간은 당진시청 운영안내에 따라 무료로 개방</b>합니다(조례 제4조제8호의
+재량 개방 규정이라 자동·상시 무료가 아니니 방문 전 확인하세요). 당진공영버스터미널은 최초
+10분 무료(별표1 비고 제11호), 당일 노선여객자동차 승차권 제시 시 50% 감면입니다(왕복 조건 없음).</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "gongju_grade":
         # 공주시 — 유료 10곳(1급지 10곳, 기본요금형). 등록값 전수 동일(기본 30분 500원·
         #   추가 10분 200원·1일 5,000원·월정기 40,000원). 조례 별표1 대조 완료(2026-11-19):
