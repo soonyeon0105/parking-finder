@@ -9785,6 +9785,49 @@ def fee_table_block(city) -> str:
 전부 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다. 노상 구간도 전부 무료입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "eumseong_grade":
+        # 음성군 — 등록 29곳(노외 25·노상 4) 중 무료 28곳, 혼합 1곳
+        #   (맹동면 혁신도시 공영주차장 동성리 486-1, 194면, 1급지). 조례
+        #   별표 1(제2879호)은 1급지 30분당 500원(2시간까지)·2시간 초과 후
+        #   30분당 1,000원·월정기 40,000원, 2급지 30분당 200원·400원·
+        #   월정기 30,000원이고 1일 주차권이 없다. 혼합 1곳의 등록값은
+        #   기본요금이 없고 기본시간이 '2'로만 적혀 있어 기본 구간을 확정할
+        #   수 없다 — 추가단위요금(30분당 1,000원)은 별표 1의 2시간 초과
+        #   단가와, 월정기(40,000원)는 1급지와 일치해, 계산기는 논산·부여
+        #   선례대로 조례 누진 구조를 적용하고 차이는 데이터 품질 기록에
+        #   남긴다(군청 확인 필요).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">음성 공영주차장 29곳 가운데 <b>28곳은 무료</b>이고, 요금을 받는 곳은
+<b>맹동면 혁신도시 공영주차장(동성리 486-1, 194면)</b> 1곳뿐입니다. 「음성군 주차장
+조례」 제2879호 별표 1은 1급지 <b>30분당 500원</b>(2시간까지), 2시간을 넘기면
+<b>30분당 1,000원</b>, <b>월정기 40,000원</b>으로 정하고 1일 주차권은 없습니다.
+다만 이 주차장의 표준데이터 등록값은 기본요금이 없고 기본시간이 ‘2’로만 적혀 있어
+기본 구간을 확정할 수 없습니다 — 추가요금(30분당 1,000원)과 월정기(40,000원)는
+조례 1급지와 일치합니다. 이 사이트의 계산기는 조례 별표 1의 누진 구조로 계산하니,
+실제 징수 기준은 현장 안내나 음성군청(043-871-4142)에 확인하세요. 무료 28곳은
+조례 제3조제1항 단서에 따른 무료 운영으로 보입니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "jincheon_grade":
         # 진천군 — 등록된 16곳(노외 10·노상 6) 전부 무료. 조례 별표 1은
         #   급지별 유료 요금표(1급지 최초 30분 무료·30분~2시간 30분마다
