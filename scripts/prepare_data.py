@@ -308,7 +308,9 @@ def derive_free_fields(lot):
         tags.append("무료")
     if fd["sat"] or fd["sun"]:
         tags.append("주말")
-    if lot["free_holiday"] or fd["sun"]:
+    # 공주시는 조례 별표1 비고 4에 일요일만 무료라, sun=True만으로 공휴일 태그를 붙이지 않는다.
+    # (다른 도시는 '주말 및 공휴일 무료' 특기사항 관행대로 sun=True면 공휴일도 무료로 본다.)
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") != "공주시"):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
