@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-19 16:47",
-  "generated_at_iso": "2026-11-19T16:47:59+09:00",
+  "generated_at": "2026-11-19 17:10",
+  "generated_at_iso": "2026-11-19T17:10:11+09:00",
   "snapshot_at": null,
   "region": {
    "province": "경기도",
@@ -138,7 +138,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-002",
@@ -2250,7 +2251,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-026",
@@ -3130,7 +3132,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-036",
@@ -3218,7 +3221,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-037",
@@ -3306,7 +3310,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-038",
@@ -3394,7 +3399,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-039",
@@ -3482,7 +3488,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-040",
@@ -3658,7 +3665,8 @@
    "udc_id": null,
    "price_key": 200,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-042",
@@ -3746,7 +3754,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-043",
@@ -3834,7 +3843,8 @@
    "udc_id": null,
    "price_key": 200,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-044",
@@ -4098,7 +4108,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-047",
@@ -5946,7 +5957,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-068",
@@ -9730,7 +9742,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-071",
@@ -10082,7 +10095,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-075",
@@ -10170,7 +10184,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-076",
@@ -10434,7 +10449,8 @@
    "udc_id": null,
    "price_key": 600,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-079",
@@ -10522,7 +10538,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-080",
@@ -10786,7 +10803,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-083",
@@ -12634,7 +12652,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-095",
@@ -12722,7 +12741,8 @@
    "udc_id": null,
    "price_key": 200,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-096",
@@ -12810,7 +12830,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-097",
@@ -12898,7 +12919,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-098",
@@ -12986,7 +13008,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "성남시",
-   "city_slug": "seongnam"
+   "city_slug": "seongnam",
+   "tel_rep": true
   },
   {
    "id": "sn-street-050",
@@ -14486,7 +14509,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-19 16:47",
+  "generated_at": "2026-11-19 17:10",
   "원자료_전국행수": 18994,
   "원자료_행수": 164,
   "원자료_성남시행수": 164,

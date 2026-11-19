@@ -7490,7 +7490,9 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
             f'<li><b>운영</b> {esc(hours_text(lot))}</li>',
             f'<li><b>동</b> {esc(lot["dong"])}' + ("(추정)" if lot.get("dong_src", "").startswith("좌표") else "") + '</li>' if show_dong else '']
     if lot["tel"]:
-        meta.append(f'<li><b>전화</b> <a href="tel:{esc(lot["tel"])}">{esc(lot["tel"])}</a></li>')
+        # tel_rep: 주차장 직통이 아니라 운영기관 대표번호로 채운 곳(T-06 성남 23곳) — 헷갈리지 않게 표기한다.
+        rep = " (대표번호)" if lot.get("tel_rep") else ""
+        meta.append(f'<li><b>전화</b> <a href="tel:{esc(lot["tel"])}">{esc(lot["tel"])}</a>{rep}</li>')
 
     lines = [f'<p class="fee-line">요금: {esc(fee_text(lot))}</p>']
     if lot["fee"].get("pay"):
