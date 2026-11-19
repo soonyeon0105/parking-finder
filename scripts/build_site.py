@@ -9387,6 +9387,46 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "gyeryong_grade":
+        # 계룡시 — 유료는 계룡역 공영주차장 1곳뿐. 표준데이터에는 무료로 등록돼
+        #   있으나 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로
+        #   2026-08-01부터 유료 운영·주말 및 공휴일 무료가 확인돼 조례 별표1
+        #   기준으로 적용한다: 급지 구분 없이 최초 30분 무료, 30분 초과 10분당
+        #   200원, 2시간 초과 10분당 300원. 1일 주차요금 상한액 7,000원은 공식
+        #   답변 명시로 계산기 상한에도 적용하고, 월정기 60,000원은 표에 적는다
+        #   (판매 기준 확인 필요). 당초 '2025-09-15부터 유료' 표기는 당시 '계획
+        #   중' 안내를 근거로 한 것이어서 2026-11-20 정정했다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">계룡 공영주차장 20곳 중 요금을 받는 곳은 <b>계룡역 공영주차장 1곳</b>뿐입니다.
+「계룡시 주차장 설치 조례」 제1117호 별표 1은 급지 구분 없이 <b>최초 30분 무료</b>, 30분을 넘기면
+<b>10분마다 200원</b>, 2시간을 넘기면 <b>10분마다 300원</b>이고, <b>1일 주차요금 상한액 7,000원</b>·
+<b>월정기 60,000원</b>입니다. 계룡역은 표준데이터에 무료로 등록돼 있으나 계룡시 공식 답변
+(시장에게 바란다, 건설교통실 2026-11-09)으로 <b>2026년 8월 1일부터 유료</b>로 운영하고
+<b>주말 및 공휴일은 무료</b>라 이 표를 적용했습니다. 월정기는 유료화 발표 당시 주간 45,000원·
+야간 35,000원으로 안내돼 현행 별표와 다르니 실제 판매 기준은 시청 확인이 필요합니다.
+현장 확인이 필요하면 계룡시청(042-840-2584)에 문의하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 상한액</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(

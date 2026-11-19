@@ -32768,6 +32768,568 @@ def build_nonsan():
     return payload
 
 
+
+
+GYERYONG_PROVINCE = "충청남도"
+GYERYONG_PROVINCE_SLUG = "chungnam"
+
+# 「계룡시 주차장 설치 조례」 — law.go.kr 라이브 확인 완료(2026-11-19).
+#   제1117호(시행 2025-12-10, 일부개정), ordinSeq 2091087, ordinId 2028308이 현행본이다.
+#   담당 충청남도 계룡시(건설교통실) 042-840-2530. 별표1 원문 HWPX
+#   (data/raw/gyeryong-ordinance-b1.hwp) 확보 + 본문(data/raw/gyeryong-ordinance.txt) 저장.
+#   별표1(제3조 관련): 급지 구분 없이 단일 1급지 — 최초 30분 무료, 30분 초과 시
+#   10분당 200원, 2시간 초과 시 10분당 300원, 1일 주차권 7,000원, 월정기 60,000원.
+#   비고: 1일 주차권을 발행하는 주차장에서 시간제 주차요금이 1일 주차권 요금을
+#   초과하는 경우 1일 주차권 요금을 징수한다; 주차요금 징수 시간은 연중
+#   24시간(00:00~24:00); 1구획은 승용자동차 기준.
+#   감면은 제3조의2: 제1항 1호 긴급자동차·2호 공무수행 자동차·3호 성실납세증
+#   (교부일로부터 1년 한정) 전액, 4호 저공해·5호 환경친화적·6호 병역명문가 50%.
+#   제2항 승용차요일제 10부제 20%·5부제 40%·2부제 50%, 경형(1,000cc 미만) 50%.
+#   제3항 장애인·국가유공자(상이 1~7급)·고엽제·5·18·참전유공자·우수자원봉사자 50%.
+#   제3조의3(2025-12-10 신설): 시장은 유료 공영주차장의 무료운영 시간을 따로
+#   정해 탄력적으로 운영할 수 있다 — 정해진 곳이 확인되지 않아 표기하지 않는다.
+#   등록값과 차이(차이는 note_fixed·fee_diff에 기록):
+#   ① 계룡역 공영주차장 — 표준데이터에는 무료로 등록돼 있으나(기준 2026-04-17)
+#      계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09 — 1차 출처)으로
+#      2026-08-01부터 유료 운영, 주말·공휴일 무료, 1일 주차요금 상한액 7,000원·
+#      월정기권 60,000원 제도를 마련했음이 확인됐다. 요금·상한은 현행 별표1
+#      기준으로 적용한다. 당초 근거로 삼았던 시청 블로그 안내·보도(2025-08-25)의
+#      '2025-09-15부터 유료'는 2025-09 당시 시 답변이 '계획 중' 단계였음이 공식
+#      답변으로 확인돼 정정했다(정정 2026-11-20, Instinct 교차검증 보류 판정).
+#      유료화 발표 당시 안내된 월정기 주간 45,000원·야간 35,000원은 현행 별표1의
+#      60,000원과 다르다.
+#   ② 번영로·중앙로 노상주차장 — 표준데이터에 민영으로 등록돼 있어 다른 도시와
+#      같은 기준으로 제외했다(관리기관명은 충청남도 계룡시로 등록, 요금은 기본
+#      30분 500원·추가 10분당 200원). 공영 위탁 여부는 시청 확인 필요.
+#   ③ 월정기 — 별표1 60,000원. 등록값에는 없어 카드에는 비우고 요금표에만 적는다.
+GYERYONG_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091087"
+GYERYONG_ORD_HWP = RAW / "gyeryong-ordinance-b1.hwp"
+GYERYONG_ORD_NOTE = "충청남도계룡시조례 제1117호(시행 2025-12-10, 일부개정), ordinSeq 2091087"
+
+# 조례 제3조의2 감면 — 본문 대조 완료(2026-11-19). 전액 1개·50% 3개 버튼으로
+#   묶는다(보령 패턴). 승용차요일제 10부제 20%·5부제 40%는 조건부라 버튼으로
+#   만들지 않고 안내문에 적는다.
+GYERYONG_DISCOUNTS = [
+    {"label": "긴급자동차·공무수행·성실납세자 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "「도로교통법」 제2조제22호에 따른 긴급자동차(제3조의2제1항제1호) · 국가 또는 지방자치단체 소속의 공무수행 자동차(제2호) · 국세 및 지방세를 성실히 납부한 자로서 성실납세증표지(스티커)를 부착한 자동차 — 교부일로부터 1년간(제3호) 전액 감면"},
+    {"label": "장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「장애인복지법」 제32조에 따라 등록한 장애인, 「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따라 등록한 상이등급 1급부터 7급까지의 국가유공자, 고엽제후유의증 환자, 5·18민주유공자, 참전유공자, 「계룡시 자원봉사활동 지원 조례」에 따른 우수자원봉사자증을 받은 사람이 본인의 자동차를 직접 운전하거나 장애 정도가 심하여 동승하고 타인에게 대리운전을 하게 하는 경우 — 50% 감면(제3조의2제3항)"},
+    {"label": "경형·저공해·환경친화적 자동차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "1,000cc 미만의 경형자동차 및 2부제 참여 자동차(제3조의2제2항) · 「대기환경보전법」 제58조제11항에 따른 저공해자동차 표지를 부착한 자동차(제1항제4호) · 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제11조에 따라 환경친화적 자동차 표지를 부착한 자동차(제1항제5호) — 50% 감면. 승용차요일제 10부제 20%·5부제 40% 감면은 버튼으로 만들지 않았다"},
+    {"label": "병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「계룡시 병역 명문가 예우에 관한 조례」 제5조에 따른 병역 명문가 예우대상자로서 병무청장이 발행한 병역명문가증을 소지한 사람 — 50% 감면(제3조의2제1항제6호)"},
+]
+
+
+GYERYONG_CONF = {
+    "city": "계룡시",
+    "slug": "gyeryong",
+    "manager": "충청남도 계룡시 건설교통실",
+    "manager_inquiry": "계룡시청(042-840-2584)",
+    "ordinance": ("「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, 일부개정)",
+                  GYERYONG_ORD_URL, GYERYONG_ORD_NOTE),
+    "notes": ("계룡시 공영주차장 20곳 중 19곳은 무료이고 요금을 받는 곳은 계룡역 공영주차장 "
+              "1곳이다. 계룡역은 표준데이터에 무료로 등록돼 있으나 계룡시 공식 답변(시장에게 "
+              "바란다, 건설교통실 2026-11-09)으로 2026년 8월 1일부터 유료로 운영하고 주말 및 "
+              "공휴일에는 무료로 운영함이 확인돼, 요금은 「계룡시 주차장 설치 조례」 제1117호"
+              "(시행 2025-12-10, ordinSeq 2091087) 별표1을 적용했다 — 급지 구분 없이 최초 "
+              "30분 무료, 30분 초과 시 10분당 200원, 2시간 초과 시 10분당 300원이다. 같은 "
+              "공식 답변으로 계룡역에 1일 주차요금 상한액 7,000원 및 월정기권 60,000원 제도를 "
+              "마련했음이 명시돼 계산기에도 1일 상한 7,000원을 적용했다. 월정기는 등록값이 "
+              "없어 카드에는 비워 두고 요금표에만 적었다(유료화 발표 당시에는 주간 45,000원·"
+              "야간 35,000원으로 안내돼 현행 별표와 다르니 실제 판매 기준은 시청 확인이 "
+              "필요하다). 당초 이 카드는 시청 블로그 안내·보도를 근거로 '2025년 9월 15일부터 "
+              "24시간 유료'로 적었으나, 2025년 9월 당시 시 답변은 '계획 중'이었고 실제 유료 "
+              "개시는 2026년 8월 1일임이 공식 답변으로 확인돼 정정했다(정정 2026-11-20). "
+              "번영로·중앙로 노상주차장(엄사면)은 표준데이터에 민영으로 등록돼 있어 다른 도시와 "
+              "같은 기준으로 제외했다 — 관리기관은 계룡시로 등록돼 있어 공영 위탁 여부는 시청 "
+              "확인이 필요하다. 감면은 조례 제3조의2를 따른다(긴급·공무수행·성실납세 전액, "
+              "장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%, 경형·저공해·환경친화적·"
+              "병역명문가 50%, 승용차요일제 10부제 20%·5부제 40%·2부제 50%). 표준데이터에는 "
+              "계룡시 22행이 등록되어 있다."),
+    "discounts": GYERYONG_DISCOUNTS,
+}
+
+
+def gyeryong_dong_of(addr, name=None):
+    """계룡시 주소에서 법정동·면을 읽는다 — '계룡시' 다음 낱말이 동·면이다."""
+    if addr:
+        m = re.search(r"계룡시\s*([가-힣]{1,6}(?:동|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r"^\s*([가-힣]{1,6}면)", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def gyeryong_fee(row, name, note_bits, fee_diff):
+    """계룡시 공영주차장 한 곳의 요금 — 19곳은 무료, 계룡역 1곳만 유료다.
+    계룡역은 표준데이터에 무료로 등록돼 있으나 계룡시 공식 답변(시장에게 바란다,
+    건설교통실 2026-11-09 — 1차 출처)으로 2026-08-01부터 유료 운영이라
+    「계룡시 주차장 설치 조례」 제1117호 별표1 기준으로 적용한다: 급지 구분 없이
+    최초 30분 무료, 30분 초과 시 10분당 200원, 2시간 초과 시 10분당 300원(steps).
+    1일 주차요금 상한액 7,000원은 같은 공식 답변이 계룡역에 그 제도를 마련했음을
+    명시해 계산기 상한(cap_fee)으로 적용한다(당초 '2025-09-15부터 유료' 근거였던
+    시청 블로그 안내·보도는 당시 '계획 중' 단계 안내였음이 확인돼 2026-11-20
+    정정). 주말·공휴일 무료도 공식 답변 명시 사항이라 build_gyeryong에서
+    free_days로 적용한다. 월정기는 별표1 60,000원이 있으나 등록값이 없어 카드에는
+    비워 둔다(발표 당시 안내 주간 45,000원·야간 35,000원과 달라 시청 확인 필요)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if name == "계룡역 공영주차장":
+        steps = [{"until": 120, "unit_min": 10, "unit_fee": 200},
+                 {"until": None, "unit_min": 10, "unit_fee": 300}]
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 0,
+                    "unit_min": 10, "unit_fee": 200,
+                    "daily_fee": None, "daily_hours": None,
+                    "cap_fee": 7000,
+                    "cap_src": "계룡시 공식 답변(2026-11-09) 1일 주차요금 상한액",
+                    "monthly": None, "monthly_all": None, "monthly_label": None,
+                    "grade": 1, "grade_label": "1급지",
+                    "steps": steps,
+                    "steps_label": "최초 30분 무료 · 30분 초과 10분마다 200원 · 2시간 초과 10분마다 300원",
+                    "basis": "계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09 — 2026-08-01부터 "
+                             "유료 운영·주말 및 공휴일 무료·1일 주차요금 상한액 7,000원·월정기권 60,000원) "
+                             "+ 「계룡시 주차장 설치 조례」 제1117호 별표1 — 표준데이터에는 무료로 등록돼 "
+                             "있어 차이를 fee_diff에 기록"})
+        fee_diff.append("계룡역 공영주차장: 등록 요금정보 '무료'(기준 2026-04-17) ↔ 계룡시 공식 답변"
+                        "(시장에게 바란다, 건설교통실 2026-11-09) 2026-08-01부터 유료 운영·주말 및 "
+                        "공휴일 무료·1일 상한 7,000원 — 계산기·요금표는 조례 별표1 기준으로 적용하고 "
+                        "1일 상한을 계산기에 반영(당초 '2025-09-15부터 유료' 표기는 2025-09 당시 "
+                        "'계획 중' 안내를 근거로 한 것이어서 2026-11-20 정정)")
+        note_bits.append("계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026년 "
+                         "8월 1일부터 유료로 운영하고 있습니다(표준데이터에는 아직 무료로 등록돼 "
+                         "있습니다)")
+        note_bits.append("주말 및 공휴일에는 무료로 운영합니다(계룡시 공식 답변 2026-11-09)")
+        note_bits.append("1일 주차요금 상한액 7,000원이 적용됩니다(계룡시 공식 답변 2026-11-09)")
+        note_bits.append("월정기권은 계룡시 공식 답변(2026-11-09)으로 60,000원 제도를 마련했음이 "
+                         "확인됐습니다(유료화 발표 당시 안내된 주간 45,000원·야간 35,000원과 달라 "
+                         "실제 판매 기준은 시청 확인이 필요합니다)")
+        return fee
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        return fee
+    # 유료·혼합 등록값이 남은 경우(민영 제외 후에는 없음) — 등록값 + 조례 steps
+    steps = [{"until": 120, "unit_min": 10, "unit_fee": 200},
+             {"until": None, "unit_min": 10, "unit_fee": 300}]
+    fee.update({"base_min": base_min, "base_fee": base_fee,
+                "unit_min": 10, "unit_fee": 200,
+                "daily_fee": None, "daily_hours": None,
+                "monthly": None, "monthly_all": None, "monthly_label": None,
+                "grade": 1, "grade_label": "1급지",
+                "steps": steps,
+                "steps_label": "최초 30분 무료 · 30분 초과 10분마다 200원 · 2시간 초과 10분마다 300원",
+                "basis": "전국주차장정보표준데이터 등록값 + 「계룡시 주차장 설치 조례」 제1117호 별표1"})
+    return fee
+
+
+def _gy_tier_of(lot):
+    f = lot["fee"]
+    if f["type"] in ("유료", "혼합"):
+        return "paid_base"
+    return "other"
+
+
+def gyeryong_fee_table(conf, lots):
+    """요금표 — 유료는 계룡역 1곳뿐이다. 「계룡시 주차장 설치 조례」 별표1은 급지
+    구분 없이 최초 30분 무료, 30분 초과 10분당 200원, 2시간 초과 10분당
+    300원이고 1시간 600원·2시간 1,800원은 steps 계산값이다. 1일 주차요금
+    상한액 7,000원·월정기 60,000원은 표에 적고, 1일 상한은 계룡시 공식 답변
+    (2026-11-09)이 계룡역에 그 제도를 마련했음을 명시해 계산기 상한으로도
+    적용한다(월정기 판매 기준은 확인 필요)."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    g1 = {"base_min": 30, "base_fee": 0, "unit_min": 10, "unit_fee": 200,
+          "daily_fee": None,
+          "steps": [{"until": 120, "unit_min": 10, "unit_fee": 200},
+                    {"until": None, "unit_min": 10, "unit_fee": 300}]}
+    rows = []
+    if paid:
+        rows.append({"label": "1급지(전 지역)", "grade": "paid_base",
+                     "unit_label": "최초 30분 무료 → 30분 초과 10분마다 200원 (2시간 초과 10분마다 300원)",
+                     "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+                     "day": 7000, "month": 60000, "lots": len(paid)})
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "gyeryong_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "연중 24시간",
+                     "free": ("주차요금 징수 시간은 연중 24시간(00:00~24:00)이다"
+                              "(조례 별표1 비고). 계룡역은 주말 및 공휴일 무료로 운영한다"
+                              "(계룡시 공식 답변 2026-11-09)")}],
+
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, ordinSeq 2091087) 별표1 · "
+                  "전국주차장정보표준데이터(2026-04-17 기준) 등록값 — 별표1 원문 대조 완료 · "
+                  "계룡역 유료 개시(2026-08-01)·주말 및 공휴일 무료·1일 상한 7,000원은 계룡시 "
+                  "공식 답변(시장에게 바란다, 건설교통실 2026-11-09) 확인"),
+    }
+
+
+def gyeryong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                     space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {"계룡시": len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": ("「계룡시 주차장 설치 조례」 제3조의2(제1항: 긴급·공무수행·성실납세 전액, "
+                      "저공해·환경친화적·병역명문가 50% / 제2항: 10부제 20%·5부제 40%·2부제·경형 "
+                      "50% / 제3항: 장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%) — "
+                      "별표1 원문 HWPX(data/raw/gyeryong-ordinance-b1.hwp) 대조 완료(2026-11-19)"),
+        "무료시간_출처": ("「계룡시 주차장 설치 조례」 별표1 비고 — 주차요금 징수 시간은 연중 "
+                          "24시간(00:00~24:00); 계룡역의 주말·공휴일 무료는 계룡시 공식 답변"
+                          "(시장에게 바란다, 건설교통실 2026-11-09)으로 확인해 표기"),
+        "주말무료_출처": ("계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09) — 계룡역은 "
+                          "'주말 및 공휴일에는 무료로 운영' 명시. 조례 별표1 비고에는 요일별 무료 "
+                          "조항이 없어 공식 답변을 1차 출처로 적용(2026-11-20 정정)"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gyeryong():
+    """계룡시 하나를 표준데이터로 추출한다 (build_nonsan 의 계룡시 변형). 조례 대조
+    완료 — 「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, ordinSeq
+    2091087) 별표1·제3조의2 원문 대조 완료(2026-11-19). 22행 중 민영 노상 2곳
+    (번영로·중앙로)은 다른 도시와 같은 기준으로 제외하고, 계룡역은 계룡시 공식
+    답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026-08-01부터 유료 운영·
+    주말 및 공휴일 무료·1일 상한 7,000원이 확인돼 별표1 기준으로 적용한다."""
+    conf = GYERYONG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "계룡시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "계룡시" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. (계룡은 입암산업단지 공영주차장 3행이
+    #   이름만 같고 지번·좌표가 달라 합쳐지지 않는다 — 이름 뒤 주소로 구분한다.)
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.20 < lat < 36.35 and 127.18 < lng < 127.33):
+            # 계룡시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 계룡시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gyeryong_dong_of(jibun, std_name) or gyeryong_dong_of(road, std_name)
+        if gyeryong_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif gyeryong_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 지번주소에 면 이름이 빠져 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        fee = gyeryong_fee(r, std_name, note_bits, fee_diff)
+        if std_name == "계룡역 공영주차장":
+            # 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)이 "주말 및
+            #   공휴일에는 무료로 운영"을 명시 — free_days로 적용한다(공휴일 태그는
+            #   derive_free_fields가 sun=True를 따라 붙인다).
+            free_days = {"sat": True, "sun": True}
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "계룡시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다 — 계룡역은 발표 근거로 적용)
+    note_fixed.append("계룡역 공영주차장: 표준데이터에는 무료로 등록돼 있으나(기준 2026-04-17) 계룡시 "
+                      "공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026-08-01부터 유료 "
+                      "운영(주말 및 공휴일 무료)이라 조례 별표1 기준으로 적용했다 — 당초 시청 블로그 "
+                      "안내·보도(2025-08-25)를 근거로 '2025-09-15부터 24시간 유료'로 적었으나, "
+                      "2025-09 당시 시 답변은 '계획 중'이었고 실제 유료 개시는 2026-08-01임이 공식 "
+                      "답변으로 확인돼 2026-11-20 정정했다(Instinct 교차검증 보류 판정 반영)")
+    note_fixed.append("계룡역 월정기: 유료화 발표 당시 주간 45,000원·야간 35,000원으로 안내됐으나 현행 "
+                      "조례 별표1은 60,000원(주간·야간 구분 없음)이고 계룡시 공식 답변(2026-11-09)도 "
+                      "월정기권 60,000원 제도 마련을 명시했다 — 요금표에는 별표1 값을 적고 "
+                      "카드에는 비워 뒀다, 실제 판매 기준 시청 확인 필요")
+    note_fixed.append("번영로·중앙로 노상주차장(엄사면 엄사리): 표준데이터에 민영으로 등록돼 있어 다른 "
+                      "도시와 같은 기준으로 제외했다 — 관리기관명은 충청남도 계룡시로 등록돼 있고 "
+                      "요금은 기본 30분 500원·추가 10분당 200원으로 등록돼 있어(조례 별표1의 최초 "
+                      "30분 무료와도 다름) 공영 위탁 여부는 시청 확인 필요")
+    note_fixed.append("1일 주차요금 상한: 조례 별표1에 1일 주차권 7,000원이 있고 발행하는 주차장에서는 "
+                      "시간제 요금이 이를 넘으면 7,000원만 받는 상한 규정(별표1 비고)이 있다 — 계룡역은 "
+                      "계룡시 공식 답변(2026-11-09)이 '1일 주차요금 상한액 7,000원 제도 마련'을 명시해 "
+                      "계산기 상한(cap_fee)으로 적용했다(당초 발행 여부 미확인으로 적용하지 않았던 "
+                      "것을 2026-11-20 정정)")
+    fee_diff.append("계룡시 전체: 등록 월정기권 없음(계룡역 포함) ↔ 조례 별표1 월정기 60,000원 — "
+                    "요금표에만 적고 카드 월정기는 비워 둠")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"ca-gyeryong-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"ca-gyeryong-s{n_street:03d}"
+
+    fee_table = gyeryong_fee_table(conf, lots)
+    quality = gyeryong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                               fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-19 23:45 (KST)",
+        "note": (f"계룡시로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 민영으로 등록된 "
+                 f"노상 2곳(번영로·중앙로)은 다른 도시와 같은 기준으로 제외했다. 요금·운영시간·면수는 "
+                 f"등록값을 그대로 썼고, 계룡역만 시청 공식 발표에 따라 유료로 적용했다(차이는 "
+                 f"fee_diff에 기록). 조례 대조 완료 — 「계룡시 주차장 설치 조례」 제1117호(시행 "
+                 f"2025-12-10, ordinSeq 2091087) 별표1·제3조의2 원문 대조 완료(2026-11-19)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GYERYONG_ORD_HWP.name if GYERYONG_ORD_HWP.exists() else None,
+            "sha256": sha256(GYERYONG_ORD_HWP) if GYERYONG_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": conf["ordinance"][2],
+            "rows_total": None, "fetched_at": "2026-11-19 23:45 (KST)",
+            "note": f"계룡시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 별표1 원문 HWPX: data/raw/gyeryong-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GYERYONG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "계룡시", "slug": "gyeryong"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GYERYONG_PROVINCE,
+        "province_slug": GYERYONG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gyeryong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -32780,7 +33342,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -32798,7 +33360,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -32851,7 +33413,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -32970,6 +33532,8 @@ def main():
         cities.append(build_nonsan())
     if "보령시" in want:
         cities.append(build_boryeong())
+    if "계룡시" in want:
+        cities.append(build_gyeryong())
 
     if args.city == "all":
         site = build_site_payload(cities)
