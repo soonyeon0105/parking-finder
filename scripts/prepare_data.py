@@ -31674,6 +31674,547 @@ def build_gongju():
     return payload
 
 
+NONSAN_PROVINCE = "충청남도"
+NONSAN_PROVINCE_SLUG = "chungnam"
+
+# 「논산시 주차장 설치 및 사용료 징수 조례」 — law.go.kr 라이브 확인 완료(2026-11-19).
+#   제2003호(시행 2025-12-22, 일부개정), ordinSeq 2095523, ordinId 2045171이 현행본이다.
+#   담당 충청남도 논산시(교통과) 041-746-6255. 별표1 원문 HWP
+#   (data/raw/nonsan-ordinance-b1.hwp) 확보 + 본문(data/raw/nonsan-ordinance.txt) 저장.
+#   별표1(제3조 관련): 동지역 1급지·읍·면지역 2급지. 1급지 1회(30분) 500원·월정기
+#   주간 45,000원·야간 35,000원. 2급지 1회(30분) 400원·월정기 주간 30,000원·
+#   야간 22,000원. ※ 30분 초과 시 10분당 200원씩 추가, 2시간 초과 시 10분마다
+#   300원씩 추가. 비고: 주간 4~10월 08:00~20:00, 11~3월 09:00~19:30, 나머지
+#   야간; 1구획 승용차 기준. 1일 요금은 별표1·등록값 모두 없음.
+#   제3조제2항 감면 1~9호: 1호 긴급자동차 전액, 2호 경형(1,000cc 미만) 50%,
+#   3호 장애인 50%(본인 소유 비사업용 직접/대리운전), 4호 국가유공자(상이 1~6급)·
+#   고엽제·5·18 50%, 5호 모범납세자 전액(증명 발급일부터 1년), 6호 저공해 50%,
+#   7호 환경친화적 자동차 50%, 8호 우수자원봉사자증 전액, 9호 병역명문가 50%
+#   (2025-03-20 신설). 제3조제3항: 비정상 징수 시 기본 30분 초과로 보고 기본요금+
+#   초과요금 부과. 일요일·공휴일 무료 개방 조항은 조례에 없다(공주와 달리
+#   free_days 전부 False — 공휴일 태그 예외 처리 불필요).
+#   등록값과 차이(계산기·요금표는 조례 기준으로 적용, 차이는 fee_diff에 기록):
+#   화지시장 1·2·3 추가 30분 500원(조례 10분당 200원), 강경 대흥시장 1·2 추가
+#   미등록 0/0(조례 10분당 200원) — 0/0을 그대로 쓰면 계산기가 '미상'이 된다.
+#   월정기는 등록값 없음(조례 주간·야간 있음) — 카드 월정기는 비워 두고 요금표·
+#   안내문에만 적는다. (당진 daily_hours=6 조례 기준 처리와 같은 원칙.)
+NONSAN_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095523"
+NONSAN_ORD_HWP = RAW / "nonsan-ordinance-b1.hwp"
+NONSAN_ORD_NOTE = "충청남도논산시조례 제2003호(시행 2025-12-22, 일부개정), ordinSeq 2095523"
+
+# 조례 제3조제2항 감면 — 별표1 원문·제3조 본문 대조 완료(2026-11-19).
+#   9호를 6개 버튼으로 묶는다(공주·당진 패턴). 모범납세자·우수자원봉사자 전액,
+#   나머지는 50% 경감. 고정액 감면 항목은 없다.
+NONSAN_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "「도로교통법」 제2조제22호에 따른 긴급자동차 — 주차요금 전액 면제(제3조제2항제1호)"},
+    {"label": "경형·저공해·환경친화적 자동차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "1,000cc 미만 경형 차량(제2호) · 「대기환경보전법」 제58조제9항·제10항 및 시행규칙 제79조의7에 따라 저공해자동차 표지를 부착한 자동차(제6호) · 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차(제7호) — 50퍼센트 경감(제3조제2항)"},
+    {"label": "장애인 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「장애인복지법」 제32조제1항·제39조에 따른 장애인 관련증서를 소지하고, 본인 소유의 비사업용차량을 직접 운전하거나 타인으로 하여금 대리운전하게 하는 경우 — 50퍼센트 경감(제3조제2항제3호). 화지시장 1·2·3 노외주차장 특기사항에도 '장애인 차량 50프로 할인'으로 적혀 있다"},
+    {"label": "국가유공자·고엽제·5·18 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따른 상이등급 1급부터 6급까지의 국가유공자, 「고엽제후유의증 등 환자지원에 관한 법률」 제2조제2호에 해당되는 고엽제 후유증 환자, 「5·18 민주유공자예우에 관한 법률」 제4조제2호에 해당되는 5·18 민주화운동부상자 등이 본인 소유의 비사업용 차량을 직접 운전하거나 장애등급이 심하여 타인으로 하여금 대리운전하는 경우 그 증서를 제시하면 — 50퍼센트 경감(제3조제2항제4호)"},
+    {"label": "모범납세자·우수자원봉사자 전액 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "국세 및 지방세를 성실히 납부한 자로서 모범납세자 증명을 차량에 부착 또는 소지한 자 — 증명 발급일로부터 1년간 주차요금 전액 감면할 수 있다(제5호). 「논산시 자원봉사활동 지원 조례」 제19조에 따른 우수자원봉사자증을 소지한 자 — 주차요금 전액 감면(제8호)"},
+    {"label": "병역명문가 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "「논산시 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자로서 병역명문가증과 주소가 기입된 신분증을 제시하면 — 50퍼센트 경감(제3조제2항제9호, 2025-03-20 신설)"},
+]
+
+
+NONSAN_CONF = {
+    "city": "논산시",
+    "slug": "nonsan",
+    "manager": "충청남도 논산시 교통과",
+    "manager_inquiry": "논산시청(041-746-6257)",
+    "ordinance": ("「논산시 주차장 설치 및 사용료 징수 조례」 제2003호(시행 2025-12-22, 일부개정)",
+                  NONSAN_ORD_URL, NONSAN_ORD_NOTE),
+    "notes": ("논산시 공영주차장 127곳 중 122곳은 무료, 유료는 5곳이다. 유료 5곳은 화지시장 "
+              "1·2·3 노외주차장(화지동, 1급지)과 강경 대흥시장 1·2 주차장(강경읍 대흥리, 2급지)으로, "
+              "기본 30분 500원(1급지)·400원(2급지)은 등록값과 「논산시 주차장 조례」 제2003호(시행 "
+              "2025-12-22, ordinSeq 2095523) 별표1이 일치한다. 추가요금은 등록값과 조례가 달라 "
+              "조례 기준으로 적용했다 — 화지시장 등록 추가 30분 500원·대흥시장 등록 추가 미등록(0/0) "
+              "대신 별표1의 '30분 초과 시 10분당 200원, 2시간 초과 시 10분마다 300원'을 계산기·요금표에 "
+              "썼다(차이는 fee_diff에 기록). 1일 요금은 별표1·등록값 모두 없다. 월정기는 별표1에 "
+              "1급지 주간 45,000원·야간 35,000원, 2급지 주간 30,000원·야간 22,000원이 있으나 등록값에는 "
+              "없어 카드에는 비워 두고 요금표·안내문에만 적었다. 주간 시간은 4~10월 08:00~20:00, "
+              "11~3월 09:00~19:30이고 나머지는 야간이다(별표1 비고). 급지는 동지역 1급지·읍·면지역 "
+              "2급지다. 조례에 일요일·공휴일 무료 개방 조항이 없어 유료 5곳 모두 무료 요일이 없다. "
+              "유료 5곳의 결제방법은 현금으로 등록되어 있고, 평일·토요일 운영시간이 시장 영업시간 "
+              "(화지시장 09:00~18:00, 대흥시장1 08:30~18:00, 대흥시장2 10:00~16:00)으로 등록되어 "
+              "있다. 감면은 조례 제3조제2항 1~9호를 따른다(긴급 전액·경형·저공해·환경친화적 50%·장애인 "
+              "50%·국가유공자 등 50%·모범납세자 전액·우수자원봉사자 전액·병역명문가 50%). 표준데이터에는 "
+              "논산시 129행만 등록되어 있고, 이름·같은 자리·좌표 200m 이내의 재등록 2행(옥녀봉 주차장, "
+              "취암6 노외주차장)은 최근 등록만 남겼다."),
+    "discounts": NONSAN_DISCOUNTS,
+}
+
+
+def nonsan_dong_of(addr, name=None):
+    """논산시 주소에서 법정동·읍·면을 읽는다 — '논산시' 다음 낱말이 동·읍·면이다."""
+    if addr:
+        m = re.search(r"논산시\s*([가-힣]{1,6}(?:동|읍|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r"^\s*([가-힣]{1,6}(?:읍|면))", name)
+        if m:
+            return m.group(1)
+        m = re.search(r",\s*([가-힣]{1,5}(?:동|읍|면))\s+\d", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def nonsan_fee(row, name, note_bits, fee_diff):
+    """논산시 공영주차장 한 곳의 요금 — 기본요금은 등록값, 추가요금은 조례 별표1 기준.
+    유료 5곳: 화지시장 1·2·3(1급지, 기본 30분 500원), 강경 대흥시장 1·2(2급지,
+    기본 30분 400원). 조례 별표1 대조 완료(2026-11-19): 30분 초과 시 10분당 200원,
+    2시간 초과 시 10분마다 300원(steps로 계산). 등록 추가요금값은 조례와 달라
+    조례 기준으로 적용하고 차이는 fee_diff에 기록한다(화지시장 30분 500원·대흥시장
+    미등록 0/0 — 0/0을 그대로 쓰면 계산기가 '미상'이 된다). 1일 요금은 별표1·등록값
+    모두 없어 None이다. 월정기는 별표1에만 있어(1급지 주간 45,000원·야간 35,000원,
+    2급지 주간 30,000원·야간 22,000원) 카드에는 비워 두고 요금표에만 적는다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        return fee
+    if not (base_fee or 0) and not (unit_fee or 0) and not day and not month:
+        fee.update({"type": "미상", "basis": "‘유료’로 등록됐지만 요금표 등록값이 없음"})
+        fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                      "unit_fee": unit_fee, "day": day, "monthly": month}
+        return fee
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    # 추가요금 — 조례 별표1 기준(30분 초과 시 10분당 200원, 2시간 초과 시 10분마다
+    #   300원). 등록값은 화지시장 30분 500원·대흥시장 미등록(0/0)으로 조례와 다르다.
+    steps = [{"until": 120, "unit_min": 10, "unit_fee": 200},
+             {"until": None, "unit_min": 10, "unit_fee": 300}]
+    if unit_min or unit_fee:
+        fee_diff.append(f"{name}: 등록 추가 {unit_min}분 {unit_fee}원 ↔ 조례 30분 초과 시 "
+                        "10분당 200원, 2시간 초과 시 10분마다 300원 — 계산기는 조례 기준으로 적용")
+    else:
+        fee_diff.append(f"{name}: 등록 추가요금 없음(0/0) ↔ 조례 30분 초과 시 10분당 200원, "
+                        "2시간 초과 시 10분마다 300원 — 계산기는 조례 기준으로 적용")
+    fee.update({"base_min": base_min, "base_fee": base_fee,
+                "unit_min": 10, "unit_fee": 200,
+                "daily_fee": None, "daily_hours": None,
+                "monthly": None, "monthly_all": None, "monthly_label": None,
+                "grade": int(grade) if grade.isdigit() else None,
+                "grade_label": f"{grade}급지" if grade else None,
+                "steps": steps,
+                "steps_label": "30분 초과 10분마다 200원 · 2시간 초과 10분마다 300원",
+                "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) 기본요금 + 「논산시 주차장 조례」 "
+                         "제2003호 별표1 추가요금 — 등록 추가요금값과 달라 조례 기준으로 적용, 차이는 fee_diff에 기록"})
+    if grade == "1":
+        note_bits.append("월정기는 조례 별표1 기준 주간 45,000원·야간 35,000원입니다(표준데이터 등록값에는 월정기가 없습니다)")
+    elif grade == "2":
+        note_bits.append("월정기는 조례 별표1 기준 주간 30,000원·야간 22,000원입니다(표준데이터 등록값에는 월정기가 없습니다)")
+    if raw_type == "혼합":
+        note_bits.append("요금 구분이 ‘혼합’이라 요금을 받는 시간에만 계산합니다")
+    return fee
+
+
+def _ns_tier_of(lot):
+    f = lot["fee"]
+    if f["type"] in ("유료", "혼합") and f.get("base_fee"):
+        return "paid_base"
+    return "other"
+
+
+def nonsan_fee_table(conf, lots):
+    """요금표 — 1급지 3곳(화지시장, 기본 30분 500원)·2급지 2곳(대흥시장, 기본 30분
+    400원). 추가요금은 조례 별표1 기준 steps(30분 초과 10분당 200원, 2시간 초과
+    10분마다 300원)로 계산한다. 1시간·2시간은 별표1 명시 요율이 없어 10분 단위
+    계산값(1급지 1,100원·2,300원, 2급지 1,000원·2,200원)을 쓴다. 1일 요금은
+    별표1·등록값 모두 없어 '—'로 둔다. 월정기는 조례 별표1의 주간 요금을 표에
+    적고 야간 요금은 안내문에 적는다(등록값에는 월정기가 없음)."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    g1 = {"base_min": 30, "base_fee": 500, "unit_min": 10, "unit_fee": 200,
+          "daily_fee": None,
+          "steps": [{"until": 120, "unit_min": 10, "unit_fee": 200},
+                    {"until": None, "unit_min": 10, "unit_fee": 300}]}
+    g2 = {"base_min": 30, "base_fee": 400, "unit_min": 10, "unit_fee": 200,
+          "daily_fee": None,
+          "steps": [{"until": 120, "unit_min": 10, "unit_fee": 200},
+                    {"until": None, "unit_min": 10, "unit_fee": 300}]}
+    rows = []
+    n1 = len([l for l in paid if l["fee"].get("grade") == 1])
+    if n1:
+        rows.append({"label": "1급지(동지역)", "grade": "paid_base",
+                     "unit_label": "기본 30분 500원 → 추가 10분마다 200원 (2시간 초과 10분마다 300원)",
+                     "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+                     "day": None, "month": 45_000, "lots": n1})
+    n2 = len([l for l in paid if l["fee"].get("grade") == 2])
+    if n2:
+        rows.append({"label": "2급지(읍·면지역)", "grade": "paid_base",
+                     "unit_label": "기본 30분 400원 → 추가 10분마다 200원 (2시간 초과 10분마다 300원)",
+                     "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
+                     "day": None, "month": 30_000, "lots": n2})
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len([l for l in lots if l["fee"]["type"] == "무료"]),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "nonsan_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "주차장별 운영시간",
+                     "free": ("요금은 표준데이터에 등록된 주차장별 운영시간을 "
+                              "카드에 그대로 적었습니다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「논산시 주차장 조례」 제2003호(시행 2025-12-22, ordinSeq 2095523) 별표1 · "
+                  "전국주차장정보표준데이터(2026-10-12 기준) 등록값 — 별표1 원문 대조 완료"),
+    }
+
+
+def nonsan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {"논산시": len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                           key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": ("「논산시 주차장 조례」 제3조제2항(1~9호: 긴급 전액·경형 50%·장애인 50%·"
+                      "국가유공자 등 50%·모범납세자 전액·저공해 50%·환경친화적 50%·우수자원봉사자 "
+                      "전액·병역명문가 50%) — 별표1 원문 HWP"
+                      "(data/raw/nonsan-ordinance-b1.hwp) 대조 완료(2026-11-19)"),
+        "무료시간_출처": ("「논산시 주차장 조례」 별표1 비고 — 주간 시간구분 4~10월 08:00~20:00, "
+                          "11~3월 09:00~19:30, 나머지 야간; 일요일·공휴일 무료 개방 조항 없음"
+                          "(유료 5곳 free_days 전부 False)"),
+        "주말무료_출처": ("조례에 일요일·공휴일 무료 개방 조항이 없음 — 유료 5곳 모두 무료 요일 없음"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                            / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_nonsan():
+    """논산시 하나를 표준데이터로 추출한다 (build_gongju 의 논산시 변형). 조례 대조
+    완료 — 「논산시 주차장 설치 및 사용료 징수 조례」 제2003호(시행 2025-12-22,
+    ordinSeq 2095523) 별표1·제3조 원문 대조 완료(2026-11-19). 기본요금은 등록값,
+    추가요금은 조례 별표1 기준(steps). 일요일·공휴일 무료 조항이 없어 free_days는
+    전부 False다."""
+    conf = NONSAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "논산시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "논산시" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. (논산은 옥녀봉 주차장·취암6 노외주차장이
+    #   같은 자리 재등록으로 합쳐지고, 은진면 교촌리 공영주차장은 주소가 달라 둘 다 남는다.)
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.05 < lat < 36.35 and 126.95 < lng < 127.35):
+            # 논산시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 논산시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = nonsan_dong_of(jibun, std_name) or nonsan_dong_of(road, std_name)
+        if nonsan_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif nonsan_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 지번주소에 면 이름이 빠져 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        fee = nonsan_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        # 조례에 일요일·공휴일 무료 개방 조항이 없어 유료 곳도 free_days를 두지 않는다
+        # (공주 패턴의 예외 처리가 필요 없는 도시다).
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "논산시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    note_fixed.append("화지시장1·2·3 노외주차장: 등록 추가요금은 30분 500원이나 조례 별표1은 30분 초과 시 "
+                      "10분당 200원, 2시간 초과 시 10분마다 300원 — 계산기는 조례 기준으로 적용했으니 "
+                      "현장 실제 징수 기준은 논산시청 확인 필요")
+    note_fixed.append("강경 대흥시장1·2 주차장: 등록 추가요금이 0/0(미등록)이나 조례 별표1은 30분 초과 시 "
+                      "10분당 200원, 2시간 초과 시 10분마다 300원 — 계산기는 조례 기준으로 적용했으니 "
+                      "현장 확인 필요")
+    note_fixed.append("월정기: 조례 별표1에 주간·야간 월정기(1급지 45,000원·35,000원, 2급지 30,000원·"
+                      "22,000원)가 있으나 표준데이터 등록값에는 월정기가 없어 카드에는 비워 두고 요금표·"
+                      "안내문에만 적었다 — 실제 월정기 운영 여부 시청 확인 필요")
+    note_fixed.append("논산역 주차장: 표준데이터 129행에 없어 이번 빌드에 포함하지 않았다 — 코레일 관리 "
+                      "주차장 여부 및 범위 확장 여부는 별도 판단 필요")
+    fee_diff.append("논산시 전체: 등록 월정기권 없음(유료 5곳 전부) ↔ 조례 월정기 1급지 주간 45,000원·"
+                    "야간 35,000원, 2급지 주간 30,000원·야간 22,000원 — 요금표·안내문에만 적고 카드 "
+                    "월정기는 비워 둠")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"ca-nonsan-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"ca-nonsan-s{n_street:03d}"
+
+    fee_table = nonsan_fee_table(conf, lots)
+    quality = nonsan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": "2026-11-19 21:28 (KST)",
+        "note": (f"논산시로 등록된 행 {len(rows_std)}행(노외·부설 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') != '노상'])}·노상 "
+                 f"{len([r for r in rows_std if (r.get('주차장유형') or '') == '노상'])})을 읽어 노외·부설 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 같은 이름·같은 "
+                 f"자리·좌표 200m 이내의 재등록 2행을 합쳤다(옥녀봉 주차장·취암6 노외주차장). 요금·운영시간·"
+                 f"면수는 등록값을 그대로 썼고, 추가요금은 조례 별표1 기준으로 적용했다(차이는 fee_diff에 "
+                 f"기록). 조례 대조 완료 — 「논산시 주차장 설치 및 사용료 징수 조례」 제2003호(시행 "
+                 f"2025-12-22, ordinSeq 2095523) 별표1·제3조 원문 대조 완료(2026-11-19)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": NONSAN_ORD_HWP.name if NONSAN_ORD_HWP.exists() else None,
+            "sha256": sha256(NONSAN_ORD_HWP) if NONSAN_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": conf["ordinance"][2],
+            "rows_total": None, "fetched_at": "2026-11-19 21:28 (KST)",
+            "note": f"논산시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 별표1 원문 HWP: data/raw/nonsan-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": NONSAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "논산시", "slug": "nonsan"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": NONSAN_PROVINCE,
+        "province_slug": NONSAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "nonsan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -31686,7 +32227,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -31704,7 +32245,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -31757,7 +32298,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -31872,6 +32413,8 @@ def main():
         cities.append(build_dangjin())
     if "공주시" in want:
         cities.append(build_gongju())
+    if "논산시" in want:
+        cities.append(build_nonsan())
 
     if args.city == "all":
         site = build_site_payload(cities)
