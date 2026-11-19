@@ -1,0 +1,5 @@
+fetched_at: 2026-11-20 03:42 (KST)
+source: 국가법령정보센터(law.go.kr) flDownload.do?gubun=ELIS&flSeq=168596855&ordinSeq=2165227
+ordinance: 「부여군 주차장 조례」 제3147호 (시행 2026-08-25, 일부개정), ordinSeq 2165227, ordinId 2068582
+contents: 별표 — 공영주차장 주차요금표 (제4조제1항 관련): 최초 40분 이내 무료 · 40분 초과 1시간 이내 500원 · 1시간 초과 시 10분마다 300원 · 1일 주차요금 7,000원 · 월정기 50,000원
+notes: HWPX 형식 파일이다(확장자는 기존 도시 관례대로 .hwp). 본문은 data/raw/buyeo-ordinance.txt (ordinInfoR.do 원문).

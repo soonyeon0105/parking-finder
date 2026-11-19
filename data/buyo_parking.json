@@ -1,0 +1,8468 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 05:25",
+  "generated_at_iso": "2026-11-20T05:25:48+09:00",
+  "snapshot_at": "2026-11-20 05:25",
+  "region": {
+   "province": "충청남도",
+   "city": "부여군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 72,
+    "fetched_at": "2026-11-20 05:25 (KST)",
+    "note": "부여군으로 등록된 행 72행(노외·부설 57·노상 15)을 읽어 노외·부설 57곳과 노상 15구간을 실었다. 부여군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·면수는 등록값을 그대로 썼고, 유료 5곳의 요금 구조는 조례 별표 기준으로 적용했다. 조례 대조 완료 — 「부여군 주차장 조례」 제3147호(시행 2026-08-25, ordinSeq 2165227) 별표·제4조의2 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「부여군 주차장 조례」 제3147호(시행 2026-08-25, 일부개정)",
+    "org": "충청남도 부여군 경제교통과",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2165227&efYd=20260825",
+    "file": "buyeo-ordinance-b1.hwp",
+    "sha256": "02e8aa73b1f5aa7a56ce2bd5183be49339643377cffad2cc6ccd712dd973c3aa",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-25",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 05:25 (KST)",
+    "note": "부여군이 설치·관리하는 공영주차장에 적용하는 조례다. 부여군 공영주차장은 조례 별표가 급지 구분 없이 단일 요율이다: 최초 40분 무료, 40분 초과 1시간 이내 500원, 1시간 초과 시 10분마다 300원, 1일 7,000원(초과 불가 상한), 월정기 50,000원(지정 구간만). 유료는 부여읍 5곳뿐이고 나머지 67곳은 무료로 등록돼 있다(조례 제4조제3항의 무료 운영). 승용차 요일제 감면(10부제 20%·5부제 40%·2부제 50%)은 조례 제4조의2제2항에 있어 안내문에만 적는다. (조례 본문: data/raw/buyeo-ordinance.txt, 별표 원문 HWPX: data/raw/buyeo-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "부여군",
+   "slug": "buyo"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-buyo-001",
+   "mgmt_no": "294-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구룡면 중심지 공영주차장",
+   "gu": "부여군",
+   "dong": "구룡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 구룡면 태양리 352-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "041-830-2284",
+   "lat": 36.2508398758,
+   "lng": 126.8098007896,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-002",
+   "mgmt_no": "294-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "논티주차장",
+   "gu": "부여군",
+   "dong": "구룡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 구룡면 논티리 104-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-830-2284",
+   "lat": 36.2438426571,
+   "lng": 126.8069449958,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-003",
+   "mgmt_no": "294-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "규암시장주차장",
+   "gu": "부여군",
+   "dong": "규암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 규암면 규암리 132-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "041-830-2284",
+   "lat": 36.2734643427,
+   "lng": 126.8896267533,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-004",
+   "mgmt_no": "294-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "규암주차장",
+   "gu": "부여군",
+   "dong": "규암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 규암면 규암리 152-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "041-830-2284",
+   "lat": 36.2749415817,
+   "lng": 126.8901300376,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-005",
+   "mgmt_no": "294-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수북정주차장",
+   "gu": "부여군",
+   "dong": "규암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 규암면 규암리 132-9 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "041-830-2284",
+   "lat": 36.27494158,
+   "lng": 126.89013,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-006",
+   "mgmt_no": "294-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "외리 공영주차장",
+   "gu": "부여군",
+   "dong": "규암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 규암면 외리 219-2 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "041-830-2284",
+   "lat": 36.27346434,
+   "lng": 126.8896268,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-007",
+   "mgmt_no": "294-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내산면 공영주차장",
+   "gu": "부여군",
+   "dong": "내산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 내산면 운치리 482",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "041-830-2284",
+   "lat": 36.2738732876,
+   "lng": 126.7817544697,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-008",
+   "mgmt_no": "294-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고분군주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 능산리 371-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "041-830-2283",
+   "lat": 36.2766311367,
+   "lng": 126.9455925564,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-009",
+   "mgmt_no": "294-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관광주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 관북리 77",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "041-830-2284",
+   "lat": 36.2840687156,
+   "lng": 126.9145313258,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-010",
+   "mgmt_no": "294-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구드래나루터 주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구교리 1-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 148,
+   "tel": "041-830-2284",
+   "lat": 36.2901232838,
+   "lng": 126.9083685768,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-011",
+   "mgmt_no": "294-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구드래보리밥 앞 주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 10-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "041-830-2284",
+   "lat": 36.2842257028,
+   "lng": 126.9116746343,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-012",
+   "mgmt_no": "294-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구드래주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구교리 111-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "041-830-2284",
+   "lat": 36.2859697532,
+   "lng": 126.9086483847,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-013",
+   "mgmt_no": "294-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구아 주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 111",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-830-2284",
+   "lat": 36.2849009827,
+   "lng": 126.9080163947,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-014",
+   "mgmt_no": "294-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구아1리 쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 149-13번지 등(시대복장 앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "041-830-2284",
+   "lat": 36.28079719,
+   "lng": 126.9077483,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-015",
+   "mgmt_no": "294-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구아3리 제1쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 162-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "041-830-2284",
+   "lat": 36.2800006043,
+   "lng": 126.9089873042,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-016",
+   "mgmt_no": "294-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구아3리 제2쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 343",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "041-830-2284",
+   "lat": 36.2818441734,
+   "lng": 126.9097711373,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "경차 50퍼센트 할인+장애인 차량 50퍼센트 할인+저공해차량 50퍼센트 할인",
+   "notice": "요금은 조례 별표 기준입니다 — 최초 40분은 무료이고 40분을 넘기면 1시간까지 500원, 그 뒤로는 10분마다 300원이며 하루 최대 7,000원입니다 · 감면은 「부여군 주차장 조례」 제4조의2 기준입니다 — 승용차 요일제(10부제 20%·5부제 40%·2부제 50%) 감면도 있습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 40,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 7000,
+    "daily_hours": 9,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 60,
+      "unit_min": 20,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "최초 40분 무료 · 40분~1시간 500원 · 1시간 초과 10분마다 300원 · 1일 최대 7,000원",
+    "pay": "카드",
+    "std": {
+     "base_min": 40,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    },
+    "basis": "「부여군 주차장 조례」 제3147호 별표(공영주차장 주차요금표) — 등록 기본요금 표기(기본 40분 500원)와 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-017",
+   "mgmt_no": "294-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구아4리 공영주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리374, 375-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "041-830-2284",
+   "lat": 36.2821152808,
+   "lng": 126.9084439392,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-018",
+   "mgmt_no": "294-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군수1리 제1쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 군수리 131-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "041-830-2284",
+   "lat": 36.2735312158,
+   "lng": 126.9088946433,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-019",
+   "mgmt_no": "294-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군수1리 제2쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 군수리 149-20,149-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-830-2284",
+   "lat": 36.2726385985,
+   "lng": 126.9011498003,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-020",
+   "mgmt_no": "294-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "능안골주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 능산리 141-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-830-2284",
+   "lat": 36.2714263559,
+   "lng": 126.9673977872,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-021",
+   "mgmt_no": "294-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남1리 쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 251-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "041-830-2284",
+   "lat": 36.2813106976,
+   "lng": 126.9131150728,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-022",
+   "mgmt_no": "294-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남3리 공영주차장(부여읍 동남리 310-1)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 310-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "041-830-2284",
+   "lat": 36.2733221195,
+   "lng": 126.9163466817,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(부여읍 동남리 310-1)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-023",
+   "mgmt_no": "294-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남3리 공영주차장(부여읍 동남리 310-5)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 310-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "041-830-2284",
+   "lat": 36.2731220543,
+   "lng": 126.9164046238,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(부여읍 동남리 310-5)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-024",
+   "mgmt_no": "294-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남3리(한일주택) 공영주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 292-30",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "041-830-2284",
+   "lat": 36.2750258941,
+   "lng": 126.9153241504,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-025",
+   "mgmt_no": "294-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남5리 공영주차장(부여읍 동남리 503-3)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 503-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "041-830-2284",
+   "lat": 36.2767101804,
+   "lng": 126.9083648932,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(부여읍 동남리 503-3)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-026",
+   "mgmt_no": "294-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남5리 공영주차장(부여읍 동남리 504-46)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 504-46",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-830-2284",
+   "lat": 36.2773483708,
+   "lng": 126.9079966386,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(부여읍 동남리 504-46)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-027",
+   "mgmt_no": "294-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동남5리 공영주차장(부여읍 동남리 620-2)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 620-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "041-830-2284",
+   "lat": 36.2762720092,
+   "lng": 126.9147131177,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(부여읍 동남리 620-2)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-028",
+   "mgmt_no": "294-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백강주차장(효공원)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구교리 366-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 244,
+   "tel": "041-830-2284",
+   "lat": 36.2787531646,
+   "lng": 126.9050108083,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-029",
+   "mgmt_no": "294-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부여 공영주차타워",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 272",
+   "addr_road": "충청남도 부여군 부여읍 사비로72번길 5-46",
+   "road": null,
+   "spaces": 205,
+   "tel": "041-830-2284",
+   "lat": 36.2794796637,
+   "lng": 126.9115470534,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "경차 50퍼센트 할인+장애인 차량 50퍼센트 할인+저공해차량 50퍼센트 할인",
+   "notice": "요금은 조례 별표 기준입니다 — 최초 40분은 무료이고 40분을 넘기면 1시간까지 500원, 그 뒤로는 10분마다 300원이며 하루 최대 7,000원입니다 · 감면은 「부여군 주차장 조례」 제4조의2 기준입니다 — 승용차 요일제(10부제 20%·5부제 40%·2부제 50%) 감면도 있습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 40,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 7000,
+    "daily_hours": 9,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 60,
+      "unit_min": 20,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "최초 40분 무료 · 40분~1시간 500원 · 1시간 초과 10분마다 300원 · 1일 최대 7,000원",
+    "pay": "카드",
+    "std": {
+     "base_min": 40,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    },
+    "basis": "「부여군 주차장 조례」 제3147호 별표(공영주차장 주차요금표) — 등록 기본요금 표기(기본 40분 500원)와 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-030",
+   "mgmt_no": "294-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부여시장 공영주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 412-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-830-2284",
+   "lat": 36.2809388584,
+   "lng": 126.9078930157,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-031",
+   "mgmt_no": "294-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부여시장주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 179-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "041-830-2284",
+   "lat": 36.2821298615,
+   "lng": 126.9118529983,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "경차 50퍼센트 할인+장애인 차량 50퍼센트 할인+저공해차량 50퍼센트 할인",
+   "notice": "요금은 조례 별표 기준입니다 — 최초 40분은 무료이고 40분을 넘기면 1시간까지 500원, 그 뒤로는 10분마다 300원이며 하루 최대 7,000원입니다 · 감면은 「부여군 주차장 조례」 제4조의2 기준입니다 — 승용차 요일제(10부제 20%·5부제 40%·2부제 50%) 감면도 있습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 40,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 7000,
+    "daily_hours": 9,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 60,
+      "unit_min": 20,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "최초 40분 무료 · 40분~1시간 500원 · 1시간 초과 10분마다 300원 · 1일 최대 7,000원",
+    "pay": "카드",
+    "std": {
+     "base_min": 40,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    },
+    "basis": "「부여군 주차장 조례」 제3147호 별표(공영주차장 주차요금표) — 등록 기본요금 표기(기본 40분 500원)와 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-032",
+   "mgmt_no": "294-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부여읍 공영주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 317",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-830-2284",
+   "lat": 36.2791324035,
+   "lng": 126.910051987,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "경차 50퍼센트 할인+장애인 차량 50퍼센트 할인+저공해차량 50퍼센트 할인",
+   "notice": "요금은 조례 별표 기준입니다 — 최초 40분은 무료이고 40분을 넘기면 1시간까지 500원, 그 뒤로는 10분마다 300원이며 하루 최대 7,000원입니다 · 감면은 「부여군 주차장 조례」 제4조의2 기준입니다 — 승용차 요일제(10부제 20%·5부제 40%·2부제 50%) 감면도 있습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 40,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 7000,
+    "daily_hours": 9,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 60,
+      "unit_min": 20,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "최초 40분 무료 · 40분~1시간 500원 · 1시간 초과 10분마다 300원 · 1일 최대 7,000원",
+    "pay": "카드",
+    "std": {
+     "base_min": 40,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": 50000
+    },
+    "basis": "「부여군 주차장 조례」 제3147호 별표(공영주차장 주차요금표) — 등록 기본요금 표기(기본 40분 500원)와 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-033",
+   "mgmt_no": "294-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부여중앙시장 주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 432",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "041-830-2284",
+   "lat": 36.2814944137,
+   "lng": 126.9075581238,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-034",
+   "mgmt_no": "294-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서동공원 (동문주차장)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 152-1외7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "041-830-2284",
+   "lat": 36.189647,
+   "lng": 126.8925241,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-035",
+   "mgmt_no": "294-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서동공원 (서문주차장)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리167-1외7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 140,
+   "tel": "041-830-2284",
+   "lat": 36.18791172,
+   "lng": 126.8941287,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-036",
+   "mgmt_no": "294-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서동공원 군사리사지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 군수리 22-1외4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "041-830-2284",
+   "lat": 36.2435512,
+   "lng": 126.8842776,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-037",
+   "mgmt_no": "294-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서동문화관주차장 (서동문화관 앞)",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 134-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "041-830-2284",
+   "lat": 36.16983047,
+   "lng": 126.946205,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-038",
+   "mgmt_no": "294-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선화공원주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 597-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "041-830-2284",
+   "lat": 36.2756280899,
+   "lng": 126.9006232573,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-039",
+   "mgmt_no": "294-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌍북6리 쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 쌍북리 731",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "041-830-2284",
+   "lat": 36.2829297022,
+   "lng": 126.9229231562,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-040",
+   "mgmt_no": "294-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장승골 쌈지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 구교리 212-5번지 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-830-2284",
+   "lat": 36.28596975,
+   "lng": 126.9086484,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-041",
+   "mgmt_no": "294-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정림사지주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 부여읍 정림로 83",
+   "addr_road": "",
+   "road": null,
+   "spaces": 117,
+   "tel": "041-830-2284",
+   "lat": 36.18237395,
+   "lng": 126.8223898,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-042",
+   "mgmt_no": "294-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세도시장주차장",
+   "gu": "부여군",
+   "dong": "세도면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 세도면 간대리 135-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-830-2284",
+   "lat": 36.1698304745,
+   "lng": 126.9462049592,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-043",
+   "mgmt_no": "294-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입포리 주차장",
+   "gu": "부여군",
+   "dong": "양화면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 양화면 입포리 43",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "041-830-2284",
+   "lat": 36.1370994999,
+   "lng": 126.8794739375,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-044",
+   "mgmt_no": "294-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥산주차장",
+   "gu": "부여군",
+   "dong": "옥산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 옥산면 안서리 368-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-830-2284",
+   "lat": 36.1918211991,
+   "lng": 126.7336988298,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-045",
+   "mgmt_no": "294-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무량사주차장",
+   "gu": "부여군",
+   "dong": "외산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 외산면 만수리 96-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "041-830-2284",
+   "lat": 36.314152058,
+   "lng": 126.6967000329,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-046",
+   "mgmt_no": "294-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "외산시장주차장",
+   "gu": "부여군",
+   "dong": "외산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 외산면 만수리 2-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "041-830-2284",
+   "lat": 36.3029320494,
+   "lng": 126.7051645153,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-047",
+   "mgmt_no": "294-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "휴양림주차장",
+   "gu": "부여군",
+   "dong": "외산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 외산면 삼산리254",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "041-830-2284",
+   "lat": 36.3385420816,
+   "lng": 126.7119324566,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-048",
+   "mgmt_no": "294-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신대리 쌈지주차장",
+   "gu": "부여군",
+   "dong": "은산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 은산면 신대리 154-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "041-830-2284",
+   "lat": 36.3087319759,
+   "lng": 126.8561072998,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-049",
+   "mgmt_no": "294-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "은산시장주차장",
+   "gu": "부여군",
+   "dong": "은산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 은산면 신대리 366-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "041-830-2284",
+   "lat": 36.3088380328,
+   "lng": 126.8535456527,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-050",
+   "mgmt_no": "294-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군사리하상 주차장",
+   "gu": "부여군",
+   "dong": "임천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 임천면 군사리 66-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-830-2284",
+   "lat": 36.1879117172,
+   "lng": 126.8941287124,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-051",
+   "mgmt_no": "294-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임천면 공영주차장",
+   "gu": "부여군",
+   "dong": "임천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 임천면 군사리 241",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "041-830-2284",
+   "lat": 36.1910385765,
+   "lng": 126.8919537513,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-052",
+   "mgmt_no": "294-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임천시장주차장",
+   "gu": "부여군",
+   "dong": "임천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 임천면 군사리 88",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "041-830-2284",
+   "lat": 36.1896469992,
+   "lng": 126.8925241064,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-053",
+   "mgmt_no": "294-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장암주차장",
+   "gu": "부여군",
+   "dong": "장암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 장암면 석동리 661-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "041-830-2284",
+   "lat": 36.243247831,
+   "lng": 126.885277354,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-054",
+   "mgmt_no": "294-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "응평주차장",
+   "gu": "부여군",
+   "dong": "초촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 초촌면 응평리 123-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "041-830-2284",
+   "lat": 36.2636346317,
+   "lng": 127.0206919147,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-055",
+   "mgmt_no": "294-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천당주차장",
+   "gu": "부여군",
+   "dong": "충화면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 충화면 천당리 191-2 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-830-2284",
+   "lat": 36.33854208,
+   "lng": 126.7119325,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-056",
+   "mgmt_no": "294-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍산 남촌리 주차장",
+   "gu": "부여군",
+   "dong": "홍산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 홍산면 남촌리 134-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "041-830-2269",
+   "lat": 36.2142119475,
+   "lng": 126.7576927306,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-057",
+   "mgmt_no": "294-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍산시장주차장",
+   "gu": "부여군",
+   "dong": "홍산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 부여군 홍산면 남촌리 145-1 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-830-2284",
+   "lat": 36.30137767,
+   "lng": 126.7054507,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s001",
+   "mgmt_no": "294-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계백로 노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 662-2",
+   "addr_road": "충청남도 부여군 부여읍 석탑로 13",
+   "road": "석탑로",
+   "spaces": 14,
+   "tel": "041-830-2284",
+   "lat": 36.277226735,
+   "lng": 126.9124724964,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s002",
+   "mgmt_no": "294-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계백로, 사비로30번길",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 683-2",
+   "addr_road": "충청남도 부여군 부여읍 사비로30번길 8",
+   "road": "사비로30번길",
+   "spaces": 21,
+   "tel": "041-830-2284",
+   "lat": 36.2751470661,
+   "lng": 126.9113865534,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s003",
+   "mgmt_no": "294-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "계백로터리노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 453-5",
+   "addr_road": "충청남도 부여군 부여읍 의열로 15-20",
+   "road": "의열로",
+   "spaces": 27,
+   "tel": "041-830-2284",
+   "lat": 36.2809010773,
+   "lng": 126.9144718918,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s004",
+   "mgmt_no": "294-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "나성로 노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 368-2",
+   "addr_road": "충청남도 부여군 부여읍 나성로 88",
+   "road": "나성로",
+   "spaces": 22,
+   "tel": "041-830-2284",
+   "lat": 36.2826804765,
+   "lng": 126.9076818353,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s005",
+   "mgmt_no": "294-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "반월로, 나성로",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 64",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-830-2284",
+   "lat": 36.2837353023,
+   "lng": 126.9102495272,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s006",
+   "mgmt_no": "294-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사비로",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 453-5",
+   "addr_road": "충청남도 부여군 부여읍 의열로 15-20",
+   "road": "의열로",
+   "spaces": 21,
+   "tel": "041-830-2284",
+   "lat": 36.2809010773,
+   "lng": 126.9144718918,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s007",
+   "mgmt_no": "294-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사비로 노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 692-1",
+   "addr_road": "충청남도 부여군 부여읍 사비로 32",
+   "road": "사비로",
+   "spaces": 105,
+   "tel": "041-830-2284",
+   "lat": 36.2754223731,
+   "lng": 126.9107709889,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s008",
+   "mgmt_no": "294-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사비로54번길",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 699",
+   "addr_road": "충청남도 부여군 부여읍 사비로 50",
+   "road": "사비로",
+   "spaces": 19,
+   "tel": "041-830-2284",
+   "lat": 36.277082582,
+   "lng": 126.9110578117,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s009",
+   "mgmt_no": "294-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사비로72번길",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 288-1",
+   "addr_road": "충청남도 부여군 부여읍 사비로72번길 18",
+   "road": "사비로72번길",
+   "spaces": 3,
+   "tel": "041-830-2284",
+   "lat": 36.2788846697,
+   "lng": 126.9122438109,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s010",
+   "mgmt_no": "294-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사비로유료주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 66-7",
+   "addr_road": "충청남도 부여군 부여읍 나루터로 7",
+   "road": "나루터로",
+   "spaces": 68,
+   "tel": "041-830-2284",
+   "lat": 36.28364338,
+   "lng": 126.9112279,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "경차 50퍼센트 할인+장애인 차량 50퍼센트 할인+저공해차량 50퍼센트 할인",
+   "notice": "요금은 조례 별표 기준입니다 — 최초 40분은 무료이고 40분을 넘기면 1시간까지 500원, 그 뒤로는 10분마다 300원이며 하루 최대 7,000원입니다 · 감면은 「부여군 주차장 조례」 제4조의2 기준입니다 — 승용차 요일제(10부제 20%·5부제 40%·2부제 50%) 감면도 있습니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 40,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 7000,
+    "daily_hours": 9,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 60,
+      "unit_min": 20,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "최초 40분 무료 · 40분~1시간 500원 · 1시간 초과 10분마다 300원 · 1일 최대 7,000원",
+    "pay": "카드",
+    "std": {
+     "base_min": 40,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 7000,
+     "monthly": null
+    },
+    "basis": "「부여군 주차장 조례」 제3147호 별표(공영주차장 주차요금표) — 등록 기본요금 표기(기본 40분 500원)와 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s011",
+   "mgmt_no": "294-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "석탑로노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 453-5",
+   "addr_road": "충청남도 부여군 부여읍 의열로 15-20",
+   "road": "의열로",
+   "spaces": 65,
+   "tel": "041-830-2284",
+   "lat": 36.2809010773,
+   "lng": 126.9144718918,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s012",
+   "mgmt_no": "294-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "성왕로터리노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 66-7",
+   "addr_road": "충청남도 부여군 부여읍 나루터로 7",
+   "road": "나루터로",
+   "spaces": 39,
+   "tel": "041-830-2284",
+   "lat": 36.2836433802,
+   "lng": 126.9112279065,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s013",
+   "mgmt_no": "294-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "의열로 노상주차장",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 동남리 253-4",
+   "addr_road": "충청남도 부여군 부여읍 석탑로 52",
+   "road": "석탑로",
+   "spaces": 9,
+   "tel": "041-830-2284",
+   "lat": 36.2807482899,
+   "lng": 126.9129242483,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s014",
+   "mgmt_no": "294-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "정림로 노상주차장1",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 309",
+   "addr_road": "충청남도 부여군 부여읍 사비로 64",
+   "road": "사비로",
+   "spaces": 29,
+   "tel": "041-830-2284",
+   "lat": 36.2782966488,
+   "lng": 126.9107909799,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  },
+  {
+   "id": "ca-buyo-s015",
+   "mgmt_no": "294-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "정림로 노상주차장2",
+   "gu": "부여군",
+   "dong": "부여읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 부여군 부여읍 구아리 288-9",
+   "addr_road": "충청남도 부여군 부여읍 정림로 55-12",
+   "road": "정림로",
+   "spaces": 30,
+   "tel": "041-830-2284",
+   "lat": 36.2786700812,
+   "lng": 126.9122235715,
+   "base_date": "2026-04-24",
+   "manager": "충청남도 부여군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부여군",
+   "city_slug": "buyo",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 05:25",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 72,
+  "원자료_부여군행수": 72,
+  "원자료_받은행수": 72,
+  "구별": {
+   "부여군": 57
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 57,
+  "노외_부설": {
+   "노외": 57
+  },
+  "노상_구간": 15,
+  "총_구획수": 2419,
+  "노상_구획수": 497,
+  "동별": {
+   "부여읍": 34,
+   "규암면": 4,
+   "외산면": 3,
+   "임천면": 3,
+   "구룡면": 2,
+   "은산면": 2,
+   "홍산면": 2,
+   "내산면": 1,
+   "세도면": 1,
+   "양화면": 1,
+   "옥산면": 1,
+   "장암면": 1,
+   "초촌면": 1,
+   "충화면": 1
+  },
+  "동수": 14,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 동남3리 공영주차장, 동남5리 공영주차장 — 이름 뒤에 주소·면수·구간 표시를 붙여 구분"
+  ],
+  "동_근거": {
+   "지번주소": 57
+  },
+  "요금구분": {
+   "무료": 67,
+   "유료": 5
+  },
+  "요금_미상": [],
+  "유료_노상": 1,
+  "유료_노외": 4,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "좌표 중복 등록: 구드래주차장·장승골 쌈지주차장 — 서로 다른 주소인데 좌표(36.2859697532, 126.9086483847)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "좌표 중복 등록: 서동공원 (동문주차장)·임천시장주차장 — 서로 다른 주소인데 좌표(36.189647, 126.8925241)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "좌표 중복 등록: 서동공원 (서문주차장)·군사리하상 주차장 — 서로 다른 주소인데 좌표(36.18791172, 126.8941287)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "좌표 중복 등록: 세도시장주차장·서동문화관주차장 (서동문화관 앞) — 서로 다른 주소인데 좌표(36.1698304745, 126.9462049592)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "좌표 중복 등록: 수북정주차장·규암주차장 — 서로 다른 주소인데 좌표(36.27494158, 126.89013)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "좌표 중복 등록: 외리 공영주차장·규암시장주차장 — 서로 다른 주소인데 좌표(36.27346434, 126.8896268)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "좌표 중복 등록: 천당주차장·휴양림주차장 — 서로 다른 주소인데 좌표(36.33854208, 126.7119325)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "성왕로터리노상주차장·사비로유료주차장: 같은 지번(부여읍 구아리 66-7)·같은 좌표에 무료 39면과 유료 68면이 함께 등록돼 있다 — 어느 구간이 유료인지 부여군청 경제교통과(041-830-2284) 확인 필요, 둘 다 그대로 실었다",
+   "유료 5곳 등록 특기사항의 '저공해차량 50% 할인'은 조례 제4조의2에 없다 (조례는 '환경친화적 자동차' 50%) — 계산기 버튼은 조례 기준으로 두고 차이는 군청 확인 필요"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "유료 5곳 공통: 등록 기본요금 표기 '기본 40분 500원' ↔ 조례 별표 구조 '최초 40분 이내 무료 · 40분 초과 1시간 이내 500원 · 1시간 초과 10분마다 300원' — 2026년 개정으로 무료 시간이 30분에서 40분으로 확대된 점으로 보아 등록 표기는 개정 전 구조의 잔재일 수 있어 계산기·요금표는 별표 구조로 적용했다(1시간 500원). 실제 징수 기준은 군청 확인 필요",
+   "사비로유료주차장(노상): 등록 월정기 없음 ↔ 조례 별표 월정기 50,000원 (비고3: 월정기는 지정 구간만 인정) — 등록값 기준으로 카드에는 비워 둠",
+   "성왕로터리노상주차장(무료 39면)·사비로유료주차장(유료 68면): 같은 지번·같은 좌표에 무료와 유료가 함께 등록 — 구간 구분은 군청 확인 필요"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「부여군 주차장 조례」 제3147호 제4조의2 — 제1항 면제(긴급자동차·공무수행), 제2항 승용차 요일제(10부제 20%·5부제 40%·2부제 50%)·경형승용차 50%, 제3항 50% 8종(장애인·국가유공자·고엽제·5·18·참전·환경친화적·모범납세자·병역명문가) — 별표 원문 HWPX(data/raw/buyeo-ordinance-b1.hwp) 대조 완료(2026-11-20)",
+  "무료시간_출처": "조례 별표 — 최초 40분 이내 무료 (2026년 개정으로 30분에서 40분으로 확대)",
+  "주말무료_출처": "조례에 요일별 무료 조항 없음 — 무료 67곳은 요금구분 ‘무료’ 등록 기준(조례 제4조제3항의 군수 무료 운영)",
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 67,
+  "무료_구획수": 2567,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-24"
+  ],
+  "관리기관": {
+   "충청남도 부여군청": 72
+  }
+ },
+ "fee_table": {
+  "style": "buyo_grade",
+  "rows": [
+   {
+    "label": "전 지역 (급지 구분 없음)",
+    "grade": "paid_base",
+    "unit_label": "최초 40분 무료 → 40분~1시간 500원 · 1시간 초과 10분마다 300원",
+    "hour": 500,
+    "two_hour": 2300,
+    "day": 7000,
+    "month": 50000,
+    "lots": 5
+   }
+  ],
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "08:00~19:00",
+    "free": "유료 5곳의 등록 운영시간이다(조례에 징수시간 규정은 없다)"
+   }
+  ],
+  "corp": {
+   "paid": 4,
+   "street_paid": 1,
+   "free": 67
+  },
+  "notes": "승용차 요일제 감면(조례 제4조의2제2항: 10부제 20%·5부제 40%·2부제 50%)은 계산기 버튼에 넣지 않고 이 안내로만 알립니다. 사비로유료주차장(노상)은 월정기가 등록돼 있지 않습니다(조례 별표 비고3: 월정기는 지정 구간만 인정). 같은 자리(부여읍 구아리 66-7)에 무료인 성왕로터리노상주차장과 유료인 사비로유료주차장이 함께 등록돼 있어, 어느 구간이 유료인지는 군청 확인이 필요합니다.",
+  "basis": "요금은 「부여군 주차장 조례」 제3147호(2026-08-25 시행) 별표(공영주차장 주차요금표)와 표준데이터(부여군청, 기준일 2026-04-24)를 대조해 적용했다. (조례 본문: data/raw/buyeo-ordinance.txt, 별표 원문 HWPX: data/raw/buyeo-ordinance-b1.hwp)"
+ },
+ "slug": "buyo",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "부여군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무수행 차량",
+   "rate": 1.0,
+   "exempt_min": null,
+   "note": "조례 제4조의2제1항 (긴급자동차, 국가·지방자치단체의 공무수행 자동차)"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18·참전유공자",
+   "rate": 0.5,
+   "exempt_min": null,
+   "note": "조례 제4조의2제3항제1호~제5호"
+  },
+  {
+   "label": "경형승용차·환경친화적 자동차",
+   "rate": 0.5,
+   "exempt_min": null,
+   "note": "조례 제4조의2제2항(경형 1000cc 미만)·제3항제6호"
+  },
+  {
+   "label": "모범납세자·병역명문가",
+   "rate": 0.5,
+   "exempt_min": null,
+   "note": "조례 제4조의2제3항제7호·제8호 (모범납세자는 증명서 교부일부터 1년)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
