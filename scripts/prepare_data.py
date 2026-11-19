@@ -28821,6 +28821,13 @@ def build_cheongju():
             n_street += 1
             l["id"] = f"cj-cheongju-s{n_street:03d}"
 
+    # T-03 후속(Instinct 2026-11-19): 표준데이터에 좌표가 없는 주차장은
+    # build_site_payload 단계의 지오코딩 오버레이로만 채워져 cheongju_parking.json과
+    # site.json이 어긋났다(s218·s228). 도시 파일을 쓸 때 같은 오버레이를 적용해
+    # 두 파일이 일치하게 한다. 좌표가 이미 있는 행은 건드리지 않고,
+    # "좌표가 등록되어 있지 않아" 안내 문구도 함께 걷어낸다.
+    apply_coord_fix(lots)
+
     fee_table = cheongju_fee_table(conf, lots)
     quality = cheongju_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                                 fee_diff, space_diff, dong_fixed)
