@@ -9387,6 +9387,40 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "yesan_grade":
+        # 예산군 — 실린 89곳(노외 79·노상 10) 전부 표준데이터에 무료로 등록돼 있다.
+        #   「예산군 주차장 설치 조례」 제3054호(시행 2025-04-30, ordinSeq 2032883)
+        #   제10조가 유료·무료 운영을 모두 허용해 충돌이 아니고, 제7조·별표5의
+        #   급지·차종별 요금표는 유료 운영 시 적용되는 참고 값으로만 적는다.
+        #   급지는 군수가 따로 정하고(별표5 비고4), 등록 급지('1'·'기타')는
+        #   그 근거가 아니다. 좌표는 89곳 전부 결측이다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{esc(r["month_label"])}</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">예산군 공영주차장 <b>89곳</b>(노외 79곳·노상 10구간, 총 3,375면)은 표준데이터에
+<b>전부 무료</b>로 등록돼 있어, 이 사이트에 실린 곳은 모두 요금을 받지 않습니다.
+「예산군 주차장 설치 조례」 제3054호 제10조는 공영주차장을 유료 또는 무료로 운영할 수 있게
+하고, 같은 조례 제7조·별표5에는 유료로 운영할 경우의 급지·차종별 요금표가 정해져 있어
+아래에 <b>참고용</b>으로 적습니다. 급지 구분은 군수가 따로 정하므로(별표5 비고4) 어느
+주차장이 몇 급지인지는 정해져 있지 않고, 표준데이터의 급지 표기(‘1’ 40곳·‘기타’ 49곳)는
+별표 급지의 근거가 아닙니다. 유료 시설이 실제로 있는지는 예산군청(041-339-7699)에
+확인하세요. 좌표는 89곳 전부 등록돼 있지 않아 각 주차장 카드는 주소·이름 검색으로
+연결됩니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표5)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월 정기권</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 요금 구분이 ‘무료’인 <b>{corp.get('free', 0)}곳</b>을 실었고,
+유료 주차장은 없습니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
