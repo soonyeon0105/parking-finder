@@ -5613,6 +5613,10 @@ CITY_UI.update({
         # 공주시는 일요일만 무료(조례 별표1 비고 4) — 공휴일 무료 개방 조항은 조례에 없다.
         "free_weekend_phrase": "공주시 조례 별표1 비고 4에 일요일 무료 개방인",
     },
+    "보령시": {
+        # 보령시 혼합 8곳은 등록 특기사항 '유료운영(월~토)'이라 일요일만 무료 — 공휴일 언급 없음.
+        "free_weekend_phrase": "등록 특기사항에 유료운영이 월~토로 적혀 있어 일요일 무료 개방인",
+    },
 })
 
 
@@ -8141,7 +8145,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
     if street:
         st_free = len([l for l in street if l["fee"]["type"] == "무료"])
         st_paid = len([l for l in street if l["fee"]["type"] == "유료"])
-        if street_is_all_mixed(city):
+        if street_is_all_mixed(city) and city["city"] != "보령시":
             intro = ("도로변에 설치된 유료 주차구간입니다. 요금 구분이 ‘혼합’으로 등록되어 있어 "
                      "<b>평일 운영시간에만 요금을 받고</b>, 토요일·일요일·공휴일은 운영시간이 등록되어 있지 않습니다.\n"
                      "무료 이용 가능 여부는 현장 표지를 확인하세요.")
@@ -8154,7 +8158,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
                          "운영시간과 위치는 표의 등록값을 그대로 적었습니다.")
             elif not st_free:
                 # 전 구간이 유료인 도시(구리시·여주시) — ‘유료 N곳이고’ 대신 ‘모두 유료’로 적는다.
-                paid_time = ("유료 시간은 평일 10:00~19:00이고 토요일·일요일·공휴일은 무료입니다"
+                paid_time = ("유료 시간은 월~토요일 09:00~20:00이고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준)"
+                             if city["city"] == "보령시" else
+                             "유료 시간은 평일 10:00~19:00이고 토요일·일요일·공휴일은 무료입니다"
                              if city["city"] == "여주시" else
                              "유료 시간은 09:00~19:00이고, 경마장 주변(경마일)과 관악산길 주차장을 제외하고 "
                              "일요일·공휴일은 무료입니다. 북문노상주차장은 평일이 무료인 대신 토요일·공휴일에 "
@@ -8208,9 +8214,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
                    "은 요일과 관계없이 무료입니다.")
     free_weekend_in_gu = len([l for l in lots if l["fee"]["type"] != "무료"
                               and (l["free_days"]["sat"] or l["free_days"]["sun"])])
-    # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례인 도시(파주시·포천시·공주시)는 그 문구로 적고,
+    # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례·유료운영 표기인 도시(파주시·포천시·공주시·보령시)는 그 문구로 적고,
     # 남은 유료 주차장 수도 함께 적는다. 다른 도시 문구는 그대로 둔다.
-    if city["city"] in ("파주시", "포천시", "공주시"):
+    if city["city"] in ("파주시", "포천시", "공주시", "보령시"):
         weekend_extra = (f"이 밖에 유료지만 {ui.get('free_weekend_phrase')} 곳이 "
                          f"{free_weekend_in_gu}곳 있습니다. " if free_weekend_in_gu else "")
         weekend_rest = (f"나머지 {s['n'] - free_in_gu - free_weekend_in_gu}곳" if free_weekend_in_gu
@@ -9286,6 +9292,48 @@ def fee_table_block(city) -> str:
 운영합니다(별표1 비고 4). 6시간 이상 주차하면 1일 요금을 적용하고, 노상 3곳에도 월정기 40,000원이
 적용됩니다(별표1 비고 1). 유료 10곳은 모두 부제시행구분 '2부제'로 등록되어 있어 번호 끝자리에 따른
 이용 제한이 있을 수 있으니 방문 전 공주시청(041-840-7773)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "boryeong_mixed":
+        # 보령시 — 무료 45곳·혼합 8곳뿐이고 순수 유료는 없다. 혼합 8곳은 등록
+        #   특기사항의 유료운영 시간(월~토)에만 요금을 받는다: 제2시민행복·노상
+        #   4곳 09:00~20:00, 전통시장 노외 3곳 09:00~18:00. 그 밖의 시간과
+        #   일요일은 무료이고, 공휴일은 특기사항에 언급이 없어 무료로 적지 않는다.
+        #   요금은 등록값 그대로 — 시장 3곳 기본 60분 1,000원, 제2시민행복·노상
+        #   3곳 기본 60분 500원, 번영로 기본 30분 500원, 추가 전부 30분당 500원.
+        #   조례 별표1(소형)은 기본 30분 500원·1일 5,000원·월정기 주간 50,000원
+        #   으로, 추가요금과 시장 3곳의 1시간 환산액은 등록값과 일치한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">보령 공영주차장 53곳 중 요금을 받는 곳은 <b>8곳</b>뿐이고 모두 요금 구분이 <b>‘혼합’</b>입니다.
+등록 특기사항에 적힌 <b>유료운영 시간(월~토)</b>에만 요금을 받습니다 — 제2시민행복주차장과 노상 4곳은
+<b>09:00~20:00</b>, 전통시장 노외 3곳(동부시장·중앙시장 제1·제3)은 <b>09:00~18:00</b>이고, 그 밖의 시간과
+<b>일요일은 무료</b>입니다. 공휴일은 특기사항에 언급이 없어, 공휴일이 평일이면 유료운영 시간에 요금이
+붙는 것으로 보고 표기했습니다. 요금은 시장 3곳이 <b>기본 60분 1,000원</b>, 제2시민행복·노상 3곳이
+<b>기본 60분 500원</b>, 번영로 노상이 <b>기본 30분 500원</b>이고 추가는 전부 <b>30분마다 500원</b>입니다.
+「보령시 주차장 조례」 제2208호 별표1은 급지 구분 없이 소형 기준 <b>기본 30분 500원·1일 5,000원·
+월정기 주간 50,000원</b>으로, 등록 추가요금과 시장 3곳의 1시간 환산액은 조례와 일치합니다.
+전통시장 3곳은 시장 이용자 <b>최초 1시간이 무료</b>입니다(조례 제3조의2제5항). 현장 확인이 필요하면
+보령시청(041-930-3975)에 문의하세요.</p>
 <table class="data">
   <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
@@ -11103,7 +11151,7 @@ def build_city(city, lots, site):
         by_gu = {}
         for l in street:
             by_gu.setdefault(street_place(city, l), []).append(l)
-        if street_is_all_mixed(city):
+        if street_is_all_mixed(city) and city["city"] != "보령시":
             street_rows_html = "".join(
                 f'<tr><td>{esc(g)}</td><td class="num">{len(v)}</td>'
                 f'<td class="num">{sum(x["spaces"] or 0 for x in v):,}</td>'
@@ -11210,6 +11258,10 @@ def build_street(city, street, site):
       · 전 구간이 ‘혼합’(성남시): 평일 운영시간만 유료 — 기존 문구 유지
       · 무료·유료가 섞인 도시(용인시): 구간별 등록값을 그대로 적는다
     """
+    if city["city"] == "보령시":
+        # 보령시 노상 4곳도 전부 '혼합'이지만 성남과 달리 토요일도 유료운영하고 운영시간이
+        #   전 요일 등록되어 있어, 구간별 등록값을 그대로 적는 쪽을 쓴다.
+        return _build_street_mixed(city, street, site)
     if street_is_all_mixed(city):
         return _build_street_all_mixed(city, street, site)
     return _build_street_mixed(city, street, site)
@@ -11534,6 +11586,13 @@ def _build_street_mixed(city, street, site):
         # 공주시는 일요일만 무료(조례 별표1 비고 4) — 공휴일 무료 개방 조항은 조례에 없다.
         qa = [(q, a.replace("일요일·공휴일에 무료로 개방합니다(조례·등록값 기준)",
                             "일요일에 무료로 개방합니다(공주시 조례 별표1 비고 4 기준)"))
+              if "언제 무료인가요" in q else (q, a) for q, a in qa]
+
+    if city["city"] == "보령시":
+        # 보령시 노상 4곳은 등록 특기사항이 '유료운영(월~토 09:00~20:00)'이라 일요일만
+        #   무료다 — 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 무료로 적지 않는다.
+        qa = [(q, a.replace("일요일·공휴일에 무료로 개방합니다(조례·등록값 기준)",
+                            "일요일에 무료로 개방합니다(등록 특기사항의 유료운영 월~토 기준)"))
               if "언제 무료인가요" in q else (q, a) for q, a in qa]
 
     body = f"""
@@ -11894,6 +11953,14 @@ def build_city_free(city, site):
         qa = [(("공주시에서 일요일에 무료인 공영주차장은 몇 곳인가요?",
                 f"조례 별표1 비고 4에 따라 일요일에 무료로 개방하는 곳이 {len(weekend)}곳입니다. "
                 f"공휴일 무료 개방 조항은 조례에 없어 공휴일에는 요금을 받습니다. "
+                + (f"{', '.join(l['name'] for l in weekend[:8])} 등입니다. " if weekend else ""))
+               if "주말·공휴일에 무료인" in q else (q, a)) for q, a in qa]
+    if city["city"] == "보령시":
+        # 보령시 혼합 8곳(카드 기준 4곳)은 등록 특기사항 '유료운영(월~토)'이라 일요일만
+        #   무료다 — 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 무료로 적지 않는다.
+        qa = [(("보령시에서 일요일에 무료인 공영주차장은 몇 곳인가요?",
+                f"등록 특기사항에 유료운영이 월~토로 적혀 있어 일요일에 무료로 개방하는 곳이 {len(weekend)}곳입니다. "
+                f"공휴일은 특기사항에 언급이 없어 공휴일이 평일이면 유료운영 시간에 요금이 붙는 것으로 보고 표기했습니다. "
                 + (f"{', '.join(l['name'] for l in weekend[:8])} 등입니다. " if weekend else ""))
                if "주말·공휴일에 무료인" in q else (q, a)) for q, a in qa]
     body = f"""
