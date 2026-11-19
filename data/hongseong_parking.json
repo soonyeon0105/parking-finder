@@ -1,0 +1,9228 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 05:47",
+  "generated_at_iso": "2026-11-20T05:47:58+09:00",
+  "snapshot_at": "2026-11-20 05:47",
+  "region": {
+   "province": "충청남도",
+   "city": "홍성군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-09-19",
+    "rows_total": 18994,
+    "rows_city": 79,
+    "fetched_at": "2026-11-20 05:47 (KST)",
+    "note": "제공기관코드 4600000으로 등록된 행 79행(노외·부설 65·노상 14)을 읽어 노외·부설 65곳과 노상 14구간을 실었다. 홍성군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·면수는 등록값을 그대로 썼고, 유료 8곳의 시간 요금 구조만 조례 별표1과 달라 차이를 기록했다. 조례 대조 완료 — 「홍성군 주차장 조례」 제3195호(시행 2025-12-15, ordinSeq 2092217) 별표1·제4조 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「홍성군 주차장 조례」 제3195호(시행 2025-12-15, 일부개정)",
+    "org": "충청남도 홍성군",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2092217&efYd=20251215",
+    "file": "hongseong-ordinance-b1.hwp",
+    "sha256": "5bf355bc77c3d740b42f3349011927c3eea2f16c24aca82dae4d1579b3d83f32",
+    "license": "자치법규(공개)",
+    "base_date": "2025-12-15",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 05:47 (KST)",
+    "note": "홍성군이 설치·관리하는 공영주차장에 적용하는 조례다. 홍성군 공영주차장 79곳 중 71곳은 무료이고 유료는 8곳(내포주차타워, 홍주성 옆 공영주차장, 하상 1·2·3공구, 홍성천 복개주차장, 장군상~의사총사거리, 홍주교~장군상오거리)뿐이다. 「홍성군 주차장 조례」 제3195호(시행 2025-12-15, ordinSeq 2092217) 별표1은 1급지(읍 지역·내포신도시) 1구획 차량 기준 30분까지 무료, 45분까지 500원, 60분까지 800원, 이후 30분마다 500원(최종 잔여시간이 15분 이내이면 300원), 1일 6,000원, 월정기 70,000원이고, 2급지(면 지역)는 무료다. 다만 유료 8곳의 표준데이터 등록값은 기본 30분 0원·추가 30분당 500원뿐이라 조례의 계단식 기본요금이 표현되지 않아, 계산기는 공주·청양 선례대로 등록값으로 계산하고 요금표는 조례 별표1 값으로 표기했으며 차이는 급지_요금_차이에 기록했다(실제 징수 기준은 군청 확인 필요). 1일 6,000원·월정기 70,000원은 등록값과 조례가 일치한다. 1구획초과차량은 별표1에 별도 요금(45분까지 1,300원·60분까지 1,600원·30분당 800원·잔여 15분 이내 500원·1일 10,000원·월정기 100,000원)이 있으나 표준데이터에 차량 구분이 없어 계산기에는 반영하지 않았다. 조례에 주말·공휴일 무료 조항이 없어 유료 8곳은 요일과 관계없이 요금을 받는다. 감면은 조례 제4조를 따른다(긴급자동차·성실납세자 면제, 장애인·국가유공자·고엽제·5·18·참전·특수임무·병역명문가·경형·환경친화적·우수봉사자 50%, 투표확인증 2,000원까지 — 월정기 차량은 감면 적용 제외). 등록 급지는 79행 전부 1급지로, 면 지역도 1급지로 등록돼 있으나 해당 행은 전부 무료라 요금은 같다. (조례 본문: data/raw/hongseong-ordinance.txt, 별표 원문 HWP: data/raw/hongseong-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "홍성군",
+   "slug": "hongseong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-hongseong-001",
+   "mgmt_no": "297-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갈산 상촌 임시주차장",
+   "gu": "홍성군",
+   "dong": "갈산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 갈산면 상촌리 159",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "041-630-1898",
+   "lat": 36.60187453,
+   "lng": 126.5518066,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-002",
+   "mgmt_no": "297-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갈산 상촌리 공영주차장",
+   "gu": "홍성군",
+   "dong": "갈산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 갈산면 상촌리 167-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "041-630-1898",
+   "lat": 36.6037442,
+   "lng": 126.5528996,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-003",
+   "mgmt_no": "297-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 신진리 광천지구대 주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 신진리 463-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "041-630-1898",
+   "lat": 36.50432338,
+   "lng": 126.6245288,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-004",
+   "mgmt_no": "297-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 신진리 다진 주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 신진리 503-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "041-630-1898",
+   "lat": 36.50528135,
+   "lng": 126.6191265,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-005",
+   "mgmt_no": "297-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 오서산 주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 담산리 714",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "041-630-1898",
+   "lat": 36.4812949693,
+   "lng": 126.6379005317,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-006",
+   "mgmt_no": "297-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 전통시장 2주차장(구-우시장)",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 230-46",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "041-630-1898",
+   "lat": 36.49926529,
+   "lng": 126.6244024,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-007",
+   "mgmt_no": "297-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 전통시장 3주차장(구-충남차이나)",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 200-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 72,
+   "tel": "041-630-1898",
+   "lat": 36.50103065,
+   "lng": 126.6247187,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-008",
+   "mgmt_no": "297-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 중담1 주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 담산리 915-56",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "041-630-1898",
+   "lat": 36.48703739,
+   "lng": 126.6420079,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-009",
+   "mgmt_no": "297-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 중담2 주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 담산리 915-55",
+   "addr_road": "",
+   "road": null,
+   "spaces": 189,
+   "tel": "041-630-1898",
+   "lat": 36.48697666,
+   "lng": 126.6428307,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-010",
+   "mgmt_no": "297-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 하상 1공구",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 470-3번지 1반",
+   "addr_road": "",
+   "road": null,
+   "spaces": 130,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-011",
+   "mgmt_no": "297-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천 하상 2공구",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 242번지 1반",
+   "addr_road": "",
+   "road": null,
+   "spaces": 103,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-012",
+   "mgmt_no": "297-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천읍 토굴새우젓 공영주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 옹암리 508-38, 508-37",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "041-630-1898",
+   "lat": 36.48699134,
+   "lng": 126.6163608,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-013",
+   "mgmt_no": "297-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광천읍 회전교차로 옆 공영주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 173-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "041-630-1898",
+   "lat": 36.50333528,
+   "lng": 126.6258951,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-014",
+   "mgmt_no": "297-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신진1리 공영주차장",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 광천읍 신진리 458-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "041-630-1898",
+   "lat": 36.50337122,
+   "lng": 126.6244059,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-015",
+   "mgmt_no": "297-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서부 남당주차장",
+   "gu": "홍성군",
+   "dong": "서부면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 서부면 남당리 578-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 239,
+   "tel": "041-630-1898",
+   "lat": 36.54198413,
+   "lng": 126.4718903,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-016",
+   "mgmt_no": "297-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서부 상황속동전망대 주차장",
+   "gu": "홍성군",
+   "dong": "서부면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 서부면 상황리 628-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "000-0000-0000",
+   "lat": 36.57701102,
+   "lng": 126.464581,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-017",
+   "mgmt_no": "297-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서부면 어사리 공영주차장",
+   "gu": "홍성군",
+   "dong": "서부면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 서부면 어사리 732-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 169,
+   "tel": "041-630-1898",
+   "lat": 36.55102733,
+   "lng": 126.467066,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-018",
+   "mgmt_no": "297-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포신도시 단독주택용지 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 1073",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-630-1898",
+   "lat": 36.6505,
+   "lng": 126.6868,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-019",
+   "mgmt_no": "297-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포신도시 이주자택지",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 1952 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 187,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-020",
+   "mgmt_no": "297-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포신도시 중심상업지구 임시 공영주차장4",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 582",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "041-630-1898",
+   "lat": 36.65904371,
+   "lng": 126.6812,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-021",
+   "mgmt_no": "297-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포신도시 중심상업지역 임시공영주차장1",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 564, 567",
+   "addr_road": "",
+   "road": null,
+   "spaces": 116,
+   "tel": "041-630-1898",
+   "lat": 36.65930913,
+   "lng": 126.6803529,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-022",
+   "mgmt_no": "297-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포신도시 중심상업지역 임시공영주차장2",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 566",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "041-630-1898",
+   "lat": 36.65887883,
+   "lng": 126.6798979,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-023",
+   "mgmt_no": "297-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포신도시 중심상업지역 임시공영주차장3",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 569, 570",
+   "addr_road": "",
+   "road": null,
+   "spaces": 77,
+   "tel": "041-630-1898",
+   "lat": 36.65843317,
+   "lng": 126.6799793,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-024",
+   "mgmt_no": "297-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내포주차타워",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 1197",
+   "addr_road": "",
+   "road": null,
+   "spaces": 132,
+   "tel": "041-630-1898",
+   "lat": 36.64752583,
+   "lng": 126.6765774,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-025",
+   "mgmt_no": "297-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용봉산 신경리 주차장",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 1730",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "000-0000-0000",
+   "lat": 36.63935845,
+   "lng": 126.6647175,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-026",
+   "mgmt_no": "297-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용봉초교 앞 주차장(용봉산 입구)",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍북읍 상하리 564-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "041-630-1898",
+   "lat": 36.63019936,
+   "lng": 126.6516731,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-027",
+   "mgmt_no": "297-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)부흥마트 맞은편 임시주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 622-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "000-0000-0000",
+   "lat": 36.59990906,
+   "lng": 126.6595723,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-028",
+   "mgmt_no": "297-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)부흥마트 사거리 유휴부지 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 676-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "041-630-1898",
+   "lat": 36.60052825,
+   "lng": 126.6590024,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-029",
+   "mgmt_no": "297-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고암리 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 고암리 981번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-030",
+   "mgmt_no": "297-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고암리 쌈지주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 고암리 588-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-630-1898",
+   "lat": 36.59605991,
+   "lng": 126.6750506,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-031",
+   "mgmt_no": "297-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구,경찰서 부지",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 86번지 1반",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-032",
+   "mgmt_no": "297-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남장리 미성아파트 앞 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 남장리 95-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "041-630-1898",
+   "lat": 36.59353388,
+   "lng": 126.6652296,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-033",
+   "mgmt_no": "297-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남장리 쌈지 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 남장리 121-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-034",
+   "mgmt_no": "297-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남장리 쌈지주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 남장리 74-32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-630-1898",
+   "lat": 36.59127452,
+   "lng": 126.6696519,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-035",
+   "mgmt_no": "297-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "롯데마트 앞 임시공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성읍 고암리 1061번지 외 6필지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-036",
+   "mgmt_no": "297-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명동상가 임시 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 399-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 112,
+   "tel": "041-630-1898",
+   "lat": 36.59944196,
+   "lng": 126.6650527,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-037",
+   "mgmt_no": "297-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역재방죽지구 주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 고암리 1131",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-630-1898",
+   "lat": 36.59137303,
+   "lng": 126.6698852,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-038",
+   "mgmt_no": "297-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관1리 쌈지 공영주차장(도시재생과 뒤)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 89-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "041-630-1898",
+   "lat": 36.60205359,
+   "lng": 126.6614638,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-039",
+   "mgmt_no": "297-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관2 공영주차장(구 축협자리)(홍주성 옆)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 435-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "041-630-1898",
+   "lat": 36.59960293,
+   "lng": 126.6629531,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-040",
+   "mgmt_no": "297-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관2리 쌈지주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리180",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "041-630-1898",
+   "lat": 36.60299087,
+   "lng": 126.6646856,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-041",
+   "mgmt_no": "297-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관8리 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 323-16 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-042",
+   "mgmt_no": "297-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관구역 노외 공영주차장(노인회관 옆)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 472-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "041-630-1898",
+   "lat": 36.59794858,
+   "lng": 126.6637047,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-043",
+   "mgmt_no": "297-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관리 89-5 주차장(도시재생과뒤)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리89-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-630-1898",
+   "lat": 36.60215244,
+   "lng": 126.6614615,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-044",
+   "mgmt_no": "297-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관리 90-2 주차장(도시재생과뒤)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리90-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "041-630-1898",
+   "lat": 36.60186571,
+   "lng": 126.6613976,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-045",
+   "mgmt_no": "297-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관리 공영주차장(쌈지)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리565-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 2,
+   "tel": "041-630-1898",
+   "lat": 36.59201333,
+   "lng": 126.6616272,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-046",
+   "mgmt_no": "297-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오관리 임시 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 315-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 105,
+   "tel": "041-630-1898",
+   "lat": 36.6001415,
+   "lng": 126.6675848,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-047",
+   "mgmt_no": "297-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥암리 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 옥암리 1256",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "041-630-1898",
+   "lat": 36.59325114,
+   "lng": 126.6526047,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-048",
+   "mgmt_no": "297-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우체국 뒤 홍성천변 노상주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 옥암리 14-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "041-630-1898",
+   "lat": 36.59406001,
+   "lng": 126.6570982,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-049",
+   "mgmt_no": "297-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산리 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 월산리 842-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "041-630-1898",
+   "lat": 36.59903202,
+   "lng": 126.6488885,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-050",
+   "mgmt_no": "297-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산리 임시 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 월산리 839-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "041-630-1898",
+   "lat": 36.59834056,
+   "lng": 126.6482732,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-051",
+   "mgmt_no": "297-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산상가 임시공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 월산리 897-7 일원",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-052",
+   "mgmt_no": "297-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산지구 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 월산리 915",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "041-630-1898",
+   "lat": 36.5987678,
+   "lng": 126.6505969,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-053",
+   "mgmt_no": "297-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장애인종합복지관 앞 주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 647-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "041-630-1898",
+   "lat": 36.59792367,
+   "lng": 126.655683,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-054",
+   "mgmt_no": "297-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평일빌라 앞 유휴부지 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 571-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "041-630-1898",
+   "lat": 36.5945952,
+   "lng": 126.6583691,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-055",
+   "mgmt_no": "297-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하상 1공구(홍성천~5일시장)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 대교리 405-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "041-630-1898",
+   "lat": 36.60230027,
+   "lng": 126.667299974,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-056",
+   "mgmt_no": "297-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하상 2공구(홍성천~대승빌딩)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 366-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 111,
+   "tel": "041-630-1898",
+   "lat": 36.59905971,
+   "lng": 126.6651756,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-057",
+   "mgmt_no": "297-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하상 3공구(홍성천~홍성온천)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 457-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "041-630-1898",
+   "lat": 36.59848909,
+   "lng": 126.6634295,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-058",
+   "mgmt_no": "297-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성역 주변 주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 고암리 1073",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-630-1898",
+   "lat": 36.6005747,
+   "lng": 126.6773254,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-059",
+   "mgmt_no": "297-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성역세권 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 고암리 444-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 162,
+   "tel": "041-630-1898",
+   "lat": 36.5992,
+   "lng": 126.6791619,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-060",
+   "mgmt_no": "297-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성읍 대교공원 주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 대교리 416",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "041-630-1898",
+   "lat": 36.60456022,
+   "lng": 126.6634496,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-061",
+   "mgmt_no": "297-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성읍 원도심 스마트 쌈지 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 319-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "041-630-1898",
+   "lat": 36.60033485,
+   "lng": 126.6684499,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-062",
+   "mgmt_no": "297-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성읍행정복지센터 및 군보건소 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 479-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 160,
+   "tel": "041-630-1898",
+   "lat": 36.59572157,
+   "lng": 126.6623236,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-063",
+   "mgmt_no": "297-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성천 복개주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 381-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 237,
+   "tel": "041-630-1898",
+   "lat": 36.60005592,
+   "lng": 126.6662802,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-064",
+   "mgmt_no": "297-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍성천 하상4공구",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 대교리 409-1번지 1반",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-065",
+   "mgmt_no": "297-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍주성 옆 공영주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 208",
+   "addr_road": "",
+   "road": null,
+   "spaces": 115,
+   "tel": "041-630-1898",
+   "lat": 36.60038436,
+   "lng": 126.663178,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s001",
+   "mgmt_no": "297-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "결성통 건널목~광천역",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 광천읍 신진리 429-85",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "041-630-1898",
+   "lat": 36.50199159,
+   "lng": 126.6216791,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s002",
+   "mgmt_no": "297-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "광천교 ~ 버스터미널간",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 236-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "041-630-1898",
+   "lat": 36.5003254,
+   "lng": 126.6257847,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s003",
+   "mgmt_no": "297-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "광천역 ~ 버스터미널간",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 205-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "041-630-1898",
+   "lat": 36.50052072,
+   "lng": 126.6231916,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s004",
+   "mgmt_no": "297-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "광천회전교차로 ~결성통 철길건널목",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 광천읍 광천리 587",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s005",
+   "mgmt_no": "297-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "광천회전교차로~역전",
+   "gu": "홍성군",
+   "dong": "광천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 광천읍 신진리 544-2번지 1반",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "041-630-1898",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s006",
+   "mgmt_no": "297-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "근린상가지역 노상주차장",
+   "gu": "홍성군",
+   "dong": "홍북읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍북읍 신경리 1978",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "041-630-1898",
+   "lat": 36.64789795,
+   "lng": 126.6753891,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s007",
+   "mgmt_no": "297-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "(구)부흥슈퍼~서문탕 맞은편(군청뒤)",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 690",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "041-630-1898",
+   "lat": 36.60222989,
+   "lng": 126.6595844,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s008",
+   "mgmt_no": "297-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "법원 검찰청 주변",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 월산리 871, 899번지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 141,
+   "tel": "041-630-1898",
+   "lat": 36.60024113,
+   "lng": 126.6474846,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s009",
+   "mgmt_no": "297-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥암리 쌈지주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 옥암리 117-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 77,
+   "tel": "041-630-1898",
+   "lat": 36.59532221,
+   "lng": 126.6532913,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s010",
+   "mgmt_no": "297-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장군상 오거리~홍성역",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 고암리 1045",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "041-630-1898",
+   "lat": 36.60009422,
+   "lng": 126.6732349,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s011",
+   "mgmt_no": "297-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장군상~의사총사거리",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 대교리 706",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-630-1898",
+   "lat": 36.60271834,
+   "lng": 126.6713743,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s012",
+   "mgmt_no": "297-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조양문~서문교~북문교",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 118-4, 오관리 125, 오관리 51-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "041-630-1898",
+   "lat": 36.60241955,
+   "lng": 126.6625451,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s013",
+   "mgmt_no": "297-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "홍주교~장군상오거리",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 대교리 398-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "041-630-1898",
+   "lat": 36.60125764,
+   "lng": 126.6679661,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 기본 30분은 무료이고 이후 30분마다 500원, 하루 최대 6,000원입니다 · 「홍성군 주차장 조례」 별표1의 요금은 45분까지 500원·60분까지 800원·잔여 15분 이내 300원으로 등록 요금과 구조가 다릅니다 — 실제 징수 기준은 현장 안내나 홍성군청에 확인하세요 · 월정기는 70,000원입니다(조례 별표1 비고 — 월정기 차량은 감면 적용을 받을 수 없습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "기본 30분 무료 · 이후 30분마다 500원 · 1일 최대 6,000원 (표준데이터 등록 기준)",
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(홍성군, 기준일 2026-09-19) — 조례 별표1의 계단식 기본요금(45분 500원·60분 800원)과 구조가 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  },
+  {
+   "id": "ca-hongseong-s014",
+   "mgmt_no": "297-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "홍주성 옆 오관리 쌈지주차장",
+   "gu": "홍성군",
+   "dong": "홍성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 홍성군 홍성읍 오관리 422-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-630-1898",
+   "lat": 36.59820394,
+   "lng": 126.6608043,
+   "base_date": "2026-09-19",
+   "manager": "충청남도 홍성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "홍성군",
+   "city_slug": "hongseong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 05:47",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 79,
+  "원자료_홍성군행수": 79,
+  "원자료_받은행수": 79,
+  "구별": {
+   "홍성군": 65
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 65,
+  "노외_부설": {
+   "노외": 65
+  },
+  "노상_구간": 14,
+  "총_구획수": 4217,
+  "노상_구획수": 658,
+  "동별": {
+   "홍성읍": 39,
+   "광천읍": 12,
+   "홍북읍": 9,
+   "서부면": 3,
+   "갈산면": 2
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 65
+  },
+  "요금구분": {
+   "무료": 71,
+   "유료": 8
+  },
+  "요금_미상": [],
+  "유료_노상": 2,
+  "유료_노외": 6,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "좌표 중복 등록: 오관1리 쌈지 공영주차장(도시재생과 뒤)·오관리 89-5 주차장(도시재생과뒤) — 서로 다른 주소인데 좌표(36.60205359, 126.6614638)가 같게 등록돼 있다. 값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다",
+   "홍성군 행은 주소가 아니라 제공기관코드 4600000으로 골랐다 — 롯데마트 앞 임시공영주차장(297-2-000046, 45면)은 주소가 '충청남도 홍성읍 고암리'로 군 이름이 빠져 있어 주소 기준으로는 빠진다(읍은 주소에서 읽었다)",
+   "도로명주소가 79행 전부 비어 있어 지번주소로 안내한다 (좌표는 67곳에 등록돼 있고 12곳은 없다)",
+   "우체국 뒤 홍성천변 노상주차장(297-2-000068, 26면)은 이름에 '노상'이 들어가지만 원본 유형이 노외라 원본대로 노외로 실었다(군청 확인 필요)",
+   "남장리 쌈지 공영주차장(18면·남장리 121-8)과 남장리 쌈지주차장(16면·남장리 74-32), 오관리 도시재생과 뒤 3곳(89-3·90-2·89-5)은 이름이 비슷하지만 주소·면수가 달라 합치지 않고 각각 실었다",
+   "전화번호가 000-0000-0000으로 등록된 3곳((구)부흥마트 맞은편 임시주차장·용봉산 신경리 주차장·서부 상황속동전망대 주차장)은 등록값을 그대로 실었다 — 실제 문의는 홍성군청(041-630-1898)",
+   "특기사항은 79행 전부 비어 있다 — 운영시간은 등록값(전 행 평일+토요일+공휴일)을 그대로 썼다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "내포주차타워: 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "홍주성 옆 공영주차장: 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "하상 3공구(홍성천~홍성온천): 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "홍성천 복개주차장: 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "하상 2공구(홍성천~대승빌딩): 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "하상 1공구(홍성천~5일시장): 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "장군상~의사총사거리: 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "홍주교~장군상오거리: 등록 기본 30분 0원·추가 30분당 500원 ↔ 조례 별표1 30분까지 무료·45분까지 500원·60분까지 800원·이후 30분당 500원(잔여 15분 이내 300원) — 등록 컬럼에는 계단식 기본요금이 표현되지 않아 60분 요금이 등록 500원·조례 800원으로 다르다. 계산기는 공주·청양 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "1구획초과차량은 조례 별표1에 별도 요금(45분까지 1,300원·60분까지 1,600원·이후 30분당 800원·잔여 15분 이내 500원·1일 10,000원·월정기 100,000원)이 있으나 표준데이터에 차량 구분이 없어 계산기에는 반영하지 않고 요금표 안내에만 적었다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "광천 하상 1공구",
+   "광천 하상 2공구",
+   "내포신도시 이주자택지",
+   "고암리 공영주차장",
+   "구,경찰서 부지",
+   "남장리 쌈지 공영주차장",
+   "롯데마트 앞 임시공영주차장",
+   "오관8리 공영주차장",
+   "월산상가 임시공영주차장",
+   "홍성천 하상4공구",
+   "광천회전교차로 ~결성통 철길건널목",
+   "광천회전교차로~역전"
+  ],
+  "감면_출처": "「홍성군 주차장 조례」 제3195호 제4조 — 제1호 긴급자동차 면제, 제2호 성실납세자 표창 1년간 면제, 제3호 50%(장애인·국가유공자 상이 1~6급·고엽제·5·18 부상자·참전·특수임무·병역명문가), 제4호 경형(1,000cc 이하) 50%, 제5호 투표확인증 2,000원까지 감면, 제6호 환경친화적 자동차 50%, 제7호 우수봉사자증 50%. 월정기 차량은 감면 적용 제외(별표1 비고2) — 본문·별표1 원문(data/raw/hongseong-ordinance.txt, data/raw/hongseong-ordinance-b1.hwp) 대조 완료(2026-11-20)",
+  "급지_출처": "조례 별표1 비고3 — 1급지는 읍 지역 및 내포신도시 지역, 2급지는 면 지역이며 2급지 공영주차장 요금은 무료다. 표준데이터 등록 급지는 79행 전부 '1'이라 면 지역 행(서부면·갈산면)과 어긋나지만 해당 행은 전부 무료라 요금 결과는 같다(급지 표기는 군청 확인 필요)",
+  "주말무료_출처": "조례 본문·별표1에 주말·공휴일 무료 조항이 없고 등록 특기사항도 전부 비어 있어 유료 8곳에 free_days를 적용하지 않았다",
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 71,
+  "무료_구획수": 4077,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-09-19"
+  ],
+  "관리기관": {
+   "충청남도 홍성군청": 79
+  }
+ },
+ "fee_table": {
+  "style": "hongseong_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「홍성군 주차장 조례」 제3195호(2025-12-15 시행), ordinSeq 2092217. 본문 사본 data/raw/hongseong-ordinance.txt, 별표(주차요금표) 원문 HWP data/raw/hongseong-ordinance-b1.hwp.",
+  "rows": [
+   {
+    "label": "1급지 (읍 지역·내포신도시) — 1구획 차량",
+    "grade": "paid_base",
+    "unit_label": "30분까지 무료 → 45분까지 500원 → 60분까지 800원 → 이후 30분당 500원 (잔여 15분 이내 300원)",
+    "hour": 800,
+    "two_hour": 1800,
+    "day": 6000,
+    "month": 70000,
+    "lots": 8
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 6,
+   "free": 71,
+   "unknown": 0,
+   "street_paid": 2
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "00:00~23:59 (유료 8곳 등록값)",
+    "free": "조례·등록 모두 주말·공휴일 무료 조항이 없어 유료 8곳은 요일과 관계없이 요금을 받는다. 실제 징수시간은 군청 확인 필요"
+   }
+  ],
+  "notes": "홍성군 공영주차장 79곳 중 71곳은 무료이고 유료는 8곳(내포주차타워, 홍주성 옆 공영주차장, 하상 1·2·3공구, 홍성천 복개주차장, 장군상~의사총사거리, 홍주교~장군상오거리)뿐이다. 「홍성군 주차장 조례」 제3195호(시행 2025-12-15, ordinSeq 2092217) 별표1은 1급지(읍 지역·내포신도시) 1구획 차량 기준 30분까지 무료, 45분까지 500원, 60분까지 800원, 이후 30분마다 500원(최종 잔여시간이 15분 이내이면 300원), 1일 6,000원, 월정기 70,000원이고, 2급지(면 지역)는 무료다. 다만 유료 8곳의 표준데이터 등록값은 기본 30분 0원·추가 30분당 500원뿐이라 조례의 계단식 기본요금이 표현되지 않아, 계산기는 공주·청양 선례대로 등록값으로 계산하고 요금표는 조례 별표1 값으로 표기했으며 차이는 급지_요금_차이에 기록했다(실제 징수 기준은 군청 확인 필요). 1일 6,000원·월정기 70,000원은 등록값과 조례가 일치한다. 1구획초과차량은 별표1에 별도 요금(45분까지 1,300원·60분까지 1,600원·30분당 800원·잔여 15분 이내 500원·1일 10,000원·월정기 100,000원)이 있으나 표준데이터에 차량 구분이 없어 계산기에는 반영하지 않았다. 조례에 주말·공휴일 무료 조항이 없어 유료 8곳은 요일과 관계없이 요금을 받는다. 감면은 조례 제4조를 따른다(긴급자동차·성실납세자 면제, 장애인·국가유공자·고엽제·5·18·참전·특수임무·병역명문가·경형·환경친화적·우수봉사자 50%, 투표확인증 2,000원까지 — 월정기 차량은 감면 적용 제외). 등록 급지는 79행 전부 1급지로, 면 지역도 1급지로 등록돼 있으나 해당 행은 전부 무료라 요금은 같다.",
+  "corp_extra": {
+   "paid": 6,
+   "free": 71,
+   "unknown": 0,
+   "street_paid": 2
+  },
+  "basis": "「홍성군 주차장 조례」 제3195호(시행 2025-12-15, ordinSeq 2092217) 별표1 · 전국주차장정보표준데이터(홍성군, 기준일 2026-09-19) 등록값 — 별표1 원문 대조 완료. 유료 8곳의 등록 요금 구조(기본 30분 무료·30분당 500원)는 조례의 계단식 기본요금과 달라 계산기는 등록값으로 계산한다"
+ },
+ "slug": "hongseong",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "홍성군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 면제"
+  },
+  {
+   "label": "성실납세자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2호 — 국세 및 지방세 성실납세자로 표창을 받은 사람은 성실납세증 교부일부터 1년간 면제"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18·참전·특수임무·병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제3호 — 본인 소유의 비사업용 차량을 직접 운전하거나 장애 정도가 심하여 대리운전을 하게 하는 경우 50퍼센트 감면(감면대상자 증명 필요). 투표확인증은 같은 조 제5호로 2,000원까지 감면이라 버튼에 넣지 않고 안내로만 적는다"
+  },
+  {
+   "label": "경형(1,000cc 이하)·환경친화적 자동차·우수봉사자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4호(배기량 1,000cc 이하 경형자동차)·제6호(환경친화적 자동차 표지 부착)·제7호(우수봉사자증 소지자) — 각 50퍼센트 감면"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

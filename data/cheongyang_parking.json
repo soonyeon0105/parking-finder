@@ -1,0 +1,3051 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 05:47",
+  "generated_at_iso": "2026-11-20T05:47:58+09:00",
+  "snapshot_at": "2026-11-20 05:47",
+  "region": {
+   "province": "충청남도",
+   "city": "청양군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 25,
+    "fetched_at": "2026-11-20 05:47 (KST)",
+    "note": "청양군으로 등록된 행 25행(노외·부설 22·노상 3)을 읽어 노외·부설 22곳과 노상 3구간을 실었다. 청양군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·면수는 등록값을 그대로 썼고, 유료 2곳의 무료 시간만 조례 별표1과 달라 차이를 기록했다. 조례 대조 완료 — 「청양군 주차장 설치 조례」 제2932호(시행 2025-12-15, ordinSeq 2092155) 별표1·제4조 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「청양군 주차장 설치 조례」 제2932호(시행 2025-12-15, 일부개정)",
+    "org": "충청남도 청양군",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2092155&efYd=20251215",
+    "file": "cheongyang-ordinance-b1.hwp",
+    "sha256": "ff8e038f001f8d509afa5eba0099e9fd42c0b4e9a6bcaa277353df8dd6218ab1",
+    "license": "자치법규(공개)",
+    "base_date": "2025-12-15",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 05:47 (KST)",
+    "note": "청양군이 설치·관리하는 공영주차장에 적용하는 조례다. 청양군 공영주차장 25곳 중 23곳은 무료이고 유료는 청양읍 2곳(청양시장주차타워 85면, 읍내리 제6공영주차장 31면)뿐이다. 「청양군 주차장 설치 조례」 제2932호(시행 2025-12-15, ordinSeq 2092155) 별표1은 급지 구분 없이 최초 1시간 무료, 1시간 초과 시 30분마다 500원, 1일 5,000원(6시간 이상 주차 시 적용), 월정기 80,000원이고, 징수시간은 연중 08:00~20:00이며 토·일·공휴일은 무료로 운영한다(별표1 비고2). 다만 유료 2곳의 표준데이터 등록값은 기본 120분·0원, 추가 30분당 500원으로 무료 시간이 조례보다 1시간 길고, 1일권·월정기는 공란이다. 계산기는 공주시 선례대로 등록값을 유지하고 요금표는 조례 별표1 값으로 표기했으며 차이는 급지_요금_차이에 기록했다(실제 징수 기준·1일권·월정기 판매 여부는 군청 확인 필요). 토·일·공휴일 무료는 조례 별표1 비고2를 근거로 유료 2곳에 적용했다. 감면은 조례 제4조제2항을 따른다(긴급자동차 전액, 성실납세자 스티커 3개월 면제·모범납세자 전액, 장애인·국가유공자·고엽제·5·18·참전·특수임무·경로우대·임산부·병역명문가 50%, 경형·환경친화적·저공해 50%, 투표확인증 2,000원까지 — 월정기는 감면 적용 제외). 등록 운영시간은 25곳 전부 연중 00:00~23:59로, 조례의 징수시간과 다른 개방시간으로 보인다. (조례 본문: data/raw/cheongyang-ordinance.txt, 별표 원문 HWP: data/raw/cheongyang-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "청양군",
+   "slug": "cheongyang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-cheongyang-001",
+   "mgmt_no": "296-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장곡 제1주차장(칠갑산 맛집 앞)",
+   "gu": "청양군",
+   "dong": "대치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 대치면 장곡리 67-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "041-940-2212",
+   "lat": 36.41002174,
+   "lng": 126.852393,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-002",
+   "mgmt_no": "296-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장곡 제2주차장(메인주차장)",
+   "gu": "청양군",
+   "dong": "대치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 대치면 장곡리 334-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "041-940-2212",
+   "lat": 36.4095527,
+   "lng": 126.8493104,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-003",
+   "mgmt_no": "296-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장곡 제3주차장(아니골 주차장)",
+   "gu": "청양군",
+   "dong": "대치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 대치면 장곡리 80",
+   "addr_road": "",
+   "road": null,
+   "spaces": 159,
+   "tel": "041-940-2212",
+   "lat": 36.40858688,
+   "lng": 126.8524419,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-004",
+   "mgmt_no": "296-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠갑산주차장",
+   "gu": "청양군",
+   "dong": "대치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 대치면 대치리 6-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 123,
+   "tel": "041-940-2212",
+   "lat": 36.43629632,
+   "lng": 126.8855593,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-005",
+   "mgmt_no": "296-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서정리쌈지주차장",
+   "gu": "청양군",
+   "dong": "정산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 정산면 서정리 156-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "041-940-2602",
+   "lat": 36.41146686,
+   "lng": 126.9506718,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-006",
+   "mgmt_no": "296-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정산면 쌈지주차장(정산성지 앞)",
+   "gu": "청양군",
+   "dong": "정산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 정산면 서정리 103-3",
+   "addr_road": "충청남도 청양군 정산면 서정1길9",
+   "road": null,
+   "spaces": 19,
+   "tel": "041-940-2602",
+   "lat": 36.41232927,
+   "lng": 126.9484181,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-007",
+   "mgmt_no": "296-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정산시장주차장",
+   "gu": "청양군",
+   "dong": "정산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 정산면 서정리 163",
+   "addr_road": "충청남도 청양군 정산면 정현길 54",
+   "road": null,
+   "spaces": 47,
+   "tel": "041-940-2602",
+   "lat": 36.41059417,
+   "lng": 126.9480176,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-008",
+   "mgmt_no": "296-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천장호 주차장",
+   "gu": "청양군",
+   "dong": "정산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 정산면 천장리 112-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 128,
+   "tel": "041-940-2212",
+   "lat": 36.41487536,
+   "lng": 126.9216899,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-009",
+   "mgmt_no": "296-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원앙공원 공영주차장(청양읍사무소)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 32-3",
+   "addr_road": "충청남도 청양군 청양읍 약수터길 6-2",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-940-2602",
+   "lat": 36.45313948,
+   "lng": 126.8071406,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-010",
+   "mgmt_no": "296-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내1리 쌈지주차장(로얄아파트 앞)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 69-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "041-940-2602",
+   "lat": 36.45198544,
+   "lng": 126.8071383,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-011",
+   "mgmt_no": "296-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내4리 쌈지주차장(청양혁신플랫폼 와유 앞)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 340-5",
+   "addr_road": "충청남도 청양군 청양읍 칠갑산로열길20",
+   "road": null,
+   "spaces": 30,
+   "tel": "041-940-2602",
+   "lat": 36.44898308,
+   "lng": 126.8041206,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-012",
+   "mgmt_no": "296-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 공영주차장(장안아파트 뒤)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 376-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "041-940-2602",
+   "lat": 36.44611677,
+   "lng": 126.8028074,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-013",
+   "mgmt_no": "296-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제1공영주차장(천강아파트 옆)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 376-46",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "041-940-2602",
+   "lat": 36.4455694,
+   "lng": 126.8023116,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-014",
+   "mgmt_no": "296-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제2공영주차장(한국전력공사 옆)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 388-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "041-940-2383",
+   "lat": 36.44537598,
+   "lng": 126.7987814,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-015",
+   "mgmt_no": "296-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제3공영주차장(국제세탁소 옆)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 204-9",
+   "addr_road": "충청남도 청양군 청양읍 칠갑산로5길 8",
+   "road": null,
+   "spaces": 34,
+   "tel": "041-940-2602",
+   "lat": 36.45152269,
+   "lng": 126.8044233,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-016",
+   "mgmt_no": "296-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제4공영주차장(청양어린이집 후면)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 104-238",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "041-940-2602",
+   "lat": 36.4487617839,
+   "lng": 126.8051891118,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-017",
+   "mgmt_no": "296-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제5공영주차장(리버사이드맨션 앞)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 351-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 3,
+   "tel": "041-940-2602",
+   "lat": 36.44765139,
+   "lng": 126.8046699,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-018",
+   "mgmt_no": "296-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제6공영주차장(하모니마트 옆)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 221-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "041-940-2602",
+   "lat": 36.45284118,
+   "lng": 126.8036588,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 최초 2시간은 무료이고 이후 30분마다 500원입니다 · 토요일·일요일·공휴일은 「청양군 주차장 설치 조례」 별표1에 따라 무료로 운영합니다(징수시간 08:00~20:00) · 감면은 조례 제4조 기준입니다 — 투표확인증은 2,000원까지 감면합니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "최초 2시간 무료 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(청양군, 기준일 2026-10-19) — 조례 별표1(최초 1시간 무료)과 무료 시간이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-019",
+   "mgmt_no": "296-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제7공영주차장(충청OA앞)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 246-12",
+   "addr_road": "충청남도 청양군 청양읍 중앙로 168",
+   "road": null,
+   "spaces": 22,
+   "tel": "041-940-2602",
+   "lat": 36.45442885,
+   "lng": 126.8039267,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-020",
+   "mgmt_no": "296-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 제8공영주차장(황해원 앞)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리167-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "041-940-2602",
+   "lat": 36.44997322,
+   "lng": 126.8048019,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-021",
+   "mgmt_no": "296-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청양시장 주차장",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 324",
+   "addr_road": "충청남도 청양군 청양읍 칠갑산로6길 28",
+   "road": null,
+   "spaces": 143,
+   "tel": "041-940-2323",
+   "lat": 36.44841751,
+   "lng": 126.8013442,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-022",
+   "mgmt_no": "296-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청양시장주차타워",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 187-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "041-940-2602",
+   "lat": 36.4507562,
+   "lng": 126.8005804,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금은 표준데이터 등록 기준입니다 — 최초 2시간은 무료이고 이후 30분마다 500원입니다 · 토요일·일요일·공휴일은 「청양군 주차장 설치 조례」 별표1에 따라 무료로 운영합니다(징수시간 08:00~20:00) · 감면은 조례 제4조 기준입니다 — 투표확인증은 2,000원까지 감면합니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "최초 2시간 무료 · 이후 30분마다 500원 (표준데이터 등록 기준)",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(청양군, 기준일 2026-10-19) — 조례 별표1(최초 1시간 무료)과 무료 시간이 달라 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-s001",
+   "mgmt_no": "296-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "읍내사거리(금석철물점->DM오거리)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 333-15",
+   "addr_road": "충청남도 청양군 청양읍 중앙로 104",
+   "road": "중앙로",
+   "spaces": 27,
+   "tel": "041-940-2602",
+   "lat": 36.44877242,
+   "lng": 126.802829,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-s002",
+   "mgmt_no": "296-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "읍내사거리(십자로->송방교)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 209-29",
+   "addr_road": "충청남도 청양군 청양읍 중앙로 130",
+   "road": "중앙로",
+   "spaces": 25,
+   "tel": "041-940-2602",
+   "lat": 36.45126561,
+   "lng": 126.8032314,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  },
+  {
+   "id": "ca-cheongyang-s003",
+   "mgmt_no": "296-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "읍내사거리(의료원사거리->연세연합의원)",
+   "gu": "청양군",
+   "dong": "청양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 청양군 청양읍 읍내리 220-9",
+   "addr_road": "충청남도 청양군 청양읍 중앙로 147",
+   "road": "중앙로",
+   "spaces": 28,
+   "tel": "041-940-2602",
+   "lat": 36.45265062,
+   "lng": 126.8031798,
+   "base_date": "2026-10-19",
+   "manager": "충청남도 청양군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청양군",
+   "city_slug": "cheongyang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 05:47",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 25,
+  "원자료_청양군행수": 25,
+  "원자료_받은행수": 25,
+  "구별": {
+   "청양군": 22
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 22,
+  "노외_부설": {
+   "노외": 22
+  },
+  "노상_구간": 3,
+  "총_구획수": 1213,
+  "노상_구획수": 80,
+  "동별": {
+   "청양읍": 14,
+   "대치면": 4,
+   "정산면": 4
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 22
+  },
+  "요금구분": {
+   "무료": 23,
+   "유료": 2
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 2,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "청양군 등록 25행은 전부 공영(민영 0)이고 특기사항이 전부 비어 있다 — 운영시간은 등록값(연중 00:00~23:59)을 그대로 썼다",
+   "유료 2곳의 등록 운영시간 00:00~23:59는 개방시간으로 보인다 — 조례 별표1 비고2의 징수시간은 08:00~20:00이라 요금표에 징수시간을 따로 적었다",
+   "도로명주소가 비어 있는 15곳은 지번주소로 안내한다 (좌표는 25곳 전부 등록돼 있다)",
+   "청양시장 주차장(143면·무료)과 청양시장주차타워(85면·유료)는 이름이 비슷하지만 지번·면수·요금이 다른 별개 주차장이라 둘 다 실었다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "청양시장주차타워: 등록 기본 120분 0원 ↔ 조례 별표1 최초 1시간 무료·1시간 초과 30분마다 500원 — 무료 시간이 1시간 달라, 계산기는 공주시 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "읍내리 제6공영주차장(하모니마트 옆): 등록 기본 120분 0원 ↔ 조례 별표1 최초 1시간 무료·1시간 초과 30분마다 500원 — 무료 시간이 1시간 달라, 계산기는 공주시 선례대로 등록값을 유지하고 요금표는 조례값으로 표기(군청 확인 필요)",
+   "유료 2곳 공통: 등록 1일주차권·월정기 공란 ↔ 조례 별표1 1일 5,000원(6시간 이상 주차 시 적용)·월정기 80,000원 — 등록값이 없어 계산기에는 넣지 않고 요금표·안내에만 조례값을 적었다(실제 판매 여부는 군청 확인 필요)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「청양군 주차장 설치 조례」 제2932호 제4조제2항 — 제1호 긴급자동차 전액면제, 제2호 성실납세자증 스티커 부착차량 3개월 면제, 제3호 50%(장애인·국가유공자·고엽제·5·18·참전·특수임무·경로우대·임산부·병역명문가; 투표확인증은 2,000원까지 감면), 제4호 경승용차(1000cc 이하) 50%, 제5호 환경친화적·저공해자동차 50%, 제6호 모범납세자증 전액면제. 월정기 차량은 감면 적용 제외(별표1 비고3) — 본문·별표1 원문(data/raw/cheongyang-ordinance.txt, data/raw/cheongyang-ordinance-b1.hwp) 대조 완료(2026-11-20)",
+  "무료시간_출처": "조례 별표1 — 최초 1시간 이내 무료. 다만 유료 2곳의 표준데이터 등록값은 기본 120분·0원이라 계산기는 등록값을 유지하고 차이를 급지_요금_차이에 기록했다(군청 확인 필요)",
+  "주말무료_출처": "조례 별표1 비고2-가 — 징수시간 연중 08:00~20:00, 단 토·일·공휴일은 무료로 운영한다. 유료 2곳에 free_days(토·일)를 적용했다. 등록 운영시간 00:00~23:59는 개방시간으로 보여 실제 주말 무료 적용은 군청 확인 필요",
+  "무료개방_표기": [
+   "읍내리 제6공영주차장(하모니마트 옆)",
+   "청양시장주차타워"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 23,
+  "무료_구획수": 1177,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-19"
+  ],
+  "관리기관": {
+   "충청남도 청양군": 25
+  }
+ },
+ "fee_table": {
+  "style": "cheongyang_grade",
+  "unit_min": 30,
+  "base_min": 60,
+  "applies": "조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「청양군 주차장 설치 조례」 제2932호(2025-12-15 시행), ordinSeq 2092155. 본문 사본 data/raw/cheongyang-ordinance.txt, 별표(주차요금표) 원문 HWP data/raw/cheongyang-ordinance-b1.hwp.",
+  "rows": [
+   {
+    "label": "전 지역 (급지 구분 없음)",
+    "grade": "paid_base",
+    "unit_label": "최초 1시간 무료 → 1시간 초과 30분마다 500원",
+    "hour": 0,
+    "two_hour": 1000,
+    "day": 5000,
+    "month": 80000,
+    "lots": 2
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 2,
+   "free": 23,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "08:00~20:00",
+    "free": "조례 별표1 비고2의 징수시간이다 — 토·일·공휴일은 무료로 운영한다. 표준데이터의 운영시간 00:00~23:59는 개방시간으로 보인다"
+   }
+  ],
+  "notes": "청양군 공영주차장 25곳 중 23곳은 무료이고 유료는 청양읍 2곳(청양시장주차타워 85면, 읍내리 제6공영주차장 31면)뿐이다. 「청양군 주차장 설치 조례」 제2932호(시행 2025-12-15, ordinSeq 2092155) 별표1은 급지 구분 없이 최초 1시간 무료, 1시간 초과 시 30분마다 500원, 1일 5,000원(6시간 이상 주차 시 적용), 월정기 80,000원이고, 징수시간은 연중 08:00~20:00이며 토·일·공휴일은 무료로 운영한다(별표1 비고2). 다만 유료 2곳의 표준데이터 등록값은 기본 120분·0원, 추가 30분당 500원으로 무료 시간이 조례보다 1시간 길고, 1일권·월정기는 공란이다. 계산기는 공주시 선례대로 등록값을 유지하고 요금표는 조례 별표1 값으로 표기했으며 차이는 급지_요금_차이에 기록했다(실제 징수 기준·1일권·월정기 판매 여부는 군청 확인 필요). 토·일·공휴일 무료는 조례 별표1 비고2를 근거로 유료 2곳에 적용했다. 감면은 조례 제4조제2항을 따른다(긴급자동차 전액, 성실납세자 스티커 3개월 면제·모범납세자 전액, 장애인·국가유공자·고엽제·5·18·참전·특수임무·경로우대·임산부·병역명문가 50%, 경형·환경친화적·저공해 50%, 투표확인증 2,000원까지 — 월정기는 감면 적용 제외). 등록 운영시간은 25곳 전부 연중 00:00~23:59로, 조례의 징수시간과 다른 개방시간으로 보인다.",
+  "corp_extra": {
+   "paid": 2,
+   "free": 23,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "basis": "「청양군 주차장 설치 조례」 제2932호(시행 2025-12-15, ordinSeq 2092155) 별표1 · 전국주차장정보표준데이터(청양군, 기준일 2026-10-19) 등록값 — 별표1 원문 대조 완료. 유료 2곳의 등록 무료 시간(120분)은 조례(60분)와 달라 계산기는 등록값으로 계산한다"
+ },
+ "slug": "cheongyang",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "청양군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차가 해당 업무 수행을 위하여 주차할 경우 전액면제"
+  },
+  {
+   "label": "성실납세자·모범납세자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제2호(성실납세자증 표시 스티커 부착차량 3개월 면제)·제6호(모범납세자증 지참자 전액면제)"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18·참전·특수임무·경로우대·임산부·병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제3호 가목~라목·마목·바목·아목·자목·카목 — 같은 호 사목의 투표확인증은 2,000원까지 감면이라 버튼에 넣지 않고 안내로만 적는다"
+  },
+  {
+   "label": "경형(1,000cc 이하)·환경친화적·저공해 자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제4호(본인 소유 경승용차 1000cc 이하)·제5호(환경친화적 자동차·저공해자동차 표지 부착)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

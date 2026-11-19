@@ -1,0 +1,2501 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 05:47",
+  "generated_at_iso": "2026-11-20T05:47:58+09:00",
+  "snapshot_at": "2026-11-20 05:47",
+  "region": {
+   "province": "충청남도",
+   "city": "계룡시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 22,
+    "fetched_at": "2026-11-19 23:45 (KST)",
+    "note": "계룡시로 등록된 행 22행(노외·부설 17·노상 5)을 읽어 노외·부설 17곳과 노상 3구간을 실었다. 민영으로 등록된 노상 2곳(번영로·중앙로)은 다른 도시와 같은 기준으로 제외했다. 요금·운영시간·면수는 등록값을 그대로 썼고, 계룡역만 시청 공식 발표에 따라 유료로 적용했다(차이는 fee_diff에 기록). 조례 대조 완료 — 「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, ordinSeq 2091087) 별표1·제3조의2 원문 대조 완료(2026-11-19)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, 일부개정)",
+    "org": "충청남도 계룡시 건설교통실",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091087",
+    "file": "gyeryong-ordinance-b1.hwp",
+    "sha256": "a05a0cc48dc35ecf0642ab27215197da9a9b8bcc40a64ebcc3e62f236bc09f6d",
+    "license": "자치법규(공개)",
+    "base_date": "충청남도계룡시조례 제1117호(시행 2025-12-10, 일부개정), ordinSeq 2091087",
+    "rows_total": null,
+    "fetched_at": "2026-11-19 23:45 (KST)",
+    "note": "계룡시가 설치·관리하는 공영주차장에 적용하는 조례다. 계룡시 공영주차장 20곳 중 19곳은 무료이고 요금을 받는 곳은 계룡역 공영주차장 1곳이다. 계룡역은 표준데이터에 무료로 등록돼 있으나 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026년 8월 1일부터 유료로 운영하고 주말 및 공휴일에는 무료로 운영함이 확인돼, 요금은 「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, ordinSeq 2091087) 별표1을 적용했다 — 급지 구분 없이 최초 30분 무료, 30분 초과 시 10분당 200원, 2시간 초과 시 10분당 300원이다. 같은 공식 답변으로 계룡역에 1일 주차요금 상한액 7,000원 및 월정기권 60,000원 제도를 마련했음이 명시돼 계산기에도 1일 상한 7,000원을 적용했다. 월정기는 등록값이 없어 카드에는 비워 두고 요금표에만 적었다(유료화 발표 당시에는 주간 45,000원·야간 35,000원으로 안내돼 현행 별표와 다르니 실제 판매 기준은 시청 확인이 필요하다). 당초 이 카드는 시청 블로그 안내·보도를 근거로 '2025년 9월 15일부터 24시간 유료'로 적었으나, 2025년 9월 당시 시 답변은 '계획 중'이었고 실제 유료 개시는 2026년 8월 1일임이 공식 답변으로 확인돼 정정했다(정정 2026-11-20). 번영로·중앙로 노상주차장(엄사면)은 표준데이터에 민영으로 등록돼 있어 다른 도시와 같은 기준으로 제외했다 — 관리기관은 계룡시로 등록돼 있어 공영 위탁 여부는 시청 확인이 필요하다. 감면은 조례 제3조의2를 따른다(긴급·공무수행·성실납세 전액, 장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%, 경형·저공해·환경친화적·병역명문가 50%, 승용차요일제 10부제 20%·5부제 40%·2부제 50%). 표준데이터에는 계룡시 22행이 등록되어 있다. (조례 별표1 원문 HWPX: data/raw/gyeryong-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "계룡시",
+   "slug": "gyeryong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-gyeryong-001",
+   "mgmt_no": "291-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금암제1공영주차장",
+   "gu": "계룡시",
+   "dong": "금암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 금암동 480",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "042-840-2584",
+   "lat": 36.27240106,
+   "lng": 127.2516822,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-002",
+   "mgmt_no": "291-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금암제2공영주차장",
+   "gu": "계룡시",
+   "dong": "금암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 금암동 155-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "042-840-2584",
+   "lat": 36.27334477,
+   "lng": 127.2536461,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-003",
+   "mgmt_no": "291-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금암제3공영주차장",
+   "gu": "계룡시",
+   "dong": "금암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 금암동 149-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "042-840-2584",
+   "lat": 36.27403894,
+   "lng": 127.2543558,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-004",
+   "mgmt_no": "291-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금암제4공영주차장",
+   "gu": "계룡시",
+   "dong": "금암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 금암동 15-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "042-840-2584",
+   "lat": 36.27526153,
+   "lng": 127.2556945,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-005",
+   "mgmt_no": "291-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계룡역 공영주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 두계리 134-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 113,
+   "tel": "042-840-2584",
+   "lat": 36.27256496,
+   "lng": 127.262743,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026년 8월 1일부터 유료로 운영하고 있습니다(표준데이터에는 아직 무료로 등록돼 있습니다) · 주말 및 공휴일에는 무료로 운영합니다(계룡시 공식 답변 2026-11-09) · 1일 주차요금 상한액 7,000원이 적용됩니다(계룡시 공식 답변 2026-11-09) · 월정기권은 계룡시 공식 답변(2026-11-09)으로 60,000원 제도를 마련했음이 확인됐습니다(유료화 발표 당시 안내된 주간 45,000원·야간 35,000원과 달라 실제 판매 기준은 시청 확인이 필요합니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 7000,
+    "cap_src": "계룡시 공식 답변(2026-11-09) 1일 주차요금 상한액",
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 10,
+      "unit_fee": 200
+     },
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 300
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 30분 초과 10분마다 200원 · 2시간 초과 10분마다 300원",
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09 — 2026-08-01부터 유료 운영·주말 및 공휴일 무료·1일 주차요금 상한액 7,000원·월정기권 60,000원) + 「계룡시 주차장 설치 조례」 제1117호 별표1 — 표준데이터에는 무료로 등록돼 있어 차이를 fee_diff에 기록"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-006",
+   "mgmt_no": "291-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대실제1공영주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 농소리 988",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "042-840-2584",
+   "lat": 36.26604261,
+   "lng": 127.2592368,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-007",
+   "mgmt_no": "291-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대실제2공영주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 농소리 998",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "042-840-2584",
+   "lat": 36.26599883,
+   "lng": 127.2605018,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-008",
+   "mgmt_no": "291-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대실제4공영주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 농소리 1016",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "042-840-2584",
+   "lat": 36.26240232,
+   "lng": 127.2584437,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-009",
+   "mgmt_no": "291-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대실제5공영주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 농소리 937",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "042-840-2584",
+   "lat": 36.2644225,
+   "lng": 127.25479,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-010",
+   "mgmt_no": "291-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대실제6공영주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 농소리 1030",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "042-840-2584",
+   "lat": 36.25802029,
+   "lng": 127.263899073,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-011",
+   "mgmt_no": "291-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암산업단지 공영주차장(두마면 입암리 57)",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 입암리 57",
+   "addr_road": "",
+   "road": null,
+   "spaces": 76,
+   "tel": "042-840-2584",
+   "lat": 36.25190326,
+   "lng": 127.2722262,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(두마면 입암리 57)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-012",
+   "mgmt_no": "291-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암산업단지 공영주차장(두마면 입암리 631)",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 입암리 631",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "042-840-2584",
+   "lat": 36.25233982,
+   "lng": 127.2684997,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(두마면 입암리 631)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-013",
+   "mgmt_no": "291-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암산업단지 공영주차장(두마면 입암리 65)",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 두마면 입암리 65",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "042-840-2584",
+   "lat": 36.25027605,
+   "lng": 127.2699395,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(두마면 입암리 65)로 구분했습니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-014",
+   "mgmt_no": "291-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계룡복합문화센터 주차장",
+   "gu": "계룡시",
+   "dong": "엄사면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 엄사면 엄사리 347",
+   "addr_road": "",
+   "road": null,
+   "spaces": 152,
+   "tel": "042-840-2584",
+   "lat": 36.28791702,
+   "lng": 127.2380713,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-015",
+   "mgmt_no": "291-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대산식당 옆 공영주차장",
+   "gu": "계룡시",
+   "dong": "엄사면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 엄사면 엄사리 226",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "042-840-2584",
+   "lat": 36.28308149,
+   "lng": 127.2402787,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-016",
+   "mgmt_no": "291-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양정공영주차장",
+   "gu": "계룡시",
+   "dong": "엄사면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 엄사면 엄사리 225-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "042-840-2584",
+   "lat": 36.28278469,
+   "lng": 127.2407433,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-017",
+   "mgmt_no": "291-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "엄사상점가 공영주차장",
+   "gu": "계룡시",
+   "dong": "엄사면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 계룡시 엄사면 엄사리 181-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 178,
+   "tel": "042-840-2584",
+   "lat": 36.28911295,
+   "lng": 127.2428262,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-s001",
+   "mgmt_no": "291-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서금암로 노상주차장",
+   "gu": "계룡시",
+   "dong": "금암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 계룡시 금암동 479",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "042-840-2584",
+   "lat": 36.27017506,
+   "lng": 127.2560205,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-s002",
+   "mgmt_no": "291-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장안로 노상주차장",
+   "gu": "계룡시",
+   "dong": "금암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 계룡시 금암동 482",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "042-840-2584",
+   "lat": 36.27330466,
+   "lng": 127.2508741,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  },
+  {
+   "id": "ca-gyeryong-s003",
+   "mgmt_no": "291-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "e편한세상노상주차장",
+   "gu": "계룡시",
+   "dong": "두마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 계룡시 두마면 두계리 119",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "042-840-2584",
+   "lat": 36.2719256319,
+   "lng": 127.2660914784,
+   "base_date": "2026-04-17",
+   "manager": "충청남도 계룡시",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "계룡시",
+   "city_slug": "gyeryong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 05:47",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 22,
+  "원자료_계룡시행수": 22,
+  "원자료_받은행수": 22,
+  "구별": {
+   "계룡시": 17
+  },
+  "민영_제외": 2,
+  "제외_행수": 2,
+  "제외_행": [
+   {
+    "name": "번영로 노상주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "중앙로 노상주차장",
+    "reason": "민영 주차장(공영 아님)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 17,
+  "노외_부설": {
+   "노외": 17
+  },
+  "노상_구간": 3,
+  "총_구획수": 1013,
+  "노상_구획수": 80,
+  "동별": {
+   "두마면": 9,
+   "금암동": 4,
+   "엄사면": 4
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 입암산업단지 공영주차장 — 이름 뒤에 주소·면수·구간 표시를 붙여 구분"
+  ],
+  "동_근거": {
+   "지번주소": 17
+  },
+  "요금구분": {
+   "무료": 19,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "계룡역 공영주차장: 표준데이터에는 무료로 등록돼 있으나(기준 2026-04-17) 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026-08-01부터 유료 운영(주말 및 공휴일 무료)이라 조례 별표1 기준으로 적용했다 — 당초 시청 블로그 안내·보도(2025-08-25)를 근거로 '2025-09-15부터 24시간 유료'로 적었으나, 2025-09 당시 시 답변은 '계획 중'이었고 실제 유료 개시는 2026-08-01임이 공식 답변으로 확인돼 2026-11-20 정정했다(Instinct 교차검증 보류 판정 반영)",
+   "계룡역 월정기: 유료화 발표 당시 주간 45,000원·야간 35,000원으로 안내됐으나 현행 조례 별표1은 60,000원(주간·야간 구분 없음)이고 계룡시 공식 답변(2026-11-09)도 월정기권 60,000원 제도 마련을 명시했다 — 요금표에는 별표1 값을 적고 카드에는 비워 뒀다, 실제 판매 기준 시청 확인 필요",
+   "번영로·중앙로 노상주차장(엄사면 엄사리): 표준데이터에 민영으로 등록돼 있어 다른 도시와 같은 기준으로 제외했다 — 관리기관명은 충청남도 계룡시로 등록돼 있고 요금은 기본 30분 500원·추가 10분당 200원으로 등록돼 있어(조례 별표1의 최초 30분 무료와도 다름) 공영 위탁 여부는 시청 확인 필요",
+   "1일 주차요금 상한: 조례 별표1에 1일 주차권 7,000원이 있고 발행하는 주차장에서는 시간제 요금이 이를 넘으면 7,000원만 받는 상한 규정(별표1 비고)이 있다 — 계룡역은 계룡시 공식 답변(2026-11-09)이 '1일 주차요금 상한액 7,000원 제도 마련'을 명시해 계산기 상한(cap_fee)으로 적용했다(당초 발행 여부 미확인으로 적용하지 않았던 것을 2026-11-20 정정)"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "계룡역 공영주차장: 등록 요금정보 '무료'(기준 2026-04-17) ↔ 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09) 2026-08-01부터 유료 운영·주말 및 공휴일 무료·1일 상한 7,000원 — 계산기·요금표는 조례 별표1 기준으로 적용하고 1일 상한을 계산기에 반영(당초 '2025-09-15부터 유료' 표기는 2025-09 당시 '계획 중' 안내를 근거로 한 것이어서 2026-11-20 정정)",
+   "계룡시 전체: 등록 월정기권 없음(계룡역 포함) ↔ 조례 별표1 월정기 60,000원 — 요금표에만 적고 카드 월정기는 비워 둠"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「계룡시 주차장 설치 조례」 제3조의2(제1항: 긴급·공무수행·성실납세 전액, 저공해·환경친화적·병역명문가 50% / 제2항: 10부제 20%·5부제 40%·2부제·경형 50% / 제3항: 장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%) — 별표1 원문 HWPX(data/raw/gyeryong-ordinance-b1.hwp) 대조 완료(2026-11-19)",
+  "무료시간_출처": "「계룡시 주차장 설치 조례」 별표1 비고 — 주차요금 징수 시간은 연중 24시간(00:00~24:00); 계룡역의 주말·공휴일 무료는 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 확인해 표기",
+  "주말무료_출처": "계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09) — 계룡역은 '주말 및 공휴일에는 무료로 운영' 명시. 조례 별표1 비고에는 요일별 무료 조항이 없어 공식 답변을 1차 출처로 적용(2026-11-20 정정)",
+  "무료개방_표기": [
+   "계룡역 공영주차장"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 19,
+  "무료_구획수": 980,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "충청남도 계룡시": 20
+  }
+ },
+ "fee_table": {
+  "style": "gyeryong_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "충청남도계룡시조례 제1117호(시행 2025-12-10, 일부개정), ordinSeq 2091087",
+  "rows": [
+   {
+    "label": "1급지(전 지역)",
+    "grade": "paid_base",
+    "unit_label": "최초 30분 무료 → 30분 초과 10분마다 200원 (2시간 초과 10분마다 300원)",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 7000,
+    "month": 60000,
+    "lots": 1
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "free": 19,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "연중 24시간",
+    "free": "주차요금 징수 시간은 연중 24시간(00:00~24:00)이다(조례 별표1 비고). 계룡역은 주말 및 공휴일 무료로 운영한다(계룡시 공식 답변 2026-11-09)"
+   }
+  ],
+  "notes": "계룡시 공영주차장 20곳 중 19곳은 무료이고 요금을 받는 곳은 계룡역 공영주차장 1곳이다. 계룡역은 표준데이터에 무료로 등록돼 있으나 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09)으로 2026년 8월 1일부터 유료로 운영하고 주말 및 공휴일에는 무료로 운영함이 확인돼, 요금은 「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, ordinSeq 2091087) 별표1을 적용했다 — 급지 구분 없이 최초 30분 무료, 30분 초과 시 10분당 200원, 2시간 초과 시 10분당 300원이다. 같은 공식 답변으로 계룡역에 1일 주차요금 상한액 7,000원 및 월정기권 60,000원 제도를 마련했음이 명시돼 계산기에도 1일 상한 7,000원을 적용했다. 월정기는 등록값이 없어 카드에는 비워 두고 요금표에만 적었다(유료화 발표 당시에는 주간 45,000원·야간 35,000원으로 안내돼 현행 별표와 다르니 실제 판매 기준은 시청 확인이 필요하다). 당초 이 카드는 시청 블로그 안내·보도를 근거로 '2025년 9월 15일부터 24시간 유료'로 적었으나, 2025년 9월 당시 시 답변은 '계획 중'이었고 실제 유료 개시는 2026년 8월 1일임이 공식 답변으로 확인돼 정정했다(정정 2026-11-20). 번영로·중앙로 노상주차장(엄사면)은 표준데이터에 민영으로 등록돼 있어 다른 도시와 같은 기준으로 제외했다 — 관리기관은 계룡시로 등록돼 있어 공영 위탁 여부는 시청 확인이 필요하다. 감면은 조례 제3조의2를 따른다(긴급·공무수행·성실납세 전액, 장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%, 경형·저공해·환경친화적·병역명문가 50%, 승용차요일제 10부제 20%·5부제 40%·2부제 50%). 표준데이터에는 계룡시 22행이 등록되어 있다.",
+  "corp_extra": {
+   "paid": 1,
+   "free": 19,
+   "unknown": 0,
+   "street_paid": 0
+  },
+  "basis": "「계룡시 주차장 설치 조례」 제1117호(시행 2025-12-10, ordinSeq 2091087) 별표1 · 전국주차장정보표준데이터(2026-04-17 기준) 등록값 — 별표1 원문 대조 완료 · 계룡역 유료 개시(2026-08-01)·주말 및 공휴일 무료·1일 상한 7,000원은 계룡시 공식 답변(시장에게 바란다, 건설교통실 2026-11-09) 확인"
+ },
+ "slug": "gyeryong",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "계룡시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무수행·성실납세자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "「도로교통법」 제2조제22호에 따른 긴급자동차(제3조의2제1항제1호) · 국가 또는 지방자치단체 소속의 공무수행 자동차(제2호) · 국세 및 지방세를 성실히 납부한 자로서 성실납세증표지(스티커)를 부착한 자동차 — 교부일로부터 1년간(제3호) 전액 감면"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18·참전·우수자원봉사자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「장애인복지법」 제32조에 따라 등록한 장애인, 「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따라 등록한 상이등급 1급부터 7급까지의 국가유공자, 고엽제후유의증 환자, 5·18민주유공자, 참전유공자, 「계룡시 자원봉사활동 지원 조례」에 따른 우수자원봉사자증을 받은 사람이 본인의 자동차를 직접 운전하거나 장애 정도가 심하여 동승하고 타인에게 대리운전을 하게 하는 경우 — 50% 감면(제3조의2제3항)"
+  },
+  {
+   "label": "경형·저공해·환경친화적 자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "1,000cc 미만의 경형자동차 및 2부제 참여 자동차(제3조의2제2항) · 「대기환경보전법」 제58조제11항에 따른 저공해자동차 표지를 부착한 자동차(제1항제4호) · 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제11조에 따라 환경친화적 자동차 표지를 부착한 자동차(제1항제5호) — 50% 감면. 승용차요일제 10부제 20%·5부제 40% 감면은 버튼으로 만들지 않았다"
+  },
+  {
+   "label": "병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「계룡시 병역 명문가 예우에 관한 조례」 제5조에 따른 병역 명문가 예우대상자로서 병무청장이 발행한 병역명문가증을 소지한 사람 — 50% 감면(제3조의2제1항제6호)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
