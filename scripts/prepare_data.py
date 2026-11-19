@@ -32768,6 +32768,575 @@ def build_nonsan():
     return payload
 
 
+# ---------------------------------------------------------------- 충주시 (T-03 충북 1)
+# 충주시는 표준데이터에 충주시시설관리공단이 운영하는 노외 7곳만 등록돼 있다
+#   (전부 공영·유료, 기준일 2026-09-30, 도로명주소·좌표 전부 결측). 조례는
+#   「충주시 주차장 조례」 제2529호(시행 2026-06-02, 공포 2026-04-30,
+#   ordinSeq 2126709) 제2조·제4조·별표1 원문을 직접 대조했다
+#   (data/raw/chungju-ordinance.txt, chungju-ordinance-b1.hwp).
+# 별표1 요금: 1급지(칠금 제1·충주천 제2) 최초 10분 300원·초과 5분당 150원·
+#   1일 12,000원·월정기 없음(충주천 제2만 2~3층 한정 90,000원), 2급지(연수
+#   제1·연수 제2·연수9호 어린이공원·충주역 서측(하방)·금릉) 최초 10분 200원·
+#   초과 5분당 100원·1일 8,000원·월정기 60,000원. 비고5 징수시간 08:30~18:00,
+#   비고6 주차시간 10분 미만 무료(단, 시장은 10분을 30분으로 확대 운영 가능),
+#   비고7 당일 1회 요금이 1일 요금을 넘으면 1일 요금이 한도, 비고8 정기권은
+#   결제일 포함 30일. 비고4 운영방법: 1급지 유료(무료는 설·추석 연휴·충주의
+#   날), 2급지 평일만 유료(토·일·법정공휴일·충주의 날 무료), 3급지(충주천
+#   제3·칠금 제2·서충주기업도시) 전부 무료 — 3급지 3곳은 표준데이터에 등록이
+#   없어 이번 빌드에는 없다.
+# 등록 기본시간은 5곳(충주천 제2·연수 3곳·충주역 서측)이 30분으로 별표1의
+#   '최초 10분'과 다르다. 비고6 단서에 확대 운영 근거가 있고, 등록 기준일
+#   (2026-09-30)이 조례 시행(2026-06-02)보다 뒤이며, 7곳 전 행이 같은 완전한
+#   구조로 등록돼 있어, 계산기는 공주·청양·홍성·태안 선례대로 등록값을
+#   유지하고 요금표는 조례 별표1 값으로 표기하며 차이는 fee_diff에 전건
+#   남긴다(공단 확인 필요 — 머지 시 최종 판단 지점).
+# 좌표는 7곳 전부 결측이라 지번주소 지오코딩(ArcGIS World Geocoding, 반환
+#   주소가 등록 지번주소와 번지까지 일치·score 100인 경우만 채택)으로 보완해
+#   T-06 오버레이(data/raw/좌표누락_지오코딩_20261118.json)에 근거를 남겼다
+#   — 개별 도시 파일에는 없음으로 남고 사이트 데이터(site.json)에서 채워진다.
+CHUNGJU_PROVINCE = "충청북도"
+CHUNGJU_PROVINCE_SLUG = "chungbuk"
+CHUNGJU_ORD_URL = ("https://www.law.go.kr/ordinInfoP.do?ordinSeq=2126709"
+                   "&efYd=20260602")
+CHUNGJU_ORD_DL = ("https://www.law.go.kr/flDownload.do?gubun=ELIS"
+                  "&flSeq=163968365&ordinSeq=2126709")
+CHUNGJU_ORD_HWP = RAW / "chungju-ordinance-b1.hwp"
+CHUNGJU_ORD_NOTE = ("조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                    "「충주시 주차장 조례」 제2529호(2026-04-30 공포, 2026-06-02 시행, "
+                    "일부개정), ordinSeq 2126709. 본문 사본 data/raw/chungju-ordinance.txt, "
+                    "별표1(공영주차장 요금표) 원문 HWP data/raw/chungju-ordinance-b1.hwp·"
+                    "추출문 chungju-ordinance-b1.txt.")
+
+CHUNGJU_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조제1항제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 전액 면제"},
+    {"label": "모범성실납세자·임산부·자원봉사 1,000시간 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조제1항제2호·제4호·제5호 — 모범성실납세자 표지를 부착한 차량(표창을 받은 날부터 1년), 임산부 전용주차장 자동차표지를 발급받고 임산부가 직접 운전하거나 함께 탄 차량, 자원봉사활동실적 누계 1,000시간 이상인 사람이 운전하거나 함께 탄 차량. 환경친화적자동차가 충전시설에서 충전하는 경우 2시간 이내도 전액 면제다(제3호)"},
+    {"label": "장애인·국가유공자·고엽제·5·18·경형·환경친화적·저공해·장기기증·65세 이상·다자녀 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조제2항 — 장애인, 국가유공자·고엽제·5·18민주유공자, 승용차부제·함께타기 스티커 차량, 경형·환경친화적자동차(전기자동차는 충전시설에서 2시간을 초과하는 경우), 저공해자동차, 장기기증자·기증희망자, 65세 이상 운전자, 자원봉사 500시간 이상, 의사상자, 병역명문가, 헌혈 100회 이상, 2자녀 이상 다자녀 가정(마지막 자녀 19세 미만). 감경 시 원단위는 절사한다"},
+]
+
+CHUNGJU_CONF = {
+    "city": "충주시",
+    "slug": "chungju",
+    "manager": "충청북도 충주시청",
+    "manager_inquiry": "충주시시설관리공단(043-830-9471)",
+    "ordinance": ("「충주시 주차장 조례」 제2529호(시행 2026-06-02, 일부개정)",
+                  CHUNGJU_ORD_URL, CHUNGJU_ORD_NOTE),
+    "notes": ("충주시 공영주차장 7곳은 전부 노외·유료이고 총 994면이며 충주시시설관리공단이 "
+              "운영한다(043-830-9471). 「충주시 주차장 조례」 제2529호(시행 2026-06-02, "
+              "ordinSeq 2126709) 별표1은 1급지(칠금 제1·충주천 제2) 최초 10분 300원·초과 "
+              "5분당 150원·1일 12,000원, 2급지(연수 제1·연수 제2·연수9호 어린이공원·충주역 "
+              "서측(하방)·금릉) 최초 10분 200원·초과 5분당 100원·1일 8,000원·월정기 "
+              "60,000원으로 정한다. 월정기는 1급지에 없고 충주천 제2만 2~3층에 한해 "
+              "90,000원이다. 등록값은 기본시간이 5곳(충주천 제2·연수 3곳·충주역 서측) "
+              "30분으로 별표1의 '최초 10분'과 다른데, 별표1 비고6 단서가 시장이 10분을 "
+              "30분으로 확대해 운영할 수 있게 하고 등록 기준일(2026-09-30)이 조례 시행"
+              "(2026-06-02)보다 뒤이며 7곳 전 행이 같은 완전한 구조로 등록돼 있어, "
+              "계산기는 공주·청양·홍성·태안 선례대로 등록값을 유지하고 요금표는 조례 "
+              "별표1 값으로 표기했으며 차이는 급지_요금_차이에 전건 기록했다(공단 확인 "
+              "필요 — 머지 시 최종 판단 지점). 징수시간은 08:30~18:00(별표1 비고5)이고 "
+              "주차시간 10분 미만은 무료다(비고6). 당일 1회 요금이 1일 요금을 넘으면 "
+              "1일 요금이 한도다(비고7). 2급지는 토요일·일요일·법정공휴일·충주의 날이 "
+              "무료이고 1급지는 설·추석 연휴와 충주의 날만 무료다(비고4) — 충주의 날과 "
+              "설·추석 연휴는 날짜가 정해진 날이라 요일 단위 무료 표기에는 넣지 않고 "
+              "안내에만 적었다. 별표1 비고4의 3급지 3곳(충주천 제3·칠금 제2·서충주기업도시 "
+              "공영주차장)은 전부 무료이나 표준데이터에 등록돼 있지 않아 이 사이트에 "
+              "실리지 않았다. 감면은 조례 제4조를 따른다(긴급자동차·모범성실납세자 표지·"
+              "임산부 표지·자원봉사 1,000시간 전액 면제, 장애인·국가유공자·고엽제·5·18·"
+              "경형·환경친화적·저공해·장기기증·65세 이상·다자녀 등 50% 감경). 도로명주소와 "
+              "좌표는 7곳 전부 등록돼 있지 않다 — 좌표는 지번주소 지오코딩(ArcGIS, 번지 "
+              "일치 확인)으로 보완했고 근거는 data/raw/좌표누락_지오코딩_20261118.json에 "
+              "있다. 등록된 '1일주차권요금적용시간' 90은 단위와 의미가 확인되지 않아 "
+              "계산에 쓰지 않았다."),
+    "discounts": CHUNGJU_DISCOUNTS,
+}
+
+
+def chungju_dong_of(addr, name=None):
+    """충주시 동·읍·면 판정 — 지번주소에 법정동·읍·면이 들어 있다."""
+    if addr:
+        m = re.search(r"충주시\s*([가-힣]{1,6}(?:동|읍|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r"([가-힣]{1,6}(?:동|읍|면))", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def chungju_fee(row, name, note_bits, fee_diff):
+    """충주시 공영주차장 한 곳의 요금 — 7곳 전부 유료. 등록 기본시간이
+    5곳은 30분으로 조례 별표1의 '최초 10분'과 다르다. 별표1 비고6 단서에
+    확대 운영 근거가 있고 등록 기준일(2026-09-30)이 조례 시행(2026-06-02)
+    보다 뒤이며 전 행이 같은 완전한 구조라, 계산기는 공주·청양·홍성·태안
+    선례대로 등록값을 유지하고 차이는 fee_diff에 전건 남긴다(공단 확인
+    필요 — 머지 시 최종 판단 지점). 10분 미만 무료(비고6)는 free_min으로,
+    1일 한도(비고7)는 cap_fee로 적용한다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type != "유료":
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 공단 확인 필요"})
+        return fee
+    ord_base = {1: (300, 150, 12000), 2: (200, 100, 8000)}.get(int(grade) if grade.isdigit() else 0)
+    if ord_base and base_min and base_min != 10:
+        fee_diff.append(f"{name}: 등록 기본시간 {base_min}분(기본요금 {base_fee}원) ↔ 조례 별표1 "
+                        f"{grade}급지 '최초 10분 {ord_base[0]}원' — 별표1 비고6 단서(시장이 "
+                        "10분을 30분으로 확대하여 운영할 수 있다)에 따른 운영으로 보이며, "
+                        "계산기는 공주·청양·홍성·태안 선례대로 등록값을 유지하고 요금표는 "
+                        "조례값으로 표기(공단 확인 필요)")
+    monthly = month if month else None
+    if grade == "1" and monthly:
+        note_bits.append("월정기 90,000원은 조례 별표1상 2~3층에 한해 적용됩니다")
+    if grade == "1" and not monthly:
+        note_bits.append("월정기권은 없습니다 (조례 별표1에도 1급지 월정기 요금이 없습니다)")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day, "daily_hours": None,
+                "cap_fee": day,
+                "cap_src": "조례 별표1 비고7 — 당일 1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금을 한도로 한다",
+                "monthly": monthly, "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "steps": None,
+                "steps_label": (f"기본 {base_min}분 {base_fee:,}원 · 이후 {unit_min}분마다 "
+                                f"{unit_fee:,}원 (10분 미만 무료)"),
+                "free_min": 10,
+                "basis": "전국주차장정보표준데이터 등록값(충주시시설관리공단, 기준일 2026-09-30) — "
+                         "「충주시 주차장 조례」 별표1과 대조 완료. 기본시간이 별표1의 '최초 "
+                         "10분'과 다른 곳은 급지_요금_차이에 기록했다"})
+    note_bits.append("주차시간이 10분 미만이면 무료입니다 (조례 별표1 비고6)")
+    note_bits.append("당일 요금이 1일 주차요금"
+                     f"({day:,}원)을 넘으면 1일 요금까지만 냅니다 (조례 별표1 비고7)")
+    return fee
+
+
+def _chungju_tier_of(lot):
+    return lot["fee"].get("std_grade") or ""
+
+
+def chungju_fee_table(conf, lots):
+    """요금표 — 조례 별표1 값으로 표기한다(공주·청양·홍성·태안 선례: 계산기는
+    등록값 유지, 요금표는 조례값). 별표1: 1급지 최초 10분 300원·초과 5분당
+    150원·1일 12,000원·월정기 없음(충주천 제2만 2~3층 한정 90,000원),
+    2급지 최초 10분 200원·초과 5분당 100원·1일 8,000원·월정기 60,000원."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    g1 = {"base_min": 10, "base_fee": 300, "unit_min": 5, "unit_fee": 150, "daily_fee": 12000}
+    g2 = {"base_min": 10, "base_fee": 200, "unit_min": 5, "unit_fee": 100, "daily_fee": 8000}
+    rows = [
+        {"label": "1급지", "grade": "cj_g1",
+         "unit_label": "최초 10분 300원 · 이후 5분마다 150원",
+         "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120),
+         "day": 12000, "month": 90000,
+         "lots": len([l for l in paid if _chungju_tier_of(l) == "1"])},
+        {"label": "2급지", "grade": "cj_g2",
+         "unit_label": "최초 10분 200원 · 이후 5분마다 100원",
+         "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120),
+         "day": 8000, "month": 60000,
+         "lots": len([l for l in paid if _chungju_tier_of(l) == "2"])},
+    ]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len(free),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "chungju_grade",
+        "unit_min": 5,
+        "base_min": 10,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통", "hours": "08:30~18:00",
+                     "free": ("조례 별표1 비고5의 징수시간이다. 2급지는 토요일·일요일·"
+                              "법정공휴일·충주의 날이 무료이고, 1급지는 설·추석 연휴와 "
+                              "충주의 날만 무료다(별표1 비고4). 별표1 비고4의 3급지"
+                              "(충주천 제3·칠금 제2·서충주기업도시 공영주차장)는 전부 "
+                              "무료이나 표준데이터에 등록돼 있지 않아 이 사이트에는 "
+                              "실리지 않았다")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「충주시 주차장 조례」 제2529호(시행 2026-06-02, ordinSeq 2126709) "
+                  "제2조·별표1 · 전국주차장정보표준데이터(충주시시설관리공단, 기준일 "
+                  "2026-09-30) 등록값 — 별표1 원문 대조 완료. 등록 기본시간이 별표1의 "
+                  "'최초 10분'과 다른 5곳은 계산기가 등록값으로 계산한다"),
+    }
+
+
+def chungju_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「충주시 주차장 조례」 제2529호 제4조 — 제1항 전액 면제(긴급자동차, "
+                      "모범성실납세자 표지 1년, 환경친화적 충전 2시간 이내, 임산부 표지, "
+                      "자원봉사 1,000시간 이상), 제2항 50% 감경(장애인, 승용차부제·함께타기, "
+                      "국가유공자·고엽제·5·18, 경형·환경친화적, 저공해, 장기기증, 65세 이상, "
+                      "자원봉사 500시간, 의사상자, 병역명문가, 헌혈 100회, 다자녀). 본문·"
+                      "별표1 원문(data/raw/chungju-ordinance.txt, "
+                      "data/raw/chungju-ordinance-b1.hwp) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표1 — 1급지 최초 10분 300원·초과 5분당 150원·1일 12,000원·"
+                      "월정기 없음(충주천 제2만 2~3층 한정 90,000원), 2급지 최초 10분 "
+                      "200원·초과 5분당 100원·1일 8,000원·월정기 60,000원. 등록 기본시간이 "
+                      "30분인 5곳은 별표1 비고6 단서의 확대 운영으로 보고 계산기는 등록값을 "
+                      "유지했으며 차이를 급지_요금_차이에 전건 기록했다(공단 확인 필요)"),
+        "급지_출처": ("조례 별표1 비고4 표 — 1급지: 충주천 제2·칠금 제1, 2급지: 연수 제1·연수 "
+                      "제2·연수9호 어린이공원·충주역 서측(하방)·금릉, 3급지: 충주천 제3·칠금 "
+                      "제2·서충주기업도시(전부 무료, 표준데이터 미등록이라 이 사이트에 없음). "
+                      "표준데이터 등록 급지와 전건 일치한다"),
+        "무료요일_출처": ("조례 별표1 비고4 — 2급지는 평일만 유료이고 토요일·일요일·법정공휴일·"
+                          "충주의 날이 무료, 1급지는 설·추석 연휴와 충주의 날만 무료. 충주의 "
+                          "날·설·추석 연휴는 날짜 특정일이라 free_days(요일 단위)에 넣지 않고 "
+                          "안내에만 적었다"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_chungju():
+    """충주시 하나를 표준데이터로 추출한다 (build_taean 의 충주시 변형).
+    조례 대조 완료 — 「충주시 주차장 조례」 제2529호(시행 2026-06-02,
+    ordinSeq 2126709) 제2조·제4조·별표1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 7행이 전부 공영·노외·유료(충주시시설관리공단)라 민영
+    제외는 없고, 등록 기본시간 30분인 5곳은 조례 별표1 '최초 10분'과 달라
+    계산기는 등록값을 유지하고 차이를 전건 기록한다. 좌표는 7곳 전부
+    결측이라 T-06 오버레이(지오코딩)로 사이트 데이터에서 채운다."""
+    conf = CHUNGJU_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "충주시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "충주시" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. 충주시는 이름+자리가 같은 행이 없어
+    #   실제로 합쳐지는 행은 없다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.80 < lat < 37.15 and 127.75 < lng < 128.10):
+            # 충주시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 충주시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = chungju_dong_of(jibun, std_name) or chungju_dong_of(road, std_name)
+        if chungju_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif chungju_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 주소에서 동·읍·면을 가릴 수 없어 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        grade = (r.get("급지구분") or "").strip()
+        fee = chungju_fee(r, std_name, note_bits, fee_diff)
+        if grade == "2":
+            free_days = {"sat": True, "sun": True}
+            note_bits.append("토요일·일요일·법정공휴일·충주의 날에는 요금을 받지 않습니다 "
+                             "(조례 별표1 비고4 — 2급지 운영방법)")
+        elif grade == "1":
+            free_days = {"sat": False, "sun": False}
+            note_bits.append("설·추석 연휴와 충주의 날에는 요금을 받지 않습니다 "
+                             "(조례 별표1 비고4 — 1급지 운영방법)")
+        else:
+            free_days = {"sat": False, "sun": False}
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "충주시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    note_fixed.append("충주시 등록 7행은 전부 공영(민영 0)·노외·유료이고 관리기관은 전부 "
+                      "충주시시설관리공단, 데이터기준일자는 전부 2026-09-30이다 — 운영시간은 "
+                      "등록값(1급지 평일+토요일+공휴일 08:30~18:00, 2급지 평일 08:30~18:00)을 "
+                      "그대로 썼다")
+    note_fixed.append("도로명주소와 좌표는 7행 전부 비어 있다 — 좌표는 지어내지 않고 "
+                      "없음으로 실었고, 사이트 데이터에서는 지번주소 지오코딩(ArcGIS World "
+                      "Geocoding, 반환 주소 번지 일치·score 100 확인)으로 보완한다(근거: "
+                      "data/raw/좌표누락_지오코딩_20261118.json)")
+    note_fixed.append("조례 별표1 비고4의 3급지 3곳(충주천 제3 공영주차장·칠금 제2 "
+                      "공영주차장·서충주기업도시 공영주차장)은 전부 무료이나 표준데이터에 "
+                      "등록돼 있지 않아 이번 빌드에 없다 — 표준데이터 등록이나 시청 확인 시 "
+                      "추가 대상이다")
+    note_fixed.append("등록 '1일주차권요금적용시간'이 7행 전부 90으로 돼 있으나 단위와 "
+                      "의미가 확인되지 않아 daily_hours로 쓰지 않았다 — 1일 상한은 조례 "
+                      "별표1 비고7(당일 1회 요금이 1일 요금을 넘으면 1일 요금이 한도)로 "
+                      "적용했다(공단 확인 필요)")
+    note_fixed.append("칠금제1공영주차장의 월정기 등록값 0은 조례 별표1의 1급지 월정기 "
+                      "'없음'과 일치한다. 충주천제2공영주차장 월정기 90,000원은 별표1상 "
+                      "2~3층에 한한 값이다")
+    note_fixed.append("1급지의 무료일(설·추석 연휴, 충주의 날)과 2급지의 충주의 날은 "
+                      "날짜가 정해진 날이라 free_days(요일 단위)로 표현하지 않고 카드 "
+                      "안내에만 적었다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"cj-chungju-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"cj-chungju-s{n_street:03d}"
+
+    fee_table = chungju_fee_table(conf, lots)
+    quality = chungju_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"충주시로 등록된 행 {len(rows_std)}행(전부 노외)을 읽어 노외 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 충주시 "
+                 f"등록 행은 전부 공영이라 민영 제외는 없다. 등록 기본시간이 조례 별표1의 "
+                 f"'최초 10분'과 다른 5곳은 계산기가 등록값을 유지하고 차이를 전건 기록했다. "
+                 f"조례 대조 완료 — 「충주시 주차장 조례」 제2529호(시행 2026-06-02, "
+                 f"ordinSeq 2126709) 제2조·제4조·별표1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": CHUNGJU_ORD_HWP.name if CHUNGJU_ORD_HWP.exists() else None,
+            "sha256": sha256(CHUNGJU_ORD_HWP) if CHUNGJU_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-06-02",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"충주시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/chungju-ordinance.txt, 별표1 원문 HWP: "
+                    f"data/raw/chungju-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": CHUNGJU_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "충주시", "slug": "chungju"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": CHUNGJU_PROVINCE,
+        "province_slug": CHUNGJU_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "chungju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -32780,7 +33349,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "chungju",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -32798,7 +33367,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "충주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -32851,7 +33420,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "chungju": ["충주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -32970,6 +33539,8 @@ def main():
         cities.append(build_nonsan())
     if "보령시" in want:
         cities.append(build_boryeong())
+    if "충주시" in want:
+        cities.append(build_chungju())
 
     if args.city == "all":
         site = build_site_payload(cities)
