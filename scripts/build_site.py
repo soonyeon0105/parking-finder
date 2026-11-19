@@ -9752,6 +9752,50 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "jeungpyeong_grade":
+        # 증평군 — 공영 34곳(노외 32·노상 2, 무료 26·유료 5·혼합 3). 요금표는
+        #   조례 별표 1 값(1·2급지 모두 최초 30분 500원·30분 초과 10분당
+        #   200원 — 노상은 2시간 초과 이후 450원, 1일 1급지 6,000원·2급지
+        #   3,000원, 월정기 1급지 주간 75,000원/야간 56,000원·2급지 주간
+        #   30,000원/야간 22,000원)으로 표기하고, 계산기는 등록값을 유지한다
+        #   (공주·청양·홍성·태안·충주 선례 — 장뜰시장 추가요금 30분당 500원,
+        #   교동주차타워 월정기 60,000원·1일 미등록, 노상 누진 미등록은
+        #   데이터 품질 기록에 전건 남김). 표의 월 정기권은 주간 값이다.
+        #   무료 26곳은 조례 제3조제1항 단서에 따른 무료 운영으로 본다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">증평 공영주차장 34곳 가운데 <b>26곳은 무료</b>이고, 요금을 받는 곳은 장뜰시장주차장
+5곳(2급지)과 교동주차타워·노상주차장 2곳(1급지, 혼합)입니다. 「증평군 주차장 조례」 제1241호
+별표 1은 1급지·2급지 모두 <b>최초 30분 500원</b>, 30분 초과 뒤에는 <b>10분마다 200원</b>으로
+정합니다(노상주차장은 2시간을 넘기면 10분마다 <b>450원</b>). <b>1일 주차권</b>은 1급지
+<b>6,000원</b>·2급지 <b>3,000원</b>이고(노상 사용불가), <b>월정기권</b>은 1급지 <b>주간
+75,000원·야간 56,000원</b>, 2급지 <b>주간 30,000원·야간 22,000원</b>입니다(아래 표의 월
+정기권은 주간 값). 다만 표준데이터 등록값은 장뜰시장주차장의 추가요금이 <b>30분당 500원</b>,
+교동주차타워의 월정기권이 <b>60,000원</b>으로 별표 1과 다르고, 노상 누진은 등록돼 있지
+않습니다. 이 사이트의 계산기는 등록값으로 계산하고 요금표는 조례 값으로 적었으니, 실제 징수
+기준은 현장 안내나 증평군청(043-835-3853)에 확인하세요. 혼합 3곳은 토요일·공휴일에 24시간
+개방으로 등록돼 있으나 주말 무료인지는 등록만으로 알 수 없어 무료로 표기하지 않았습니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권(주간)</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
