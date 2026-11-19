@@ -1157,27 +1157,20 @@
   <url><loc>https://parking.9welfare.com/parking/chungbuk/danyang/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://parking.9welfare.com/parking/chungbuk/danyang/danyang-eup/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/chungbuk/danyang/maepo-eup/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/free/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/gaejeong-myeon/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/gyeongam-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/geum-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/naun-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/naeheung-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/daemyeong-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/daeya-myeon/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/munhwa-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/samhak-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/seonyang-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/seongsan-myeon/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/soryong-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/songpung-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/susong-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/sinheung-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/okdo-myeon/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/okseo-myeon/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/impi-myeon/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/jochon-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/haemang-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://parking.9welfare.com/parking/jeonbuk/gunsan/street-parking/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju/free/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-wansan/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-wansan/samcheon-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-wansan/seoseohak-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-wansan/seosin-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-wansan/junghwasan-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-wansan/hyoja-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/deokjin-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/manseong-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/songcheon-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/ua-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/inhu-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju-deokjin/palbok-dong/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/jeonbuk/jeonju/street-parking/</loc><lastmod>2026-11-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
