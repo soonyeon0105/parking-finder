@@ -1,0 +1,5980 @@
+{
+ "meta": {
+  "generated_at": "2026-11-19 22:09",
+  "generated_at_iso": "2026-11-19T22:09:57+09:00",
+  "snapshot_at": "2026-11-19 22:09",
+  "region": {
+   "province": "충청남도",
+   "city": "보령시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 53,
+    "fetched_at": "2026-11-19 22:09 (KST)",
+    "note": "보령시로 등록된 행 53행(노외·부설 49·노상 4)을 읽어 노외·부설 49곳과 노상 4구간을 실었다. 제외·중복 없이 전부 실었다. 요금·운영시간·면수는 등록값을 그대로 썼고, 혼합 8곳의 무료 요일·시간은 등록 특기사항의 유료운영 시간(월~토) 기준으로 표기했다. 조례 대조 완료 — 「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 제3조·별표1·제3조의2 원문 대조 완료(2026-11-19)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「보령시 주차장 조례」 제2208호(시행 2025-09-10, 일부개정)",
+    "org": "충청남도 보령시 교통과",
+    "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2066813",
+    "file": "boryeong-ordinance-b1.hwp",
+    "sha256": "98935f58ec482e6d69c0403bc34101d0f12e3a84f8325d52b731bb521823a522",
+    "license": "자치법규(공개)",
+    "base_date": "충청남도보령시조례 제2208호(시행 2025-09-10, 일부개정), ordinSeq 2066813",
+    "rows_total": null,
+    "fetched_at": "2026-11-19 22:09 (KST)",
+    "note": "보령시가 설치·관리하는 공영주차장에 적용하는 조례다. 보령시 공영주차장 53곳 중 45곳은 무료이고 요금을 받는 곳은 '혼합' 8곳뿐이다. 혼합 8곳은 등록 특기사항에 적힌 유료운영 시간(월~토)에만 요금을 받는다 — 제2시민행복주차장과 노상 4곳(대흥로·중앙로·남대천로·번영로)은 09:00~20:00, 전통시장 노외 3곳(동부시장·중앙시장 제1·제3)은 09:00~18:00이고, 그 밖의 시간과 일요일은 무료다. 공휴일은 특기사항에 언급이 없어 공휴일이 평일이면 유료운영 시간에 요금이 붙는 것으로 보고 표기했다. 요금은 등록값을 그대로 썼다 — 시장 3곳은 기본 60분 1,000원에 추가 30분마다 500원, 제2시민행복·노상 3곳은 기본 60분 500원에 추가 30분마다 500원, 번영로 노상은 기본 30분 500원에 추가 30분마다 500원이다. 「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 별표1은 급지 구분 없이 차종으로만 나뉘어 소형 기본 30분 500원·초과 매 30분 500원·1일 5,000원·월정기 주간 50,000원·야간 35,000원이다. 등록 추가요금(30분당 500원)은 8곳 전부 조례와 일치하고, 시장 3곳의 기본 60분 1,000원도 조례 1시간 환산액과 일치한다(별표 비고1은 전통시장 주변 기본요금을 1시간으로 적용한다). 제2시민행복·노상 3곳의 기본 60분 500원은 조례 환산액 1,000원보다 싸 비고1의 '표 범위 내에서 달리 정할 수 있다'에 해당해 보이나, 실제 징수 기준은 보령시청 확인이 필요하다. 1일·월정기 등록값은 제2시민행복(1일 5,000원·월정기 50,000원 — 조례 소형 1일·월주간과 일치)에만 있고 나머지 7곳에는 없다. 전통시장 3곳은 시장 이용자 최초 1시간 무료가 등록 특기사항과 조례 제3조의2제5항에 있다. 감면은 조례 제3조의2를 따른다(긴급·공용차량·성실납세자 전액 면제, 장애인·국가유공자 등·경형·환경친화적·저공해·장기기증·다자녀·병역명문가 50%, 투표확인증 2,000원, 승용차 10부제·함께타기 20%). 표준데이터에는 보령시 53행이 등록되어 있고 제외·중복 없이 전부 실었다. 중앙시장 주차장은 제1·제3만 등록되어 있어 제2주차장의 존재 여부는 시청 확인이 필요하다. (조례 별표1 원문 HWP: data/raw/boryeong-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "보령시",
+   "slug": "boryeong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-boryeong-001",
+   "mgmt_no": "287-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궁촌동 쌈지주차장",
+   "gu": "보령시",
+   "dong": "궁촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 궁촌동 43-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "041-930-3975",
+   "lat": 36.34325382,
+   "lng": 126.5966503,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-002",
+   "mgmt_no": "287-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "녹색스마트 주차장",
+   "gu": "보령시",
+   "dong": "궁촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 궁촌동 109-92",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-930-3975",
+   "lat": 36.3422536,
+   "lng": 126.5937415,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-003",
+   "mgmt_no": "287-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼현1리 마을주차장",
+   "gu": "보령시",
+   "dong": "남포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 남포면 삼현리 564-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "041-930-3975",
+   "lat": 36.31034735,
+   "lng": 126.5501637,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-004",
+   "mgmt_no": "287-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥서1리 마을주차장",
+   "gu": "보령시",
+   "dong": "남포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 남포면 옥서리 365-6",
+   "addr_road": "충청남도 보령시 남포면 월촌샛길 5",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-930-3975",
+   "lat": 36.302307,
+   "lng": 126.5945708,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-005",
+   "mgmt_no": "287-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽도 임시주차장",
+   "gu": "보령시",
+   "dong": "남포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 남포면 월전리 822",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "041-930-3975",
+   "lat": 36.2738538,
+   "lng": 126.5444561,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-006",
+   "mgmt_no": "287-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창동리 마을주차장",
+   "gu": "보령시",
+   "dong": "남포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 남포면 창동리 81-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-930-3975",
+   "lat": 36.353876,
+   "lng": 126.604583,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-007",
+   "mgmt_no": "287-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천역 공영주차장",
+   "gu": "보령시",
+   "dong": "내항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 내항동 879-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "041-930-3975",
+   "lat": 36.34285635,
+   "lng": 126.5855289,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-008",
+   "mgmt_no": "287-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천 1통 마을주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 209-86",
+   "addr_road": "충청남도 보령시 남대천로 53-8 (대천동)",
+   "road": null,
+   "spaces": 6,
+   "tel": "041-930-3975",
+   "lat": 36.34862564,
+   "lng": 126.5940907,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-009",
+   "mgmt_no": "287-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천 23통 마을주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 399",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "041-930-3975",
+   "lat": 36.35419467,
+   "lng": 126.5894394,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-010",
+   "mgmt_no": "287-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천 51통 공영주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 297-254",
+   "addr_road": "충청남도 보령시 구시5길 65",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-930-3975",
+   "lat": 36.34765306,
+   "lng": 126.5900688,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-011",
+   "mgmt_no": "287-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천2동 포켓주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 406-4",
+   "addr_road": "충청남도 보령시 청수로길 23",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-930-3975",
+   "lat": 36.35373901,
+   "lng": 126.5914531,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-012",
+   "mgmt_no": "287-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천2통 공영주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 43-1",
+   "addr_road": "충청남도 보령시 대천로 76",
+   "road": null,
+   "spaces": 47,
+   "tel": "041-930-3975",
+   "lat": 36.3539516,
+   "lng": 126.6010254,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-013",
+   "mgmt_no": "287-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동부시장주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 200-3",
+   "addr_road": "충청남도 보령시 대천로 8",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-930-3975",
+   "lat": 36.34937088,
+   "lng": 126.5965578,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~18:00) / 전통시장 이용자 1시간 무료",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~18:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준) · 전통시장 이용자는 최초 1시간 무료입니다(등록 특기사항·조례 제3조의2제5항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "18:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-014",
+   "mgmt_no": "287-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1시민행복주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 618-226",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-930-3975",
+   "lat": 36.3504359,
+   "lng": 126.599776,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-015",
+   "mgmt_no": "287-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2시민행복주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 618-59",
+   "addr_road": "충청남도 보령시 중앙로 59",
+   "road": null,
+   "spaces": 34,
+   "tel": "041-930-3975",
+   "lat": 36.34986308,
+   "lng": 126.5974045,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~20:00) / 장애인+국가유공자+고엽제후유의증환자+5.18민주유공자+경형.저공해.환경친화적자동차 50프로 할인",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~20:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "20:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-016",
+   "mgmt_no": "287-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장 제1주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 336-11",
+   "addr_road": "충청남도 보령시 중앙시장3길 4",
+   "road": null,
+   "spaces": 23,
+   "tel": "041-930-3975",
+   "lat": 36.35064679,
+   "lng": 126.5925276,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~18:00) / 전통시장 이용자 1시간 무료",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~18:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준) · 전통시장 이용자는 최초 1시간 무료입니다(등록 특기사항·조례 제3조의2제5항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "18:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-017",
+   "mgmt_no": "287-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장 제3주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 335-11",
+   "addr_road": "충청남도 보령시 대흥로 56-4",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-930-3975",
+   "lat": 36.35039848,
+   "lng": 126.5925958,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~18:00) / 전통시장 이용자 1시간 무료",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~18:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준) · 전통시장 이용자는 최초 1시간 무료입니다(등록 특기사항·조례 제3조의2제5항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "18:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-018",
+   "mgmt_no": "287-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하상주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 대천동 618-510",
+   "addr_road": "충청남도 보령시 천변북길 79",
+   "road": null,
+   "spaces": 514,
+   "tel": "041-930-3975",
+   "lat": 36.34780621,
+   "lng": 126.598629,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-019",
+   "mgmt_no": "287-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신평로주차장",
+   "gu": "보령시",
+   "dong": "동대동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 동대동 983-164",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "041-930-3975",
+   "lat": 36.35395166,
+   "lng": 126.6044802,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-020",
+   "mgmt_no": "287-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명천 9통 공영주차장",
+   "gu": "보령시",
+   "dong": "명천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 명천동 492-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-930-3975",
+   "lat": 36.3443619,
+   "lng": 126.5981358,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-021",
+   "mgmt_no": "287-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한내로터리주변 공영주차장",
+   "gu": "보령시",
+   "dong": "명천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 명천동 1089-1",
+   "addr_road": "충청남도 보령시 한내로 78-12 (명천동)",
+   "road": null,
+   "spaces": 98,
+   "tel": "041-930-3975",
+   "lat": 36.34410571,
+   "lng": 126.6099134,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-022",
+   "mgmt_no": "287-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주2리 공영주차장",
+   "gu": "보령시",
+   "dong": "성주면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 성주면 성주리 109-92",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "041-930-3975",
+   "lat": 36.353876,
+   "lng": 126.604583,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-023",
+   "mgmt_no": "287-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천항주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2240-7",
+   "addr_road": "충청남도 보령시 대천항로 370",
+   "road": null,
+   "spaces": 231,
+   "tel": "041-930-3975",
+   "lat": 36.32668145,
+   "lng": 126.5061075,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-024",
+   "mgmt_no": "287-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제1주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2016",
+   "addr_road": "충청남도 보령시 대해로 869",
+   "road": null,
+   "spaces": 76,
+   "tel": "041-930-3975",
+   "lat": 36.30657109,
+   "lng": 126.5192584,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-025",
+   "mgmt_no": "287-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제2주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 1650-3",
+   "addr_road": "충청남도 보령시 대해로 857",
+   "road": null,
+   "spaces": 845,
+   "tel": "041-930-3975",
+   "lat": 36.30702392,
+   "lng": 126.5204229,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-026",
+   "mgmt_no": "287-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제3주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2213-1",
+   "addr_road": "충청남도 보령시 머드로 186-21",
+   "road": null,
+   "spaces": 101,
+   "tel": "041-930-3975",
+   "lat": 36.32057327,
+   "lng": 126.5088532,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-027",
+   "mgmt_no": "287-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제4주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2204-2",
+   "addr_road": "충청남도 보령시 대천항로 258",
+   "road": null,
+   "spaces": 703,
+   "tel": "041-930-3975",
+   "lat": 36.3203193,
+   "lng": 126.5112229,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-028",
+   "mgmt_no": "287-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제5주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2285",
+   "addr_road": "충청남도 보령시 고잠1길 70",
+   "road": null,
+   "spaces": 466,
+   "tel": "041-930-3975",
+   "lat": 36.31314827,
+   "lng": 126.5143367,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-029",
+   "mgmt_no": "287-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제6주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2261-2",
+   "addr_road": "충청남도 보령시 해수욕장11길 2",
+   "road": null,
+   "spaces": 101,
+   "tel": "041-930-3975",
+   "lat": 36.31673664,
+   "lng": 126.5104435,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-030",
+   "mgmt_no": "287-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제7주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 827",
+   "addr_road": "충청남도 보령시 대천항로 205",
+   "road": null,
+   "spaces": 68,
+   "tel": "041-930-3975",
+   "lat": 36.31675584,
+   "lng": 126.5143339,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-031",
+   "mgmt_no": "287-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제8주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 788-1",
+   "addr_road": "충청남도 보령시 대천항로 178",
+   "road": null,
+   "spaces": 779,
+   "tel": "041-930-3975",
+   "lat": 36.31630129,
+   "lng": 126.5173153,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-032",
+   "mgmt_no": "287-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대천해수욕장 제9주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2253-4",
+   "addr_road": "충청남도 보령시 해수욕장9길 2-43",
+   "road": null,
+   "spaces": 70,
+   "tel": "041-930-3975",
+   "lat": 36.31752567,
+   "lng": 126.5128401,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-033",
+   "mgmt_no": "287-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신흑4통 마을주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 749-16",
+   "addr_road": "충청남도 보령시 석서2길 166 (신흑동)",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-930-3975",
+   "lat": 36.32157644,
+   "lng": 126.5173009,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-034",
+   "mgmt_no": "287-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여객선터미널주차장",
+   "gu": "보령시",
+   "dong": "신흑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 신흑동 2241",
+   "addr_road": "충청남도 보령시 대천항중앙길 30",
+   "road": null,
+   "spaces": 577,
+   "tel": "041-930-3975",
+   "lat": 36.32699005,
+   "lng": 126.5115509,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-035",
+   "mgmt_no": "287-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무창포해수욕장 제1주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 관당리 795",
+   "addr_road": "충청남도 보령시 웅천읍 열린바다로 274-6",
+   "road": null,
+   "spaces": 103,
+   "tel": "041-930-3975",
+   "lat": 36.24651233,
+   "lng": 126.5383887,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-036",
+   "mgmt_no": "287-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무창포해수욕장 제2주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 관당리 798-1",
+   "addr_road": "충청남도 보령시 웅천읍 열린바다로 271",
+   "road": null,
+   "spaces": 120,
+   "tel": "041-930-3975",
+   "lat": 36.24632722,
+   "lng": 126.538995,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-037",
+   "mgmt_no": "287-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무창포해수욕장 제3주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 관당리 806-1",
+   "addr_road": "충청남도 보령시 웅천읍 열린바다로 325",
+   "road": null,
+   "spaces": 55,
+   "tel": "041-930-3975",
+   "lat": 36.24222816,
+   "lng": 126.5361723,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-038",
+   "mgmt_no": "287-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무창포해수욕장 제4주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 관당리 832-2",
+   "addr_road": "충청남도 보령시 웅천읍 열린바다로 345-3",
+   "road": null,
+   "spaces": 166,
+   "tel": "041-930-3975",
+   "lat": 36.24100901,
+   "lng": 126.5349178,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-039",
+   "mgmt_no": "287-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무창포해수욕장 제5주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 독산리 산 3-21",
+   "addr_road": "충청남도 보령시 웅천읍 동뒤마을길 4",
+   "road": null,
+   "spaces": 103,
+   "tel": "041-930-3975",
+   "lat": 36.23864097,
+   "lng": 126.532278,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-040",
+   "mgmt_no": "287-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무창포해수욕장 제6주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 독산리 784-1",
+   "addr_road": "충청남도 보령시 웅천읍 열린바다1길 78",
+   "road": null,
+   "spaces": 100,
+   "tel": "041-930-3975",
+   "lat": 36.23922382,
+   "lng": 126.5313055,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-041",
+   "mgmt_no": "287-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웅천주차공원 제1주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 대창리 348-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-930-3975",
+   "lat": 36.23230715,
+   "lng": 126.5999577,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-042",
+   "mgmt_no": "287-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웅천주차공원 제2주차장",
+   "gu": "보령시",
+   "dong": "웅천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 웅천읍 대창리 435-3",
+   "addr_road": "충청남도 보령시 웅천읍 장터2길 15",
+   "road": null,
+   "spaces": 7,
+   "tel": "041-930-3975",
+   "lat": 36.23263365,
+   "lng": 126.6014655,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-043",
+   "mgmt_no": "287-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송학1리 마을주차장",
+   "gu": "보령시",
+   "dong": "주교면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 주교면 송학리 477-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "041-930-3975",
+   "lat": 36.38049342,
+   "lng": 126.5253736,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-044",
+   "mgmt_no": "287-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금암리 공영주차장",
+   "gu": "보령시",
+   "dong": "주산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 주산면 금암리 63-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "041-930-3975",
+   "lat": 36.353876,
+   "lng": 126.604583,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-045",
+   "mgmt_no": "287-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연지리 마을주차장",
+   "gu": "보령시",
+   "dong": "주포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 주포면 연지리 261",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "041-930-3975",
+   "lat": 36.40692467,
+   "lng": 126.5617402,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-046",
+   "mgmt_no": "287-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽정동 마을주차장",
+   "gu": "보령시",
+   "dong": "죽정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 죽정동 729-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-930-3975",
+   "lat": 36.36039871,
+   "lng": 126.5992382,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-047",
+   "mgmt_no": "287-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽정동(테니스장) 마을주차장",
+   "gu": "보령시",
+   "dong": "죽정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 죽정동 645-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "041-930-3975",
+   "lat": 36.36158311,
+   "lng": 126.6010965,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-048",
+   "mgmt_no": "287-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천북굴단지 공영1주차장",
+   "gu": "보령시",
+   "dong": "천북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 천북면 장은리 206-1",
+   "addr_road": "충청남도 보령시 천북면 홍보로 1061-27",
+   "road": null,
+   "spaces": 235,
+   "tel": "041-930-3975",
+   "lat": 36.50784375,
+   "lng": 126.4850155,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-049",
+   "mgmt_no": "287-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천북굴단지 공영2주차장",
+   "gu": "보령시",
+   "dong": "천북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 보령시 천북면 장은리 964-1",
+   "addr_road": "충청남도 보령시 천북면 사호장은로 657",
+   "road": null,
+   "spaces": 167,
+   "tel": "041-930-3975",
+   "lat": 36.50753272,
+   "lng": 126.4889239,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": null,
+    "basis": "요금 구분 ‘무료’"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-s001",
+   "mgmt_no": "287-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남대천로주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 보령시 대천동 325-1",
+   "addr_road": "충청남도 보령시 남대천로 48",
+   "road": "남대천로",
+   "spaces": 27,
+   "tel": "041-930-3975",
+   "lat": 36.34948354,
+   "lng": 126.5938472,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~20:00) / 장애인+국가유공자+고엽제후유의증환자+5.18민주유공자+경형.저공해.환경친화적자동차 50프로 할인",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~20:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "20:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-s002",
+   "mgmt_no": "287-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대흥로주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 보령시 대천동 324-15",
+   "addr_road": "충청남도 보령시 대흥로 53",
+   "road": "대흥로",
+   "spaces": 35,
+   "tel": "041-930-3975",
+   "lat": 36.34992796,
+   "lng": 126.5926982,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~20:00) / 장애인+국가유공자+고엽제후유의증환자+5.18민주유공자+경형.저공해.환경친화적자동차 50프로 할인",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~20:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "20:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-s003",
+   "mgmt_no": "287-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "번영로주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 보령시 대천동 438-12",
+   "addr_road": "충청남도 보령시 번영로 21",
+   "road": "번영로",
+   "spaces": 32,
+   "tel": "041-930-3975",
+   "lat": 36.35190908,
+   "lng": 126.5935248,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~20:00) / 장애인+국가유공자+고엽제후유의증환자+5.18민주유공자+경형.저공해.환경친화적자동차 50프로 할인",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~20:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "20:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  },
+  {
+   "id": "ca-boryeong-s004",
+   "mgmt_no": "287-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로주차장",
+   "gu": "보령시",
+   "dong": "대천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 보령시 대천동 199-18",
+   "addr_road": "충청남도 보령시 중앙로 63",
+   "road": "중앙로",
+   "spaces": 24,
+   "tel": "041-930-3975",
+   "lat": 36.35008804,
+   "lng": 126.5969589,
+   "base_date": "2026-05-13",
+   "manager": "충청남도 보령시청",
+   "note": "유료운영(월~토 09:00~20:00) / 장애인+국가유공자+고엽제후유의증환자+5.18민주유공자+경형.저공해.환경친화적자동차 50프로 할인",
+   "notice": "요금 구분이 ‘혼합’이라 유료운영 시간에만 계산합니다 · 월~토 09:00~20:00에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다(등록 특기사항 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "전국주차장정보표준데이터 등록값(2026-10-12 기준) — 「보령시 주차장 조례」 제2208호 별표1과 대조 완료, 기본요금이 조례와 다른 곳은 등록값 우선 적용(차이는 fee_diff에 기록)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": true
+   },
+   "free_window": "20:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "보령시",
+   "city_slug": "boryeong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-19 22:09",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 53,
+  "원자료_보령시행수": 53,
+  "원자료_받은행수": 53,
+  "구별": {
+   "보령시": 49
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 49,
+  "노외_부설": {
+   "노외": 49
+  },
+  "노상_구간": 4,
+  "총_구획수": 6273,
+  "노상_구획수": 118,
+  "동별": {
+   "신흑동": 12,
+   "대천동": 11,
+   "웅천읍": 8,
+   "남포면": 4,
+   "궁촌동": 2,
+   "명천동": 2,
+   "죽정동": 2,
+   "천북면": 2,
+   "내항동": 1,
+   "동대동": 1,
+   "성주면": 1,
+   "주교면": 1,
+   "주산면": 1,
+   "주포면": 1
+  },
+  "동수": 14,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 49
+  },
+  "요금구분": {
+   "무료": 45,
+   "유료": 8
+  },
+  "요금_미상": [],
+  "유료_노상": 4,
+  "유료_노외": 4,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "중앙시장 제2주차장: 표준데이터 53행에 중앙시장 제1·제3주차장만 있고 제2주차장이 없다 — 존재 여부·미등록 사유 보령시청 확인 필요",
+   "제2시민행복주차장: 1일주차권요금적용시간이 330으로 등록되어 있다 — 분(5시간 30분)으로 읽히나 단위를 확정할 수 없어 요금표에는 1일 요금 5,000원만 적고 적용시간은 표기하지 않았다(시청 확인 필요)",
+   "혼합 8곳 공휴일: 등록 특기사항이 '유료운영(월~토 …)'이라 일요일은 무료로 표기했지만 공휴일 언급은 없어 공휴일 무료로 표기하지 않았다 — 공휴일이 평일이면 유료운영 시간에 요금이 붙는 것으로 보이며 실제 운영은 시청 확인 필요",
+   "대천해수욕장 제1~제9주차장·무창포해수욕장 제1~제6주차장: 전부 무료로 등록되어 있어 그대로 실었다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "제2시민행복주차장: 등록 기본 60분 500원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원(1시간 환산 1,000원) — 등록값이 더 싸 비고1의 '표 범위 내에서 달리 정할 수 있다' 범위로 보이나 실제 징수 기준은 시청 확인 필요. 등록값 우선 적용",
+   "동부시장주차장: 등록 기본 60분 1,000원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원 — 1시간 환산액 1,000원으로 일치(별표 비고1 전통시장 주변 기본 1시간 적용). 추가 30분 500원도 조례와 일치해 등록값을 그대로 적용",
+   "중앙시장 제3주차장: 등록 기본 60분 1,000원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원 — 1시간 환산액 1,000원으로 일치(별표 비고1 전통시장 주변 기본 1시간 적용). 추가 30분 500원도 조례와 일치해 등록값을 그대로 적용",
+   "중앙시장 제1주차장: 등록 기본 60분 1,000원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원 — 1시간 환산액 1,000원으로 일치(별표 비고1 전통시장 주변 기본 1시간 적용). 추가 30분 500원도 조례와 일치해 등록값을 그대로 적용",
+   "중앙로주차장: 등록 기본 60분 500원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원(1시간 환산 1,000원) — 등록값이 더 싸 비고1의 '표 범위 내에서 달리 정할 수 있다' 범위로 보이나 실제 징수 기준은 시청 확인 필요. 등록값 우선 적용",
+   "남대천로주차장: 등록 기본 60분 500원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원(1시간 환산 1,000원) — 등록값이 더 싸 비고1의 '표 범위 내에서 달리 정할 수 있다' 범위로 보이나 실제 징수 기준은 시청 확인 필요. 등록값 우선 적용",
+   "대흥로주차장: 등록 기본 60분 500원 ↔ 조례 별표1 소형 기본 30분 500원·초과 매 30분 500원(1시간 환산 1,000원) — 등록값이 더 싸 비고1의 '표 범위 내에서 달리 정할 수 있다' 범위로 보이나 실제 징수 기준은 시청 확인 필요. 등록값 우선 적용",
+   "보령시 유료 8곳 중 7곳: 등록 1일·월정기 없음 ↔ 조례 별표1 소형 1일 5,000원·월정기 주간 50,000원·야간 35,000원 — 등록값이 없어 카드·요금표에 비워 둠(노상 4곳은 별표 비고1의 전통시장주변 노상 미적용 해당 여부, 시장 노외 3곳은 미운영 사유 시청 확인 필요)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "감면_출처": "「보령시 주차장 조례」 제3조의2(제1항 면제: 긴급·공용차량·성실납세증·시장 인정 / 제2항 50%: 장애인·국가유공자·고엽제·5·18·경형·환경친화적·저공해·장기기증·다자녀·병역명문가 / 제3항 투표확인증 2,000원 / 제4항 10부제·함께타기 20% / 제5항 전통시장 최초 1시간) — 별표1 원문 HWP(data/raw/boryeong-ordinance-b1.hwp) 대조 완료(2026-11-19)",
+  "무료시간_출처": "등록 특기사항 '유료운영(월~토 09:00~20:00 또는 09:00~18:00)' — 혼합 8곳은 유료운영 시간 밖과 일요일에 요금을 받지 않는다. 조례에 일요일·공휴일 무료 조항은 없고 공휴일은 특기사항에 언급이 없어 무료로 표기하지 않았다",
+  "주말무료_출처": "등록 특기사항의 유료운영 요일(월~토) 기준 — 혼합 8곳 일요일만 무료, 공휴일 무료 표기 없음",
+  "무료개방_표기": [
+   "동부시장주차장",
+   "제2시민행복주차장",
+   "중앙시장 제1주차장",
+   "중앙시장 제3주차장",
+   "남대천로주차장",
+   "대흥로주차장",
+   "번영로주차장",
+   "중앙로주차장"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 45,
+  "무료_구획수": 6184,
+  "평균_기본요금": 688,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-05-13"
+  ],
+  "관리기관": {
+   "충청남도 보령시청": 53
+  }
+ },
+ "fee_table": {
+  "style": "boryeong_mixed",
+  "unit_min": 30,
+  "base_min": 60,
+  "applies": "충청남도보령시조례 제2208호(시행 2025-09-10, 일부개정), ordinSeq 2066813",
+  "rows": [
+   {
+    "label": "노외 — 전통시장(동부시장·중앙시장 제1·제3)",
+    "grade": "paid_base",
+    "unit_label": "기본 60분 1,000원 → 추가 30분마다 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": null,
+    "month": null,
+    "lots": 3
+   },
+   {
+    "label": "노외 — 제2시민행복주차장",
+    "grade": "paid_base",
+    "unit_label": "기본 60분 500원 → 추가 30분마다 500원",
+    "hour": 500,
+    "two_hour": 1500,
+    "day": 5000,
+    "month": 50000,
+    "lots": 1
+   },
+   {
+    "label": "노상 — 중앙로·남대천로·대흥로",
+    "grade": "paid_base",
+    "unit_label": "기본 60분 500원 → 추가 30분마다 500원",
+    "hour": 500,
+    "two_hour": 1500,
+    "day": null,
+    "month": null,
+    "lots": 3
+   },
+   {
+    "label": "노상 — 번영로",
+    "grade": "paid_base",
+    "unit_label": "기본 30분 500원 → 추가 30분마다 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": null,
+    "month": null,
+    "lots": 1
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 4,
+   "free": 45,
+   "unknown": 0,
+   "street_paid": 4
+  },
+  "windows": [
+   {
+    "group": "유료운영",
+    "hours": "월~토 09:00~20:00 (전통시장 3곳은 09:00~18:00)",
+    "free": "등록 특기사항에 적힌 유료운영 시간에만 요금을 받고, 그 밖의 시간과 일요일은 무료입니다"
+   }
+  ],
+  "notes": "보령시 공영주차장 53곳 중 45곳은 무료이고 요금을 받는 곳은 '혼합' 8곳뿐이다. 혼합 8곳은 등록 특기사항에 적힌 유료운영 시간(월~토)에만 요금을 받는다 — 제2시민행복주차장과 노상 4곳(대흥로·중앙로·남대천로·번영로)은 09:00~20:00, 전통시장 노외 3곳(동부시장·중앙시장 제1·제3)은 09:00~18:00이고, 그 밖의 시간과 일요일은 무료다. 공휴일은 특기사항에 언급이 없어 공휴일이 평일이면 유료운영 시간에 요금이 붙는 것으로 보고 표기했다. 요금은 등록값을 그대로 썼다 — 시장 3곳은 기본 60분 1,000원에 추가 30분마다 500원, 제2시민행복·노상 3곳은 기본 60분 500원에 추가 30분마다 500원, 번영로 노상은 기본 30분 500원에 추가 30분마다 500원이다. 「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 별표1은 급지 구분 없이 차종으로만 나뉘어 소형 기본 30분 500원·초과 매 30분 500원·1일 5,000원·월정기 주간 50,000원·야간 35,000원이다. 등록 추가요금(30분당 500원)은 8곳 전부 조례와 일치하고, 시장 3곳의 기본 60분 1,000원도 조례 1시간 환산액과 일치한다(별표 비고1은 전통시장 주변 기본요금을 1시간으로 적용한다). 제2시민행복·노상 3곳의 기본 60분 500원은 조례 환산액 1,000원보다 싸 비고1의 '표 범위 내에서 달리 정할 수 있다'에 해당해 보이나, 실제 징수 기준은 보령시청 확인이 필요하다. 1일·월정기 등록값은 제2시민행복(1일 5,000원·월정기 50,000원 — 조례 소형 1일·월주간과 일치)에만 있고 나머지 7곳에는 없다. 전통시장 3곳은 시장 이용자 최초 1시간 무료가 등록 특기사항과 조례 제3조의2제5항에 있다. 감면은 조례 제3조의2를 따른다(긴급·공용차량·성실납세자 전액 면제, 장애인·국가유공자 등·경형·환경친화적·저공해·장기기증·다자녀·병역명문가 50%, 투표확인증 2,000원, 승용차 10부제·함께타기 20%). 표준데이터에는 보령시 53행이 등록되어 있고 제외·중복 없이 전부 실었다. 중앙시장 주차장은 제1·제3만 등록되어 있어 제2주차장의 존재 여부는 시청 확인이 필요하다.",
+  "corp_extra": {
+   "paid": 4,
+   "free": 45,
+   "unknown": 0,
+   "street_paid": 4
+  },
+  "basis": "「보령시 주차장 조례」 제2208호(시행 2025-09-10, ordinSeq 2066813) 별표1 · 전국주차장정보표준데이터(2026-10-12 기준) 등록값 — 별표1 원문 대조 완료"
+ },
+ "slug": "boryeong",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "보령시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량·성실납세자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "「도로교통법」 제2조제22호에 따른 긴급자동차(제3조의2제1항제1호) · 국가 또는 지방자치단체의 공용차량(제2호) · 성실납세증을 부착한 차량 — 선정된 날부터 1년간(제3호). 그 밖에 시장이 특별한 사유가 있다고 인정하는 차량도 면제할 수 있다(제4호)"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「장애인복지법」에 따른 장애인, 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 국가유공자, 고엽제후유의증환자, 5·18민주유공자가 본인의 자동차를 직접 운전하거나 장애 정도가 심하여 동승하고 타인으로 하여금 대리운전하게 하는 경우 — 주차요금의 2분의 1 감면(제3조의2제2항제1호)"
+  },
+  {
+   "label": "경형·환경친화적·저공해 자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「자동차관리법 시행규칙」 제2조에 따른 1,000cc 미만의 경형자동차(제2호) · 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따른 환경친화적 자동차 및 저공해자동차로 외부에서 식별이 가능한 표지를 부착한 자동차(제3호) — 2분의 1 감면(제3조의2제2항)"
+  },
+  {
+   "label": "장기기증·다자녀·병역명문가 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "보령시 장기기증 등록증을 소지한 사람이 운전하는 자동차(제4호) · 보령시에 주소를 두고 둘째 이상 자녀를 출산 또는 입양하여 양육하는 가정 중 막내가 19세 이하인 다자녀 가정(가정당 1차량에 한정, 제5호) · 「보령시 병역명문가 예우 및 지원에 관한 조례」에 따른 병역명문가 예우 대상자(제6호) — 2분의 1 감면(제3조의2제2항)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
