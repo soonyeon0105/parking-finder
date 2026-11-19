@@ -5609,6 +5609,10 @@ CITY_UI.update({
                      "주차장 설치 및 관리 조례」(시행 2026-06-30) 별표5·제14조·제15조와 대조해 동지역·"
                      "읍면지역 요금을 나누어 적용했습니다. "),
     },
+    "공주시": {
+        # 공주시는 일요일만 무료(조례 별표1 비고 4) — 공휴일 무료 개방 조항은 조례에 없다.
+        "free_weekend_phrase": "공주시 조례 별표1 비고 4에 일요일 무료 개방인",
+    },
 })
 
 
@@ -6155,6 +6159,9 @@ def free_note(lot):
                 " (거주자 정기권 주간·야간 20,000원·전용 24시간 30,000원)")
     if lot["fee"]["type"] == "무료":
         return "원자료상 요금 구분이 '무료'입니다."
+    if lot.get("city") == "공주시" and lot["free_days"].get("sun"):
+        # 공주시는 일요일만 무료(조례 별표1 비고 4) — 공휴일 무료 개방 조항은 조례에 없다.
+        return "일요일 무료 개방 (공주시 조례 별표1 비고 4 기준)"
     out = []
     if lot["free_days"].get("sun"):
         out.append("일요일·공휴일 무료 개방")
@@ -8195,9 +8202,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
                    "은 요일과 관계없이 무료입니다.")
     free_weekend_in_gu = len([l for l in lots if l["fee"]["type"] != "무료"
                               and (l["free_days"]["sat"] or l["free_days"]["sun"])])
-    # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례인 도시(파주시·포천시)는 그 문구로 적고,
+    # 주말 무료 개방의 근거가 특기사항이 아니라 포털·조례인 도시(파주시·포천시·공주시)는 그 문구로 적고,
     # 남은 유료 주차장 수도 함께 적는다. 다른 도시 문구는 그대로 둔다.
-    if city["city"] in ("파주시", "포천시"):
+    if city["city"] in ("파주시", "포천시", "공주시"):
         weekend_extra = (f"이 밖에 유료지만 {ui.get('free_weekend_phrase')} 곳이 "
                          f"{free_weekend_in_gu}곳 있습니다. " if free_weekend_in_gu else "")
         weekend_rest = (f"나머지 {s['n'] - free_in_gu - free_weekend_in_gu}곳" if free_weekend_in_gu
@@ -9237,6 +9244,42 @@ def fee_table_block(city) -> str:
 <b>일요일·설·추석·연휴기간은 당진시청 운영안내에 따라 무료로 개방</b>합니다(조례 제4조제8호의
 재량 개방 규정이라 자동·상시 무료가 아니니 방문 전 확인하세요). 당진공영버스터미널은 최초
 10분 무료(별표1 비고 제11호), 당일 노선여객자동차 승차권 제시 시 50% 감면입니다(왕복 조건 없음).</p>
+<table class="data">
+  <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "gongju_grade":
+        # 공주시 — 유료 10곳(1급지 10곳, 기본요금형). 등록값 전수 동일(기본 30분 500원·
+        #   추가 10분 200원·1일 5,000원·월정기 40,000원). 조례 별표1 대조 완료(2026-11-19):
+        #   1급지 요율 전 항목 일치, 1시간 요금 1,000원은 별표1 명시 요율. 일요일 무료
+        #   (별표1 비고 4), 징수시간 06:00~22:00, 6시간 이상 1일 요금. 노상에도 월정기
+        #   적용(별표1 비고 1). 유료 10곳의 부제시행구분은 '2부제'로 등록되어 있고,
+        #   공휴일 운영시간은 00:00~23:59로 등록되어 있으나 공휴일 무료는 조례에 없다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">공주 공영주차장 184곳 중 유료는 <b>10곳</b>뿐이고, 1급지 10곳은 <b>기본 30분 500원</b>에
+<b>추가 10분마다 200원</b>, <b>1시간 1,000원</b>, <b>1일 5,000원</b>, <b>월정기 40,000원</b>입니다
+(「공주시 주차장 조례」 제1961호 별표1). 징수시간은 연중 <b>06:00~22:00</b>이고 <b>일요일은 무료</b>로
+운영합니다(별표1 비고 4). 6시간 이상 주차하면 1일 요금을 적용하고, 노상 3곳에도 월정기 40,000원이
+적용됩니다(별표1 비고 1). 유료 10곳은 모두 부제시행구분 '2부제'로 등록되어 있어 번호 끝자리에 따른
+이용 제한이 있을 수 있으니 방문 전 공주시청(041-840-7773)에 확인하세요.</p>
 <table class="data">
   <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
@@ -11440,6 +11483,12 @@ def _build_street_mixed(city, street, site):
             _qa2.append((q, a))
         qa = _qa2
 
+    if city["city"] == "공주시":
+        # 공주시는 일요일만 무료(조례 별표1 비고 4) — 공휴일 무료 개방 조항은 조례에 없다.
+        qa = [(q, a.replace("일요일·공휴일에 무료로 개방합니다(조례·등록값 기준)",
+                            "일요일에 무료로 개방합니다(공주시 조례 별표1 비고 4 기준)"))
+              if "언제 무료인가요" in q else (q, a) for q, a in qa]
+
     body = f"""
 <h1>{city['city']} 노상주차장 {len(street)}구간 · {(f"무료 개방 {len(free)}곳과 요금" if free_resident else f"무료 {len(free)}곳과 요금") if free else "요금과 운영시간"}</h1>
 <p class="lede">{esc(ui.get('street_lede') or f"도로변에 설치된 공영 노상(거리) 주차구간입니다. 구간 이름이 {ui['street_examples'] + '처럼 ' if ui['street_examples'] else ''}위치 설명으로 등록되어 있어 카드 대신 도로별 표로 정리했습니다. {f'무료 개방 {len(free)}곳(주거지 전용 {len(free_resident)}곳 포함)과 유료 {len(paid)}곳' if free_resident else f'무료 {len(free)}곳과 유료 {len(paid)}곳' if free else f'유료 {len(paid)}곳'}을 구간별로 확인하세요.")}</p>
@@ -11793,6 +11842,13 @@ def build_city_free(city, site):
          f"요금은 유료이지만 정해진 야간 시간대에 요금을 받지 않는 곳이 {len(night)}곳입니다. "
          "카드의 ‘무료 시간’에 그 시간대를 적었습니다."),
     ]
+    if city["city"] == "공주시":
+        # 공주시는 일요일만 무료(조례 별표1 비고 4) — 공휴일 무료 개방 조항은 조례에 없다.
+        qa = [(("공주시에서 일요일에 무료인 공영주차장은 몇 곳인가요?",
+                f"조례 별표1 비고 4에 따라 일요일에 무료로 개방하는 곳이 {len(weekend)}곳입니다. "
+                f"공휴일 무료 개방 조항은 조례에 없어 공휴일에는 요금을 받습니다. "
+                + (f"{', '.join(l['name'] for l in weekend[:8])} 등입니다. " if weekend else ""))
+               if "주말·공휴일에 무료인" in q else (q, a)) for q, a in qa]
     body = f"""
 <h1>{esc(city['city'])} 무료 공영주차장 {c['union']}곳 — 주말·공휴일·야간 무료</h1>
 <p class="lede">{esc(city['city'])} 공영주차장 가운데 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 {c['union']}곳만 모았습니다.
