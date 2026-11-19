@@ -37791,6 +37791,526 @@ def build_jecheon():
     return payload
 
 
+# ─────────────────────────────────────────────────────────────────────────
+# 보은군 (충청북도) — 「보은군 주차장 조례」 제3581호(시행 2026-03-13, 일부개정),
+#   ordinSeq 2115451. law.go.kr 원문 직접 확인(2026-11-20):
+#   본문 data/raw/boeun-ordinance.txt, 별표1 원문 HWP
+#   data/raw/boeun-ordinance-b1.hwp (추출문 boeun-ordinance-b1.txt).
+# 별표1(공영주차장 주차 요금표, 개정 2026.3.13): 급지 구분이 없다.
+#   주간 1회주차권 — 최초 1시간30분까지 무료, 1시간30분 초과 후 30분마다
+#     500원. 1일주차 7,000원(노상주차장 제외). 월정기권 40,000원. 야간 무료.
+#   주간 시간구분: 4~10월 08:00~20:00, 11~3월 09:00~19:30, 나머지는 야간.
+#   대형차 가중: 15인승 이상 45인승 미만 승합·2.5톤 이상 11톤 미만 화물은
+#     기준 요금의 2배, 45인승 이상 승합·11톤 이상 화물은 3배.
+# 감면: 제3조제2항 전액 면제(긴급자동차, 국가·지방자치단체 공용차량,
+#   공공행사·회의 참여 차량), 제3조제4항 50%(경형자동차, 저공해·환경친화적
+#   자동차 — 전기자동차를 충전 목적으로 주차하는 경우 면제), 제3조제5항
+#   50%를 감면할 수 있다(장애인, 국가유공자·5·18·참전·특수임무유공자,
+#   고엽제, 병역명문가, 65세 이상 경로우대자, 의사상자, 장기기증자),
+#   제3조제6항 전통시장 주차요금은 최초 30분 면제, 제3조제7항 중복 감면 시
+#   감면율이 높은 하나만 적용.
+# 보은군 표준데이터 22행은 전부 공영·무료(노외 16·노상 6) — 총 1,033면,
+#   좌표 결측 0, 이름 중복 0. 조례 별표는 유료 요금표인데 전량 무료로
+#   등록돼 있어, 무료 운영의 근거(고시 등)는 보은군청 확인이 필요하다
+#   (fee_diff 기록). 등록 급지구분은 22행 전부 '1'이나 조례 별표1에는
+#   급지 구분이 없다. 관리번호(275-1-000001~275-2-000022)는 중복이 없어도
+#   식별자로 쓰지 않는다.
+BOEUN_PROVINCE = "충청북도"
+BOEUN_PROVINCE_SLUG = "chungbuk"
+BOEUN_ORD_URL = ("https://www.law.go.kr/ordinInfoP.do?ordinSeq=2115451"
+                 "&efYd=20260313")
+BOEUN_ORD_DL = ("https://www.law.go.kr/flDownload.do?gubun=ELIS"
+                "&flSeq=164882041&ordinSeq=2115451")
+BOEUN_ORD_HWP = RAW / "boeun-ordinance-b1.hwp"
+BOEUN_ORD_NOTE = ("조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「보은군 주차장 조례」 제3581호(2026-03-13 시행, 일부개정), "
+                  "ordinSeq 2115451. 본문 사본 data/raw/boeun-ordinance.txt, "
+                  "별표1(공영주차장 주차 요금표) 원문 HWP "
+                  "data/raw/boeun-ordinance-b1.hwp.")
+
+BOEUN_DISCOUNTS = [
+    {"label": "긴급자동차·공용차량·공공행사 차량 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 공무수행을 위한 국가 또는 지방자치단체의 공용차량, 공공행사 및 회의에 참여하는 차량 전액 면제"},
+    {"label": "경형·저공해·환경친화적 자동차 50%", "rate": 0.5, "exempt_min": None,
+     "note": "조례 제3조제4항 — 경형자동차, 저공해자동차 표지 부착 자동차, 환경친화적 자동차 표지 부착 자동차 50% 감면 (전기자동차를 충전 목적으로 충전시설에 주차하는 경우 면제)"},
+    {"label": "장애인·국가유공자·65세 이상·장기기증자 등 50%", "rate": 0.5, "exempt_min": None,
+     "note": "조례 제3조제5항 — 장애인, 국가유공자·5·18민주유공자·참전유공자·특수임무유공자, 고엽제후유의증 환자, 병역명문가, 65세 이상 경로우대자, 의사상자, 장기기증자 50% 감면(감면할 수 있다)"},
+]
+
+BOEUN_CONF = {
+    "city": "보은군",
+    "slug": "boeun",
+    "manager": "충청북도 보은군청",
+    "manager_inquiry": "보은군청(043-540-3095)",
+    "ordinance": ("「보은군 주차장 조례」 제3581호(시행 2026-03-13, 일부개정)",
+                  BOEUN_ORD_URL, BOEUN_ORD_NOTE),
+    "notes": ("보은군 공영주차장은 조례 별표1이 급지 구분 없이 주간 1회주차권 "
+              "최초 1시간30분 무료·초과 후 30분마다 500원, 1일주차 7,000원"
+              "(노상주차장 제외), 월정기권 40,000원, 야간 무료의 유료 요금표를 "
+              "두고 있다. 다만 표준데이터에는 22곳 전부 무료로 등록돼 있어 실제 "
+              "요금은 받지 않는 것으로 보이며, 무료 운영의 근거는 보은군청 확인이 "
+              "필요하다. 주간 시간구분은 4~10월 08:00~20:00, 11~3월 09:00~19:30"
+              "이고 나머지는 야간이다."),
+    "discounts": BOEUN_DISCOUNTS,
+}
+
+
+def boeun_dong_of(addr, name=None):
+    if not addr:
+        return None
+    m = re.search(r"보은군\s*([가-힣]{1,6}(?:읍|면))", addr)
+    return m.group(1) if m else None
+
+
+def boeun_fee(row, name, note_bits, fee_diff):
+    """보은군 공영주차장 한 곳의 요금 — 표준데이터 22행 전부 '무료'라 실린
+    22곳 모두 무료다. 조례 별표1은 급지 구분 없는 유료 요금표를 두고 있어,
+    등록이 유료·혼합인 곳이 생기면 별표 구조로 계산한다: 주간 최초
+    1시간30분 무료, 초과 후 30분마다 500원, 1일 7,000원(노상주차장 제외),
+    월정기권 40,000원. 야간 무료는 시간대 구분이라 계산 구조에는 넣지 않고
+    안내에만 적는다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있음"})
+        return fee
+    fee.update({"type": "유료", "base_min": 90, "base_fee": 0,
+                "unit_min": 30, "unit_fee": 500,
+                "daily_fee": (day or 7000) if ptype != "노상" else None,
+                "daily_hours": to_int(row.get("1일주차권요금적용시간")),
+                "monthly": month or 40000, "monthly_all": None, "monthly_label": None,
+                "basis": "「보은군 주차장 조례」 제3581호 별표1(공영주차장 주차 요금표) — "
+                         "등록 요금값이 없어 별표 구조로 적용"})
+    note_bits.append("요금은 조례 별표1 기준입니다 — 주간 최초 1시간30분 무료, "
+                     "초과 후 30분마다 500원, 야간은 무료입니다")
+    note_bits.append("감면은 「보은군 주차장 조례」 제3조 기준입니다")
+    return fee
+
+
+def boeun_fee_table(conf, lots):
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    g = {"base_min": 90, "base_fee": 0, "unit_min": 30, "unit_fee": 500,
+         "daily_fee": 7000}
+    rows = [{"label": "조례 별표1 (급지 구분 없음)", "grade": "common",
+             "unit_label": "최초 1시간30분 무료 · 초과 30분마다 500원",
+             "hour": sj_charge(g, 60), "two_hour": sj_charge(g, 120),
+             "day": 7000, "month": 40000, "lots": len(lots)}]
+    return {
+        "style": "boeun_grade",
+        "rows": rows,
+        "windows": [{"group": "공통", "hours": "00:00~23:59",
+                     "free": "22곳 전부 등록 운영시간이며 요금은 전량 무료로 등록돼 있다"}],
+        "corp": {"paid": len(paid), "street_paid": len([l for l in street
+                                                       if l["fee"]["type"] in ("유료", "혼합")]),
+                 "free": len(free)},
+        "notes": ("감면(조례 제3조)은 긴급자동차·공용차량·공공행사 및 회의 참여 "
+                  "차량 전액 면제, 경형·저공해·환경친화적 자동차 50%, 장애인·"
+                  "국가유공자·65세 이상 경로우대자·장기기증자 등 50%(감면할 수 "
+                  "있다)이며, 전통시장 주차요금은 최초 30분 면제입니다. 야간"
+                  "(4~10월 20:00~익일 08:00, 11~3월 19:30~익일 09:00)은 조례 "
+                  "별표1상 무료입니다. 1일주차 7,000원은 노상주차장에는 적용되지 "
+                  "않습니다."),
+        "basis": ("요금표는 「보은군 주차장 조례」 제3581호(2026-03-13 시행) 별표1"
+                  "(공영주차장 주차 요금표)과 표준데이터(보은군청, 기준일 2026-04-17)를 "
+                  "대조해 적용했다. (조례 본문: data/raw/boeun-ordinance.txt, "
+                  "별표1 원문 HWP: data/raw/boeun-ordinance-b1.hwp)"),
+    }
+
+
+def boeun_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "감면_출처": ("「보은군 주차장 조례」 제3581호 제3조 — 제2항 전액 면제(긴급자동차, "
+                      "공용차량, 공공행사·회의 참여 차량), 제4항 50%(경형자동차, "
+                      "저공해·환경친화적 자동차), 제5항 50% 감면할 수 있다(장애인, "
+                      "국가유공자·5·18·참전·특수임무유공자, 고엽제, 병역명문가, "
+                      "65세 이상, 의사상자, 장기기증자) — 본문·별표1 원문 HWP"
+                      "(data/raw/boeun-ordinance-b1.hwp) 대조 완료(2026-11-20)"),
+        "무료시간_출처": "조례 별표1의 최초 1시간30분 무료는 유료 운영 시 기준 — 22곳의 무료는 표준데이터 요금구분 ‘무료’ 등록 기준",
+        "주말무료_출처": ("조례에 요일별 무료 조항 없음 — 전량 무료 등록이라 요일과 "
+                          "관계없이 무료"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] for l in paid if l["fee"].get("base_fee"))
+                              / max(1, len([l for l in paid if l["fee"].get("base_fee")]))),
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_boeun():
+    """보은군 하나를 표준데이터로 추출한다 (build_seocheon 의 보은군 변형).
+    조례 대조 완료 — 「보은군 주차장 조례」 제3581호(시행 2026-03-13,
+    ordinSeq 2115451) 별표1·제3조 원문 대조 완료(2026-11-20). 22행 전부
+    공영·무료(노외 16·노상 6)라 민영 제외·중복 제거는 없다."""
+    conf = BOEUN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "보은군" in _owner(r)]
+
+    def _plot(r):
+        # 지번 표기 차이를 흡수한다: '862-6,7'과 '862-6, 862-7'은 같은 자리다.
+        s = re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                       or (r.get("소재지도로명주소") or "").strip())
+        m = re.search(r"\d", s)
+        if not m:
+            return s
+        head, tail = s[:m.start()], s[m.start():]
+        toks = tail.split(",")
+        first = toks[0]
+        base = first.split("-")[0]
+        norm = [first]
+        for t in toks[1:]:
+            if t.startswith("-"):
+                norm.append(base + t)
+            elif re.fullmatch(r"\d+", t):
+                norm.append(base + "-" + t)
+            else:
+                norm.append(t)
+        return head + ",".join(sorted(norm))
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("소재지도로명주소") or "").strip() else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이
+    #   같고 주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로
+    #   본다. 관리번호로는 절대 합치지 않는다.
+    dropped, merged = set(), []
+    space_diff = []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 자리·좌표 200m 이내의 재등록 — 도로명주소가 "
+                                    "있는 등록, 없으면 면수가 큰 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+            _ks = to_int(rows_std[keep].get("주차구획수"))
+            _ds = to_int(rows_std[i].get("주차구획수"))
+            if _ks != _ds:
+                space_diff.append(
+                    f"{rows_std[keep]['주차장명']}·{rows_std[i]['주차장명']}: 같은 자리 "
+                    f"재등록 2행의 면수가 {_ds}면/{_ks}면으로 다르다 — 남긴 등록"
+                    f"({rows_std[keep]['주차장명']})의 {_ks}면으로 실었고 보은군청 "
+                    "확인 필요")
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, coord_fixed = [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.30 < lat < 36.60 and 127.50 < lng < 127.90):
+            # 보은군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 보은군 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = boeun_dong_of(jibun, std_name) or boeun_dong_of(road, std_name)
+        if boeun_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif boeun_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 지번주소에 읍·면 이름이 빠져 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits, free_days = [], {"sat": False, "sun": False}
+        fee = boeun_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "보은군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 좌표 중복 등록 — 서로 다른 주소인데 좌표가 (거의) 같게 등록된 곳 (값은 바꾸지
+    #   않고 기록만). 반올림 경계에서 갈리지 않도록 15m 이내 쌍을 묶어 판정한다.
+    _coord_lots = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    _parent = list(range(len(_coord_lots)))
+
+    def _find(a):
+        while _parent[a] != a:
+            _parent[a] = _parent[_parent[a]]
+            a = _parent[a]
+        return a
+
+    for _a in range(len(_coord_lots)):
+        for _b in range(_a + 1, len(_coord_lots)):
+            _la, _lb = _coord_lots[_a], _coord_lots[_b]
+            _dist = 111000 * math.sqrt((_la["lat"] - _lb["lat"]) ** 2
+                                       + ((_la["lng"] - _lb["lng"]) * 0.81) ** 2)
+            if _dist < 15:
+                _ra, _rb = _find(_a), _find(_b)
+                if _ra != _rb:
+                    _parent[_ra] = _rb
+    _clusters = {}
+    for _i, l in enumerate(_coord_lots):
+        _clusters.setdefault(_find(_i), []).append(l)
+    for _grp in sorted(_clusters.values(), key=lambda g: g[0]["name"]):
+        _addrs = {(x.get("addr_jibun") or x.get("addr_road")) for x in _grp}
+        if len(_grp) > 1 and len(_addrs) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"좌표 중복 등록: {_names} — 서로 다른 주소인데 좌표"
+                              f"({_grp[0]['lat']}, {_grp[0]['lng']})가 같게 등록돼 있다. "
+                              "값은 그대로 두고 지도 위치는 군청 원본 확인이 필요하다")
+            for x in _grp:
+                x["notice"] = " · ".join(b for b in (x.get("notice"),
+                    "좌표가 다른 주차장과 동일하게 등록돼 있어 지도 위치가 실제와 다를 수 있습니다") if b)
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    fee_diff.append("조례 별표1은 급지 구분 없이 주간 최초 1시간30분 무료·초과 후 "
+                    "30분마다 500원·1일주차 7,000원(노상주차장 제외)·월정기권 "
+                    "40,000원·야간 무료의 유료 요금표인데 표준데이터 22곳은 전부 "
+                    "'무료'(요금 칸 전부 0)로 등록돼 있다 — 조례에 무료 운영 재량 "
+                    "조항이 없어 무료 운영의 근거(고시 등)는 보은군청 확인 필요. "
+                    "유료로 계산할 주차장이 없어 요금표는 조례 별표 참고표로만 실었다")
+    fee_diff.append("등록 급지구분은 22행 전부 '1'이나 조례 별표1에는 급지 구분이 "
+                    "없다 — 전량 무료라 요금 결과에는 영향이 없다")
+    note_fixed.append("조례 제3조제6항의 전통시장 주차요금 최초 30분 면제는 전량 "
+                      "무료 등록이라 실제로는 적용할 요금이 없다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"cb-boeun-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"cb-boeun-s{n_street:03d}"
+
+    fee_table = boeun_fee_table(conf, lots)
+    quality = boeun_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"보은군으로 등록된 행 {len(rows_std)}행(노외 {len([l for l in lots if l['list_mode'] == 'card'])}곳·"
+                 f"노상 {len([l for l in lots if l['list_mode'] == 'street'])}구간)을 읽어 실었다. "
+                 f"보은군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·"
+                 f"면수는 등록값을 그대로 썼다. 조례 대조 완료 — 「보은군 주차장 조례」 "
+                 f"제3581호(시행 2026-03-13, ordinSeq 2115451) 별표1·제3조 원문 "
+                 f"대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": BOEUN_ORD_HWP.name if BOEUN_ORD_HWP.exists() else None,
+            "sha256": sha256(BOEUN_ORD_HWP) if BOEUN_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-03-13",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"보은군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/boeun-ordinance.txt, 별표1 원문 HWP: "
+                    f"data/raw/boeun-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": BOEUN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "보은군", "slug": "boeun"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": BOEUN_PROVINCE,
+        "province_slug": BOEUN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "boeun_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -37803,7 +38323,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -37821,7 +38341,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -37874,7 +38394,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -38011,6 +38531,8 @@ def main():
         cities.append(build_chungju())
     if "제천시" in want:
         cities.append(build_jecheon())
+    if "보은군" in want:
+        cities.append(build_boeun())
 
     if args.city == "all":
         site = build_site_payload(cities)
