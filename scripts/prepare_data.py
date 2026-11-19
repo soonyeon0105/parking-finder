@@ -37171,6 +37171,626 @@ def build_chungju():
     return payload
 
 
+
+# ---------------------------------------------------------------- 제천시 (T-03 충북 2)
+# 제천시는 표준데이터에 공영 22곳(노외 4·노상 18)이 전부 유료로 등록돼 있다
+#   (기준일 2026-05-18, 좌표 전부 있음, 도로명주소는 노외 3곳만 있음). 조례는
+#   「제천시 주차장 설치 및 관리 조례」 제2180호(시행 2026-03-13, 공포
+#   2026-03-13, ordinSeq 2115437) 제3조·별표 1·별표 3 원문을 직접 대조했다
+#   (data/raw/jecheon-ordinance.txt, jecheon-ordinance-b1.hwp,
+#   jecheon-ordinance-b3.hwp).
+# 별표 1(개정 2025-05-09): 10분당 1급지 300원·2급지 200원·3급지 100원,
+#   1일 12,000/8,000/4,000원, 월정기 1급지 없음·2급지 주간 75,000/야간
+#   56,000원·3급지 주간 45,000/야간 30,000원. 비고3 징수시간 09:00~20:00,
+#   매주 일요일 무료개방(휴무), 야간 징수는 시장이 따로 정하는 때까지 유보.
+#   비고4 급지 명단(1급지 노상1지구·중앙시장2지구, 2급지 노상2·4·5·7지구·
+#   중앙시장·동문시장·내토시장·용두천1·2·3·7지구·중앙교차로·명동교차로·
+#   역전교차로·기타, 3급지 용두천4·5지구·역전시장지구)은 등록 급지와 전건
+#   일치한다. 비고5 10분 미만은 10분으로 적용, 비고7 당일 1회 요금이 1일
+#   요금을 넘으면 1일 요금이 한도.
+# 별표 3(개정 2025-12-19, 공영주차타워): 최초 1시간 무료, 초과 주간(07~19시)
+#   10분당 200원·야간 및 토요일·일요일 1시간당 200원, 1일 주차권 7,000원
+#   (주차 시부터 24시간), 월정기 주간 60,000/야간 40,000원, 연중무휴 24시간,
+#   설·추석 연휴 등 일부 공휴일 무료(비고6).
+# 등록값과 조례가 어긋나는 곳은 세 가지다. ① 주차타워 3곳의 등록 기본요금은
+#   기본 60분 200원인데 별표 3은 최초 1시간 무료다. ② 타워 등록 특기사항은
+#   '19시-07시 및 주말 1시간당 100원'인데 별표 3의 야간·주말 단가는 1시간당
+#   200원이다. ③ 월정기 등록값은 2급지 131,000원·3급지 75,000원·타워
+#   100,000원으로 별표의 주간+야간 합산액과 같아 보인다. 등록 기준일
+#   (2026-05-18)이 별표 3 개정 시행(2026-01-01)보다 뒤이고 22곳 전 행이
+#   완전한 구조로 등록돼 있어, 계산기는 공주·청양·홍성·태안·충주 선례대로
+#   등록값을 유지하고 요금표는 조례 별표 값으로 표기하며 차이는 fee_diff에
+#   전건 남긴다(시청 확인 필요 — 머지 시 최종 판단 지점).
+JECHEON_PROVINCE = "충청북도"
+JECHEON_PROVINCE_SLUG = "chungbuk"
+JECHEON_ORD_URL = ("https://www.law.go.kr/ordinInfoP.do?ordinSeq=2115437"
+                   "&efYd=20260313")
+JECHEON_ORD_DL = ("https://www.law.go.kr/flDownload.do?gubun=ELIS"
+                  "&flSeq=162357693&ordinSeq=2115437")
+JECHEON_ORD_HWP = RAW / "jecheon-ordinance-b1.hwp"
+JECHEON_ORD_NOTE = ("조례 본문·별표는 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                    "「제천시 주차장 설치 및 관리 조례」 제2180호(2026-03-13 공포·시행, "
+                    "일부개정), ordinSeq 2115437. 본문 사본 data/raw/jecheon-ordinance.txt, "
+                    "별표 1(공영주차장 주차요금표) 원문 HWP data/raw/jecheon-ordinance-b1.hwp·"
+                    "추출문 jecheon-ordinance-b1.txt, 별표 3(공영주차타워 주차요금표) 원문 "
+                    "HWP data/raw/jecheon-ordinance-b3.hwp·추출문 jecheon-ordinance-b3.txt.")
+
+JECHEON_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 전액 면제"},
+    {"label": "모범·성실납세자 전액 면제 (1일 1회 4시간까지)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항제2호 — 국(지방)세 성실납세자로 국세청장 및 지방자치단체장이 지정한 모범납세자 스티커 또는 성실납세자 증명서를 부착한 차량. 지정된 날부터 1년간 유효하며 1일 1회 4시간 범위에서만 면제한다"},
+    {"label": "장애인·국가유공자·경형·고엽제·5·18·의사상자·전통시장·임산부·환경친화적·저공해·병역명문가·다자녀·헌혈 100회 등 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항 — 장애인 표지를 부착하고 본인이 탑승한 차량, 국가유공자 등(독립유공자 유족 포함), 경형자동차, 고엽제후유의증환자 등, 5·18민주유공자, 의사자 유족·의상자 및 가족, 전통시장 안·인근 공영주차장을 이용하고 이용 사실을 확인받은 차량, 임산부, 환경친화적·저공해자동차 표지 부착 차량, 병역명문가, 막내자녀 18세 이하 다자녀 세대, 누적 헌혈 100회 이상. 감면 사유가 둘 이상이면 감면율이 높은 하나만 적용하고 100원 미만은 절사한다(제3조제4·5항)"},
+]
+
+JECHEON_TOWERS = ("시민주차타워", "하소주차타워", "청전공원주차타워")
+
+JECHEON_CONF = {
+    "city": "제천시",
+    "slug": "jecheon",
+    "manager": "충청북도 제천시청",
+    "manager_inquiry": "제천시청 교통시설팀(043-641-6354)·주차장 안내(043-641-6355)",
+    "ordinance": ("「제천시 주차장 설치 및 관리 조례」 제2180호(시행 2026-03-13, 일부개정)",
+                  JECHEON_ORD_URL, JECHEON_ORD_NOTE),
+    "notes": ("제천시 공영주차장 22곳은 전부 유료이고 총 1,252면이다(노외 4곳 729면, "
+              "노상 18구간 523면). 「제천시 주차장 설치 및 관리 조례」 제2180호(시행 "
+              "2026-03-13, ordinSeq 2115437) 별표 1은 10분당 1급지 300원·2급지 200원·"
+              "3급지 100원, 1일 12,000/8,000/4,000원, 월정기 1급지 없음·2급지 주간 "
+              "75,000/야간 56,000원·3급지 주간 45,000/야간 30,000원으로 정하고, 징수시간은 "
+              "09:00~20:00이며 매주 일요일은 무료로 개방한다. 별표 1 비고4의 급지 명단은 "
+              "표준데이터 등록 급지와 전건 일치한다. 공영주차타워 3곳(시민·하소·청전공원)은 "
+              "별표 3이 따로 적용된다 — 최초 1시간 무료, 초과 주간 10분당 200원·야간 및 "
+              "토요일·일요일 1시간당 200원, 1일 주차권 7,000원, 월정기 주간 60,000/야간 "
+              "40,000원, 연중무휴 24시간. 다만 등록값은 타워 기본요금이 기본 60분 200원으로 "
+              "별표 3의 '최초 1시간 무료'와 다르고, 타워 특기사항의 야간·주말 단가(1시간당 "
+              "100원)도 별표 3(200원)과 다르며, 월정기 등록값(2급지 131,000원·3급지 "
+              "75,000원·타워 100,000원)은 별표의 주간+야간 합산액으로 보인다. 등록 기준일"
+              "(2026-05-18)이 별표 3 개정 시행(2026-01-01)보다 뒤이고 전 행이 완전한 "
+              "구조라, 계산기는 공주·청양·홍성·태안·충주 선례대로 등록값을 유지하고 요금표는 "
+              "조례 별표 값으로 표기했으며 차이는 급지_요금_차이에 전건 기록했다(시청 확인 "
+              "필요 — 머지 시 최종 판단 지점). 감면은 조례 제3조를 따른다(긴급자동차·"
+              "모범·성실납세자 전액 면제, 장애인·국가유공자·경형·고엽제·5·18·의사상자·"
+              "전통시장 이용·임산부·환경친화적·저공해·병역명문가·다자녀·헌혈 100회 등 "
+              "50% 감면). 좌표는 22곳 전부 등록돼 있고, 도로명주소는 노외 3곳(주차타워)에만 "
+              "있다."),
+    "discounts": JECHEON_DISCOUNTS,
+}
+
+
+def jecheon_dong_of(addr, name=None):
+    """제천시 동·읍·면 판정 — 지번주소의 법정동 토큰(중앙로2가·남천동 등)을 쓴다."""
+    if addr:
+        m = re.search(r"제천시\s+(\S+?(?:동|읍|면|\d가))\s+\d", addr)
+        if m:
+            return m.group(1)
+        m = re.search(r"제천시\s*([가-힣]{1,6}(?:동|읍|면))", addr)
+        if m:
+            return m.group(1)
+    if name:
+        m = re.search(r"([가-힣]{1,6}(?:동|읍|면))", name)
+        if m:
+            return m.group(1)
+    return None
+
+
+def jecheon_fee(row, name, note_bits, fee_diff):
+    """제천시 공영주차장 한 곳의 요금 — 22곳 전부 유료. 별표 1 구간(19곳)은
+    등록 기본시간이 0분(기본시간 없이 10분당 단가)이라 계산기에는 기본
+    10분=단가로 환산해 넣는다(금액 구조는 같다). 1일 한도는 별표 1 비고7로
+    적용한다. 공영주차타워 3곳은 별표 3 대상인데 등록 기본요금(기본 60분
+    200원)이 별표 3의 '최초 1시간 무료'와 다르고, 등록 특기사항의 야간·주말
+    단가(1시간당 100원)도 별표 3(200원)과 다르다. 등록 기준일(2026-05-18)이
+    별표 3 개정 시행(2026-01-01)보다 뒤이고 전 행이 완전한 구조라 계산기는
+    공주·청양·홍성·태안·충주 선례대로 등록값을 유지하고 차이는 fee_diff에
+    전건 남긴다(시청 확인 필요 — 머지 시 최종 판단 지점)."""
+    base_min_raw = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min_raw, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료", "basis": "요금 구분 ‘무료’"})
+        return fee
+    if raw_type != "유료":
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if name in JECHEON_TOWERS:
+        fee_diff.append(f"{name}: 등록 기본요금 기본 60분 {base_fee}원 ↔ 조례 별표 3 '최초 "
+                        "1시간 무료' — 계산기는 공주·청양·홍성·태안·충주 선례대로 등록값을 "
+                        "유지하고 요금표는 별표 3 값으로 표기(시청 확인 필요)")
+        fee_diff.append(f"{name}: 등록 특기사항 '19시-07시 및 주말 1시간당 100원' ↔ 조례 "
+                        "별표 3 '야간 및 토요일·일요일 1시간 초과 후 매 1시간 200원' — "
+                        "계산기는 등록 기본 구조(10분당 200원)로 계산해 야간·주말 단가가 "
+                        "반영되지 않는다(시청 확인 필요)")
+        if month:
+            fee_diff.append(f"{name}: 월정기 등록값 {month:,}원 ↔ 조례 별표 3 주간 "
+                            "60,000원·야간 40,000원 — 등록값은 주간+야간 합산액으로 보인다")
+        fee.update({"type": "유료", "base_min": base_min_raw, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day, "daily_hours": None,
+                    "cap_fee": None, "cap_src": None,
+                    "monthly": month if month else None,
+                    "monthly_all": None, "monthly_label": None,
+                    "grade": None, "grade_label": "공영주차타워(별표 3)",
+                    "steps": None,
+                    "steps_label": (f"기본 {base_min_raw}분 {base_fee:,}원 · 이후 "
+                                    f"{unit_min}분마다 {unit_fee:,}원 (등록값 — 조례 별표 3은 "
+                                    "최초 1시간 무료)"),
+                    "basis": "전국주차장정보표준데이터 등록값(제천시청, 기준일 2026-05-18) — "
+                             "「제천시 주차장 설치 및 관리 조례」 별표 3과 대조 완료. 기본요금·"
+                             "야간 단가·월정기가 별표 3과 다른 점은 급지_요금_차이에 기록했다"})
+        note_bits.append("공영주차타워는 조례 별표 3 요금표가 따로 적용됩니다 — 최초 1시간 "
+                         "무료, 초과 주간 10분당 200원·야간 및 토요일·일요일 1시간당 200원, "
+                         "1일 주차권 7,000원, 월정기 주간 60,000원·야간 40,000원 (등록값과 "
+                         "다른 항목은 시청 확인이 필요합니다)")
+        note_bits.append("설날·추석 연휴 등 일부 공휴일에는 요금을 받지 않습니다 "
+                         "(조례 별표 3 비고6)")
+        return fee
+    ord_day = {"1": 12000, "2": 8000, "3": 4000}.get(grade)
+    if month:
+        _ord_month = {"1": None, "2": (75000, 56000), "3": (45000, 30000)}.get(grade)
+        if _ord_month and month == _ord_month[0] + _ord_month[1]:
+            fee_diff.append(f"{name}: 월정기 등록값 {month:,}원 ↔ 조례 별표 1 {grade}급지 "
+                            f"주간 {_ord_month[0]:,}원·야간 {_ord_month[1]:,}원 — 등록값은 "
+                            "주간+야간 합산액으로 보인다")
+    fee.update({"type": "유료", "base_min": 10, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day, "daily_hours": None,
+                "cap_fee": day,
+                "cap_src": "조례 별표 1 비고7 — 당일 1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금을 한도로 한다",
+                "monthly": month if month else None,
+                "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": f"{grade}급지" if grade else None,
+                "steps": None,
+                "steps_label": f"10분당 {base_fee:,}원 (10분 미만은 10분으로 계산)",
+                "basis": "전국주차장정보표준데이터 등록값(제천시청, 기준일 2026-05-18) — "
+                         "「제천시 주차장 설치 및 관리 조례」 별표 1과 대조 완료. 등록 "
+                         "기본시간 0분은 10분당 단가 구조라 기본 10분=단가로 환산했다"})
+    if ord_day and day and day != ord_day:
+        fee_diff.append(f"{name}: 등록 1일 요금 {day:,}원 ↔ 조례 별표 1 {grade}급지 "
+                        f"{ord_day:,}원 — 계산기는 등록값을 유지(시청 확인 필요)")
+    note_bits.append(f"당일 요금이 1일 주차요금({day:,}원)을 넘으면 1일 요금까지만 냅니다 "
+                     "(조례 별표 1 비고7)")
+    return fee
+
+
+def _jecheon_tier_of(lot):
+    if lot["name"] in JECHEON_TOWERS:
+        return "타워"
+    return lot["fee"].get("std_grade") or ""
+
+
+def jecheon_fee_table(conf, lots):
+    """요금표 — 조례 별표 1·별표 3 값으로 표기한다(공주·청양·홍성·태안·충주
+    선례: 계산기는 등록값 유지, 요금표는 조례값). 별표 1: 10분당 1급지
+    300원·2급지 200원·3급지 100원, 1일 12,000/8,000/4,000원, 월정기 1급지
+    없음·2급지 주간 75,000/야간 56,000원·3급지 주간 45,000/야간 30,000원.
+    별표 3(주차타워): 최초 1시간 무료·초과 주간 10분당 200원, 1일 7,000원,
+    월정기 주간 60,000/야간 40,000원."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    g1 = {"base_min": 10, "base_fee": 300, "unit_min": 10, "unit_fee": 300, "daily_fee": 12000}
+    g2 = {"base_min": 10, "base_fee": 200, "unit_min": 10, "unit_fee": 200, "daily_fee": 8000}
+    g3 = {"base_min": 10, "base_fee": 100, "unit_min": 10, "unit_fee": 100, "daily_fee": 4000}
+    tw = {"base_min": 60, "base_fee": 0, "unit_min": 10, "unit_fee": 200, "daily_fee": 7000}
+    rows = [
+        {"label": "1급지", "grade": "jc_g1",
+         "unit_label": "10분당 300원",
+         "hour": sj_charge(g1, 60), "two_hour": sj_charge(g1, 120), "day": 12000, "month": None,
+         "lots": len([l for l in paid if _jecheon_tier_of(l) == "1"])},
+        {"label": "2급지", "grade": "jc_g2",
+         "unit_label": "10분당 200원 · 월정기 주간 기준 (야간 56,000원)",
+         "hour": sj_charge(g2, 60), "two_hour": sj_charge(g2, 120), "day": 8000, "month": 75000,
+         "lots": len([l for l in paid if _jecheon_tier_of(l) == "2"])},
+        {"label": "3급지", "grade": "jc_g3",
+         "unit_label": "10분당 100원 · 월정기 주간 기준 (야간 30,000원)",
+         "hour": sj_charge(g3, 60), "two_hour": sj_charge(g3, 120), "day": 4000, "month": 45000,
+         "lots": len([l for l in paid if _jecheon_tier_of(l) == "3"])},
+        {"label": "공영주차타워 (별표 3)", "grade": "jc_tw",
+         "unit_label": "최초 1시간 무료 · 초과 주간 10분당 200원 · 월정기 주간 기준 (야간 40,000원)",
+         "hour": sj_charge(tw, 60), "two_hour": sj_charge(tw, 120), "day": 7000, "month": 60000,
+         "lots": len([l for l in paid if _jecheon_tier_of(l) == "타워"])},
+    ]
+    corp = {
+        "paid": len([l for l in paid if l["list_mode"] == "card"]),
+        "free": len(free),
+        "unknown": len([l for l in lots if l["fee"]["type"] == "미상"]),
+        "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+    }
+    return {
+        "style": "jecheon_grade",
+        "unit_min": 10,
+        "base_min": 10,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": corp,
+        "windows": [{"group": "공통 (별표 1)", "hours": "09:00~20:00",
+                     "free": ("조례 별표 1 비고3의 징수시간이다. 매주 일요일은 무료로 "
+                              "개방(휴무)하고, 야간(20:00~다음 날 09:00) 요금 징수는 시장이 "
+                              "따로 정하는 때까지 유보한다. 공영주차타워는 별표 3에 따라 "
+                              "연중무휴 24시간 운영하고 주간(07:00~19:00)·야간 요율이 다르며 "
+                              "설·추석 연휴 등 일부 공휴일은 무료다(별표 3 비고6)")}],
+        "notes": conf["notes"],
+        "corp_extra": corp,
+        "basis": ("「제천시 주차장 설치 및 관리 조례」 제2180호(시행 2026-03-13, ordinSeq "
+                  "2115437) 제3조·별표 1·별표 3 · 전국주차장정보표준데이터(제천시청, 기준일 "
+                  "2026-05-18) 등록값 — 별표 원문 대조 완료. 주차타워 기본요금 등 등록값이 "
+                  "별표와 다른 항목은 계산기가 등록값으로 계산한다"),
+    }
+
+
+def jecheon_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「제천시 주차장 설치 및 관리 조례」 제2180호 제3조 — 제2항 전액 면제"
+                      "(긴급자동차, 모범·성실납세자 표지·증명서 부착 차량은 지정일부터 1년·"
+                      "1일 1회 4시간 한정), 제3항 50% 감면(장애인, 국가유공자 등·독립유공자 "
+                      "유족, 경형, 고엽제, 5·18, 의사상자, 전통시장 이용 확인, 임산부, "
+                      "환경친화적·저공해, 병역명문가, 다자녀, 헌혈 100회). 감면 사유가 둘이면 "
+                      "높은 하나만 적용하고 100원 미만은 절사한다(제4·5항). 본문·별표 1·별표 3 "
+                      "원문(data/raw/jecheon-ordinance.txt, data/raw/jecheon-ordinance-b1.hwp, "
+                      "data/raw/jecheon-ordinance-b3.hwp) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표 1 — 10분당 1급지 300원·2급지 200원·3급지 100원, 1일 "
+                      "12,000/8,000/4,000원, 월정기 1급지 없음·2급지 주간 75,000/야간 "
+                      "56,000원·3급지 주간 45,000/야간 30,000원, 징수 09:00~20:00·일요일 "
+                      "무료개방, 1일 한도(비고7). 별표 3(주차타워) — 최초 1시간 무료, 초과 "
+                      "주간 10분당 200원·야간 및 토요일·일요일 1시간당 200원, 1일 주차권 "
+                      "7,000원, 월정기 주간 60,000/야간 40,000원. 등록값이 별표와 다른 "
+                      "항목(타워 기본요금·야간 단가·월정기 합산)은 급지_요금_차이에 전건 "
+                      "기록했다(시청 확인 필요)"),
+        "급지_출처": ("조례 별표 1 비고4 — 1급지: 노상1지구·중앙시장2지구, 2급지: 노상2지구·"
+                      "노상4지구·노상5지구·노상7지구·중앙시장지구·동문시장지구·내토시장지구·"
+                      "용두천1지구·용두천2지구·용두천3지구·용두천7지구·중앙교차로·명동교차로·"
+                      "역전교차로·그 밖의 주차장, 3급지: 용두천4지구·용두천5지구·역전시장지구. "
+                      "표준데이터 등록 급지와 전건 일치한다. 공영주차타워 3곳은 등록 급지가 "
+                      "‘기타’이고 별표 3이 적용된다"),
+        "무료요일_출처": ("조례 별표 1 비고3 — 매주 일요일은 무료개방(휴무)이라 별표 1 적용 "
+                          "19곳은 free_days 일요일을 적용했다. 공휴일은 별표 1에 무료 규정이 "
+                          "없고 등록 운영시간도 00:00~00:00(미운영)이라 요일 단위 무료로 넣지 "
+                          "않았다. 주차타워의 설·추석 연휴 등 공휴일 무료(별표 3 비고6)는 "
+                          "날짜 특정일이라 free_days에 넣지 않고 안내에만 적었다"),
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_jecheon():
+    """제천시 하나를 표준데이터로 추출한다 (build_chungju 의 제천시 변형).
+    조례 대조 완료 — 「제천시 주차장 설치 및 관리 조례」 제2180호(시행
+    2026-03-13, ordinSeq 2115437) 제3조·별표 1·별표 3 원문 대조 완료
+    (2026-11-20). 표준데이터 등록 22행이 전부 공영·유료라 민영 제외는 없고,
+    급지는 별표 1 비고4 명단과 전건 일치한다. 주차타워 3곳의 등록 기본요금·
+    야간 단가·월정기가 별표 3과 달라 계산기는 등록값을 유지하고 차이를
+    전건 기록한다. 좌표는 22곳 전부 등록돼 있어 지오코딩 보완이 필요 없다."""
+    conf = JECHEON_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "제천시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "제천시" in (r.get("관리기관명") or "") else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 이름만으로 합치지 않는다 — 정규화 이름이 같고
+    #   주소(자리)가 같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다.
+    #   관리번호로는 절대 합치지 않는다. 제천시는 이름+자리가 같은 행이 없어
+    #   실제로 합쳐지는 행은 없다(중앙로2가 160에 이름이 다른 노상 구간 4곳이
+    #   같은 좌표로 등록돼 있으나 이름이 달라 합치지 않는다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((_sj_base_name(r.get("주차장명")),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 최근 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (36.90 < lat < 37.35 and 128.00 < lng < 128.45):
+            # 제천시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 제천시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = jecheon_dong_of(jibun, std_name) or jecheon_dong_of(road, std_name)
+        if jecheon_dong_of(jibun, None):
+            dong_src = "지번주소"
+        elif jecheon_dong_of(road, None):
+            dong_src = "도로명주소"
+        elif dong:
+            dong_src = "이름"
+            dong_fixed.append(f"{std_name}: 주소에서 동·읍·면을 가릴 수 없어 이름에서 {dong}으로 보정")
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = jecheon_fee(r, std_name, note_bits, fee_diff)
+        if std_name in JECHEON_TOWERS:
+            free_days = {"sat": False, "sun": False}
+        else:
+            free_days = {"sat": False, "sun": True}
+            note_bits.append("일요일은 무료로 개방합니다 (조례 별표 1 비고3 — 징수시간은 "
+                             "09:00~20:00이고 야간 요금 징수는 유보돼 있습니다)")
+        if lat is None or lng is None:
+            note_bits.append("좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "제천시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": None, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _cand = f"{_l['name']}{_suffix}"
+            _n = 2
+            while _cand in _used:
+                _cand = f"{_l['name']}{_suffix} #{_n}"
+                _n += 1
+            _used.add(_cand)
+            _l["name"] = _cand
+            _l["notice"] = " · ".join(x for x in (
+                _l.get("notice"),
+                f"같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤{_suffix}로 구분했습니다") if x)
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 이름 뒤에 주소·면수·구간 표시를 붙여 구분")
+
+    # 등록값 특이사항 (값은 바꾸지 않고 기록만 남긴다)
+    note_fixed.append("제천시 등록 22행은 전부 공영(민영 0)·유료이고 관리기관은 전부 "
+                      "충청북도 제천시청, 전화번호는 전부 043-641-6355, 데이터기준일자는 "
+                      "전부 2026-05-18이다 — 운영시간은 등록값(별표 1 구간 평일·토요일 "
+                      "09:00~20:00, 주차타워 24시간)을 그대로 썼다")
+    note_fixed.append("좌표는 22행 전부 등록돼 있어 지오코딩 보완이 필요 없다. 도로명주소는 "
+                      "노외 주차타워 3곳에만 있고 나머지 19곳은 지번주소만 있다")
+    note_fixed.append("별표 1 구간 19곳의 등록 기본시간은 전부 0분이다 — 기본시간 없이 "
+                      "10분당 단가를 받는 구조라 계산기에는 기본 10분=단가로 환산해 넣었다"
+                      "(금액 구조는 같다)")
+    note_fixed.append("월정기가 등록되지 않은 곳이 8곳이다 — 1급지 2곳은 별표 1에도 월정기가 "
+                      "없어 일치하지만, 2급지 5곳(용두천7지구·중앙시장지구·내토시장지구·"
+                      "동문시장지구·노상7지구)과 3급지 역전시장지구는 별표 1에 월정기가 있어 "
+                      "실제 판매 여부는 시청 확인이 필요하다")
+    note_fixed.append("등록 '1일주차권요금적용시간'은 별표 1 구간 660분·주차타워 1,440분으로 "
+                      "각각 징수시간(09:00~20:00)과 별표 3의 24시간 기준과 일치해 보이나, "
+                      "충주 선례대로 계산에는 쓰지 않았다")
+    note_fixed.append("중앙로2가 160 같은 지번·같은 좌표에 이름이 다른 노상 구간 4곳"
+                      "(용두천1지구·동문시장지구·노상7지구·노상2지구)이, 남천동 401에 2곳"
+                      "(용두천7지구·중앙시장지구)이 등록돼 있다 — 이름이 달라 같은 주차장의 "
+                      "재등록으로 보지 않고 전부 실었다")
+    note_fixed.append("일요일 무료개방은 조례 별표 1 비고3 근거로 free_days에 넣었지만, "
+                      "공휴일은 별표 1에 무료 규정이 없고 등록 운영시간도 00:00~00:00이라 "
+                      "요일 단위 무료로 넣지 않았다 — derive_free_fields의 공휴일 태그 예외에 "
+                      "제천시를 공주시·보령시와 함께 둔다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"cb-jecheon-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"cb-jecheon-s{n_street:03d}"
+
+    fee_table = jecheon_fee_table(conf, lots)
+    quality = jecheon_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"제천시로 등록된 행 {len(rows_std)}행(노외 4·노상 18)을 읽어 노외 "
+                 f"{len([l for l in lots if l['list_mode'] == 'card'])}곳과 노상 "
+                 f"{len([l for l in lots if l['list_mode'] == 'street'])}구간을 실었다. 제천시 "
+                 f"등록 행은 전부 공영이라 민영 제외는 없다. 급지는 조례 별표 1 비고4 명단과 "
+                 f"전건 일치하고, 주차타워 3곳은 등록 기본요금 등이 별표 3과 달라 계산기가 "
+                 f"등록값을 유지하고 차이를 전건 기록했다. 조례 대조 완료 — 「제천시 주차장 "
+                 f"설치 및 관리 조례」 제2180호(시행 2026-03-13, ordinSeq 2115437) 제3조·"
+                 f"별표 1·별표 3 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": JECHEON_ORD_HWP.name if JECHEON_ORD_HWP.exists() else None,
+            "sha256": sha256(JECHEON_ORD_HWP) if JECHEON_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-03-13",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"제천시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/jecheon-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/jecheon-ordinance-b1.hwp, 별표 3 원문 HWP: "
+                    f"data/raw/jecheon-ordinance-b3.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": JECHEON_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "제천시", "slug": "jecheon"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": JECHEON_PROVINCE,
+        "province_slug": JECHEON_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "jecheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -37183,7 +37803,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -37201,7 +37821,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -37254,7 +37874,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -37389,6 +38009,8 @@ def main():
         cities.append(build_taean())
     if "충주시" in want:
         cities.append(build_chungju())
+    if "제천시" in want:
+        cities.append(build_jecheon())
 
     if args.city == "all":
         site = build_site_payload(cities)
