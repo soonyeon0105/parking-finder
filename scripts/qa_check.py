@@ -816,6 +816,10 @@ MIX["gokseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   그대로 둬 경기 광주 자료 혼입은 계속 잡는다).
 MIX["damyang"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 
+# 창원시 — 경상남도 첫 도시. 도 이름에 '광주'가 없어 전 토큰을 그대로 쓴다
+#   (금산 선례). 창원 페이지에 정당하게 나오는 다른 지역 이름은 없다.
+MIX["changwon"] = tuple(sorted(_all_mix_tokens))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
