@@ -853,6 +853,11 @@ MIX["geoje"] = tuple(sorted(_all_mix_tokens))
 #   이름은 없다.
 MIX["yangsan"] = tuple(sorted(_all_mix_tokens))
 
+# 고성군 — 창원·진주·통영·사천·김해·밀양·거제와 같은 부류. 도 이름에
+#   '광주'가 없어 전 토큰을 그대로 쓴다. 고성 페이지에 정당하게 나오는
+#   다른 지역 이름은 없다(강원 고성군 자료 혼입은 '강원' 토큰으로 잡힌다).
+MIX["goseong"] = tuple(sorted(_all_mix_tokens))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
