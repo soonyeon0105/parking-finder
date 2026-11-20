@@ -12625,6 +12625,59 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "yangsan_grade":
+        # 양산시 — 공영 103곳(노외 48곳·노상 55구간, 총
+        #   4,695면)이 무료 87곳·유료 16곳으로 등록돼 있다.
+        #   「양산시 주차장 설치 및 관리조례」 제2336호(시행
+        #   2026-08-27) 제3조제1항·별표 1은 급지(1급지 읍·동
+        #   지역 및 유원지·2급지 그 밖의 지역) 요금표로, 1급지는
+        #   최초 1시간 무료·1시간 초과 후 30분 600원·이후
+        #   10분마다 200원·1일 6,000원·월정기 주간 75,000원·
+        #   야간 56,000원이다. 유료 16곳은 전부 읍·동 지역이고
+        #   등록값(기본 30분 600원·추가 10분 200원·1일
+        #   6,000원)의 단위 금액은 별표 1급지 행과 같으나
+        #   별표의 최초 1시간 무료 구조가 없고 월정기 등록값
+        #   (40,000원, 7곳만)이 별표와 달라, 등록값이 완전하고
+        #   최신이라 계산기는 등록값으로 하고 요금표는 조례
+        #   별표를 싣는다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">양산시 공영주차장 <b>103곳</b>은 무료 <b>87곳</b>·유료 <b>16곳</b>으로 등록돼
+있습니다. 아래 표는 「양산시 주차장 설치 및 관리조례」 제2336호 별표 1이 정한 기준
+요금입니다. 별표 1은 급지(1급지 읍·동 지역 및 유원지·2급지 그 밖의 지역)로 요금을
+정합니다 — <b>1급지</b>는 최초 1시간 <b>무료</b>에 1시간 초과 후 30분 <b>600원</b>, 이후
+10분마다 <b>200원</b>, 1일 <b>6,000원</b>이고, 월정기권은 주간 <b>75,000원</b>·야간
+<b>56,000원</b>입니다. 유료로 등록된 16곳은 전부 읍·동 지역에 있고, 등록값(기본 30분
+600원·추가 10분 200원·1일 6,000원)의 단위 금액은 별표 1급지 행과 같지만 별표의
+'최초 1시간 무료' 구조는 등록값에 없습니다. 등록값이 완전하고 조례보다 최신이라 이
+사이트의 요금 계산은 등록값을 쓰므로, 짧게 주차할 때는 별표로 계산한 금액과 다를 수
+있습니다. 월정기는 7곳만 40,000원으로 등록돼 있습니다. 궁금한 점은 양산시청
+교통정책과(055-392-2883)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
