@@ -59393,6 +59393,598 @@ def build_gangjin():
     return payload
 
 
+# 함평군 — 「함평군 주차장 조례」 제2995호(시행
+#   2026-07-31, 공포 2026-07-31, 일부개정, ordinSeq
+#   2155811). 요금은 제3조제1항이 별표 1로 정하고, 감면은
+#   제3조제2항(긴급자동차·공용차량·군수 인정 차량 면제)·
+#   제3조제3항(50% 감면 11개 호)이 정하고, 공영주차장의
+#   유료·무료·혼용 운영은 제6조제1항이 정한다.
+
+HAMPYEONG_PROVINCE = "전남광주통합특별시"
+HAMPYEONG_PROVINCE_SLUG = "jeonnam"
+HAMPYEONG_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2155811"
+HAMPYEONG_ORD_TXT = RAW / "hampyeong-ordinance-b1.txt"
+HAMPYEONG_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                      "「함평군 주차장 조례」 제2995호(시행 2026-07-31, "
+                      "일부개정), ordinSeq 2155811. 본문 사본 "
+                      "data/raw/hampyeong-ordinance.txt. 별표 1(공영주차장 "
+                      "주차요금표)은 HWP 원본을 data/raw/hampyeong-ordinance-b1.hwp로 "
+                      "저장하고 본문 텍스트를 추출해 "
+                      "data/raw/hampyeong-ordinance-b1.txt로 확인했다.")
+
+HAMPYEONG_DISCOUNTS = [
+    {"label": "긴급자동차·공용차량·군수 인정 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량 및 그 밖에 군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량에 대하여는 주차요금을 면제할 수 있다"},
+    {"label": "장애인·국가유공자·고엽제후유증환자·5·18민주화운동부상자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제1~4호 — 「장애인복지법」 제32조에 따른 장애인이 관련 증서를 소지하고 본인 소유 비사업용 자동차를 직접 운전하거나 장애 정도가 심하여 다른 사람으로 하여금 대리운전하게 하는 경우, 국가유공자·고엽제후유증환자·5·18민주화운동부상자가 그 증서를 제시한 경우 주차요금의 100분의 50을 감면할 수 있다"},
+    {"label": "경형자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제5호 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차는 주차요금의 100분의 50을 감면할 수 있다"},
+    {"label": "전통시장·상권활성화구역 이용 고객 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제6호 — 전통시장 및 상권활성화구역을 이용하는 고객이 입증자료를 제출하고 그 구역 안에 있거나 인접한 주차장을 사용하는 경우 주차요금의 100분의 50을 감면할 수 있다"},
+    {"label": "저공해자동차·환경친화적 자동차 표지 부착 차량 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제7호 — 「대기환경보전법」에 따른 저공해자동차 표지를 부착한 자동차와 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따라 환경친화적 자동차 표지를 부착한 자동차는 주차요금의 100분의 50을 감면할 수 있다"},
+    {"label": "병역명문가·장기복무 제대군인 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제8·9호 — 「함평군 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자가 자가운전하고 그 증서를 제시하는 경우와 「제대군인지원에 관한 법률」에 따른 장기복무 제대군인이 국가보훈등록증을 제시하는 경우 주차요금의 100분의 50을 감면할 수 있다"},
+    {"label": "다자녀 세대 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제10호 — 두 자녀 이상 세대(막내 자녀가 18세 이하인 경우에 한정한다)로서 다자녀행복카드 또는 1개월 이내에 발급받은 주민등록등본을 제시하는 경우 주차요금의 100분의 50을 감면할 수 있다"},
+    {"label": "모범납세자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제3항제11호 — 「전남광주통합특별시 모범납세자 우대 및 지원 조례」에 따른 모범납세자 중 성실납세필증(또는 주차증) 표시를 부착한 차량(표시된 유효기간에 한정한다)은 주차요금의 100분의 50을 감면할 수 있다"},
+]
+
+HAMPYEONG_CONF = {
+    "city": "함평군",
+    "slug": "hampyeong",
+    "manager": "전남광주통합특별시 함평군청",
+    "manager_inquiry": "함평군청 건설교통과(표준데이터 등록 전화 061-320-1754·엑스포공원 061-320-2204, 조례 담당 061-320-1751 국가법령정보센터 표기)",
+    "ordinance": ("「함평군 주차장 조례」 제2995호(시행 2026-07-31, 일부개정)",
+                  HAMPYEONG_ORD_URL, HAMPYEONG_ORD_NOTE),
+    "notes": ("함평군 공영주차장 10곳(노외 8·부설 2, 총 3,853면) 중 무료 9곳이고 "
+              "유료는 함평읍공영주차장(유료주차장) 1곳(혼합)이다. 「함평군 주차장 "
+              "조례」 제2995호(시행 2026-07-31, ordinSeq 2155811) 제3조제1항은 "
+              "공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지 구분 없이 "
+              "차종(소형·대형)만으로 정하는 요금표로, 1회주차권(1구획당 1시간까지) "
+              "무료, 30분마다 소형 500원·대형 600원, 1일 주차권 소형 5,000원·대형 "
+              "6,000원, 월정기는 소형 주간 40,000원·야간 30,000원·주야간 "
+              "60,000원, 대형 주간 55,000원·야간 42,000원·주야간 80,000원이고 "
+              "연정기는 월정기(12개월) 정상요금의 30% 할인이다(비고 5). 유료 "
+              "1곳은 등록값(기본 120분 0원·추가 30분 500원·1일 5,000원·월정기 "
+              "40,000원)이 완전하고 기준일(2026-04-17)이 별표 1 개정(2019-11-29)보다 "
+              "최신이라 등록값으로 계산한다 — 추가 단위·1일·월정기는 별표 1 "
+              "소형과 전부 일치하고 기본 무료 구간만 별표 1의 1회주차권(1시간까지 "
+              "무료)보다 1시간 길다. 감면은 조례 제3조를 따른다(긴급자동차·"
+              "공용차량·군수 인정 차량 면제, 장애인·국가유공자·고엽제후유증환자·"
+              "5·18민주화운동부상자·경형자동차·전통시장 및 상권활성화구역 이용 "
+              "고객·저공해 및 환경친화적 자동차 표지 부착 차량·병역명문가·"
+              "장기복무 제대군인·다자녀 세대·모범납세자 50% 감면). 등록 급지는 "
+              "10곳 전부 '2'인데 별표 1에는 급지 구분이 없어 대응시킬 수 없고, "
+              "좌표와 주소는 10곳 전부 등록돼 있다."),
+    "discounts": HAMPYEONG_DISCOUNTS,
+}
+
+HAMPYEONG_BBOX = (34.95, 35.30, 126.35, 126.75)
+
+HAMPYEONG_DONGS = {"함평읍", "손불면", "해보면", "월야면", "학교면",
+                   "신광면", "나산면", "엄다면", "대동면"}
+
+
+def hampyeong_dong_of(addr):
+    """함평군 법정 읍·면 판정 — 지번주소의 함평군 다음 토큰이
+    읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"함평군\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def hampyeong_fee(row, name, note_bits, fee_diff):
+    """함평군 공영주차장 한 곳의 요금 — 등록 10곳 중 무료 9곳,
+    유료(혼합) 1곳(함평읍공영주차장(유료주차장))이다. 조례
+    제3조제1항은 공영주차장 요금을 별표 1로 정하고 제6조
+    제1항은 공영주차장을 유료·무료로 운영하거나 혼용할 수
+    있다고 정한다. 유료 1곳은 등록값이 완전(기본·추가·1일·
+    월정기 전부 있음)하고 기준일이 별표 1 개정보다 최신이라
+    등록값으로 계산한다(공주·청양·홍성 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 제6조제1항이 공영주차장을 유료·무료로 운영하거나 혼용할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 군청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 함평군청 확인 필요"})
+        return fee
+    fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분당 "
+                    f"{unit_fee}원·1일 {day}원·월정기 {month}원)은 추가 단위·1일·월정기가 "
+                    "조례 별표 1 소형(30분마다 500원·1일 5,000원·월정기 주간 40,000원)과 "
+                    "전부 일치하고 기준일(2026-04-17)이 별표 1 개정(2019-11-29)보다 "
+                    "최신이라 등록값으로 계산한다(공주·청양·홍성 선례). 기본 무료 "
+                    "구간만 별표 1의 1회주차권(1시간까지 무료)보다 1시간 긴 "
+                    f"{base_min}분이다 — 별표 1 비고 4(5일 시장이나 읍 상가 이용 "
+                    "고객은 2시간까지 무료로 적용할 수 있다)가 이 곳에 적용되는지는 "
+                    "군청 확인 과제")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "monthly": month if month else None,
+                "free_min": base_min if base_fee == 0 else None,
+                "basis": "표준데이터 등록값으로 계산한다 — 추가 단위·1일·월정기는 조례 별표 1 소형과 일치하고 기본 무료 구간은 별표 1의 1회주차권(1시간까지 무료)보다 1시간 길다"})
+    return fee
+
+
+def hampyeong_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 공영주차장 주차요금표 값으로
+    표기한다. 별표 1은 급지 구분 없이 차종(소형·대형)만으로
+    정하는 요금표로, 1회주차권(1구획당 1시간까지)이 무료이고
+    초과분은 30분 단위로 붙는 구조다. 등록 유료 1곳은 소형
+    요금으로 계산하므로 소형 행에만 곳수를 센다 — 다만 그
+    곳의 계산 기준은 등록값(기본 120분 무료)이라 표의 조례
+    기준(1시간 무료)과 기본 무료 구간이 다르다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, unit_fee, day, month, month_night, lots_n, unit_label):
+        f = {"base_min": 60, "base_fee": 0, "unit_min": 30,
+             "unit_fee": unit_fee, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month, "month_night": month_night, "lots": lots_n}
+
+    rows = [
+        _row("소형", "small", 500, 5000, 40000, 30000, len(paid),
+             "1회주차권(1시간까지) 무료 · 30분마다 500원 · 1일 5,000원 · 월정기 주간 40,000원·야간 30,000원·주야간 60,000원"),
+        _row("대형", "large", 600, 6000, 55000, 42000, 0,
+             "1회주차권(1시간까지) 무료 · 30분마다 600원 · 1일 6,000원 · 월정기 주간 55,000원·야간 42,000원·주야간 80,000원"),
+    ]
+    return {
+        "style": "hampyeong_grade",
+        "unit_min": 30,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 구분 (조례 별표 1 비고 2)",
+                     "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:00, 나머지는 야간",
+                     "free": ("월정기 주간·야간 요금을 가르는 기준이다 — 유료 "
+                              "1곳의 월정기 등록값 40,000원은 별표 1 소형 주간 "
+                              "요금과 같다")}],
+        "notes": ("별표 1에는 급지 구분이 없어 차종만으로 요금을 정한다. 차량 구분은 "
+                  "승용차·16인승 미만 승합자동차·2.5톤 미만 화물자동차는 소형으로 보고 "
+                  "그 외의 차량은 대형으로 본다(비고 3). 연정기주차권은 소형 주간 "
+                  "336,000원·야간 252,000원·주야간 504,000원, 대형 주간 462,000원·"
+                  "야간 352,800원·주야간 672,000원으로 월정기(12개월) 정상요금의 "
+                  "30% 할인이다(비고 5). 5일 시장이나 읍 상가를 이용하는 고객은 "
+                  "주차권 날인과 관계없이 2시간까지 무료로 적용할 수 있다(비고 4) — "
+                  "유료 1곳의 등록 기본 무료 구간(120분)이 별표 1의 1회주차권"
+                  "(1시간)보다 긴 것이 이 비고에 따른 것인지는 군청 확인 과제다. "
+                  "이 표는 유료로 운영하는 경우에 적용한다(비고 1). 감면은 "
+                  "긴급자동차·공용차량·군수 인정 차량 면제(제3조제2항)와 장애인·"
+                  "국가유공자·고엽제후유증환자·5·18민주화운동부상자·경형자동차·"
+                  "전통시장 및 상권활성화구역 이용 고객·저공해 및 환경친화적 자동차 "
+                  "표지 부착 차량·병역명문가·장기복무 제대군인·다자녀 세대·"
+                  "모범납세자 50% 감면(제3조제3항)이다. 표준데이터 등록 급지는 "
+                  "10곳 전부 '2'인데 별표 1에 급지 구분이 없어 행 판정에 쓰지 않았다."),
+        "basis": ("요금표는 「함평군 주차장 조례」 제2995호(시행 2026-07-31) 제3조·"
+                  "별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. "
+                  "유료 1곳(함평읍공영주차장(유료주차장))은 등록값으로 계산하고 "
+                  "무료 9곳은 요금을 받지 않는다. 계산 기준인 등록 기본 무료 "
+                  "구간(120분)은 조례 별표 1의 1회주차권(1시간까지 무료)보다 "
+                  "1시간 길다. (조례 본문: "
+                  "data/raw/hampyeong-ordinance.txt, 별표 1 원문: "
+                  "data/raw/hampyeong-ordinance-b1.txt)"),
+    }
+
+
+
+def hampyeong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                      space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「함평군 주차장 조례」 제2995호 제3조 — 면제(제2항): 「도로교통법」 "
+                      "제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량, "
+                      "그 밖에 군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량은 "
+                      "주차요금을 면제할 수 있다. 50% 감면(제3항, 2026-07-31 개정): "
+                      "①「장애인복지법」 제32조에 따른 장애인이 관련 증서를 소지하고 본인 "
+                      "소유 비사업용 자동차를 직접 운전하거나 장애 정도가 심하여 다른 "
+                      "사람으로 하여금 대리운전하게 하는 경우 ②국가유공자가 그 증서를 "
+                      "제시한 경우 ③고엽제후유증환자가 그 증서를 제시한 경우 "
+                      "④5·18민주화운동부상자가 그 증서를 제시한 경우 ⑤경형자동차 "
+                      "⑥전통시장 및 상권활성화구역을 이용하는 고객이 입증자료를 제출하고 "
+                      "그 구역 안에 있거나 인접한 주차장을 사용하는 경우 ⑦저공해자동차 "
+                      "표지를 부착한 자동차와 환경친화적 자동차 표지를 부착한 자동차 "
+                      "⑧병역명문가 예우대상자가 자가운전하고 그 증서를 제시하는 경우 "
+                      "⑨장기복무 제대군인이 국가보훈등록증을 제시하는 경우 ⑩두 자녀 "
+                      "이상 세대(막내 자녀가 18세 이하인 경우에 한정한다)로서 "
+                      "다자녀행복카드 또는 1개월 이내에 발급받은 주민등록등본을 제시하는 "
+                      "경우 ⑪모범납세자 중 성실납세필증(또는 주차증) 표시를 부착한 "
+                      "차량(표시된 유효기간에 한정한다). 제2항·제3항 모두 '면제할 수 "
+                      "있다'·'감면할 수 있다'는 임의 규정이다. 본문 원문"
+                      "(data/raw/hampyeong-ordinance.txt)·별표 1 원문"
+                      "(data/raw/hampyeong-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 "
+                      "급지 구분 없이 차종(소형·대형)만으로 정하는 요금표로 1회주차권(1구획당 "
+                      "1시간까지) 무료, 30분마다 소형 500원·대형 600원, 1일 주차권 소형 "
+                      "5,000원·대형 6,000원, 월정기 소형 주간 40,000원·야간 30,000원·주야간 "
+                      "60,000원, 대형 주간 55,000원·야간 42,000원·주야간 80,000원이다. "
+                      "유료 1곳은 등록값이 완전하고 기준일이 별표 개정보다 최신이라 "
+                      "등록값으로 계산한다"),
+        "급지_출처": ("조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지는 10곳 전부 "
+                      "'2'인데 대응시킬 조례 기준이 없어 행 판정에 쓰지 않았다 — "
+                      "군청 확인 과제다(고흥 선례)"),
+        "무료요일_출처": ("무료 9곳은 요금 구분 '무료'라 요일별 무료 구분이 따로 없다 — "
+                          "조례 제6조제1항은 공영주차장을 유료·무료로 운영하거나 혼용할 "
+                          "수 있다고 정한다. 유료 1곳도 요일별 무료 개방 규정이 조례에 "
+                          "없어 등록 운영요일(평일+토요일+공휴일) 그대로 운영한다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 함평군 등록 12행 중 공영 10곳(노외 8·부설 2, 총 3,853면)을 싣고 민영 2곳(농협하나로마트·함평천지한우프라자)은 제외했다. 중복 제거 0건이다. 읍면별로는 함평읍 7곳·학교면 1곳·월야면 1곳·신광면 1곳이다",
+            "「함평군 주차장 조례」 제2995호(시행 2026-07-31, 공포 2026-07-31, 일부개정, ordinSeq 2155811) 본문 원문(data/raw/hampyeong-ordinance.txt) 대조 완료(2026-11-20) — 함평군 주차장 자치법규는 이 조례가 유일함을 법령정보센터 검색으로 확인했다. 최신 개정의 실내용은 제3조제3항 감면 11개 호 개정이다",
+            "별표 1은 HWP 원본(flSeq 167705641)을 data/raw/hampyeong-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다 — 급지 구분 없이 차종(소형·대형)만으로 정하는 요금표다. 직전 공포본 제2680호(시행 2021-11-30, ordinSeq 1644001)의 별표 파일(flSeq 167705293)과 글자 단위로 대조해 금액·비고가 동일함을 확인했고(첨부파일 오등록 아님), 연정기 금액은 비고 5의 할인식(월정기 12개월 정상요금의 30% 할인)과 전 행 검산이 일치한다",
+            "유료(혼합) 1곳 함평읍공영주차장(유료주차장)은 등록값(기본 120분 0원·추가 30분 500원·1일 5,000원·월정기 40,000원)이 완전하고 기준일 2026-04-17이 별표 1 개정(2019-11-29)보다 최신이라 등록값으로 계산한다(공주·청양·홍성 선례). 추가 단위·1일·월정기는 별표 1 소형과 전부 일치하고 기본 무료 구간만 별표 1의 1회주차권(1시간까지 무료)보다 1시간 길다 — 급지_요금_차이에 기록하고, 별표 1 비고 4(5일 시장이나 읍 상가 이용 고객 2시간까지 무료 적용 가능)가 이 곳에 적용되는지는 군청 확인 과제다",
+            "등록 급지 대조 — 표준데이터 등록 급지는 10곳 전부 '2'인데 조례 별표 1에는 급지 구분 자체가 없어 대응시킬 수 없다. 요금표 행 판정에 쓰지 않고 군청 확인 과제로 남긴다(급지_출처에 기록, 고흥 선례)",
+            "좌표는 10곳 전부 등록돼 있고 전부 함평군 범위(위도 35.0219~35.1794, 경도 126.4937~126.6278) 안이라 비우거나 지오코딩으로 채운 곳이 없다(오버레이 무변경). 지번주소·도로명주소도 10곳 전부 등록돼 있다",
+            "이름이 다른 주차장이 200m 안에 이웃한 쌍이 2건 있다 — 엑스포공원주제관·엑스포공원황소주차장(약 195m), 나비수산앞 무료주차장·함평읍공영주차장(유료주차장)(약 110m). 이름이 서로 달라 합치지 않고 전부 실었다",
+            "손불면·엄다면·대동면·나산면·해보면에는 등록된 공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 군청 확인 과제다",
+            "전화번호는 7곳이 061-320-1754이고 엑스포공원 3곳(주제관·황소주차장·나비주차장)이 061-320-2204다. 관리기관은 10곳 전부 전라남도 함평군청이고 제공기관은 전남광주통합특별시 함평군이다. 운영은 10곳 전부 평일+토요일+공휴일 00:00~23:59이고 특기사항은 전부 공란, 장애인전용주차구역 보유여부는 전부 Y다. 부제시행구분은 5부제 3곳(학교면 원사거리·월야면·함평읍공영주차장), 2부제 1곳(엑스포공원주제관), 미시행 6곳이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_hampyeong():
+    """함평군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「함평군 주차장 조례」 제2995호(시행
+    2026-07-31, ordinSeq 2155811) 제3조·별표 1 원문 대조
+    완료(2026-11-20). 표준데이터 등록 공영 10곳(노외 8·
+    부설 2, 총 3,853면)을 싣는다. 무료 9곳이고 유료(혼합)
+    1곳은 등록값으로 계산한다. 좌표는 전부 등록돼 있다."""
+    conf = HAMPYEONG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "함평군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "함평군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 함평군은
+    #   해당 중복이 0건이다(이름이 완전히 같은 쌍 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (HAMPYEONG_BBOX[0] < lat < HAMPYEONG_BBOX[1]
+                                                        and HAMPYEONG_BBOX[2] < lng < HAMPYEONG_BBOX[3]):
+            # 함평군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 함평군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = hampyeong_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif hampyeong_dong_of(road):
+            dong = hampyeong_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in HAMPYEONG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = hampyeong_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "함평군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 12행 중 공영 10행을 싣고 민영 2행"
+                      "(농협하나로마트·함평천지한우프라자)은 제외했다. 데이터기준일자는 "
+                      "전부 2026-04-17이다. 관리기관은 10곳 전부 전라남도 "
+                      "함평군청이고 전화번호는 7곳이 061-320-1754, 엑스포공원 "
+                      "3곳이 061-320-2204다")
+    note_fixed.append("등록 급지는 10곳 전부 '2'인데 조례 별표 1에는 급지 구분이 "
+                      "없어 대응시킬 수 없다 — 군청 확인 과제로 남긴다")
+    note_fixed.append("손불면·엄다면·대동면·나산면·해보면에는 등록된 공영주차장이 "
+                      "없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 "
+                      "군청 확인 과제다")
+    note_fixed.append("운영은 10곳 전부 평일+토요일+공휴일 00:00~23:59이고, "
+                      "특기사항은 전부 공란, 장애인전용주차구역 보유여부는 전부 "
+                      "Y, 부제시행구분은 5부제 3곳(학교면 원사거리·월야면·"
+                      "함평읍공영주차장)·2부제 1곳(엑스포공원주제관)·미시행 6곳이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-hampyeong-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-hampyeong-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 함평군은 좌표 결측이 없어 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = hampyeong_fee_table(conf, lots)
+    quality = hampyeong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                                fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-17",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"함평군으로 등록된 행 {len(rows_std)}행(공영 10·민영 2)을 읽어 중복 "
+                 f"제거 {len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 1곳이다. 좌표와 "
+                 f"주소는 10곳 전부 등록돼 있다. 조례 대조 완료 "
+                 f"— 「함평군 주차장 조례」 제2995호(시행 2026-07-31, ordinSeq "
+                 f"2155811) 제3조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": HAMPYEONG_ORD_TXT.name if HAMPYEONG_ORD_TXT.exists() else None,
+            "sha256": sha256(HAMPYEONG_ORD_TXT) if HAMPYEONG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-07-31",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"함평군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/hampyeong-ordinance.txt, 별표 1 원문: "
+                    f"data/raw/hampyeong-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": HAMPYEONG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "함평군", "slug": "hampyeong"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": HAMPYEONG_PROVINCE,
+        "province_slug": HAMPYEONG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "hampyeong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -59405,7 +59997,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -59423,7 +60015,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -59476,7 +60068,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -59683,6 +60275,8 @@ def main():
         cities.append(build_jangheung())
     if "강진군" in want:
         cities.append(build_gangjin())
+    if "함평군" in want:
+        cities.append(build_hampyeong())
 
     if args.city == "all":
         site = build_site_payload(cities)
