@@ -1,0 +1,4379 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 10:56",
+  "generated_at_iso": "2026-11-20T10:56:40+09:00",
+  "snapshot_at": "2026-11-20 10:56",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "순창군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-20",
+    "rows_total": 18994,
+    "rows_city": 36,
+    "fetched_at": "2026-11-20 10:56 (KST)",
+    "note": "순창군으로 등록된 행 36행(전부 공영·전부 노외)을 읽어 중복 제거 0건, 제외 0건으로 36곳을 실었다. 무료 36곳이다. 좌표는 전부 등록돼 있고 도로명주소는 12곳이 결측이다. 조례 대조 완료 — 「순창군 주차장 조례」 제3061호(시행 2026-08-18, ordinSeq 2163575) 제4조·제5조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「순창군 주차장 조례」 제3061호(시행 2026-08-18, 일부개정)",
+    "org": "전북특별자치도 순창군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2163575",
+    "file": "sunchang-ordinance-b1.txt",
+    "sha256": "20c4a9a7411d9452798e73b6ea7574f6790ada20a4584f57497b89ff4d11c0c8",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-18",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 10:56 (KST)",
+    "note": "순창군이 설치·관리하는 공영주차장에 적용하는 조례다. 순창군 공영주차장은 표준데이터에 36곳이 등록돼 있고 전부 노외이며 전부 요금을 받지 않는 무료 주차장이다(총 941면). 「순창군 주차장 조례」 제3061호(시행 2026-08-18, ordinSeq 2163575) 제4조제1항은 군수가 설치하는 공영주차장의 주차요금은 무료로 하되, 군수가 주차요금 징수가 필요하다고 인정한 공영주차장의 주차요금은 별표 1과 같이 한다고 정한다 — 공영주차장 무료가 조례 본문의 원칙이라 등록된 곳들의 무료 운영은 조례와 그대로 일치하고, 아래 요금표는 유료로 전환되는 곳에 적용되는 조례 기준 요금의 참고표다. 별표 1은 1급지·2급지 요금표로, 1급지 1회 주차요금(1구획당 30분마다) 500원·1일 주차요금 4,000원·월정기 주간 40,000원/야간 30,000원/주·야간 50,000원이고, 2급지는 200원·3,000원·28,000원/20,000원/36,000원이다(부가가치세 포함). 등록 급지는 36곳 전부 '1'인데 급지 구분은 주차장의 실태 및 주차수요를 고려하여 군수가 지정하는 것이라(별표 1 비고 3) 등록 급지가 곧 지정 급지라고 단정할 수 없어 요금표 행별 곳수는 세지 않았다. 감면은 조례 제5조를 따른다(긴급자동차와 공무수행 중인 순창군 소유 관용차량은 면제할 수 있고, 국가유공자·보훈대상자, 장애인, 5·18민주유공자, 고엽제후유의증환자 등, 경형자동차, 하이브리드 자동차, 저공해자동차, 병역명문가 차량은 50퍼센트 경감·감면할 수 있다). 좌표는 36곳 전부 등록돼 있고, 도로명주소는 12곳이 등록돼 있지 않다. (조례 본문: data/raw/sunchang-ordinance.txt, 별표 1 원문: data/raw/sunchang-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "순창군",
+   "slug": "sunchang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-sunchang-001",
+   "mgmt_no": "317-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금과들소리전수관앞 주차장",
+   "gu": "순창군",
+   "dong": "금과면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 금과면 매우리 478-3",
+   "addr_road": "전북특별자치도 순창군 금과면 방대로 655-17",
+   "road": null,
+   "spaces": 19,
+   "tel": "063-650-1348",
+   "lat": 35.3354213,
+   "lng": 127.0878821,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-002",
+   "mgmt_no": "317-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복흥농협앞 주차장",
+   "gu": "순창군",
+   "dong": "복흥면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 복흥면 정산리 325-1",
+   "addr_road": "전북특별자치도 순창군 복흥면 추령로 1154",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-650-1348",
+   "lat": 35.43230016,
+   "lng": 126.9305504,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-003",
+   "mgmt_no": "317-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "건강증진센터앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 649",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창5길 11-6",
+   "road": null,
+   "spaces": 34,
+   "tel": "063-650-1348",
+   "lat": 35.37279371,
+   "lng": 127.1407559,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-004",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경천교 큰손식당 옆",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 595-1",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창로 184",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-650-1348",
+   "lat": 35.3714265,
+   "lng": 127.1422764,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-005",
+   "mgmt_no": "317-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구.경찰서장관사 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 436",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창6길 19-2",
+   "road": null,
+   "spaces": 24,
+   "tel": "063-650-1348",
+   "lat": 35.3728108,
+   "lng": 127.144608,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-006",
+   "mgmt_no": "317-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구.승리반점 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 267-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-650-1348",
+   "lat": 35.37416042,
+   "lng": 127.1404985,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-007",
+   "mgmt_no": "317-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군립도서관앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 632",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "063-650-1348",
+   "lat": 35.37313648,
+   "lng": 127.1405276,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-008",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군청 후문 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 370-1",
+   "addr_road": "전북특별자치도 순창군 순창읍 순화로 5",
+   "road": null,
+   "spaces": 16,
+   "tel": "063-650-1348",
+   "lat": 35.3746819,
+   "lng": 127.1364253,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-009",
+   "mgmt_no": "317-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군청앞경천 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 315-4",
+   "addr_road": "전북특별자치도 순창군 순창읍 경천로 33",
+   "road": null,
+   "spaces": 44,
+   "tel": "063-650-1348",
+   "lat": 35.37445604,
+   "lng": 127.1373693,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-010",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남계우수저류시설",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 328-2",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창6길 43",
+   "road": null,
+   "spaces": 67,
+   "tel": "063-650-1348",
+   "lat": 35.37221522,
+   "lng": 127.1468248,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-011",
+   "mgmt_no": "317-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동은마을회관앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 235",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "063-650-1348",
+   "lat": 35.37506354,
+   "lng": 127.1450825,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-012",
+   "mgmt_no": "317-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건의료원옆 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 가남리 111-4",
+   "addr_road": "전북특별자치도 순창군 순창읍 교성로 141-8",
+   "road": null,
+   "spaces": 76,
+   "tel": "063-650-1348",
+   "lat": 35.36612624,
+   "lng": 127.1448596,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-013",
+   "mgmt_no": "317-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사정마을회관앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 820-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "063-650-1348",
+   "lat": 35.3694347,
+   "lng": 127.1458735,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-014",
+   "mgmt_no": "317-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "새마을금고옆 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 101-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "063-650-1348",
+   "lat": 35.37687218,
+   "lng": 127.1400014,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-015",
+   "mgmt_no": "317-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서은마을회관앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 485-6",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창10길 11-13",
+   "road": null,
+   "spaces": 22,
+   "tel": "063-650-1348",
+   "lat": 35.37501778,
+   "lng": 127.1441492,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-016",
+   "mgmt_no": "317-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "순창성당옆 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 204-1",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창로 247",
+   "road": null,
+   "spaces": 11,
+   "tel": "063-650-1348",
+   "lat": 35.37721956,
+   "lng": 127.143211,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-017",
+   "mgmt_no": "317-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "순창시장 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 800",
+   "addr_road": "전북특별자치도 순창군 순창읍 남계로 58",
+   "road": null,
+   "spaces": 53,
+   "tel": "063-650-1348",
+   "lat": 35.37181877,
+   "lng": 127.1450723,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-018",
+   "mgmt_no": "317-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "순창시장어물전 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 797",
+   "addr_road": "전북특별자치도 순창군 순창읍 남계로 46",
+   "road": null,
+   "spaces": 30,
+   "tel": "063-650-1348",
+   "lat": 35.3706725,
+   "lng": 127.1448897,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-019",
+   "mgmt_no": "317-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "순창주유소 인근 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 95-10",
+   "addr_road": "전북특별자치도 순창군 순창읍 장류로 333-3",
+   "road": null,
+   "spaces": 11,
+   "tel": "063-650-1348",
+   "lat": 35.37717984,
+   "lng": 127.1389542,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-020",
+   "mgmt_no": "317-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "순창향교 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 교성리 133-1",
+   "addr_road": "전북특별자치도 순창군 순창읍 교성1길 9",
+   "road": null,
+   "spaces": 16,
+   "tel": "063-650-1348",
+   "lat": 35.3732915,
+   "lng": 127.1341848,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-021",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시장주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 874-3",
+   "addr_road": "전북특별자치도 순창군 순창읍 양지길 25-6",
+   "road": null,
+   "spaces": 18,
+   "tel": "063-650-1348",
+   "lat": 35.37050351,
+   "lng": 127.1463081,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-022",
+   "mgmt_no": "317-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신성당앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 429",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "063-650-1348",
+   "lat": 35.37237526,
+   "lng": 127.1440124,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-023",
+   "mgmt_no": "317-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양지천변 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 255-10",
+   "addr_road": "전북특별자치도 순창군 순창읍 양지길 123",
+   "road": null,
+   "spaces": 70,
+   "tel": "063-650-1348",
+   "lat": 35.37808448,
+   "lng": 127.1453344,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-024",
+   "mgmt_no": "317-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여성회관옆 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 966-7",
+   "addr_road": "전북특별자치도 순창군 순창읍 장류로 407-11",
+   "road": null,
+   "spaces": 12,
+   "tel": "063-650-1348",
+   "lat": 35.37762479,
+   "lng": 127.1468391,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-025",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예비군지역대 앞",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 111-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "063-650-1348",
+   "lat": 35.3779662,
+   "lng": 127.1405857,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-026",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥천주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 459-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "063-650-1348",
+   "lat": 35.37529586,
+   "lng": 127.13545,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-027",
+   "mgmt_no": "317-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일품공원 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 303-3",
+   "addr_road": "전북특별자치도 순창군 순창읍 장류로 407-14",
+   "road": null,
+   "spaces": 76,
+   "tel": "063-650-1348",
+   "lat": 35.37633973,
+   "lng": 127.1481221,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-028",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제일교회 주차장 (순창읍 남계리 448)",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 남계리 448",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창8길 22",
+   "road": null,
+   "spaces": 26,
+   "tel": "063-650-1348",
+   "lat": 35.37338961,
+   "lng": 127.1449924,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-029",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙도로",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 204-1",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창로 205-1",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-650-1348",
+   "lat": 35.37353498,
+   "lng": 127.1422746,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-030",
+   "mgmt_no": "317-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창림문화누리마을1 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 161-6",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창9길 12-2",
+   "road": null,
+   "spaces": 6,
+   "tel": "063-650-1348",
+   "lat": 35.37522593,
+   "lng": 127.1419134,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-031",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충신당 인근",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 102-4",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창11길 31-3",
+   "road": null,
+   "spaces": 7,
+   "tel": "063-650-1348",
+   "lat": 35.37791081,
+   "lng": 127.1402118,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-032",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "택시대기도로옆 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 115-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "063-650-1348",
+   "lat": 35.37722713,
+   "lng": 127.1417176,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-033",
+   "mgmt_no": "317-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해솔앞 주차장",
+   "gu": "순창군",
+   "dong": "순창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 순창읍 순화리 186",
+   "addr_road": "전북특별자치도 순창군 순창읍 순창7길 14",
+   "road": null,
+   "spaces": 10,
+   "tel": "063-650-1348",
+   "lat": 35.37446584,
+   "lng": 127.1413794,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-034",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제일교회 주차장 (쌍치면 쌍계리 292)",
+   "gu": "순창군",
+   "dong": "쌍치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 쌍치면 쌍계리 292",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "063-650-1348",
+   "lat": 35.50060472,
+   "lng": 127.0030811,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-035",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "팔덕 농협사거리",
+   "gu": "순창군",
+   "dong": "팔덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 팔덕면 용산리 324-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "063-650-1348",
+   "lat": 35.39085857,
+   "lng": 127.0979642,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  },
+  {
+   "id": "jb-sunchang-036",
+   "mgmt_no": "317-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "풍산면사무소 옆",
+   "gu": "순창군",
+   "dong": "풍산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 순창군 풍산면 반월리 12-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "063-650-1348",
+   "lat": 35.33661786,
+   "lng": 127.1388731,
+   "base_date": "2026-04-20",
+   "manager": "전북특별자치도 순창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 주차요금 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 조례 원칙대로 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "순창군",
+   "city_slug": "sunchang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 10:56",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 36,
+  "원자료_순창군행수": 36,
+  "원자료_받은행수": 36,
+  "구별": {
+   "순창군": 36
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 36,
+  "노외_부설": {
+   "노외": 36
+  },
+  "노상_구간": 0,
+  "총_구획수": 941,
+  "노상_구획수": 0,
+  "동별": {
+   "순창읍": 31,
+   "금과면": 1,
+   "복흥면": 1,
+   "쌍치면": 1,
+   "팔덕면": 1,
+   "풍산면": 1
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 제일교회 주차장 — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 36
+  },
+  "요금구분": {
+   "무료": 36
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 45건 있다 — 창림문화누리마을1 주차장·구.승리반점 주차장(174m), 창림문화누리마을1 주차장·중앙도로(190m), 창림문화누리마을1 주차장·해솔앞 주차장(97m), 군청앞경천 주차장·군청 후문 주차장(89m), 군청앞경천 주차장·옥천주차장(196m), 제일교회 주차장 (순창읍 남계리 448)·동은마을회관앞 주차장(186m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 36행은 전부 공영이고 데이터기준일자는 전부 2026-04-20이다. 관리기관은 36곳 전부 전북특별자치도 순창군청이고 전화번호도 전부 063-650-1348로 같다",
+   "도로명주소는 12곳이 등록돼 있지 않아 동(읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 36곳 전부 '1'인데 조례 별표 1 비고 3이 급지 구분은 군수가 지정한다고 정하고 있어 요금표 행 판정에 쓰지 않았다",
+   "부제시행구분은 등록 36행 기준 5부제 36곳이다. 전부 무료라 요금에는 영향이 없다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59이다. 특기사항은 36곳 전부 공란이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "구.승리반점 주차장",
+   "군립도서관앞 주차장",
+   "동은마을회관앞 주차장",
+   "사정마을회관앞 주차장",
+   "새마을금고옆 주차장",
+   "신성당앞 주차장",
+   "예비군지역대 앞",
+   "옥천주차장",
+   "택시대기도로옆 주차장",
+   "제일교회 주차장 (쌍치면 쌍계리 292)",
+   "팔덕 농협사거리",
+   "풍산면사무소 옆"
+  ],
+  "감면_출처": "「순창군 주차장 조례」 제3061호 제5조 — 제1항: 공영주차장에 주차하는 자동차 중 긴급자동차(제1호), 공무수행중인 순창군 소유 관용차량(제2호), 그 밖에 군수가 필요하다고 인정하는 자동차(제3호)에 대하여는 주차요금을 면제할 수 있다. 제2항: 다음 각 호의 경우 주차요금을 경감할 수 있다(관련 증명서 제시) — 국가유공자 또는 보훈대상자 소유의 차량으로 등록인이 탑승한 자동차(제1호), 장애인 표지를 부착하고 장애인이 탑승한 자동차(제2호), 5·18민주유공자 소유의 차량으로 등록인이 탑승한 자동차(제3호), 고엽제후유증환자·고엽제후유의증환자·고엽제후유증 2세 환자 소유의 차량으로 등록인이 탑승한 자동차(제4호)는 50퍼센트 경감, 1천㏄이하 경형자동차(제5호)는 50퍼센트 경감, 하이브리드 자동차(제6호)와 저공해자동차 표지 부착 자동차(제7호), 병역명문가증 제시 차량(제8호)은 50퍼센트 감면. 본문 원문(data/raw/sunchang-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제4조제1항·별표 1 — 군수가 설치하는 공영주차장의 주차요금은 무료로 하되, 군수가 주차요금 징수가 필요하다고 인정한 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 1급지·2급지 요금표로 1급지 1회 주차요금(1구획당 30분마다) 500원·1일 4,000원·월정기 주간 40,000원/야간 30,000원/주·야간 50,000원, 2급지 200원·3,000원·28,000원/20,000원/36,000원이다. 표준데이터 등록 36곳은 전부 무료라 실제로 징수되는 곳은 없어 요금표는 유료 전환 시 기준 요금의 참고표다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지 구분은 주차장의 실태 및 주차수요를 고려하여 군수가 지정하며 군의 특성 및 주차장의 위치에 따라 세분할 수 있다. 표준데이터 등록 급지는 36곳 전부 '1'인데, 급지 지정은 군수가 하는 것이라 등록 급지가 곧 지정 급지라고 단정할 수 없어 요금표 행별 곳수는 세지 않았다(장수 선례) — 등록 급지와 지정 급지의 일치는 군청 확인 과제다",
+  "무료요일_출처": "조례 본문과 별표 1 어디에도 요일 무료 규정이 없어 free_days는 적용하지 않았다. 실은 곳 전부 요금구분 자체가 '무료'이고, 조례 제4조제1항도 공영주차장 요금은 무료를 원칙으로 정한다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 순창군 등록 36행 전부 공영(전부 노외) — 민영 제외 0건, 구획수가 0으로 등록된 행도 없어 제외 0건으로 36곳 전부 실었다",
+   "「순창군 주차장 조례」 제3061호(시행 2026-08-18, 공포 2026-08-18, 일부개정, ordinSeq 2163575) 본문 원문(data/raw/sunchang-ordinance.txt) 대조 완료(2026-11-20). 최신 시행본은 제3061호다 — 부칙 제1조가 공포한 날부터 시행한다고 정한다",
+   "별표 1은 HWP 원본(flSeq 168338737)을 data/raw/sunchang-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 확정했다(data/raw/sunchang-ordinance-b1.txt) — 1급지·2급지 요금표다. 함께 검색된 「순창군 부설 주차장의 설치비용 산정기준 등에 관한 조례」(제2456호)·「순창군 주차장 무료개방 지원 조례」(제2828호)·「순창군 주차장 특별회계 설치 및 운용 조례」(제2185호)는 요금 조례가 아니거나 특정 시설·지원에 한정돼 대조 대상에서 제외했다",
+   "등록 36곳은 전부 요금 구분이 '무료'이고, 조례 제4조제1항이 군수가 설치하는 공영주차장의 주차요금은 무료로 하되 군수가 징수가 필요하다고 인정한 곳만 별표 1 요금을 받는다고 정하고 있어 무료 운영이 조례 본문의 원칙과 그대로 일치한다 — 요금표는 유료로 전환되는 곳에 적용되는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산·진안·장수·임실 선례와 같은 참고표 방식이되, 순창은 무료 근거가 조례 본문에 직접 있다)",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없다. 이름이 같은 '제일교회 주차장' 2곳은 자리(쌍치면 쌍계리 292·9면과 순창읍 남계리 448·26면)가 서로 달라 합치지 않고 전부 실었고, 이름 뒤에 주소 끝부분을 붙여 구분했다",
+   "좌표는 36곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 순창군 범위 밖 좌표도 없었다",
+   "도로명주소는 12곳이 등록돼 있지 않아 동(읍·면) 판정은 지번주소를 기준으로 했다. 전화번호는 36곳 전부 063-650-1348로 같고 관리기관도 전부 전북특별자치도 순창군청이다",
+   "등록 급지는 36곳 전부 '1'인데 조례 별표 1 비고 3이 급지 구분은 군수가 지정한다고 정하고 있어 등록 급지가 곧 지정 급지라고 단정할 수 없어 요금표 행 판정에 쓰지 않았다(장수 선례) — 등록 급지와 지정 급지의 일치는 군청 확인 과제다",
+   "주차장관리번호 317-2-000025가 12곳에 중복 등록돼 있다 — 관리번호는 조인키로 쓰지 않고 등록값 그대로 실었다",
+   "부제시행구분은 36곳 전부 5부제이고 운영요일은 전부 평일+토요일+공휴일, 운영시간은 전부 00:00~23:59다. 특기사항은 36곳 전부 공란이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 36,
+  "무료_구획수": 941,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "317-2-000025"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-20"
+  ],
+  "관리기관": {
+   "전북특별자치도 순창군청": 36
+  }
+ },
+ "fee_table": {
+  "style": "sunchang_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「순창군 주차장 조례」 제3061호(시행 2026-08-18, 공포 2026-08-18, 일부개정), ordinSeq 2163575. 본문 사본 data/raw/sunchang-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/sunchang-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 data/raw/sunchang-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지",
+    "grade": "g1",
+    "unit_label": "1회 주차요금 30분마다 500원 · 1일 4,000원 · 월정기 주간 40,000원/야간 30,000원/주·야간 50,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 4000,
+    "month": 40000,
+    "lots": 0
+   },
+   {
+    "label": "2급지",
+    "grade": "g2",
+    "unit_label": "1회 주차요금 30분마다 200원 · 1일 3,000원 · 월정기 주간 28,000원/야간 20,000원/주·야간 36,000원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": 3000,
+    "month": 28000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 36,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 08:00~22:00 · 야간 나머지 시간 (월정기주차차량은 19:00~08:00)",
+    "free": "조례 별표 1 비고 2의 주간·야간 시간 구분이다 — 월정기 주간·야간 요금을 가르는 기준이고, 등록 운영시간은 전 곳 00:00~23:59다"
+   }
+  ],
+  "notes": "이 요금표는 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용한다(별표 1 비고 1). 급지 구분은 주차장의 실태 및 주차수요를 고려하여 군수가 지정하며, 군의 특성 및 주차장의 위치에 따라 세분할 수 있다(비고 3). 요금은 승용차, 15인승 이하 승합차, 1.5톤 이하 화물자동차 1대를 기준으로 하고, 16인승 이상 45인승 이하 승합차와 1.5톤 초과 11톤 이하 화물자동차는 기준요금의 1.5배, 45인승 초과 또는 11톤 초과 화물자동차는 2배를 적용한다(비고 4). 할인요금의 적용기준은 1회 주차요금 급지 구분 없이 1구획당 매 시간마다 500원 이하, 1일 주차요금 2,000원 이하, 월 정기주차요금 30,000원 이하이고(비고 5), 공영주차장 이용자의 편의를 위해 1시간의 범위에서 무료로 운영할 수 있다(비고 6). 요금에는 부가가치세가 포함돼 있다. 등록 급지는 36곳 전부 '1'인데 급지 지정은 군수가 하는 것이라 등록 급지가 곧 지정 급지라고 단정할 수 없어 행별 곳수는 세지 않았다. 감면은 긴급자동차와 공무수행 중인 순창군 소유 관용차량 면제(면제할 수 있다), 국가유공자·보훈대상자 운전(등록인 탑승), 장애인 표지 부착·탑승, 5·18민주유공자 운전(등록인 탑승), 고엽제후유의증환자 등 운전(등록인 탑승), 경형·하이브리드·저공해 자동차, 병역명문가증 제시 차량 50퍼센트 경감·감면(경감·감면할 수 있다)이다.",
+  "basis": "요금표는 「순창군 주차장 조례」 제3061호(시행 2026-08-18) 제4조·별표 1과 표준데이터(기준일 2026-04-20)를 대조해 실었다. 등록된 곳은 전부 무료이고 조례 제4조제1항도 공영주차장 요금은 무료를 원칙으로 정하고 있어, 이 표는 유료로 전환되는 곳에 적용되는 조례 기준 요금의 참고표다. (조례 본문: data/raw/sunchang-ordinance.txt, 별표 1 원문: data/raw/sunchang-ordinance-b1.txt)"
+ },
+ "slug": "sunchang",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "순창군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항제1호 — 「도로교통법」 제2조제22호의 규정에 의한 긴급자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "공무수행 중인 순창군 소유 관용차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항제2호 — 공무수행중인 순창군 소유 관용차량은 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "그 밖에 군수가 필요하다고 인정하는 자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항제3호 — 그 밖에 군수가 필요하다고 인정하는 자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자·보훈대상자 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제1호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제6조에 따라 등록된 국가유공자 또는 보훈대상자 소유의 차량으로 등록인이 탑승한 자동차는 주차요금을 50퍼센트 경감할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "장애인 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제2호 — 「장애인복지법」 제2조에 따른 등록된 장애인으로서 소유차량에 장애인 표지를 부착하고 장애인이 탑승한 자동차는 주차요금을 50퍼센트 경감할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "5·18민주유공자 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제3호 — 「5ㆍ18민주유공자예우 및 단체설립에 관한 법률」 제7조에 따라 등록된 5.18 민주 유공자 소유의 차량으로 등록인이 탑승한 자동차는 주차요금을 50퍼센트 경감할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "고엽제후유의증환자 등 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제4호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제4조에 따라 등록된 고엽제후유증환자, 고엽제후유의증환자, 고엽제후유증 2세 환자 소유의 차량으로 등록인이 탑승한 자동차는 주차요금을 50퍼센트 경감할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "경형자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제5호 — 「자동차관리법 시행규칙」 제2조에 따라 1천㏄이하 경형자동차는 주차요금을 50퍼센트 경감할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "하이브리드 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제6호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제5호에 따른 하이브리드 자동차는 주차요금을 50퍼센트 감면할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "저공해자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제7호 — 「대기환경보전법 시행규칙」 제79조의8에 따른 저공해자동차 표지 등을 부착한 자동차는 주차요금을 50퍼센트 감면할 수 있다(관련 증명서 제시)"
+  },
+  {
+   "label": "병역명문가 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제8호 — 「순창군 병역명문가 예우 및 지원 조례」에 따라 병역명문가증을 제시한 차량은 주차요금을 50퍼센트 감면할 수 있다(관련 증명서 제시)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
