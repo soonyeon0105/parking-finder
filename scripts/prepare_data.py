@@ -44849,6 +44849,676 @@ def build_iksan():
     return payload
 
 
+# ---------------------------------------------------------------- 김제시 (T-03 전북 6)
+# 김제시는 표준데이터 36행 전부 공영·노외이다(민영 0). 총 1,292면이고
+#   요금은 무료 35·혼합 1이다. 혼합 1곳(금구향교(상학) 공영주차장)은
+#   등록 급지 '1'이고 금액(기본 60분 500원·추가 10분당 200원·1일
+#   5,000원(6시간)·월정기 40,000원)이 조례 별표 1의 1급지 소형과
+#   전부 일치한다. 다만 소재지가 금구면이라 조례 별표 1 비고 3의
+#   지역 기준(1급지 동지역·2급지 읍·면지역)으로는 2급지인데, 비고 3은
+#   급지를 시장이 지정하고 시의 특성·주차장 위치에 따라 세분할 수
+#   있게 열어 두었고 등록값이 완전한 구조이므로 계산기는 등록값으로
+#   계산하고(공주·청양·정읍 선례) 차이는 fee_diff에 남긴다 — 시청
+#   확인 과제다. 조례는 「김제시 주차장 조례」 제1850호(시행
+#   2026-08-21, 일부개정, ordinSeq 2168071) 제3조와 별표 1을 국가
+#   법령정보센터에서 직접 대조했다. 별표 1 비고 6은 '주차시간이
+#   1시간 미만일 때에는 1시간으로 보며, 기본주차요금은 무료로
+#   한다'고 정하므로 계산기는 1시간까지 무료·1시간 초과 시부터
+#   기본요금에 10분 단위로 가산하는 구조로 계산한다(남원 선례).
+#   무료 35곳은 주차장 조례에 상시 무료의 근거 조항이 따로 없어
+#   (별도의 「김제시 주차장 무료개방 지원 조례」 제1499호는 공공
+#   기관·학교·종교시설 주차장의 무료개방을 지원하는 조례라 이 공영
+#   주차장들의 무료 운영 근거가 아니다) 시가 무료로 운영하는 곳
+#   으로 보고 요금표는 조례 기준 요금의 참고표로 싣는다(서천·군산
+#   선례) — 무료 운영의 근거(고시 등)는 시청 확인 과제다. 도로명
+#   주소는 36곳 전부 결측이라 동 판정은 지번주소로만 한다. 좌표는
+#   전부 등록돼 있어 지오코딩 보완이 필요 없다. 등록 급지는 '1'
+#   33곳·'2' 3곳인데 '2'인 3곳 중 요촌제4(장전2)·옥산제1(옥정)
+#   2곳은 동지역이라 비고 3의 지역 기준과 어긋나고 전부 무료라
+#   요금표 행 판정에는 쓰지 않았다(익산 선례). 이름이 겹치는
+#   주차장은 없고, 이름이 다른 주차장이 200m 안에 이웃한 쌍은
+#   전부 다른 등록이라 합치지 않았다.
+GIMJE_PROVINCE = "전북특별자치도"
+GIMJE_PROVINCE_SLUG = "jeonbuk"
+GIMJE_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2168071"
+GIMJE_ORD_HWP = RAW / "gimje-ordinance-b1.hwp"
+GIMJE_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「김제시 주차장 조례」 제1850호(시행 2026-08-21, "
+                  "일부개정), ordinSeq 2168071. 본문 사본 data/raw/gimje-ordinance.txt. "
+                  "별표 1(공영주차장 주차요금표) 원문 HWP "
+                  "data/raw/gimje-ordinance-b1.hwp·추출문 gimje-ordinance-b1.txt.")
+
+GIMJE_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차에 대해서는 주차요금을 면제할 수 있다"},
+    {"label": "국가유공자 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제4항제2호라목 — 국가유공자가 운전하는 차량은 주차요금을 면제한다"},
+    {"label": "병역명문가 전액 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제4항제7호 — 「김제시 병역명문가 예우에 관한 조례」에 따른 병역명문가증을 소지한 사람이 운전하는 차량은 주차요금 전액을 감면한다"},
+    {"label": "전북관광패스 전액 감면 (일일 최초 2시간 한정)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제4항제6호 — 전북관광패스 사업에 따른 교통 패스권을 소지한 사람이 유료 공영주차장을 이용할 경우 이용료 전액을 감면할 수 있다. 다만 일일 최초 2시간에 한정한다"},
+    {"label": "시장·시의회의장 업무차량 전액 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제4항제1호 — 시장 및 시의회의장 소유의 업무차량은 주차요금 전액을 감면한다"},
+    {"label": "장애인 50% 범위 내", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제2호다목 — 장애인이 운전하는 차량 및 장애인을 동반한 일반차량은 주차요금의 50퍼센트 범위 내에서 감면받을 수 있다"},
+    {"label": "경형자동차 50% 범위 내", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제2호가목 — 에너지절약시책으로 배기량 1,000시시 미만의 경승용차는 주차요금의 50퍼센트 범위 내에서 감면받을 수 있다"},
+    {"label": "저공해자동차 50% 범위 내", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제2호마목 — 「대기환경보전법」 제58조제9항의 표지를 부착한 저공해자동차는 주차요금의 50퍼센트 범위 내에서 감면받을 수 있다"},
+    {"label": "전통시장 상인·고객 50% 범위 내", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제5호 — 전통시장 활성화를 위하여 공영 노외주차장을 이용하는 상인 및 고객들에게 주차요금의 100분의 50의 범위 내에서 감면할 수 있다"},
+    {"label": "교통난 해소대책 20% 범위 내", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 제3조제4항제2호나목 — 교통난 해소대책에 참여하는 차량은 주차요금의 20퍼센트 범위 내에서 감면받을 수 있다"},
+    {"label": "선납 할인 15% (3개월 이상 6개월 미만)", "rate": 0.15, "exempt_min": 0,
+     "note": "조례 제3조제4항제3호가목 — 주차요금을 3개월 이상 6개월 미만 선납하는 경우에는 주차요금의 15퍼센트를 할인할 수 있다"},
+    {"label": "선납 할인 20% (6개월 이상)", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 제3조제4항제3호나목 — 주차요금을 6개월 이상 선납하는 경우에는 주차요금의 20퍼센트를 할인할 수 있다"},
+]
+
+GIMJE_CONF = {
+    "city": "김제시",
+    "slug": "gimje",
+    "manager": "전북특별자치도 김제시청",
+    "manager_inquiry": "김제시청 교통행정과(063-540-3874, 표준데이터 등록 전화)·063-540-3147(조례 담당)",
+    "ordinance": ("「김제시 주차장 조례」 제1850호(시행 2026-08-21, 일부개정)",
+                  GIMJE_ORD_URL, GIMJE_ORD_NOTE),
+    "notes": ("김제시 공영주차장 36곳은 전부 노외이고 총 1,292면이다(무료 35곳, "
+              "혼합 1곳). 「김제시 주차장 조례」 제1850호(시행 2026-08-21, "
+              "ordinSeq 2168071) 별표 1은 급지를 1급지(동지역 기준)·2급지"
+              "(읍·면지역 기준)로 나누고, 공영 소형 기준 1급지는 기본 1시간 "
+              "500원·10분마다 200원·1일(6시간 이상) 5,000원·월정기 40,000원, "
+              "2급지는 400원·100원·4,000원·35,000원이다(대형은 요금표에 "
+              "병기, 노상 요금표도 별표 1에 함께 있다). 별표 1 비고 6에 따라 "
+              "주차시간이 1시간 미만이면 기본주차요금은 무료이고, 1시간을 "
+              "넘기면 기본요금에 10분 단위로 가산한다. 요금을 받는 곳은 금구"
+              "향교(상학) 공영주차장 1곳뿐인데, 등록 급지가 '1'이고 금액이 "
+              "별표 1의 1급지 소형과 전부 일치해 등록값으로 계산한다 — 다만 "
+              "소재지(금구면)는 비고 3의 지역 기준으로는 2급지라, 이 차이는 "
+              "데이터 품질 기록에 남기고 시청 확인 과제로 둔다. 무료 35곳은 "
+              "시가 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 "
+              "참고표로 싣는다. 감면은 조례 제3조를 따른다(긴급자동차·국가"
+              "유공자·병역명문가 전액 면제·감면, 전북관광패스 일일 최초 "
+              "2시간 전액, 장애인·경형·저공해·전통시장 이용객 50% 범위 내, "
+              "교통난 해소대책 20% 범위 내, 선납 할인 15~20%). 좌표는 36곳 "
+              "전부 등록돼 있고, 도로명주소는 전부 등록돼 있지 않다."),
+    "discounts": GIMJE_DISCOUNTS,
+}
+
+GIMJE_BBOX = (35.68, 35.90, 126.65, 127.05)
+
+GIMJE_DONGS = {"신풍동", "요촌동", "검산동", "옥산동", "교동", "갈공동",
+               "서암동", "입석동", "장화동", "흥사동", "연정동", "제월동",
+               "서정동", "순동", "난봉동", "오정동", "황산동", "월성동",
+               "월봉동", "명덕동", "복죽동", "하동", "용동", "백학동",
+               "도장동", "동서동", "양전동", "봉월동", "부교동", "낙양동",
+               "사정동", "만경읍", "죽산면", "백산면", "용지면", "백구면",
+               "부량면", "공덕면", "청하면", "성덕면", "진봉면", "금구면",
+               "봉남면", "황산면", "금산면", "광적면", "화율면"}
+
+
+def gimje_dong_of(addr):
+    """김제시 동(법정동)·읍·면 판정 — 지번주소의 김제시 다음 토큰이
+    법정동이거나 읍·면이다. 김제시는 표준데이터에 도로명주소가 전부
+    등록돼 있지 않아 지번주소로만 판정한다. 이름 기반 보정은 쓰지
+    않는다."""
+    if addr:
+        m = re.search(r"김제시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _gimje_grade_of(lot):
+    """요금표 급지 행 판정 — 등록 급지 기준이다. 유료는 혼합 1곳뿐이고
+    그 등록 급지 '1'과 금액이 별표 1의 1급지 소형과 일치한다. 소재지
+    (금구면)는 비고 3의 지역 기준으로는 2급지라 차이는 급지_요금_차이
+    에 남겼다."""
+    g = (lot["fee"].get("std_grade") or "").strip()
+    if g == "1":
+        return "g1"
+    if g == "2":
+        return "g2"
+    return "etc"
+
+
+def gimje_fee(row, name, note_bits, fee_diff):
+    """김제시 공영주차장 한 곳의 요금 — 무료 35·혼합 1.
+    혼합 1곳(금구향교(상학))의 등록 금액(기본 60분 500원·추가 10분당
+    200원·1일 5,000원(적용 6시간)·월정기 40,000원)은 조례 별표 1의
+    1급지 소형과 전부 일치하고 등록 급지도 '1'이다. 소재지 금구면은
+    별표 1 비고 3의 지역 기준(1급지 동지역·2급지 읍·면지역)으로는
+    2급지이지만, 비고 3은 급지를 시장이 지정하고 시의 특성·주차장
+    위치에 따라 세분할 수 있게 열어 두었고 등록값이 완전한 구조
+    이므로 계산기는 등록값으로 계산한다(공주·청양·정읍 선례).
+    별표 1 비고 6은 주차시간 1시간 미만이면 기본주차요금을 무료로
+    한다고 정하므로 계산 모델은 1시간까지 무료(free_min 59)·1시간
+    초과 시 기본요금 부과로 둔다(남원 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "0이라 금액을 확정할 수 없다 — 조례 별표 1의 요금(1급지 소형 "
+                        "기본 1시간 500원·10분마다 200원·1일 5,000원·월정기 "
+                        "40,000원)은 요금표에만 싣고 이 곳은 요금 미상으로 표기한다"
+                        "(군산 선례, 시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 0으로 등록돼 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 김제시청 확인 필요"})
+        return fee
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    fee_diff.append(f"{name}: 소재지는 금구면이라 조례 별표 1 비고 3의 지역 기준"
+                    "(1급지 동지역·2급지 읍·면지역)으로는 2급지(소형 기본 1시간 "
+                    "400원·10분마다 100원·1일 4,000원·월정기 35,000원)인데, 등록 "
+                    "급지가 '1'이고 금액(기본 500원·추가 10분당 200원·1일 5,000원·"
+                    "월정기 40,000원)이 별표 1의 1급지 소형과 전부 일치한다. 비고 "
+                    "3은 급지를 시장이 지정하고 시의 특성·주차장 위치에 따라 세분"
+                    "할 수 있게 열어 두어 등록 급지를 시장의 지정으로 보고 계산기"
+                    "는 등록값으로 계산했다(공주·청양·정읍 선례) — 실제 적용 급지"
+                    "는 시청 확인 필요")
+    fee.update({"type": "유료", "base_min": 60, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours,
+                "monthly": month if month else None,
+                "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "free_min": 59,
+                "steps": None,
+                "steps_label": ("1시간까지 무료 · 1시간 초과 시 500원 · 이후 10분마다 "
+                                "200원 · 1일(6시간 이상) 5,000원"),
+                "basis": ("「김제시 주차장 조례」 제1850호 별표 1(1급지 소형) "
+                          "— 등록 급지 '1'과 금액(기본 500원·추가 10분당 200원·"
+                          "1일 5,000원·월정기 40,000원)이 별표와 전부 일치한다. "
+                          "별표 1 비고 6에 따라 1시간까지는 무료이고 1시간을 "
+                          "넘기면 기본요금이 부과되며, 계산 모델은 '1시간까지 "
+                          "무료'를 분 단위 상한 59분으로 표현한다")})
+    note_bits.append("요금은 조례 별표 1 기준입니다 — 1시간까지는 무료이고 "
+                     "1시간을 넘기면 500원, 그 뒤로는 10분마다 200원이며 "
+                     "6시간 이상은 1일 요금 5,000원입니다")
+    return fee
+
+
+def gimje_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 공영주차장 주차요금표 값으로 표기한다.
+    요금을 받는 곳은 혼합 1곳뿐이고 등록 급지 '1'·금액이 1급지 소형과
+    일치해 1급지 소형 행에 센다(표준데이터에 차종 구분이 없어 대형
+    행은 0곳이다). 무료 35곳에 대해서는 조례 기준 요금의 참고표다
+    (서천·군산 선례). 노상주차장 요금표도 별표 1에 있으나 이 사이트
+    에 실린 노상 구간이 없어 notes에만 적는다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    g1s = {"base_min": 60, "base_fee": 500, "unit_min": 10, "unit_fee": 200,
+           "daily_fee": 5000, "free_min": 59}
+    g1l = {"base_min": 60, "base_fee": 600, "unit_min": 10, "unit_fee": 200,
+           "daily_fee": 6000, "free_min": 59}
+    g2s = {"base_min": 60, "base_fee": 400, "unit_min": 10, "unit_fee": 100,
+           "daily_fee": 4000, "free_min": 59}
+    g2l = {"base_min": 60, "base_fee": 500, "unit_min": 10, "unit_fee": 100,
+           "daily_fee": 5000, "free_min": 59}
+    rows = [
+        {"label": "1급지 · 소형", "grade": "g1",
+         "unit_label": "소형: 1시간까지 무료 · 기본 1시간 500원 · 10분마다 200원 · 월정기 40,000원",
+         "hour": sj_charge(g1s, 60), "two_hour": sj_charge(g1s, 120),
+         "day": 5000, "month": 40000,
+         "lots": len([l for l in paid if _gimje_grade_of(l) == "g1"])},
+        {"label": "1급지 · 대형", "grade": "g1",
+         "unit_label": "대형: 1시간까지 무료 · 기본 1시간 600원 · 10분마다 200원 · 월정기 45,000원",
+         "hour": sj_charge(g1l, 60), "two_hour": sj_charge(g1l, 120),
+         "day": 6000, "month": 45000,
+         "lots": 0},
+        {"label": "2급지 · 소형", "grade": "g2",
+         "unit_label": "소형: 1시간까지 무료 · 기본 1시간 400원 · 10분마다 100원 · 월정기 35,000원",
+         "hour": sj_charge(g2s, 60), "two_hour": sj_charge(g2s, 120),
+         "day": 4000, "month": 35000,
+         "lots": len([l for l in paid if _gimje_grade_of(l) == "g2"])},
+        {"label": "2급지 · 대형", "grade": "g2",
+         "unit_label": "대형: 1시간까지 무료 · 기본 1시간 500원 · 10분마다 100원 · 월정기 40,000원",
+         "hour": sj_charge(g2l, 60), "two_hour": sj_charge(g2l, 120),
+         "day": 5000, "month": 40000,
+         "lots": 0},
+    ]
+    return {
+        "style": "gimje_grade",
+        "unit_min": 10,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "공통", "hours": "주간 09:00~18:00 · 야간 18:00~익일 09:00",
+                     "free": ("조례 별표 1 비고 2의 주차요금 징수 시간구분이다 — 등록 운영시간은 "
+                              "전 곳 00:00~23:59다")}],
+        "notes": ("노상주차장 요금도 별표 1에 있다 — 1회 주차 시 10분당 1급지 "
+                  "소형 500원·2급지 소형 400원이고 1일(주간)은 5,000원·4,000원"
+                  "이다. 이 사이트에 실린 김제시 노상 구간은 없다. 급지는 "
+                  "주차장의 실태·주차수요를 참작해 시장이 지정하되 1급지는 "
+                  "동지역, 2급지는 읍·면지역을 기준으로 하고 시의 특성·주차장 "
+                  "위치에 따라 세분할 수 있다(비고 3). 소형은 2.5톤 이하"
+                  "(승용차·15인승 이하 승합차), 대형은 2.5톤 초과다(비고 5). "
+                  "감면은 긴급자동차·국가유공자·병역명문가 전액, 전북관광패스 "
+                  "일일 최초 2시간 전액, 장애인·경형·저공해·전통시장 이용객 "
+                  "50% 범위 내, 교통난 해소대책 20% 범위 내, 선납 할인 "
+                  "15~20%이다."),
+        "basis": ("요금표는 「김제시 주차장 조례」 제1850호(시행 2026-08-21) "
+                  "별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. "
+                  "요금을 받는 1곳의 등록 급지·금액은 별표 1의 1급지 소형과 "
+                  "전부 일치하고, 무료 35곳에 대해서는 조례 기준 요금의 "
+                  "참고표다. (조례 본문: data/raw/gimje-ordinance.txt, 별표 1 "
+                  "원문 HWP: data/raw/gimje-ordinance-b1.hwp)"),
+    }
+
+
+def gimje_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「김제시 주차장 조례」 제1850호 제3조 — 긴급자동차는 면제할 수 "
+                      "있다(제2항). 전액(제4항): 시장·시의회의장 업무차량(제1호), "
+                      "국가유공자(제2호라목), 병역명문가(제7호), 전북관광패스 "
+                      "소지(일일 최초 2시간 한정, 제6호). 50% 범위 내(제4항): "
+                      "경형자동차(제2호가목), 장애인(제2호다목), 저공해자동차"
+                      "(제2호마목), 전통시장 상인·고객(제5호). 20% 범위 내: "
+                      "교통난 해소대책(제2호나목). 선납 할인(제3호): 3개월 이상 "
+                      "6개월 미만 15%, 6개월 이상 20%. 둘 이상의 감면 규정이 "
+                      "겹치면 감면율이 높은 것 하나만 적용한다(제6항). 본문 "
+                      "원문(data/raw/gimje-ordinance.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 별표 1 — 공영 1급지 소형 기본 1시간 500원·10분마다 "
+                      "200원·1일(6시간 이상) 5,000원·월정기 40,000원, 대형 "
+                      "600원·200원·6,000원·45,000원. 2급지 소형 400원·100원·"
+                      "4,000원·35,000원, 대형 500원·100원·5,000원·40,000원. "
+                      "노상 요금표(1회 10분당 1급지 소형 500원·2급지 소형 "
+                      "400원, 1일(주간) 5,000원·4,000원)도 별표 1에 있다. "
+                      "표준데이터에서 요금을 받는 곳은 혼합 1곳뿐이고 등록 "
+                      "급지 '1'·금액이 별표의 1급지 소형과 전부 일치한다"),
+        "급지_출처": ("조례 별표 1 비고 3은 급지를 시장이 지정하되 1급지 동지역·"
+                      "2급지 읍·면지역을 기준으로 하고 시의 특성·주차장 위치에 "
+                      "따라 세분할 수 있게 한다. 등록 급지는 '1' 33곳·'2' 3곳"
+                      "이고, '2'인 요촌제4(장전2)·옥산제1(옥정) 2곳은 동지역이라 "
+                      "지역 기준과 어긋나며 진봉제2(심포)만 읍·면지역과 일치한다. "
+                      "유료는 혼합 1곳뿐이고 그 등록 급지 '1'이 별표의 1급지 "
+                      "소형 금액과 일치해 계산기는 등록값을 썼다 — 다만 그 "
+                      "소재지(금구면)는 지역 기준으로는 2급지라 실제 적용 급지"
+                      "는 시청 확인 과제다"),
+        "무료요일_출처": ("조례 별표 1 비고 2는 주차요금 징수 시간구분(연중 주간 "
+                          "09:00~18:00, 나머지는 야간)만 정하고 요일 무료는 "
+                          "정하지 않아 free_days는 적용하지 않았다. 무료 35곳은 "
+                          "요금구분 자체가 '무료'다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 김제시 등록 36행 전부 공영·노외 — 민영 제외 0건",
+            "「김제시 주차장 조례」 제1850호(시행 2026-08-21, 일부개정, ordinSeq 2168071) 본문 원문(data/raw/gimje-ordinance.txt) 대조 완료(2026-11-20)",
+            "별표 1 원문 HWP(data/raw/gimje-ordinance-b1.hwp)의 미리보기 텍스트로 공영·노상 요금표 확정 — 현행본(제1850호) 첨부 파일 '공영주차장 주차요금표등'(flSeq 169266397)이다. 함께 검색된 「김제시 주차장 무료개방 지원 조례」(제1499호)와 「김제시 주차장 특별회계 설치 조례」(제1418호)는 요금 조례가 아니라 대조 대상에서 제외했다",
+            "요금을 받는 곳은 혼합 1곳(금구향교(상학))뿐이고 등록 급지 '1'·금액이 별표 1의 1급지 소형과 전부 일치해 계산기는 등록값으로 계산했다(공주·청양·정읍 선례). 소재지 금구면은 비고 3의 지역 기준으로는 2급지라 차이는 급지_요금_차이에 기록하고 시청 확인 과제로 남겼다",
+            "별표 1 비고 6(주차시간 1시간 미만은 기본주차요금 무료)에 따라 계산기는 1시간까지 무료·초과 시 기본요금 부과 구조로 계산한다(남원 선례)",
+            "무료 35곳은 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어 시가 무료로 운영하는 곳으로 보고 요금표는 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례) — 「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장 대상이라 근거가 되지 않으며, 무료 운영의 근거(고시 등)는 시청 확인 과제다",
+            "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍은 전부 다른 등록이라 합치지 않았다",
+            "좌표는 36곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 김제시 범위 밖 좌표도 없었다",
+            "도로명주소는 36곳 전부 등록돼 있지 않아 동 판정은 지번주소로만 했다",
+            "등록 급지 '2'인 요촌제4(장전2)·옥산제1(옥정)은 동지역이라 비고 3의 지역 기준과 어긋나지만 전부 무료라 요금 계산에 영향이 없어 기록만 남겼다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gimje():
+    """김제시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「김제시 주차장 조례」 제1850호(시행 2026-08-21,
+    ordinSeq 2168071) 제3조·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 36행 전부 공영·노외(무료 35·혼합 1)를 싣는다.
+    혼합 1곳은 등록 급지·금액이 조례 별표 1의 1급지 소형과 전부
+    일치해 계산기는 등록값으로 계산하고(공주·청양·정읍 선례), 소재지
+    가 읍·면지역이라 지역 기준 급지와 어긋나는 점은 품질 기록에
+    남긴다. 좌표는 전부 등록돼 있다."""
+    conf = GIMJE_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "김제시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "김제시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 김제시는
+    #   해당 중복이 0건이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GIMJE_BBOX[0] < lat < GIMJE_BBOX[1]
+                                                        and GIMJE_BBOX[2] < lng < GIMJE_BBOX[3]):
+            # 김제시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 김제시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gimje_dong_of(jibun) or gimje_dong_of(road)
+        if gimje_dong_of(jibun):
+            dong_src = "지번주소"
+        elif gimje_dong_of(road):
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 법정동·읍면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in GIMJE_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = gimje_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "김제시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 36행은 전부 공영·노외이고 데이터기준일자는 전부 "
+                      "2026-04-16이다. 관리기관은 전부 김제시청 교통행정과이고 등록 "
+                      "전화도 전부 063-540-3874이다")
+    note_fixed.append("도로명주소는 36곳 전부 등록돼 있지 않아 동 판정과 표기는 "
+                      "지번주소로만 했다")
+    note_fixed.append("등록 급지는 '1' 33곳·'2' 3곳이다. '2'인 요촌제4(장전2)·"
+                      "옥산제1(옥정)은 동지역이라 조례 별표 1 비고 3의 지역 기준"
+                      "(1급지 동지역)과 어긋나고 진봉제2(심포)만 읍·면지역과 "
+                      "일치한다 — 전부 무료라 요금 계산에는 영향이 없다")
+    note_fixed.append("운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 "
+                      "00:00~23:59, 특기사항은 전 곳 공란이다")
+    note_fixed.append("장애인전용주차구역보유여부는 36곳 전부 공란으로 등록돼 있다")
+    note_fixed.append("결제방법은 혼합 1곳(금구향교(상학) 공영주차장)만 "
+                      "'현금,신용카드'로 등록돼 있다")
+    note_fixed.append("이름 끝에 '(조성사업)'·'확장'·'(확장)'이 붙은 등록 5곳"
+                      "(신풍제6·신풍제4·요촌제16·요촌제5·옥산제2)은 사업명이 포함된 "
+                      "등록 이름 그대로 실었다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jb-gimje-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jb-gimje-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 김제시는 좌표 결측이 없어 채워지는 곳은 없다.
+    apply_coord_fix(lots)
+
+    fee_table = gimje_fee_table(conf, lots)
+    quality = gimje_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"김제시로 등록된 행 {len(rows_std)}행(전부 공영·노외)을 읽어 중복 제거 "
+                 f"{len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·혼합 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이며, 요금을 받는 "
+                 f"1곳의 등록 급지·금액은 조례 별표 1의 1급지 소형과 전부 일치한다. "
+                 f"좌표는 전부 등록돼 있고 도로명주소는 전부 결측이다. 조례 대조 "
+                 f"완료 — 「김제시 주차장 조례」 제1850호(시행 2026-08-21, "
+                 f"ordinSeq 2168071) 제3조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GIMJE_ORD_HWP.name if GIMJE_ORD_HWP.exists() else None,
+            "sha256": sha256(GIMJE_ORD_HWP) if GIMJE_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-08-21",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"김제시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/gimje-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/gimje-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/gimje-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GIMJE_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "김제시", "slug": "gimje"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GIMJE_PROVINCE,
+        "province_slug": GIMJE_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gimje_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -44861,7 +45531,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "gimje",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -44879,7 +45549,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "김제시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -44932,7 +45602,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "gimje": ["김제시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -45093,6 +45763,8 @@ def main():
         cities.append(build_iksan())
     if "정읍시" in want:
         cities.append(build_jeongeup())
+    if "김제시" in want:
+        cities.append(build_gimje())
 
     if args.city == "all":
         site = build_site_payload(cities)
