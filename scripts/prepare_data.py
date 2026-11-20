@@ -58725,6 +58725,672 @@ def build_jangheung():
     })
     (DATA / "jangheung_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
+# 강진군 (전남광주통합특별시) — 표준데이터 등록 공영 8곳(노상 7·
+#   노외 1, 총 520면). 무료 6곳·유료 2곳(제5공영주차장 노상·
+#   제6공영주차장 노외)이고 8곳 전부 강진읍이다. 조례는
+#   「강진군 주차장 조례」 제2895호(시행 2026-08-10,
+#   ordinSeq 2169057)이고 제4조·제10조제1항이 요금을 별표 1로
+#   정한다. 2026-08-10 개정은 전남광주통합특별시 명칭 변경
+#   일괄개정(72개 조례)이라 요금 내용은 그 이전 상태이고,
+#   별표 1은 2026-04-22 개정본이다. 별표 1은 급지(1급지
+#   강진읍 지역·2급지 기타의 지역)×차종(소형·대형) 요금표로,
+#   주차요금은 30분마다 1·2급지 모두 소형 500원·대형 600원
+#   이고 1일 주차요금은 1급지 소형 8,000원·대형 9,000원,
+#   2급지 소형 5,000원·대형 6,000원이며 월정기 칸은 없다.
+#   비고 10은 유료 공영주차장의 매일 첫 1시간 30분을 무료로
+#   하고, 비고 11은 평일 19:00~다음날 08:00와 휴일 및
+#   공휴일에 유료 공영주차장을 무료로 개방한다고 정한다.
+#   유료 2곳은 전부 강진읍이라 1급지 소형 요금(30분마다
+#   500원·1일 8,000원)에 비고 10·11을 적용해 계산한다 —
+#   제5는 등록 단위요금이 별표와 일치하고 특기사항
+#   '매일 1시간30분 무료'가 비고 10과 일치한다. 제6은 등록
+#   기본이 60분 500원으로 별표의 30분 단위 구조와 달라
+#   조례 구조를 적용했다(여수·논산 선례, 판단 지점).
+#   등록 급지는 8곳 전부 '기타'라 별표의 급지와 표기가
+#   다르다. 좌표는 8곳 전부 등록돼 있고 전부 군 범위
+#   안이다. 도로명주소는 8곳 전부 없다.
+GANGJIN_PROVINCE = "전남광주통합특별시"
+GANGJIN_PROVINCE_SLUG = "jeonnam"
+GANGJIN_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2169057"
+GANGJIN_ORD_TXT = RAW / "gangjin-ordinance-b1.txt"
+GANGJIN_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                    "「강진군 주차장 조례」 제2895호(시행 2026-08-10, "
+                    "일부개정), ordinSeq 2169057. 본문 사본 "
+                    "data/raw/gangjin-ordinance.txt. 별표 1(공영주차장 "
+                    "주차요금표)은 HWP 원본을 data/raw/gangjin-ordinance-b1.hwp로 "
+                    "저장하고 PrvText 추출과 BodyText 직접 파싱으로 교차 확인해 "
+                    "data/raw/gangjin-ordinance-b1.txt로 확정했다.")
+
+GANGJIN_DISCOUNTS = [
+    {"label": "긴급자동차·국가 및 지방자치단체 공용차량·군수 인정 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 다 — 군수는 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량 및 기타 군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량에 대하여는 주차요금을 면제한다. 단, 공공행사 및 회의 참여차량은 주차장 관리부서에 사전에 서면으로 신청하여 승인된 경우에 한한다. 노상주차장의 긴급자동차 면제는 본문 제10조제1항 단서도 정한다"},
+    {"label": "모범납세자 1년간 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 사 — 모범납세자표창을 받은 자로서 군수 또는 국세청장이 발급한 성실납세필증(스티커)을 부착한 차량에 대하여는 성실납세필증 교부일로부터 1년간 주차요금을 면제한다"},
+    {"label": "장애인·국가유공자 보철용 차량·경자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 가 — 장애인 자가운전차량, 장애인을 동반한 일반차량, 국가유공자가 직접 사용하는 보철용 차량, 경자동차는 주차요금의 50%를 경감한다"},
+    {"label": "5·18민주화운동 부상자·고엽제후유증 환자 차량 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 라 — 5.18 민주화운동 부상자, 고엽제후유증 환자가 사용하는 차량에 대하여 주차요금의 50%를 경감한다"},
+    {"label": "임산부 탑승 차량 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 마 — 「모자보건법」에 따른 임산부가 탑승한 경우로서 병원이나 보건소에서 발행한 산모수첩 등 임산부 증명자료를 제시하는 차량에 대하여 주차요금의 50%를 경감한다"},
+    {"label": "환경친화적 자동차·저공해자동차 표지 부착 차량 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 바 — 「환경친화적 자동차의 개발 및 보급촉진에 관한 법률」 및 「대기환경보전법」에 따라 지방자치단체가 발급하는 환경친화적 자동차 또는 저공해 자동차 표지가 외부에서 알아볼 수 있도록 부착되어 있는 자동차에 대하여 주차요금의 50%를 경감한다"},
+    {"label": "환경친화적 자동차 충전 시 2시간 면제", "rate": 1.0, "exempt_min": 120,
+     "note": "조례 별표 1 비고 5 바 단서 — 환경친화적 자동차가 주차장 안 충전시설을 이용하여 충전하기 위해 주차하는 경우에는 2시간의 주차요금을 면제한다"},
+    {"label": "병역명문가 예우대상자 차량 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 아 — 「강진군 병역명문가 예우 및 지원에 관한 조례」에 따른 병역 명문가 예우대상자가 직접 운전하는 차량에 대하여 50%를 경감한다"},
+    {"label": "군수 시책 참여차량 20% 경감", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 나 — 군수가 추진하는 시책(차량10부제 운행등)에 참여하는 차량에 대하여 주차장 요금의 20%를 경감할 수 있다"},
+]
+
+GANGJIN_CONF = {
+    "city": "강진군",
+    "slug": "gangjin",
+    "manager": "전남광주통합특별시 강진군청",
+    "manager_inquiry": "강진군청 안전재난교통과(표준데이터 등록 전화 061-430-3944·제6공영주차장 061-430-3972, 조례 담당 061-430-3943 국가법령정보센터 표기)",
+    "ordinance": ("「강진군 주차장 조례」 제2895호(시행 2026-08-10, 일부개정)",
+                  GANGJIN_ORD_URL, GANGJIN_ORD_NOTE),
+    "notes": ("강진군 공영주차장 8곳(노상 7·노외 1, 총 520면)은 전부 강진읍에 "
+              "있고 무료 6곳·유료 2곳이다. 「강진군 주차장 조례」 제2895호"
+              "(시행 2026-08-10, ordinSeq 2169057) 제4조·제10조제1항은 "
+              "공영주차장 요금을 별표 1로 정한다 — 별표 1(2026-04-22 개정)은 "
+              "급지(1급지 강진읍 지역·2급지 기타의 지역)×차종(소형·대형) "
+              "요금표로, 주차요금은 30분마다 1·2급지 모두 소형 500원·대형 "
+              "600원이고 1일 주차요금은 1급지 소형 8,000원·대형 9,000원, "
+              "2급지 소형 5,000원·대형 6,000원이며 월정기 칸은 없다. 비고 10은 "
+              "유료 공영주차장 주차 시 매일 첫 1시간 30분을 무료로 하고, "
+              "비고 11은 평일 19:00부터 다음날 08:00까지와 휴일 및 공휴일에 "
+              "유료 공영주차장을 무료로 개방한다고 정한다. 유료 2곳(제5 "
+              "남문주차장·제6 강진아트홀)은 전부 강진읍이라 1급지 소형 요금"
+              "(30분마다 500원·1일 8,000원)에 비고 10·11을 적용해 계산한다. "
+              "경감은 별표 1 비고 5를 따른다(긴급자동차·공용차량·군수 인정 "
+              "차량과 모범납세자 1년 면제, 장애인·국가유공자 보철용 차량·"
+              "경자동차·5·18 부상자·고엽제 환자·임산부·환경친화적 및 저공해 "
+              "표지 차량·병역명문가 50% 경감, 환경친화적 자동차 충전 시 "
+              "2시간 면제, 군수 시책 참여차량 20% 경감). 등록 급지는 8곳 "
+              "전부 '기타'라 별표의 급지 표기와 다르고, 좌표는 8곳 전부 "
+              "등록돼 있으며 도로명주소는 8곳 전부 없다."),
+    "discounts": GANGJIN_DISCOUNTS,
+}
+
+GANGJIN_BBOX = (34.38, 34.82, 126.58, 127.02)
+
+GANGJIN_DONGS = {"강진읍", "군동면", "칠량면", "대구면", "도암면", "신전면",
+                 "성전면", "작천면", "병영면", "옴천면", "계곡면"}
+
+
+def gangjin_dong_of(addr):
+    """강진군 법정 읍·면 판정 — 지번주소의 강진군 다음 토큰이
+    읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"강진군\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def gangjin_fee(row, name, note_bits, fee_diff):
+    """강진군 공영주차장 한 곳의 요금 — 등록 8곳 중 무료 6곳,
+    유료 2곳(제5공영주차장 노상·제6공영주차장 노외)이다.
+    조례 제4조·제10조제1항은 공영주차장 요금을 별표 1로
+    정한다. 유료 2곳은 전부 강진읍이라 별표 1 비고 3의
+    1급지이고, 소형 요금은 30분마다 500원·1일 8,000원이다.
+    비고 10(매일 첫 1시간 30분 무료)과 비고 11(평일
+    19:00~다음날 08:00·휴일 및 공휴일 무료 개방)을 함께
+    적용한다. 제5는 등록 단위요금(기본 30분 500원·추가
+    30분 500원)이 별표 1급지 소형과 일치하고 특기사항
+    '매일 1시간30분 무료'가 비고 10과 일치한다. 제6은
+    등록 기본이 60분 500원으로 별표의 30분 단위 구조와
+    달라 조례 구조로 계산한다(여수·논산 선례 — 구조가
+    상충하면 조례 우선)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(조례 본문에 무료 운영의 명시 근거 조항은 확인되지 않아 군청 확인 과제다)"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 군청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 강진군청 확인 필요"})
+        return fee
+    # 유료 2곳 공통 — 전부 강진읍(조례 1급지), 소형 기준 별표 1 요금에
+    #   비고 10의 매일 첫 90분 무료를 얹는다. base 90분 0원 + 30분마다
+    #   500원으로 두면 계산기·요금표가 모두 조례 구조와 같아진다.
+    if name.startswith("제6공영주차장"):
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                        f"{unit_fee}원)은 조례 별표 1의 30분 단위 구조(30분마다 500원)와 "
+                        "기본 구간이 달라, 비고 10의 매일 첫 1시간 30분 무료까지 포함한 "
+                        "조례 구조(첫 90분 무료·이후 30분마다 500원)로 계산한다(여수·논산 "
+                        "선례 — 구조가 상충하면 조례 우선, 군청 확인 과제). 1일 "
+                        f"{day}원은 별표 1 1급지 소형 1일 주차요금 8,000원과 일치한다. "
+                        "월정기 50,000원은 별표 1에 월정기 칸이 없어 등록값을 그대로 "
+                        "실었다. 1일주차권 적용시간이 '1440'으로 등록돼 있는데 이 칸은 "
+                        "다른 지역이 시간 단위(무안 8)로 적는 칸이라 단위가 분명하지 "
+                        "않아 적용시간은 표기하지 않는다(군청 확인 과제)")
+        basis = ("조례 별표 1 1급지 소형 요금(30분마다 500원·1일 8,000원)에 비고 10"
+                 "(매일 첫 1시간 30분 무료)을 적용해 계산한다 — 등록 기본(60분 "
+                 "500원)은 별표의 30분 단위 구조와 달라 조례 구조를 따랐다. "
+                 "월정기 50,000원은 별표 1에 없어 등록값을 실었다")
+    else:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                        f"{unit_fee}원)이 조례 별표 1 1급지 소형(30분마다 500원)과 "
+                        "일치한다. 1일 주차요금은 등록이 공란이라 별표 1의 8,000원을 "
+                        "적용했다(여수 선례). 특기사항 '매일 1시간30분 무료'는 별표 1 "
+                        "비고 10과 일치한다")
+        basis = ("등록 단위요금(30분마다 500원)이 조례 별표 1 1급지 소형과 일치해 "
+                 "그대로 적용하고, 비고 10(매일 첫 1시간 30분 무료)과 비고 11"
+                 "(평일 19:00~다음날 08:00·휴일 및 공휴일 무료 개방)을 함께 "
+                 "적용한다. 1일 주차요금은 등록이 공란이라 별표 1의 8,000원을 "
+                 "적용했다")
+    fee.update({"type": "유료", "base_min": 90, "base_fee": 0,
+                "unit_min": 30, "unit_fee": 500,
+                "daily_fee": 8000,
+                "monthly": month if month else None,
+                "grade": 1, "grade_label": "1급지",
+                "free_min": 90,
+                "basis": basis})
+    return fee
+
+
+def gangjin_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 공영주차장 주차요금표 값으로
+    표기한다. 별표 1은 급지(1급지 강진읍 지역·2급지 기타의
+    지역)×차종(소형·대형) 요금표로 주차요금은 30분마다
+    1·2급지 모두 소형 500원·대형 600원이고, 비고 10이 유료
+    공영주차장의 매일 첫 1시간 30분을 무료로 정해 1시간
+    예상액은 전 행 0원, 2시간 예상액은 30분분(소형 500원·
+    대형 600원)이다. 등록 유료 2곳은 전부 강진읍(1급지)
+    소형 계산이라 1급지 소형 행에만 곳수를 센다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, per30, day, lots_n, unit_label):
+        f = {"base_min": 90, "base_fee": 0, "free_min": 90, "unit_min": 30,
+             "unit_fee": per30, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": None, "lots": lots_n}
+
+    n_g1 = len([l for l in paid if l["fee"].get("grade") == 1])
+    rows = [
+        _row("1급지 (강진읍 지역) 소형", "g1_small", 500, 8000, n_g1,
+             "매일 첫 1시간 30분 무료 · 이후 30분마다 500원 · 1일 8,000원 · 월정기 없음(별표 1)"),
+        _row("1급지 (강진읍 지역) 대형", "g1_large", 600, 9000, 0,
+             "매일 첫 1시간 30분 무료 · 이후 30분마다 600원 · 1일 9,000원 · 월정기 없음(별표 1)"),
+        _row("2급지 (기타의 지역) 소형", "g2_small", 500, 5000, 0,
+             "매일 첫 1시간 30분 무료 · 이후 30분마다 500원 · 1일 5,000원 · 월정기 없음(별표 1)"),
+        _row("2급지 (기타의 지역) 대형", "g2_large", 600, 6000, 0,
+             "매일 첫 1시간 30분 무료 · 이후 30분마다 600원 · 1일 6,000원 · 월정기 없음(별표 1)"),
+    ]
+    return {
+        "style": "gangjin_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "무료 개방 (조례 별표 1 비고 11)",
+                     "hours": "평일 19:00~다음날 08:00 · 휴일 및 공휴일 상시",
+                     "free": ("유료 공영주차장 2곳에 적용한다 — 평일 야간은 "
+                              "free_window(19:00~08:00)로, 휴일 및 공휴일은 "
+                              "free_days로 반영했다. '휴일'에 토요일이 드는지는 "
+                              "조례 문구만으로 확정되지 않아 토요일을 포함하는 "
+                              "것으로 읽었다(군청 확인 과제)")},
+                    {"group": "주간·야간 구분 (조례 별표 1 비고 2)",
+                     "hours": "3월~10월 08:00~20:00, 11월~2월 09:00~19:00, 나머지는 야간",
+                     "free": ("월정기 주·야간 구분의 기준이나 별표 1에 월정기 "
+                              "금액은 없다 — 제6공영주차장(강진아트홀)의 월정기 "
+                              "50,000원은 등록값이다")}],
+        "notes": ("급지구분은 1급지를 강진읍 지역, 2급지를 기타의 지역으로 정하고, "
+                  "급지는 주차장의 실태 및 주차수요, 토지등급 등을 참작해 세분하여 "
+                  "지정할 수 있다(비고 3). 표준데이터 등록 급지는 8곳 전부 "
+                  "'기타'라 별표의 급지 표기와 다르지만 8곳 전부 강진읍이라 "
+                  "비고 3상 전량 1급지다. 주차시간은 30분 단위로 하며 30분 "
+                  "미만일 때는 30분으로 한다(비고 6). 차량구분은 승용차, "
+                  "15인 미만 승합자동차, 2.5톤 미만 화물자동차를 소형으로 "
+                  "본다(비고 7). 강진읍전통시장주차타워(제7공영주차장)는 "
+                  "강진작은영화관 영수증 제시 시 최초 3시간 면제(비고 12), "
+                  "전통시장 5일장 날 무료 개방(비고 13)이 정해져 있으나 이 "
+                  "곳은 요금 구분이 '무료'로 등록돼 있어 별도 반영은 하지 "
+                  "않았다. 타워형 주차장의 비가림 시설이 없는 옥상층은 무료로 "
+                  "개방한다(비고 14). 경감은 긴급자동차·공용차량·군수 인정 "
+                  "차량 면제와 모범납세자 1년 면제(비고 5 다·사), 장애인·"
+                  "국가유공자 보철용 차량·경자동차·5·18 부상자·고엽제 환자·"
+                  "임산부·환경친화적 및 저공해 표지 차량·병역명문가 50% "
+                  "경감(비고 5 가·라·마·바·아), 환경친화적 자동차 충전 시 "
+                  "2시간 면제(비고 5 바 단서), 군수 시책 참여차량 20% "
+                  "경감(비고 5 나)이다."),
+        "basis": ("요금표는 「강진군 주차장 조례」 제2895호(시행 2026-08-10) "
+                  "제4조·제10조·별표 1(2026-04-22 개정)과 표준데이터(기준일 "
+                  "2026-07-28)를 대조해 실었다. 유료 2곳은 1급지 소형 행의 "
+                  "요금으로 계산하고 무료 6곳은 요금을 받지 않는다. "
+                  "(조례 본문: data/raw/gangjin-ordinance.txt, 별표 1 원문: "
+                  "data/raw/gangjin-ordinance-b1.txt)"),
+    }
+
+
+def gangjin_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「강진군 주차장 조례」 제2895호 별표 1 비고 5(주차요금 경감) — 면제: "
+                      "긴급자동차, 국가 또는 지방자치단체의 공용차량 및 기타 군수가 공익목적 "
+                      "등 특별한 사유가 있다고 인정하는 차량(다, 공공행사 및 회의 참여차량은 "
+                      "사전 서면 신청·승인 시), 모범납세자표창을 받은 자로서 성실납세필증을 "
+                      "부착한 차량은 교부일로부터 1년간(사). 50% 경감: 장애인 자가운전차량, "
+                      "장애인을 동반한 일반차량, 국가유공자가 직접 사용하는 보철용 차량, "
+                      "경자동차(가), 5.18 민주화운동 부상자, 고엽제후유증 환자가 사용하는 "
+                      "차량(라), 임산부가 탑승하고 산모수첩 등 증명자료를 제시하는 차량(마), "
+                      "환경친화적 자동차 또는 저공해 자동차 표지 부착 차량(바), 병역 명문가 "
+                      "예우대상자가 직접 운전하는 차량(아). 환경친화적 자동차가 충전시설을 "
+                      "이용해 충전하기 위해 주차하는 경우에는 2시간 면제(바 단서). 20% "
+                      "경감: 군수가 추진하는 시책(차량10부제 운행등)에 참여하는 차량(나). "
+                      "본문 원문(data/raw/gangjin-ordinance.txt)·별표 1 원문"
+                      "(data/raw/gangjin-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제4조·제10조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 "
+                      "한다. 별표 1(2026-04-22 개정)은 급지(1급지 강진읍 지역·2급지 기타의 "
+                      "지역)×차종(소형·대형) 요금표로 주차요금은 30분마다 1·2급지 모두 "
+                      "소형 500원·대형 600원, 1일 주차요금은 1급지 소형 8,000원·대형 "
+                      "9,000원, 2급지 소형 5,000원·대형 6,000원이고 월정기 칸은 없다. "
+                      "비고 10은 유료 공영주차장의 매일 첫 1시간 30분을 무료로, 비고 "
+                      "11은 평일 19:00~다음날 08:00와 휴일 및 공휴일의 무료 개방을 "
+                      "정한다. 유료 2곳은 이 값으로 계산하고 무료 6곳은 요금을 받지 "
+                      "않는다"),
+        "급지_출처": ("조례 별표 1 비고 3 — 1급지는 강진읍 지역, 2급지는 기타의 지역이고, "
+                      "급지구분은 주차장의 실태 및 주차수요, 토지등급 등 참작 세분하여 "
+                      "지정할 수 있다. 표준데이터 등록 급지는 8곳 전부 '기타'로 별표의 "
+                      "급지 표기와 다르지만, 8곳 전부 강진읍이라 비고 3상 전량 1급지다"),
+        "무료요일_출처": ("유료 2곳은 조례 별표 1 비고 11에 따라 평일 19:00부터 다음날 "
+                          "08:00까지 무료로 개방하고 휴일 및 공휴일은 상시 무료로 "
+                          "개방한다 — free_days는 일요일(공휴일 포함)·토요일을 True로 "
+                          "뒀다. '휴일'에 토요일이 드는지는 문구만으로 확정되지 않아 "
+                          "토요일을 포함하는 것으로 읽었고 군청 확인 과제로 남긴다. "
+                          "무료 6곳은 요금 구분 '무료'로 요일과 관계없이 무료다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 강진군 등록 8행 전부 공영(노상 7·노외 1, 총 520면)를 싣고 민영 제외 0건·중복 제거 0건·제외 0건이다. 8곳 전부 강진읍에 있고, 강진군의 나머지 면(군동면·칠량면·대구면·도암면·신전면·성전면·작천면·병영면·옴천면·계곡면)에는 등록된 공영주차장이 없어 실제 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+            "「강진군 주차장 조례」 제2895호(표제 시행 2026-08-10, 공포 2026-08-10, 일부개정, ordinSeq 2169057) 본문 원문(data/raw/gangjin-ordinance.txt) 대조 완료(2026-11-20) — 이 개정은 「전남광주통합특별시 설치를 위한 특별법 시행에 따른 강진군 72개 조례의 일부개정조례」로 도 명칭 변경 성격의 일괄개정이고 부칙이 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같으며, 요금 조항(제4조·제10조)과 별표 1(2026-04-22 개정, 제2890호)의 내용은 명칭 변경 외에 그대로다. law.go.kr 검색에서 강진군 주차장 관련 자치법규는 이 조례가 유일해 요금 조례의 최신 시행본은 제2895호가 맞다",
+            "별표 1은 HWP 원본(flSeq 169435433)을 data/raw/gangjin-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 레코드 직접 파싱으로 교차 확인해 확정했다 — 급지(1급지 강진읍 지역·2급지 기타의 지역)×차종(소형·대형) 요금표로, 주차요금은 30분마다 1·2급지 모두 소형 500원·대형 600원, 1일 주차요금은 1급지 소형 8,000원·대형 9,000원, 2급지 소형 5,000원·대형 6,000원이고 월정기 칸은 없다. 비고 10은 유료 공영주차장의 매일 첫 1시간 30분 무료, 비고 11은 평일 19:00~다음날 08:00와 휴일 및 공휴일의 무료 개방, 비고 2는 주간 구분(3~10월 08:00~20:00, 11~2월 09:00~19:00)을 정한다",
+            "유료 2곳의 계산 기준(판단 지점) — 제5공영주차장(남문주차장, 노상)은 등록 단위요금(기본 30분 500원·추가 30분 500원)이 별표 1 1급지 소형(30분마다 500원)과 일치하고 특기사항 '매일 1시간30분 무료'가 비고 10과 일치해, 등록 단위요금에 비고 10·11을 적용했다(1일 요금은 등록이 공란이라 별표의 8,000원 적용). 제6공영주차장(강진아트홀, 노외)은 등록 기본이 60분 500원으로 별표의 30분 단위 구조와 달라 조례 구조(첫 90분 무료·이후 30분마다 500원·1일 8,000원)로 계산했다(여수·논산 선례 — 구조가 상충하면 조례 우선). 1일 8,000원은 등록과 별표가 일치하고, 월정기 50,000원은 별표에 칸이 없어 등록값을 그대로 실었다. 둘 다 실제 징수 기준은 군청 확인 과제다",
+            "조례 별표 1 비고 11의 '휴일 및 공휴일' 상시 무료 개방은 free_days 토·일 True로 반영했다 — '휴일'에 토요일이 포함되는지는 문구만으로 확정되지 않으나 관공서 휴일 관행상 토요일을 포함하는 것으로 읽었고, 군청 확인 과제로 남긴다",
+            "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 지번주소가 8행 전부 '전남광주통합특별시 강진군' 표기이고 제공기관명도 '전남광주통합특별시 강진군'인 단일 스냅숏(기준일 2026-07-28)이며, 같은 이름+같은 자리의 재등록 쌍이 0건이다(광양 선례 대조)",
+            "좌표는 8곳 전부 등록돼 있고 전부 강진군 범위 안이라 비우거나 채운 곳이 없다(오버레이 무변경). 도로명주소는 8곳 전부 등록돼 있지 않고 지번주소만 있다",
+            "등록 급지는 8곳 전부 '기타'다. 별표 1의 급지(1급지 강진읍·2급지 기타 지역)와 표기가 달라 등록값만으로는 대조가 안 되지만 8곳 전부 강진읍이라 비고 3상 전량 1급지로 판정했다",
+            "전화번호는 제6공영주차장만 061-430-3972이고 나머지 7곳은 061-430-3944다. 관리기관 표기는 8곳 전부 '전남광주통합특별시 강진군청'이다. 운영은 제6만 평일만 운영(토요일·공휴일 00:00~00:00)하고 나머지 7곳은 전 요일 00:00~23:59다. 결제방법은 제5 '카드', 제6 '카드+현금', 무료 6곳은 공란이다. 장애인전용주차구역 보유여부는 제6만 'Y'이고 나머지는 공란이다. 특기사항은 제5의 '매일 1시간30분 무료'뿐이다. 부제시행구분은 8곳 전부 '미시행'이다",
+            "별표 1 비고 12~14(강진읍전통시장주차타워의 강진작은영화관 영수증 3시간 면제·전통시장 5일장 날 무료 개방, 타워형 옥상층 무료 개방)는 제7공영주차장(시장주차타워)에 관한 것이나 이 곳은 이미 '무료'로 등록돼 있어 별도 반영 없이 기록만 남긴다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gangjin():
+    """강진군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「강진군 주차장 조례」 제2895호
+    (시행 2026-08-10, ordinSeq 2169057) 제4조·제10조·
+    별표 1(2026-04-22 개정) 원문 대조 완료(2026-11-20).
+    표준데이터 등록 공영 8곳(노상 7·노외 1, 총 520면)을
+    싣는다. 무료 6곳, 유료 2곳(제5 노상·제6 노외)은
+    전부 강진읍이라 조례 1급지 소형 요금에 비고 10·11을
+    적용해 계산한다. 좌표는 8곳 전부 등록돼 있다."""
+    conf = GANGJIN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "강진군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "강진군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 강진군은
+    #   해당 중복이 0건이다(이름이 완전히 같은 쌍 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GANGJIN_BBOX[0] < lat < GANGJIN_BBOX[1]
+                                                        and GANGJIN_BBOX[2] < lng < GANGJIN_BBOX[3]):
+            # 강진군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 강진군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gangjin_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif gangjin_dong_of(road):
+            dong = gangjin_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in GANGJIN_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = gangjin_fee(r, std_name, note_bits, fee_diff)
+        if fee["type"] == "유료":
+            # 조례 별표 1 비고 11 — 평일 19:00~다음날 08:00 무료 개방,
+            #   휴일 및 공휴일 상시 무료 개방
+            free_days = {"sat": True, "sun": True}
+            free_window = "19:00~08:00"
+        else:
+            free_days = {"sat": False, "sun": False}
+            free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if fee["type"] == "유료":
+            note_bits.append("매일 첫 1시간 30분은 무료이고 평일 19:00~다음날 08:00와 휴일·공휴일은 무료로 개방합니다(조례 별표 1 비고 10·11)")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "강진군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 8행은 전부 공영이고 데이터기준일자는 "
+                      "전부 2026-07-28이다. 관리기관 표기는 8곳 전부 '전남광주통합특별시 "
+                      "강진군청'이고 전화번호는 제6공영주차장만 061-430-3972, "
+                      "나머지 7곳은 061-430-3944이다")
+    note_fixed.append("등록 8곳은 전부 강진읍에 있다 — 강진군의 나머지 면"
+                      "(군동면·칠량면·대구면·도암면·신전면·성전면·작천면·병영면·"
+                      "옴천면·계곡면)에는 표준데이터에 등록된 공영주차장이 없어, "
+                      "실제로 운영 중인 무료 주차장이 있는지는 군청 확인 과제다")
+    note_fixed.append("등록 급지는 8곳 전부 '기타'다 — 조례 별표 1의 급지"
+                      "(1급지 강진읍 지역·2급지 기타의 지역)와 표기가 달라 "
+                      "등록값만으로는 대조가 안 되지만 8곳 전부 강진읍이라 "
+                      "비고 3상 전량 1급지로 판정했다")
+    note_fixed.append("운영은 제6공영주차장(강진아트홀)만 평일만 운영"
+                      "(토요일·공휴일 00:00~00:00)하고 나머지 7곳은 전 요일 "
+                      "00:00~23:59다. 결제방법은 제5 '카드', 제6 '카드+현금', "
+                      "무료 6곳은 공란이다. 특기사항은 제5의 '매일 1시간30분 "
+                      "무료'뿐이고 조례 별표 1 비고 10과 일치한다. 부제시행구분은 "
+                      "8곳 전부 '미시행', 장애인전용주차구역 보유여부는 제6만 "
+                      "'Y'이고 나머지는 공란이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-gangjin-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-gangjin-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 강진군은 좌표 결측이 없어 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = gangjin_fee_table(conf, lots)
+    quality = gangjin_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-07-28",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"강진군으로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 "
+                 f"제거 {len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이다. 좌표는 "
+                 f"8곳 전부 등록돼 있고 도로명주소는 8곳 전부 없다. "
+                 f"조례 대조 완료 — 「강진군 주차장 조례」 제2895호(시행 "
+                 f"2026-08-10, ordinSeq 2169057) 제4조·제10조·별표 1(2026-04-22 "
+                 f"개정) 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GANGJIN_ORD_TXT.name if GANGJIN_ORD_TXT.exists() else None,
+            "sha256": sha256(GANGJIN_ORD_TXT) if GANGJIN_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-08-10",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"강진군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/gangjin-ordinance.txt, 별표 1 원문: "
+                    f"data/raw/gangjin-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GANGJIN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "강진군", "slug": "gangjin"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GANGJIN_PROVINCE,
+        "province_slug": GANGJIN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gangjin_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
 
 
 def main():
@@ -58739,7 +59405,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -58757,7 +59423,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -58810,7 +59476,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -59015,6 +59681,8 @@ def main():
         cities.append(build_hwasun())
     if "장흥군" in want:
         cities.append(build_jangheung())
+    if "강진군" in want:
+        cities.append(build_gangjin())
 
     if args.city == "all":
         site = build_site_payload(cities)
