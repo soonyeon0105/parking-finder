@@ -237,6 +237,24 @@
   function updateSummary(results) {
     var box = document.getElementById('calc-summary');
     if (!box) return;
+    // 상세페이지(주차장 1곳)에서는 집계형 문구(무료 N곳·가장 저렴)를 쓰지 않고
+    // 단일 주차장 기준으로 말한다 (밀크 검수 지적, 2026-11-20).
+    var calcSection = document.querySelector('section.calc');
+    if (calcSection && calcSection.getAttribute('data-single') === '1' && results.length === 1) {
+      var dayName1 = { weekday: '평일', sat: '토요일', sun: '일요일·공휴일' }[state.day];
+      var head1 = '<strong>' + dayName1 + ' · ' + fmtTime(state.minutes) + '</strong> 기준';
+      var st = results[0].res.state;
+      if (st === 'paid') {
+        box.innerHTML = head1 + ' 예상 요금 <strong>' + won(results[0].res.amount) + '</strong>';
+      } else if (st === 'free') {
+        box.innerHTML = head1 + ' 예상 요금 <strong>0원</strong> (무료)';
+      } else if (st === 'unknown') {
+        box.innerHTML = head1 + ' 요금 미상 — 현장 확인이 필요합니다';
+      } else {
+        box.innerHTML = head1 + ' 선택한 요일에 운영하지 않습니다';
+      }
+      return;
+    }
     var free = results.filter(function (r) { return r.res.state === 'free'; }).length;
     var paid = results.filter(function (r) { return r.res.state === 'paid'; });
     var unknown = results.filter(function (r) { return r.res.state === 'unknown'; }).length;
