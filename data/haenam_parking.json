@@ -1,0 +1,5669 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 14:22",
+  "generated_at_iso": "2026-11-20T14:22:56+09:00",
+  "snapshot_at": "2026-11-20 14:22",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "해남군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-07-01",
+    "rows_total": 18994,
+    "rows_city": 47,
+    "fetched_at": "2026-11-20 14:22 (KST)",
+    "note": "해남군으로 등록된 행 47행(전부 공영·노외)을 읽어 중복 제거 0건으로 47곳을 실었다. 무료 47곳이다. 좌표는 47곳 전부 등록돼 있고 도로명주소는 41곳이 결측이다. 조례 대조 완료 — 「해남군 주차장 조례」 제3484호(시행 2026-04-01, ordinSeq 2118387) 제12조·제13조·제18조·별표 1·별표 2 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「해남군 주차장 조례」 제3484호(시행 2026-04-01, 일부개정)",
+    "org": "전남광주통합특별시 해남군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2118387",
+    "file": "haenam-ordinance-b1.txt",
+    "sha256": "003f5e34fc09c874c7613919b81430de3764cb4e0ded8c6d4ca88fa3ad472a2c",
+    "license": "자치법규(공개)",
+    "base_date": "2026-04-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 14:22 (KST)",
+    "note": "해남군이 설치·관리하는 공영주차장에 적용하는 조례다. 해남군 공영주차장 47곳(전부 노외, 총 1,766면)은 전부 요금 구분이 '무료'로 등록돼 있다. 「해남군 주차장 조례」 제3484호(시행 2026-04-01, ordinSeq 2118387) 제12조(노상)·제18조(노외)는 공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지(1·2급지)×차종(소형·대형) 요금표로, 주차요금은 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원이고, 1일 주차요금은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 4,000원·대형 5,000원, 월정기는 주간 1급지 소형 50,000원·대형 70,000원, 2급지 소형 40,000원·대형 50,000원, 야간 1급지 소형 40,000원·대형 60,000원, 2급지 소형 30,000원·대형 40,000원이다. 등록 47곳이 전부 무료라 이 요금표는 조례 기준 요금의 참고표로만 싣고 유료 계산은 하지 않는다. 주간은 4~10월 08:00~20:00, 11~3월 08:00~19:00이고 나머지는 야간이다(별표 1 비고 1). 급지는 1급지가 해남읍, 2급지가 기타지역이고(비고 2), 차종은 승용차·15인 미만 승합·2.5톤 미만 화물은 소형, 그 외는 대형이다(비고 4). 감면은 조례 제13조·별표 2를 따른다(긴급자동차·모범납세자 면제, 국가유공자 등·장애인·경형자동차·환경친화적 자동차·자원봉사 마일리지증 소지자·병역명문가 예우대상자 50% 감면, 군정 역점 시책 참여 차량 20% 경감). 등록 급지는 1급지 37곳·2급지 10곳인데 화산면 공영주차장(화산면사무소 옆) 1곳만 비고 2와 어긋나게 1급지로 등록돼 있고, 도로명주소는 6곳만 등록돼 있다. (조례 본문: data/raw/haenam-ordinance.txt, 별표 1 원문: data/raw/haenam-ordinance-b1.txt, 별표 2 원문: data/raw/haenam-ordinance-b2.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "해남군",
+   "slug": "haenam"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-haenam-001",
+   "mgmt_no": "337-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문내면 공영주차장(우수영중학교 옆)",
+   "gu": "해남군",
+   "dong": "문내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 문내면 동외리 884-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 128,
+   "tel": "061-530-5645",
+   "lat": 34.59559944,
+   "lng": 126.3121027,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-002",
+   "mgmt_no": "337-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송지면 공영주차장(산정우체국 앞)",
+   "gu": "해남군",
+   "dong": "송지면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 송지면 산정리 755-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "061-530-5645",
+   "lat": 34.37038956,
+   "lng": 126.5208425,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-003",
+   "mgmt_no": "337-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥천면 공영주차장(옥천면사무소 앞)",
+   "gu": "해남군",
+   "dong": "옥천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 옥천면 영춘리 526",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "061-530-5645",
+   "lat": 34.56650806,
+   "lng": 126.6475451,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-004",
+   "mgmt_no": "337-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥천면2 공영주차장(옥천보건지소 옆)",
+   "gu": "해남군",
+   "dong": "옥천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 옥천면 영춘리 951-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-530-5645",
+   "lat": 34.56703184,
+   "lng": 126.6500593,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-005",
+   "mgmt_no": "337-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구교지구 주거지주차장",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 구교리 108",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "061-530-5645",
+   "lat": 34.57814,
+   "lng": 126.596093107,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-006",
+   "mgmt_no": "337-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남동 공영주차장(남외리사무소 부근)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 남동리 6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 90,
+   "tel": "061-530-5645",
+   "lat": 34.5711427,
+   "lng": 126.5975883,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-007",
+   "mgmt_no": "337-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남외 공영주차장(구 영림몰딩)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 구교리 360-3",
+   "addr_road": "전남광주통합특별시 해남군 해남읍 중앙1로 202",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-530-5645",
+   "lat": 34.5725274878,
+   "lng": 126.5964348467,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-008",
+   "mgmt_no": "337-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남외 공영주차장(본가아파트 부근)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 남외리 94-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-530-5645",
+   "lat": 34.57019047,
+   "lng": 126.5937448,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-009",
+   "mgmt_no": "337-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남외2 공영주차장(구 인산제재소)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 남외리 3-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "061-530-5645",
+   "lat": 34.57209021,
+   "lng": 126.5962653,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-010",
+   "mgmt_no": "337-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도연마트 골목(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 585-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-530-5645",
+   "lat": 34.57372981,
+   "lng": 126.603005,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-011",
+   "mgmt_no": "337-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화원 맞은편(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 수성리 77-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-530-5645",
+   "lat": 34.5735807751,
+   "lng": 126.6010525,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-012",
+   "mgmt_no": "337-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미암사거리(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 524-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "061-530-5645",
+   "lat": 34.5736532448,
+   "lng": 126.6041680933,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-013",
+   "mgmt_no": "337-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "버스터미널인근(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 458-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-530-5645",
+   "lat": 34.5714072,
+   "lng": 126.6075307,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-014",
+   "mgmt_no": "337-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복음내과 앞(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 463",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-530-5645",
+   "lat": 34.57182061,
+   "lng": 126.6072085,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-015",
+   "mgmt_no": "337-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성내 공영주차장(해남군민광장 옆)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 성내리 13-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-530-5645",
+   "lat": 34.57235741,
+   "lng": 126.5998423,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-016",
+   "mgmt_no": "337-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성민교회 옆(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 남외리 142",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "061-530-5645",
+   "lat": 34.5675621178,
+   "lng": 126.5932900881,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-017",
+   "mgmt_no": "337-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수성 공영주차장 확장(성내리사무소 뒤)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 성내리 48",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "061-530-5645",
+   "lat": 34.57357,
+   "lng": 126.59764,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-018",
+   "mgmt_no": "337-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수성 공영주차장(군청옆 금영아파트 뒤)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 수성리 184-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "061-530-5645",
+   "lat": 34.57410446,
+   "lng": 126.5978202,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-019",
+   "mgmt_no": "337-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수성2 공영주차장(수성2리사무소 부근)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 수성리 202-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-530-5645",
+   "lat": 34.57549889,
+   "lng": 126.5985778,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-020",
+   "mgmt_no": "337-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수성3 공영주차장(문화예술회관 부근)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 수성리 80-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "061-530-5645",
+   "lat": 34.5741166758,
+   "lng": 126.6006127,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-021",
+   "mgmt_no": "337-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수성4 공영주차장(평화의집 앞)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 수성리 245-33",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-530-5645",
+   "lat": 34.57198456,
+   "lng": 126.601553,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-022",
+   "mgmt_no": "337-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신동백아파트 뒤",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 657-66",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "061-530-5645",
+   "lat": 34.57391589,
+   "lng": 126.6071614,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-023",
+   "mgmt_no": "337-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우진아트빌 옆(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 구교리 587",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "061-530-5645",
+   "lat": 34.57830697,
+   "lng": 126.5909272,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-024",
+   "mgmt_no": "337-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유신교 공영주차장",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 평동리 4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-530-5645",
+   "lat": 34.5705426409,
+   "lng": 126.6002769328,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-025",
+   "mgmt_no": "337-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내 공영주차장(거빈식당 앞)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 읍내리 16-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "061-530-5645",
+   "lat": 34.5709622553,
+   "lng": 126.5998641,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-026",
+   "mgmt_no": "337-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍내리 공영주차장(아지매식당 뒤)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 읍내리 9-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "061-530-5645",
+   "lat": 34.57106,
+   "lng": 126.60014,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-027",
+   "mgmt_no": "337-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍사무소 옆(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 고도리 150-5",
+   "addr_road": "전남광주통합특별시 해남군 해남읍 읍사무소길 39",
+   "road": null,
+   "spaces": 35,
+   "tel": "061-530-5645",
+   "lat": 34.5658424846,
+   "lng": 126.5996511015,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-028",
+   "mgmt_no": "337-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제일자동차 옆(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 남외리 446-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-530-5645",
+   "lat": 34.5737657387,
+   "lng": 126.5911083304,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-029",
+   "mgmt_no": "337-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중부교회 옆(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 645-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-530-5645",
+   "lat": 34.56743807,
+   "lng": 126.6024055,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-030",
+   "mgmt_no": "337-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평동 공영주차장(평동오거리)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 평동리 171-4",
+   "addr_road": "전남광주통합특별시 해남군 해남읍 홍교로 86",
+   "road": null,
+   "spaces": 37,
+   "tel": "061-530-5645",
+   "lat": 34.5676303772,
+   "lng": 126.601020247,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-031",
+   "mgmt_no": "337-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해남 새순교회(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 구교리 107",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "061-530-5645",
+   "lat": 34.57806304,
+   "lng": 126.5955116,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-032",
+   "mgmt_no": "337-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해남고등학교 앞(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 수성리 223",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "061-530-5645",
+   "lat": 34.57591759,
+   "lng": 126.5959275,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-033",
+   "mgmt_no": "337-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해남관광호텔 옆(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 남외리 76",
+   "addr_road": "전남광주통합특별시 해남군 해남읍 서초길 60",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-530-5645",
+   "lat": 34.56980533,
+   "lng": 126.5955276,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-034",
+   "mgmt_no": "337-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해남종합터미널 뒤(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 678-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-530-5645",
+   "lat": 34.56990491,
+   "lng": 126.6080662,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-035",
+   "mgmt_no": "337-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해남축협 앞(임차주차장)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 평동리 19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-530-5645",
+   "lat": 34.56884964,
+   "lng": 126.6006255,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-036",
+   "mgmt_no": "337-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해리 공영주차장(해담은1차아파트)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 439-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "061-530-5645",
+   "lat": 34.57130904,
+   "lng": 126.6058425,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-037",
+   "mgmt_no": "337-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해리2 공영주차장(광남그린빌라 옆)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 589-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "061-530-5645",
+   "lat": 34.57240271,
+   "lng": 126.6025571,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-038",
+   "mgmt_no": "337-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해리3 공영주차장(해남세무서 옆)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 453-3",
+   "addr_road": "전남광주통합특별시 해남군 해남읍 중앙1로 14",
+   "road": null,
+   "spaces": 62,
+   "tel": "061-530-5645",
+   "lat": 34.5713855248,
+   "lng": 126.6067074265,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-039",
+   "mgmt_no": "337-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해리4 공영주차장(구 보건소 뒤편)",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 해리 416-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "061-530-5645",
+   "lat": 34.57045266,
+   "lng": 126.6037897,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-040",
+   "mgmt_no": "337-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍교 공영주차장",
+   "gu": "해남군",
+   "dong": "해남읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 해남읍 평동리 135",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "061-530-5645",
+   "lat": 34.56936504,
+   "lng": 126.5989937,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-041",
+   "mgmt_no": "337-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "현산면 공영주차장(현산면사무소 앞)",
+   "gu": "해남군",
+   "dong": "현산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 현산면 일평리 842-3",
+   "addr_road": "전남광주통합특별시 해남군 현산면 현산북평로 93",
+   "road": null,
+   "spaces": 42,
+   "tel": "061-530-5645",
+   "lat": 34.45925772,
+   "lng": 126.5541957,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-042",
+   "mgmt_no": "337-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화산면 공영주차장(화산면사무소 옆)",
+   "gu": "해남군",
+   "dong": "화산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 화산면 방축리 383-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-530-5645",
+   "lat": 34.49117409,
+   "lng": 126.5155081,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-043",
+   "mgmt_no": "337-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화원면 공영주차장(화원터미널 앞)",
+   "gu": "해남군",
+   "dong": "화원면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 화원면 청용리 554",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "061-530-5645",
+   "lat": 34.66779599,
+   "lng": 126.3299898,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-044",
+   "mgmt_no": "337-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황산 시등 공영주차장",
+   "gu": "해남군",
+   "dong": "황산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 황산면 남리리 53-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "061-530-5645",
+   "lat": 34.57524945,
+   "lng": 126.4296676,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-045",
+   "mgmt_no": "337-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황산면 공영주차장(황산 시등교회 앞)",
+   "gu": "해남군",
+   "dong": "황산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 황산면 우항리 492",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "061-530-5645",
+   "lat": 34.5762458724,
+   "lng": 126.4330732,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-046",
+   "mgmt_no": "337-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황산면 우항리 공영주차장",
+   "gu": "해남군",
+   "dong": "황산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 황산면 우항리 486-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "061-530-5645",
+   "lat": 34.57583249,
+   "lng": 126.4337586,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  },
+  {
+   "id": "jn-haenam-047",
+   "mgmt_no": "337-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황산면2 공영주차장(황산면사무소 옆)",
+   "gu": "해남군",
+   "dong": "황산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 해남군 황산면 우항리 417-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "061-530-5645",
+   "lat": 34.57655535,
+   "lng": 126.4352183693,
+   "base_date": "2026-07-01",
+   "manager": "전남광주통합특별시 해남군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제12조·제18조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다 — 개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "해남군",
+   "city_slug": "haenam",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 14:22",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 47,
+  "원자료_해남군행수": 47,
+  "원자료_받은행수": 47,
+  "구별": {
+   "해남군": 47
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 47,
+  "노외_부설": {
+   "노외": 47
+  },
+  "노상_구간": 0,
+  "총_구획수": 1766,
+  "노상_구획수": 0,
+  "동별": {
+   "해남읍": 36,
+   "황산면": 4,
+   "옥천면": 2,
+   "문내면": 1,
+   "송지면": 1,
+   "현산면": 1,
+   "화산면": 1,
+   "화원면": 1
+  },
+  "동수": 8,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 47
+  },
+  "요금구분": {
+   "무료": 47
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 41건 있다 — 구교지구 주거지주차장·해남 새순교회(임차주차장)(53m), 수성 공영주차장 확장(성내리사무소 뒤)·남외 공영주차장(구 영림몰딩)(159m), 수성 공영주차장 확장(성내리사무소 뒤)·수성 공영주차장(군청옆 금영아파트 뒤)(61m), 읍내리 공영주차장(아지매식당 뒤)·성내 공영주차장(해남군민광장 옆)(146m), 읍내리 공영주차장(아지매식당 뒤)·읍내 공영주차장(거빈식당 앞)(27m), 읍내리 공영주차장(아지매식당 뒤)·유신교 공영주차장(59m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 47행은 전부 공영·노외이고 데이터기준일자는 전부 2026-07-01이다. 관리기관은 47곳 전부 전남광주통합특별시 해남군청이고 전화번호는 47곳 전부 061-530-5645다",
+   "이름에 (임차주차장)이 붙은 15곳은 군이 토지를 빌려 운영하는 곳으로, 이름은 등록 원문 그대로 실었다",
+   "삼향면·산이면·마산면·계곡면·북일면·북평면에는 등록된 공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 군청 확인 과제다",
+   "도로명주소는 41곳이 등록돼 있지 않아 동 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 1급지 37곳·2급지 10곳이고 조례 별표 1 비고 2는 1급지를 해남읍으로 정하는데, 화산면 공영주차장(화산면사무소 옆) 1곳만 어긋나게 1급지로 등록돼 있다 — 전부 무료라 요금에는 영향이 없어 등록 표기 그대로 둔다(급지_요금_차이에 기록)",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59이다. 특기사항·결제방법은 전부 공란이고, 부제시행구분은 전부 '미시행', 장애인전용주차구역 보유는 30곳(Y)·미보유는 17곳(N)으로 등록돼 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "화산면 공영주차장(화산면사무소 옆): 등록 급지가 '1'인데 조례 별표 1 비고 2는 1급지를 해남읍으로 정해 이 곳(화산면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "문내면 공영주차장(우수영중학교 옆)",
+   "송지면 공영주차장(산정우체국 앞)",
+   "옥천면 공영주차장(옥천면사무소 앞)",
+   "옥천면2 공영주차장(옥천보건지소 옆)",
+   "구교지구 주거지주차장",
+   "남동 공영주차장(남외리사무소 부근)",
+   "남외 공영주차장(본가아파트 부근)",
+   "남외2 공영주차장(구 인산제재소)",
+   "도연마트 골목(임차주차장)",
+   "문화원 맞은편(임차주차장)",
+   "미암사거리(임차주차장)",
+   "버스터미널인근(임차주차장)",
+   "복음내과 앞(임차주차장)",
+   "성내 공영주차장(해남군민광장 옆)",
+   "성민교회 옆(임차주차장)",
+   "수성 공영주차장 확장(성내리사무소 뒤)",
+   "수성 공영주차장(군청옆 금영아파트 뒤)",
+   "수성2 공영주차장(수성2리사무소 부근)",
+   "수성3 공영주차장(문화예술회관 부근)",
+   "수성4 공영주차장(평화의집 앞)",
+   "신동백아파트 뒤",
+   "우진아트빌 옆(임차주차장)",
+   "유신교 공영주차장",
+   "읍내 공영주차장(거빈식당 앞)",
+   "읍내리 공영주차장(아지매식당 뒤)",
+   "제일자동차 옆(임차주차장)",
+   "중부교회 옆(임차주차장)",
+   "해남 새순교회(임차주차장)",
+   "해남고등학교 앞(임차주차장)",
+   "해남종합터미널 뒤(임차주차장)",
+   "해남축협 앞(임차주차장)",
+   "해리 공영주차장(해담은1차아파트)",
+   "해리2 공영주차장(광남그린빌라 옆)",
+   "해리4 공영주차장(구 보건소 뒤편)",
+   "홍교 공영주차장",
+   "화산면 공영주차장(화산면사무소 옆)",
+   "화원면 공영주차장(화원터미널 앞)",
+   "황산 시등 공영주차장",
+   "황산면 공영주차장(황산 시등교회 앞)",
+   "황산면 우항리 공영주차장",
+   "황산면2 공영주차장(황산면사무소 옆)"
+  ],
+  "감면_출처": "「해남군 주차장 조례」 제3484호 제13조·별표 2 — 100% 감면(별표 2 제1호): 「도로교통법」 제2조제22호에 따른 긴급자동차, 「전남광주통합특별시 모범납세자 우대 및 지원 조례」 제4조에 의해 모범납세자로 선정된 자로서 모범납세자 증명서를 부착한 자동차(선정일로부터 1년에 한한다). 50% 감면(별표 2 제2호): 전상군경·공상군경·4·19혁명부상자·공상공무원·국가사회발전 특별공로상이자, 고엽제후유의증환자 및 고엽제후유증 2세환자, 5·18민주화운동부상자(차량표지 부착 시), 장애인등록을 한 사람이 운전(동승 포함)하는 자동차, 「자동차관리법 시행규칙」 제2조에 따른 경형자동차, 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차, 자원봉사 마일리지증 소지자, 병역명문가 예우대상자. 별표 1 비고 3의 군정 역점 시책 참여 차량 20% 경감도 있다. 전부 '감면할 수 있다'는 임의 규정이고 둘 이상 해당하면 감면율이 높은 하나만 적용한다(제13조제2항). 별표 2 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 규정에 관계 없이 감면하거나 무료로 운영할 수 있다고 정한다. 본문 원문(data/raw/haenam-ordinance.txt)·별표 2 원문(data/raw/haenam-ordinance-b2.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제12조·제18조·별표 1 — 노상·노외 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 급지(1·2급지)×차종(소형·대형) 요금표로 주차요금 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원, 1일 주차요금 1급지 소형 5,000원·대형 6,000원, 2급지 소형 4,000원·대형 5,000원, 월정기 주간 1급지 소형 50,000원·대형 70,000원, 2급지 소형 40,000원·대형 50,000원, 야간 1급지 소형 40,000원·대형 60,000원, 2급지 소형 30,000원·대형 40,000원이다. 표준데이터 등록 47곳이 전부 무료라 요금표는 참고표로만 싣는다",
+  "급지_출처": "조례 별표 1 비고 2 — 1급지는 해남읍, 2급지는 기타지역이다. 표준데이터 등록 급지는 1급지 37곳·2급지 10곳으로 해남읍 36곳은 전부 1급지이나 화산면 공영주차장(화산면사무소 옆) 1곳이 1급지로 등록돼 비고 2와 어긋난다 — 전부 무료라 요금표 행 판정에 쓰지 않았다",
+  "무료요일_출처": "등록 47곳이 전부 요금 구분 '무료'라 요일별 무료 구분이 따로 없다 — 조례 별표 1 비고 1의 주간(4~10월 08:00~20:00, 11~3월 08:00~19:00)·야간 구분은 월정기 주간·야간 금액의 기준일 뿐이다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 해남군 등록 47행 전부 공영(전부 노외, 총 1,766면)을 싣고 민영 제외 0건·중복 제거 0건이다. 읍면별로는 해남읍 36곳·1,260면, 황산면 4곳·148면, 옥천면 2곳·88면, 화원면 1곳·53면, 문내면 1곳·128면, 현산면 1곳·42면, 송지면 1곳·34면, 화산면 1곳·13면이다",
+   "「해남군 주차장 조례」 제3484호(시행 2026-04-01, 공포 2026-04-01, 일부개정, ordinSeq 2118387) 본문 원문(data/raw/haenam-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(개정 2026.4.1. 조3484)이 '공포한 날부터 시행'이라 2026-04-01 공포본이 현행 시행본이다. 이 개정은 전남광주통합특별시 설치에 따른 명칭 변경 성격의 일괄개정으로 보이고, 감면 조항(제13조)의 직전 실내용 개정은 제3338호(2024-07-15)다",
+   "별표 1은 HWP 원본(flSeq 171357467)을 data/raw/haenam-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다 — 급지(1·2급지)×차종(소형·대형) 요금표로, 주차요금 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원, 1일 1급지 소형 5,000원·대형 6,000원, 2급지 소형 4,000원·대형 5,000원, 월정기 주간 1급지 소형 50,000원·대형 70,000원, 2급지 소형 40,000원·대형 50,000원, 야간 1급지 소형 40,000원·대형 60,000원, 2급지 소형 30,000원·대형 40,000원이다",
+   "별표 2는 HWP 원본(flSeq 171357473)을 data/raw/haenam-ordinance-b2.hwp로 저장하고 본문 텍스트를 추출해 확정했다 — 100% 감면(긴급자동차·모범납세자)과 50% 감면(국가유공자 등·고엽제후유의증 환자·5·18민주유공자 부상자·장애인 운전 또는 동승 자동차, 경형자동차, 환경친화적 자동차, 자원봉사 마일리지증 소지자, 병역명문가 예우대상자)이고, 제3항은 이용률 증대를 위해 필요하다고 판단될 경우 무료로 운영할 수 있다고 정한다. 별표 2의 표제는 '노상주차장'이지만 노외주차장에도 제18조제2항으로 제13조가 준용된다",
+   "등록 47곳이 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암 선례) — 등록 요금 금액 칸은 47행 전부 0원 또는 공란이고 주차기본시간도 0으로 적혀 있다",
+   "등록 급지 대조 — 해남읍 36곳은 전부 1급지로 조례 별표 1 비고 2(1급지=해남읍)와 일치하고 면 지역 10곳은 2급지이나, 화산면 공영주차장(화산면사무소 옆, 방축리 383-7, 13면) 1곳만 1급지로 등록돼 비고 2와 어긋난다. 전부 무료라 요금 영향은 없고 군청 확인 과제로 남긴다(급지_요금_차이에 기록)",
+   "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 주소 표기가 47행 전부 전남광주통합특별시 해남군이고 관리번호+이름이 같은 쌍이 0건이다(광양 선례 대조)",
+   "좌표는 47곳 전부 등록돼 있고 전부 해남군 범위 안이라 비우거나 지오코딩으로 채운 곳이 없다(오버레이 무변경)",
+   "삼향면·산이면·마산면·계곡면·북일면·북평면에는 등록된 공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 군청 확인 과제다",
+   "전화번호는 47행 전부 061-530-5645(조례 담당 안전교통과 번호와 같다)이고, 결제방법·특기사항은 전부 공란, 부제시행구분은 전부 미시행, 장애인전용주차구역 보유는 30곳(Y)·미보유 17곳(N)이다. 운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 47,
+  "무료_구획수": 1766,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-07-01"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 해남군청": 47
+  }
+ },
+ "fee_table": {
+  "style": "haenam_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「해남군 주차장 조례」 제3484호(시행 2026-04-01, 일부개정), ordinSeq 2118387. 본문 사본 data/raw/haenam-ordinance.txt. 별표 1(공영주차장 주차요금표)과 별표 2(노상주차장 주차요금 감면대상 및 기준)은 HWP 원본을 data/raw/haenam-ordinance-b1.hwp·haenam-ordinance-b2.hwp로 저장하고 본문 텍스트를 추출해 data/raw/haenam-ordinance-b1.txt·haenam-ordinance-b2.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "g1_small",
+    "unit_label": "30분마다 500원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "g1_large",
+    "unit_label": "30분마다 600원 · 1일 6,000원 · 월정기 주간 70,000원·야간 60,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 70000,
+    "month_night": 60000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "g2_small",
+    "unit_label": "30분마다 400원 · 1일 4,000원 · 월정기 주간 40,000원·야간 30,000원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 4000,
+    "month": 40000,
+    "month_night": 30000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "g2_large",
+    "unit_label": "30분마다 500원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 47,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 1)",
+    "hours": "4월~10월 08:00~20:00, 11월~3월 08:00~19:00, 나머지는 야간",
+    "free": "월정기 주간·야간 금액의 구분 기준이다 — 등록 47곳은 전부 무료라 실제 요금에는 쓰이지 않는다"
+   }
+  ],
+  "notes": "급지는 1급지가 해남읍, 2급지가 기타지역이다(비고 2). 차량 구분은 승용차·15인 미만 승합자동차·2.5톤 미만 화물자동차는 소형으로 보고 그 외의 차량은 대형으로 본다(비고 4). 군정 역점 시책에 참여하는 차량(부제운영·자가용 함께타기·전시 동원 지정·다자녀 두 자녀 이상 가정·기타 군수 인정)은 주차요금의 20퍼센트를 경감할 수 있다(비고 3). 감면은 긴급자동차·모범납세자 100% 감면(별표 2 제1호), 국가유공자 등·고엽제후유의증 환자·5·18민주유공자 부상자·장애인이 운전 또는 동승한 자동차, 경형자동차, 환경친화적 자동차, 자원봉사 마일리지증 소지자, 병역명문가 예우대상자 50% 감면(별표 2 제2호)이고 전부 임의 규정이며, 둘 이상 해당하면 감면율이 높은 하나만 적용한다(제13조). 표준데이터 등록 급지는 1급지 37곳·2급지 10곳인데 화산면 공영주차장(화산면사무소 옆) 1곳만 비고 2와 어긋나게 1급지로 등록돼 있고, 전부 무료라 요금표 행 판정에는 쓰지 않았다.",
+  "basis": "요금표는 「해남군 주차장 조례」 제3484호(시행 2026-04-01) 제12조·제18조·별표 1과 표준데이터(기준일 2026-07-01)를 대조해 실었다. 등록된 47곳은 전부 '무료'라 이 표는 조례 기준 요금의 참고표이고, 실제 요금은 전 구간 무료다. (조례 본문: data/raw/haenam-ordinance.txt, 별표 1 원문: data/raw/haenam-ordinance-b1.txt, 별표 2 원문: data/raw/haenam-ordinance-b2.txt)"
+ },
+ "slug": "haenam",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "해남군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제1호가목 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 100퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "모범납세자 면제 (선정일부터 1년)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제1호나목 — 「전남광주통합특별시 모범납세자 우대 및 지원 조례」 제4조에 의해 모범납세자로 선정된 자로서 모범납세자 증명서를 부착한 자동차는 주차요금을 100퍼센트 감면할 수 있다. 다만 모범납세자 선정일로부터 1년에 한한다"
+  },
+  {
+   "label": "국가유공자·고엽제후유의증 환자·5·18민주유공자·장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제2호가목 — 전상군경·공상군경·4·19혁명부상자·공상공무원·국가사회발전 특별공로상이자, 고엽제후유증환자 및 고엽제후유증 2세환자, 5·18민주화운동부상자(차량표지 부착 시), 장애인등록을 한 사람이 운전(직접 운전할 수 없는 경우 동승 포함)하는 자동차는 주차요금을 50퍼센트 감면할 수 있다. 감면 대상 증명 서류를 제시해야 한다"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제2호나목 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제2호다목 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "자원봉사 마일리지증 소지자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제2호라목 — 「해남군 자원봉사활동 지원 조례」 제22조제3항에 따른 자원봉사 마일리지증을 소지한 사람은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "병역명문가 예우대상자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제2호마목 — 「해남군 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자로서 병역명문가증과 주소가 기입된 신분증을 보여 주는 경우 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "군정 역점 시책 참여 차량 20% 경감",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 3 — 부제운영 참여 차량, 자가용 함께타기 참여 차량, 전시 동원 지정 차량, 두 자녀 이상을 양육하는 다자녀 가정, 기타 군수가 공익에 필요하다고 인정하는 차량은 주차요금의 20퍼센트를 경감할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
