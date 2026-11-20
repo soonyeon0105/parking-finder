@@ -12318,6 +12318,50 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "goseong_grade":
+        # 고성군 — 공영 15곳(노외 12곳·노상 3구간, 총 784면)이
+        #   무료 3곳·유료 11곳·혼합 1곳으로 등록돼 있다. 「고성군
+        #   주차장 조례」 제2890호(시행 2024-06-25) 제3조제1항·
+        #   별표 1(개정 2020.11.5)은 노상·노외 공통 급지표로,
+        #   1급지는 최초 30분 500원·30분 초과 10분마다 200원·
+        #   1시간까지 1,000원·1시간 초과 30분마다 500원·1일
+        #   4,000원이다. 등록 급지구분은 15곳 전부 '1'이고 유료·
+        #   혼합 12곳의 등록값이 별표 1급지의 첫 구간 단가·1일
+        #   요금과 같아 등록값으로 계산한다. 월정기 등록은 없다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">고성군 공영주차장 <b>15곳</b>은 무료 3곳·유료 11곳·혼합 1곳으로 등록돼 있습니다. 아래 표는
+「고성군 주차장 조례」 제2890호 별표 1이 정한 기준 요금입니다. 별표 1은 노상·노외 공통으로
+1급지·2급지로 요금을 나누는데, <b>1급지</b>는 최초 30분 <b>500원</b>에 30분 초과 후 10분마다
+<b>200원</b>, 1시간까지 <b>1,000원</b>, 1시간 초과 후 30분마다 <b>500원</b>, 1일 <b>4,000원</b>입니다.
+등록된 15곳은 전부 1급지이고 유료·혼합 12곳의 등록값이 별표의 첫 구간 단가·1일 요금과 같아
+이 사이트도 등록값으로 계산합니다. 월정기 요금은 등록된 곳이 없습니다. 궁금한 점은 고성군청
+(055-670-2335)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
