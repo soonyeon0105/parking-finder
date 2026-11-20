@@ -1,0 +1,8303 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 17:13",
+  "generated_at_iso": "2026-11-20T17:13:28+09:00",
+  "snapshot_at": "2026-11-20 17:13",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "장성군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-08-03",
+    "rows_total": 18994,
+    "rows_city": 70,
+    "fetched_at": "2026-11-20 17:13 (KST)",
+    "note": "장성군으로 등록된 행 70행(전부 공영)을 읽어 중복 제거 0건으로 70곳을 실었다. 무료 70곳·유료 0곳이다. 좌표는 70곳 전부 등록돼 있고 도로명주소는 70곳 전부 등록돼 있지 않다. 조례 대조 완료 — 「장성군 주차장 조례」 제2786호(시행 2025-09-19, ordinSeq 2068215) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「장성군 주차장 조례」 제2786호(시행 2025-09-19, 일부개정)",
+    "org": "전남광주통합특별시 장성군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2068215",
+    "file": "jangseong-ordinance-b1.txt",
+    "sha256": "2449179260edfa4c47d6d430d74172870071e748a6a7a1ff55751c1d91a54268",
+    "license": "자치법규(공개)",
+    "base_date": "2025-09-19",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 17:13 (KST)",
+    "note": "장성군이 설치·관리하는 공영주차장에 적용하는 조례다. 장성군 공영주차장 70곳(노외 54곳·노상 16구간, 총 3,985면)은 전부 요금 구분 '무료'로 등록돼 있다. 「장성군 주차장 조례」 제2786호(시행 2025-09-19, ordinSeq 2068215) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지(1급지 읍지역·2급지 면지역)×차종(소형·대형) 요금표로, 1회 주차요금은 기본 30분 이내 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원이고 30분 초과 시 10분마다 1급지 소형 160원·대형 200원, 2급지 소형 130원·대형 160원, 1일 주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 3,000원·대형 4,000원, 월정기는 주간 1급지 소형 50,000원·대형 60,000원, 2급지 소형 30,000원·대형 40,000원, 야간 1급지 소형 40,000원·대형 48,000원, 2급지 소형 24,000원·대형 32,000원이다. 등록 70곳이 전부 무료라 이 요금표는 조례 기준 요금의 참고표로만 싣는다 — 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정한다. 주차요금의 징수시간은 08:00부터 19:00까지다(비고 2). 감면은 별표 1 비고 6을 따른다(장애인 자가운전차량 전액 면제, 경자동차 50% 경감, 자동차 10부제 자율참여 자동차 30% 경감, 환경친화적 자동차 100분의 50 이상 감면). 등록 급지는 70곳 전부 '1'이고 장성읍 58곳은 1급지(읍지역)와 일치하지만 면지역 12곳은 비고 3상 2급지라 군청 확인 과제로 남긴다. 좌표는 70곳 전부 등록돼 있다. (조례 본문: data/raw/jangseong-ordinance.txt, 별표 1 원문: data/raw/jangseong-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "장성군",
+   "slug": "jangseong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-jangseong-001",
+   "mgmt_no": "342-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북이면소재지주차장",
+   "gu": "장성군",
+   "dong": "북이면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 북이면 사거리 656-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "061-390-7376",
+   "lat": 35.4287627,
+   "lng": 126.808651,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-002",
+   "mgmt_no": "342-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북하면소재지주차장",
+   "gu": "장성군",
+   "dong": "북하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 북하면 약수리 373-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "061-390-7376",
+   "lat": 35.4084556,
+   "lng": 126.8827949,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-003",
+   "mgmt_no": "342-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사창1주차장",
+   "gu": "장성군",
+   "dong": "삼계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 삼계면 사창리 488-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-390-7376",
+   "lat": 35.2598357,
+   "lng": 126.664444,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-004",
+   "mgmt_no": "342-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼계면소재지1주차장",
+   "gu": "장성군",
+   "dong": "삼계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 삼계면 사창리 496-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-390-7376",
+   "lat": 35.2596035,
+   "lng": 126.6649489,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-005",
+   "mgmt_no": "342-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼계면소재지2주차장",
+   "gu": "장성군",
+   "dong": "삼계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 삼계면 사창리 184-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "061-390-7376",
+   "lat": 35.2622509,
+   "lng": 126.6709423,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-006",
+   "mgmt_no": "342-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼계주산주차장",
+   "gu": "장성군",
+   "dong": "삼계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 삼계면 주산리 332-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "061-390-7376",
+   "lat": 35.2552671,
+   "lng": 126.6705351,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-007",
+   "mgmt_no": "342-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼서대곡주차장",
+   "gu": "장성군",
+   "dong": "삼서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 삼서면 대곡리 927-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "061-390-7376",
+   "lat": 35.233274,
+   "lng": 126.647411,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-008",
+   "mgmt_no": "342-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공원1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 921-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "061-390-7376",
+   "lat": 35.2965855,
+   "lng": 126.7822031,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-009",
+   "mgmt_no": "342-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농어촌공사인근주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1379-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "061-390-7376",
+   "lat": 35.293558,
+   "lng": 126.7737874,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-010",
+   "mgmt_no": "342-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대창1-2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 909-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "061-390-7376",
+   "lat": 35.296421,
+   "lng": 126.781491,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-011",
+   "mgmt_no": "342-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대창1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 909-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "061-390-7376",
+   "lat": 35.296126,
+   "lng": 126.781533,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-012",
+   "mgmt_no": "342-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대창2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 914-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-390-7376",
+   "lat": 35.296112,
+   "lng": 126.7838964,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-013",
+   "mgmt_no": "342-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대창동주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1273-455",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-390-7376",
+   "lat": 35.296696,
+   "lng": 126.7805508,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-014",
+   "mgmt_no": "342-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화1-1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 793-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-390-7376",
+   "lat": 35.303114,
+   "lng": 126.787305,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-015",
+   "mgmt_no": "342-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화1-2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 870-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-390-7376",
+   "lat": 35.299377,
+   "lng": 126.7878397,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-016",
+   "mgmt_no": "342-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화2-1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 790",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-390-7376",
+   "lat": 35.3035645,
+   "lng": 126.786744,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-017",
+   "mgmt_no": "342-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화2-2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 792-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-390-7376",
+   "lat": 35.302562,
+   "lng": 126.786661,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-018",
+   "mgmt_no": "342-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화2-3주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 851-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "061-390-7376",
+   "lat": 35.3020275,
+   "lng": 126.7881162,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-019",
+   "mgmt_no": "342-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 857-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-390-7376",
+   "lat": 35.3015458,
+   "lng": 126.786946,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-020",
+   "mgmt_no": "342-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화3주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1014-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-390-7376",
+   "lat": 35.2999926,
+   "lng": 126.783481,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-021",
+   "mgmt_no": "342-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화5주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1069-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-390-7376",
+   "lat": 35.300841,
+   "lng": 126.784568,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-022",
+   "mgmt_no": "342-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화6주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1070",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "061-390-7376",
+   "lat": 35.300734,
+   "lng": 126.7840317,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-023",
+   "mgmt_no": "342-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "매화8주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 860-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-390-7376",
+   "lat": 35.300521,
+   "lng": 126.7864105,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-024",
+   "mgmt_no": "342-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "버스터미널주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1273-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 90,
+   "tel": "061-390-7376",
+   "lat": 35.2978353,
+   "lng": 126.7809043,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-025",
+   "mgmt_no": "342-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "생태공원주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 57-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "061-390-7376",
+   "lat": 35.305611,
+   "lng": 126.7775439,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-026",
+   "mgmt_no": "342-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서삼교주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 487-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 176,
+   "tel": "061-390-7376",
+   "lat": 35.303654,
+   "lng": 126.7774371,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-027",
+   "mgmt_no": "342-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석송대주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 장안리 610-43",
+   "addr_road": "",
+   "road": null,
+   "spaces": 76,
+   "tel": "061-390-7376",
+   "lat": 35.309193,
+   "lng": 126.773881,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-028",
+   "mgmt_no": "342-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성산1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 성산리 462",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-390-7376",
+   "lat": 35.3256786,
+   "lng": 126.804487,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-029",
+   "mgmt_no": "342-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수산1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 유탕리 1429-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-390-7376",
+   "lat": 35.322341,
+   "lng": 126.7987888,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-030",
+   "mgmt_no": "342-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영천1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 849-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "061-390-7376",
+   "lat": 35.303775,
+   "lng": 126.791776,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-031",
+   "mgmt_no": "342-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유엔아이주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 130-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 119,
+   "tel": "061-390-7376",
+   "lat": 35.301349,
+   "lng": 126.771936,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-032",
+   "mgmt_no": "342-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장성호주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 용강리 171-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 686,
+   "tel": "061-390-7376",
+   "lat": 35.355578,
+   "lng": 126.817783,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-033",
+   "mgmt_no": "342-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장안교주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1379-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 74,
+   "tel": "061-390-7376",
+   "lat": 35.293532,
+   "lng": 126.773771,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-034",
+   "mgmt_no": "342-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정원주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 26-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 404,
+   "tel": "061-390-7376",
+   "lat": 35.3077507,
+   "lng": 126.7780034,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-035",
+   "mgmt_no": "342-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제일교회주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 210-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "061-390-7376",
+   "lat": 35.303863,
+   "lng": 126.773391,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-036",
+   "mgmt_no": "342-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙초교옆주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 975-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-390-7376",
+   "lat": 35.2983821,
+   "lng": 126.78566,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-037",
+   "mgmt_no": "342-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1046-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-390-7376",
+   "lat": 35.301656,
+   "lng": 126.782039,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-038",
+   "mgmt_no": "342-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1104-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-390-7376",
+   "lat": 35.303183,
+   "lng": 126.784953,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-039",
+   "mgmt_no": "342-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운3주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1041-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "061-390-7376",
+   "lat": 35.300739,
+   "lng": 126.781885,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-040",
+   "mgmt_no": "342-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운4주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1040-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-390-7376",
+   "lat": 35.3007945,
+   "lng": 126.782211,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-041",
+   "mgmt_no": "342-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운동1차주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1056-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "061-390-7376",
+   "lat": 35.302337,
+   "lng": 126.783573,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-042",
+   "mgmt_no": "342-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운동2차주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1480-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "061-390-7376",
+   "lat": 35.304097,
+   "lng": 126.785265,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-043",
+   "mgmt_no": "342-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운동3차주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1485-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-390-7376",
+   "lat": 35.304656,
+   "lng": 126.7858448,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-044",
+   "mgmt_no": "342-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운동4차주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1475-32",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "061-390-7376",
+   "lat": 35.3050355,
+   "lng": 126.782358,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-045",
+   "mgmt_no": "342-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청운동주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1474-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "061-390-7376",
+   "lat": 35.3035944,
+   "lng": 126.781947,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-046",
+   "mgmt_no": "342-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 956-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "061-390-7376",
+   "lat": 35.298634,
+   "lng": 126.782644,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-047",
+   "mgmt_no": "342-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무2주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1273-199",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "061-390-7376",
+   "lat": 35.298928,
+   "lng": 126.780553,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-048",
+   "mgmt_no": "342-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무3주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 973",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-390-7376",
+   "lat": 35.299491,
+   "lng": 126.7844937,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-049",
+   "mgmt_no": "342-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무4주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 947",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-390-7376",
+   "lat": 35.298248,
+   "lng": 126.781721,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-050",
+   "mgmt_no": "342-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화물차공영차고지",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1467-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "061-390-7376",
+   "lat": 35.299331,
+   "lng": 126.777834,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-051",
+   "mgmt_no": "342-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "환승주차장주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1467-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "061-390-7376",
+   "lat": 35.2991425,
+   "lng": 126.778588,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-052",
+   "mgmt_no": "342-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황룡1주차장",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1379-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-390-7376",
+   "lat": 35.292402,
+   "lng": 126.7736492,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-053",
+   "mgmt_no": "342-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황룡2주차장",
+   "gu": "장성군",
+   "dong": "황룡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 황룡면 월평리 136-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "061-390-7376",
+   "lat": 35.290318,
+   "lng": 126.773085,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-054",
+   "mgmt_no": "342-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황룡3주차장",
+   "gu": "장성군",
+   "dong": "황룡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 장성군 황룡면 월평리 153-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "061-390-7376",
+   "lat": 35.291634,
+   "lng": 126.7733808,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s001",
+   "mgmt_no": "342-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼계 사창시가지",
+   "gu": "장성군",
+   "dong": "삼계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 삼계면 사창리 337-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "061-390-7376",
+   "lat": 35.2575651,
+   "lng": 126.667916,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s002",
+   "mgmt_no": "342-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼계 택지지구",
+   "gu": "장성군",
+   "dong": "삼계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 삼계면 주산리 764",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-390-7376",
+   "lat": 35.255014,
+   "lng": 126.6712985,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s003",
+   "mgmt_no": "342-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가족센터인근",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1487-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "061-390-7376",
+   "lat": 35.306341,
+   "lng": 126.7872144,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s004",
+   "mgmt_no": "342-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "공공도서관 뒷편",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1481-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-390-7376",
+   "lat": 35.304782,
+   "lng": 126.784783,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s005",
+   "mgmt_no": "342-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "공공실버주택 주변",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1475-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "061-390-7376",
+   "lat": 35.304768,
+   "lng": 126.781813,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s006",
+   "mgmt_no": "342-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "구 용훈마트 앞",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1083-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-390-7376",
+   "lat": 35.302156,
+   "lng": 126.7858881,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s007",
+   "mgmt_no": "342-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "국일반점 ~ 청운빌라",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1480-71",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-390-7376",
+   "lat": 35.303253,
+   "lng": 126.783461,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s008",
+   "mgmt_no": "342-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "만남의 동산(구,공설운동장 도로확장 구간)",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 481-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "061-390-7376",
+   "lat": 35.306385,
+   "lng": 126.7782039,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s009",
+   "mgmt_no": "342-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신약국 ~ 빗기촌",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1081-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "061-390-7376",
+   "lat": 35.301712,
+   "lng": 126.785862,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s010",
+   "mgmt_no": "342-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장성군청 후문",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1063-50",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "061-390-7376",
+   "lat": 35.3019544,
+   "lng": 126.7853338,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s011",
+   "mgmt_no": "342-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장성역 주변",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1273-321",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "061-390-7376",
+   "lat": 35.2988123,
+   "lng": 126.7801853,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s012",
+   "mgmt_no": "342-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장성읍 파출소 앞",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1273-172",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "061-390-7376",
+   "lat": 35.2990595,
+   "lng": 126.780276,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s013",
+   "mgmt_no": "342-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청운고가(편의점 ~ 장안교)",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 2-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 111,
+   "tel": "061-390-7376",
+   "lat": 35.3076845,
+   "lng": 126.780731,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s014",
+   "mgmt_no": "342-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "할머니장터 앞",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 영천리 1273-379",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-390-7376",
+   "lat": 35.2963679,
+   "lng": 126.779891,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s015",
+   "mgmt_no": "342-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황미르 임시주차장 주변",
+   "gu": "장성군",
+   "dong": "장성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 장성읍 기산리 5-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "061-390-7376",
+   "lat": 35.308833,
+   "lng": 126.7823457,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  },
+  {
+   "id": "jn-jangseong-s016",
+   "mgmt_no": "342-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황룡면 월평리 단광천변(면사무소 뒤)",
+   "gu": "장성군",
+   "dong": "황룡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 장성군 황룡면 월평리 142",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "061-390-7376",
+   "lat": 35.290362,
+   "lng": 126.773857,
+   "base_date": "2026-08-03",
+   "manager": "전남광주통합특별시 장성군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장성군",
+   "city_slug": "jangseong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 17:13",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 70,
+  "원자료_장성군행수": 70,
+  "원자료_받은행수": 70,
+  "구별": {
+   "장성군": 54
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 54,
+  "노외_부설": {
+   "노외": 54
+  },
+  "노상_구간": 16,
+  "총_구획수": 3325,
+  "노상_구획수": 660,
+  "동별": {
+   "장성읍": 45,
+   "삼계면": 4,
+   "황룡면": 2,
+   "북이면": 1,
+   "북하면": 1,
+   "삼서면": 1
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 54
+  },
+  "요금구분": {
+   "무료": 70
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 116건 있다 — 삼계 택지지구·삼계주산주차장(74m), 황룡면 월평리 단광천변(면사무소 뒤)·황룡3주차장(148m), 황룡면 월평리 단광천변(면사무소 뒤)·황룡2주차장(70m), 황미르 임시주차장 주변·청운고가(편의점 ~ 장안교)(193m), 만남의 동산(구,공설운동장 도로확장 구간)·정원주차장(153m), 만남의 동산(구,공설운동장 도로확장 구간)·생태공원주차장(104m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 70행은 전부 공영이고 데이터기준일자는 전부 2026-08-03이다. 관리기관 표기는 70곳 전부 '전남광주통합특별시 장성군청'이고 전화번호는 70곳 전부 061-390-7376이다",
+   "등록 70곳의 읍·면 분포는 장성읍 58곳·삼계면 6곳·황룡면 3곳·북하면 1곳·북이면 1곳·삼서면 1곳이다 — 장성군의 나머지 면(진원면·남면·동화면·서삼면·북일면)에는 표준데이터에 등록된 공영주차장이 없어, 실제로 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+   "장안교주차장(영천리 1379-17, 74면)과 농어촌공사인근주차장(영천리 1379-17, 66면)은 지번이 같고 좌표가 약 3m 거리이나 이름과 면수가 달라 별개 등록으로 둘 다 실었다 — 같은 시설의 이중 등록인지는 군청 확인 과제다",
+   "등록 급지는 70곳 전부 '1'이다 — 장성읍 58곳은 조례 별표 1 비고 3의 1급지(읍지역)와 일치하고, 면지역 12곳은 비고 3상 2급지인데 '1'로 등록돼 있어 급지_요금_차이에 곳별로 기록하고 군청 확인 과제로 남긴다(전부 무료라 요금에는 영향이 없다)",
+   "도로명주소는 70곳 전부 등록돼 있지 않아 지번주소만 실었다(품질 기록의 도로명주소_없음에 전수 기록)",
+   "운영시간은 70곳 전부 00:00~23:59이고 운영요일은 전부 평일+토요일+공휴일이다. 특기사항은 70곳 전부 공란이고 결제방법도 공란이다. 부제시행구분은 '미시행' 66곳·'5부제' 4곳(충무1주차장·청운동1차주차장·버스터미널주차장·대창동주차장), 장애인전용주차구역 보유여부는 Y 20곳·N 50곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "삼계 사창시가지: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼계면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "삼계 택지지구: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼계면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "황룡면 월평리 단광천변(면사무소 뒤): 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(황룡면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "북하면소재지주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(북하면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "북이면소재지주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(북이면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "삼계면소재지2주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼계면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "삼계면소재지1주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼계면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "삼계주산주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼계면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "사창1주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼계면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "삼서대곡주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(삼서면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "황룡3주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(황룡면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다",
+   "황룡2주차장: 등록 급지가 '1'인데 조례 별표 1 비고 3은 1급지를 읍지역, 2급지를 면지역으로 정해 이 곳(황룡면)은 2급지에 해당한다 — 전부 무료라 요금 영향은 없고 군청 확인 과제다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "북이면소재지주차장",
+   "북하면소재지주차장",
+   "사창1주차장",
+   "삼계면소재지1주차장",
+   "삼계면소재지2주차장",
+   "삼계주산주차장",
+   "삼서대곡주차장",
+   "공원1주차장",
+   "농어촌공사인근주차장",
+   "대창1-2주차장",
+   "대창1주차장",
+   "대창2주차장",
+   "대창동주차장",
+   "매화1-1주차장",
+   "매화1-2주차장",
+   "매화2-1주차장",
+   "매화2-2주차장",
+   "매화2-3주차장",
+   "매화2주차장",
+   "매화3주차장",
+   "매화5주차장",
+   "매화6주차장",
+   "매화8주차장",
+   "버스터미널주차장",
+   "생태공원주차장",
+   "서삼교주차장",
+   "석송대주차장",
+   "성산1주차장",
+   "수산1주차장",
+   "영천1주차장",
+   "유엔아이주차장",
+   "장성호주차장",
+   "장안교주차장",
+   "정원주차장",
+   "제일교회주차장",
+   "중앙초교옆주차장",
+   "청운1주차장",
+   "청운2주차장",
+   "청운3주차장",
+   "청운4주차장",
+   "청운동1차주차장",
+   "청운동2차주차장",
+   "청운동3차주차장",
+   "청운동4차주차장",
+   "청운동주차장",
+   "충무1주차장",
+   "충무2주차장",
+   "충무3주차장",
+   "충무4주차장",
+   "화물차공영차고지",
+   "환승주차장주차장",
+   "황룡1주차장",
+   "황룡2주차장",
+   "황룡3주차장",
+   "삼계 사창시가지",
+   "삼계 택지지구",
+   "가족센터인근",
+   "공공도서관 뒷편",
+   "공공실버주택 주변",
+   "구 용훈마트 앞",
+   "국일반점 ~ 청운빌라",
+   "만남의 동산(구,공설운동장 도로확장 구간)",
+   "신약국 ~ 빗기촌",
+   "장성군청 후문",
+   "장성역 주변",
+   "장성읍 파출소 앞",
+   "청운고가(편의점 ~ 장안교)",
+   "할머니장터 앞",
+   "황미르 임시주차장 주변",
+   "황룡면 월평리 단광천변(면사무소 뒤)"
+  ],
+  "감면_출처": "「장성군 주차장 조례」 제2786호 별표 1 비고 6 — 면제(가목): 장애인(장애인등록증 소지자 또는 국가 유공자 중 보철용차량 표지판부착 차량)의 자가운전차량에 대하여는 주차요금 전액을 면제한다. 경감(나목): 경자동차는 주차요금의 50%를 경감하고 자동차 10부제 자율참여 자동차에 대하여는 주차요금의 30%를 경감하며, 환경친화적 자동차에 대하여는 주차요금의 100분의 50이상을 감면한다. 무료운영(다목): 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다. 본문 원문(data/raw/jangseong-ordinance.txt)·별표 1 원문(data/raw/jangseong-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 급지(1급지 읍지역·2급지 면지역)×차종(소형·대형) 요금표로 1회 주차요금은 기본 30분 이내 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원, 30분 초과 시 10분마다 1급지 소형 160원·대형 200원, 2급지 소형 130원·대형 160원, 1일 주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 3,000원·대형 4,000원, 월정기는 주간 1급지 소형 50,000원·대형 60,000원, 2급지 소형 30,000원·대형 40,000원, 야간 1급지 소형 40,000원·대형 48,000원, 2급지 소형 24,000원·대형 32,000원이다. 표준데이터 등록 70곳이 전부 무료라 요금표는 참고표로만 싣는다",
+  "급지_출처": "조례 별표 1 비고 3 — 1급지는 읍지역, 2급지는 면지역이다. 표준데이터 등록 급지는 70곳 전부 '1'이고 장성읍 58곳은 1급지(읍지역)와 일치하지만 면지역 12곳(삼계면 6곳·황룡면 3곳·북하면 1곳·북이면 1곳·삼서면 1곳)은 비고 3상 2급지에 해당하는데 '1'로 등록돼 있어 급지_요금_차이에 곳별로 기록하고 군청 확인 과제로 남긴다(전부 무료라 요금에는 영향이 없다)",
+  "무료요일_출처": "등록 70곳은 요금 구분 '무료'로 요일과 관계없이 무료다 — 조례 별표 1 비고 6 다목은 장성군수가 주차질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료운영 할 수 있다고 정한다. 조례 별표 1 비고 2의 징수시간(08:00~19:00)은 유료로 운영할 때의 기준이라 참고로만 실었다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 장성군 등록 70행 전부 공영(노외 54곳·노상 16구간, 총 3,985면)을 싣고 민영 제외 0건·중복 제거 0건·제외 0건이다. 읍·면별로는 장성읍 58곳·삼계면 6곳·황룡면 3곳·북하면 1곳·북이면 1곳·삼서면 1곳이고, 장성군의 나머지 면(진원면·남면·동화면·서삼면·북일면)에는 등록된 공영주차장이 없어 실제 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+   "「장성군 주차장 조례」 제2786호(표제 시행 2025-09-19, 공포 2025-09-19, 일부개정, ordinSeq 2068215) 본문 원문(data/raw/jangseong-ordinance.txt) 대조 완료(2026-11-20) — 부칙(2025. 9. 19. 조례 제2786호)은 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같고, law.go.kr 검색에서 장성군 주차장 관련 자치법규는 이 조례와 「장성군 주차장 특별회계 설치 조례」 제2655호(ordinSeq 1867589) 둘뿐이라 요금 조례의 최신 시행본은 제2786호가 맞다",
+   "별표 1은 HWP 원본(flSeq 156470207)을 data/raw/jangseong-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 레코드 직접 파싱으로 교차 확인해 확정했다 — 급지(1급지 읍지역·2급지 면지역)×차종(소형·대형) 요금표로, 1회 주차요금은 기본 30분 이내 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원, 30분 초과 시 10분마다 1급지 소형 160원·대형 200원, 2급지 소형 130원·대형 160원, 1일 주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 3,000원·대형 4,000원, 월정기는 주간 1급지 소형 50,000원·대형 60,000원, 2급지 소형 30,000원·대형 40,000원, 야간 1급지 소형 40,000원·대형 48,000원, 2급지 소형 24,000원·대형 32,000원이다. 직전 공포본인 제2487호(시행 2021-08-13, ordinSeq 1622421)의 별표 1(별표 모음 파일 flSeq 156470185)과도 대조해 금액·비고가 같음을 확인했고(차이는 비고 6 가목의 '장애인수첩'이 '장애인등록증'으로 정비된 것뿐), 별표 1의 개정 이력(2015. 5. 13, 2018. 4. 4, 2020.12.24., 2025. 9. 19.)이 본문 부칙의 공포 이력(제2103호·제2293호·제2439호·제2786호)과 전부 일치해 첨부파일 오등록이 아니다",
+   "등록 70곳이 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암·해남·고흥·보성·장흥 선례) — 별표 1 비고 6 다목이 군수가 필요하다고 인정한 경우 무료운영 할 수 있다고 정해 무료 운영의 조례상 근거가 된다. 등록 요금 금액 칸은 70곳 전부 기본요금 0원이고 추가·1일·월정기 금액은 공란이다",
+   "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 지번주소는 70행 전부 '전남광주통합특별시 장성군' 표기이고 제공기관명도 전부 '전남광주통합특별시 장성군'인 단일 스냅숏이며, 같은 이름+같은 자리의 재등록 쌍이 0건이다(광양 선례 대조). 도로명주소는 70곳 전부 등록돼 있지 않다",
+   "같은 자리 다른 이름 쌍이 1건 있다 — 장안교주차장(74면)과 농어촌공사인근주차장(66면)은 지번(장성읍 영천리 1379-17)이 같고 좌표가 약 3m 거리이나 이름과 면수가 달라 별개 등록으로 둘 다 실었다(옥천·영동 선례). 같은 시설의 이중 등록인지는 군청 확인 과제다. 이름이 다른 주차장이 200m 안에 이웃한 쌍은 116건으로 장성읍 시가지에 밀집해 있으나 전부 이름·등록이 다른 별개 주차장이라 합치지 않았다",
+   "좌표는 70곳 전부 등록돼 있고 전부 장성군 범위 안이라 비우거나 채운 곳이 없다(오버레이 무변경). 지번주소는 70곳 전부 등록돼 있다",
+   "전화번호는 70행 전부 061-390-7376이고 관리기관 표기는 전부 '전남광주통합특별시 장성군청'이다. 조례 담당 표기 전화(061-390-7072, 교통에너지과)와는 다르다. 운영시간은 70곳 전부 00:00~23:59, 운영요일은 전부 평일+토요일+공휴일, 부제시행구분은 미시행 66곳·5부제 4곳(충무1주차장·청운동1차주차장·버스터미널주차장·대창동주차장)이다. 장애인전용주차구역 보유여부는 Y 20곳·N 50곳이다. 데이터기준일자는 70행 전부 2026-08-03이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 70,
+  "무료_구획수": 3985,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-08-03"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 장성군청": 70
+  }
+ },
+ "fee_table": {
+  "style": "jangseong_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「장성군 주차장 조례」 제2786호(시행 2025-09-19, 일부개정), ordinSeq 2068215. 본문 사본 data/raw/jangseong-ordinance.txt. 별표 1(공영주차장 주차 요금표)은 HWP 원본을 data/raw/jangseong-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 직접 파싱으로 교차 확인해 data/raw/jangseong-ordinance-b1.txt로 확정했고, 직전 공포본 제2487호(시행 2021-08-13, ordinSeq 1622421)의 별표 1과도 대조해 금액·비고가 같음을 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 (읍지역) 소형",
+    "grade": "g1_small",
+    "unit_label": "기본 30분 500원 · 30분 초과 시 10분마다 160원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 980,
+    "two_hour": 1940,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 (읍지역) 대형",
+    "grade": "g1_large",
+    "unit_label": "기본 30분 600원 · 30분 초과 시 10분마다 200원 · 1일 6,000원 · 월정기 주간 60,000원·야간 48,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 60000,
+    "month_night": 48000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (면지역) 소형",
+    "grade": "g2_small",
+    "unit_label": "기본 30분 400원 · 30분 초과 시 10분마다 130원 · 1일 3,000원 · 월정기 주간 30,000원·야간 24,000원",
+    "hour": 790,
+    "two_hour": 1570,
+    "day": 3000,
+    "month": 30000,
+    "month_night": 24000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (면지역) 대형",
+    "grade": "g2_large",
+    "unit_label": "기본 30분 500원 · 30분 초과 시 10분마다 160원 · 1일 4,000원 · 월정기 주간 40,000원·야간 32,000원",
+    "hour": 980,
+    "two_hour": 1940,
+    "day": 4000,
+    "month": 40000,
+    "month_night": 32000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 70,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주차요금 징수시간 (조례 별표 1 비고 2)",
+    "hours": "08:00~19:00",
+    "free": "유료로 운영할 때 요금을 받는 시간대다 — 등록 70곳은 전부 무료라 실제 요금에는 쓰이지 않는다"
+   }
+  ],
+  "notes": "급지는 1급지를 읍지역, 2급지를 면지역으로 구분한다(비고 3). 차종은 승용차, 25인승 미만 승합차, 적재량 5톤 미만 화물차를 소형으로, 25인승 이상 승합차, 적재량 5톤 이상 화물차를 대형으로 본다(비고 4). 1구획은 승용차를 기준으로 하되 1구획을 초과하는 자동차에 대하여는 그 점용구획수에 따라 징수한다(비고 5). 주차요금의 징수시간은 08:00부터 19:00까지다(비고 2). 표준데이터 등록 급지는 70곳 전부 '1'이다 — 장성읍 58곳은 1급지(읍지역)와 일치하지만 면지역 12곳(삼계면 6곳·황룡면 3곳·북하면 1곳·북이면 1곳·삼서면 1곳)은 비고 3상 2급지에 해당하는데 '1'로 등록돼 있어 군청 확인 과제로 남긴다(전부 무료라 요금에는 영향이 없다). 감면은 장애인 자가운전차량 전액 면제(비고 6 가목), 경자동차 50% 경감·자동차 10부제 자율참여 자동차 30% 경감·환경친화적 자동차 100분의 50 이상 감면(비고 6 나목)이다.",
+  "basis": "요금표는 「장성군 주차장 조례」 제2786호(시행 2025-09-19) 제3조·별표 1과 표준데이터(기준일 2026-08-03)를 대조해 실었다. 등록된 70곳이 전부 '무료'라 이 표는 조례 기준 요금의 참고표이다. (조례 본문: data/raw/jangseong-ordinance.txt, 별표 1 원문: data/raw/jangseong-ordinance-b1.txt)"
+ },
+ "slug": "jangseong",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "장성군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인 자가운전차량 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6 가목 — 장애인(장애인등록증 소지자 또는 국가 유공자 중 보철용차량 표지판부착 차량)의 자가운전차량에 대하여는 주차요금 전액을 면제한다"
+  },
+  {
+   "label": "경자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6 나목 — 경자동차는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "자동차 10부제 자율참여 자동차 30% 경감",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6 나목 — 자동차 10부제 자율참여 자동차에 대하여는 주차요금의 30%를 경감한다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6 나목 — 환경친화적 자동차에 대하여는 주차요금의 100분의 50이상을 감면한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
