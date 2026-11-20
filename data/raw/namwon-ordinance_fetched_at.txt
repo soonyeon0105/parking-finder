@@ -1,0 +1,3 @@
+fetched_at: 2026-11-20
+source: law.go.kr ordinInfoP.do/ordinInfoR.do (ordinSeq 2183037, ordinId 2044177)
+ordinance: 남원시 주차장 조례 제2325호 (시행 2026-11-06, 공포 2026-11-06, 일부개정)

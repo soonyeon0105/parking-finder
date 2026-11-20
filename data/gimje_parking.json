@@ -1,0 +1,4432 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 09:42",
+  "generated_at_iso": "2026-11-20T09:42:00+09:00",
+  "snapshot_at": "2026-11-20 09:42",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "김제시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 36,
+    "fetched_at": "2026-11-20 09:42 (KST)",
+    "note": "김제시로 등록된 행 36행(전부 공영·노외)을 읽어 중복 제거 0건으로 36곳을 실었다. 무료 35곳·혼합 1곳이며, 요금을 받는 1곳의 등록 급지·금액은 조례 별표 1의 1급지 소형과 전부 일치한다. 좌표는 전부 등록돼 있고 도로명주소는 전부 결측이다. 조례 대조 완료 — 「김제시 주차장 조례」 제1850호(시행 2026-08-21, ordinSeq 2168071) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「김제시 주차장 조례」 제1850호(시행 2026-08-21, 일부개정)",
+    "org": "전북특별자치도 김제시청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2168071",
+    "file": "gimje-ordinance-b1.hwp",
+    "sha256": "c66c693afe3887bcaa4a32f7c11a5c4fc843f728b584969a00d4c571580b2f9e",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-21",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 09:42 (KST)",
+    "note": "김제시가 설치·관리하는 공영주차장에 적용하는 조례다. 김제시 공영주차장 36곳은 전부 노외이고 총 1,292면이다(무료 35곳, 혼합 1곳). 「김제시 주차장 조례」 제1850호(시행 2026-08-21, ordinSeq 2168071) 별표 1은 급지를 1급지(동지역 기준)·2급지(읍·면지역 기준)로 나누고, 공영 소형 기준 1급지는 기본 1시간 500원·10분마다 200원·1일(6시간 이상) 5,000원·월정기 40,000원, 2급지는 400원·100원·4,000원·35,000원이다(대형은 요금표에 병기, 노상 요금표도 별표 1에 함께 있다). 별표 1 비고 6에 따라 주차시간이 1시간 미만이면 기본주차요금은 무료이고, 1시간을 넘기면 기본요금에 10분 단위로 가산한다. 요금을 받는 곳은 금구향교(상학) 공영주차장 1곳뿐인데, 등록 급지가 '1'이고 금액이 별표 1의 1급지 소형과 전부 일치해 등록값으로 계산한다 — 다만 소재지(금구면)는 비고 3의 지역 기준으로는 2급지라, 이 차이는 데이터 품질 기록에 남기고 시청 확인 과제로 둔다. 무료 35곳은 시가 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 싣는다. 감면은 조례 제3조를 따른다(긴급자동차·국가유공자·병역명문가 전액 면제·감면, 전북관광패스 일일 최초 2시간 전액, 장애인·경형·저공해·전통시장 이용객 50% 범위 내, 교통난 해소대책 20% 범위 내, 선납 할인 15~20%). 좌표는 36곳 전부 등록돼 있고, 도로명주소는 전부 등록돼 있지 않다. (조례 본문: data/raw/gimje-ordinance.txt, 별표 1 원문 HWP: data/raw/gimje-ordinance-b1.hwp, 추출문: data/raw/gimje-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "김제시",
+   "slug": "gimje"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-gimje-001",
+   "mgmt_no": "311-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "검산제1 공영주차장",
+   "gu": "김제시",
+   "dong": "검산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 검산동 1065-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "063-540-3874",
+   "lat": 35.801886,
+   "lng": 126.903073,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-002",
+   "mgmt_no": "311-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "검산제2 공영주차장",
+   "gu": "김제시",
+   "dong": "검산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 검산동 1073-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "063-540-3874",
+   "lat": 35.803533,
+   "lng": 126.904694,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-003",
+   "mgmt_no": "311-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "검산제3 공영주차장",
+   "gu": "김제시",
+   "dong": "검산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 검산동 1064-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 72,
+   "tel": "063-540-3874",
+   "lat": 35.801329,
+   "lng": 126.902756,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-004",
+   "mgmt_no": "311-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "교동(교남) 공영주차장",
+   "gu": "김제시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 교동 102",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "063-540-3874",
+   "lat": 35.799648,
+   "lng": 126.879698,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-005",
+   "mgmt_no": "311-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금구향교(상학) 공영주차장",
+   "gu": "김제시",
+   "dong": "금구면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 금구면 금구리 510",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "063-540-3874",
+   "lat": 35.773107,
+   "lng": 127.011121,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간까지는 무료이고 1시간을 넘기면 500원, 그 뒤로는 10분마다 200원이며 6시간 이상은 1일 요금 5,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간까지 무료 · 1시간 초과 시 500원 · 이후 10분마다 200원 · 1일(6시간 이상) 5,000원",
+    "pay": "현금,신용카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 40000
+    },
+    "basis": "「김제시 주차장 조례」 제1850호 별표 1(1급지 소형) — 등록 급지 '1'과 금액(기본 500원·추가 10분당 200원·1일 5,000원·월정기 40,000원)이 별표와 전부 일치한다. 별표 1 비고 6에 따라 1시간까지는 무료이고 1시간을 넘기면 기본요금이 부과되며, 계산 모델은 '1시간까지 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-006",
+   "mgmt_no": "311-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원평제1(원평) 공영주차장",
+   "gu": "김제시",
+   "dong": "금산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 금산면 원평리 57",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "063-540-3874",
+   "lat": 35.714046,
+   "lng": 126.992662,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-007",
+   "mgmt_no": "311-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원평제2(성암) 공영주차장",
+   "gu": "김제시",
+   "dong": "금산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 금산면 성계리 686-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-540-3874",
+   "lat": 35.717102,
+   "lng": 126.994647,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-008",
+   "mgmt_no": "311-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제1(신당) 공영주차장",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 609",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "063-540-3874",
+   "lat": 35.8003566655,
+   "lng": 126.8985473656,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-009",
+   "mgmt_no": "311-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제2(화산2) 공영주차장",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 184-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "063-540-3874",
+   "lat": 35.796306,
+   "lng": 126.897178,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-010",
+   "mgmt_no": "311-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제3(한신) 공영주차장",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 13-185",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-540-3874",
+   "lat": 35.79391,
+   "lng": 126.902889,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-011",
+   "mgmt_no": "311-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제4(남신) 공영주차장 확장",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 13-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "063-540-3874",
+   "lat": 35.7917000942,
+   "lng": 126.9021631727,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-012",
+   "mgmt_no": "311-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제5(동신) 공영주차장",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 198-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 89,
+   "tel": "063-540-3874",
+   "lat": 35.7954430626,
+   "lng": 126.9004276451,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-013",
+   "mgmt_no": "311-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제6(신당2) 공영주차장 조성사업",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 587",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "063-540-3874",
+   "lat": 35.8031133846,
+   "lng": 126.896938,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-014",
+   "mgmt_no": "311-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신풍제7(남신) 쌈지 공영주차장",
+   "gu": "김제시",
+   "dong": "신풍동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 신풍동 332-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "063-540-3874",
+   "lat": 35.7912875257,
+   "lng": 126.8986098347,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-015",
+   "mgmt_no": "311-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥산제1(옥정) 공영주차장",
+   "gu": "김제시",
+   "dong": "옥산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 옥산동 399",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "063-540-3874",
+   "lat": 35.798248,
+   "lng": 126.882882121,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-016",
+   "mgmt_no": "311-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥산제2(구봉) 공영주차장 조성사업",
+   "gu": "김제시",
+   "dong": "옥산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 옥산동 22-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "063-540-3874",
+   "lat": 35.795273,
+   "lng": 126.8880317966,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-017",
+   "mgmt_no": "311-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제1(용성) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 273-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "063-540-3874",
+   "lat": 35.801586,
+   "lng": 126.885204,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-018",
+   "mgmt_no": "311-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제10(용성) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 239-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "063-540-3874",
+   "lat": 35.802788,
+   "lng": 126.888282,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-019",
+   "mgmt_no": "311-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제11(후암2) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 53-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "063-540-3874",
+   "lat": 35.8030018755,
+   "lng": 126.8950308492,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-020",
+   "mgmt_no": "311-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제12(장전3) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 566-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "063-540-3874",
+   "lat": 35.806605,
+   "lng": 126.888875,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-021",
+   "mgmt_no": "311-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제13(중동1) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 211-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 109,
+   "tel": "063-540-3874",
+   "lat": 35.800391,
+   "lng": 126.887526,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-022",
+   "mgmt_no": "311-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제14(문동) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 485-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "063-540-3874",
+   "lat": 35.799484519,
+   "lng": 126.8840473778,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-023",
+   "mgmt_no": "311-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제15(정동1) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 449-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "063-540-3874",
+   "lat": 35.800441,
+   "lng": 126.884391,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-024",
+   "mgmt_no": "311-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제16(정동2) 공영주차장 조성사업",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 383-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "063-540-3874",
+   "lat": 35.8027104651,
+   "lng": 126.883981,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-025",
+   "mgmt_no": "311-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제17(요륜) 쌈지 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 130-31, 34",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "063-540-3874",
+   "lat": 35.798153,
+   "lng": 126.890201,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-026",
+   "mgmt_no": "311-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제18(궁전) 쌈지 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 371, 372",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "063-540-3874",
+   "lat": 35.8048697209,
+   "lng": 126.8843962465,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-027",
+   "mgmt_no": "311-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제2(정동2) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 383-12, 13, 34, 35",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "063-540-3874",
+   "lat": 35.803549,
+   "lng": 126.883827,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-028",
+   "mgmt_no": "311-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제3(장전5) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 596",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "063-540-3874",
+   "lat": 35.804315,
+   "lng": 126.890509,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-029",
+   "mgmt_no": "311-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제4(장전2) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 598-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "063-540-3874",
+   "lat": 35.805175,
+   "lng": 126.891802,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-030",
+   "mgmt_no": "311-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제5(요륜) 공영주차장(확장)",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 166",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "063-540-3874",
+   "lat": 35.7984300467,
+   "lng": 126.888649001,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-031",
+   "mgmt_no": "311-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제6(중동1) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 193-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "063-540-3874",
+   "lat": 35.799813,
+   "lng": 126.886662657,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-032",
+   "mgmt_no": "311-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제7(평화1) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 113-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "063-540-3874",
+   "lat": 35.800039,
+   "lng": 126.890374,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-033",
+   "mgmt_no": "311-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제8(화동) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 182-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "063-540-3874",
+   "lat": 35.799813,
+   "lng": 126.888672,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-034",
+   "mgmt_no": "311-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요촌제9(장전6) 공영주차장",
+   "gu": "김제시",
+   "dong": "요촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 요촌동 547-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "063-540-3874",
+   "lat": 35.807044438,
+   "lng": 126.8936397586,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-035",
+   "mgmt_no": "311-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진봉제1(거전) 공영주차장",
+   "gu": "김제시",
+   "dong": "진봉면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 진봉면 심포리 1467-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "063-540-3874",
+   "lat": 35.842546,
+   "lng": 126.691197,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  },
+  {
+   "id": "jb-gimje-036",
+   "mgmt_no": "311-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진봉제2(심포) 공영주차장",
+   "gu": "김제시",
+   "dong": "진봉면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 김제시 진봉면 심포리 1502-31",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "063-540-3874",
+   "lat": 35.8560619364,
+   "lng": 126.7046801295,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 김제시청 교통행정과",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장의 무료개방 지원 조례라 해당하지 않는다) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김제시",
+   "city_slug": "gimje",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 09:42",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 36,
+  "원자료_김제시행수": 36,
+  "원자료_받은행수": 36,
+  "구별": {
+   "김제시": 36
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 36,
+  "노외_부설": {
+   "노외": 36
+  },
+  "노상_구간": 0,
+  "총_구획수": 1292,
+  "노상_구획수": 0,
+  "동별": {
+   "요촌동": 18,
+   "신풍동": 7,
+   "검산동": 3,
+   "금산면": 2,
+   "옥산동": 2,
+   "진봉면": 2,
+   "교동": 1,
+   "금구면": 1
+  },
+  "동수": 8,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 36
+  },
+  "요금구분": {
+   "무료": 35,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 15건 있다 — 신풍제6(신당2) 공영주차장 조성사업·요촌제11(후암2) 공영주차장(172m), 요촌제18(궁전) 쌈지 공영주차장·요촌제2(정동2) 공영주차장(155m), 요촌제17(요륜) 쌈지 공영주차장·요촌제5(요륜) 공영주차장(확장)(143m), 요촌제16(정동2) 공영주차장 조성사업·요촌제2(정동2) 공영주차장(94m), 요촌제16(정동2) 공영주차장 조성사업·요촌제1(용성) 공영주차장(166m), 요촌제15(정동1) 공영주차장·요촌제14(문동) 공영주차장(111m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 36행은 전부 공영·노외이고 데이터기준일자는 전부 2026-04-16이다. 관리기관은 전부 김제시청 교통행정과이고 등록 전화도 전부 063-540-3874이다",
+   "도로명주소는 36곳 전부 등록돼 있지 않아 동 판정과 표기는 지번주소로만 했다",
+   "등록 급지는 '1' 33곳·'2' 3곳이다. '2'인 요촌제4(장전2)·옥산제1(옥정)은 동지역이라 조례 별표 1 비고 3의 지역 기준(1급지 동지역)과 어긋나고 진봉제2(심포)만 읍·면지역과 일치한다 — 전부 무료라 요금 계산에는 영향이 없다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59, 특기사항은 전 곳 공란이다",
+   "장애인전용주차구역보유여부는 36곳 전부 공란으로 등록돼 있다",
+   "결제방법은 혼합 1곳(금구향교(상학) 공영주차장)만 '현금,신용카드'로 등록돼 있다",
+   "이름 끝에 '(조성사업)'·'확장'·'(확장)'이 붙은 등록 5곳(신풍제6·신풍제4·요촌제16·요촌제5·옥산제2)은 사업명이 포함된 등록 이름 그대로 실었다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "금구향교(상학) 공영주차장: 소재지는 금구면이라 조례 별표 1 비고 3의 지역 기준(1급지 동지역·2급지 읍·면지역)으로는 2급지(소형 기본 1시간 400원·10분마다 100원·1일 4,000원·월정기 35,000원)인데, 등록 급지가 '1'이고 금액(기본 500원·추가 10분당 200원·1일 5,000원·월정기 40,000원)이 별표 1의 1급지 소형과 전부 일치한다. 비고 3은 급지를 시장이 지정하고 시의 특성·주차장 위치에 따라 세분할 수 있게 열어 두어 등록 급지를 시장의 지정으로 보고 계산기는 등록값으로 계산했다(공주·청양·정읍 선례) — 실제 적용 급지는 시청 확인 필요"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "검산제1 공영주차장",
+   "검산제2 공영주차장",
+   "검산제3 공영주차장",
+   "교동(교남) 공영주차장",
+   "금구향교(상학) 공영주차장",
+   "원평제1(원평) 공영주차장",
+   "원평제2(성암) 공영주차장",
+   "신풍제1(신당) 공영주차장",
+   "신풍제2(화산2) 공영주차장",
+   "신풍제3(한신) 공영주차장",
+   "신풍제4(남신) 공영주차장 확장",
+   "신풍제5(동신) 공영주차장",
+   "신풍제6(신당2) 공영주차장 조성사업",
+   "신풍제7(남신) 쌈지 공영주차장",
+   "옥산제1(옥정) 공영주차장",
+   "옥산제2(구봉) 공영주차장 조성사업",
+   "요촌제1(용성) 공영주차장",
+   "요촌제10(용성) 공영주차장",
+   "요촌제11(후암2) 공영주차장",
+   "요촌제12(장전3) 공영주차장",
+   "요촌제13(중동1) 공영주차장",
+   "요촌제14(문동) 공영주차장",
+   "요촌제15(정동1) 공영주차장",
+   "요촌제16(정동2) 공영주차장 조성사업",
+   "요촌제17(요륜) 쌈지 공영주차장",
+   "요촌제18(궁전) 쌈지 공영주차장",
+   "요촌제2(정동2) 공영주차장",
+   "요촌제3(장전5) 공영주차장",
+   "요촌제4(장전2) 공영주차장",
+   "요촌제5(요륜) 공영주차장(확장)",
+   "요촌제6(중동1) 공영주차장",
+   "요촌제7(평화1) 공영주차장",
+   "요촌제8(화동) 공영주차장",
+   "요촌제9(장전6) 공영주차장",
+   "진봉제1(거전) 공영주차장",
+   "진봉제2(심포) 공영주차장"
+  ],
+  "감면_출처": "「김제시 주차장 조례」 제1850호 제3조 — 긴급자동차는 면제할 수 있다(제2항). 전액(제4항): 시장·시의회의장 업무차량(제1호), 국가유공자(제2호라목), 병역명문가(제7호), 전북관광패스 소지(일일 최초 2시간 한정, 제6호). 50% 범위 내(제4항): 경형자동차(제2호가목), 장애인(제2호다목), 저공해자동차(제2호마목), 전통시장 상인·고객(제5호). 20% 범위 내: 교통난 해소대책(제2호나목). 선납 할인(제3호): 3개월 이상 6개월 미만 15%, 6개월 이상 20%. 둘 이상의 감면 규정이 겹치면 감면율이 높은 것 하나만 적용한다(제6항). 본문 원문(data/raw/gimje-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 별표 1 — 공영 1급지 소형 기본 1시간 500원·10분마다 200원·1일(6시간 이상) 5,000원·월정기 40,000원, 대형 600원·200원·6,000원·45,000원. 2급지 소형 400원·100원·4,000원·35,000원, 대형 500원·100원·5,000원·40,000원. 노상 요금표(1회 10분당 1급지 소형 500원·2급지 소형 400원, 1일(주간) 5,000원·4,000원)도 별표 1에 있다. 표준데이터에서 요금을 받는 곳은 혼합 1곳뿐이고 등록 급지 '1'·금액이 별표의 1급지 소형과 전부 일치한다",
+  "급지_출처": "조례 별표 1 비고 3은 급지를 시장이 지정하되 1급지 동지역·2급지 읍·면지역을 기준으로 하고 시의 특성·주차장 위치에 따라 세분할 수 있게 한다. 등록 급지는 '1' 33곳·'2' 3곳이고, '2'인 요촌제4(장전2)·옥산제1(옥정) 2곳은 동지역이라 지역 기준과 어긋나며 진봉제2(심포)만 읍·면지역과 일치한다. 유료는 혼합 1곳뿐이고 그 등록 급지 '1'이 별표의 1급지 소형 금액과 일치해 계산기는 등록값을 썼다 — 다만 그 소재지(금구면)는 지역 기준으로는 2급지라 실제 적용 급지는 시청 확인 과제다",
+  "무료요일_출처": "조례 별표 1 비고 2는 주차요금 징수 시간구분(연중 주간 09:00~18:00, 나머지는 야간)만 정하고 요일 무료는 정하지 않아 free_days는 적용하지 않았다. 무료 35곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 김제시 등록 36행 전부 공영·노외 — 민영 제외 0건",
+   "「김제시 주차장 조례」 제1850호(시행 2026-08-21, 일부개정, ordinSeq 2168071) 본문 원문(data/raw/gimje-ordinance.txt) 대조 완료(2026-11-20)",
+   "별표 1 원문 HWP(data/raw/gimje-ordinance-b1.hwp)의 미리보기 텍스트로 공영·노상 요금표 확정 — 현행본(제1850호) 첨부 파일 '공영주차장 주차요금표등'(flSeq 169266397)이다. 함께 검색된 「김제시 주차장 무료개방 지원 조례」(제1499호)와 「김제시 주차장 특별회계 설치 조례」(제1418호)는 요금 조례가 아니라 대조 대상에서 제외했다",
+   "요금을 받는 곳은 혼합 1곳(금구향교(상학))뿐이고 등록 급지 '1'·금액이 별표 1의 1급지 소형과 전부 일치해 계산기는 등록값으로 계산했다(공주·청양·정읍 선례). 소재지 금구면은 비고 3의 지역 기준으로는 2급지라 차이는 급지_요금_차이에 기록하고 시청 확인 과제로 남겼다",
+   "별표 1 비고 6(주차시간 1시간 미만은 기본주차요금 무료)에 따라 계산기는 1시간까지 무료·초과 시 기본요금 부과 구조로 계산한다(남원 선례)",
+   "무료 35곳은 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어 시가 무료로 운영하는 곳으로 보고 요금표는 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례) — 「김제시 주차장 무료개방 지원 조례」는 공공기관·학교·종교시설 주차장 대상이라 근거가 되지 않으며, 무료 운영의 근거(고시 등)는 시청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍은 전부 다른 등록이라 합치지 않았다",
+   "좌표는 36곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 김제시 범위 밖 좌표도 없었다",
+   "도로명주소는 36곳 전부 등록돼 있지 않아 동 판정은 지번주소로만 했다",
+   "등록 급지 '2'인 요촌제4(장전2)·옥산제1(옥정)은 동지역이라 비고 3의 지역 기준과 어긋나지만 전부 무료라 요금 계산에 영향이 없어 기록만 남겼다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 35,
+  "무료_구획수": 1285,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "전북특별자치도 김제시청 교통행정과": 36
+  }
+ },
+ "fee_table": {
+  "style": "gimje_grade",
+  "unit_min": 10,
+  "base_min": 60,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「김제시 주차장 조례」 제1850호(시행 2026-08-21, 일부개정), ordinSeq 2168071. 본문 사본 data/raw/gimje-ordinance.txt. 별표 1(공영주차장 주차요금표) 원문 HWP data/raw/gimje-ordinance-b1.hwp·추출문 gimje-ordinance-b1.txt.",
+  "rows": [
+   {
+    "label": "1급지 · 소형",
+    "grade": "g1",
+    "unit_label": "소형: 1시간까지 무료 · 기본 1시간 500원 · 10분마다 200원 · 월정기 40,000원",
+    "hour": 500,
+    "two_hour": 1700,
+    "day": 5000,
+    "month": 40000,
+    "lots": 1
+   },
+   {
+    "label": "1급지 · 대형",
+    "grade": "g1",
+    "unit_label": "대형: 1시간까지 무료 · 기본 1시간 600원 · 10분마다 200원 · 월정기 45,000원",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 6000,
+    "month": 45000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 소형",
+    "grade": "g2",
+    "unit_label": "소형: 1시간까지 무료 · 기본 1시간 400원 · 10분마다 100원 · 월정기 35,000원",
+    "hour": 400,
+    "two_hour": 1000,
+    "day": 4000,
+    "month": 35000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 대형",
+    "grade": "g2",
+    "unit_label": "대형: 1시간까지 무료 · 기본 1시간 500원 · 10분마다 100원 · 월정기 40,000원",
+    "hour": 500,
+    "two_hour": 1100,
+    "day": 5000,
+    "month": 40000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "street_paid": 0,
+   "free": 35,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 09:00~18:00 · 야간 18:00~익일 09:00",
+    "free": "조례 별표 1 비고 2의 주차요금 징수 시간구분이다 — 등록 운영시간은 전 곳 00:00~23:59다"
+   }
+  ],
+  "notes": "노상주차장 요금도 별표 1에 있다 — 1회 주차 시 10분당 1급지 소형 500원·2급지 소형 400원이고 1일(주간)은 5,000원·4,000원이다. 이 사이트에 실린 김제시 노상 구간은 없다. 급지는 주차장의 실태·주차수요를 참작해 시장이 지정하되 1급지는 동지역, 2급지는 읍·면지역을 기준으로 하고 시의 특성·주차장 위치에 따라 세분할 수 있다(비고 3). 소형은 2.5톤 이하(승용차·15인승 이하 승합차), 대형은 2.5톤 초과다(비고 5). 감면은 긴급자동차·국가유공자·병역명문가 전액, 전북관광패스 일일 최초 2시간 전액, 장애인·경형·저공해·전통시장 이용객 50% 범위 내, 교통난 해소대책 20% 범위 내, 선납 할인 15~20%이다.",
+  "basis": "요금표는 「김제시 주차장 조례」 제1850호(시행 2026-08-21) 별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 요금을 받는 1곳의 등록 급지·금액은 별표 1의 1급지 소형과 전부 일치하고, 무료 35곳에 대해서는 조례 기준 요금의 참고표다. (조례 본문: data/raw/gimje-ordinance.txt, 별표 1 원문 HWP: data/raw/gimje-ordinance-b1.hwp)"
+ },
+ "slug": "gimje",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "김제시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차에 대해서는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호라목 — 국가유공자가 운전하는 차량은 주차요금을 면제한다"
+  },
+  {
+   "label": "병역명문가 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제7호 — 「김제시 병역명문가 예우에 관한 조례」에 따른 병역명문가증을 소지한 사람이 운전하는 차량은 주차요금 전액을 감면한다"
+  },
+  {
+   "label": "전북관광패스 전액 감면 (일일 최초 2시간 한정)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 전북관광패스 사업에 따른 교통 패스권을 소지한 사람이 유료 공영주차장을 이용할 경우 이용료 전액을 감면할 수 있다. 다만 일일 최초 2시간에 한정한다"
+  },
+  {
+   "label": "시장·시의회의장 업무차량 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제1호 — 시장 및 시의회의장 소유의 업무차량은 주차요금 전액을 감면한다"
+  },
+  {
+   "label": "장애인 50% 범위 내",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호다목 — 장애인이 운전하는 차량 및 장애인을 동반한 일반차량은 주차요금의 50퍼센트 범위 내에서 감면받을 수 있다"
+  },
+  {
+   "label": "경형자동차 50% 범위 내",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호가목 — 에너지절약시책으로 배기량 1,000시시 미만의 경승용차는 주차요금의 50퍼센트 범위 내에서 감면받을 수 있다"
+  },
+  {
+   "label": "저공해자동차 50% 범위 내",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호마목 — 「대기환경보전법」 제58조제9항의 표지를 부착한 저공해자동차는 주차요금의 50퍼센트 범위 내에서 감면받을 수 있다"
+  },
+  {
+   "label": "전통시장 상인·고객 50% 범위 내",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제5호 — 전통시장 활성화를 위하여 공영 노외주차장을 이용하는 상인 및 고객들에게 주차요금의 100분의 50의 범위 내에서 감면할 수 있다"
+  },
+  {
+   "label": "교통난 해소대책 20% 범위 내",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호나목 — 교통난 해소대책에 참여하는 차량은 주차요금의 20퍼센트 범위 내에서 감면받을 수 있다"
+  },
+  {
+   "label": "선납 할인 15% (3개월 이상 6개월 미만)",
+   "rate": 0.15,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호가목 — 주차요금을 3개월 이상 6개월 미만 선납하는 경우에는 주차요금의 15퍼센트를 할인할 수 있다"
+  },
+  {
+   "label": "선납 할인 20% (6개월 이상)",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호나목 — 주차요금을 6개월 이상 선납하는 경우에는 주차요금의 20퍼센트를 할인할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

@@ -1,0 +1,6505 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 09:42",
+  "generated_at_iso": "2026-11-20T09:42:00+09:00",
+  "snapshot_at": "2026-11-20 09:42",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "남원시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-16",
+    "rows_total": 18994,
+    "rows_city": 54,
+    "fetched_at": "2026-11-20 09:42 (KST)",
+    "note": "남원시로 등록된 행 54행(전부 공영·노외)을 읽어 중복 제거 0건으로 54곳을 실었다. 무료 46곳·유료 6곳·요금 미상 2곳이며, 유료 6곳의 등록 금액은 조례 별표 1과 전부 일치하고 기본시간 표기만 다르다. 좌표는 전부 등록돼 있고 도로명주소는 전부 결측이다. 조례 대조 완료 — 「남원시 주차장 조례」 제2325호(시행 2026-11-06, ordinSeq 2183037) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「남원시 주차장 조례」 제2325호(시행 2026-11-06, 일부개정)",
+    "org": "전북특별자치도 남원시청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2183037",
+    "file": "namwon-ordinance-b1.hwp",
+    "sha256": "ef0f6f30273042787a66fe15c6b00ae49dced90a7de31b287a0fba7aa1bcf817",
+    "license": "자치법규(공개)",
+    "base_date": "2026-11-06",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 09:42 (KST)",
+    "note": "남원시가 설치·관리하는 공영주차장에 적용하는 조례다. 남원시 공영주차장 54곳은 전부 노외이고 총 3,045면이다(무료 46곳, 유료 6곳, 요금 미상 2곳). 「남원시 주차장 조례」 제2325호(시행 2026-11-06, ordinSeq 2183037) 별표 1은 지역을 동지역·읍면지역으로 나누고, 노외 소형 기준 동지역은 1시간 미만 무료·1시간 500원·10분마다 200원·1일 6,000원·월정기 60,000원, 읍면지역은 400원·100원·4,000원·30,000원이다(대형은 요금표에 병기, 노상 요금표도 별표 1에 함께 있다). 유료 6곳(전부 동지역)의 등록 금액은 별표 1의 노외 동지역 소형과 전부 일치하는데 기본시간만 '1'로 등록돼 있어, 별표 머리글의 '(1시간)' 표기에 따라 1시간의 오기로 보고 계산기는 조례 구조로 계산한다(차이는 데이터 품질 기록에 전건 기록). 광한루원 광장·서문주차장 2곳은 '유료'로 등록됐으나 금액이 전부 0이라 요금 미상으로 표기한다. 무료 46곳은 시가 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 싣는다. 감면은 조례 제3조를 따른다(긴급자동차 면제, 전기차 충전 최초 1시간 면제, 성실납세자 전액 감면, 장애인·보훈대상자·경형·저공해·환경친화적·전통시장 이용객·관광 이용권·병역명문가·임산부·자원봉사자 50%). 좌표는 54곳 전부 등록돼 있고, 도로명주소는 전부 등록돼 있지 않다. (조례 본문: data/raw/namwon-ordinance.txt, 별표 1 원문 HWP: data/raw/namwon-ordinance-b1.hwp, 추출문: data/raw/namwon-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "남원시",
+   "slug": "namwon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-namwon-001",
+   "mgmt_no": "310-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광한루원 서문주차장",
+   "gu": "남원시",
+   "dong": "금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 금동 293",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "063-620-8903",
+   "lat": 35.4027062,
+   "lng": 127.3768286,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 0으로 등록돼 있음 — 조례 별표 1 노외 동지역 요금은 요금표에 있고, 금액은 남원시청 확인 필요"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-002",
+   "mgmt_no": "310-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원원예농협 농산물공판장 인근 주차장",
+   "gu": "남원시",
+   "dong": "금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 금동 409",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "063-620-6578",
+   "lat": 35.4045397,
+   "lng": 127.3740921,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-003",
+   "mgmt_no": "310-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시장4가 주차장",
+   "gu": "남원시",
+   "dong": "금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 금동 239-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "063-620-6578",
+   "lat": 35.40614027,
+   "lng": 127.3770459,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 6,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간 미만 무료 · 1시간 500원 · 이후 10분마다 200원 · 1일 최대 6,000원",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 1,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) — 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 '1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-004",
+   "mgmt_no": "310-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노암1통 복지회관 인근 주차장",
+   "gu": "남원시",
+   "dong": "노암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 노암동 613-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "063-620-6578",
+   "lat": 35.39309215,
+   "lng": 127.3734645,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-005",
+   "mgmt_no": "310-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노암주유소 뒤 주차장",
+   "gu": "남원시",
+   "dong": "노암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 노암동 215-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "063-620-6578",
+   "lat": 35.39499932,
+   "lng": 127.377902,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-006",
+   "mgmt_no": "310-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노암초등학교 옆 주차장",
+   "gu": "남원시",
+   "dong": "노암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 노암동 266",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "063-620-6578",
+   "lat": 35.39515446,
+   "lng": 127.3752075,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-007",
+   "mgmt_no": "310-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제일고 맞은편 주차장",
+   "gu": "남원시",
+   "dong": "노암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 노암동 612-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "063-620-6578",
+   "lat": 35.39309872,
+   "lng": 127.3739007,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-008",
+   "mgmt_no": "310-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원시청 제1주차장",
+   "gu": "남원시",
+   "dong": "도통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 도통동 518",
+   "addr_road": "",
+   "road": null,
+   "spaces": 171,
+   "tel": "063-620-6578",
+   "lat": 35.41640967,
+   "lng": 127.3903801,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 6,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간 미만 무료 · 1시간 500원 · 이후 10분마다 200원 · 1일 최대 6,000원",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 1,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) — 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 '1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-009",
+   "mgmt_no": "310-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도통지구 주차타워",
+   "gu": "남원시",
+   "dong": "도통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 도통동 156-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 258,
+   "tel": "063-620-6578",
+   "lat": 35.41782667,
+   "lng": 127.3925683,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 6,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간 미만 무료 · 1시간 500원 · 이후 10분마다 200원 · 1일 최대 6,000원",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 1,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) — 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 '1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-010",
+   "mgmt_no": "310-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도통지구 주차타워 앞 주차장",
+   "gu": "남원시",
+   "dong": "도통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 도통동 156-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "063-620-6578",
+   "lat": 35.41740439,
+   "lng": 127.3925683,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-011",
+   "mgmt_no": "310-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "물방개 워터파크 옆 주차장",
+   "gu": "남원시",
+   "dong": "도통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 도통동 569-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "063-620-6578",
+   "lat": 35.41918055,
+   "lng": 127.3992903,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-012",
+   "mgmt_no": "310-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우성아파트 옆 주차장",
+   "gu": "남원시",
+   "dong": "도통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 도통동 165",
+   "addr_road": "",
+   "road": null,
+   "spaces": 133,
+   "tel": "063-620-6578",
+   "lat": 35.41796372,
+   "lng": 127.3950135,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-013",
+   "mgmt_no": "310-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이대째식당 앞 주차장",
+   "gu": "남원시",
+   "dong": "도통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 도통동 617-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "063-620-6578",
+   "lat": 35.41238488,
+   "lng": 127.3934821,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-014",
+   "mgmt_no": "310-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원시사회복지종합센터 뒤 주차장",
+   "gu": "남원시",
+   "dong": "동충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 동충동 211-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-620-6578",
+   "lat": 35.41158284,
+   "lng": 127.3818923,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-015",
+   "mgmt_no": "310-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원시청소년수련관 인근",
+   "gu": "남원시",
+   "dong": "동충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 동충동 345-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "063-620-6578",
+   "lat": 35.41354862,
+   "lng": 127.3848212,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-016",
+   "mgmt_no": "310-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동문4가 주차장",
+   "gu": "남원시",
+   "dong": "동충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 동충동 62",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-620-6578",
+   "lat": 35.4094413356,
+   "lng": 127.3855261943,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-017",
+   "mgmt_no": "310-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시외버스터미널 시장 주차장",
+   "gu": "남원시",
+   "dong": "동충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 동충동 36-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "063-620-6578",
+   "lat": 35.41025655,
+   "lng": 127.3886568,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-018",
+   "mgmt_no": "310-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시외버스터미널 옆 주차장",
+   "gu": "남원시",
+   "dong": "동충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 동충동 25-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 117,
+   "tel": "063-620-6578",
+   "lat": 35.41075908,
+   "lng": 127.3887828,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 6,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간 미만 무료 · 1시간 500원 · 이후 10분마다 200원 · 1일 최대 6,000원",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 1,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) — 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 '1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-019",
+   "mgmt_no": "310-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용성초등학교 옆 주차장",
+   "gu": "남원시",
+   "dong": "동충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 동충동 188-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "063-620-6578",
+   "lat": 35.41025064,
+   "lng": 127.3807963,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-020",
+   "mgmt_no": "310-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반선1지구 주차장",
+   "gu": "남원시",
+   "dong": "산내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 산내면 부운리 234-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "063-620-6578",
+   "lat": 35.37595157,
+   "lng": 127.5802572,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-021",
+   "mgmt_no": "310-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반선2지구 주차장",
+   "gu": "남원시",
+   "dong": "산내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 산내면 부운리 산92-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-620-6578",
+   "lat": 35.37444845,
+   "lng": 127.5800706,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-022",
+   "mgmt_no": "310-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지리산둘레길(산내) 주차장",
+   "gu": "남원시",
+   "dong": "산내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 산내면 대정리 534-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "063-620-6578",
+   "lat": 35.42426038,
+   "lng": 127.624659,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-023",
+   "mgmt_no": "310-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경방루 앞 주차장",
+   "gu": "남원시",
+   "dong": "쌍교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 쌍교동 230-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-620-6578",
+   "lat": 35.405434,
+   "lng": 127.3801232,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-024",
+   "mgmt_no": "310-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명지각 동관 앞 주차장",
+   "gu": "남원시",
+   "dong": "쌍교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 쌍교동 127",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-620-6578",
+   "lat": 35.4052765,
+   "lng": 127.380818,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-025",
+   "mgmt_no": "310-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안숙선명창의여정 앞 주차장",
+   "gu": "남원시",
+   "dong": "쌍교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 쌍교동 220",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-620-6578",
+   "lat": 35.40509852,
+   "lng": 127.3805014,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-026",
+   "mgmt_no": "310-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주석건강원 옆 주차장",
+   "gu": "남원시",
+   "dong": "쌍교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 쌍교동 153-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "063-620-6578",
+   "lat": 35.40476072,
+   "lng": 127.3821268,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-027",
+   "mgmt_no": "310-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한우회관 옆 주차장",
+   "gu": "남원시",
+   "dong": "쌍교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 쌍교동 94",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "063-620-6578",
+   "lat": 35.40611679,
+   "lng": 127.3807383,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-028",
+   "mgmt_no": "310-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉화산 주차장",
+   "gu": "남원시",
+   "dong": "아영면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 아영면 성리 787-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 97,
+   "tel": "063-620-6578",
+   "lat": 35.52769909,
+   "lng": 127.5771561,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-029",
+   "mgmt_no": "310-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥부골 아영면 주차장",
+   "gu": "남원시",
+   "dong": "아영면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 아영면 청계리 7-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "063-620-6578",
+   "lat": 35.50807661,
+   "lng": 127.6135704,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-030",
+   "mgmt_no": "310-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관왕묘 옆 주차장",
+   "gu": "남원시",
+   "dong": "왕정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 왕정동 51-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "063-620-6578",
+   "lat": 35.40742927,
+   "lng": 127.3758892,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 6,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간 미만 무료 · 1시간 500원 · 이후 10분마다 200원 · 1일 최대 6,000원",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 1,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) — 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 '1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-031",
+   "mgmt_no": "310-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금호아파트 앞 주차장",
+   "gu": "남원시",
+   "dong": "왕정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 왕정동 142-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "063-620-6578",
+   "lat": 35.40745042,
+   "lng": 127.374092,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-032",
+   "mgmt_no": "310-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "만복사지 주차장",
+   "gu": "남원시",
+   "dong": "왕정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 왕정동 476",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-620-6578",
+   "lat": 35.4072819448,
+   "lng": 127.3687311514,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-033",
+   "mgmt_no": "310-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕정동행정복지센터 옆 주차장",
+   "gu": "남원시",
+   "dong": "왕정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 왕정동 413",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "063-620-6578",
+   "lat": 35.40822275,
+   "lng": 127.3693775,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-034",
+   "mgmt_no": "310-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운봉읍 동하지구 마을 인근",
+   "gu": "남원시",
+   "dong": "운봉읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 운봉읍 동천리 514",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-620-6578",
+   "lat": 35.43853452,
+   "lng": 127.5325672,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시 관광시설사업소",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-035",
+   "mgmt_no": "310-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운봉읍 주차장(1,2지구)",
+   "gu": "남원시",
+   "dong": "운봉읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 운봉읍 서천리 177",
+   "addr_road": "",
+   "road": null,
+   "spaces": 81,
+   "tel": "063-620-6578",
+   "lat": 35.43744645,
+   "lng": 127.5311791,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-036",
+   "mgmt_no": "310-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "척동마을 주차장",
+   "gu": "남원시",
+   "dong": "이백면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 이백면 척문리 92-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "063-620-6578",
+   "lat": 35.42756238,
+   "lng": 127.4253794,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-037",
+   "mgmt_no": "310-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인월면 지리산새마을금고 인근 주차장",
+   "gu": "남원시",
+   "dong": "인월면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 인월면 인월리 245-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "063-620-6578",
+   "lat": 35.4604688,
+   "lng": 127.6023199745,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-038",
+   "mgmt_no": "310-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인월초등학교 인근 주차장",
+   "gu": "남원시",
+   "dong": "인월면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 인월면 서무리 688-83",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-620-6578",
+   "lat": 35.46276209,
+   "lng": 127.6028758,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-039",
+   "mgmt_no": "310-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "조산동 주차장",
+   "gu": "남원시",
+   "dong": "조산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 조산동 74-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "063-620-6578",
+   "lat": 35.39787832,
+   "lng": 127.3702343,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-040",
+   "mgmt_no": "310-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "요천생태습지공원 내 주차장",
+   "gu": "남원시",
+   "dong": "주생면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 주생면 중동리 294",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "063-620-6578",
+   "lat": 35.38514896,
+   "lng": 127.3456634,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-041",
+   "mgmt_no": "310-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화물자동차 공영차고지",
+   "gu": "남원시",
+   "dong": "주생면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 주생면 상동리 75",
+   "addr_road": "",
+   "road": null,
+   "spaces": 216,
+   "tel": "063-620-6563",
+   "lat": 35.39524949,
+   "lng": 127.3543196,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-042",
+   "mgmt_no": "310-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "육모정 주차장",
+   "gu": "남원시",
+   "dong": "주천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 주천면 호경리 23-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "063-620-6578",
+   "lat": 35.38813404,
+   "lng": 127.458913,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-043",
+   "mgmt_no": "310-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지리산둘레길(주천) 주차장",
+   "gu": "남원시",
+   "dong": "주천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 주천면 장안리 259-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-620-6578",
+   "lat": 35.39040032,
+   "lng": 127.4460488,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-044",
+   "mgmt_no": "310-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구 남신공업사 앞 주차장",
+   "gu": "남원시",
+   "dong": "죽항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 죽항동 87",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "063-620-6578",
+   "lat": 35.40649653,
+   "lng": 127.3839965,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-045",
+   "mgmt_no": "310-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법원 앞 주차장",
+   "gu": "남원시",
+   "dong": "죽항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 죽항동 199-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "063-620-6578",
+   "lat": 35.40877328,
+   "lng": 127.3837996,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-046",
+   "mgmt_no": "310-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옛사랑1962 인근 주차장",
+   "gu": "남원시",
+   "dong": "죽항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 죽항동 61-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "063-620-6578",
+   "lat": 35.40716975,
+   "lng": 127.3865989,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-047",
+   "mgmt_no": "310-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽항1지구 주차장",
+   "gu": "남원시",
+   "dong": "죽항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 죽항동 43",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-620-6578",
+   "lat": 35.40885817,
+   "lng": 127.3867993,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-048",
+   "mgmt_no": "310-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광한루원 광장주차장",
+   "gu": "남원시",
+   "dong": "천거동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 천거동 187-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 83,
+   "tel": "063-620-8903",
+   "lat": 35.40413057,
+   "lng": 127.380504,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시 관광시설사업소",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 0으로 등록돼 있음 — 조례 별표 1 노외 동지역 요금은 요금표에 있고, 금액은 남원시청 확인 필요"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:30"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:30"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1110,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "18:30"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-049",
+   "mgmt_no": "310-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구 군청 주차장",
+   "gu": "남원시",
+   "dong": "하정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 하정동 192-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "063-620-6578",
+   "lat": 35.4080722,
+   "lng": 127.3793315,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 6,000원입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": 59,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": "1시간 미만 무료 · 1시간 500원 · 이후 10분마다 200원 · 1일 최대 6,000원",
+    "pay": "카드결제",
+    "std": {
+     "base_min": 1,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) — 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 '1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 59분으로 표현한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-050",
+   "mgmt_no": "310-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원시공동체지원센터 뒤 주차장",
+   "gu": "남원시",
+   "dong": "하정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 하정동 59-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "063-620-6578",
+   "lat": 35.40774144,
+   "lng": 127.3820705,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-051",
+   "mgmt_no": "310-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원시장애인어울림센터 뒤 주차장",
+   "gu": "남원시",
+   "dong": "향교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 향교동 737",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "063-620-6578",
+   "lat": 35.41704417,
+   "lng": 127.3805304,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-052",
+   "mgmt_no": "310-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남원시장애인어울림센터 옆 주차장",
+   "gu": "남원시",
+   "dong": "향교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 향교동 324-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "063-620-6578",
+   "lat": 35.4174869,
+   "lng": 127.3806816,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-053",
+   "mgmt_no": "310-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향교오거리 주차장",
+   "gu": "남원시",
+   "dong": "향교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 향교동 183-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "063-620-6578",
+   "lat": 35.414311,
+   "lng": 127.387251,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  },
+  {
+   "id": "jb-namwon-054",
+   "mgmt_no": "310-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향교지구 주차타워",
+   "gu": "남원시",
+   "dong": "향교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 남원시 향교동 332",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "063-620-6578",
+   "lat": 35.418821396,
+   "lng": 127.3826849,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 남원시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남원시",
+   "city_slug": "namwon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 09:42",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 54,
+  "원자료_남원시행수": 54,
+  "원자료_받은행수": 54,
+  "구별": {
+   "남원시": 54
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 54,
+  "노외_부설": {
+   "노외": 54
+  },
+  "노상_구간": 0,
+  "총_구획수": 3045,
+  "노상_구획수": 0,
+  "동별": {
+   "도통동": 6,
+   "동충동": 6,
+   "쌍교동": 5,
+   "노암동": 4,
+   "왕정동": 4,
+   "죽항동": 4,
+   "향교동": 4,
+   "금동": 3,
+   "산내면": 3,
+   "아영면": 2,
+   "운봉읍": 2,
+   "인월면": 2,
+   "주생면": 2,
+   "주천면": 2,
+   "하정동": 2,
+   "이백면": 1,
+   "조산동": 1,
+   "천거동": 1
+  },
+  "동수": 18,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 54
+  },
+  "요금구분": {
+   "미상": 2,
+   "무료": 46,
+   "유료": 6
+  },
+  "요금_미상": [
+   "광한루원 서문주차장",
+   "광한루원 광장주차장"
+  ],
+  "유료_노상": 0,
+  "유료_노외": 6,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 28건 있다 — 남원시장애인어울림센터 뒤 주차장·남원시장애인어울림센터 옆 주차장(51m), 명지각 동관 앞 주차장·한우회관 옆 주차장(94m), 명지각 동관 앞 주차장·안숙선명창의여정 앞 주차장(35m), 명지각 동관 앞 주차장·광한루원 광장주차장(130m), 명지각 동관 앞 주차장·주석건강원 옆 주차장(131m), 명지각 동관 앞 주차장·경방루 앞 주차장(65m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 54행은 전부 공영·노외이고 데이터기준일자는 전부 2026-10-16이다. 관리기관은 남원시청 52곳·남원시 관광시설사업소 2곳(광한루원 광장·서문주차장)이다",
+   "도로명주소는 54곳 전부 등록돼 있지 않아 동 판정과 표기는 지번주소로만 했다",
+   "등록 급지는 54곳 전부 '3'인데 조례 별표 1에는 급지 구분이 없어(동지역·읍면지역 구분만 있다) 요금표 행 판정에 쓰지 않았다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 광한루원 2곳(08:00~18:30)을 빼고 전부 00:00~23:59, 특기사항은 전 곳 공란이다",
+   "등록 전화는 063-620-6578이 51곳, 063-620-8903이 2곳(광한루원 광장·서문주차장), 063-620-6563이 1곳(화물자동차 공영차고지)이다",
+   "결제방법은 금액이 있는 유료 6곳만 '카드결제'로 등록돼 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "광한루원 광장주차장: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 0이고 결제방법도 등록돼 있지 않아 금액을 확정할 수 없다 — 조례 별표 1의 노외 동지역 요금(소형 1시간 500원·10분마다 200원·1일 6,000원·월정기 60,000원)은 요금표에만 싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 시청 확인 필요)",
+   "광한루원 서문주차장: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 0이고 결제방법도 등록돼 있지 않아 금액을 확정할 수 없다 — 조례 별표 1의 노외 동지역 요금(소형 1시간 500원·10분마다 200원·1일 6,000원·월정기 60,000원)은 요금표에만 싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 시청 확인 필요)",
+   "시외버스터미널 옆 주차장: 기본시간이 '1'로 등록돼 있으나 조례 별표 1의 노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, 금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 개시 시점은 시청 확인 필요",
+   "시외버스터미널 옆 주차장: 1일 주차요금 적용시간이 24시간으로 등록돼 있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금(6,000원)을 상한으로 적용하고 차이는 여기에 남긴다",
+   "구 군청 주차장: 기본시간이 '1'로 등록돼 있으나 조례 별표 1의 노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, 금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 개시 시점은 시청 확인 필요",
+   "구 군청 주차장: 1일 주차요금 적용시간이 24시간으로 등록돼 있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금(6,000원)을 상한으로 적용하고 차이는 여기에 남긴다",
+   "관왕묘 옆 주차장: 기본시간이 '1'로 등록돼 있으나 조례 별표 1의 노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, 금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 개시 시점은 시청 확인 필요",
+   "관왕묘 옆 주차장: 1일 주차요금 적용시간이 24시간으로 등록돼 있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금(6,000원)을 상한으로 적용하고 차이는 여기에 남긴다",
+   "시장4가 주차장: 기본시간이 '1'로 등록돼 있으나 조례 별표 1의 노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, 금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 개시 시점은 시청 확인 필요",
+   "시장4가 주차장: 1일 주차요금 적용시간이 24시간으로 등록돼 있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금(6,000원)을 상한으로 적용하고 차이는 여기에 남긴다",
+   "도통지구 주차타워: 기본시간이 '1'로 등록돼 있으나 조례 별표 1의 노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, 금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 개시 시점은 시청 확인 필요",
+   "도통지구 주차타워: 1일 주차요금 적용시간이 24시간으로 등록돼 있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금(6,000원)을 상한으로 적용하고 차이는 여기에 남긴다",
+   "남원시청 제1주차장: 기본시간이 '1'로 등록돼 있으나 조례 별표 1의 노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, 금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 개시 시점은 시청 확인 필요",
+   "남원시청 제1주차장: 1일 주차요금 적용시간이 24시간으로 등록돼 있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금(6,000원)을 상한으로 적용하고 차이는 여기에 남긴다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "광한루원 서문주차장",
+   "남원원예농협 농산물공판장 인근 주차장",
+   "시장4가 주차장",
+   "노암1통 복지회관 인근 주차장",
+   "노암주유소 뒤 주차장",
+   "노암초등학교 옆 주차장",
+   "제일고 맞은편 주차장",
+   "남원시청 제1주차장",
+   "도통지구 주차타워",
+   "도통지구 주차타워 앞 주차장",
+   "물방개 워터파크 옆 주차장",
+   "우성아파트 옆 주차장",
+   "이대째식당 앞 주차장",
+   "남원시사회복지종합센터 뒤 주차장",
+   "남원시청소년수련관 인근",
+   "동문4가 주차장",
+   "시외버스터미널 시장 주차장",
+   "시외버스터미널 옆 주차장",
+   "용성초등학교 옆 주차장",
+   "반선1지구 주차장",
+   "반선2지구 주차장",
+   "지리산둘레길(산내) 주차장",
+   "경방루 앞 주차장",
+   "명지각 동관 앞 주차장",
+   "안숙선명창의여정 앞 주차장",
+   "주석건강원 옆 주차장",
+   "한우회관 옆 주차장",
+   "봉화산 주차장",
+   "흥부골 아영면 주차장",
+   "관왕묘 옆 주차장",
+   "금호아파트 앞 주차장",
+   "만복사지 주차장",
+   "왕정동행정복지센터 옆 주차장",
+   "운봉읍 동하지구 마을 인근",
+   "운봉읍 주차장(1,2지구)",
+   "척동마을 주차장",
+   "인월면 지리산새마을금고 인근 주차장",
+   "인월초등학교 인근 주차장",
+   "조산동 주차장",
+   "요천생태습지공원 내 주차장",
+   "화물자동차 공영차고지",
+   "육모정 주차장",
+   "지리산둘레길(주천) 주차장",
+   "구 남신공업사 앞 주차장",
+   "법원 앞 주차장",
+   "옛사랑1962 인근 주차장",
+   "죽항1지구 주차장",
+   "광한루원 광장주차장",
+   "구 군청 주차장",
+   "남원시공동체지원센터 뒤 주차장",
+   "남원시장애인어울림센터 뒤 주차장",
+   "남원시장애인어울림센터 옆 주차장",
+   "향교오거리 주차장",
+   "향교지구 주차타워"
+  ],
+  "감면_출처": "「남원시 주차장 조례」 제2325호 제3조 — 긴급자동차는 면제할 수 있다(제2항). 전액 감면: 성실납세자증 부착 차량(발급일로부터 1년, 제4항제5호). 최초 1시간 면제: 전기자동차 충전 시(제4항제3호다목 단서). 50% 경감(제4항): 장애인 자가운전·동승, 국가유공자 등 보훈대상자(별표 5), 경형·저공해·환경친화적 자동차, 전통시장 이용 상인·고객, 관광 이용권·카드 소지(개소당 2시간 이내), 병역명문가, 임산부, 자원봉사자. 본문 원문(data/raw/namwon-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 별표 1 — 노외 동지역 소형 1시간 미만 무료·1시간 500원·10분마다 200원·1일 6,000원·월정기 60,000원, 대형 600원·200원·7,000원·70,000원. 읍면지역 소형 400원·100원·4,000원·30,000원, 대형 500원·100원·5,000원·40,000원. 노외 요금표와 함께 노상 요금표(동지역 소형 500원·가산금 200원 등)도 별표 1에 있다. 표준데이터 유료 6곳의 등록 금액은 노외 동지역 소형과 전부 일치하고, 기본시간 등록 '1'과 1일 적용시간 24시간만 달라 급지_요금_차이에 전건 기록했다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없고 동지역·읍면지역 구분만 있다. 표준데이터 등록 급지는 54곳 전부 '3'이라 조례 구분과 대응하지 않아, 요금표 행은 지번주소의 동·읍면으로 판정했다(익산 선례) — 등록 급지 '3'의 실제 뜻은 시청 확인 과제다",
+  "무료요일_출처": "조례 별표 1 비고 5는 시장이 주말·공휴일·임시휴일·야간에 무료개방 '할 수 있다'고만 정해 free_days는 적용하지 않았다. 무료 46곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 남원시 등록 54행 전부 공영·노외 — 민영 제외 0건",
+   "「남원시 주차장 조례」 제2325호(시행 2026-11-06, 일부개정, ordinSeq 2183037) 본문 원문(data/raw/namwon-ordinance.txt) 대조 완료(2026-11-20)",
+   "별표 1 원문 HWP(data/raw/namwon-ordinance-b1.hwp) 파싱으로 노상·노외 요금표 확정 — 현행본(제2325호) 첨부 별표이며 별표 개정일은 2024-02-05다",
+   "유료 6곳의 등록 금액이 별표 1의 노외 동지역 소형과 전부 일치하고 기본시간만 '1'로 등록돼 있어, 별표 머리글의 '(1시간)' 표기에 따라 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원·1일 상한 6,000원)를 적용했다(음성·부여 선례) — 차이는 급지_요금_차이에 전건 기록",
+   "광한루원 광장·서문주차장 2곳은 '유료'로 등록됐으나 금액이 전부 0이라 금액을 확정할 수 없어 요금 미상으로 실었다(군산 선례) — 시청 확인 과제다",
+   "무료 46곳은 조례에 상시 무료 운영의 근거 조항이 따로 없어 시가 무료로 운영하는 곳으로 보고 요금표는 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례) — 무료 운영의 근거(고시 등)는 시청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍은 전부 다른 등록이라 합치지 않았다",
+   "좌표는 54곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 남원시 범위 밖 좌표도 없었다",
+   "도로명주소는 54곳 전부 등록돼 있지 않아 동 판정은 지번주소로만 했다",
+   "등록 급지 '3'은 조례 별표 1의 구분(동지역·읍면지역)과 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산 선례)"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 46,
+  "무료_구획수": 2095,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-16"
+  ],
+  "관리기관": {
+   "전북특별자치도 남원시청": 52,
+   "전북특별자치도 남원시 관광시설사업소": 2
+  }
+ },
+ "fee_table": {
+  "style": "namwon_grade",
+  "unit_min": 10,
+  "base_min": 60,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「남원시 주차장 조례」 제2325호(시행 2026-11-06, 일부개정), ordinSeq 2183037. 본문 사본 data/raw/namwon-ordinance.txt. 별표 1(노상·노외주차장 요금표) 원문 HWP data/raw/namwon-ordinance-b1.hwp·추출문 namwon-ordinance-b1.txt.",
+  "rows": [
+   {
+    "label": "동지역 · 소형",
+    "grade": "dong",
+    "unit_label": "소형: 1시간 미만 무료 · 1시간 500원 · 10분마다 200원 · 월정기 60,000원",
+    "hour": 500,
+    "two_hour": 1700,
+    "day": 6000,
+    "month": 60000,
+    "lots": 6
+   },
+   {
+    "label": "동지역 · 대형",
+    "grade": "dong",
+    "unit_label": "대형: 1시간 미만 무료 · 1시간 600원 · 10분마다 200원 · 월정기 70,000원",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 7000,
+    "month": 70000,
+    "lots": 0
+   },
+   {
+    "label": "읍면지역 · 소형",
+    "grade": "eup",
+    "unit_label": "소형: 1시간 미만 무료 · 1시간 400원 · 10분마다 100원 · 월정기 30,000원",
+    "hour": 400,
+    "two_hour": 1000,
+    "day": 4000,
+    "month": 30000,
+    "lots": 0
+   },
+   {
+    "label": "읍면지역 · 대형",
+    "grade": "eup",
+    "unit_label": "대형: 1시간 미만 무료 · 1시간 500원 · 10분마다 100원 · 월정기 40,000원",
+    "hour": 500,
+    "two_hour": 1100,
+    "day": 5000,
+    "month": 40000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 6,
+   "street_paid": 0,
+   "free": 46,
+   "unknown": 2
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 08:00~18:00 · 야간 18:00~익일 08:00",
+    "free": "조례 별표 1 비고 2의 시간 구분이다 — 등록 운영시간은 광한루원 2곳(08:00~18:30)을 빼고 전 곳 00:00~23:59다"
+   }
+  ],
+  "notes": "노상주차장 요금도 별표 1에 있다 — 동지역 소형 1시간 미만 무료·1시간 500원·가산금 10분마다 200원(대형 600원·200원), 읍면지역 소형 300원·100원(대형 400원·100원)이고 1일·월정기 칸은 없다. 이 사이트에 실린 남원시 노상 구간은 없다. 요금은 별표 1의 금액을 상한선으로 하되 시의 특성 및 차종에 따라 조정할 수 있다(비고 3). 시장은 주말·공휴일·임시휴일·야간시간에 주차 수요 등을 고려하여 공영주차장을 무료개방 할 수 있다(비고 5). 감면은 긴급자동차 면제, 전기차 충전 최초 1시간 면제, 성실납세자 전액 감면, 장애인·보훈대상자·경형·저공해·환경친화적·전통시장 이용객·관광 이용권·병역명문가·임산부·자원봉사자 50%이다.",
+  "basis": "요금표는 「남원시 주차장 조례」 제2325호(시행 2026-11-06) 별표 1과 표준데이터(기준일 2026-10-16)를 대조해 실었다. 유료 6곳의 등록 금액은 별표 1의 노외 동지역 소형과 전부 일치하고 기본시간 표기만 다르며, 무료 46곳·요금 미상 2곳에 대해서는 조례 기준 요금의 참고표다. (조례 본문: data/raw/namwon-ordinance.txt, 별표 1 원문 HWP: data/raw/namwon-ordinance-b1.hwp)"
+ },
+ "slug": "namwon",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "남원시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "전기자동차 충전 최초 1시간 면제",
+   "rate": 0.0,
+   "exempt_min": 60,
+   "note": "조례 제3조제4항제3호다목 단서 — 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간의 주차요금은 면제한다"
+  },
+  {
+   "label": "성실납세자 전액 감면 (발급일로부터 1년)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제5호 — 모범납세자로 표창을 받은 사람으로서 국세청장 및 시장이 교부한 성실납세자증(스티커) 표시를 부착한 차량은 전액 감면한다"
+  },
+  {
+   "label": "장애인·국가유공자 등 보훈대상자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제1호·제2호 — 장애인이 자가운전 및 장애인을 동승한 차량, 별표 5에 따른 국가유공자 등 보훈대상자가 운전하는 차량은 주차요금의 50퍼센트를 경감한다"
+  },
+  {
+   "label": "경형·저공해·환경친화적 자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호 — 에너지절약시책(경형승용자동차)·교통난 해소시책·저공해 자동차 표지를 부착한 차량·환경친화적 자동차는 주차요금의 50퍼센트를 경감한다"
+  },
+  {
+   "label": "전통시장 이용 상인·고객 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제4호 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조에 따라 시장을 이용하는 상인 및 고객이 공영주차장을 이용하는 차량은 주차요금의 50퍼센트를 경감한다"
+  },
+  {
+   "label": "관광 이용권·카드 50% (개소당 2시간 이내)",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 전북특별자치도가 발행하는 도내 관광 이용권 또는 카드 등을 소지한 사람이 운전하는 차량은 주차요금의 50퍼센트를 경감한다(단, 개소당 2시간 이내)"
+  },
+  {
+   "label": "병역명문가·임산부·자원봉사자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제7호·제8호·제9호 — 병역명문가증을 소지한 사람이 운전하는 차량, 산모수첩 등 임산부 증명 자료를 제시하는 임산부가 운전하는 차량, 자원봉사자증을 소지한 사람이 운전하는 차량은 주차요금의 50퍼센트를 경감한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
