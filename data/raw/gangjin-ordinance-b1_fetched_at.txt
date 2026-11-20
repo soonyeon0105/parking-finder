@@ -1,0 +1,3 @@
+fetched_at: 2026-11-20
+source: law.go.kr flDownload.do (gubun ELIS, flSeq 169435433) — 「강진군 주차장 조례」 별표 1 HWP 원본
+notes: HWP 5.0 원본을 data/raw/gangjin-ordinance-b1.hwp로 저장하고, 별표 1(공영주차장 주차요금표)은 PrvText 추출과 BodyText 레코드 직접 파싱으로 교차 확인해 data/raw/gangjin-ordinance-b1.txt로 확정했다(두 추출의 숫자가 전부 일치하고, PrvText에서 잘린 비고 5 마~아·비고 6~14는 BodyText 파싱으로 보완했다).
