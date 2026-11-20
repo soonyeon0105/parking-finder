@@ -1,0 +1,4479 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 11:05",
+  "generated_at_iso": "2026-11-20T11:05:28+09:00",
+  "snapshot_at": "2026-11-20 11:05",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "고창군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-17",
+    "rows_total": 18994,
+    "rows_city": 37,
+    "fetched_at": "2026-11-20 11:05 (KST)",
+    "note": "고창군으로 등록된 행 37행(전부 공영·전부 노외)을 읽어 중복 제거 0건으로 37곳을 실었다. 무료 36곳, 유료 1곳이다. 좌표는 전부 등록돼 있고 도로명주소는 19곳이 결측이다. 조례 대조 완료 — 「고창군 주차장 조례」 제2871호(시행 2024-12-16, ordinSeq 1995295) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「고창군 주차장 조례」 제2871호(시행 2024-12-16, 일부개정)",
+    "org": "전북특별자치도 고창군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1995295",
+    "file": "gochang-ordinance-b1.txt",
+    "sha256": "d83db664568d6384589ffebdc5684520b8382fa04e0235ed773a8b72d3172564",
+    "license": "자치법규(공개)",
+    "base_date": "2024-12-16",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 11:05 (KST)",
+    "note": "고창군이 설치·관리하는 공영주차장에 적용하는 조례다. 고창군 공영주차장 37곳은 전부 노외이고 총 3,264면이며, 36곳은 요금을 받지 않는 무료 주차장이고 요금을 받는 곳은 고창읍 공영주차타워(읍내리 198-4, 258면) 1곳뿐이다. 「고창군 주차장 조례」 제2871호(시행 2024-12-16, ordinSeq 1995295) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지 구분이 없는 단일 요금표로, 1회 주차요금은 소형 기본 최초 2시간 이내 무료·1시간마다 500원, 대형 기본 최초 2시간 이내 무료·1시간마다 1,500원이고 단서로 휴일·공휴일·임시공휴일은 무료다. 1일 주차권은 소형 5,000원·대형 6,000원, 월정기주차요금은 소형 30,000원·대형 45,000원이며 둘 다 노외주차장에 한한다. 유료 1곳인 공영주차타워의 등록 요금(기본 120분 0원·추가 60분당 500원·1일 5,000원·월정기 30,000원)은 별표 1 소형 요금과 완전히 일치해 계산기도 등록값으로 계산하고, 타워는 별표 1 단서와 군 발표에 따라 토요일·일요일·공휴일에 무료다. 무료 36곳은 군이 무료로 운영하는 곳으로 보이며, 이들에 대해 요금표는 조례 기준 요금의 참고표다. 감면은 조례 제3조와 제6조를 따른다(긴급자동차 면제, 장애인·국가유공자·저공해 50%, 경형 60%, 장기기증자 50%, 재래시장 상인·고객 50% 경감). 좌표는 37곳 전부 등록돼 있고, 도로명주소는 19곳이 등록돼 있지 않다. (조례 본문: data/raw/gochang-ordinance.txt, 별표 1 원문: data/raw/gochang-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "고창군",
+   "slug": "gochang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-gochang-001",
+   "mgmt_no": "318-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고창어린이집 공영주차장",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 월곡리 861",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "063-560-2573",
+   "lat": 35.4340268,
+   "lng": 126.7121936,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-002",
+   "mgmt_no": "318-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고창읍 공영주차타워",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 198-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 258,
+   "tel": "063-560-2573",
+   "lat": 35.4354761,
+   "lng": 126.7008728,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "토요일·일요일·공휴일은 무료입니다(조례 별표 1 단서·군 발표)",
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 60,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 60,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최초 2시간 무료·이후 1시간마다 500원·1일 5,000원·월정기 30,000원)과 완전히 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-003",
+   "mgmt_no": "318-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고창읍 서북부공영주차장",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 석교리 23-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "063-560-2598",
+   "lat": 35.4433668,
+   "lng": 126.6946869,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-004",
+   "mgmt_no": "318-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고창읍 전불 주차장",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 덕산리 23-22",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "063-560-2573",
+   "lat": 35.4245691,
+   "lng": 126.7037563,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-005",
+   "mgmt_no": "318-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고창읍사무소",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 교촌리 281-15",
+   "addr_road": "전북특별자치도 고창군 고창읍 모양성로 26",
+   "road": null,
+   "spaces": 56,
+   "tel": "063-560-2573",
+   "lat": 35.43445914,
+   "lng": 126.7030542,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-006",
+   "mgmt_no": "318-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고창읍성",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 182-6",
+   "addr_road": "전북특별자치도 고창군 고창읍 동리로 117",
+   "road": null,
+   "spaces": 158,
+   "tel": "063-560-2573",
+   "lat": 35.43291596,
+   "lng": 126.7052478,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-007",
+   "mgmt_no": "318-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군산아구찜",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 197-1",
+   "addr_road": "전북특별자치도 고창군 고창읍 성산2길 41",
+   "road": null,
+   "spaces": 120,
+   "tel": "063-560-2573",
+   "lat": 35.43601321,
+   "lng": 126.7002567,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-008",
+   "mgmt_no": "318-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노인회관 옆",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 191-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-560-2573",
+   "lat": 35.4365289,
+   "lng": 126.6988748,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-009",
+   "mgmt_no": "318-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕산택지",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 1176",
+   "addr_road": "전북특별자치도 고창군 고창읍 남구1길 14",
+   "road": null,
+   "spaces": 30,
+   "tel": "063-560-2573",
+   "lat": 35.42745863,
+   "lng": 126.695376,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-010",
+   "mgmt_no": "318-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모양성 서문 앞",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 434-4",
+   "addr_road": "전북특별자치도 고창군 고창읍 동리로 117",
+   "road": null,
+   "spaces": 17,
+   "tel": "063-560-2573",
+   "lat": 35.43291596,
+   "lng": 126.7052478,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-011",
+   "mgmt_no": "318-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "새마을공원",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 석교리 6-4",
+   "addr_road": "전북특별자치도 고창군 고창읍 모양성로 95",
+   "road": null,
+   "spaces": 109,
+   "tel": "063-560-2573",
+   "lat": 35.4393866,
+   "lng": 126.6990768,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-012",
+   "mgmt_no": "318-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서흥동",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 323-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "063-560-2573",
+   "lat": 35.4334865,
+   "lng": 126.699571,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-013",
+   "mgmt_no": "318-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신영장 뒤",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 647",
+   "addr_road": "전북특별자치도 고창군 고창읍 성산1길 4-3",
+   "road": null,
+   "spaces": 35,
+   "tel": "063-560-2573",
+   "lat": 35.43559889,
+   "lng": 126.6975164,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-014",
+   "mgmt_no": "318-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월곡공영주차장",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 월곡리 760",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "063-560-2573",
+   "lat": 35.43583191,
+   "lng": 126.7131498,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-015",
+   "mgmt_no": "318-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월곡뉴타운",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 월곡리 877",
+   "addr_road": "전북특별자치도 고창군 고창읍 월곡뉴타운2길 44",
+   "road": null,
+   "spaces": 26,
+   "tel": "063-560-2573",
+   "lat": 35.43407829,
+   "lng": 126.7136349,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-016",
+   "mgmt_no": "318-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월곡뉴타운 제2주차장",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 월곡리 861",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "063-560-2573",
+   "lat": 35.4340268,
+   "lng": 126.7121936,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-017",
+   "mgmt_no": "318-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월곡지하차도 앞",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 월곡리 425-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "063-560-2573",
+   "lat": 35.4403909,
+   "lng": 126.7113632,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-018",
+   "mgmt_no": "318-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "재래시장(동편)",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 366-11",
+   "addr_road": "전북특별자치도 고창군 고창읍 시장안길 31",
+   "road": null,
+   "spaces": 53,
+   "tel": "063-560-2573",
+   "lat": 35.43249149,
+   "lng": 126.6987672,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-019",
+   "mgmt_no": "318-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "재래시장(서편)",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 561",
+   "addr_road": "전북특별자치도 고창군 고창읍 시장안길 23",
+   "road": null,
+   "spaces": 42,
+   "tel": "063-560-2573",
+   "lat": 35.4326409,
+   "lng": 126.6979028,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-020",
+   "mgmt_no": "318-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전통문화체험관 주차장",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 256-10",
+   "addr_road": "전북특별자치도 고창군 고창읍 중거리당산로 152",
+   "road": null,
+   "spaces": 56,
+   "tel": "063-560-8036",
+   "lat": 35.4324963,
+   "lng": 126.7016293,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-021",
+   "mgmt_no": "318-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙가구 앞",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 324-57",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "063-560-2573",
+   "lat": 35.433876,
+   "lng": 126.6974876,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-022",
+   "mgmt_no": "318-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천주교 앞",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 413-27",
+   "addr_road": "전북특별자치도 고창군 고창읍 서문1길 8-2",
+   "road": null,
+   "spaces": 30,
+   "tel": "063-560-2573",
+   "lat": 35.42985405,
+   "lng": 126.6997039,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-023",
+   "mgmt_no": "318-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화물차 공영차고지",
+   "gu": "고창군",
+   "dong": "고창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 고창읍 읍내리 636-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "063-560-2573",
+   "lat": 35.4351047,
+   "lng": 126.696503,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-024",
+   "mgmt_no": "318-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공음면 소재지",
+   "gu": "고창군",
+   "dong": "공음면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 공음면 칠암리 605-3",
+   "addr_road": "전북특별자치도 고창군 공음면 공음길 47-1",
+   "road": null,
+   "spaces": 63,
+   "tel": "063-560-2573",
+   "lat": 35.37840926,
+   "lng": 126.512804,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-025",
+   "mgmt_no": "318-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무장면 농협 앞",
+   "gu": "고창군",
+   "dong": "무장면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 무장면 무장리 288",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "063-560-2573",
+   "lat": 35.4163453,
+   "lng": 126.558518,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-026",
+   "mgmt_no": "318-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미당시문학관 주차장",
+   "gu": "고창군",
+   "dong": "부안면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 부안면 선운리 231",
+   "addr_road": "전북특별자치도 고창군 부안면 질마재로 2-8",
+   "road": null,
+   "spaces": 11,
+   "tel": "063-560-2457",
+   "lat": 35.5374755,
+   "lng": 126.6103327,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-027",
+   "mgmt_no": "318-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구시포항 공영주차장 A",
+   "gu": "고창군",
+   "dong": "상하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 상하면 자룡리 975",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "063-560-2630",
+   "lat": 35.4491362,
+   "lng": 126.4276211,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-028",
+   "mgmt_no": "318-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구시포항 공영주차장 B",
+   "gu": "고창군",
+   "dong": "상하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 상하면 자룡리 970",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "063-560-2630",
+   "lat": 35.4499259,
+   "lng": 126.4275249,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-029",
+   "mgmt_no": "318-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구시포해수욕장 공영주차장",
+   "gu": "고창군",
+   "dong": "상하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 상하면 자룡리 529-49",
+   "addr_road": "",
+   "road": null,
+   "spaces": 84,
+   "tel": "063-560-2646",
+   "lat": 35.4444492,
+   "lng": 126.4367286,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-030",
+   "mgmt_no": "318-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성내면사무소 앞",
+   "gu": "고창군",
+   "dong": "성내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 성내면 양계리 475-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "063-560-2573",
+   "lat": 35.5376991,
+   "lng": 126.7430532,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-031",
+   "mgmt_no": "318-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성송면 소재지",
+   "gu": "고창군",
+   "dong": "성송면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 성송면 계당리 545-7",
+   "addr_road": "전북특별자치도 고창군 성송면 대성로 778",
+   "road": null,
+   "spaces": 17,
+   "tel": "063-560-2573",
+   "lat": 35.36476975,
+   "lng": 126.6467138,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-032",
+   "mgmt_no": "318-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선운산도립공원주차장",
+   "gu": "고창군",
+   "dong": "아산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 아산면 삼인리 126",
+   "addr_road": "",
+   "road": null,
+   "spaces": 1156,
+   "tel": "063-560-8684",
+   "lat": 35.5037326,
+   "lng": 126.5875773,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-033",
+   "mgmt_no": "318-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동호해수욕장",
+   "gu": "고창군",
+   "dong": "해리면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 해리면 동호리 615-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "063-560-2646",
+   "lat": 35.5175683,
+   "lng": 126.4840141,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-034",
+   "mgmt_no": "318-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해리면 소재지",
+   "gu": "고창군",
+   "dong": "해리면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 해리면 하련리 189-5",
+   "addr_road": "전북특별자치도 고창군 해리면 하련1길 2",
+   "road": null,
+   "spaces": 50,
+   "tel": "063-560-2573",
+   "lat": 35.45946148,
+   "lng": 126.5413813,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-035",
+   "mgmt_no": "318-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥덕면 시장 옆",
+   "gu": "고창군",
+   "dong": "흥덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 흥덕면 흥덕리 353-1",
+   "addr_road": "전북특별자치도 고창군 흥덕면 흥덕시장길 14",
+   "road": null,
+   "spaces": 37,
+   "tel": "063-560-2573",
+   "lat": 35.52144672,
+   "lng": 126.700535,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-036",
+   "mgmt_no": "318-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥덕면 알뜰정육점 앞",
+   "gu": "고창군",
+   "dong": "흥덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 흥덕면 흥덕리 238-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-560-2573",
+   "lat": 35.5199135,
+   "lng": 126.7000285,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  },
+  {
+   "id": "jb-gochang-037",
+   "mgmt_no": "318-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥덕면 장미주택 앞",
+   "gu": "고창군",
+   "dong": "흥덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 고창군 흥덕면 흥덕리 278",
+   "addr_road": "전북특별자치도 고창군 흥덕면 흥남2길 18",
+   "road": null,
+   "spaces": 25,
+   "tel": "063-560-2573",
+   "lat": 35.52014743,
+   "lng": 126.7023301,
+   "base_date": "2026-04-17",
+   "manager": "전북특별자치도 고창군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "고창군",
+   "city_slug": "gochang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 11:05",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 37,
+  "원자료_고창군행수": 37,
+  "원자료_받은행수": 37,
+  "구별": {
+   "고창군": 37
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 37,
+  "노외_부설": {
+   "노외": 37
+  },
+  "노상_구간": 0,
+  "총_구획수": 3264,
+  "노상_구획수": 0,
+  "동별": {
+   "고창읍": 23,
+   "상하면": 3,
+   "흥덕면": 3,
+   "해리면": 2,
+   "공음면": 1,
+   "무장면": 1,
+   "부안면": 1,
+   "성내면": 1,
+   "성송면": 1,
+   "아산면": 1
+  },
+  "동수": 10,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 37
+  },
+  "요금구분": {
+   "무료": 36,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 19건 있다 — 고창어린이집 공영주차장·월곡뉴타운(130m), 고창어린이집 공영주차장·월곡뉴타운 제2주차장(0m), 구시포항 공영주차장 A·구시포항 공영주차장 B(88m), 흥덕면 시장 옆·흥덕면 알뜰정육점 앞(176m), 신영장 뒤·노인회관 옆(160m), 신영장 뒤·중앙가구 앞(191m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "같은 자리 쌍이 2건 있다 — ① 고창어린이집 공영주차장(고창읍 월곡리 861, 42면)과 월곡뉴타운 제2주차장(월곡리 861, 42면)은 지번·좌표까지 같고 이름만 다르다 ② 모양성 서문 앞(읍내리 434-4, 17면)과 고창읍성(읍내리 182-6, 158면)은 지번이 다른데 좌표와 도로명(동리로 117)이 같아 한쪽 좌표의 등록 오류로 의심된다. 둘 다 등록값 그대로 싣고 군청 확인 과제로 남긴다(옥천 선례)",
+   "표준데이터 등록 37행은 전부 공영이고 데이터기준일자는 전부 2026-04-17이다. 관리기관은 37곳 전부 전북특별자치도 고창군청이고 전화번호는 063-560-2573이 29곳으로 가장 많고 나머지는 곳마다 다르다",
+   "도로명주소는 19곳이 등록돼 있지 않아 동(읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 37곳 전부 '1'인데 조례 별표 1에는 급지 구분이 없어 요금표 행 판정에 쓰지 않았다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59이다. 특기사항은 37곳 전부 공란이고, 부제시행구분은 37곳 전부 '미시행'이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "고창어린이집 공영주차장",
+   "고창읍 공영주차타워",
+   "고창읍 서북부공영주차장",
+   "고창읍 전불 주차장",
+   "노인회관 옆",
+   "서흥동",
+   "월곡공영주차장",
+   "월곡뉴타운 제2주차장",
+   "월곡지하차도 앞",
+   "중앙가구 앞",
+   "화물차 공영차고지",
+   "무장면 농협 앞",
+   "구시포항 공영주차장 A",
+   "구시포항 공영주차장 B",
+   "구시포해수욕장 공영주차장",
+   "성내면사무소 앞",
+   "선운산도립공원주차장",
+   "동호해수욕장",
+   "흥덕면 알뜰정육점 앞"
+  ],
+  "감면_출처": "「고창군 주차장 조례」 제2871호 제3조·제6조 — 면제(제3조제2항): 「도로교통법」 제2조제22호에 따른 긴급 자동차는 주차요금을 면제할 수 있다. 감면(제3조제4항): 장애인 자가운전 차량 50퍼센트(제1호), 국가유공자 50퍼센트(제2호), 저공해자동차 표지 부착 차량 50퍼센트(제3호), 1000cc 미만 경형 자동차 60퍼센트(제4호), 장기등 인체조직 기증자 및 기증등록자 자가운전 차량 50퍼센트(제5호). 경감(제6조제3항): 재래시장 활성화를 위하여 공영노외주차장을 이용하는 상인 및 고객들에게 주차요금의 100분의 50을 경감할 수 있다. 본문 원문(data/raw/gochang-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 군수가 설치하는 노상주차장 및 노외주차장(공영주차장)의 주차요금은 별표 1과 같다. 별표 1은 급지 구분이 없는 단일 요금표로 1회 주차요금 소형 기본 최초 2시간 이내 무료·1시간마다 500원, 대형 기본 최초 2시간 이내 무료·1시간마다 1,500원이고 단서로 휴일·공휴일·임시공휴일은 무료다. 1일 주차권은 소형 5,000원·대형 6,000원, 월정기주차요금은 소형 30,000원·대형 45,000원이며 둘 다 노외주차장에 한한다. 표준데이터 등록 37곳 가운데 36곳은 무료라 실제로 징수되는 곳은 없고, 유료 1곳(고창읍 공영주차타워)의 등록 요금(기본 120분 0원·추가 60분당 500원·1일 5,000원·월정기 30,000원)은 별표 1 소형 요금과 완전히 일치해 계산기는 등록값을 쓰고 요금표는 조례값을 실었다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지는 37곳 전부 '1'이라 조례 급지와 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례) — 등록 급지 '1'의 실제 뜻은 군청 확인 과제다",
+  "무료요일_출처": "조례 별표 1 단서는 휴일·공휴일·임시공휴일 무료라고 정하고 군 발표도 토·일·공휴일 무료라, 유료 1곳(고창읍 공영주차타워)의 free_days는 토요일·일요일 True로 모델링했다(판단 지점 — 별표 단서의 '휴일'에 토요일이 포함되는지는 군 발표를 근거로 했다). 공휴일 당일 무료는 요일 모델로 표현할 수 없어 타워 안내 문구에 함께 적었다. 무료 36곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 고창군 등록 37행 전부 공영(전부 노외) — 민영 제외 0건",
+   "「고창군 주차장 조례」 제2871호(시행 2024-12-16, 공포 2024-12-16, 일부개정, ordinSeq 1995295) 본문 원문(data/raw/gochang-ordinance.txt) 대조 완료(2026-11-20)",
+   "별표 1은 HWP 원본(flSeq 146479659)을 data/raw/gochang-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 확정했다(data/raw/gochang-ordinance-b1.txt) — 급지 구분이 없는 단일 요금표이고 소형·대형 차종으로 나뉜다",
+   "유료 1곳(고창읍 공영주차타워)의 등록 요금(기본 120분 0원·추가 60분당 500원·1일 5,000원·월정기 30,000원)은 조례 별표 1 소형 요금(최초 2시간 무료·이후 1시간마다 500원·1일 5,000원·월정기 30,000원)과 완전히 일치해 계산기는 등록값을 쓰고 급지_요금_차이는 없다",
+   "등록 36곳은 요금 구분이 '무료'라 요금을 받는 곳이 없고, 조례 본문에 상시 무료 운영의 근거 조항이 없어 군이 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산·무주 선례) — 무료 운영의 근거는 군청 확인 과제다",
+   "유료 1곳(고창읍 공영주차타워)의 free_days는 조례 별표 1 단서(휴일·공휴일·임시공휴일 무료)와 군 발표(토·일·공휴일 무료)를 근거로 토요일·일요일 True로 모델링했다(판단 지점)",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없다. 같은 자리 쌍 2건은 둘 다 싣고 군청 확인 과제로 남긴다: ① 고창어린이집 공영주차장(고창읍 월곡리 861, 42면)과 월곡뉴타운 제2주차장(월곡리 861, 42면)은 지번·좌표까지 같고 이름만 다르다 ② 모양성 서문 앞(읍내리 434-4, 17면)과 고창읍성(읍내리 182-6, 158면)은 지번이 다른데 좌표와 도로명(동리로 117)이 같아 한쪽 좌표의 등록 오류로 의심되나 등록값 그대로 실었다",
+   "좌표는 37곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 고창군 범위 밖 좌표도 없었다",
+   "도로명주소는 19곳이 등록돼 있지 않아 동(읍·면) 판정은 지번주소를 기준으로 했다. 전화번호는 063-560-2573이 29곳으로 가장 많고 나머지는 곳마다 다르다",
+   "등록 급지 '1'은 37곳 전부 같은 값이고 조례 별표 1에는 급지 구분이 없어 요금표 행 판정에 쓰지 않았다(익산·남원 선례)"
+  ],
+  "무료개방_표기": [
+   "고창읍 공영주차타워"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 36,
+  "무료_구획수": 3006,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "전북특별자치도 고창군청": 37
+  }
+ },
+ "fee_table": {
+  "style": "gochang_grade",
+  "unit_min": 60,
+  "base_min": 120,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「고창군 주차장 조례」 제2871호(시행 2024-12-16, 일부개정), ordinSeq 1995295. 본문 사본 data/raw/gochang-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/gochang-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 data/raw/gochang-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "소형 (승용·25인 이하 승합·4.5톤 이하 화물)",
+    "grade": "small",
+    "unit_label": "1회 주차요금 최초 2시간 무료 · 이후 1시간마다 500원 · 1일 5,000원 · 월정기 30,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 5000,
+    "month": 30000,
+    "lots": 1
+   },
+   {
+    "label": "대형 (25인 초과 승합·4.5톤 초과 화물)",
+    "grade": "large",
+    "unit_label": "1회 주차요금 최초 2시간 무료 · 이후 1시간마다 1,500원 · 1일 6,000원 · 월정기 45,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 6000,
+    "month": 45000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "street_paid": 0,
+   "free": 36,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "휴일·공휴일·임시공휴일 무료 (유료 1곳)",
+    "free": "조례 별표 1 단서는 휴일·공휴일·임시공휴일 무료라고 정하고 군 발표도 토·일·공휴일 무료라, 유료 1곳(고창읍 공영주차타워)은 토요일·일요일·공휴일에 요금을 받지 않는다. 등록 운영시간은 전 곳 00:00~23:59다"
+   }
+  ],
+  "notes": "별표 1에는 급지 구분이 없어 고창군 공영주차장 전체에 같은 요금이 적용되고 차종으로만 나뉜다 — 등록 급지 '1'(전 37곳)은 조례 급지와 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례). 차종 구분은 소형(승용) 모든 승용차량·승차정원 25인 이하 승합·4.5톤 이하 화물, 대형 승차정원 25인 초과 승합·4.5톤 초과 화물이다(비고 4). 1일 주차권과 월정기주차요금은 노외주차장에 한한다. 주차요금은 군의 특성 및 차종에 따라 군수가 정하되 주차시간에 따른 체증 또는 체감방식을 적용할 수 있고(비고 2), 군수는 필요한 경우 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있다(비고 3). 이 요금표는 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용한다(비고 1). 감면은 긴급자동차 면제, 장애인 자가운전·국가유공자·저공해 50%, 경형(1000cc 미만) 60%, 장기등·인체조직 기증자 50%(이상 조례 제3조), 재래시장 상인·고객 50% 경감(제6조제3항)이다.",
+  "basis": "요금표는 「고창군 주차장 조례」 제2871호(시행 2024-12-16) 제3조·별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 등록된 37곳 가운데 36곳은 무료이고, 유료 1곳(고창읍 공영주차타워)의 등록 요금은 별표 1 소형 요금과 완전히 일치한다 — 무료인 곳에 대해 이 표는 조례 기준 요금의 참고표다. (조례 본문: data/raw/gochang-ordinance.txt, 별표 1 원문: data/raw/gochang-ordinance-b1.txt)"
+ },
+ "slug": "gochang",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "고창군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급 자동차에 대하여는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "장애인 자가운전 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제1호 — 「장애인복지법 시행령」 제2조에 따른 장애인 자가운전 차량은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "국가유공자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "저공해자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호 — 「대기환경보전법」 제58조제10항에 따른 저공해자동차 표지를 부착한 차량은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "경형자동차 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제4호 — 「자동차관리법 시행규칙」 제2조에 따른 1000cc 미만 경형 자동차는 주차요금을 60퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "장기등·인체조직 기증자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제5호 — 「고창군 장기등ㆍ인체조직 기증 장려에 관한 조례」에 따른 장기등 인체조직 기증자 및 기증등록자 자가운전 차량은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "재래시장 상인·고객 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항 — 군수는 재래시장 활성화를 위하여 공영노외주차장을 이용하는 상인 및 고객들에게 주차요금의 100분의 50을 경감할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
