@@ -39213,6 +39213,96 @@
      "addr_match": true
     }
    ]
+  },
+  {
+   "id": "jn-jindo-041",
+   "city": "진도군",
+   "gu": "진도군",
+   "dong": "진도읍",
+   "name": "(구)중앙의원 앞",
+   "addr_jibun": "전남광주통합특별시 진도군 진도읍 성내리 46-46 외 1",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "지오코딩(지번주소)",
+    "query": "진도군 진도읍 성내리 46-46",
+    "lat": 34.484118988963,
+    "lng": 126.263209286268,
+    "addr": "전남광주통합특별시 진도군 진도읍 성내리 46-46",
+    "source": "ArcGIS World Geocoding",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EC%A7%84%EB%8F%84%EA%B5%B0%20%EC%A7%84%EB%8F%84%EC%9D%8D%20%EC%84%B1%EB%82%B4%EB%A6%AC%2046-46&outFields=%2A&maxLocations=5&langCode=ko",
+    "score": 100,
+    "sig_ok": true,
+    "bbox_ok": true,
+    "wide_ok": true,
+    "addr_match": true,
+    "confidence": "high",
+    "agree": [],
+    "checked_at": "2026-11-20 (KST)",
+    "note": "Esri ArcGIS World Geocoding — 표준데이터에 좌표가 없어 등록 지번주소(성내리 46-46, '외 1' 표기)로 지오코딩했다. 반환 주소가 등록 지번주소와 번지까지 일치(score 100·PointAddress)하고 진도군 범위 안에 있어 채택했다."
+   },
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번주소)",
+     "query": "진도군 진도읍 성내리 46-46",
+     "lat": 34.484118988963,
+     "lng": 126.263209286268,
+     "addr": "전남광주통합특별시 진도군 진도읍 성내리 46-46",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EC%A7%84%EB%8F%84%EA%B5%B0%20%EC%A7%84%EB%8F%84%EC%9D%8D%20%EC%84%B1%EB%82%B4%EB%A6%AC%2046-46&outFields=%2A&maxLocations=5&langCode=ko",
+     "score": 100,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": true,
+     "addr_match": true
+    }
+   ]
+  },
+  {
+   "id": "jn-jindo-012",
+   "city": "진도군",
+   "gu": "진도군",
+   "dong": "군내면",
+   "name": "이충무공승전공원",
+   "addr_jibun": "전남광주통합특별시 진도군 군내면 녹진리 1-79임",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "지오코딩(지번주소)",
+    "query": "진도군 군내면 녹진리 1-79",
+    "lat": 34.571194306282,
+    "lng": 126.30033986005,
+    "addr": "전남광주통합특별시 진도군 군내면 녹진리 1-79",
+    "source": "ArcGIS World Geocoding",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EC%A7%84%EB%8F%84%EA%B5%B0%20%EA%B5%B0%EB%82%B4%EB%A9%B4%20%EB%85%B9%EC%A7%84%EB%A6%AC%201-79&outFields=%2A&maxLocations=5&langCode=ko",
+    "score": 100,
+    "sig_ok": true,
+    "bbox_ok": true,
+    "wide_ok": true,
+    "addr_match": true,
+    "confidence": "high",
+    "agree": [],
+    "checked_at": "2026-11-20 (KST)",
+    "note": "Esri ArcGIS World Geocoding — 표준데이터에 좌표가 없어 등록 지번주소(녹진리 1-79, '임'은 지목 표기)로 지오코딩했다. 반환 주소가 등록 지번주소와 번지까지 일치(score 100·PointAddress)하고 진도군 범위 안에 있어 채택했다. 인근 울돌목 해양에너지공원(녹진리 1)·진도휴게소(녹진리 1-74)의 등록 좌표와도 가깝다."
+   },
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번주소)",
+     "query": "진도군 군내면 녹진리 1-79",
+     "lat": 34.571194306282,
+     "lng": 126.30033986005,
+     "addr": "전남광주통합특별시 진도군 군내면 녹진리 1-79",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EC%A7%84%EB%8F%84%EA%B5%B0%20%EA%B5%B0%EB%82%B4%EB%A9%B4%20%EB%85%B9%EC%A7%84%EB%A6%AC%201-79&outFields=%2A&maxLocations=5&langCode=ko",
+     "score": 100,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": true,
+     "addr_match": true
+    }
+   ]
   }
  ],
  "city_signatures": {
