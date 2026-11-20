@@ -1,0 +1,1387 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 15:07",
+  "generated_at_iso": "2026-11-20T15:07:30+09:00",
+  "snapshot_at": "2026-11-20 15:07",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "화순군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-07-30",
+    "rows_total": 18994,
+    "rows_city": 10,
+    "fetched_at": "2026-11-20 15:07 (KST)",
+    "note": "화순군으로 등록된 행 10행(전부 공영)을 읽어 중복 제거 0건으로 10곳을 실었다. 무료 10곳·유료 0곳이다. 좌표는 10곳 전부 등록돼 있고 도로명주소는 4곳이 결측이다. 조례 대조 완료 — 「화순군 주차장 조례」 제3220호(시행 2025-12-22, ordinSeq 2095555) 제10조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「화순군 주차장 조례」 제3220호(시행 2025-12-22, 일부개정)",
+    "org": "전남광주통합특별시 화순군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2095555",
+    "file": "hwasun-ordinance-b1.txt",
+    "sha256": "371cef48bf707474cb0aa5cafb589c18ec6425cbc7787baa04bfa97580286e49",
+    "license": "자치법규(공개)",
+    "base_date": "2025-12-22",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 15:07 (KST)",
+    "note": "화순군이 설치·관리하는 공영주차장에 적용하는 조례다. 화순군 공영주차장 10곳(전부 노외, 총 789면)은 10곳 전부 요금 구분 '무료'(특기사항 '24시간 무료개방')로 등록돼 있다. 「화순군 주차장 조례」 제3220호(시행 2025-12-22, ordinSeq 2095555) 제10조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1(<개정 2016.3.21.>)은 급지(특급지·1급지·2급지)×차종 요금표로, 1급지(도시지역 읍)는 1회 주차요금이 30분마다 소형 500원·대형 700원이고 월정기는 주간 소형 50,000원·대형 70,000원, 야간 소형 40,000원·대형 60,000원이며, 2급지(농촌지역 면)는 30분마다 소형 300원·대형 500원이고 월정기는 주간 소형 30,000원·대형 40,000원, 야간 소형 20,000원·대형 30,000원이다. 1일 주차권은 별표 1에 없다. 특급지(온천지구)는 30분 단위 칸이 비어 있고 1회 주차요금(원)이 주간·야간으로 나뉜다(승용차 주간 1,000원·야간 2,000원, 버스·화물차 주간 2,000원·야간 4,000원). 등록 10곳이 전부 무료라 이 요금표는 조례 기준 요금의 참고표로만 싣는다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:00이고 나머지는 야간이다(별표 1 비고 3). 급지는 군수가 지정한다(비고 4). 감면은 별표 1 비고 5를 따른다(장애인 자가운전 차량 및 장애인을 동반한 일반차량·국가유공자·고엽제후유의증 환자·광주민주화운동부상자 50%, 경자동차 50%, 긴급자동차·국가 또는 지방자치단체 공용차량 100%, 저공해자동차 표지 부착 차량 50% — 군수가 감면할 수 있는 재량 규정이다). 등록 급지는 화순읍 7곳이 '1', 면 지역 3곳이 '2'로 조례의 급지 구분과 일치하고, 좌표는 10곳 전부 등록돼 있다. (조례 본문: data/raw/hwasun-ordinance.txt, 별표 1 원문: data/raw/hwasun-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "화순군",
+   "slug": "hwasun"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-hwasun-001",
+   "mgmt_no": "334-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "능주면주차장",
+   "gu": "화순군",
+   "dong": "능주면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 능주면 관영리 116-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-379-3785",
+   "lat": 34.98983812,
+   "lng": 126.9610605,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-002",
+   "mgmt_no": "334-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운주사주차장",
+   "gu": "화순군",
+   "dong": "도암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 도암면 대초리 20-1",
+   "addr_road": "전남광주통합특별시 화순군 도암면 천태로 91-44",
+   "road": null,
+   "spaces": 143,
+   "tel": "061-379-3785",
+   "lat": 34.9256246674,
+   "lng": 126.8802201699,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-003",
+   "mgmt_no": "334-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이양면주차장",
+   "gu": "화순군",
+   "dong": "이양면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 이양면 이양리 187-2",
+   "addr_road": "전남광주통합특별시 화순군 이양면 이양로 123-13",
+   "road": null,
+   "spaces": 31,
+   "tel": "061-379-3785",
+   "lat": 34.8896202742,
+   "lng": 126.9882652,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-004",
+   "mgmt_no": "334-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광덕공영지하주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 만연리 219",
+   "addr_road": "전남광주통합특별시 화순군 화순읍 만연로 40",
+   "road": null,
+   "spaces": 136,
+   "tel": "061-379-3785",
+   "lat": 35.0595937834,
+   "lng": 126.9907601662,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-005",
+   "mgmt_no": "334-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군청광장주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 훈리 35",
+   "addr_road": "전남광주통합특별시 화순군 화순읍 동헌길 23",
+   "road": null,
+   "spaces": 32,
+   "tel": "061-379-3785",
+   "lat": 35.0643556743,
+   "lng": 126.9864854896,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-006",
+   "mgmt_no": "334-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "만연공영주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 만연리 237-2",
+   "addr_road": "전남광주통합특별시 화순군 화순읍 광덕로 195",
+   "road": null,
+   "spaces": 104,
+   "tel": "061-379-3785",
+   "lat": 35.0622639,
+   "lng": 126.9920579,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-007",
+   "mgmt_no": "334-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "민원인전용주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 훈리 35",
+   "addr_road": "전남광주통합특별시 화순군 화순읍 동헌길 23",
+   "road": null,
+   "spaces": 64,
+   "tel": "061-379-3785",
+   "lat": 35.0643556743,
+   "lng": 126.9864854896,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-008",
+   "mgmt_no": "334-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오일시장내주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 삼천리 620-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "061-379-3785",
+   "lat": 35.0587811607,
+   "lng": 126.9831929951,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-009",
+   "mgmt_no": "334-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오일시장주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 향청리 81-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "061-379-3785",
+   "lat": 35.06074493,
+   "lng": 126.9844901,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  },
+  {
+   "id": "jn-hwasun-010",
+   "mgmt_no": "334-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향청리공영주차장",
+   "gu": "화순군",
+   "dong": "화순읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 화순군 화순읍 향청리 106",
+   "addr_road": "",
+   "road": null,
+   "spaces": 123,
+   "tel": "061-379-3785",
+   "lat": 35.06254551,
+   "lng": 126.9869634,
+   "base_date": "2026-07-30",
+   "manager": "전남광주통합특별시 화순군",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "화순군",
+   "city_slug": "hwasun",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 15:07",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 10,
+  "원자료_화순군행수": 10,
+  "원자료_받은행수": 10,
+  "구별": {
+   "화순군": 10
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 10,
+  "노외_부설": {
+   "노외": 10
+  },
+  "노상_구간": 0,
+  "총_구획수": 789,
+  "노상_구획수": 0,
+  "동별": {
+   "화순읍": 7,
+   "능주면": 1,
+   "도암면": 1,
+   "이양면": 1
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 10
+  },
+  "요금구분": {
+   "무료": 10
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 1건 있다 — 군청광장주차장·민원인전용주차장(0m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 10행은 전부 공영이고 데이터기준일자는 전부 2026-07-30이다. 관리기관은 10곳 전부 전남광주통합특별시 화순군이고 전화번호는 10곳 전부 061-379-3785이다",
+   "군청광장주차장과 민원인전용주차장은 훈리 35 같은 자리에 면수(32면·64면)·좌표까지 같고 이름·관리번호만 다른 등록이다 — 군청 광장 안의 별도 구역일 수도 있고 같은 곳의 이중 등록일 수도 있어 표준데이터로 판정할 수 없어 둘 다 싣고 군청 확인 과제로 남긴다",
+   "이름이 비슷한 다른 자리 쌍은 합치지 않았다 — 오일시장주차장(향청리 81-7, 48면)과 오일시장내주차장(삼천리 620-25, 78면), 만연공영주차장(만연리 237-2, 104면)과 광덕공영지하주차장(만연리 219, 136면)은 필지와 좌표가 서로 다르다",
+   "등록 급지는 화순읍 7곳이 전부 '1', 능주면·도암면·이양면 3곳이 전부 '2'로 조례 별표 1의 급지 구분(1급지 도시지역 읍·2급지 농촌지역 면)과 전부 일치한다",
+   "좌표는 10곳 전부 등록돼 있고 전부 화순군 범위 안이라 비운 곳이 없다. 도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복도 없다",
+   "화순군 1읍 11면 중 한천면·춘양면·청풍면·동복면·남면·동면·백아면·북면 8개 면에는 표준데이터에 등록된 공영주차장이 없다 — 실제로 운영하는 무료 주차장이 있는지는 군청 확인 과제다",
+   "도로명주소는 4곳(능주면주차장, 향청리공영주차장, 오일시장주차장, 오일시장내주차장)이 등록돼 있지 않아 동 판정과 표기는 지번주소를 기준으로 했다",
+   "운영시간은 10곳 전부 00:00~23:59이고 운영요일은 전부 평일+토요일+공휴일이다. 특기사항은 10곳 전부 '24시간 무료개방'이다. 장애인전용주차구역 보유여부는 Y 3곳(만연공영주차장·광덕공영지하주차장·향청리공영주차장)·N 7곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "능주면주차장",
+   "오일시장내주차장",
+   "오일시장주차장",
+   "향청리공영주차장"
+  ],
+  "감면_출처": "「화순군 주차장 조례」 제3220호 별표 1 비고 5 — 군수는 해당 지역의 주차 수요를 감안하여 다음 각 목과 같이 주차요금을 감면할 수 있다(재량 규정). 가. 장애인 자가운전 차량 및 장애인을 동반한 일반차량, 국가유공자, 고엽제후유의증 환자, 광주민주화운동부상자: 50퍼센트. 나. 「자동차관리법」시행규칙 제2조제2항 별표 1에 따른 경자동차: 50퍼센트. 다. 「도로교통법」제2조제20호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량: 100퍼센트. 라. 대기환경보전법에 따른 저공해자동차로서 저공해자동차 표지가 부착된 자동차: 50퍼센트. 본문에는 별도의 감면 조항이 없고, 제10조제1항 단서는 노상주차장에 긴급 자동차가 주차하는 경우에는 요금 규정을 적용하지 않는다고 정한다. 본문 원문(data/raw/hwasun-ordinance.txt)·별표 1 원문(data/raw/hwasun-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제10조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 급지(특급지·1급지·2급지)×차종(소형·대형) 요금표로 1·2급지의 1회 주차요금은 30분마다 1급지 소형 500원·대형 700원, 2급지 소형 300원·대형 500원이고 월정기는 주간 1급지 소형 50,000원·대형 70,000원, 2급지 소형 30,000원·대형 40,000원, 야간 1급지 소형 40,000원·대형 60,000원, 2급지 소형 20,000원·대형 30,000원이다. 1일 주차권 칸은 표에 없다. 특급지(온천지구)는 1회 주차요금(원)이 주간·야간으로 나뉜다(승용차 1,000원·2,000원, 버스·화물차 2,000원·4,000원). 표준데이터 등록 10곳이 전부 무료라 요금표는 참고표로만 싣는다",
+  "급지_출처": "조례 별표 1 — 1급지는 도시지역(읍), 2급지는 농촌지역(면)으로 적혀 있고 특급지는 온천지구다. 비고 4는 급지 구분을 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 지역의 특성 및 주차장의 위치에 따라 세분할 수 있다고 정한다. 표준데이터 등록 급지는 화순읍 7곳이 전부 '1', 능주면·도암면·이양면 3곳이 전부 '2'로 별표 1의 지역 구분과 전부 일치해 행 판정에 그대로 썼다",
+  "무료요일_출처": "등록 10곳은 특기사항 '24시간 무료개방'으로 요일과 관계없이 무료다 — 조례 별표 1 비고 3의 주간·야간 구분(4~10월 08:00~20:00, 11~3월 09:00~19:00)은 월정기 주·야간 금액과 특급지 1회 요금의 구분 기준이라 참고로만 실었다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 화순군 등록 10행 전부 공영(전부 노외, 총 789면)을 싣고 민영 제외 0건·중복 제거 0건이다. 읍면별로는 화순읍 7곳·능주면 1곳·도암면 1곳·이양면 1곳이고, 화순군 1읍 11면 중 한천면·춘양면·청풍면·동복면·남면·동면·백아면·북면 8개 면에는 등록된 공영주차장이 없다(실제 운영 여부는 군청 확인 과제)",
+   "「화순군 주차장 조례」 제3220호(표제 시행 2025-12-22, 공포 2025-12-22, 일부개정, ordinSeq 2095555) 본문 원문(data/raw/hwasun-ordinance.txt) 대조 완료(2026-11-20) — law.go.kr 검색 결과의 화순군 주차장 관련 자치법규는 이 조례와 시행규칙뿐이라 요금 조례의 최신 시행본은 제3220호가 맞고, 제10조제1항이 주차요금을 별표 1로 정한다",
+   "별표 1은 HWP 원본(flSeq 159453767)을 data/raw/hwasun-ordinance-b1.hwp로 저장하고 PrvText 미리보기가 1,023자에서 잘려 특급지 행의 열 배치를 확정할 수 없어, HWP 본문(BodyText) 레코드를 직접 파싱해 셀 좌표로 표 격자를 확정했다 — 급지(특급지·1급지·2급지)×차종(소형·대형) 요금표로, 1급지(도시지역 읍)는 30분마다 소형 500원·대형 700원에 월정기 주간 소형 50,000원·대형 70,000원, 야간 소형 40,000원·대형 60,000원이고, 2급지(농촌지역 면)는 30분마다 소형 300원·대형 500원에 월정기 주간 소형 30,000원·대형 40,000원, 야간 소형 20,000원·대형 30,000원이다. 1일 주차권 칸은 표에 없다. 별표 1에는 <개정 2016.3.21.> 표시가 있어 요금표의 실내용은 2016-03-21 개정본이 현행이다",
+   "특급지(온천지구)는 30분 단위 칸과 월정기 칸이 공란이고 1회 주차요금(원)만 주간·야간으로 나뉜다(승용차 주간 1,000원·야간 2,000원, 버스·화물차 주간 2,000원·야간 4,000원) — 등록 10곳 중 특급지는 없어 요금표 행에는 넣지 않고 비고에만 적었다. 이 금액이 1회 주차 기준인지의 세부 운용은 표만으로 확정할 수 없어 단정하지 않는다",
+   "등록 10곳 전부 '무료'(특기사항 '24시간 무료개방')라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암·해남·고흥·보성 선례) — 등록 요금 금액 칸은 10곳 전부 공란이고 주차기본시간은 0으로 적혀 있다. 별표 1 비고 8(군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다)이 전 구간 무료 운영의 조례상 근거가 될 수 있어 함께 기록한다",
+   "등록 급지와 조례 급지를 대조했다 — 화순읍 7곳이 전부 '1'(조례 1급지 도시지역 읍), 능주면·도암면·이양면 3곳이 전부 '2'(조례 2급지 농촌지역 면)로 전부 일치한다",
+   "같은 자리 다른 이름 쌍 1건은 둘 다 실었다 — 군청광장주차장(훈리 35, 노외 32면)과 민원인전용주차장(훈리 35, 노외 64면)은 필지·좌표(35.0643556743, 126.9864854896)·도로명주소(동헌길 23)가 전부 같고 이름·면수·관리번호만 다르다. 군청 광장 안의 별도 구역일 수도 있고 같은 곳의 이중 등록일 수도 있어 표준데이터로 판정할 수 없어 둘 다 싣고 군청 확인 과제로 남긴다(옥천·영동 선례)",
+   "이름이 비슷한 다른 자리 쌍은 합치지 않았다 — 오일시장주차장(향청리 81-7, 48면)과 오일시장내주차장(삼천리 620-25, 78면), 만연공영주차장(만연리 237-2, 104면)과 광덕공영지하주차장(만연리 219, 136면)은 필지와 좌표가 서로 다르다",
+   "좌표는 10곳 전부 등록돼 있고 전부 화순군 범위 안이라 비운 곳이 없고 지오코딩 보완도 필요 없다(오버레이 무변경). 도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복도 없다 — 주소 표기가 10행 전부 전남광주통합특별시 화순군이다(광양 선례 대조)",
+   "도로명주소가 없는 4곳(능주면주차장·향청리공영주차장·오일시장주차장·오일시장내주차장)은 지번주소로 읍·면을 판정했고, 지번주소는 10곳 전부 등록돼 있다",
+   "전화번호는 10곳 전부 061-379-3785이고 관리기관은 전부 전남광주통합특별시 화순군이다. 조례 담당 표기 전화(건설교통실 379-3785)와 같다. 운영시간은 10곳 전부 00:00~23:59, 운영요일은 전부 평일+토요일+공휴일, 특기사항은 전부 '24시간 무료개방'이다. 장애인전용주차구역 보유여부는 Y 3곳(만연공영주차장·광덕공영지하주차장·향청리공영주차장)·N 7곳이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 10,
+  "무료_구획수": 789,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-07-30"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 화순군": 10
+  }
+ },
+ "fee_table": {
+  "style": "hwasun_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「화순군 주차장 조례」 제3220호(시행 2025-12-22, 일부개정), ordinSeq 2095555. 본문 사본 data/raw/hwasun-ordinance.txt. 별표 1(공영주차장 주차 요금표)은 HWP 원본을 data/raw/hwasun-ordinance-b1.hwp로 저장하고 본문 레코드를 파싱해 표 격자를 확정해 data/raw/hwasun-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "g1_small",
+    "unit_label": "30분마다 500원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": null,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "g1_large",
+    "unit_label": "30분마다 700원 · 월정기 주간 70,000원·야간 60,000원",
+    "hour": 1400,
+    "two_hour": 2800,
+    "day": null,
+    "month": 70000,
+    "month_night": 60000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "g2_small",
+    "unit_label": "30분마다 300원 · 월정기 주간 30,000원·야간 20,000원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": null,
+    "month": 30000,
+    "month_night": 20000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "g2_large",
+    "unit_label": "30분마다 500원 · 월정기 주간 40,000원·야간 30,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": null,
+    "month": 40000,
+    "month_night": 30000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 10,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 3)",
+    "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:00, 나머지는 야간",
+    "free": "월정기 주간·야간 금액과 특급지 1회 요금의 주간·야간 구분 기준이다 — 등록 10곳은 전부 무료라 실제 요금에는 쓰이지 않는다"
+   }
+  ],
+  "notes": "급지의 구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 지역의 특성 및 주차장의 위치에 따라 세분할 수 있다(비고 4). 별표 1의 지역 표기는 1급지가 도시지역(읍), 2급지가 농촌지역(면)이고, 표준데이터 등록 급지는 화순읍 7곳이 전부 '1', 능주면·도암면·이양면 3곳이 전부 '2'로 이 구분과 일치한다. 특급지(온천지구)는 이 표의 행과 구조가 다르다 — 30분 단위 칸과 월정기 칸이 비어 있고 1회 주차요금(원)이 주간·야간으로 나뉜다(승용차 주간 1,000원·야간 2,000원, 버스·화물차 주간 2,000원·야간 4,000원). 등록 10곳 중 특급지는 없다. 주차시간은 30분 단위로 하며 30분 미만은 30분으로 본다(비고 2). 군수는 필요한 경우 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있고(비고 6), 군수가 인정하는 경우에는 주차요금을 징수하지 않을 수 있다(비고 8). 감면은 별표 1 비고 5를 따른다 — 장애인 자가운전 차량 및 장애인을 동반한 일반차량·국가유공자·고엽제후유의증 환자·광주민주화운동부상자 50%, 경자동차 50%, 긴급자동차·국가 또는 지방자치단체의 공용차량 100%, 저공해자동차 표지 부착 차량 50%로, 모두 군수가 주차 수요를 감안하여 감면할 수 있는 재량 규정이다.",
+  "basis": "요금표는 「화순군 주차장 조례」 제3220호(시행 2025-12-22) 제10조·별표 1과 표준데이터(기준일 2026-07-30)를 대조해 실었다. 등록된 10곳은 전부 '무료'라 이 표는 조례 기준 요금의 참고표이고, 실제 요금은 전 구간 무료다. (조례 본문: data/raw/hwasun-ordinance.txt, 별표 1 원문: data/raw/hwasun-ordinance-b1.txt)"
+ },
+ "slug": "hwasun",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "화순군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·국가 또는 지방자치단체 공용차량 100% 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 다목 — 「도로교통법」제2조제20호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량은 주차요금의 100퍼센트를 감면할 수 있다. 본문 제10조제1항 단서도 노상주차장에 긴급 자동차가 주차하는 경우에는 요금 규정을 적용하지 않는다고 정한다"
+  },
+  {
+   "label": "장애인·국가유공자 등 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 가목 — 장애인 자가운전 차량 및 장애인을 동반한 일반차량, 국가유공자, 고엽제후유의증 환자, 광주민주화운동부상자는 주차요금의 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "경자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 나목 — 「자동차관리법」시행규칙 제2조제2항 별표 1에 따른 경자동차는 주차요금의 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "저공해자동차 표지 부착 차량 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 라목 — 대기환경보전법에 따른 저공해자동차로서 저공해자동차 표지가 부착된 자동차는 주차요금의 50퍼센트를 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
