@@ -734,6 +734,10 @@ MIX["naju"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둔다).
 MIX["yeongam"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 
+# 고흥군 — 나주·영암과 같은 부류. 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   고흥 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둔다).
+MIX["goheung"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
