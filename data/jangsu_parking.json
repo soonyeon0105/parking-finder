@@ -1,0 +1,3833 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 10:18",
+  "generated_at_iso": "2026-11-20T10:18:36+09:00",
+  "snapshot_at": "2026-11-20 10:18",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "장수군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-05-29",
+    "rows_total": 18994,
+    "rows_city": 31,
+    "fetched_at": "2026-11-20 10:18 (KST)",
+    "note": "장수군으로 등록된 행 31행(전부 공영·노외 28·노상 3)을 읽어 중복 제거 0건으로 31곳을 실었다. 무료 31곳이다. 좌표는 전부 등록돼 있고 도로명주소는 17곳이 결측이다. 조례 대조 완료 — 「장수군 주차장 조례」 제2614호(시행 2023-01-01, ordinSeq 1727811) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「장수군 주차장 조례」 제2614호(시행 2023-01-01, 일부개정)",
+    "org": "전북특별자치도 장수군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1727811",
+    "file": "jangsu-ordinance-b1.txt",
+    "sha256": "0e397802810ec7afb021fd17c1c9aa25fbe84c820126c87a7891f17a96149c69",
+    "license": "자치법규(공개)",
+    "base_date": "2023-01-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 10:18 (KST)",
+    "note": "장수군이 설치·관리하는 공영주차장에 적용하는 조례다. 장수군 공영주차장 31곳은 노외 28곳·노상 3곳이고 총 1,289면이며, 31곳 전부 요금을 받지 않는 무료 주차장이다. 「장수군 주차장 조례」 제2614호(시행 2023-01-01, ordinSeq 1727811) 제3조제1항은 군수가 설치하는 공영주차장 요금을 별표 1로 정한다 — 별표 1은 1급지·2급지 요금표로, 1급지는 승용 기준 1회 주차요금(1구획당 30분마다) 500원, 1일(6시간 이상) 6,000원, 월정기 주간 60,000원·야간 40,000원이고, 2급지는 승용 30분당 300원, 1일 3,600원, 월정기 주간 40,000원·야간 30,000원이다(승합·화물은 소형·대형으로 나뉜다). 별표 1 비고 1은 이 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고, 조례 본문에 상시 무료 운영의 근거 조항은 없어 등록된 31곳은 군이 무료로 운영하는 곳으로 보이며, 아래 요금표는 조례 기준 요금의 참고표다. 무료 운영의 근거(고시 등)는 장수군청 확인 과제다. 감면은 조례 제3조제2항을 따른다(긴급자동차 면제, 관광활성화 이용권·카드 소지 차량 최초 2시간 면제, 국가유공자·고엽제후유의증 환자·장애인 자가운전, 경형·친환경 자동차, 전통시장 상인·시장이용자 50% — 중복 시 감면율이 높은 1개만 적용). 좌표는 31곳 전부 등록돼 있고, 도로명주소는 17곳이 등록돼 있지 않다. (조례 본문: data/raw/jangsu-ordinance.txt, 별표 1 원문: data/raw/jangsu-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "장수군",
+   "slug": "jangsu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-jangsu-001",
+   "mgmt_no": "315-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계남공영주차장",
+   "gu": "장수군",
+   "dong": "계남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 계남면 화음리 968-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "063-350-2567",
+   "lat": 35.703329,
+   "lng": 127.578325,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-002",
+   "mgmt_no": "315-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계남면 소재지 주차장",
+   "gu": "장수군",
+   "dong": "계남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 계남면 화음리 1004",
+   "addr_road": "전북특별자치도 장수군 계남면 유천길 2",
+   "road": null,
+   "spaces": 18,
+   "tel": "063-350-2567",
+   "lat": 35.704963,
+   "lng": 127.578642,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-003",
+   "mgmt_no": "315-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계시장 앞 주차장",
+   "gu": "장수군",
+   "dong": "계남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 계남면 호덕리 560-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "063-350-2567",
+   "lat": 35.728586,
+   "lng": 127.581084,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-004",
+   "mgmt_no": "315-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계북공영주차장",
+   "gu": "장수군",
+   "dong": "계북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 계북면 어전리 865-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "063-350-2567",
+   "lat": 35.785452,
+   "lng": 127.613309,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-005",
+   "mgmt_no": "315-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "계북면 소재지 주차장",
+   "gu": "장수군",
+   "dong": "계북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 계북면 어전리 865-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-350-2567",
+   "lat": 35.785304,
+   "lng": 127.612674,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-006",
+   "mgmt_no": "315-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산서공영주차장",
+   "gu": "장수군",
+   "dong": "산서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 산서면 동화리 162-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "063-350-2567",
+   "lat": 35.58442,
+   "lng": 127.395059,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-007",
+   "mgmt_no": "315-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다목적광장주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계리 484-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "063-350-2567",
+   "lat": 35.728994,
+   "lng": 127.580886,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-008",
+   "mgmt_no": "315-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동동마을 주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 366-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "063-350-2567",
+   "lat": 35.729701,
+   "lng": 127.585004,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-009",
+   "mgmt_no": "315-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계 동동마을 주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 415-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-350-2567",
+   "lat": 35.728501,
+   "lng": 127.583912,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-010",
+   "mgmt_no": "315-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계 북동마을 주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 117-1",
+   "addr_road": "전북특별자치도 장수군 장계면 북동2길 14",
+   "road": null,
+   "spaces": 29,
+   "tel": "063-350-2567",
+   "lat": 35.735567,
+   "lng": 127.580815,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-011",
+   "mgmt_no": "315-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계공영주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 346",
+   "addr_road": "전북특별자치도 장수군 장계면 신동서로 6",
+   "road": null,
+   "spaces": 57,
+   "tel": "063-350-2567",
+   "lat": 35.732411,
+   "lng": 127.583649,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-012",
+   "mgmt_no": "315-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계꿈나무어린이집 주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 839",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-350-2567",
+   "lat": 35.731163,
+   "lng": 127.587992,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-013",
+   "mgmt_no": "315-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계농협마트주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 358-12",
+   "addr_road": "전북특별자치도 장수군 장계면 한들로 117",
+   "road": null,
+   "spaces": 26,
+   "tel": "063-350-2567",
+   "lat": 35.731693,
+   "lng": 127.584679,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-014",
+   "mgmt_no": "315-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계면소재지 공영주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 498-1",
+   "addr_road": "전북특별자치도 장수군 장계면 한들3길 7",
+   "road": null,
+   "spaces": 77,
+   "tel": "063-350-2567",
+   "lat": 35.73066,
+   "lng": 127.581755,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-015",
+   "mgmt_no": "315-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계신협주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계리 350-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-350-2567",
+   "lat": 35.731899,
+   "lng": 127.583343,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-016",
+   "mgmt_no": "315-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계어린이집주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 748",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-350-2567",
+   "lat": 35.732413,
+   "lng": 127.587519,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-017",
+   "mgmt_no": "315-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장계중동 공영주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 240-1",
+   "addr_road": "전북특별자치도 장수군 장계면 장계중동2길 14-3",
+   "road": null,
+   "spaces": 36,
+   "tel": "063-350-2567",
+   "lat": 35.732265,
+   "lng": 127.579606,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-018",
+   "mgmt_no": "315-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "터미널주변 생태주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 296-6",
+   "addr_road": "전북특별자치도 장수군 장계면 한들로 90-1",
+   "road": null,
+   "spaces": 50,
+   "tel": "063-350-2567",
+   "lat": 35.730859,
+   "lng": 127.58216,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-019",
+   "mgmt_no": "315-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노하마을주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 노하리 877",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "063-350-2567",
+   "lat": 35.651529,
+   "lng": 127.51499,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-020",
+   "mgmt_no": "315-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노하숲주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 노하리 399",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "063-350-2567",
+   "lat": 35.653686,
+   "lng": 127.515696,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-021",
+   "mgmt_no": "315-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "방촌공원주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 486",
+   "addr_road": "전북특별자치도 장수군 장수읍 방촌길 11",
+   "road": null,
+   "spaces": 76,
+   "tel": "063-350-2567",
+   "lat": 35.647278,
+   "lng": 127.519153,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-022",
+   "mgmt_no": "315-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신덕산마을주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 덕산리 810-17",
+   "addr_road": "전북특별자치도 장수군 장수읍 신덕산길 13",
+   "road": null,
+   "spaces": 34,
+   "tel": "063-350-2567",
+   "lat": 35.625681,
+   "lng": 127.544466,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-023",
+   "mgmt_no": "315-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우체국앞주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 292-5",
+   "addr_road": "전북특별자치도 장수군 장수읍 싸리재로 10",
+   "road": null,
+   "spaces": 32,
+   "tel": "063-350-2567",
+   "lat": 35.649122,
+   "lng": 127.51956,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-024",
+   "mgmt_no": "315-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장수경찰서옆주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 563",
+   "addr_road": "전북특별자치도 장수군 장수읍 구시장길 9",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-350-2567",
+   "lat": 35.64666,
+   "lng": 127.517066,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-025",
+   "mgmt_no": "315-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장수공영주차장(향교)",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 192",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "063-350-2567",
+   "lat": 35.647482,
+   "lng": 127.522215,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-026",
+   "mgmt_no": "315-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장수읍시가지주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 472-16",
+   "addr_road": "전북특별자치도 장수군 장수읍 장수북동1길 8-3",
+   "road": null,
+   "spaces": 16,
+   "tel": "063-350-2567",
+   "lat": 35.648696,
+   "lng": 127.518105,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-027",
+   "mgmt_no": "315-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장수중심지 주차타워",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 216-5",
+   "addr_road": "전북특별자치도 장수군 장수읍 향교길 2",
+   "road": null,
+   "spaces": 199,
+   "tel": "063-350-2567",
+   "lat": 35.64666,
+   "lng": 127.521436,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-028",
+   "mgmt_no": "315-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천변주차장",
+   "gu": "장수군",
+   "dong": "장수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 장수군 장수읍 장수리 701",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "063-350-2567",
+   "lat": 35.646552,
+   "lng": 127.519773,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-s001",
+   "mgmt_no": "315-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "우시장 옆 주차장",
+   "gu": "장수군",
+   "dong": "계남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전북특별자치도 장수군 계남면 침곡리 1438-86",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "063-350-2567",
+   "lat": 35.728242,
+   "lng": 127.579443,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-s002",
+   "mgmt_no": "315-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장계유니텍고주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 309-4",
+   "addr_road": "전북특별자치도 장수군 장계면 장계7길 8",
+   "road": "장계7길",
+   "spaces": 20,
+   "tel": "063-350-2567",
+   "lat": 35.73401,
+   "lng": 127.582882,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  },
+  {
+   "id": "jb-jangsu-s003",
+   "mgmt_no": "315-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장덕주유소 옆 주차장",
+   "gu": "장수군",
+   "dong": "장계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전북특별자치도 장수군 장계면 장계리 358-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "063-350-2567",
+   "lat": 35.731397,
+   "lng": 127.585247,
+   "base_date": "2026-05-29",
+   "manager": "전북특별자치도 장수군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "장수군",
+   "city_slug": "jangsu",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 10:18",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 31,
+  "원자료_장수군행수": 31,
+  "원자료_받은행수": 31,
+  "구별": {
+   "장수군": 28
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 28,
+  "노외_부설": {
+   "노외": 28
+  },
+  "노상_구간": 3,
+  "총_구획수": 1219,
+  "노상_구획수": 70,
+  "동별": {
+   "장계면": 12,
+   "장수읍": 10,
+   "계남면": 3,
+   "계북면": 2,
+   "산서면": 1
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_보정": [
+   "장계신협주차장: 지번주소(전북특별자치도 장수군 장계리 350-5)에 읍·면이 빠져 있어 법정리 장계리 기준으로 장계면으로 보정(장계리는 장계면의 법정리)",
+   "다목적광장주차장: 지번주소(전북특별자치도 장수군 장계리 484-15)에 읍·면이 빠져 있어 법정리 장계리 기준으로 장계면으로 보정(장계리는 장계면의 법정리)"
+  ],
+  "동_근거": {
+   "지번주소": 28
+  },
+  "요금구분": {
+   "무료": 31
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 24건 있다 — 계북면 소재지 주차장·계북공영주차장(59m), 장계시장 앞 주차장·우시장 옆 주차장(152m), 장계시장 앞 주차장·다목적광장주차장(49m), 우시장 옆 주차장·다목적광장주차장(154m), 계남면 소재지 주차장·계남공영주차장(184m), 장계꿈나무어린이집 주차장·장계어린이집주차장(145m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 31행은 전부 공영이고 데이터기준일자는 전부 2026-05-29이다. 관리기관은 전부 전북특별자치도 장수군이고 전화번호는 전부 063-350-2567로 등록돼 있다",
+   "도로명주소는 17곳이 등록돼 있지 않아 동(읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 '1' 8곳·'2' 23곳으로 조례 별표 1의 급지 구분과 숫자가 대응하지만, 급지 지정은 군수가 지역 기준으로 정하는 것이라 등록 급지와 실제 지정 급지의 일치는 군청 확인 과제다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 09:00~23:59이다. 특기사항은 31곳 전부 공란이고, 부제시행구분은 전부 '미시행'이며, 장애인전용주차구역 보유여부도 전부 공란이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "계남공영주차장",
+   "장계시장 앞 주차장",
+   "계북공영주차장",
+   "계북면 소재지 주차장",
+   "산서공영주차장",
+   "다목적광장주차장",
+   "동동마을 주차장",
+   "장계 동동마을 주차장",
+   "장계꿈나무어린이집 주차장",
+   "장계신협주차장",
+   "장계어린이집주차장",
+   "노하마을주차장",
+   "노하숲주차장",
+   "장수공영주차장(향교)",
+   "천변주차장",
+   "우시장 옆 주차장",
+   "장덕주유소 옆 주차장"
+  ],
+  "감면_출처": "「장수군 주차장 조례」 제2614호 제3조제2항 — 면제(제1호): 「도로교통법」 제2조제22호에 따른 긴급자동차(가목), 관광활성화를 위하여 군수가 발행하거나 타기관·단체 등과의 협약에 따라 발행되어 관내에서 이용하는 이용권 및 카드 등을 소지한 차량(나목 — 단, 면제시간은 최초 주차로부터 2시간). 50% 감경(제2호): 국가유공자가 국가유공자증을 소지하고 자가운전하는 차량(가목), 고엽제후유증 또는 후유의증 환자가 관련증서를 소지하고 자가운전하는 차량 — 환자가 동승한 대리운전차량 포함(나목), 장애인이 장애인사용 자동차 등 표지를 부착하고 자가운전하는 차량 — 장애인이 동승한 대리운전차량 포함(다목), 「자동차관리법 시행규칙」 제2조에 따른 배기량 1000cc 미만의 경형 자동차(라목), 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 친환경 자동차(마목), 전통시장 내 공영주차장을 상인 및 시장이용자가 이용하는 경우(바목). 2개 항목 이상의 감면 사유에 해당하면 감면율이 높은 1개 항목만 적용한다. 본문 원문(data/raw/jangsu-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 군수가 설치하는 공영주차장 요금은 별표 1과 같다. 별표 1은 1급지·2급지 요금표로 1회 주차요금(1구획당 30분마다) 1급지 승용 500원·2급지 승용 300원, 1일(6시간 이상) 6,000원·3,600원, 월정기 주간 60,000원·40,000원(야간 40,000원·30,000원)이고 승합·화물 소형·대형 행이 병기돼 있다. 표준데이터 등록 31곳은 전부 무료라 실제로 징수되는 곳은 없어 요금표는 조례 기준 요금의 참고표다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지는 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 군의 특성 및 주차장의 위치에 따라 세분할 수 있다(1급지: 도시계획상 상업지역 내 주차장, 폭 10m 이상 도로 가장자리에서 100m 이내 주차장 / 2급지: 기타지역). 표준데이터 등록 급지는 '1' 8곳·'2' 23곳으로 조례 급지와 숫자는 대응하지만, 등록 급지가 군수가 지역 기준으로 지정한 급지와 같은지는 확인할 수 없어 요금표 행별 곳수는 세지 않았다 — 등록 급지와 실제 지정 급지의 일치는 군청 확인 과제다",
+  "무료요일_출처": "조례 본문과 별표 1 어디에도 요일 무료 규정이 없어 free_days는 적용하지 않았다. 무료 31곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 장수군 등록 31행 전부 공영(노외 28·노상 3) — 민영 제외 0건",
+   "「장수군 주차장 조례」 제2614호(시행 2023-01-01, 공포 2022-09-15, 일부개정, ordinSeq 1727811) 본문 원문(data/raw/jangsu-ordinance.txt) 대조 완료(2026-11-20)",
+   "별표 1은 HWP 원본(flSeq 154693113)을 data/raw/jangsu-ordinance-b1.hwp로 저장하고 텍스트를 추출해 확정했다(data/raw/jangsu-ordinance-b1.txt) — 1급지·2급지 요금표다. 함께 검색된 「장수군 주차장 특별회계 설치 조례」(제1105호)는 요금 조례가 아니라 대조 대상에서 제외했다",
+   "등록 31곳은 전부 요금 구분이 '무료'라 요금을 받는 곳이 없고, 조례 본문에 상시 무료 운영의 근거 조항이 없으며 별표 1 비고 1은 요금표가 '군수가 설치한 유료주차장'에 적용된다고 정하고 있어 군이 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산·진안 선례) — 무료 운영의 근거(고시 등)는 군청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없다. 이름이 다른 주차장이 200m 안에 이웃한 쌍 24건(장계면·장수읍 시가지 밀집)은 전부 다른 등록이라 합치지 않고 전부 실었다",
+   "좌표는 31곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 장수군 범위 밖 좌표도 없었다",
+   "도로명주소는 17곳이 등록돼 있지 않아 동(읍·면) 판정은 지번주소를 기준으로 했다. 지번주소에 읍·면이 빠진 2곳(장계신협주차장 '장수군 장계리 350-5', 다목적광장주차장 '장수군 장계리 484-15')은 장계리가 장계면의 법정리라 장계면으로 보정했다. 전화번호는 31곳 전부 063-350-2567로 등록돼 있어 그대로 실었다",
+   "등록 급지는 '1' 8곳·'2' 23곳으로 조례 별표 1의 급지 구분과 숫자가 대응하지만, 급지 지정은 군수가 지역 기준으로 하는 것이라 등록 급지와 실제 지정이 같은지 확인할 수 없어 요금표 행별 곳수는 세지 않았다",
+   "노상 3곳(우시장 옆 주차장·장계유니텍고주차장·장덕주유소 옆 주차장)은 전부 무료 구간으로 카드가 아닌 노상 구간으로 실었다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 09:00~23:59다. 특기사항은 31곳 전부 공란이고 부제시행구분은 전부 '미시행', 장애인전용주차구역 보유여부도 전부 공란이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 31,
+  "무료_구획수": 1289,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-05-29"
+  ],
+  "관리기관": {
+   "전북특별자치도 장수군": 31
+  }
+ },
+ "fee_table": {
+  "style": "jangsu_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「장수군 주차장 조례」 제2614호(시행 2023-01-01, 공포 2022-09-15, 일부개정), ordinSeq 1727811. 본문 사본 data/raw/jangsu-ordinance.txt. 별표 1(공영주차장주차요금표)은 HWP 원본을 data/raw/jangsu-ordinance-b1.hwp로 저장하고 텍스트를 추출해 data/raw/jangsu-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 · 승용",
+    "grade": "g1",
+    "unit_label": "1회 주차요금 30분마다 500원 · 1일(6시간 이상) 6,000원 · 월정기 주간 60,000원/야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 6000,
+    "month": 60000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 · 승합·화물 소형",
+    "grade": "g1",
+    "unit_label": "1회 주차요금 30분마다 700원 · 1일(6시간 이상) 7,000원 · 월정기 주간 70,000원/야간 50,000원",
+    "hour": 1400,
+    "two_hour": 2800,
+    "day": 7000,
+    "month": 70000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 · 승합·화물 대형",
+    "grade": "g1",
+    "unit_label": "1회 주차요금 30분마다 1,000원 · 1일(6시간 이상) 10,000원 · 월정기 주간 111,000원/야간 70,000원",
+    "hour": 2000,
+    "two_hour": 4000,
+    "day": 10000,
+    "month": 111000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 승용",
+    "grade": "g2",
+    "unit_label": "1회 주차요금 30분마다 300원 · 1일(6시간 이상) 3,600원 · 월정기 주간 40,000원/야간 30,000원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3600,
+    "month": 40000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 승합·화물 소형",
+    "grade": "g2",
+    "unit_label": "1회 주차요금 30분마다 500원 · 1일(6시간 이상) 6,000원 · 월정기 주간 60,000원/야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 6000,
+    "month": 60000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 승합·화물 대형",
+    "grade": "g2",
+    "unit_label": "1회 주차요금 30분마다 800원 · 1일(6시간 이상) 8,000원 · 월정기 주간 90,000원/야간 60,000원",
+    "hour": 1600,
+    "two_hour": 3200,
+    "day": 8000,
+    "month": 90000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 31,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 4~10월 08:00~20:00 · 11~3월 09:00~19:30 (나머지는 야간)",
+    "free": "조례 별표 1 비고 2의 주간·야간 시간 구분이다 — 월정기 주간·야간 요금을 가르는 기준이고, 등록 운영시간은 전 곳 09:00~23:59다"
+   }
+  ],
+  "notes": "급지는 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 군의 특성 및 주차장의 위치에 따라 세분할 수 있다 — 1급지는 도시계획상 상업지역 안에 설치한 주차장과 폭 10m 이상 도로의 가장자리에서 100m 이내에 위치한 주차장이고, 2급지는 그 밖의 지역이다(별표 1 비고 3). 이 요금표는 군수가 설치한 유료주차장에 적용한다(비고 1). 주차요금은 군의 특성 및 차종에 따라 군수가 정하되, 당해 지역의 주차수요를 감안하여 주차시간에 따른 체증 또는 체감방식을 적용할 수 있고(비고 4), 군수는 필요한 경우 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있다(비고 5). 등록 급지는 '1' 8곳·'2' 23곳인데, 등록 급지가 군수가 지역 기준으로 지정한 급지와 같은지는 확인할 수 없어 행별 곳수는 세지 않았다. 1급지 승합·화물 대형의 월정기 주간 111,000원은 별표 원문의 표기 그대로다. 감면은 긴급자동차 면제, 관광활성화 이용권·카드 소지 차량 최초 2시간 면제, 국가유공자·고엽제후유의증 환자·장애인 자가운전, 경형·친환경 자동차, 전통시장 상인·시장이용자 50%이다(중복 시 감면율이 높은 1개만 적용).",
+  "basis": "요금표는 「장수군 주차장 조례」 제2614호(시행 2023-01-01) 제3조·별표 1과 표준데이터(기준일 2026-05-29)를 대조해 실었다. 등록된 31곳은 전부 무료라 요금을 받는 곳이 없어 조례 기준 요금의 참고표다. (조례 본문: data/raw/jangsu-ordinance.txt, 별표 1 원문: data/raw/jangsu-ordinance-b1.txt)"
+ },
+ "slug": "jangsu",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "장수군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제1호가목 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제한다"
+  },
+  {
+   "label": "관광활성화 이용권·카드 소지 차량 면제 (최초 2시간)",
+   "rate": 0.0,
+   "exempt_min": 120,
+   "note": "조례 제3조제2항제1호나목 — 관광활성화를 위하여 군수가 발행하거나 타기관·단체 등과의 협약에 따라 발행되어 관내에서 이용하는 이용권 및 카드 등을 소지한 차량은 주차요금을 면제한다. 다만 면제시간은 최초 주차로부터 2시간이다"
+  },
+  {
+   "label": "국가유공자 자가운전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제2호가목 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자가 국가유공자증을 소지하고 자가운전하는 차량은 주차요금의 100분의 50을 감경한다"
+  },
+  {
+   "label": "고엽제후유의증 등 환자 자가운전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제2호나목 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제2조에 따른 고엽제후유증 또는 후유의증 환자가 관련증서를 소지하고 자가운전하는 차량(환자가 동승한 대리운전차량 포함)은 주차요금의 100분의 50을 감경한다"
+  },
+  {
+   "label": "장애인 자가운전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제2호다목 — 「장애인복지법」 제2조에 따른 장애인이 장애인사용 자동차 등 표지를 부착하고 자가운전하는 차량(장애인이 동승한 대리운전차량 포함)은 주차요금의 100분의 50을 감경한다"
+  },
+  {
+   "label": "경형자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제2호라목 — 「자동차관리법 시행규칙」 제2조에 따른 배기량 1000cc 미만의 경형 자동차는 주차요금의 100분의 50을 감경한다"
+  },
+  {
+   "label": "친환경 자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제2호마목 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 친환경 자동차는 주차요금의 100분의 50을 감경한다"
+  },
+  {
+   "label": "전통시장 공영주차장 상인·시장이용자 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항제2호바목 — 전통시장 내 공영주차장을 상인 및 시장이용자가 이용하는 경우 주차요금의 100분의 50을 감경한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
