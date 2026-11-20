@@ -47568,6 +47568,51 @@
    "gu": "신안군",
    "id": "jn-sinan-049",
    "name": "분재공원 주차장"
+  },
+  {
+   "addr_jibun": "전남광주통합특별시 곡성군 곡성읍 읍내리 53-10 1층",
+   "addr_road": "",
+   "candidates": [
+    {
+     "addr": "전남광주통합특별시 곡성군 곡성읍 읍내리 53-10",
+     "addr_match": true,
+     "bbox_ok": true,
+     "how": "지오코딩(지번주소)",
+     "kind": "geocode",
+     "lat": 35.283273987138,
+     "lng": 127.303249578599,
+     "query": "곡성군 곡성읍 읍내리 53-10",
+     "score": 100,
+     "sig_ok": true,
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EC%A0%84%EB%82%A8%EA%B4%91%EC%A3%BC%ED%86%B5%ED%95%A9%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B3%A1%EC%84%B1%EA%B5%B0%20%EA%B3%A1%EC%84%B1%EC%9D%8D%20%EC%9D%8D%EB%82%B4%EB%A6%AC%2053-10&outFields=%2A&maxLocations=5&countryCode=KOR",
+     "wide_ok": true
+    }
+   ],
+   "chosen": {
+    "addr": "전남광주통합특별시 곡성군 곡성읍 읍내리 53-10",
+    "addr_match": true,
+    "bbox_ok": true,
+    "how": "지오코딩(지번주소)",
+    "kind": "geocode",
+    "lat": 35.283273987138,
+    "lng": 127.303249578599,
+    "query": "곡성군 곡성읍 읍내리 53-10",
+    "score": 100,
+    "sig_ok": true,
+    "source": "ArcGIS World Geocoding",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EC%A0%84%EB%82%A8%EA%B4%91%EC%A3%BC%ED%86%B5%ED%95%A9%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B3%A1%EC%84%B1%EA%B5%B0%20%EA%B3%A1%EC%84%B1%EC%9D%8D%20%EC%9D%8D%EB%82%B4%EB%A6%AC%2053-10&outFields=%2A&maxLocations=5&countryCode=KOR",
+    "wide_ok": true,
+    "agree": [],
+    "checked_at": "2026-11-20 (KST)",
+    "confidence": "high",
+    "note": "Esri ArcGIS World Geocoding — 표준데이터에 좌표가 없어 등록 지번주소(곡성읍 읍내리 53-10, '1층' 표기 제외)로 지오코딩했다. 반환 주소가 등록 지번주소와 번지까지 일치(score 100·PointAddress)하고 곡성군 범위 안에 있어 채택했다."
+   },
+   "city": "곡성군",
+   "dong": "곡성읍",
+   "gu": "곡성군",
+   "id": "jn-gokseong-026",
+   "name": "곡성역 주차장"
   }
  ],
  "city_signatures": {
