@@ -1,0 +1,4365 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 22:19",
+  "generated_at_iso": "2026-11-20T22:19:34+09:00",
+  "snapshot_at": "2026-11-20 22:19",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "완도군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 36,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "완도군으로 등록된 행 36행(전부 공영)을 읽어 중복 제거 0건으로 36곳을 실었다. 무료 36곳·유료 0곳이다. 좌표는 36곳 전부 등록돼 있고, 도로명주소가 없는 곳이 7곳이다. 조례 대조 완료 — 「완도군 주차장 조례」 제3255호(시행 2026-10-26, ordinSeq 2179933) 제4조·제5조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「완도군 주차장 조례」 제3255호(시행 2026-10-26, 일부개정)",
+    "org": "전남광주통합특별시 완도군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2179933",
+    "file": "wando-ordinance-b1.txt",
+    "sha256": "f60ff7caed1bd8b0aac873757a197086c118c3c4e2635f12d55894fb39e74cec",
+    "license": "자치법규(공개)",
+    "base_date": "2026-10-26",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "완도군이 설치·관리하는 공영주차장에 적용하는 조례다. 완도군 공영주차장 36곳(노외 15·노상 21구간, 총 1,468면)은 전부 완도읍에 있고 전부 요금 구분 '무료'로 등록돼 있다. 이름은 36곳 전부 '완도군 공용주차장'으로 같아 주소 끝부분·면수·노상 표기로 구분해 실었다. 「완도군 주차장 조례」 제3255호(시행 2026-10-26, ordinSeq 2179933) 제4조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지(1급지·2급지)×차종(소형·대형) 요금표로, 1회 주차요금은 1구획당 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원이고 1일주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 2,400원·대형 3,000원, 월정기는 주간 1급지 소형 50,000원·대형 65,000원, 2급지 소형 30,000원·대형 35,000원, 야간 1급지 소형 40,000원·대형 52,000원, 2급지 소형 24,000원·대형 28,000원이다. 등록 36곳이 전부 무료라 이 요금표는 조례 기준 요금의 참고표로만 싣는다 — 조례 제4조제1항 단서는 군수가 원활한 차량 통행과 주민 주차편의 증진, 공영주차장의 효율적인 관리·운영을 위하여 필요하다고 인정하는 경우 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정한다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:30이고 나머지는 야간이다(별표 1 비고 2). 감면은 조례 제5조를 따른다(긴급자동차·공용차량 등 면제, 장애인·국가유공자·고엽제·5·18·참전·특수임무 유공자·경형·저공해·환경친화적·다자녀 50% 감면, 자동차부제 자율참여 20% 감면). 등록 급지는 36곳 전부 '4'로 조례 별표 1의 1·2급지 체계와 어긋나나 전부 무료라 요금에는 영향이 없고, 좌표는 36곳 전부 등록돼 있다. (조례 본문: data/raw/wando-ordinance.txt, 별표 1 원문: data/raw/wando-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "완도군",
+   "slug": "wando"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-wando-001",
+   "mgmt_no": "343-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 가용리 50-18(공설운동장앞))",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 가용리 50-18(공설운동장앞)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 135,
+   "tel": "061-550-5583",
+   "lat": 34.31686607,
+   "lng": 126.7402582,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-002",
+   "mgmt_no": "343-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 1162-11)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1162-11",
+   "addr_road": "전라남도 완도군 완도읍 청해진서로 59",
+   "road": null,
+   "spaces": 67,
+   "tel": "061-550-5583",
+   "lat": 34.31161698,
+   "lng": 126.7394459,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-003",
+   "mgmt_no": "343-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 1243)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1243",
+   "addr_road": "전라남도 완도군 완도읍 개포로62번길 9",
+   "road": null,
+   "spaces": 27,
+   "tel": "061-550-5583",
+   "lat": 34.31700893,
+   "lng": 126.7455346,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-004",
+   "mgmt_no": "343-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 1256-2(군민회관))",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1256-2(군민회관)",
+   "addr_road": "전라남도 완도군 완도읍 개포로 111",
+   "road": null,
+   "spaces": 57,
+   "tel": "061-550-5583",
+   "lat": 34.31667144,
+   "lng": 126.7416714,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-005",
+   "mgmt_no": "343-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 1256-2)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1256-2",
+   "addr_road": "전라남도 완도군 완도읍 개포로 111",
+   "road": null,
+   "spaces": 175,
+   "tel": "061-550-5583",
+   "lat": 34.31667144,
+   "lng": 126.7416714,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-006",
+   "mgmt_no": "343-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 1326)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1326",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로248번길 16",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-550-5583",
+   "lat": 34.31505863,
+   "lng": 126.7534549,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-007",
+   "mgmt_no": "343-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 362-1(청빛마을앞 마을주차장))",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 362-1(청빛마을앞 마을주차장)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "061-550-5583",
+   "lat": 34.31186387,
+   "lng": 126.7588881,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-008",
+   "mgmt_no": "343-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 364-9)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 364-9",
+   "addr_road": "전라남도 완도군 완도읍 군내길 33",
+   "road": null,
+   "spaces": 14,
+   "tel": "061-550-5583",
+   "lat": 34.31095435,
+   "lng": 126.7584712,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-009",
+   "mgmt_no": "343-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 367-48)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 367-48",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "061-550-5583",
+   "lat": 34.31167172,
+   "lng": 126.7578937,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-010",
+   "mgmt_no": "343-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 411-41)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 411-41",
+   "addr_road": "전라남도 완도군 완도읍 군내길 38",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-550-5583",
+   "lat": 34.31059221,
+   "lng": 126.7583704,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-011",
+   "mgmt_no": "343-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 423-1)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 423-1",
+   "addr_road": "전라남도 완도군 완도읍 청해진남로 23번길 58",
+   "road": null,
+   "spaces": 5,
+   "tel": "061-550-5583",
+   "lat": 34.31018505,
+   "lng": 126.7600435,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-012",
+   "mgmt_no": "343-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 429-1)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 429-1",
+   "addr_road": "전라남도 완도군 완도읍 중앙길 64",
+   "road": null,
+   "spaces": 26,
+   "tel": "061-550-5583",
+   "lat": 34.31110434,
+   "lng": 126.760529,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-013",
+   "mgmt_no": "343-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 650-1(완도군청))",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 650-1(완도군청)",
+   "addr_road": "전라남도 완도군 완도읍 청해진남로 51",
+   "road": null,
+   "spaces": 194,
+   "tel": "061-550-5583",
+   "lat": 34.31097244,
+   "lng": 126.7549613,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-014",
+   "mgmt_no": "343-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 789)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 789",
+   "addr_road": "전라남도 완도군 완도읍 청해진남로 48",
+   "road": null,
+   "spaces": 24,
+   "tel": "061-550-5583",
+   "lat": 34.31157362,
+   "lng": 126.7545434,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-015",
+   "mgmt_no": "343-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "완도군 공용주차장 (완도읍 군내리 819-1)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 819-1",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로248번길 34",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-550-5583",
+   "lat": 34.3139819,
+   "lng": 126.7545314,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s001",
+   "mgmt_no": "343-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 10면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 782-58",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로286번길 11",
+   "road": "장보고대로286번길",
+   "spaces": 10,
+   "tel": "061-550-5583",
+   "lat": 34.31401899,
+   "lng": 126.7557682,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s002",
+   "mgmt_no": "343-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 12면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1307",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 256-1",
+   "road": "장보고대로",
+   "spaces": 12,
+   "tel": "061-550-5583",
+   "lat": 34.31587537,
+   "lng": 126.7531374,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s003",
+   "mgmt_no": "343-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 145면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1248-21",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 220",
+   "road": "장보고대로",
+   "spaces": 145,
+   "tel": "061-550-5583",
+   "lat": 34.31607492,
+   "lng": 126.7491712,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s004",
+   "mgmt_no": "343-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 18면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1413",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 284",
+   "road": "장보고대로",
+   "spaces": 18,
+   "tel": "061-550-5583",
+   "lat": 34.31458719,
+   "lng": 126.7557681,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s005",
+   "mgmt_no": "343-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 20면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1362",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 280",
+   "road": "장보고대로",
+   "spaces": 20,
+   "tel": "061-550-5583",
+   "lat": 34.31472323,
+   "lng": 126.7551807,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s006",
+   "mgmt_no": "343-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 20면) 2",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 782-137",
+   "addr_road": "전라남도 완도군 완도읍 중앙길 24",
+   "road": "중앙길",
+   "spaces": 20,
+   "tel": "061-550-5583",
+   "lat": 34.31342775,
+   "lng": 126.7577405,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s007",
+   "mgmt_no": "343-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 25면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1310",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 262",
+   "road": "장보고대로",
+   "spaces": 25,
+   "tel": "061-550-5583",
+   "lat": 34.31563656,
+   "lng": 126.7536267,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s008",
+   "mgmt_no": "343-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 25면) 2",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 319",
+   "addr_road": "전라남도 완도군 완도읍 중앙길 43",
+   "road": "중앙길",
+   "spaces": 25,
+   "tel": "061-550-5583",
+   "lat": 34.3133974,
+   "lng": 126.761013,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s009",
+   "mgmt_no": "343-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 27면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 310-40",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 290-1",
+   "road": "장보고대로",
+   "spaces": 27,
+   "tel": "061-550-5583",
+   "lat": 34.31464732,
+   "lng": 126.756671,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s010",
+   "mgmt_no": "343-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 30면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 307-4",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 324",
+   "road": "장보고대로",
+   "spaces": 30,
+   "tel": "061-550-5583",
+   "lat": 34.31518464,
+   "lng": 126.760166,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s011",
+   "mgmt_no": "343-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 30면) 2",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 308-19(완도항1부두)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-550-5583",
+   "lat": 34.31516071,
+   "lng": 126.7571691,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s012",
+   "mgmt_no": "343-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 30면) 3",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1272-4",
+   "addr_road": "전라남도 완도군 완도읍 개포로56번길 30-14",
+   "road": "개포로56번길",
+   "spaces": 30,
+   "tel": "061-550-5583",
+   "lat": 34.31698558,
+   "lng": 126.7492058,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s013",
+   "mgmt_no": "343-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 31면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 782-104(한국관앞~천주교(뒷편))",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "061-550-5583",
+   "lat": 34.31392394,
+   "lng": 126.7560225,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s014",
+   "mgmt_no": "343-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 36면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 319(담배인삼공사~천주교)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "061-550-5583",
+   "lat": 34.3133974,
+   "lng": 126.761013,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s015",
+   "mgmt_no": "343-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 52면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 308-21",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 303",
+   "road": "장보고대로",
+   "spaces": 52,
+   "tel": "061-550-5583",
+   "lat": 34.31512312,
+   "lng": 126.7580805,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s016",
+   "mgmt_no": "343-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 56면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 776",
+   "addr_road": "전라남도 완도군 완도읍 청해진남로 38-1",
+   "road": "청해진남로",
+   "spaces": 56,
+   "tel": "061-550-5583",
+   "lat": 34.31239598,
+   "lng": 126.7550095,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s017",
+   "mgmt_no": "343-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 5면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 가용리 1021",
+   "addr_road": "전라남도 완도군 완도읍 해변공원로 123",
+   "road": "해변공원로",
+   "spaces": 5,
+   "tel": "061-550-5583",
+   "lat": 34.3244165,
+   "lng": 126.7479384,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s018",
+   "mgmt_no": "343-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 7면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 가용리 44(제2축구장)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "061-550-5583",
+   "lat": 34.31704454,
+   "lng": 126.7380938,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s019",
+   "mgmt_no": "343-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 8면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1289",
+   "addr_road": "전라남도 완도군 완도읍 장보고대로 255",
+   "road": "장보고대로",
+   "spaces": 8,
+   "tel": "061-550-5583",
+   "lat": 34.31626969,
+   "lng": 126.7532364,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s020",
+   "mgmt_no": "343-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 92면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 650-1",
+   "addr_road": "전라남도 완도군 완도읍 청해진남로 51",
+   "road": "청해진남로",
+   "spaces": 92,
+   "tel": "061-550-5583",
+   "lat": 34.31097244,
+   "lng": 126.7549613,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  },
+  {
+   "id": "jn-wando-s021",
+   "mgmt_no": "343-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "완도군 공용주차장 (노상 9면)",
+   "gu": "완도군",
+   "dong": "완도읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 완도군 완도읍 군내리 1256-10",
+   "addr_road": "전라남도 완도군 완도읍 청해진서로 1-1",
+   "road": "청해진서로",
+   "spaces": 9,
+   "tel": "061-550-5583",
+   "lat": 34.31534742,
+   "lng": 126.7425232,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 완도군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하지만 단서로 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정하고, 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "완도군",
+   "city_slug": "wando",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 22:19",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 36,
+  "원자료_완도군행수": 36,
+  "원자료_받은행수": 36,
+  "구별": {
+   "완도군": 15
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 15,
+  "노외_부설": {
+   "노외": 15
+  },
+  "노상_구간": 21,
+  "총_구획수": 780,
+  "노상_구획수": 688,
+  "동별": {
+   "완도읍": 15
+  },
+  "동수": 1,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 완도군 공용주차장 — 주소 끝부분·면수·노상 표기로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 15
+  },
+  "요금구분": {
+   "무료": 36
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "완도읍 군내리 일대에 등록이 밀집해 좌표 200m 안에 이웃한 쌍이 65건 있다 — 전부 지번이 다른 별개 등록이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 36행은 전부 공영이고 데이터기준일자는 전부 2026-04-16이다. 관리기관 표기는 36곳 전부 '전라남도 완도군청'이고 전화번호는 36곳 전부 061-550-5583이다",
+   "등록 36곳은 전부 완도읍(군내리 33·가용리 3)에 있다 — 완도군의 나머지 읍·면(금일읍·노화읍·군외면·신지면·고금면·약산면·청산면·소안면·금당면·보길면·생일면)에는 표준데이터에 등록된 공영주차장이 없어, 실제로 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+   "이름이 36곳 전부 '완도군 공용주차장'으로 같아 주소 끝부분·면수·노상 표기로 구분해 표기했다. 좌표가 같은 자리의 쌍 3건(군내리 319 노상 2건, 군내리 650-1 노상·노외, 군내리 1256-2 노외 2건)은 주소 표기와 유형·구획이 달라 별개 등록으로 전부 실었고 이중 등록 여부는 군청 확인 과제다",
+   "등록 급지는 36곳 전부 '4'로 조례 별표 1의 1·2급지 체계와 어긋나나 전부 무료라 요금에는 영향이 없다 — 군청 확인 과제로 남긴다",
+   "운영시간은 36곳 전부 00:00~23:59이고 운영요일은 전부 평일+토요일+공휴일이다. 특기사항은 36곳 전부 공란이고 결제방법도 공란이다. 부제시행구분은 5부제 2곳(군내리 650-1 완도군청 노외·군내리 789 노외)이고 나머지는 미시행이다. 장애인전용주차구역 보유여부는 Y 5곳·공란 31곳이다. 도로명주소가 없는 곳은 7곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "완도군 공용주차장 (완도읍 가용리 50-18(공설운동장앞))",
+   "완도군 공용주차장 (완도읍 군내리 362-1(청빛마을앞 마을주차장))",
+   "완도군 공용주차장 (완도읍 군내리 367-48)",
+   "완도군 공용주차장 (노상 30면) 2",
+   "완도군 공용주차장 (노상 31면)",
+   "완도군 공용주차장 (노상 36면)",
+   "완도군 공용주차장 (노상 7면)"
+  ],
+  "감면_출처": "「완도군 주차장 조례」 제3255호 제5조 — 면제(제1항): 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 군의 공용차량 및 그 밖에 군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량은 주차요금을 면제할 수 있다. 50% 감면(제2항): 등록장애인(제1호), 국가유공자(제2호), 고엽제 후유의증환자(제3호), 5·18민주유공자(제4호), 참전유공자(제5호), 특수임무유공자(제6호), 경형승용자동차(제7호), 저공해자동차(제8호), 환경친화적 자동차(제9호), 다자녀가구 우대카드 소지자 등(제10호). 20% 감면(제3항): 자동차부제 운행에 자율적으로 참여하는 차량(스티커 부착). 둘 이상의 감면사유에 해당하면 감면율이 높은 하나만 적용한다(제4항). 본문 원문(data/raw/wando-ordinance.txt)·별표 1 원문(data/raw/wando-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 하되, 군수는 원활한 차량 통행과 주민 주차편의 증진, 공영주차장의 효율적인 관리·운영을 위하여 필요하다고 인정하는 경우에는 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다. 별표 1은 급지(1급지·2급지)×차종(소형·대형) 요금표로 1회 주차요금은 1구획당 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원, 1일주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 2,400원·대형 3,000원, 월정기는 주간 1급지 소형 50,000원·대형 65,000원, 2급지 소형 30,000원·대형 35,000원, 야간 1급지 소형 40,000원·대형 52,000원, 2급지 소형 24,000원·대형 28,000원이다. 표준데이터 등록 36곳이 전부 무료라 요금표는 참고표로만 싣는다",
+  "급지_출처": "조례 별표 1 — 급지의 구분은 주차장의 실태 및 주차난을 참작하여 군수가 지정하되 군의 특성에 따라 세분할 수 있다(비고 3). 표준데이터 등록 급지는 36곳 전부 '4'로 별표 1의 1·2급지 체계와 어긋나나, 등록 36곳이 전부 무료라 요금에는 영향이 없어 군청 확인 과제로 남긴다",
+  "무료요일_출처": "등록 36곳은 요금 구분 '무료'로 요일과 관계없이 무료다 — 조례 제4조제1항 단서는 군수가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정한다. 조례 별표 1 비고 2의 주간·야간 구분(4~10월 08:00~20:00, 11~3월 09:00~19:30)은 월정기 주·야간 금액의 구분 기준이라 참고로만 실었다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 완도군 등록 36행 전부 공영(노외 15곳·노상 21구간, 총 1,468면)를 싣고 민영 제외 0건·중복 제거 0건·제외 0건이다. 36곳 전부 완도읍(군내리 33·가용리 3)에 있고, 완도군의 나머지 읍·면(금일읍·노화읍·군외면·신지면·고금면·약산면·청산면·소안면·금당면·보길면·생일면)에는 등록된 공영주차장이 없어 실제 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+   "「완도군 주차장 조례」 제3255호(표제 시행 2026-10-26, 공포 2026-10-26, 일부개정, ordinSeq 2179933) 본문 원문(data/raw/wando-ordinance.txt) 대조 완료(2026-11-20) — 표제 시행일이 공포일과 같고 역대 부칙이 모두 '공포한 날부터 시행한다'고 정하며, law.go.kr 검색에서 완도군 주차장 관련 자치법규는 이 조례의 공포 이력뿐이라 요금 조례의 최신 시행본은 제3255호가 맞다",
+   "별표 1은 HWP 원본(flSeq 170929507)을 data/raw/wando-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 레코드 직접 파싱으로 교차 확인해 확정했다 — 급지(1급지·2급지)×차종(소형·대형) 요금표로, 1회 주차요금은 1구획당 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 400원·대형 500원, 1일주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 2,400원·대형 3,000원, 월정기는 주간 1급지 소형 50,000원·대형 65,000원, 2급지 소형 30,000원·대형 35,000원, 야간 1급지 소형 40,000원·대형 52,000원, 2급지 소형 24,000원·대형 28,000원이다. 직전 공포본 제2725호(ordinSeq 1530527)의 별표 1(flSeq 170928449)과 금액·비고가 전부 같아 첨부파일 오등록이 아니다. 비고 4의 차량 구분 표기(소형 : 2.5톤 이상(승용차 포함), 대형 : 2.5톤 초과)는 두 공포본 모두 같은 원문 표기라 그대로 옮겼다. 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:30이다(비고 2)",
+   "등록 36곳이 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암·해남·고흥·보성·장흥 선례) — 조례 제4조제1항 단서가 공영주차장의 전부 또는 일부를 무료로 운영할 수 있다고 정해 무료 운영의 조례상 근거가 된다. 등록 요금 금액 칸은 36곳 전부 기본요금 0원이고 추가·1일·월정기 금액은 공란이다",
+   "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 지번주소는 36행 전부 '전라남도 완도군' 표기이고 제공기관명만 '전남광주통합특별시 완도군'인 단일 스냅숏이며, 같은 이름+같은 주소 문자열의 재등록 쌍이 0건이다(광양 선례 대조)",
+   "같은 자리(좌표 동일)에 등록이 겹치는 쌍이 3건 있다 — ① 군내리 319(담배인삼공사~천주교) 노상 36면과 군내리 319 노상 25면 ② 군내리 650-1 노상 92면과 군내리 650-1(완도군청) 노외 194면 ③ 군내리 1256-2 노외 175면과 군내리 1256-2(군민회관) 노외 57면. 셋 다 주소 표기(구간·시설 설명)와 유형·구획수가 달라 별개 등록으로 전부 실었고, 같은 시설의 이중 등록인지는 군청 확인 과제다(장성·영광 선례). 이름이 36곳 전부 '완도군 공용주차장'으로 같아 주소 끝부분·면수·노상 표기로 구분해 표기했다",
+   "좌표는 36곳 전부 등록돼 있고 전부 완도군 범위(본섬·부속 도서 포함) 안이라 비우거나 채운 곳이 없다(오버레이 무변경). 지번주소는 36곳 전부 등록돼 있고 도로명주소가 없는 곳은 7곳이다",
+   "전화번호는 36행 전부 061-550-5583이고 관리기관 표기는 전부 '전라남도 완도군청'이다. 조례 담당 표기 전화(061-550-5580, 경제산업과)와는 끝자리가 다르다. 운영시간은 36곳 전부 00:00~23:59, 운영요일은 전부 평일+토요일+공휴일, 특기사항·결제방법은 전부 공란이다. 부제시행구분은 5부제 2곳(군내리 650-1 완도군청 노외·군내리 789 노외)이고 나머지는 미시행이다. 장애인전용주차구역 보유여부는 Y 5곳·공란 31곳이다. 데이터기준일자는 36행 전부 2026-04-16이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 36,
+  "무료_구획수": 1468,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "전라남도 완도군청": 36
+  }
+ },
+ "fee_table": {
+  "style": "wando_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「완도군 주차장 조례」 제3255호(시행 2026-10-26, 일부개정), ordinSeq 2179933. 본문 사본 data/raw/wando-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/wando-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 직접 파싱으로 교차 확인해 data/raw/wando-ordinance-b1.txt로 확정했다. 직전 공포본 제2725호의 별표 1과도 금액·비고가 전부 같아 첨부파일 오등록이 아니다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "g1_small",
+    "unit_label": "30분마다 500원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "g1_large",
+    "unit_label": "30분마다 600원 · 1일 6,000원 · 월정기 주간 65,000원·야간 52,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 65000,
+    "month_night": 52000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "g2_small",
+    "unit_label": "30분마다 400원 · 1일 2,400원 · 월정기 주간 30,000원·야간 24,000원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 2400,
+    "month": 30000,
+    "month_night": 24000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "g2_large",
+    "unit_label": "30분마다 500원 · 1일 3,000원 · 월정기 주간 35,000원·야간 28,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 3000,
+    "month": 35000,
+    "month_night": 28000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 36,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:30, 나머지는 야간",
+    "free": "월정기 주간·야간 금액의 구분 기준이다 — 등록 36곳은 전부 무료라 실제 요금에는 쓰이지 않는다"
+   }
+  ],
+  "notes": "급지의 구분은 주차장의 실태 및 주차난을 참작하여 군수가 지정하되 군의 특성에 따라 세분할 수 있다(비고 3). 표준데이터 등록 급지는 36곳 전부 '4'로 별표 1의 1·2급지 체계와 어긋나나, 등록 36곳이 전부 무료라 요금에는 영향이 없다(군청 확인 과제). 주차요금은 별표 1의 금액을 상한선으로 하되 군의 특성 및 차종에 따라 조정할 수 있고(비고 4), 1회 주차요금은 차량유입을 억제할 필요가 있는 지역에 대하여 주차시간에 따른 체증방식으로 적용할 수 있다(비고 5). 비고 4의 차량 구분 표기(소형 : 2.5톤 이상(승용차 포함), 대형 : 2.5톤 초과)는 원문 그대로 옮긴 것이다. 감면은 긴급자동차·공용차량 등 면제(제5조제1항), 등록장애인, 국가유공자·고엽제·5·18·참전·특수임무 유공자, 경형승용자동차, 저공해자동차, 환경친화적 자동차, 다자녀가구 50% 감면(제5조제2항), 자동차부제 자율참여 차량 20% 감면(제5조제3항)이다.",
+  "basis": "요금표는 「완도군 주차장 조례」 제3255호(시행 2026-10-26) 제4조·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 등록된 36곳이 전부 '무료'라 이 표는 조례 기준 요금의 참고표이다. (조례 본문: data/raw/wando-ordinance.txt, 별표 1 원문: data/raw/wando-ordinance-b1.txt)"
+ },
+ "slug": "wando",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "완도군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 군의 공용차량 및 그 밖에 군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량은 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "등록장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제1호 — 「장애인복지법」에 따른 등록장애인의 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "국가유공자·고엽제·5·18·참전·특수임무 유공자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제2~6호 — 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 국가유공자, 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」에 따른 고엽제 후유의증환자, 「5ㆍ18민주유공자 예우에 관한 법률」에 따른 5ㆍ18민주유공자, 「참전유공자 예우 및 단체설립에 관한 법률」에 따른 참전유공자, 「특수임무유공자 예우 및 단체설립에 관한 법률」에 따른 유공자의 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "경형승용자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제7호 — 「자동차관리법 시행규칙」 제2조의 별표 1에 따른 경형승용자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "저공해자동차·환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제8·9호 — 「수도권 대기환경개선에 관한 특별법」 제2조제6호에 따른 저공해자동차와 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "다자녀가구 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항제10호 — 「저출산ㆍ고령사회기본법」 제10조에 따른 다자녀가구 우대카드 소지자 또는 다자녀가정임을 증명할 수 있는 서류를 소지한 사람의 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "자동차부제 자율참여 차량 20% 감면",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제5조제3항 — 자동차부제 운행에 자율적으로 참여하는 차량(스티커 부착)은 주차요금의 100분의 20을 감면한다. 둘 이상의 감면사유에 해당하면 감면율이 높은 하나만 적용한다(제5조제4항)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

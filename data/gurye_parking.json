@@ -1,0 +1,3944 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 22:19",
+  "generated_at_iso": "2026-11-20T22:19:34+09:00",
+  "snapshot_at": "2026-11-20 22:19",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "구례군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-08-06",
+    "rows_total": 18994,
+    "rows_city": 33,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "구례군으로 등록된 행 33행(전부 공영)을 읽어 중복 제거 0건, 구획수 0 등록 1곳 제외로 32곳을 실었다. 무료 31곳·유료 1곳이다. 좌표는 전부 등록돼 있어 보완이 없다. 조례 대조 완료 — 「구례군 주차장 조례」 제2637호(시행 2025-03-13, ordinSeq 2022261) 제4조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「구례군 주차장 조례」 제2637호(시행 2025-03-13, 일부개정)",
+    "org": "전남광주통합특별시 구례군",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2022261",
+    "file": "gurye-ordinance-b1.txt",
+    "sha256": "605cee5ee668f6f6c7bd529d7bf3d4c66bf00f9fb72d9827548fc9d5c251fa02",
+    "license": "자치법규(공개)",
+    "base_date": "2025-03-13",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "구례군이 설치·관리하는 공영주차장에 적용하는 조례다. 구례군 공영주차장 32곳(전부 노외, 총 1,276면)은 유료 1곳(자주식 주차타워 99면)만 요금 구분 '유료'로 등록돼 있고 31곳은 '무료'다. 「구례군 주차장 조례」 제2637호(시행 2025-03-13, ordinSeq 2022261) 제4조제1항은 군수가 설치한 공영주차장의 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해, 등록이 무료인 31곳은 그 단서에 따라 군이 무료로 개방해 운영하는 곳으로 본다. 별표 1은 급지(1급지 읍·면소재지·국립공원지구·온천지구, 2급지 그 밖의 지역)×차종(소형·대형) 요금표로, 1회 주차요금은 30분마다 1급지 소형 400원·대형 600원, 2급지 소형 400원·대형 500원이고 1일 주차요금은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 2,400원·대형 3,000원, 월정기는 주간 1급지 소형 60,000원·대형 75,000원, 2급지 소형 30,000원·대형 35,000원, 야간 1급지 소형 50,000원·대형 55,000원, 2급지 소형 24,000원·대형 28,000원이다. 유료 1곳(자주식 주차타워)은 시간제 금액(기본요금·추가요금·1일요금)이 전부 공란이고 월정기권 50,000원만 등록돼 있어 등록값만으로는 요금을 계산할 수 없다 — 구례읍은 별표 1 비고 1의 '읍소재지'라 1급지에 해당하므로 계산기는 조례 별표 1의 1급지 소형 구조(30분마다 400원·1일 5,000원)로 적용했고(여수 선례), 월정기권은 등록값 50,000원을 그대로 실었다(조례 1급지 소형 야간 월정기와 같은 금액이다). 표준데이터 등록 급지는 32곳 전부 '3'인데 조례의 급지 체계(1급지·2급지)에는 없는 값이라, 무료 31곳은 영향이 없고 유료 1곳의 급지 지정은 군청 확인 과제다. 면제는 조례 제4조제2항(긴급자동차·국가/지자체 공무용 자동차·군수가 인정하는 차량)을, 50% 경감은 별표 1 비고 6(장애인 자가운전차량·국가유공자 보철용 차량·경형자동차·환경친화적 자동차)을 따른다. 좌표는 32곳 전부 등록돼 있고 구례군 범위 안이라 지오코딩 보완이 없다. (조례 본문: data/raw/gurye-ordinance.txt, 별표 원문: data/raw/gurye-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "구례군",
+   "slug": "gurye"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-gurye-001",
+   "mgmt_no": "331-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)건강정육점",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉북리 100-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "061-780-2368",
+   "lat": 35.21125878,
+   "lng": 127.4644308,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-002",
+   "mgmt_no": "331-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)봉남쌀집",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 200-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "061-780-2368",
+   "lat": 35.20753169,
+   "lng": 127.4651493,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-003",
+   "mgmt_no": "331-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)풍년식당",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 454-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-780-2368",
+   "lat": 35.21052033,
+   "lng": 127.4644307,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-004",
+   "mgmt_no": "331-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)한성제재소",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 401-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "061-780-2368",
+   "lat": 35.210941,
+   "lng": 127.4657768,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-005",
+   "mgmt_no": "331-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "5일시장 인근 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 235-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "061-780-2368",
+   "lat": 35.20906156,
+   "lng": 127.4694862137,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-006",
+   "mgmt_no": "331-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "5일시장 인근 주차장(2지구)",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 393-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 83,
+   "tel": "061-780-2368",
+   "lat": 35.21068982,
+   "lng": 127.467041,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-007",
+   "mgmt_no": "331-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "5일시장 인근 주차장(3지구)",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉북리 458-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-780-2368",
+   "lat": 35.2163763627,
+   "lng": 127.463122,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-008",
+   "mgmt_no": "331-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "5일시장 주변 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 193-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "061-780-2368",
+   "lat": 35.2113529483,
+   "lng": 127.469596832,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-009",
+   "mgmt_no": "331-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공공도서관 인근 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 83-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "061-780-2368",
+   "lat": 35.2055772557,
+   "lng": 127.4657532134,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-010",
+   "mgmt_no": "331-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광성철물 주변",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 296-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "061-780-2368",
+   "lat": 35.20809786,
+   "lng": 127.4671762,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-011",
+   "mgmt_no": "331-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구 선관위부지 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 218-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "061-780-2368",
+   "lat": 35.20841877,
+   "lng": 127.463958,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-012",
+   "mgmt_no": "331-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구례여중 앞",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 111-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "061-780-2368",
+   "lat": 35.2064277,
+   "lng": 127.4639404,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-013",
+   "mgmt_no": "331-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구례읍 북초등학교 인근 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 485",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-780-2368",
+   "lat": 35.209874,
+   "lng": 127.461664,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-014",
+   "mgmt_no": "331-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉동2구마을회관주변",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 481-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "061-780-2368",
+   "lat": 35.20963823,
+   "lng": 127.4628179445,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-015",
+   "mgmt_no": "331-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉동회관 옆",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 364-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "061-780-2368",
+   "lat": 35.20918753,
+   "lng": 127.4671434,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-016",
+   "mgmt_no": "331-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉북마을 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉북리 595-39",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "061-780-2368",
+   "lat": 35.215666,
+   "lng": 127.4672285703,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-017",
+   "mgmt_no": "331-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉북수퍼 주변",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉북리 117-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "061-780-2368",
+   "lat": 35.21151301,
+   "lng": 127.4636167,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-018",
+   "mgmt_no": "331-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북초 동백관옆4거리",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 531-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "061-780-2368",
+   "lat": 35.20916088,
+   "lng": 127.459996,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-019",
+   "mgmt_no": "331-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼우아파트 옆",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 494-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "061-780-2368",
+   "lat": 35.21048,
+   "lng": 127.4586951,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-020",
+   "mgmt_no": "331-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상설시장 주변 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 309-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-780-2368",
+   "lat": 35.210081,
+   "lng": 127.4647837765,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-021",
+   "mgmt_no": "331-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "새마을금고 인근 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 317",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-780-2368",
+   "lat": 35.2082890784,
+   "lng": 127.4659051346,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-022",
+   "mgmt_no": "331-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "섬진강 힐링생태탐방로 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉서리 584",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "061-780-2368",
+   "lat": 35.18736794,
+   "lng": 127.4640281,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-023",
+   "mgmt_no": "331-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여성회관 옆",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 298-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-780-2368",
+   "lat": 35.20978578,
+   "lng": 127.4634814,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-024",
+   "mgmt_no": "331-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인정수퍼 주변",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉북리 77-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-780-2368",
+   "lat": 35.21132188,
+   "lng": 127.4650486,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-025",
+   "mgmt_no": "331-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "자주식 주차타워",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉북리 1441-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 99,
+   "tel": "061-780-2368",
+   "lat": 35.2155714,
+   "lng": 127.4643653,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "조례 별표 1의 1급지(읍소재지) 소형 요금으로 계산합니다 — 30분마다 400원, 1일 5,000원(표준데이터에 시간제 금액이 등록돼 있지 않습니다)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 400,
+    "unit_min": 30,
+    "unit_fee": 400,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "조례 별표 1의 1급지(읍소재지) 소형",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드및 이체",
+    "std": {
+     "base_min": 4,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": 50000
+    },
+    "basis": "「구례군 주차장 조례」 별표 1의 1급지(읍소재지) 소형 요금 — 30분마다 400원, 1일 5,000원. 표준데이터에는 시간제 금액이 등록돼 있지 않아 조례 별표로 계산했다. 월정기권은 등록값 50,000원(조례 1급지 소형 야간 월정기와 같은 금액)이다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 400,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-026",
+   "mgmt_no": "331-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙로 주차장",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 393-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "061-780-2368",
+   "lat": 35.21063862,
+   "lng": 127.4674008,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-027",
+   "mgmt_no": "331-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진산연립 옆",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 12-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "061-780-2368",
+   "lat": 35.205585887,
+   "lng": 127.4677369,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-028",
+   "mgmt_no": "331-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천주교회 뒤",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉동리 534-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "061-780-2368",
+   "lat": 35.20856041,
+   "lng": 127.4613121,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-029",
+   "mgmt_no": "331-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화식당",
+   "gu": "구례군",
+   "dong": "구례읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 구례읍 봉남리 315-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-780-2368",
+   "lat": 35.20845537,
+   "lng": 127.466166,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-030",
+   "mgmt_no": "331-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사성암 주차장",
+   "gu": "구례군",
+   "dong": "문척면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 문척면 죽마리 417-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 136,
+   "tel": "061-780-2368",
+   "lat": 35.18236061,
+   "lng": 127.4698185,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-031",
+   "mgmt_no": "331-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽연마을 주차장",
+   "gu": "구례군",
+   "dong": "문척면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 문척면 죽마리 420-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "061-780-2368",
+   "lat": 35.189890289,
+   "lng": 127.4730099614,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  },
+  {
+   "id": "jn-gurye-032",
+   "mgmt_no": "331-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산동면사무소 옆",
+   "gu": "구례군",
+   "dong": "산동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 구례군 산동면 원촌리 188",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "061-780-2368",
+   "lat": 35.31559164,
+   "lng": 127.4397317,
+   "base_date": "2026-08-06",
+   "manager": "전남광주통합특별시 구례군",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 주차요금을 별표 1로 정하되 단서로 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 이 곳은 군이 무료로 개방해 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "구례군",
+   "city_slug": "gurye",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 22:19",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 33,
+  "원자료_구례군행수": 33,
+  "원자료_받은행수": 33,
+  "구별": {
+   "구례군": 32
+  },
+  "민영_제외": 0,
+  "제외_행수": 1,
+  "제외_행": [
+   {
+    "name": "토지면 신촌마을 주차장",
+    "reason": "주차구획수 없음(0으로 등록)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 32,
+  "노외_부설": {
+   "노외": 32
+  },
+  "노상_구간": 0,
+  "총_구획수": 1276,
+  "노상_구획수": 0,
+  "동별": {
+   "구례읍": 29,
+   "문척면": 2,
+   "산동면": 1
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 32
+  },
+  "요금구분": {
+   "무료": 31,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 53건 있다 — 구례읍 북초등학교 인근 주차장·봉동2구마을회관주변(107m), 구례읍 북초등학교 인근 주차장·천주교회 뒤(149m), 구례읍 북초등학교 인근 주차장·북초 동백관옆4거리(170m), 구례읍 북초등학교 인근 주차장·여성회관 옆(164m), 구 선관위부지 주차장·상설시장 주변 주차장(199m), 구 선관위부지 주차장·새마을금고 인근 주차장(176m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 33행은 전부 공영(노외 33곳)이고 데이터기준일자는 전부 2026-08-06이다. 관리기관·제공기관 표기는 33곳 전부 '전남광주통합특별시 구례군'인 단일 스냅숏이다",
+   "구획수가 0으로 등록된 토지면 신촌마을 주차장(토지면 내서리 371) 1곳은 싣지 않았다 — 면수가 0인 등록은 실제로 쓸 수 있는 주차면이 확인되지 않아 제외했고, 실제로 운영 중인 무료 주차장인지는 군청 확인 과제다",
+   "전화번호는 33곳 전부 '061-780-2368'로 등록돼 있다 — 조례 표기 담당(구례군청 안전교통과 061-780-2365)과는 다른 번호이나 관리기관 대표번호로 보여 등록값을 그대로 실었다",
+   "등록 32곳의 읍·면 분포는 구례읍 29곳·문척면 2곳·산동면 1곳이다 — 간전면·마산면·광의면·용방면에는 표준데이터에 등록된 공영주차장이 없고, 토지면은 구획수 0으로 제외된 1곳뿐이다",
+   "좌표는 33곳 전부 등록돼 있고 포함 32곳 전부 구례군 범위 안이라 지오코딩 보완이 없다 — 오버레이(좌표누락_지오코딩_20261118.json)는 변경하지 않았다",
+   "도로명주소는 33곳 전부 등록이 없어 지번주소만 실었다(품질 기록의 도로명주소_없음에 전수 기록)",
+   "운영시간은 33곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 평일+토요일+공휴일이다. 부제시행구분은 33곳 전부 '미시행', 급지구분은 전부 '3', 특기사항은 전부 공란이고 결제방법은 유료 1곳(자주식 주차타워)의 '카드및 이체'만 등록돼 있다. 장애인전용주차구역 보유여부는 포함 32곳 기준 Y 26곳·N 6곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "자주식 주차타워: '유료'로 등록돼 있으나 시간제 금액(기본요금·추가요금·1일요금)이 전부 공란이고 주차기본시간만 '4'로 등록돼 있어 등록값만으로는 요금을 계산할 수 없다 — 구례읍은 조례 별표 1 비고 1의 '읍소재지'라 1급지에 해당하므로 계산기는 조례 별표 1의 1급지 소형 구조(30분마다 400원·1일 5,000원)로 적용했다(여수 선례 — 등록 금액이 공란이면 조례 별표 적용). 월정기권은 등록값 50000원을 그대로 실었는데 조례 1급지 소형 월정기는 주간 60,000원·야간 50,000원이라 등록값이 야간 금액과 같다. 등록 급지 '3'은 조례의 급지 체계(1급지·2급지)에 없는 값이다 — 실제 징수 요금과 급지 지정은 군청 확인 과제다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "(구)건강정육점",
+   "(구)봉남쌀집",
+   "(구)풍년식당",
+   "(구)한성제재소",
+   "5일시장 인근 주차장",
+   "5일시장 인근 주차장(2지구)",
+   "5일시장 인근 주차장(3지구)",
+   "5일시장 주변 주차장",
+   "공공도서관 인근 주차장",
+   "광성철물 주변",
+   "구 선관위부지 주차장",
+   "구례여중 앞",
+   "구례읍 북초등학교 인근 주차장",
+   "봉동2구마을회관주변",
+   "봉동회관 옆",
+   "봉북마을 주차장",
+   "봉북수퍼 주변",
+   "북초 동백관옆4거리",
+   "삼우아파트 옆",
+   "상설시장 주변 주차장",
+   "새마을금고 인근 주차장",
+   "섬진강 힐링생태탐방로 주차장",
+   "여성회관 옆",
+   "인정수퍼 주변",
+   "자주식 주차타워",
+   "중앙로 주차장",
+   "진산연립 옆",
+   "천주교회 뒤",
+   "평화식당",
+   "사성암 주차장",
+   "죽연마을 주차장",
+   "산동면사무소 옆"
+  ],
+  "감면_출처": "「구례군 주차장 조례」 제2637호 — 면제(제4조제2항, 면제할 수 있다): 긴급자동차(제1호), 국가 또는 지방자치단체 소유의 공무용 자동차(제2호), 군수가 특별한 사유가 있다고 인정하는 차량(제3호). 50% 경감(별표 1 비고 6, 2목 이상 해당 시 1목만 적용): 장애인 수첩을 소지한 자가 직접 사용하는 장애인 자가운전차량(가목), 국가유공자가 직접 사용하는 보철용 차량(나목), 배기량 1000cc미만의 경형자동차(다목), 환경친화적 자동차(라목). 본문 원문(data/raw/gurye-ordinance.txt)·별표 원문(data/raw/gurye-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제4조제1항·별표 1 — 군수가 설치한 공영주차장의 주차요금은 별표 1과 같다(단서: 군수는 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다). 별표 1은 급지(1급지 읍·면소재지·국립공원지구·온천지구, 2급지 그 밖의 지역)×차종 요금표로 1회 주차요금은 30분마다 1급지 소형 400원·대형 600원, 2급지 소형 400원·대형 500원, 1일 주차요금은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 2,400원·대형 3,000원, 월정기는 주간 1급지 소형 60,000원·대형 75,000원, 2급지 소형 30,000원·대형 35,000원, 야간 1급지 소형 50,000원·대형 55,000원, 2급지 소형 24,000원·대형 28,000원이다. 표준데이터 등록 32곳 중 31곳이 무료라 별표 1은 참고표를 겸하고, 유료 1곳(자주식 주차타워)은 등록 시간제 금액이 공란이라 1급지 소형으로 계산한다",
+  "급지_출처": "조례 별표 1 비고 1 — 급지구분은 읍·면소재지·국립공원지구·온천지구를 1급지로, 그 밖의 지역을 2급지로 구분하되 주차장의 실태 및 주차 수요, 토지등급 등을 참작하여 세분하여 지정할 수 있다. 표준데이터 등록 급지는 32곳 전부 '3'으로 조례 체계에 없는 값이라 무료 31곳은 급지_요금_차이에 남기지 않고, 유료 1곳의 처리만 급지_요금_차이에 기록했다",
+  "무료요일_출처": "등록 31곳은 요금 구분 '무료'로 요일과 관계없이 무료다 — 조례 제4조제1항 단서는 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정한다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 구례군 등록 33행이 전부 공영(노외 33곳)이라 민영 제외는 0건이고, 구획수가 0으로 등록된 토지면 신촌마을 주차장 1곳을 제외해 32곳(전부 노외, 총 1,276면)을 실었다. 중복 제거 0건이다. 읍·면별로는 구례읍 29곳·문척면 2곳·산동면 1곳이고, 간전면·마산면·광의면·용방면에는 등록이 없으며 토지면은 제외된 1곳뿐이다 — 토지면 신촌마을 주차장이 실제로 운영 중인지는 군청 확인 과제다",
+   "「구례군 주차장 조례」 제2637호(표제 시행 2025-03-13, 공포 2025-03-13, 일부개정, ordinSeq 2022261) 본문 원문(data/raw/gurye-ordinance.txt) 대조 완료(2026-11-20) — 연혁의 부칙(제2637호, 2025. 3. 13.)은 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같고, law.go.kr 검색 결과 5건은 전부 이 조례의 연혁본(직전 공포본 제2280호, 공포 2019-02-12)이라 요금 조례의 최신 시행본은 제2637호가 맞다",
+   "별표 1은 HWP 원본(flSeq 159339733)을 data/raw/gurye-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 레코드 직접 파싱으로 교차 확인해 확정했다 — 급지(1급지·2급지)×차종 요금표로 1회 주차요금은 30분마다 1급지 소형 400원·대형 600원, 2급지 소형 400원·대형 500원, 1일 주차요금은 1급지 소형 5,000원·대형 6,000원, 2급지 소형 2,400원·대형 3,000원, 월정기는 주간 1급지 소형 60,000원·대형 75,000원, 2급지 소형 30,000원·대형 35,000원, 야간 1급지 소형 50,000원·대형 55,000원, 2급지 소형 24,000원·대형 28,000원이다. 본문 제4조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+   "등록 32곳 중 31곳이 '무료'라 조례 별표 1 요금표는 참고표를 겸해 싣는다 — 조례 제4조제1항 단서가 군수가 필요하다고 인정하는 경우 무료로 개방하여 운영할 수 있다고 정해 무료 운영의 조례상 근거가 된다",
+   "유료 1곳(자주식 주차타워, 구례읍 봉북리 1441-1, 99면)은 시간제 금액(기본요금·추가요금·1일요금)이 전부 공란이고 주차기본시간만 '4'로, 월정기권만 50,000원으로 등록돼 있어 등록값만으로는 요금을 계산할 수 없다 — 구례읍은 별표 1 비고 1의 '읍소재지'라 1급지에 해당하므로 계산기는 조례 별표 1의 1급지 소형 구조(30분마다 400원·1일 5,000원)로 적용했고(여수 선례), 월정기권은 등록값 50,000원을 그대로 실었다(조례 1급지 소형 야간 월정기와 같은 금액). 등록 급지 '3'은 조례 체계(1급지·2급지)에 없는 값이다 — 실제 징수 요금과 급지 지정은 군청 확인 과제다",
+   "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 지번주소는 33행 전부 '전남광주통합특별시 구례군' 표기이고 관리기관명·제공기관명도 전부 '전남광주통합특별시 구례군'인 단일 스냅숏이며, 같은 이름+같은 자리의 재등록 쌍과 같은 지번의 다른 이름 쌍이 모두 0건이다(광양 선례 대조)",
+   "좌표는 33행 전부 등록돼 있고 포함 32곳 전부 구례군 범위 안이라 결측 보완이 없다 — 오버레이(좌표누락_지오코딩_20261118.json)는 변경하지 않았다",
+   "전화번호는 33행 전부 '061-780-2368'로 등록돼 있다 — 조례 표기 담당(구례군청 안전교통과 061-780-2365)과는 다른 번호이나 관리기관 대표번호로 보여 등록값을 그대로 실었다. 운영시간은 33행 전부 00:00~23:59(24시간)이고 운영요일은 전부 평일+토요일+공휴일, 부제시행구분은 전부 '미시행', 특기사항은 전부 공란, 결제방법은 유료 1곳(자주식 주차타워)의 '카드및 이체'만 등록돼 있다. 장애인전용주차구역 보유여부는 포함 32곳 기준 Y 26곳·N 6곳이다. 데이터기준일자는 33행 전부 2026-08-06이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 31,
+  "무료_구획수": 1177,
+  "평균_기본요금": 400,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-08-06"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 구례군": 32
+  }
+ },
+ "fee_table": {
+  "style": "gurye_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「구례군 주차장 조례」 제2637호(시행 2025-03-13, 일부개정), ordinSeq 2022261. 본문 사본 data/raw/gurye-ordinance.txt. 별표 1(공영주차장요금표)은 HWP 원본을 data/raw/gurye-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 레코드 직접 파싱으로 교차 확인해 data/raw/gurye-ordinance-b1.txt로 확정했다. 본문 제4조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다.",
+  "rows": [
+   {
+    "label": "1급지 (읍·면소재지·국립공원·온천지구) 소형",
+    "grade": "g1_small",
+    "unit_label": "30분마다 400원 · 1일 5,000원 · 월정기 주간 60,000원·야간 50,000원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 5000,
+    "month": 60000,
+    "month_night": 50000,
+    "lots": 1
+   },
+   {
+    "label": "1급지 (읍·면소재지·국립공원·온천지구) 대형",
+    "grade": "g1_large",
+    "unit_label": "30분마다 600원 · 1일 6,000원 · 월정기 주간 75,000원·야간 55,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 75000,
+    "month_night": 55000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (그 밖의 지역) 소형",
+    "grade": "g2_small",
+    "unit_label": "30분마다 400원 · 1일 2,400원 · 월정기 주간 30,000원·야간 24,000원",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 2400,
+    "month": 30000,
+    "month_night": 24000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (그 밖의 지역) 대형",
+    "grade": "g2_large",
+    "unit_label": "30분마다 500원 · 1일 3,000원 · 월정기 주간 35,000원·야간 28,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 3000,
+    "month": 35000,
+    "month_night": 28000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "street_paid": 0,
+   "free": 31,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:30, 나머지는 야간",
+    "free": "별표 1 월정기 주간·야간 금액의 구분 기준이다 — 유료 1곳(자주식 주차타워)의 등록 월정기 50,000원은 야간 금액과 같다"
+   }
+  ],
+  "notes": "급지구분은 읍·면소재지·국립공원지구·온천지구를 1급지로, 그 밖의 지역을 2급지로 구분하되 주차장의 실태 및 주차 수요, 토지등급 등을 참작하여 세분하여 지정할 수 있다(별표 1 비고 1). 표준데이터 등록 급지는 32곳 전부 '3'인데 조례의 급지 체계(1급지·2급지)에는 없는 값이라, 무료 31곳은 영향이 없고 유료 1곳(자주식 주차타워)은 구례읍이 읍소재지인 점을 근거로 1급지 소형으로 계산했다(군청 확인 과제). 차량구분은 승용차, 16인승 미만 승합자동차, 2.5톤 미만 화물자동차를 소형으로 보며 그 이외 차량은 대형으로 본다(비고 3). 1일 주차권 및 월정기 주차권제는 노외주차장에 한하여 적용한다(비고 7). 면제는 긴급자동차·국가/지자체 공무용 자동차·군수가 특별한 사유가 있다고 인정하는 차량(조례 제4조제2항), 50% 경감은 장애인 자가운전차량·국가유공자 보철용 차량·경형자동차·환경친화적 자동차(별표 1 비고 6, 2목 이상 해당 시 1목만 적용)이다.",
+  "basis": "요금표는 「구례군 주차장 조례」 제2637호(시행 2025-03-13) 제4조·별표 1과 표준데이터(기준일 2026-08-06)를 대조해 실었다. 등록된 32곳 중 31곳이 '무료'라 별표 1은 조례 기준 요금의 참고표를 겸하고, 유료 1곳(자주식 주차타워)은 1급지 소형 행으로 계산한다. (조례 본문: data/raw/gurye-ordinance.txt, 별표 원문: data/raw/gurye-ordinance-b1.txt)"
+ },
+ "slug": "gurye",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "구례군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제1호 — 「도로교통법」에 따른 긴급자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가·지방자치단체 공무용 자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제2호 — 국가 또는 지방자치단체 소유의 공무용 자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "군수가 특별한 사유가 있다고 인정하는 차량 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항제3호 — 군수가 특별한 사유가 있다고 인정하는 차량은 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "장애인 자가운전차량 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6가목 — 「장애인복지법」에 의한 장애인 수첩을 소지한 자가 직접 사용하는 장애인 자가운전차량은 주차요금의 50%를 경감한다(2목 이상 해당 시 1목만 적용)"
+  },
+  {
+   "label": "국가유공자 보철용 차량 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6나목 — 「국가유공자 등 예우 및 지원에 관한 법률」에 의한 국가유공자가 직접 사용하는 보철용 차량은 주차요금의 50%를 경감한다(2목 이상 해당 시 1목만 적용)"
+  },
+  {
+   "label": "경형자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6다목 — 「자동차관리법 시행규칙」 제2조 별표 1에 의한 배기량 1000cc미만의 경형자동차는 주차요금의 50%를 경감한다(2목 이상 해당 시 1목만 적용)"
+  },
+  {
+   "label": "환경친화적 자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6라목 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금의 50%를 경감한다(2목 이상 해당 시 1목만 적용)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

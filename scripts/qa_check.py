@@ -724,6 +724,115 @@ for _slug in ("jung-gu", "seo-gu", "dong-gu", "yeongdo-gu", "busanjin-gu", "dong
               "suyeong-gu", "sasang-gu", "gijang-gun"):
     MIX[_slug] = _busan_outside
 
+# 나주시 — MIX에 없던 도시라 동 페이지 슬러그 ‘seongbuk-dong’이 서울 성북구 키
+#   ‘seongbuk’와 앞부분이 겹쳐 엉뚱한 기준을 대던 것을 막는다(부산 gangseo와 같은 부류).
+#   나주의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는 나주 페이지에 정당하게 나오므로
+#   금지 토큰에서 뺀다(‘광주시’는 그대로 둬 경기 광주 자료 혼입은 계속 잡는다).
+MIX["naju"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 영암군 — 나주와 같은 부류. 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는 영암
+#   페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둔다).
+MIX["yeongam"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+# 해남군 — 나주와 같은 부류. 해남의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   해남 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["haenam"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 고흥군 — 나주·영암과 같은 부류. 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   고흥 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둔다).
+MIX["goheung"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 보성군 — 나주와 같은 부류. 보성의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   보성 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["boseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 화순군 — 나주와 같은 부류. 화순의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   화순 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다). 조례 별표 1 비고 5의
+#   ‘광주민주화운동부상자’ 표기도 화순 페이지에 정당하게 나온다.
+MIX["hwasun"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 장흥군 — 나주와 같은 부류. 장흥의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   장흥 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["jangheung"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 강진군 — 나주와 같은 부류. 강진의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   강진 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["gangjin"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 함평군 — 나주와 같은 부류. 함평의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   함평 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["hampyeong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 금산군 — 충남 도시(부여·태안 등)는 MIX 항목이 없었으나 과제 지시로 추가한다.
+#   금산 페이지에 정당하게 나오는 다른 지역 이름은 없어 전 토큰을 그대로 쓴다.
+MIX["geumsan"] = tuple(sorted(_all_mix_tokens))
+
+# 영광군 — 나주와 같은 부류. 영광의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   영광 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다). 조례 제4조제7호의 ‘5·18민주유공자’
+#   표기도 영광 페이지에 정당하게 나온다.
+MIX["yeonggwang"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 장성군 — 나주·함평과 같은 부류. 장성의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   장성 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["jangseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 완도군 — 나주와 같은 부류. 완도의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   완도 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다). 조례 제5조의 ‘5·18민주유공자’
+#   표기도 완도 페이지에 정당하게 나온다.
+MIX["wando"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 진도군 — 나주·장성과 같은 부류. 진도의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   진도 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다).
+MIX["jindo"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 신안군 — 나주·진도와 같은 부류. 신안의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   신안 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다). 조례 제4조의2의 ‘5·18민주유공자’
+#   표기도 신안 페이지에 정당하게 나온다.
+MIX["sinan"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 구례군 — 나주·진도·신안과 같은 부류. 구례의 도 이름 ‘전남광주통합특별시’에 든
+#   ‘광주’는 구례 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는
+#   그대로 둬 경기 광주 자료 혼입은 계속 잡는다).
+MIX["gurye"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 곡성군 — 나주·진도·신안·구례와 같은 부류. 곡성의 도 이름 ‘전남광주통합특별시’에 든
+#   ‘광주’는 곡성 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는
+#   그대로 둬 경기 광주 자료 혼입은 계속 잡는다). 조례 제3조제3항의
+#   ‘5·18민주유공자’ 표기도 곡성 페이지에 정당하게 나온다.
+MIX["gokseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 담양군 — 나주·진도·신안·구례·곡성과 같은 부류. 담양의 도 이름 ‘전남광주통합특별시’에 든
+#   ‘광주’는 담양 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는
+#   그대로 둬 경기 광주 자료 혼입은 계속 잡는다).
+MIX["damyang"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
+# 창원시 — 경상남도 첫 도시. 도 이름에 '광주'가 없어 전 토큰을 그대로 쓴다
+#   (금산 선례). 창원 페이지에 정당하게 나오는 다른 지역 이름은 없다.
+MIX["changwon"] = tuple(sorted(_all_mix_tokens))
+MIX["jinju"] = tuple(sorted(_all_mix_tokens))
+MIX["tongyeong"] = tuple(sorted(_all_mix_tokens))
+MIX["sacheon"] = tuple(sorted(_all_mix_tokens))
+
+# 김해시 — 창원·진주·통영·사천과 같은 부류. 도 이름에 '광주'가 없어
+#   전 토큰을 그대로 쓴다. 김해 페이지에 정당하게 나오는 다른 지역
+#   이름은 없다.
+MIX["gimhae"] = tuple(sorted(_all_mix_tokens))
+
+# 밀양시 — 창원·진주·통영·사천·김해와 같은 부류. 도 이름에 '광주'가 없어
+#   전 토큰을 그대로 쓴다. 밀양 페이지에 정당하게 나오는 다른 지역
+#   이름은 없다.
+MIX["miryang"] = tuple(sorted(_all_mix_tokens))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
@@ -735,7 +844,17 @@ _MIX_ADDRS = {k: [a for a in _ALL_ADDRS if len(a) > 4 and any(b in a for b in v)
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     _hits = [k for k in MIX if f"/{k}/" in f"/{rel}"]
-    city_key = max(_hits, key=len) if _hits else next((k for k in MIX if f"/{k}" in rel), None)
+    # 폴백은 경로 조각 경계에서만 본다 — '/jung'(서울 중구)이 광양시 'jung-dong'
+    #   (중동) 페이지에 부분 일치해 엉뚱한 기준을 대는 것을 막는다(부산 gangseo 선례).
+    def _seg_hit(k):
+        i = rel.find("/" + k)
+        while i != -1:
+            j = i + len(k) + 1
+            if j >= len(rel) or rel[j] in "/.":
+                return True
+            i = rel.find("/" + k, i + 1)
+        return False
+    city_key = max(_hits, key=len) if _hits else next((k for k in MIX if _seg_hit(k)), None)
     if not city_key:
         continue
     html = p.read_text()
