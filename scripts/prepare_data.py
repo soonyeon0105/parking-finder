@@ -325,7 +325,10 @@ def derive_free_fields(lot):
     # 공휴일 태그를 붙이지 않는다.
     # 산청군도 마찬가지다 — 조례에 요일별·공휴일 일괄 면제 조항이 없고 특기사항도
     # 전부 비어 있어 공휴일 태그를 붙이지 않는다.
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군")):
+    # 거창군도 마찬가지다 — 조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일
+    # 무료 근거가 없고 특기사항도 중앙교 구간 1건의 평일 운영시간 외 무료뿐이라
+    # 공휴일 태그를 붙이지 않는다.
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "거창군")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -73484,6 +73487,626 @@ def build_sancheong():
     (DATA / "sancheong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
 
+
+
+# ── 거창군 (경상남도) ──────────────────────────────────────────
+# 「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31)
+#   제3조제1항은 공영주차장 주차요금을 별표 1로 정하되, 군청사
+#   부설주차장의 주차요금은 군수가 따로 규정으로 정한다(단서).
+#   별표 1은 급지 구분 없이 공영주차장 공통으로 최초 30분
+#   500원, 이후 10분마다 200원, 1일 5,000원, 월 정기주차권
+#   50,000원이고, 주차시간이 30분 미만이면 최초 30분으로 보며
+#   (비고 1), 노상주차장에 한정해 5분 이하로 주차하거나
+#   정차하는 경우 요금을 면제한다(비고 2). 별표 원문(HWP,
+#   flSeq 160339077)을 국가법령정보센터에서 받아 텍스트를
+#   추출해 대조했다(data/raw/geochang-ordinance-b1.txt).
+# 표준데이터 거창군 등록 74행 중 공영 71행(노외 49·노상 22,
+#   총 3,740면)을 싣고 민영 3행(중앙유료·로타리유료·고센시티,
+#   전부 거창읍 중앙리)을 제외한다 — 인스팅트 앞단 패키지
+#   (2026-11-20) 집계와 일치한다. 무료 66·유료 5이고, 유료
+#   5곳의 처리는 인스팅트 패키지 판단안을 따른다 — 중앙교~
+#   북부주유소 사거리 구간은 등록값이 별표 1과 일치해 등록값
+#   으로 계산하고, 거창읍 거점·재래시장 2곳은 추가 단위요금이
+#   비어 있어 별표 1의 단위(10분당 200원)를 적용해 계산하며
+#   (등록 가산이 불완전하면 조례로 계산하는 논산·부여·하동
+#   선례 — 실제 부과 단위는 현장 확인 과제), 위천 수승대와
+#   금원산자연휴양림은 별표와 다른 등록값을 그대로 유지하고
+#   일반 요금으로 덮어쓰지 않는다(시설별 요금표 확인 과제).
+# 감면은 제9조 원문을 확인했다 — 면제 5종(제1항)과 50%
+#   감경 8종(제2항)이고 경형자동차는 60%가 아닌 50% 감경이다.
+GEOCHANG_PROVINCE = "경상남도"
+GEOCHANG_PROVINCE_SLUG = "gyeongnam"
+GEOCHANG_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                    "ordinSeq=2103757&ordinId=2023361&gubun=ELIS")
+GEOCHANG_ORD_TXT = RAW / "geochang-ordinance-b1.txt"
+GEOCHANG_ORD_NOTE = ("「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31) "
+                     "제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 2103757에서 확인")
+
+GEOCHANG_DISCOUNTS = [
+    {"label": "긴급자동차·공용차량 등 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제9조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량"},
+    {"label": "국가유공자·참전유공자 자가운전 자동차 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제9조제1항제4호 — 국가유공자·참전유공자 적용대상자의 자가운전 자동차"},
+    {"label": "성실납세 표창 차량 면제 (스티커 교부 1년 이내)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제9조제1항제3호 — 모범납세 표창을 받은 자의 소유차량으로 성실납세 스티커를 부착한 차량. 다만 스티커 교부일부터 1년이 경과하지 않은 차량에 한정한다"},
+    {"label": "장기·인체조직 기증자 등 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제9조제1항제5호 — 「거창군 장기등 및 인체조직 기증 장려에 관한 조례」 제6조에 따른 기증자 및 기증희망자 본인 소유의 비영업용 승용자동차"},
+    {"label": "장애인·경형자동차·환경친화적 자동차 등 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제9조제2항 — 장애인 자가운전 자동차 및 장애인을 동반한 승용자동차, 승용차 10부제 참여를 위해 1일 회수권을 이용하는 자동차, 배기량 1,000시시 미만 경형자동차, 환경친화적 자동차(전기자동차는 충전 목적으로 충전시설에 주차하는 경우 면제), 경남i다누리카드 소지자, 병역명문가증 소지자, 임산부가 직접 운전하거나 동승한 차량, 「거창군 자원봉사활동 지원 조례」 제6조제2항에 해당하는 사람의 자동차"},
+]
+
+GEOCHANG_CONF = {
+    "city": "거창군",
+    "slug": "geochang",
+    "manager": "경상남도 거창군",
+    "manager_inquiry": "거창군청(055-940-3380, 표준데이터 등록 전화번호)",
+    "ordinance": ("거창군 주차장 설치 및 관리 조례", GEOCHANG_ORD_URL, GEOCHANG_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 거창군 공영주차장 71곳(노외 49곳·노상 22구간, 총 3,740면)입니다. "
+        "요금 구분은 무료 66곳·유료 5곳입니다. 유료 5곳 중 중앙교~북부주유소 사거리 구간은 "
+        "등록 요금이 조례 별표 1(최초 30분 500원·이후 10분마다 200원·1일 5,000원·월 "
+        "50,000원)과 일치해 등록값으로 계산하고, 거창읍 거점·재래시장 2곳은 추가 단위요금이 "
+        "비어 있어 별표 1의 단위를 적용해 계산합니다. 위천 수승대는 등록 요금(최초 30분 "
+        "1,000원·이후 10분마다 400원)으로, 금원산자연휴양림은 등록된 1일 3,000원 정액으로 "
+        "계산합니다."),
+    "discounts": GEOCHANG_DISCOUNTS,
+}
+
+GEOCHANG_BBOX = (35.50, 35.82, 127.66, 128.10)
+GEOCHANG_DONGS = {"거창읍", "주상면", "웅양면", "고제면", "북상면", "위천면",
+                  "마리면", "남상면", "남하면", "신원면", "가북면", "가조면"}
+
+
+def geochang_dong_of(addr):
+    """거창군 법정 읍·면 판정 — 지번주소의 거창군 다음 토큰이
+    읍·면이다. 거제·고성·하동과 같은 정규식을 쓴다."""
+    if addr:
+        m = re.search(r"거창군\s*([가-힣0-9]+?(?:읍|면))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def geochang_fee(row, name, note_bits, fee_diff):
+    """거창군 공영주차장 한 곳의 요금 — 무료 66곳은 무료로
+    싣는다. 유료 5곳은 인스팅트 패키지 판단안대로 나눈다.
+    중앙교~북부주유소 사거리 주차장(노상)은 등록값(기본 30분
+    500원·추가 10분 200원·1일 5,000원·월 50,000원)이 조례
+    별표 1과 일치해 등록값으로 계산하고, 별표 1 비고 2의
+    노상 5분 이하 면제를 free_min=5로 구현한다. 거창읍 거점·
+    재래시장 2곳은 기본 30분 500원·1일 5,000원·월 50,000원만
+    있고 추가 단위요금이 비어 있어, 계산에는 별표 1의 단위
+    (10분당 200원)를 적용한다(등록 가산이 불완전하면 조례로
+    계산하는 논산·부여·하동 선례 — 실제 부과 단위는 현장
+    확인 과제다). 위천 수승대는 별표와 다른 등록값(기본 30분
+    1,000원·추가 10분 400원)을 그대로 유지하고, 금원산자연
+    휴양림은 등록 기본요금(1,440분 3,000원)을 1일 정액으로
+    읽어 그대로 싣는다 — 둘 다 시설별 요금표를 먼저 확인하고
+    일반 별표로 덮어쓰지 않는다는 판단안이다. 등록값은 std에
+    그대로 남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if name == "중앙교~북부주유소 사거리 주차장":
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 500,
+                    "unit_min": 10, "unit_fee": 200,
+                    "daily_fee": 5000, "daily_hours": 24,
+                    "monthly": 50000,
+                    "free_min": 5,
+                    "basis": ("등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 "
+                              "50,000원)이 조례 별표 1과 일치해 등록값으로 계산한다. 노상"
+                              "주차장이라 별표 1 비고 2에 따라 5분 이하 주차·정차는 면제다")})
+        note_bits.append("특기사항에 ‘평일 운영시간 외 무료’가 등록돼 있어 평일 "
+                         "09:00~18:00 외의 시간은 무료로 운영됩니다(이 구간에만 적용)")
+        return fee
+    if name in ("거창읍 거점 공영주차장", "재래시장 주차장"):
+        fee_diff.append(f"{name}: 등록값은 기본 30분 500원·1일 5,000원·월 50,000원만 있고 "
+                        "추가 단위요금이 비어 있다 — 계산에는 조례 별표 1의 단위(10분마다 "
+                        "200원)를 적용했고, 실제 부과 단위는 현장 확인 과제다(인스팅트 "
+                        "패키지 판단안: 공란 2곳 추가요금은 현장 확인 후 보완)")
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 500,
+                    "unit_min": 10, "unit_fee": 200,
+                    "daily_fee": day if day else None,
+                    "daily_hours": None,
+                    "monthly": month if month else None,
+                    "basis": ("등록된 기본요금(30분 500원)·1일 주차권(5,000원)·월 정기권"
+                              "(50,000원)으로 계산하되, 추가 단위요금이 등록에 없어 조례 "
+                              "별표 1의 10분당 200원을 적용한다 — 실제 부과 단위는 현장 "
+                              "확인이 필요하다")})
+        return fee
+    if name == "금원산자연휴양림 주차장":
+        fee_diff.append("금원산자연휴양림 주차장: 등록 기본요금이 1,440분 3,000원으로 조례 "
+                        "별표 1의 일반 요금과 달라, 등록값을 1일 정액으로 읽어 그대로 "
+                        "실었다 — 시설별 요금표(휴양림 조례 등)를 먼저 확인하고 일반 "
+                        "500/200으로 덮어쓰지 않는다는 인스팅트 패키지 판단안이다")
+        fee.update({"type": "유료", "base_min": 1440, "base_fee": 3000,
+                    "unit_min": 1440, "unit_fee": 3000,
+                    "daily_fee": 3000, "daily_hours": 24,
+                    "flat_day": True,
+                    "basis": ("등록 기본요금(1,440분 3,000원)을 1일 정액 요금으로 읽어 "
+                              "그대로 적용한다. 조례 별표 1의 일반 요금과 다른 금액이라 "
+                              "시설별 요금표 확인이 필요하다")})
+        return fee
+    if name == "위천 수승대 주차장":
+        fee_diff.append("위천 수승대 주차장: 등록 요금(기본 30분 1,000원·추가 10분 400원)이 "
+                        "조례 별표 1의 일반 요금(30분 500원·10분 200원)과 달라 등록값을 "
+                        "그대로 실었다 — 시설별 요금표를 먼저 확인하고 일반 요금으로 "
+                        "덮어쓰지 않는다는 인스팅트 패키지 판단안이다. 1일·월 정기권은 "
+                        "등록에 없다")
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 1000,
+                    "unit_min": 10, "unit_fee": 400,
+                    "daily_fee": None, "daily_hours": None,
+                    "monthly": None,
+                    "basis": ("등록 요금(기본 30분 1,000원·추가 10분마다 400원)으로 "
+                              "계산한다. 조례 별표 1의 일반 요금과 다른 금액이라 시설별 "
+                              "요금표 확인이 필요하다")})
+        return fee
+    fee_diff.append(f"{name}: 유료로 등록돼 있으나 알려진 5곳에 들지 않아 등록값을 그대로 "
+                    "실었다 — 군청 확인 과제")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours if day_hours else None,
+                "monthly": month if month else None,
+                "basis": "표준데이터 등록값을 그대로 적용했다"})
+    return fee
+
+
+def geochang_fee_table(conf, lots):
+    """요금표 — 조례 별표 1을 싣는다. 별표 1은 급지 구분 없이
+    공영주차장 공통 단가(최초 30분 500원·이후 10분마다
+    200원·1일 5,000원·월 50,000원)라 행이 하나다. 1시간
+    금액은 500+200×3=1,100원, 2시간 금액은 500+200×9=
+    2,300원이다. 별표 요금으로 계산하는 유료는 3곳(중앙교
+    구간·거점·재래시장)이고, 위천 수승대와 금원산자연휴양림은
+    등록 요금이 별표와 달라 요금표 본문이 아니라 notes에
+    참고로 싣는다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    rows = [
+        {"label": "공영주차장 (조례 별표 1)", "grade": "standard",
+         "unit_label": ("최초 30분 500원 · 이후 10분마다 200원 · "
+                        "노상 5분 이하 주차·정차 면제"),
+         "hour": 1100, "two_hour": 2300, "day": 5000,
+         "month": 50000, "lots": 3},
+    ]
+    return {
+        "style": "geochang_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1에는 급지 구분이 없고 공영주차장 전체에 같은 요금을 "
+                         "적용한다. 표준데이터 등록 급지구분은 노상 22곳 전부 '1', 노외 "
+                         "49곳 전부 '2'로 주차장 유형에 따라 갈려 있어 요금 계산에는 "
+                         "쓰지 않는다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "등록 운영시간",
+             "hours": "평일·토요일·공휴일 00:00~23:59 (68곳)",
+             "free": ("대부분의 주차장이 연중 24시간으로 등록돼 있다. 유료 5곳 중 위천 "
+                      "수승대는 09:00~18:00, 재래시장은 08:30~22:00, 중앙교~북부주유소 "
+                      "사거리 구간은 평일 09:00~18:00(토요일·공휴일은 00:00~23:59)으로 "
+                      "등록돼 있고, 중앙교 구간은 특기사항에 ‘평일 운영시간 외 무료’가 "
+                      "적혀 있다")},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("주차시간이 30분 미만이면 최초 30분으로 봅니다(별표 1 비고 1). 노상주차장은 "
+                  "5분 이하로 주차하거나 정차하면 요금이 면제됩니다(비고 2). 군청사 부설주차장의 "
+                  "요금은 조례 제3조제1항 단서에 따라 군수가 따로 규정으로 정합니다. 위천 수승대 "
+                  "주차장은 별표 1과 다른 등록 요금(최초 30분 1,000원·이후 10분마다 400원, "
+                  "1일·월 정기권 없음)으로 계산합니다 — 시설별 요금표가 따로 있는지는 확인이 "
+                  "필요합니다. 금원산자연휴양림 주차장은 등록된 기본요금(1,440분 3,000원)을 "
+                  "1일 정액으로 읽어 계산합니다. 거창읍 거점·재래시장 2곳은 추가 단위요금이 "
+                  "등록에 없어 별표 1의 10분당 200원을 적용했습니다 — 실제 부과 단위는 현장 "
+                  "확인이 필요합니다."),
+        "basis": ("요금표는 「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31) "
+                  "제3조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. "
+                  "(조례 본문: data/raw/geochang-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/geochang-ordinance-b1.hwp)"),
+    }
+
+
+def geochang_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                     space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「거창군 주차장 설치 및 관리 조례」 제3012호 제9조 — 제1항 긴급자동차·"
+                      "국가 또는 지방자치단체의 공용차량·성실납세 표창 차량(스티커 교부일부터 "
+                      "1년 이내)·국가유공자 및 참전유공자 자가운전 자동차·장기등 및 인체조직 "
+                      "기증자 및 기증희망자 본인 소유의 비영업용 승용자동차 면제, 제2항 "
+                      "장애인·승용차 10부제 참여(1일 회수권 이용)·경형자동차(배기량 1,000시시 "
+                      "미만)·환경친화적 자동차(전기자동차는 충전 목적으로 충전시설에 주차하는 "
+                      "경우 면제)·경남i다누리카드·병역명문가·임산부·자원봉사활동 지원 조례 "
+                      "제6조제2항 해당자 50% 감경. 국가법령정보센터 본문 원문(ordinSeq "
+                      "2103757)으로 확인했다"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같고 군청사 "
+                      "부설주차장의 주차요금은 군수가 따로 규정으로 정한다. 별표 1은 최초 "
+                      "30분 500원·이후 10분마다 200원·1일 5,000원·월 정기주차권 50,000원"
+                      "이고, 주차시간이 30분 미만이면 최초 30분으로 보며 노상주차장에 한정해 "
+                      "5분 이하로 주차하거나 정차하는 경우 요금을 면제한다. 별표 1 HWP 원본"
+                      "(flSeq 160339077)을 받아 텍스트를 추출해 대조했다"),
+        "급지_출처": ("조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지구분은 노상 "
+                      "22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 유형에 따라 갈려 있어 "
+                      "요금 계산에 쓰지 않았다"),
+        "무료요일_출처": ("조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료 근거가 "
+                          "없고, 특기사항은 중앙교~북부주유소 사거리 구간의 ‘평일 운영시간 "
+                          "외 무료’ 1건뿐이라 그 구간에만 적용했다(인스팅트 앞단 패키지 확인)"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 거창군 등록 74행 중 공영 71행(노외 49·노상 22, 총 3,740면)을 싣고 민영 3행(중앙유료주차장·로타리유료주차장·고센시티주차장, 전부 거창읍 중앙리 노외)을 제외했다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(2026-11-20)의 집계(공영 71곳·3,740면, 무료 66·유료 5, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+            "「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31, ordinSeq 2103757) — 제3조제1항이 공영주차장 요금을 별표 1로 정하고 군청사 부설주차장은 군수가 따로 규정으로 정한다. 별표 1은 HWP 원본(flSeq 160339077)을 받아 텍스트를 추출해 대조했고(최초 30분 500원·이후 10분마다 200원·1일 5,000원·월 정기주차권 50,000원, 비고 1·2 포함), 감면은 제9조 본문 원문으로 확인했다",
+            "유료 5곳의 계산 기준은 인스팅트 패키지 판단안을 따른다. 중앙교~북부주유소 사거리 주차장(노상 44면)은 등록값이 별표 1과 일치해 등록값으로 계산하고 노상 5분 이하 면제를 free_min=5로 구현했다. 거창읍 거점 공영주차장(노외 50면)·재래시장 주차장(노외 148면)은 기본·1일·월 값만 있고 추가 단위요금이 비어 있어, 등록 가산이 불완전하면 조례로 계산하는 논산·부여·하동 선례에 따라 별표 1의 단위(10분당 200원)를 적용했다 — 실제 부과 단위는 현장 확인 과제다(판단안: 공란 2곳 추가요금은 현장 확인 후 보완)",
+            "위천 수승대 주차장(노외 242면)은 등록 요금(기본 30분 1,000원·추가 10분 400원)이 별표 1의 일반 요금과 달라 등록값을 그대로 유지했고, 금원산자연휴양림 주차장(노외 400면)은 등록 기본요금(1,440분 3,000원)을 1일 정액으로 읽어 그대로 실었다 — 둘 다 시설별 요금표를 먼저 확인하고 일반 요금으로 덮어쓰지 않는다는 판단안이며, 시설별 조례·요금표 확인이 과제다",
+            "같은 지번·같은 좌표에 이름만 다르게 등록된 쌍이 3건 있다 — 거창읍 중앙리 342-5(제16주택가 공동주차장·충혼탑사거리~중앙교회 주차장), 상림리 74-1(경찰서옆~적십자병원앞 주차장·우체국뒤~세무서앞 주차장), 대평리 1005-39(시외버스터미널~4차선종점 주차장·중앙교~창동교 주차장). 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 거창군청 확인이 필요하다",
+            "등록 급지구분은 노상 22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 유형에 따라 갈려 있다. 조례 별표 1에는 급지 구분이 없어 계산에는 쓰지 않았다",
+            "주말·공휴일 무료는 조례 본문·별표 1 어디에도 군 전체 일괄 면제 근거가 없어 표기하지 않았다. 중앙교~북부주유소 사거리 구간의 특기사항 ‘평일 운영시간 외 무료’는 그 구간에만 적용했다 — 이 구간은 평일 09:00~18:00, 토요일·공휴일 00:00~23:59로 등록돼 있다. 중앙교 구간의 휴일 운영 공고 확인은 과제다",
+            "좌표는 71곳 전부 등록돼 있고 전부 거창군 범위(위도 35.5548~35.7702, 경도 127.7174~128.0409) 안이다. 관리기관은 거창군청 69곳·경상남도청 1곳·경남거창지역자활센터 1곳(중앙교~북부주유소 사거리 주차장)이다. 도로명주소는 52곳만 등록돼 있다. 데이터기준일자는 74행 전부 2026-04-16이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_geochang():
+    """거창군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「거창군 주차장 설치 및
+    관리 조례」 제3012호(시행 2025-12-31,
+    ordinSeq 2103757) 제3조제1항·별표 1
+    원문 대조 완료(2026-11-21, 별표 HWP
+    추출·본문 원문 기준). 표준데이터 등록
+    74행 중 공영 71행(노외 49·노상 22, 총
+    3,740면)을 싣고 민영 3행을 제외한다.
+    좌표 결측은 0곳이다."""
+    conf = GEOCHANG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all
+                if (r.get("제공기관명") or "").strip() == "경상남도 거창군"]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "거창군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 거창군은
+    #   해당 중복이 0건이다(이름이 겹치는 등록 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GEOCHANG_BBOX[0] < lat < GEOCHANG_BBOX[1]
+                                                        and GEOCHANG_BBOX[2] < lng < GEOCHANG_BBOX[3]):
+            # 거창군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 거창군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = geochang_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif geochang_dong_of(road):
+            dong = geochang_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면))", std_name)
+        if _name_head and _name_head.group(1) in GEOCHANG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = geochang_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "거창군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 거창군은 3쌍이 있다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 거창군청 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 74행 중 공영 71행을 싣고 민영 3행(중앙유료주차장 "
+                      "중앙리 101-3 28면, 로타리유료주차장 중앙리 280-1 35면, 고센시티주차장 "
+                      "중앙리 90-4 55면, 전부 거창읍 노외)을 제외했다. 데이터기준일자는 "
+                      "74행 전부 2026-04-16, 제공기관명은 전부 경상남도 거창군이다")
+    note_fixed.append("등록 급지구분은 노상 22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 "
+                      "유형에 따라 갈려 있다. 조례 별표 1에는 급지 구분이 없어 계산에 "
+                      "쓰지 않았다")
+    note_fixed.append("좌표는 71곳 전부 등록돼 있고 전부 거창군 범위 안이라 지오코딩 "
+                      "보완이 0건이다. 특기사항은 중앙교~북부주유소 사거리 주차장의 "
+                      "‘평일 운영시간 외 무료’ 1건뿐이고 나머지는 전부 비어 있다")
+    note_fixed.append("운영요일은 71곳 전부 평일+토요일+공휴일이고 부제시행구분은 전부 "
+                      "미시행이다. 평일 운영시간은 68곳이 00:00~23:59, 위천 수승대·중앙교~"
+                      "북부주유소 사거리 구간이 09:00~18:00, 재래시장이 08:30~22:00이다. "
+                      "도로명주소는 52곳만 등록돼 있다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gn-geochang-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gn-geochang-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 거창군은 좌표 결측이 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = geochang_fee_table(conf, lots)
+    quality = geochang_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                               fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"거창군으로 등록된 행 {len(rows_std)}행 중 공영 71행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 74행 전부 2026-04-16이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「거창군 주차장 설치 및 관리 조례」 제3012호(시행 "
+                 f"2025-12-31, ordinSeq 2103757) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GEOCHANG_ORD_TXT.name if GEOCHANG_ORD_TXT.exists() else None,
+            "sha256": sha256(GEOCHANG_ORD_TXT) if GEOCHANG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-12-31",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"거창군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/geochang-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/geochang-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GEOCHANG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "거창군", "slug": "geochang"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GEOCHANG_PROVINCE,
+        "province_slug": GEOCHANG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "geochang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -73496,7 +74119,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "geochang",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -73514,7 +74137,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "거창군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -73572,7 +74195,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "geochang": ["거창군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -73822,6 +74445,8 @@ def main():
         cities.append(build_hadong())
     if "산청군" in want:
         cities.append(build_sancheong())
+    if "거창군" in want:
+        cities.append(build_geochang())
 
     if args.city == "all":
         site = build_site_payload(cities)
