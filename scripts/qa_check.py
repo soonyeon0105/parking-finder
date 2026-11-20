@@ -868,6 +868,11 @@ MIX["namhae"] = tuple(sorted(_all_mix_tokens))
 #   다른 지역 이름은 없다.
 MIX["hadong"] = tuple(sorted(_all_mix_tokens))
 
+# 함양군 — 창원·진주·통영·사천·김해·밀양·거제와 같은 부류. 도 이름에
+#   '광주'가 없어 전 토큰을 그대로 쓴다. 함양 페이지에 정당하게 나오는
+#   다른 지역 이름은 없다.
+MIX["hamyang"] = tuple(sorted(_all_mix_tokens))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
