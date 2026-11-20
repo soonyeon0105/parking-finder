@@ -13151,22 +13151,24 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "gyeongju_grade":
-        # 경주시 — 공영 175곳(노외 121곳·노상 54구간, 총
-        #   10,192면)이 무료 108곳·유료 64곳·요금 미상
-        #   3곳으로 등록돼 있다. 「경주시 주차장 조례」
-        #   제1954호(시행 2026-02-25) 제3조제1항·별표 1은
-        #   급지별 요금표(1급지 동 지역, 2급지 그 밖의
-        #   지역)와 전통시장내 행을 두고, 1회 주차 총액
-        #   상한(1급지 10,000원·2급지 6,000원)과 10분
-        #   이내 무료(비고 4)를 정한다. 별표 2는 사적지
-        #   요금표다. 등록 단가가 별표 1 1급지와 같은
-        #   곳만 등록값으로 계산하고, 기본 요금이 없는
-        #   3곳은 요금 미상으로 표기한다(김해·함안 선례).
+    if ft.get("style") == "pohang_grade":
+        # 포항시 — 공영 341곳(노외 127곳·노상 213구간·
+        #   부설 1곳, 총 17,576면)이 무료 294곳·유료
+        #   46곳·혼합 1곳으로 등록돼 있다. 「포항시
+        #   주차장 설치 및 관리 조례」 제2295호(시행
+        #   2025-10-01) 제5조제1항·별표 1은 급지(1급지:
+        #   죽도시장·영일대해수욕장 인근, 2급지: 그 밖의
+        #   동 지역, 3급지: 읍·면 지역)와 차종으로 요금을
+        #   나누고, 승용·소형은 51~60분 구간만 1,200원
+        #   (3급지 600원)으로 따로 정한다. 등록 단가가
+        #   별표와 같은 22곳과 부설 혼합 1곳만 등록값으로
+        #   계산하고, 기본 요금만 등록된 24곳은 요금
+        #   미상으로 표기한다(인스팅트 패키지 판단안).
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
             f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
             f'<td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         win_rows = "".join(
@@ -13175,20 +13177,19 @@ def fee_table_block(city) -> str:
         corp = ft.get("corp") or {}
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
-<p class="lede">경주시 공영주차장 <b>175곳</b>(노외 121곳·노상 54구간, 총 10,192면)은
-무료 <b>108곳</b>·유료 <b>64곳</b>·요금 미상 <b>3곳</b>으로 등록돼 있습니다.
-「경주시 주차장 조례」 제1954호 별표 1은 <b>1급지</b>(동 지역) 최초 30분 <b>500원</b>에
-10분마다 <b>200원</b>, <b>2급지</b>(그 밖의 지역) <b>200원·100원</b>으로 정하고,
-주차시간 <b>10분 이내</b>는 무료입니다. 1회 주차 총액 상한은 1급지 <b>10,000원</b>·
-2급지 <b>6,000원</b>입니다. 아래 표의 1시간·2시간 금액은 10분 무료를 반영한
-실제 부과액입니다. 사적지주차장은 별표 2의 별도 요금표(대릉원 2시간 2,000원 등)를
-적용하는데, 이 사이트의 사적지 이름 주차장은 표준데이터에 일반 공영 단가로 등록돼
-있어 등록값으로 계산합니다. 궁금한 점은 경주시청 교통행정과(054-779-6528)에
-확인하세요.</p>
+<p class="lede">포항시 공영주차장 <b>341곳</b>(노외 127곳·노상 213구간·부설 1곳, 총 17,576면)은
+무료 <b>294곳</b>·유료 <b>46곳</b>·혼합 <b>1곳</b>으로 등록돼 있습니다. 「포항시 주차장 설치 및
+관리 조례」 제2295호 별표 1은 <b>1급지</b>(죽도시장·영일대해수욕장 인근)·<b>2급지</b>(그 밖의
+동 지역)·<b>3급지</b>(읍·면 지역)와 차종으로 요금을 나누며, 승용·소형 기준 1·2급지는
+최초 20분 <b>500원</b>에 10분마다 <b>200원</b>, 3급지는 <b>300원·100원</b>입니다. 51~60분
+구간은 특례로 1·2급지 <b>1,200원</b>(3급지 600원)입니다. 이 사이트에서는 등록 단가가 별표와
+같은 곳만 등록값으로 계산하고, 기본 요금만 등록된 곳은 <b>요금 미상</b>으로 표기합니다.
+궁금한 점은 포항시청 교통지원과(054-270-3638)에 확인하세요.</p>
 <table class="data">
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
-  <th class="num">2시간</th><th class="num">1회 주차 총액 상한</th>
-  <th class="num">월정기</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
 <table class="data">
@@ -13196,7 +13197,7 @@ def fee_table_block(city) -> str:
   <tbody>{win_rows}</tbody>
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
-<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
@@ -15417,6 +15418,10 @@ def _build_street_mixed(city, street, site):
     # 조례·등록값이 일요일·공휴일 무료라고 정한 노상 구간(김포시 등)
     sun_free = [l for l in street if l["free_days"].get("sun") and l["fee"]["type"] != "무료"]
     pay_text = ((sample or (paid or street)[0])["fee"]["pay"] or "현장 확인")
+    # 대표 구간의 예시 요금은 그 구간이 실제로 운영하는 요일로 계산한다
+    #   (평일 미운영·주말 전용 구간은 평일 기준으로 물으면 휴무가 된다).
+    _ex_day = ("weekday" if sample and sample["oper"].get("weekday") else
+               "sat" if sample and sample["oper"].get("sat") else "sun")
 
     qa = [
         (f"{city['city']} 노상주차장은 몇 곳인가요?",
@@ -15450,8 +15455,8 @@ def _build_street_mixed(city, street, site):
          (calc_line
           + (f"{daily_txt}이 상한입니다. " if daily_txt else
              (f"일일 최대요금 {won(cap_fee)}이 상한입니다. " if cap_fee else ""))
-          + f"예를 들어 2시간은 {won(price_for(sample, 120, 'weekday')['amount'])}, 4시간은 "
-          f"{won(price_for(sample, 240, 'weekday')['amount'])}입니다.")
+          + f"예를 들어 2시간은 {won(price_for(sample, 120, _ex_day)['amount'])}, 4시간은 "
+          f"{won(price_for(sample, 240, _ex_day)['amount'])}입니다.")
          if sample else
          (f"유료 구간 {len(paid)}곳은 시간 요금이 아니라 당일 정액입니다 — "
           + ", ".join(f'{esc(l["name"])} {won(l["fee"]["base_fee"])}' for l in paid)

@@ -892,10 +892,10 @@ MIX["haman"] = tuple(sorted(_all_mix_tokens))
 #   다른 지역 이름은 없다.
 MIX["changnyeong"] = tuple(sorted(_all_mix_tokens))
 
-# 경주시 — 경북의 첫 도시로 창원·진주·통영·사천·김해·밀양·거제·양산·남해·하동·산청·함양·거창·합천·의령·함안·창녕과 같은 부류. 도 이름에
-#   '광주'가 없어 전 토큰을 그대로 쓴다. 경주 페이지에 정당하게 나오는
+# 포항시 — 창원·진주·통영·사천·김해·밀양·거제와 같은 부류. 도 이름에
+#   '광주'가 없어 전 토큰을 그대로 쓴다. 포항 페이지에 정당하게 나오는
 #   다른 지역 이름은 없다.
-MIX["gyeongju"] = tuple(sorted(_all_mix_tokens))
+MIX["pohang"] = tuple(sorted(_all_mix_tokens))
 
 
 # 거창군 — 창원·진주·통영·사천·김해·밀양·거제·양산·남해·하동·산청과 같은 부류. 도 이름에
