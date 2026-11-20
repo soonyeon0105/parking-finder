@@ -11130,6 +11130,32 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "muan_grade":
+        # 무안군 조례 별표 1 (급지 없는 차종 요금표 · 최초 120분 무료 · 토·공휴일·야간 무료)
+        rows = ft["rows"]
+        rows_html = "".join(
+            f"""<tr><td>{esc(r['label'])}</td><td>{esc(r['unit_label'])}</td>
+<td class="num">{won(r['hour'])}</td><td class="num">{won(r['two_hour'])}</td>
+<td class="num">{won(r['day'])}</td><td class="num">{won(r['month'])}</td>
+<td class="num">{r['lots']}곳</td></tr>""" for r in rows)
+        return f"""
+<h2>무안군 공영주차장 요금표 (조례 별표 1)</h2>
+<p>무안군 공영주차장 3곳은 전부 <b>최초 120분이 무료</b>이고, 그 뒤로는 30분마다 요금이 붙습니다.
+요금은 급지 구분이 없는 차종(소형·대형) 요금표 하나로 정해집니다 — 승용차·16인승 미만 승합자동차·
+2.5톤 미만 화물자동차는 소형이고 그 외의 차량은 대형입니다. <b>토요일·공휴일·야간(20:00~다음날 08:00)은
+무료</b>입니다(야간은 조례 별표 1 비고 1의 주간 08:00~20:00을 뺀 나머지 시간입니다). 1시간·2시간 칸은
+최초 120분이 무료라 둘 다 0원입니다. 등록된 3곳은 전부 소형 기준(등록 특기사항 표기)으로, 이 표의
+소형 행과 등록 요금이 완전히 일치합니다. 궁금한 점은 무안군청 교통행정과 교통시설팀
+(061-450-5681)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
