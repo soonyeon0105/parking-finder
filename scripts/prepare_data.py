@@ -56261,6 +56261,634 @@ def build_haenam():
     (DATA / "haenam_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
 
+# 고흥군 — 「고흥군 주차장 조례」 제3256호(시행 2026-08-24,
+#   공포 2026-08-03, 일부개정, ordinSeq 2157703). 요금은
+#   제3조제1항이 별표 1로 정하고 감면은 제3조제2항(긴급
+#   자동차·공영차량 면제)·제4항(50% 감면)·제5항(성실납세
+#   필증 차량 1년 면제)이 정한다. 최신 개정(제3256호)은
+#   제6조제1항제1호의 도명(전남광주통합특별시) 변경에
+#   그치고, 요금 조항과 별표 1의 실내용 최신 개정은
+#   2023. 11. 7.(조3025)이다. 별표 1은 급지 구분 없이
+#   차종(소형·대형)만으로 정하는 요금표로, 최초 1시간까지
+#   무료, 1시간 초과 시 1시간마다 소형 500원·대형 600원,
+#   1일 최대요금 소형 3,000원·대형 4,000원, 월정기 소형
+#   30,000원·대형 50,000원이다. 비고 2는 유료 운영시간을
+#   09:00~18:00으로 하고 야간(18:00~09:00)·국공휴일·
+#   토요일·일요일은 무료로 운영할 수 있다고 정하며, 비고 4는
+#   차종을 승용차·16인승 미만 승합·2.5톤 미만 화물은 소형,
+#   그 외는 대형으로 정하고, 비고 5는 군수가 위치·주변
+#   여건에 따라 요금·이용시간을 조정할 수 있다고 정한다.
+#   비고 6은 제3조제4항의 50% 할인 대상(장애인 사용
+#   자동차, 국가유공자·5·18민주화운동부상자·고엽제후유증
+#   환자 운전 자동차, 우수 자원봉사 마일리지증 소지자 운전
+#   자동차, 경형자동차, 환경친화적 자동차)을 열거한다.
+#   그러나 표준데이터 등록 공영 33곳은 전부 '무료'로
+#   등록돼 있어 요금표는 조례 기준 요금의 참고표로만 싣고
+#   유료 계산은 하지 않는다(서천·순창·영암·해남 선례).
+#   등록 급지는 '2'가 32곳이고 고흥공영주차장 1곳만 '1'인데
+#   별표 1에는 급지 구분 자체가 없어 대응시킬 수 없고,
+#   조례 본문 제16조제2항이 별표 1의 급지구분을 전제하는
+#   것과도 어긋난다 — 군청 확인 과제로 남긴다. 지번주소에
+#   읍·면 표기가 생략된 행이 많아(옥하리·서문리·남계리·
+#   호형리는 고흥읍, 봉암리는 도양읍 — 각 리가 한 읍면에만
+#   있다) 리 이름으로 읍·면을 판정하는 자리를 따로 뒀다.
+#   좌표는 33곳 전부 등록돼 있고 전부 군 범위(도서 포함)
+#   안이라 지오코딩 보완이 없다.
+GOHEUNG_PROVINCE = "전남광주통합특별시"
+GOHEUNG_PROVINCE_SLUG = "jeonnam"
+GOHEUNG_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2157703"
+GOHEUNG_ORD_TXT = RAW / "goheung-ordinance-b1.txt"
+GOHEUNG_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                    "「고흥군 주차장 조례」 제3256호(시행 2026-08-24, "
+                    "일부개정), ordinSeq 2157703. 본문 사본 "
+                    "data/raw/goheung-ordinance.txt. 별표 1(공영주차장 "
+                    "요금표)은 HWP 원본을 data/raw/goheung-ordinance-b1.hwp로 "
+                    "저장하고 본문 텍스트를 추출해 "
+                    "data/raw/goheung-ordinance-b1.txt로 확인했다.")
+
+GOHEUNG_DISCOUNTS = [
+    {"label": "긴급자동차·공영차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공영차량에 대하여는 주차요금을 면제할 수 있다"},
+    {"label": "성실납세필증 표시 차량 면제 (1년)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제5항 — 국세청 산하기관장이 발행하는 성실납세필증 표시부착 차량에 대하여는 1년간 주차요금을 면제할 수 있다"},
+    {"label": "국가유공자·5·18민주유공자·고엽제후유증환자·장애인 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항·별표 1 비고 6 — 국가유공자가 운전하는 자동차, 5·18민주화운동부상자가 운전하는 자동차, 고엽제후유증환자가 운전하는 자동차, 「장애인복지법」 제32조에 따라 등록된 장애인이 사용하는 자동차는 주차요금의 100분의 50을 감면한다"},
+    {"label": "경형자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항·별표 1 비고 6 — 「자동차관리법」에 규정한 경형자동차(1,000cc 이하)는 주차요금의 100분의 50을 감면한다"},
+    {"label": "우수 자원봉사 마일리지증 소지자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 6 — 「고흥군 자원봉사활동 지원 조례」에 의한 우수 자원봉사 마일리지증 소지자가 운전하는 자동차는 주차요금의 100분의 50을 할인할 수 있다"},
+    {"label": "환경친화적 자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 6 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따른 환경친화적 자동차는 주차요금의 100분의 50을 할인할 수 있다"},
+    {"label": "군수가 인정하는 자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항 — 그 외 도시교통의 원활한 소통을 위하여 필요하다고 인정하는 자동차에 대하여는 주차요금의 100분의 50을 감면한다"},
+]
+
+GOHEUNG_CONF = {
+    "city": "고흥군",
+    "slug": "goheung",
+    "manager": "전남광주통합특별시 고흥군청",
+    "manager_inquiry": "고흥군청 경제산업과(표준데이터 등록 전화 061-830-5396·조례 담당 061-830-5357, 국가법령정보센터 표기)",
+    "ordinance": ("「고흥군 주차장 조례」 제3256호(시행 2026-08-24, 일부개정)",
+                  GOHEUNG_ORD_URL, GOHEUNG_ORD_NOTE),
+    "notes": ("고흥군 공영주차장 33곳(노외 23·노상 6·부설 4, 총 2,754면)은 전부 요금 구분이 "
+              "'무료'로 등록돼 있다. 「고흥군 주차장 조례」 제3256호(시행 2026-08-24, "
+              "ordinSeq 2157703) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1은 "
+              "급지 구분 없이 차종(소형·대형)만으로 정하는 요금표로, 최초 1시간까지 무료, "
+              "1시간 초과 시 1시간마다 소형 500원·대형 600원이고, 1일 최대요금은 소형 "
+              "3,000원·대형 4,000원, 월정기는 소형 30,000원·대형 50,000원이다. "
+              "등록 33곳이 전부 무료라 이 요금표는 조례 기준 요금의 참고표로만 "
+              "싣고 유료 계산은 하지 않는다. 유료 운영시간은 09:00~18:00이고 "
+              "야간(18:00~09:00)·국공휴일·토요일·일요일은 무료로 운영할 수 "
+              "있다(별표 1 비고 2). 차종은 승용차·16인승 미만 승합·2.5톤 미만 "
+              "화물은 소형, 그 외는 대형이다(비고 4). 감면은 조례 제3조를 "
+              "따른다(긴급자동차·공영차량 면제, 성실납세필증 차량 1년 면제, "
+              "국가유공자·5·18민주유공자·고엽제후유증환자·장애인·경형자동차·"
+              "우수 자원봉사 마일리지증 소지자·환경친화적 자동차 50% 감면). "
+              "등록 급지는 '2'가 32곳이고 고흥공영주차장 1곳만 '1'인데 별표 1에는 "
+              "급지 구분이 없어 대응시킬 수 없고, 도로명주소는 18곳이 등록돼 "
+              "있지 않다."),
+    "discounts": GOHEUNG_DISCOUNTS,
+}
+
+GOHEUNG_BBOX = (34.38, 34.70, 127.05, 127.62)
+
+GOHEUNG_DONGS = {"고흥읍", "도양읍", "풍양면", "도덕면", "금산면", "도화면",
+                 "포두면", "봉래면", "동일면", "점암면", "영남면", "과역면",
+                 "남양면", "동강면", "대서면", "두원면"}
+
+# 지번주소에서 읍·면 표기가 생략된 리 — 이 다섯 리는 고흥군 안에서
+#   한 읍·면에만 있어 리 이름만으로 읍·면을 판정할 수 있다.
+GOHEUNG_RI2DONG = {"옥하리": "고흥읍", "서문리": "고흥읍", "남계리": "고흥읍",
+                   "호형리": "고흥읍", "봉암리": "도양읍"}
+
+
+def goheung_dong_of(addr):
+    """고흥군 법정 읍·면 판정 — 지번주소의 고흥군 다음 토큰이
+    읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"고흥군\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def goheung_dong_via_ri(addr):
+    """읍·면 표기가 생략된 지번주소의 리 판정 — 고흥군 다음 토큰이
+    GOHEUNG_RI2DONG의 리이면 그 읍·면을 돌려준다."""
+    if addr:
+        m = re.search(r"고흥군\s*([가-힣]+리)(?=[\s0-9-]|$)", addr)
+        if m:
+            return GOHEUNG_RI2DONG.get(m.group(1))
+    return None
+
+
+def goheung_fee(row, name, note_bits, fee_diff):
+    """고흥군 공영주차장 한 곳의 요금 — 등록 33곳 전부 '무료'다.
+    조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만,
+    등록이 전부 무료라 요금표는 참고표로만 싣고 이 곳들은
+    무료로 표기한다(서천·순창·영암·해남 선례). 요금 칸이 비어
+    있거나 금액만으로 구분할 수 없는 행이 나오면 미상으로
+    돌린다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 2는 야간·국공휴일·토요일·일요일을 무료로 운영할 수 있다고 하고 비고 5는 군수가 위치·주변 여건에 따라 요금·이용시간을 조정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 군청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 고흥군청 확인 필요"})
+        return fee
+    fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분당 "
+                    f"{unit_fee}원·1일 {day}원·월정기 {month}원)이 있으나 조례 별표 1과의 "
+                    "대응을 확정할 수 없어 등록값을 그대로 싣는다 — 실제 징수 기준은 "
+                    "군청 확인 과제")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "monthly": month if month else None,
+                "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1과의 대응은 군청 확인 과제다"})
+    return fee
+
+
+def goheung_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 공영주차장 요금표 값을
+    참고표로 표기한다. 별표 1은 급지 구분 없이 차종
+    (소형·대형)만으로 정하는 요금표로, 최초 1시간이
+    무료이고 초과분은 1시간 단위로 붙는 구조다.
+    등록 33곳은 전부 무료라 행별 유료 곳수는 전부 0이고,
+    1시간·2시간 예상액은 별표 1 구조로 계산한 조례
+    기준액이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, unit_fee, day, month, unit_label):
+        f = {"base_min": 60, "base_fee": 0, "unit_min": 60,
+             "unit_fee": unit_fee, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month, "month_night": month, "lots": 0}
+
+    rows = [
+        _row("소형", "small", 500, 3000, 30000,
+             "최초 1시간 무료 · 초과 1시간마다 500원 · 1일 최대 3,000원 · 월정기 30,000원"),
+        _row("대형", "large", 600, 4000, 50000,
+             "최초 1시간 무료 · 초과 1시간마다 600원 · 1일 최대 4,000원 · 월정기 50,000원"),
+    ]
+    return {
+        "style": "goheung_grade",
+        "unit_min": 60,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "유료 운영시간 (조례 별표 1 비고 2)",
+                     "hours": "09:00~18:00",
+                     "free": ("야간(18:00~09:00)·국공휴일·토요일·일요일은 무료로 운영할 수 "
+                              "있다 — 등록 33곳은 전부 무료라 실제 요금에는 쓰이지 않는다")}],
+        "notes": ("별표 1에는 급지 구분이 없어 차종만으로 요금을 정한다. 차량 구분은 "
+                  "승용차·16인승 미만 승합자동차·2.5톤 미만 화물자동차는 소형으로 보고 "
+                  "그 외의 차량은 대형으로 본다(비고 4). 군수는 필요한 경우 공영주차장의 "
+                  "위치 또는 주변 여건 등을 고려하여 주차요금 및 이용시간 등을 조정할 "
+                  "수 있다(비고 5). 감면은 긴급자동차·공영차량 면제와 성실납세필증 "
+                  "표시 차량 1년 면제(제3조제2항·제5항), 국가유공자·5·18민주유공자·"
+                  "고엽제후유증환자·장애인이 사용하는 자동차, 경형자동차, 우수 자원봉사 "
+                  "마일리지증 소지자가 운전하는 자동차, 환경친화적 자동차, 그 외 군수가 "
+                  "인정하는 자동차 50% 감면(제3조제4항·별표 1 비고 6)이다. 표준데이터 "
+                  "등록 급지는 '2'가 32곳이고 고흥공영주차장 1곳만 '1'인데 별표 1에 "
+                  "급지 구분이 없어 대응시킬 수 없어 요금표 행 판정에는 쓰지 않았다."),
+        "basis": ("요금표는 「고흥군 주차장 조례」 제3256호(시행 2026-08-24) 제3조·"
+                  "별표 1과 표준데이터(기준일 2026-08-04)를 대조해 실었다. "
+                  "등록된 33곳은 전부 '무료'라 이 표는 조례 기준 요금의 참고표이고, "
+                  "실제 요금은 전 구간 무료다. (조례 본문: "
+                  "data/raw/goheung-ordinance.txt, 별표 1 원문: "
+                  "data/raw/goheung-ordinance-b1.txt)"),
+    }
+
+
+def goheung_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「고흥군 주차장 조례」 제3256호 제3조 — 면제(제2항·제5항): 「도로교통법」 "
+                      "제2조제22호에 따른 긴급자동차와 국가 또는 지방자치단체의 공영차량은 "
+                      "주차요금을 면제할 수 있고, 국세청 산하기관장이 발행하는 성실납세필증 "
+                      "표시부착 차량은 1년간 면제할 수 있다. 50% 감면(제4항·별표 1 비고 6): "
+                      "국가유공자가 운전하는 자동차, 5·18민주화운동부상자가 운전하는 자동차, "
+                      "고엽제후유증환자가 운전하는 자동차, 장애인등록을 한 사람이 사용하는 "
+                      "자동차, 「자동차관리법」에 규정한 경형자동차(1,000cc 이하), 「고흥군 "
+                      "자원봉사활동 지원 조례」에 의한 우수 자원봉사 마일리지증 소지자가 "
+                      "운전하는 자동차, 「환경친화적 자동차의 개발 및 보급 촉진에 관한 "
+                      "법률」에 따른 환경친화적 자동차, 그 외 군수가 도시교통의 원활한 "
+                      "소통을 위하여 필요하다고 인정하는 자동차. 제4항은 '감면한다'는 "
+                      "표현이고 제2항·제5항은 '면제할 수 있다'는 임의 규정이다. 본문 원문"
+                      "(data/raw/goheung-ordinance.txt)·별표 1 원문"
+                      "(data/raw/goheung-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 "
+                      "급지 구분 없이 차종(소형·대형)만으로 정하는 요금표로 최초 1시간까지 무료, "
+                      "1시간 초과 시 1시간마다 소형 500원·대형 600원, 1일 최대요금 소형 3,000원·"
+                      "대형 4,000원, 월정기 소형 30,000원·대형 50,000원이다. 표준데이터 등록 "
+                      "33곳이 전부 무료라 요금표는 참고표로만 싣는다"),
+        "급지_출처": ("조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지는 '2'가 32곳이고 "
+                      "고흥공영주차장(부설) 1곳만 '1'인데 대응시킬 조례 기준이 없어 행 판정에 "
+                      "쓰지 않았다. 조례 본문 제16조제2항은 비용납부자의 무상사용 기간을 "
+                      "별표 1의 급지구분에 따라 나누어 산정한다고 정해 급지구분을 전제하나 "
+                      "현행 별표 1(2023. 11. 7. 개정)에는 급지 구분이 없어 서로 어긋난다 "
+                      "— 군청 확인 과제다"),
+        "무료요일_출처": ("등록 33곳이 전부 요금 구분 '무료'라 요일별 무료 구분이 따로 없다 — "
+                          "조례 별표 1 비고 2의 유료 운영시간(09:00~18:00)과 야간·국공휴일·"
+                          "토요일·일요일 무료 운영 가능 규정은 참고로만 실었다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 고흥군 등록 33행 전부 공영(노외 23·노상 6·부설 4, 총 2,754면)을 싣고 민영 제외 0건·중복 제거 0건이다. 읍면별로는 고흥읍 27곳·2,000면, 도양읍 6곳·754면이다",
+            "「고흥군 주차장 조례」 제3256호(시행 2026-08-24, 공포 2026-08-03, 일부개정, ordinSeq 2157703) 본문 원문(data/raw/goheung-ordinance.txt) 대조 완료(2026-11-20) — 최신 개정(제3256호)은 제6조제1항제1호의 도명(전남광주통합특별시) 변경에 그치고, 요금 조항(제3조)과 별표 1의 실내용 최신 개정은 2023. 11. 7.(조3025)이다",
+            "별표 1은 HWP 원본(flSeq 167841973)을 data/raw/goheung-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다 — 급지 구분 없이 차종(소형·대형)만으로 정하는 요금표로, 최초 1시간까지 무료, 1시간 초과 시 1시간마다 소형 500원·대형 600원, 1일 최대요금 소형 3,000원·대형 4,000원, 월정기 소형 30,000원·대형 50,000원이다. 별표 1의 표제는 '공영주차장 요금표(제3항제1항 관련)'으로 적혀 있으나 본문 제3조제1항을 가리키는 것으로 읽었다",
+            "등록 33곳이 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암·해남 선례) — 등록 요금 금액 칸은 33행 전부 0원 또는 공란이고 주차기본시간도 0으로 적혀 있다",
+            "등록 급지 대조 — 표준데이터 등록 급지는 '2' 32곳·'1' 1곳(고흥공영주차장)인데 조례 별표 1에는 급지 구분 자체가 없어 대응시킬 수 없고, 조례 본문 제16조제2항이 별표 1의 급지구분을 전제하는 것과도 어긋난다. 전부 무료라 요금 영향은 없고 군청 확인 과제로 남긴다(급지_출처에 기록)",
+            "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 주소 표기가 33행 전부 전남광주통합특별시 고흥군이고 관리번호+이름이 같은 쌍이 0건이다(광양 선례 대조)",
+            "좌표는 33곳 전부 등록돼 있고 전부 고흥군 범위(본토와 나로도·거금도 등 도서를 아우른 경계) 안이라 비우거나 지오코딩으로 채운 곳이 없다(오버레이 무변경)",
+            "지번주소에 읍·면 표기가 생략된 행이 많다 — 옥하리·서문리·남계리·호형리는 고흥읍, 봉암리는 도양읍으로, 다섯 리가 고흥군 안에서 한 읍면에만 있어 리 이름으로 판정했고 동_근거에 '지번주소(리 판정)'으로 구분해 기록했다. 지번주소가 아예 없는 5곳(고흥공영주차장·신호1~4주차장)은 도로명주소로 판정했다",
+            "신호1·2·3·4주차장은 도로명주소(고흥읍 신호산장길 8)와 등록 좌표가 넷 다 같고 이름·관리번호·면수(158·202·130·202면)만 다른 별개 등록이라 합치지 않고 전부 실었다 — 좌표는 대표 지점 하나로 복사 등록된 것으로 보여 실제 위치는 군청 확인 과제다(부여 좌표 복사 의심 선례)",
+            "고흥공영주차장(부설, 남계리 일대 고흥로 1776, 198면)만 운영시간이 09:00~18:00으로 조례 별표 1 비고 2의 유료 운영시간과 같고 나머지 32곳은 전부 00:00~23:59다. 이 곳만 등록 급지가 '1'이고 지번주소가 없어 도로명주소로만 표기한다",
+            "「고흥군 전통시장 주차장 운영 조례」 제3144호(시행 2025-03-17, ordinSeq 2022351)가 별도로 있어 전통시장 시설현대화 사업으로 설치한 주차장은 그 조례 별표 1(2시간까지 무료, 초과 1시간마다 소형 500원·대형 600원, 1일 소형 3,000원·대형 4,000원, 공휴일·일요일 무료 운영 가능)을 따르나, 어느 곳이 그 대상인지는 표준데이터로 특정할 수 없고 33곳 전부 무료로 등록돼 있어 요금 영향은 없다 — 군청 확인 과제다",
+            "풍양면·도덕면·금산면·도화면·포두면·봉래면·동일면·점암면·영남면·과역면·남양면·동강면·대서면·두원면에는 등록된 공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 군청 확인 과제다",
+            "전화번호는 33행 전부 061-830-5396이고 관리기관은 전부 전남광주통합특별시 고흥군 경제산업과다. 조례 담당 표기 전화(061-830-5357)와는 다르다. 결제방법·특기사항은 전부 공란, 부제시행구분은 전부 미시행, 장애인전용주차구역 보유여부는 33곳 전부 공란(미등록)이다. 운영요일은 전부 평일+토요일+공휴일이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_goheung():
+    """고흥군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「고흥군 주차장 조례」 제3256호(시행
+    2026-08-24, ordinSeq 2157703) 제3조·별표 1 원문 대조
+    완료(2026-11-20). 표준데이터 등록 공영 33곳(노외 23·
+    노상 6·부설 4, 총 2,754면)을 싣는다. 33곳 전부
+    '무료'라 조례 별표 1 요금표는 참고표로만 싣는다.
+    좌표는 전부 등록돼 있다."""
+    conf = GOHEUNG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "고흥군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "고흥군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 고흥군은
+    #   해당 중복이 0건이다(이름이 완전히 같은 쌍 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GOHEUNG_BBOX[0] < lat < GOHEUNG_BBOX[1]
+                                                        and GOHEUNG_BBOX[2] < lng < GOHEUNG_BBOX[3]):
+            # 고흥군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 고흥군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = goheung_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif goheung_dong_via_ri(jibun):
+            dong = goheung_dong_via_ri(jibun)
+            dong_src = "지번주소(리 판정)"
+        elif goheung_dong_of(road):
+            dong = goheung_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in GOHEUNG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = goheung_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "고흥군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 33행은 전부 공영이고 데이터기준일자는 "
+                      "전부 2026-08-04이다. 관리기관은 33곳 전부 전남광주통합특별시 "
+                      "고흥군 경제산업과이고 전화번호는 33곳 전부 061-830-5396이다")
+    note_fixed.append("신호1·2·3·4주차장은 도로명주소(고흥읍 신호산장길 8)와 등록 "
+                      "좌표가 넷 다 같고 면수만 158·202·130·202면으로 다른 별개 "
+                      "등록이다 — 좌표는 대표 지점 하나로 복사 등록된 것으로 보여 "
+                      "실제 위치는 군청 확인 과제다")
+    note_fixed.append("등록 급지는 '2'가 32곳이고 고흥공영주차장(부설) 1곳만 '1'인데 "
+                      "조례 별표 1에는 급지 구분이 없어 대응시킬 수 없다 — 조례 "
+                      "본문 제16조제2항이 별표 1의 급지구분을 전제하는 것과도 "
+                      "어긋나 군청 확인 과제로 남긴다")
+    note_fixed.append("풍양면·도덕면·금산면·도화면·포두면·봉래면·동일면·점암면·"
+                      "영남면·과역면·남양면·동강면·대서면·두원면에는 등록된 "
+                      "공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 "
+                      "있는지는 군청 확인 과제다")
+    _no_road = [l["name"] for l in lots if not l["addr_road"]]
+    note_fixed.append(f"도로명주소는 {len(_no_road)}곳이 등록돼 있지 않아 동 판정과 "
+                      "표기는 지번주소를 기준으로 했다")
+    _no_jibun = [l["name"] for l in lots if not l["addr_jibun"]]
+    note_fixed.append(f"지번주소는 {len(_no_jibun)}곳({', '.join(_no_jibun)})이 등록돼 있지 "
+                      "않아 도로명주소로 판정·표기했다")
+    _ri = [l["name"] for l in lots if l["dong_src"] == "지번주소(리 판정)"]
+    note_fixed.append(f"지번주소에 읍·면 표기가 생략된 {len(_ri)}곳은 리 이름으로 읍·면을 "
+                      "판정했다(옥하리·서문리·남계리·호형리는 고흥읍, 봉암리는 도양읍 — "
+                      "다섯 리가 고흥군 안에서 한 읍면에만 있다)")
+    note_fixed.append("고흥공영주차장만 운영시간이 09:00~18:00이고 나머지 32곳은 "
+                      "00:00~23:59이다. 운영요일은 전부 평일+토요일+공휴일이고, "
+                      "특기사항·결제방법은 전부 공란, 부제시행구분은 전부 '미시행', "
+                      "장애인전용주차구역 보유여부는 33곳 전부 공란(미등록)이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-goheung-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-goheung-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 고흥군은 좌표 결측이 없어 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = goheung_fee_table(conf, lots)
+    quality = goheung_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-08-04",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"고흥군으로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 "
+                 f"제거 {len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳이다. 좌표는 "
+                 f"33곳 전부 등록돼 있고 도로명주소는 18곳이 결측이다. 조례 대조 완료 "
+                 f"— 「고흥군 주차장 조례」 제3256호(시행 2026-08-24, ordinSeq "
+                 f"2157703) 제3조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GOHEUNG_ORD_TXT.name if GOHEUNG_ORD_TXT.exists() else None,
+            "sha256": sha256(GOHEUNG_ORD_TXT) if GOHEUNG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-08-24",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"고흥군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/goheung-ordinance.txt, 별표 1 원문: "
+                    f"data/raw/goheung-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GOHEUNG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "고흥군", "slug": "goheung"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GOHEUNG_PROVINCE,
+        "province_slug": GOHEUNG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "goheung_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
 
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
@@ -56274,7 +56902,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -56292,7 +56920,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -56345,7 +56973,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -56542,6 +57170,8 @@ def main():
         cities.append(build_yeongam())
     if "해남군" in want:
         cities.append(build_haenam())
+    if "고흥군" in want:
+        cities.append(build_goheung())
 
     if args.city == "all":
         site = build_site_payload(cities)
