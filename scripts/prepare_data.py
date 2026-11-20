@@ -65105,6 +65105,590 @@ def build_gokseong():
     return payload
 
 
+# 담양군 — 표준데이터 등록 52행이 전부 공영이라
+#   52곳(전부 노외, 총 1,848면)을 싣고 제외는
+#   0건이다. 중복 제거 0건, 구획수 0 등록 0건이다.
+#   52곳 전부 '무료'로 등록돼 있어 조례 별표 1은
+#   참고표로만 싣는다(서천·영암·해남·신안·곡성
+#   선례). 좌표는 52곳 전부 등록돼 있고 전부
+#   담양군 범위 안이라 지오코딩 보완은 0건이다
+#   (오버레이 718행 유지).
+DAMYANG_PROVINCE = "전남광주통합특별시"
+DAMYANG_PROVINCE_SLUG = "jeonnam"
+DAMYANG_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2159627"
+DAMYANG_ORD_TXT = RAW / "damyang-ordinance-b1.txt"
+DAMYANG_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                    "「담양군 주차장 조례」 제3094호(시행 2026-08-10, "
+                    "일부개정), ordinSeq 2159627. 본문 사본 "
+                    "data/raw/damyang-ordinance.txt. 별표 1(공영주차장 "
+                    "주차요금표)은 HWP 원본을 data/raw/damyang-ordinance-b1.hwp로 "
+                    "저장하고 PrvText 추출로 확정해 "
+                    "data/raw/damyang-ordinance-b1.txt로 옮겼다. 본문 "
+                    "제4조가 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 "
+                    "첨부파일 오등록이 아니다. 최신 공포본 제3094호는 '담양군 "
+                    "주민 감사 청구 조례 등 78개 조례의 일부개정조례'(타법 "
+                    "일괄개정)로 제8조의 표기 등을 고친 것이고, 직전 본문 개정 "
+                    "제3081호(2026-03-10)도 제6조의 인용 조문 정비라 어느 쪽도 "
+                    "제4조·별표 1의 요금을 바꾸지 않았다.")
+
+DAMYANG_DISCOUNTS = [
+    {"label": "장애인 자가운전차량·장애인 동반 일반차량 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5가목 — 장애인 자가운전차량과 장애인을 동반한 일반차량은 주차요금의 50%를 경감한다"},
+    {"label": "국가유공자 보철용 차량 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5가목 — 국가유공자가 직접 사용하는 보철용 차량은 주차요금의 50%를 경감한다"},
+    {"label": "경자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5가목 — 경자동차는 주차요금의 50%를 경감한다"},
+    {"label": "군수 시책 참여 차량 20% 경감(가능)", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5나목 — 군수가 추진하는 시책(차량10부제 운행 등)에 참여하는 차량에 대하여 주차장 요금의 20%를 경감할 수 있다"},
+]
+
+DAMYANG_CONF = {
+    "city": "담양군",
+    "slug": "damyang",
+    "manager": "전남광주통합특별시 담양군",
+    "manager_inquiry": "담양군청 경제교통과(061-380-3131, 국가법령정보센터 표기)",
+    "ordinance": ("「담양군 주차장 조례」 제3094호(시행 2026-08-10, 일부개정)",
+                  DAMYANG_ORD_URL, DAMYANG_ORD_NOTE),
+    "notes": ("담양군 공영주차장 52곳(전부 노외, 총 1,848면)은 전부 요금 구분 "
+              "'무료'로 등록돼 있다. 「담양군 주차장 조례」 제3094호(시행 "
+              "2026-08-10, ordinSeq 2159627) 제4조는 공영주차장의 주차요금을 "
+              "별표 1과 같이 한다고 정하므로, 별표 1은 지금은 받지 않는 요금의 "
+              "참고표로 함께 싣는다. 별표 1은 급지(1급지·2급지)×차종(소형·대형) "
+              "요금표로, 주차요금은 30분마다 1급지 소형 500원·대형 600원, "
+              "2급지 소형 500원·대형 600원이고, 1일 주차요금은 1급지 소형 "
+              "8,000원·대형 9,000원, 2급지 소형 5,000원·대형 6,000원이며, "
+              "월정기는 1급지 소형 주간 60,000원·야간 50,000원·주야간 "
+              "80,000원, 대형 주간 80,000원·야간 70,000원·주야간 110,000원, "
+              "2급지 소형 주간 50,000원·야간 40,000원·주야간 70,000원, 대형 "
+              "주간 70,000원·야간 60,000원·주야간 100,000원이다. 급지는 "
+              "1급지가 담양읍 지역, 2급지가 기타의 지역이다(별표 1 비고 3) — "
+              "표준데이터 등록 급지는 '1' 48곳·'2' 4곳인데 담양읍의 지침리 "
+              "공영주차장이 '2'로, 담양읍 밖의 금성면공영주차장·덕성리 "
+              "공영주차장·고서면공영주차장·월산지구 공영주차장이 '1'로 등록돼 "
+              "있어 조례의 지역 기준과 어긋나는 등록이 있으나 전부 무료라 "
+              "요금에는 영향이 없다. 경감은 별표 1 비고 5가 정한다 — 장애인 "
+              "자가운전차량·장애인 동반 일반차량·국가유공자 보철용 차량·"
+              "경자동차 50% 경감, 군수 시책(차량10부제 등) 참여 차량 20% "
+              "경감(가능). 좌표는 52곳 전부 등록돼 있고 전부 담양군 범위 "
+              "안이다."),
+    "discounts": DAMYANG_DISCOUNTS,
+}
+
+DAMYANG_BBOX = (35.15, 35.42, 126.82, 127.12)
+
+DAMYANG_DONGS = {"담양읍", "고서면", "봉산면", "창평면", "대덕면", "금성면", "용면",
+                 "월산면", "수북면", "무정면", "대전면", "가사문학면"}
+
+
+def damyang_dong_of(addr):
+    """담양군 법정 읍·면 판정 — 지번주소의 담양군 다음 토큰이
+    읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"담양군\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def damyang_fee(row, name, note_bits, fee_diff):
+    """담양군 공영주차장 한 곳의 요금 — 등록 52곳이 전부
+    '무료'다. 조례 제4조는 공영주차장의 주차요금을 별표 1과
+    같이 한다고 정하므로, 등록이 무료인 곳들은 무료로
+    표기하고 별표 1은 참고표로만 싣는다(서천·순창·영암·
+    해남·고흥·보성·장흥·완도·신안·곡성 선례). 요금 칸이
+    비어 있거나 금액만으로 구분할 수 없는 행이 나오면
+    미상으로 돌린다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 군청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 담양군청 확인 필요"})
+        return fee
+    fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                    f"{unit_fee}원·1일 {day}원·월정기 {month}원)을 그대로 실었다 — 조례 "
+                    "별표 1의 급지별 요금과 대조가 필요해 군청 확인 과제로 남긴다")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "monthly": month if month else None,
+                "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1 요금과의 대조는 군청 확인 과제다"})
+    return fee
+
+
+def damyang_fee_table(conf, lots):
+    """요금표 — 조례 별표 1(급지×차종)을 싣는다. 등록
+    52곳이 전부 무료라 이 표는 조례 기준 요금의
+    참고표다. 별표 1의 주차요금은 30분마다 부과되는
+    단위 요금이라 1시간·2시간 예상액은 그 구조로 계산한
+    조례 기준액이다. 월정기 주·야간 금액은 별표에 있으나
+    렌더 열이 주간·야간뿐이라 요율 칸에 함께 적는다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, per30, day, month_day, month_night, unit_label, n_lots=0):
+        f = {"base_min": 30, "base_fee": per30, "unit_min": 30,
+             "unit_fee": per30, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month_day, "month_night": month_night, "lots": n_lots}
+
+    rows = [
+        _row("1급지 소형", "g1_small", 500, 8000, 60000, 50000,
+             "30분마다 500원 · 1일 8,000원 · 월정기 주간 60,000원·야간 50,000원·주야간 80,000원"),
+        _row("1급지 대형", "g1_large", 600, 9000, 80000, 70000,
+             "30분마다 600원 · 1일 9,000원 · 월정기 주간 80,000원·야간 70,000원·주야간 110,000원"),
+        _row("2급지 소형", "g2_small", 500, 5000, 50000, 40000,
+             "30분마다 500원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원·주야간 70,000원"),
+        _row("2급지 대형", "g2_large", 600, 6000, 70000, 60000,
+             "30분마다 600원 · 1일 6,000원 · 월정기 주간 70,000원·야간 60,000원·주야간 100,000원"),
+    ]
+    return {
+        "style": "damyang_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 구분 (조례 별표 1 비고 2)",
+                     "hours": "3월~10월 08:00~20:00, 11월~2월 09:00~19:00, 나머지는 야간",
+                     "free": "별표 1 월정기 주간·야간 금액의 구분 기준이다 — 등록 52곳이 전부 무료라 지금은 적용되는 곳이 없다"}],
+        "notes": ("급지는 1급지가 담양읍 지역, 2급지가 기타의 지역이며, 급지구분은 "
+                  "주차장의 실태 및 주차수요, 토지등급을 참작해 세분하여 지정할 수 "
+                  "있다(별표 1 비고 3). 표준데이터 등록 급지는 '1' 48곳·'2' 4곳인데 "
+                  "담양읍의 지침리 공영주차장이 '2'로, 담양읍 밖의 금성면공영주차장·"
+                  "덕성리 공영주차장·고서면공영주차장·월산지구 공영주차장이 '1'로 "
+                  "등록돼 있어 조례의 지역 기준과 어긋나는 등록이 있으나 전부 무료라 "
+                  "요금에는 영향이 없다. 차량구분은 승용차, 15인 미만 승합자동차, "
+                  "2.5톤 미만 화물자동차를 소형으로 보며 그 이외의 차량은 대형으로 "
+                  "본다(비고 7). 주차시간은 30분 단위로 하며 30분 미만일 때는 "
+                  "30분으로 본다(비고 6). 정당한 이유 없이 요구징수 방법에 의하지 "
+                  "않은 자동차는 1시간의 불법주차로 보고 1시간 요금과 200%의 "
+                  "가산금을 받을 수 있다(비고 4). 경감은 장애인 자가운전차량·장애인 "
+                  "동반 일반차량·국가유공자 보철용 차량·경자동차 50%, 군수 시책 "
+                  "참여 차량 20%(비고 5)이다."),
+        "basis": ("요금표는 「담양군 주차장 조례」 제3094호(시행 2026-08-10) "
+                  "제4조·별표 1과 표준데이터(기준일 2026-08-09)를 대조해 실었다. "
+                  "등록된 52곳이 전부 '무료'라 별표 1은 조례 기준 요금의 "
+                  "참고표다. (조례 본문: data/raw/damyang-ordinance.txt, 별표 원문: "
+                  "data/raw/damyang-ordinance-b1.txt)"),
+    }
+
+
+def damyang_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「담양군 주차장 조례」 제3094호 별표 1 비고 5 — 50% 경감(가목): "
+                      "장애인 자가운전차량, 장애인을 동반한 일반차량, 국가유공자가 "
+                      "직접 사용하는 보철용 차량, 경자동차. 20% 경감(나목, 경감할 수 "
+                      "있다): 군수가 추진하는 시책(차량10부제 운행 등)에 참여하는 "
+                      "차량. 본문에는 별도의 면제·감면 조항이 없고 제4조가 요금을 "
+                      "별표 1로 정한다. 본문 원문(data/raw/damyang-ordinance.txt)·"
+                      "별표 원문(data/raw/damyang-ordinance-b1.txt) 대조 완료"
+                      "(2026-11-20)"),
+        "요금_출처": ("조례 제4조·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 "
+                      "급지(1급지·2급지)×차종 요금표로 주차요금은 30분마다 1급지 소형 "
+                      "500원·대형 600원, 2급지 소형 500원·대형 600원, 1일 주차요금은 "
+                      "1급지 소형 8,000원·대형 9,000원, 2급지 소형 5,000원·대형 "
+                      "6,000원, 월정기는 1급지 소형 주간 60,000원·야간 50,000원·"
+                      "주야간 80,000원, 대형 주간 80,000원·야간 70,000원·주야간 "
+                      "110,000원, 2급지 소형 주간 50,000원·야간 40,000원·주야간 "
+                      "70,000원, 대형 주간 70,000원·야간 60,000원·주야간 100,000원이다. "
+                      "표준데이터 등록 52곳이 전부 무료라 별표 1은 참고표로만 싣는다"),
+        "급지_출처": ("조례 별표 1 비고 3 — 1급지는 담양읍 지역, 2급지는 기타의 지역이고, "
+                      "급지구분은 주차장의 실태 및 주차수요, 토지등급을 참작해 세분하여 "
+                      "지정할 수 있다. 표준데이터 등록 급지는 '1' 48곳·'2' 4곳인데 "
+                      "조례의 지역 기준과 어긋나는 등록이 5곳 있다(담양읍 지침리 "
+                      "공영주차장 '2', 담양읍 밖 금성면공영주차장·덕성리 공영주차장·"
+                      "고서면공영주차장·월산지구 공영주차장 '1') — 전부 무료라 급지별 "
+                      "요금 차이는 없다"),
+        "무료요일_출처": ("등록 52곳 전부 요금 구분 '무료'로 요일과 관계없이 무료다 — "
+                          "조례 제4조는 공영주차장 요금을 별표 1로 정하나 실제 "
+                          "징수는 등록이 전부 무료인 상태로 운영되고 있다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 담양군 등록 52행이 전부 공영(노외 52곳)이라 민영 제외 0건으로 52곳·1,848면을 실었다. 중복 제거 0건, 구획수 0 등록 0건이다. 읍·면별로는 담양읍 45곳·금성면 2곳·무정면 1곳·대전면 1곳·고서면 1곳·수북면 1곳·월산면 1곳이고, 봉산면·창평면·대덕면·용면·가사문학면은 공영 등록이 0곳이다 — 이 면들에 공영주차장이 없는 것인지 등록 누락인지는 군청 확인 과제다",
+            "「담양군 주차장 조례」 제3094호(표제 시행 2026-08-10, 공포 2026-08-10, 일부개정, ordinSeq 2159627) 본문 원문(data/raw/damyang-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(제3094호, 담양군 78개 조례 일부개정조례)은 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같고, 이 개정과 직전 본문 개정 제3081호(2026-03-10, 제6조 인용 조문 정비)는 모두 표기·인용 정비라 제4조·별표 1의 요금을 바꾸지 않았다. 담양군의회가 2026-01-27 입법예고한 일부개정조례안(부설주차장 설치기준 정비)도 요금과 무관하다",
+            "별표 1은 HWP 원본(flSeq 168124437)을 data/raw/damyang-ordinance-b1.hwp로 저장하고 PrvText 추출로 확정했다 — 급지(1급지·2급지)×차종 요금표로 주차요금은 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 500원·대형 600원, 1일 주차요금은 1급지 소형 8,000원·대형 9,000원, 2급지 소형 5,000원·대형 6,000원, 월정기는 1급지 소형 주간 60,000원·야간 50,000원·주야간 80,000원, 대형 주간 80,000원·야간 70,000원·주야간 110,000원, 2급지 소형 주간 50,000원·야간 40,000원·주야간 70,000원, 대형 주간 70,000원·야간 60,000원·주야간 100,000원이다. 본문 제4조가 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 비고 8은 PrvText 미리보기가 '주차 시간에 따른 체증 또는 체감방'에서 절단돼 전문을 확인하지 못했으나 요금 판단에는 영향이 없다",
+            "등록 52곳 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣는다 — 조례 제4조에 무료 개방 단서 조항은 없으나 등록이 전부 무료인 상태로 운영되고 있어 등록대로 표기한다",
+            "좌표는 52곳 전부 등록돼 있고 전부 담양군 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+            "같은 지번에 이름이 다른 등록이 겹치는 자리가 2곳 있다 — 담양읍 객사리 178의 2곳(국수거리 인근 공영주차장 5면·행복교회 공영주차장 40면, 등록 좌표까지 같다), 담양읍 객사리 125의 2곳(농협지점옆공영주차장 7면·객사4지구 공영주차장 5면, 등록 좌표까지 같다). 전부 이름·구획수가 다른 별개 등록이라 합치지 않고 전부 실었다 — 같은 시설의 구역별 등록인지 군청 확인 과제다. 이름이 같은 '백동리 공영주차장' 2곳은 지번이 서로 달라(백동리 268-8·252-1) 별개로 싣고 이름에 자리 표기를 붙여 구분했다",
+            "천변2지구공영주차장의 지번주소가 '담양읍 천변리 21(삭제)'로 등록돼 있다 — '(삭제)' 표기를 포함해 등록값을 그대로 실었고, 실제 지번인지는 군청 확인 과제다",
+            "전화번호는 52곳 전부 공란으로 등록돼 있다. 조례 표기 담당은 담양군청 경제교통과 061-380-3131이다",
+            "운영시간은 52곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 평일+토요일+공휴일이다. 부제시행구분은 52곳 전부 미시행, 특기사항·결제방법은 52곳 전부 공란, 장애인전용주차구역 보유여부는 Y 49곳·N 3곳이다. 도로명주소가 없는 곳이 28곳이다. 데이터기준일자는 52곳 전부 2026-08-09이고, 관리기관명은 52곳 전부 '전남광주통합특별시 담양군청'이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_damyang():
+    """담양군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「담양군 주차장 조례」
+    제3094호(시행 2026-08-10, ordinSeq 2159627)
+    제4조·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 52행이 전부 공영(노외 52곳,
+    총 1,848면)이라 52곳을 싣고 제외는 0건이다.
+    52곳 전부 무료라 조례 별표 1 요금표는 참고표를
+    겸한다. 좌표 결측은 0곳이다."""
+    conf = DAMYANG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "담양군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "담양군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 담양군은
+    #   해당 중복이 0건이다(같은 이름·같은 지번 쌍 자체가 없다 — 이름이 같은
+    #   '백동리 공영주차장' 2곳은 지번이 서로 다르다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (DAMYANG_BBOX[0] < lat < DAMYANG_BBOX[1]
+                                                        and DAMYANG_BBOX[2] < lng < DAMYANG_BBOX[3]):
+            # 담양군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 담양군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = damyang_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif damyang_dong_of(road):
+            dong = damyang_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in DAMYANG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = damyang_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "담양군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 52행이 전부 공영(노외 52곳)이라 민영 제외 없이 "
+                      "52곳을 실었다. 데이터기준일자는 52행 전부 2026-08-09이고 "
+                      "제공기관명은 전부 '전남광주통합특별시 담양군'이다")
+    note_fixed.append("봉산면·창평면·대덕면·용면·가사문학면에는 공영 등록이 0곳이다 — "
+                      "이 면들에 공영주차장이 없는 것인지 등록 누락인지는 군청 확인 "
+                      "과제다")
+    note_fixed.append("같은 지번에 이름이 다른 등록이 겹치는 자리가 2곳 있다 — 담양읍 "
+                      "객사리 178의 2곳(국수거리 인근 공영주차장·행복교회 공영주차장, "
+                      "등록 좌표까지 같다), 담양읍 객사리 125의 2곳(농협지점옆공영주차장·"
+                      "객사4지구 공영주차장, 등록 좌표까지 같다). 전부 별개 등록이라 "
+                      "합치지 않고 전부 실었다")
+    note_fixed.append("천변2지구공영주차장의 지번주소가 '담양읍 천변리 21(삭제)'로 "
+                      "등록돼 있어 '(삭제)' 표기를 포함해 등록값을 그대로 실었다")
+    note_fixed.append("전화번호는 52곳 전부 공란으로 등록돼 있다. 조례 표기 담당은 "
+                      "담양군청 경제교통과 061-380-3131이다")
+    note_fixed.append("좌표는 52곳 전부 등록돼 있고 전부 담양군 범위 안이라 지오코딩 "
+                      "보완이 0건이다")
+    note_fixed.append("운영시간은 52곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 "
+                      "평일+토요일+공휴일이다. 부제시행구분은 52곳 전부 미시행이고, "
+                      "특기사항·결제방법은 52곳 전부 공란, 장애인전용주차구역 "
+                      "보유여부는 Y 49곳·N 3곳이다. 도로명주소가 없는 곳이 28곳이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-damyang-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-damyang-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 담양군은 좌표 결측이 없어 오버레이로 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = damyang_fee_table(conf, lots)
+    quality = damyang_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-08-09",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"담양군으로 등록된 행 {len(rows_std)}행 중 공영 52행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"무료 {len([l for l in lots if l['fee']['type'] == '무료'])}곳이다. "
+                 f"좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「담양군 주차장 조례」 제3094호(시행 "
+                 f"2026-08-10, ordinSeq 2159627) 제4조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": DAMYANG_ORD_TXT.name if DAMYANG_ORD_TXT.exists() else None,
+            "sha256": sha256(DAMYANG_ORD_TXT) if DAMYANG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-08-10",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"담양군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/damyang-ordinance.txt, 별표 원문: "
+                    f"data/raw/damyang-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": DAMYANG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "담양군", "slug": "damyang"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": DAMYANG_PROVINCE,
+        "province_slug": DAMYANG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "damyang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -65117,7 +65701,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -65135,7 +65719,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -65188,7 +65772,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"], "damyang": ["담양군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -65412,6 +65996,8 @@ def main():
         cities.append(build_gurye())
     if "곡성군" in want:
         cities.append(build_gokseong())
+    if "담양군" in want:
+        cities.append(build_damyang())
 
     if args.city == "all":
         site = build_site_payload(cities)
