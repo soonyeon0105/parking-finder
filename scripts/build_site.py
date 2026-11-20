@@ -12907,6 +12907,53 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "hapcheon_grade":
+        # 합천군 — 공영 186곳(노외 71곳·부설 104곳·노상
+        #   11구간, 총 7,328면)이 무료 178곳·유료 8곳으로
+        #   등록돼 있다. 「합천군 주차장 설치 및 관리 조례」
+        #   제2918호(시행 2026-04-16) 제6조제1항·별표 4는
+        #   노상을 최초 30분 500원·이후 30분마다 500원
+        #   (1일·월 정기권 없음), 노외를 최초 2시간 무료·
+        #   이후 30분마다 500원·1일 4,000원·월 정기권
+        #   30,000원으로 정하고 노외 유료 운영 시간은
+        #   08:00~19:00다. 유료 노외 7곳은 등록 기본요금
+        #   (120분 500원)이 최초 2시간 무료와 어긋나 별표
+        #   산식으로 계산하고, 유료 노상 1곳은 등록값이
+        #   노외 양식이라 별표 노상 산식으로 계산한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 4)</h2>
+<p class="lede">합천군 공영주차장 <b>186곳</b>은 무료 <b>178곳</b>·유료 <b>8곳</b>으로 등록돼
+있습니다. 아래 표는 「합천군 주차장 설치 및 관리 조례」 제2918호 별표 4가 정한 기준 요금입니다.
+별표 4는 <b>노외</b>를 최초 <b>2시간 무료</b>에 이후 30분마다 <b>500원</b>·<b>1일 4,000원</b>·
+<b>월 정기권 30,000원</b>으로 정하고(유료 운영 08:00~19:00), <b>노상</b>은 최초 <b>30분
+500원</b>에 이후 30분마다 <b>500원</b>입니다(1일·월 정기권 없음). 유료 노외 7곳의 등록
+기본요금(120분 500원)에는 최초 2시간 무료가 반영돼 있지 않아, 이 사이트는 별표의 무료
+시간을 적용해 계산합니다. 궁금한 점은 합천군청(055-930-3373)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 4)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
