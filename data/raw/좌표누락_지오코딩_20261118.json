@@ -38628,6 +38628,51 @@
      "addr_match": true
     }
    ]
+  },
+  {
+   "id": "jn-mokpo-038",
+   "city": "목포시",
+   "gu": "목포시",
+   "dong": "용당동",
+   "name": "용당2동",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 1128-2",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "지오코딩(지번주소)",
+    "query": "목포시 용당동 1128-2",
+    "lat": 34.80231967047,
+    "lng": 126.394633253289,
+    "addr": "전남광주통합특별시 목포시 용당동 1128-2",
+    "source": "ArcGIS World Geocoding",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EB%AA%A9%ED%8F%AC%EC%8B%9C+%EC%9A%A9%EB%8B%B9%EB%8F%99+1128-2&outFields=%2A&maxLocations=5&langCode=ko",
+    "score": 100,
+    "sig_ok": true,
+    "bbox_ok": true,
+    "wide_ok": true,
+    "addr_match": true,
+    "confidence": "high",
+    "agree": [],
+    "checked_at": "2026-11-20 (KST)",
+    "note": "Esri ArcGIS World Geocoding — 표준데이터 등록 좌표(35.4291, 129.1722)가 목포시 범위 밖(부산 방면)이라 등록 오류로 비운 뒤, 등록 지번주소로 지오코딩했다. 반환 주소가 등록 지번주소와 번지까지 일치(score 100·PointAddress)하고 목포시 범위 안에 있어 채택했다."
+   },
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번주소)",
+     "query": "목포시 용당동 1128-2",
+     "lat": 34.80231967047,
+     "lng": 126.394633253289,
+     "addr": "전남광주통합특별시 목포시 용당동 1128-2",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EB%AA%A9%ED%8F%AC%EC%8B%9C+%EC%9A%A9%EB%8B%B9%EB%8F%99+1128-2&outFields=%2A&maxLocations=5&langCode=ko",
+     "score": 100,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": true,
+     "addr_match": true
+    }
+   ]
   }
  ],
  "city_signatures": {
