@@ -5790,6 +5790,35 @@ def street_path(city) -> str:
     return f"{city_path(city)}street-parking/"
 
 
+# ------------------------------------------------------------------ 상세페이지
+# 큰 유료 주차장은 이름 검색(“○○주차장 월정기”)에 닿도록 개별 상세페이지를 만든다
+# (운영자 결정 2026-11-20 — 시범이 아니라 대상 전부). 대상: 요금 구분이 ‘무료’가
+# 아니고(유료·미상) 구획수가 기준 이상인 곳. 경로는 시 페이지 아래에 내부 id를 쓴다.
+DETAIL_MIN_SPACES = 50
+
+
+def is_detail_target(lot) -> bool:
+    return lot["fee"]["type"] != "무료" and (lot.get("spaces") or 0) >= DETAIL_MIN_SPACES
+
+
+def detail_path(city, lot) -> str:
+    return f"{city_path(city)}{lot['id']}/"
+
+
+_CITY_BY_NAME: dict = {}
+
+
+def city_of(lot):
+    """카드·표처럼 city dict가 손에 없는 렌더러에서 lot의 city dict를 찾는다.
+
+    slug는 광역시 자치구끼리 겹친다(부산·대구·광주·울산 북구 전부 'buk-gu') —
+    그래서 유일한 도시 이름(lot['city'], 예: '부산 북구')으로 찾는다.
+    """
+    if not _CITY_BY_NAME:
+        _CITY_BY_NAME.update({c["city"]: c for c in SITE_CITIES})
+    return _CITY_BY_NAME.get(lot.get("city") or "")
+
+
 # ------------------------------------------------------------------ utils
 def esc(s) -> str:
     return html.escape(str(s if s is not None else ""), quote=True)
@@ -7463,7 +7492,7 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
 </section>"""
 
 
-def lot_card(lot, idx, default_day="weekday", default_minutes=120):
+def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=True):
     res = price_for(lot, default_minutes, default_day)
     if res["state"] == "free":
         # 요금 구분이 '무료'인 주차장은 요일과 관계없이 무료라 ‘선택한 요일’이라고 쓰지 않는다.
@@ -7551,9 +7580,15 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     lines.append(f'<p class="fee-line">자료 기준일: {esc(lot["base_date"])}</p>')
 
     kakao, naver = map_links(lot)
+    name_html = esc(lot['name'])
+    if link_detail and is_detail_target(lot):
+        _city = city_of(lot)
+        if _city:
+            # 큰 유료 주차장은 이름이 곧 상세페이지 링크다(개별 상세페이지로 연결).
+            name_html = f'<a href="{detail_path(_city, lot)}">{name_html}</a>'
     return f"""<article class="card lot{' free' if res['state'] == 'free' else ''}" data-lot="{esc(lot['id'])}" id="lot-{idx}">
   <div class="lot-head">
-    <h3>{esc(lot['name'])}</h3>
+    <h3>{name_html}</h3>
     <div class="badges">{''.join(badges)}</div>
   </div>
   <p class="addr">{esc(addr_text(lot))}</p>
@@ -7567,10 +7602,11 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
 </article>"""
 
 
-def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=120, chips=True):
+def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=120, chips=True,
+             link_detail=True):
     cards = []
     for i, lot in enumerate(lots, 1):
-        cards.append(lot_card(lot, i, default_day))
+        cards.append(lot_card(lot, i, default_day, link_detail=link_detail))
         if with_ad and i == 5:
             cards.append(ad_slot().replace('<div class="ad-slot"', '<div style="order:5" class="ad-slot"', 1))
     data = json.dumps([{
@@ -7655,8 +7691,14 @@ def street_rows(street_lots, *, with_price=True, with_daily=None, unit_label="�
         else:
             # 노상 구간은 고유 이름 대신 도로명·지번 주소로 찾는다(모바일에서는 앱 검색으로 이어진다)
             kurl = f"https://map.kakao.com/link/search/{quote(addr)}"
+        dlink = ""
+        if is_detail_target(l):
+            _city = city_of(l)
+            if _city:
+                # 노상 구간은 카드가 없어 표의 이름 옆 ‘상세’로 상세페이지에 연결한다.
+                dlink = f' <a href="{detail_path(_city, l)}">상세</a>'
         rows.append(
-            f'<tr><td><a href="{esc(kurl)}" target="_blank" rel="nofollow noopener">{esc(l["name"])}</a></td>'
+            f'<tr><td><a href="{esc(kurl)}" target="_blank" rel="nofollow noopener">{esc(l["name"])}</a>{dlink}</td>'
             f'<td>{esc(place(l))}</td>'
             f'<td>{esc(road)}</td>'
             f'<td class="num">{l["spaces"]:,}</td>'
@@ -8922,6 +8964,249 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
                     f"공공데이터로 정리했습니다. 예상 주차요금을 바로 계산해 보세요.",
         path=path, body=body, crumbs=crumbs, nav_active=gu, city=city,
         jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(lots_sorted, path), jsonld_faq(qa, path)])
+
+
+def jsonld_lot(lot, city, path):
+    """상세페이지용 ParkingFacility 구조화 데이터 — 값이 있는 항목만 싣는다."""
+    obj = {"@context": "https://schema.org", "@type": "ParkingFacility",
+           "name": f"{lot['name']} 공영주차장",
+           "url": SITE_BASE + path,
+           "address": {"@type": "PostalAddress",
+                       "streetAddress": lot["addr_road"] or lot["addr_jibun"],
+                       "addressLocality": city["city"],
+                       "addressRegion": city.get("province") or "",
+                       "addressCountry": "KR"}}
+    if lot.get("lat") and lot.get("lng"):
+        obj["geo"] = {"@type": "GeoCoordinates",
+                      "latitude": lot["lat"], "longitude": lot["lng"]}
+    if lot.get("tel"):
+        obj["telephone"] = lot["tel"]
+    return obj
+
+
+def detail_description(city, lot) -> str:
+    """상세페이지 메타 설명 — 이름 검색에서 바로 답이 보이도록 핵심 수치를 넣는다."""
+    fee = lot["fee"]
+    bits = []
+    if fee.get("monthly"):
+        bits.append(f"월정기 {won(fee['monthly'])}")
+    if fee.get("daily_fee"):
+        bits.append(f"1일 {won(fee['daily_fee'])}")
+    if fee.get("base_fee") is not None and fee.get("base_min"):
+        bits.append(f"기본 {fee['base_min']}분 {won(fee['base_fee'])}")
+    if fee["type"] == "미상" and not bits:
+        bits.append("월정기 전용(시간요금 미등록)")
+    addr = lot["addr_road"] or lot["addr_jibun"] or city["city"]
+    core = " · ".join(bits)
+    return (f"{lot['name']} 공영주차장({addr}) — {lot['spaces']:,}면"
+            + (f", {core}" if core else "")
+            + ". 요금 계산기·운영시간·감면 정보를 공공데이터로 정리했습니다.")
+
+
+def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
+    """큰 유료 주차장 1곳의 개별 상세페이지. 시·동 페이지와 같은 계산기·카드를 재사용한다."""
+    path = detail_path(city, lot)
+    fee = lot["fee"]
+    name = lot["name"]
+    addr = lot["addr_road"] or lot["addr_jibun"] or ""
+
+    # 요일별 운영시간 표
+    hour_rows = ""
+    for k, label in (("weekday", "평일"), ("sat", "토요일"), ("sun", "일요일·공휴일")):
+        h = (lot.get("hours") or {}).get(k) or {}
+        if not h.get("open"):
+            v = "운영 안 함"
+        elif h.get("24h"):
+            v = "24시간"
+        else:
+            v = f"{hhmm(h.get('start') or 0)}~{hhmm(h.get('end') or 0)}"
+        hour_rows += f'<tr><td>{label}</td><td>{v}</td></tr>'
+
+    info_rows = []
+    if lot["addr_road"]:
+        info_rows.append(f'<tr><td>주소(도로명)</td><td>{esc(lot["addr_road"])}</td></tr>')
+    if lot["addr_jibun"]:
+        info_rows.append(f'<tr><td>주소(지번)</td><td>{esc(lot["addr_jibun"])}</td></tr>')
+    info_rows.append(f'<tr><td>구획수</td><td>{lot["spaces"]:,}면</td></tr>')
+    info_rows.append(f'<tr><td>유형</td><td>{esc(lot["kind"] or "공영")} · {esc(lot["ptype"] or "주차장")}</td></tr>')
+    grade = fee.get("grade_label") or (f'{fee["grade"]}급지' if fee.get("grade") else "")
+    if grade:
+        info_rows.append(f'<tr><td>급지</td><td>{esc(grade)}</td></tr>')
+    if lot.get("tel"):
+        rep = " (대표번호)" if lot.get("tel_rep") else ""
+        info_rows.append(f'<tr><td>전화</td><td><a href="tel:{esc(lot["tel"])}">{esc(lot["tel"])}</a>{rep}</td></tr>')
+    if lot.get("manager"):
+        info_rows.append(f'<tr><td>관리기관</td><td>{esc(lot["manager"])}</td></tr>')
+    info_rows.append(f'<tr><td>자료 기준일</td><td>{esc(lot["base_date"])}</td></tr>')
+
+    # 요금표 — 등록된 항목만 행으로 만든다(없는 요금을 지어내지 않는다).
+    fee_rows = []
+    if fee.get("base_min") and fee.get("base_fee") is not None:
+        fee_rows.append(f'<tr><td>기본요금</td><td>최초 {fee["base_min"]}분 {won(fee["base_fee"])}</td></tr>')
+    if fee.get("unit_min") and fee.get("unit_fee") is not None:
+        fee_rows.append(f'<tr><td>추가요금</td><td>{fee["unit_min"]}분당 {won(fee["unit_fee"])}</td></tr>')
+    if fee.get("daily_fee"):
+        fee_rows.append(f'<tr><td>1일 요금</td><td>{won(fee["daily_fee"])}</td></tr>')
+    if fee.get("monthly"):
+        fee_rows.append(f'<tr><td>월정기</td><td>월 {won(fee["monthly"])}</td></tr>')
+    if fee.get("pay"):
+        fee_rows.append(f'<tr><td>결제</td><td>{esc(fee["pay"])}</td></tr>')
+    if fee.get("basis"):
+        fee_rows.append(f'<tr><td>요금 비고</td><td>{esc(fee["basis"])}</td></tr>')
+
+    # 시간별 예상 요금(평일, 일반 차량) — 시·동 페이지 계산기와 같은 price_for 규칙.
+    est_rows = ""
+    for mins, label in ((30, "30분"), (60, "1시간"), (120, "2시간"),
+                        (240, "4시간"), (480, "8시간"), (1440, "24시간")):
+        r = price_for(lot, mins, "weekday")
+        if r["state"] == "paid":
+            v = won(r["amount"]) + (" (1일 상한 적용)" if r.get("capped") else "")
+        elif r["state"] == "free":
+            v = "무료"
+        elif r["state"] == "closed":
+            v = "운영 안 함"
+        else:
+            v = "현장 확인"
+        est_rows += f'<tr><td>{label}</td><td class="num">{v}</td></tr>'
+
+    # 감면 안내 — 도시 공통(조례 기준) 목록을 그대로 보여 준다.
+    disc = city.get("discounts") or default_discounts()
+    disc_items = "".join(
+        f'<li><b>{esc(o["label"])}</b>' + (f' — {esc(o["note"])}' if o.get("note") else "") + '</li>'
+        for o in disc)
+
+    free_bits = []
+    fn = free_note(lot)
+    if fn:
+        free_bits.append(fn)
+    if lot.get("free_hour_note"):
+        free_bits.append(f'무료 시간: {lot["free_hour_note"]}')
+    if lot.get("free_window_raw"):
+        free_bits.append(f'무료 시간대: {lot["free_window_raw"]}')
+    free_block = ""
+    if free_bits:
+        free_block = (f'<h2>무료로 쓸 수 있는 시간</h2>\n<ul>'
+                      + "".join(f'<li>{esc(b)}</li>' for b in free_bits) + '</ul>\n')
+
+    qa = []
+    if fee["type"] == "유료":
+        a = f"{name}의 요금은 {fee_text(lot)}입니다."
+        r2 = price_for(lot, 120, "weekday")
+        if r2["state"] == "paid":
+            a += f" 평일 기준 2시간 주차하면 {won(r2['amount'])}입니다."
+        qa.append((f"{name} 주차요금은 얼마인가요?", a))
+    elif fee["type"] == "미상":
+        if fee.get("monthly"):
+            qa.append((f"{name} 주차요금은 얼마인가요?",
+                       f"{name}은(는) 월정기(정기권) 전용으로 등록돼 있어 시간 주차요금이 공개되어 있지 않습니다. "
+                       f"월정기는 월 {won(fee['monthly'])}이고, 신청은 관리기관({lot.get('manager') or '관리기관'})에 문의하세요."))
+        else:
+            qa.append((f"{name} 주차요금은 얼마인가요?",
+                       f"{name}의 요금은 공개 데이터에 등록되어 있지 않아 현장 확인이 필요합니다."))
+    if fee.get("monthly") and fee["type"] == "유료":
+        qa.append((f"{name} 월정기 요금은 얼마인가요?",
+                   f"월정기 요금은 월 {won(fee['monthly'])}입니다. 신청 방법과 잔여 구획은 "
+                   f"관리기관({lot.get('manager') or '관리기관'})에 확인하세요."))
+    qa.append((f"{name} 운영시간은 어떻게 되나요?",
+               f"{name}은(는) {hours_text(lot)} 운영합니다."))
+    if lot["free_days"].get("sat") or lot["free_days"].get("sun"):
+        days = "·".join(d for d, on in (("토요일", lot["free_days"].get("sat")),
+                                        ("일요일", lot["free_days"].get("sun"))) if on)
+        qa.append((f"{name}은(는) 주말에 무료인가요?",
+                   f"네. {name}은(는) {days}에 무료로 개방됩니다."))
+
+    if lot.get("list_mode") == STREET_MODE:
+        # 노상 구간은 사이트 관례(노상 페이지)대로 계산기·카드 없이 표로 보여 준다.
+        # 지도 버튼은 카드와 같은 map_links 방식을 쓴다.
+        kakao, naver = map_links(lot)
+        main_block = f"""
+<h2>구간 정보</h2>
+{street_rows([lot], unit_label=street_unit_label(city))}
+<div class="actions" style="margin-top:12px">
+  <a class="btn solid" href="{esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
+  <a class="btn" href="{esc(naver)}" target="_blank" rel="nofollow noopener">네이버지도</a>
+</div>
+"""
+        lede_tail = "구간 요금과 운영 정보를 공공데이터로 정리했습니다."
+    else:
+        main_block = f"""
+{calculator([lot], path=path, discounts=city.get("discounts"))}
+<div class="toolbar">
+  <h2>주차장 정보</h2>
+</div>
+{lot_list([lot], path, with_ad=False, chips=False, link_detail=False)}
+"""
+        lede_tail = "아래 계산기로 내 조건의 예상 요금을 바로 계산해 보세요."
+
+    back_links = [f'<a class="btn" href="{rel(path, city_path(city))}">← {esc(city["city"])} 공영주차장 전체 보기</a>']
+    if dong_path:
+        back_links.append(f'<a class="btn" href="{rel(path, dong_path)}">{esc(lot["dong"])} 주차장 보기</a>')
+    if lot.get("list_mode") == STREET_MODE:
+        back_links.append(f'<a class="btn" href="{rel(path, street_path(city))}">노상 주차장 전체 보기</a>')
+
+    body = f"""
+<h1>{esc(name)} 공영주차장</h1>
+<p class="lede">{esc(addr)}에 있는 {esc(lot['ptype'] or '공영')}주차장입니다. {lot['spaces']:,}면 규모이며,
+요금·월정기·운영시간·감면 정보를 공공데이터로 정리했습니다. {lede_tail}</p>
+<p class="updated">자료 기준일 {esc(lot['base_date'])} · 관리 {esc(lot.get('manager') or '-')}</p>
+{ad_slot()}
+{main_block}
+
+<h2>기본 정보</h2>
+<table class="data">
+  <tbody>{''.join(info_rows)}</tbody>
+</table>
+
+<h2>운영시간</h2>
+<table class="data">
+  <tbody>{hour_rows}</tbody>
+</table>
+
+<h2>요금 안내</h2>
+<p class="lede">요금: {esc(fee_text(lot))}</p>
+<table class="data">
+  <tbody>{''.join(fee_rows)}</tbody>
+</table>
+
+<h2>시간별 예상 요금 (평일·일반 차량)</h2>
+<table class="data">
+  <thead><tr><th>주차 시간</th><th class="num">예상 요금</th></tr></thead>
+  <tbody>{est_rows}</tbody>
+</table>
+{free_block}
+<h2>감면 안내 — {esc(city['city'])} 공통</h2>
+<ul>{disc_items}</ul>
+<p class="updated">감면은 {esc(city['city'])} 조례 기준의 공통 안내입니다. 이 주차장에서 실제로 적용되는
+감면 종류와 조건, 중복 적용 여부는 현장과 관리기관에서 확인하세요.</p>
+
+{faq_block(qa)}
+
+<p style="margin-top:16px">{' '.join(back_links)}</p>
+
+<section class="note-box" style="margin-top:20px">
+  <h2>데이터 출처와 한계</h2>
+  <ul>
+    <li>출처: 행정안전부 전국주차장정보표준데이터 및 {esc(city['city'])} 공영주차장 안내 (자료 기준일 {esc(lot['base_date'])})</li>
+    <li>요금·운영시간은 등록 데이터 기준이며, 조례 개정이나 현장 사정에 따라 실제와 다를 수 있습니다.</li>
+  </ul>
+</section>
+"""
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", None),
+              (city["city"], city_path(city))]
+    d = next((x for x in city["districts"] if x["name"] == lot.get("gu")), None)
+    if d:
+        dpath = district_path(city, d)
+        if dpath != city_path(city) and dpath in existing_paths:
+            crumbs.append((f"{d['name']} 공영주차장", dpath))
+    crumbs.append((f"{name} 공영주차장", ""))
+    return path, layout(
+        title=f"{name} 공영주차장 요금·월정기·운영시간 | {SITE_NAME}",
+        description=detail_description(city, lot),
+        path=path, body=body, crumbs=crumbs,
+        nav_active=(lot.get("gu") or city["city"]), city=city,
+        jsonld=[jsonld_breadcrumb(crumbs, path),
+                jsonld_lot(lot, city, path),
+                jsonld_faq(qa, path)])
 
 
 def fee_table_block(city) -> str:
@@ -13580,6 +13865,44 @@ def main():
                 pages.append(build_dong(city, d, dong, dl, site, slug_override=slugs[dong]))
         if city["_street_lots"]:
             pages.append(build_street(city, city["_street_lots"], site))
+
+    # 개별 상세페이지 — 큰 유료 주차장 전부(운영자 결정 2026-11-20). 시·동 페이지가
+    # 다 만들어진 뒤에 붙여야 동 페이지 존재 여부를 보고 역링크를 걸 수 있다.
+    existing_paths = {p for p, _ in pages}
+    n_detail = 0
+    for city in site["cities"]:
+        # 동 페이지 경로 맵 — 본문 루프와 같은 조건(동 미상·최소 곳수)으로 만든 것만.
+        dong_paths = {}
+        if is_city_wide(city):
+            dong_groups = [(city["districts"][0], city["_card_lots"])]
+        else:
+            dong_groups = [(d, [l for l in city["_card_lots"] if l["gu"] == d["name"]])
+                           for d in city["districts"]]
+        for d, d_lots in dong_groups:
+            if not d_lots:
+                continue
+            by_dong = {}
+            for l in d_lots:
+                by_dong.setdefault(l["dong"], []).append(l)
+            slugs = dong_slug_map(by_dong)
+            for dong, dl in by_dong.items():
+                if dong == UNKNOWN_DONG:
+                    continue
+                if len(dl) < city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS):
+                    continue
+                dong_paths[(d["name"], dong)] = f"{district_path(city, d)}{slugs[dong]}/"
+        for lot in city["_lots"]:
+            if not is_detail_target(lot):
+                continue
+            p = detail_path(city, lot)
+            if p in existing_paths:
+                continue        # 기존 페이지와 경로가 겹치면 만들지 않는다
+            pages.append(build_lot_detail(
+                city, lot, site, existing_paths,
+                dong_path=dong_paths.get((lot.get("gu"), lot.get("dong")))))
+            existing_paths.add(p)
+            n_detail += 1
+    print(f"개별 상세페이지: {n_detail}개")
 
     for path, html_text in pages:
         out = DIST / path.strip("/") / "index.html" if path != "/" else DIST / "index.html"
