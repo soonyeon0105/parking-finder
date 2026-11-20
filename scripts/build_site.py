@@ -10869,6 +10869,55 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "yeosu_grade":
+        # 여수시 — 공영 37곳(노외 32·노상 5, 총 4,651면) 전부 유료.
+        #   「여수시 주차장 조례」 제2311호(시행 2026-11-11, ordinSeq
+        #   2184495) 제6조·별표 1(개정 2020-05-27)은 노외·노상으로
+        #   나뉜 급지(1·2급지)×차종(소형·대형) 요금표다 — 노외 1급지
+        #   소형 최초 1시간 무료·초과 10분마다 200원·1일 5,000원·
+        #   월정기 주간 60,000원, 노상 1급지 소형 최초 30분 무료·
+        #   초과 30분마다 500원·1일 5,000원이다. 표준데이터 등록
+        #   37곳은 전부 유료이나 기본·추가·1일·월정기 금액이 전부
+        #   공란이라 계산에 쓸 등록값이 없어, 조례 별표 1의 소형
+        #   요금을 등록 급지·유형별로 계산기에 적용했다(논산·부여·
+        #   음성·남원·부안 선례, 판단 지점). 시장은 고시한 주차장의
+        #   요금을 50% 범위에서 할증·할인할 수 있고(제6조제1항
+        #   단서), 시설물 관리에 추가 비용이 드는 주차장은 별도의
+        #   지정고시 기준이 적용될 수 있다(별표 1 주석).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">여수 공영주차장 37곳(노외 32·노상 5, 총 4,651면)은 <b>전부 요금을
+받는 유료 주차장</b>입니다. 「여수시 주차장 조례」 제2311호 별표 1은 급지(1·2급지)와
+차종(소형·대형)으로 요금을 정합니다 — <b>노외 1급지 소형</b>은 <b>최초 1시간
+무료</b>, 초과 <b>10분마다 200원</b>, <b>1일 5,000원</b>, <b>월정기 주간
+60,000원</b>이고, <b>노외 2급지 소형</b>은 10분마다 <b>100원</b>, 1일
+<b>3,500원</b>입니다. <b>노상 1급지 소형</b>은 <b>최초 30분 무료</b>, 초과
+<b>30분마다 500원</b>, <b>1일 5,000원</b>입니다. 등록 급지는 1급지 36곳·2급지
+1곳(백야항)입니다. 표준데이터에는 37곳 전부 요금 금액이 비어 있어 이 사이트는
+조례 별표 1 값으로 계산합니다. 다만 시장은 고시로 요금을 50% 범위에서 조정할 수
+있고, 시설물 관리에 추가 비용이 드는 주차장은 별도 기준이 적용될 수 있어 실제
+청구액이 다를 수 있습니다. 실제 운영이 궁금하면 여수시청 주차차량과
+(061-659-2141)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월정기</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
