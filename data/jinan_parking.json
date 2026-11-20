@@ -1,0 +1,1426 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 09:57",
+  "generated_at_iso": "2026-11-20T09:57:09+09:00",
+  "snapshot_at": "2026-11-20 09:57",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "진안군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-23",
+    "rows_total": 18994,
+    "rows_city": 10,
+    "fetched_at": "2026-11-20 09:57 (KST)",
+    "note": "진안군으로 등록된 행 10행(전부 공영·노외)을 읽어 중복 제거 0건으로 10곳을 실었다. 무료 10곳이며 요금을 받는 곳은 없다. 좌표는 전부 등록돼 있고 도로명주소·전화번호는 전부 결측이다. 조례 대조 완료 — 「진안군 주차장 조례」 제2803호(시행 2025-03-17, ordinSeq 2022207) 제6조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「진안군 주차장 조례」 제2803호(시행 2025-03-17, 일부개정)",
+    "org": "전북특별자치도 진안군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2022207",
+    "file": "jinan-ordinance-b1.txt",
+    "sha256": "1b9863485437f756b75706ac63cfdc4f367e2da87cb94f5360688a9d3c06adc8",
+    "license": "자치법규(공개)",
+    "base_date": "2025-03-17",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 09:57 (KST)",
+    "note": "진안군이 설치·관리하는 공영주차장에 적용하는 조례다. 진안군 공영주차장 10곳은 전부 노외이고 총 511면이며, 10곳 전부 요금을 받지 않는 무료 주차장이고 전부 진안읍에 있다. 「진안군 주차장 조례」 제2803호(시행 2025-03-17, ordinSeq 2022207) 제6조제1항은 공영주차장 요금을 별표 1로 정한다 — 1급지는 승용 기준 1회주차요금 30분당 500원, 1일(6시간 이상) 6,000원, 월정기 주간 60,000원·야간 40,000원이고, 2급지는 승용 30분당 300원, 1일 3,600원, 월정기 주간 40,000원·야간 30,000원이다(승합·화물은 소형·대형으로 나뉜다). 등록된 10곳은 전부 무료라 이 요금은 실제로 징수되지 않고, 아래 요금표는 조례 기준 요금의 참고표다. 무료 운영의 근거(고시 등)는 진안군청 확인 과제다. 감면은 조례 제6조를 따른다(긴급자동차 면제, 국가유공자·고엽제후유의증 환자·병역명문가 자가운전, 장애인 자가운전·동승, 경형·저공해·환경친화적 자동차 50%). 좌표는 10곳 전부 등록돼 있고, 도로명주소와 전화번호는 10곳 전부 등록돼 있지 않다. (조례 본문: data/raw/jinan-ordinance.txt, 별표 1 원문: data/raw/jinan-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "진안군",
+   "slug": "jinan"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-jinan-001",
+   "mgmt_no": "313-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고원1 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군하리 143",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "",
+   "lat": 35.78906921,
+   "lng": 127.4234361,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-002",
+   "mgmt_no": "313-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고원2 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 394",
+   "addr_road": "",
+   "road": null,
+   "spaces": 121,
+   "tel": "",
+   "lat": 35.79132953,
+   "lng": 127.4311591,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-003",
+   "mgmt_no": "313-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고원3 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 103-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "",
+   "lat": 35.79651854,
+   "lng": 127.4355142,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-004",
+   "mgmt_no": "313-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고원주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군하리 97-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "",
+   "lat": 35.79125388,
+   "lng": 127.424668,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-005",
+   "mgmt_no": "313-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노계3동 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 406-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "",
+   "lat": 35.79221983,
+   "lng": 127.4297706,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-006",
+   "mgmt_no": "313-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월랑 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 891-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "",
+   "lat": 35.79348163,
+   "lng": 127.424737,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-007",
+   "mgmt_no": "313-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙1 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 888",
+   "addr_road": "",
+   "road": null,
+   "spaces": 61,
+   "tel": "",
+   "lat": 35.793209,
+   "lng": 127.425535,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-008",
+   "mgmt_no": "313-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙2 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 938-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "",
+   "lat": 35.79202816,
+   "lng": 127.4256899,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-009",
+   "mgmt_no": "313-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙3 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군상리 404-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "",
+   "lat": 35.79201698,
+   "lng": 127.4320037,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  },
+  {
+   "id": "jb-jinan-010",
+   "mgmt_no": "313-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진안읍 주차장",
+   "gu": "진안군",
+   "dong": "진안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 진안군 진안읍 군하리 81-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "",
+   "lat": 35.790684,
+   "lng": 127.425594,
+   "base_date": "2026-10-23",
+   "manager": "전북특별자치도 진안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어(제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료 운영의 직접 근거로 단정하지 않는다) 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "진안군",
+   "city_slug": "jinan",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 09:57",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 10,
+  "원자료_진안군행수": 10,
+  "원자료_받은행수": 10,
+  "구별": {
+   "진안군": 10
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 10,
+  "노외_부설": {
+   "노외": 10
+  },
+  "노상_구간": 0,
+  "총_구획수": 511,
+  "노상_구획수": 0,
+  "동별": {
+   "진안읍": 10
+  },
+  "동수": 1,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 10
+  },
+  "요금구분": {
+   "무료": 10
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 8건 있다 — 월랑 주차장·중앙2 주차장(183m), 월랑 주차장·중앙1 주차장(78m), 중앙3 주차장·고원2 주차장(108m), 고원2 주차장·노계3동 주차장(159m), 고원주차장·진안읍 주차장(105m), 고원주차장·중앙2 주차장(126m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 10행은 전부 공영·노외·무료이고 데이터기준일자는 전부 2026-10-23이다. 관리기관은 전부 전북특별자치도 진안군청이다",
+   "도로명주소는 10곳 전부 등록돼 있지 않아 동(읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "전화번호는 10곳 전부 등록돼 있지 않아 비워 뒀다 — 군청 대표번호로 채우지 않았다",
+   "등록 급지는 10곳 전부 '기타'인데 조례 별표 1에는 1급지·2급지 구분만 있어 요금표 행 판정에 쓰지 않았다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59이다. 특기사항·결제방법·장애인전용주차구역보유여부는 10곳 전부 공란이고 부제시행구분은 전부 '미시행'이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "고원1 주차장",
+   "고원2 주차장",
+   "고원3 주차장",
+   "고원주차장",
+   "노계3동 주차장",
+   "월랑 주차장",
+   "중앙1 주차장",
+   "중앙2 주차장",
+   "중앙3 주차장",
+   "진안읍 주차장"
+  ],
+  "감면_출처": "「진안군 주차장 조례」 제2803호 제6조 — 긴급자동차는 주차요금을 면제할 수 있다(제2항). 50% 감면(제4항): 국가유공자 자가운전(제1호), 고엽제후유의증 환자 자가운전(제2호), 장애인 자가운전 또는 동승(제3호), 배기량 1000cc 미만의 경형 자동차(제4호), 저공해자동차 표지 부착 차량(제5호), 환경친화적 자동차 표지 부착 차량(제6호), 병역명문가증을 소지한 병역명문가 자가운전(제7호). 2개 이상의 감면 사유에 해당하면 감면율이 높은 것 하나만 적용한다(제4항 단서). 본문 원문(data/raw/jinan-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제6조제1항·별표 1 — 공영주차장 요금은 별표 1과 같이 한다. 1급지 승용 1회주차요금 30분당 500원·1일(6시간 이상) 6,000원·월정기 주간 60,000원/야간 40,000원, 승합·화물 소형 700원·7,000원·70,000원/50,000원, 대형 1,000원·10,000원·110,000원/70,000원. 2급지 승용 300원·3,600원·40,000원/30,000원, 소형 500원·6,000원·60,000원/40,000원, 대형 800원·8,000원·90,000원/60,000원. 표준데이터 등록 10곳은 전부 무료라 실제로 징수되는 곳은 없고 요금표는 참고표로 실었다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지는 군수가 지정하되 1급지는 도시계획상 상업지역 내 주차장과 폭 10m 이상 도로 가장자리 100m 이내 주차장, 2급지는 기타 지역이다. 표준데이터 등록 급지는 10곳 전부 '기타'라 조례 급지와 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례) — 등록 급지 '기타'의 실제 뜻은 군청 확인 과제다",
+  "무료요일_출처": "조례 본문과 별표 1 어디에도 요일 무료 규정이 없어 free_days는 적용하지 않았다. 무료 10곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 진안군 등록 10행 전부 공영·노외 — 민영 제외 0건",
+   "「진안군 주차장 조례」 제2803호(시행 2025-03-17, 일부개정, ordinSeq 2022207) 본문 원문(data/raw/jinan-ordinance.txt) 대조 완료(2026-11-20)",
+   "별표 1은 등록된 별표 파일이 텍스트(.txt, flSeq 161917925)라 원문 그대로 확정했다(data/raw/jinan-ordinance-b1.txt) — 별표 머리글은 '(제3조 관련)'으로 표기돼 있으나 요금의 실제 인용은 본문 제6조제1항이다. 함께 검색된 「진안군 주차장 특별회계 설치 조례」는 요금 조례가 아니라 대조 대상에서 제외했다",
+   "등록 10곳은 전부 요금 구분이 '무료'라 요금을 받는 곳이 없고, 주차장 조례에 상시 무료 운영의 근거 조항이 따로 없어 군이 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례) — 제20조의 무료개방 지원은 개방 주차장의 관리 비용을 지원하는 조항이라 상시 무료의 직접 근거로 단정하지 않았고(김제·완주 선례), 무료 운영의 근거(고시 등)는 군청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍(진안읍 시가지)은 전부 다른 등록이라 합치지 않았다",
+   "좌표는 10곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 진안군 범위 밖 좌표도 없었다",
+   "도로명주소와 전화번호는 10곳 전부 결측이라 동(읍·면) 판정은 지번주소를 기준으로 했고 전화번호는 비어 있다 — 군청 대표번호로 채우지 않았다",
+   "등록 급지 '기타'는 10곳 전부 같은 값이고 조례 별표 1의 급지(1·2급지)와 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례)",
+   "별표 1 말미의 주(10분 초과시마다 승용 200원·화물 300원, 계속 1시간 이상 주차 시 1시간당 1,000원 계산)는 30분당 요금과의 관계가 문안만으로 확정되지 않아, 요금표의 1시간·2시간 예상액은 30분당 요금을 반복해 계산하고 군청 확인 과제로 남겼다",
+   "별표 1 비고 3의 '폭 10cm이상 도로'는 문맥상 10m의 오기로 읽어 표기했다 — 원문 확인 과제는 아니다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 10,
+  "무료_구획수": 511,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 10,
+  "데이터기준일": [
+   "2026-10-23"
+  ],
+  "관리기관": {
+   "전북특별자치도 진안군청": 10
+  }
+ },
+ "fee_table": {
+  "style": "jinan_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「진안군 주차장 조례」 제2803호(시행 2025-03-17, 일부개정), ordinSeq 2022207. 본문 사본 data/raw/jinan-ordinance.txt. 별표 1(공영주차장요금표)은 등록된 별표 파일이 텍스트라 data/raw/jinan-ordinance-b1.txt로 원문 그대로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 · 승용",
+    "grade": "g1",
+    "unit_label": "1회주차요금 30분당 500원 · 1일(6시간 이상) 6,000원 · 월정기 주간 60,000원/야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 6000,
+    "month": 60000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 · 승합·화물 소형",
+    "grade": "g1",
+    "unit_label": "1회주차요금 30분당 700원 · 1일(6시간 이상) 7,000원 · 월정기 주간 70,000원/야간 50,000원",
+    "hour": 1400,
+    "two_hour": 2800,
+    "day": 7000,
+    "month": 70000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 · 승합·화물 대형",
+    "grade": "g1",
+    "unit_label": "1회주차요금 30분당 1,000원 · 1일(6시간 이상) 10,000원 · 월정기 주간 110,000원/야간 70,000원",
+    "hour": 2000,
+    "two_hour": 4000,
+    "day": 10000,
+    "month": 110000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 승용",
+    "grade": "g2",
+    "unit_label": "1회주차요금 30분당 300원 · 1일(6시간 이상) 3,600원 · 월정기 주간 40,000원/야간 30,000원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3600,
+    "month": 40000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 승합·화물 소형",
+    "grade": "g2",
+    "unit_label": "1회주차요금 30분당 500원 · 1일(6시간 이상) 6,000원 · 월정기 주간 60,000원/야간 40,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 6000,
+    "month": 60000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 · 승합·화물 대형",
+    "grade": "g2",
+    "unit_label": "1회주차요금 30분당 800원 · 1일(6시간 이상) 8,000원 · 월정기 주간 90,000원/야간 60,000원",
+    "hour": 1600,
+    "two_hour": 3200,
+    "day": 8000,
+    "month": 90000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 10,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 4~10월 08:00~20:00 · 11~3월 09:00~19:30 (나머지는 야간)",
+    "free": "조례 별표 1 비고 2의 주간·야간 시간 구분이다 — 월정기 주간·야간 요금을 가르는 기준이고, 등록 운영시간은 전 곳 00:00~23:59다"
+   }
+  ],
+  "notes": "급지는 주차장의 실태와 주차수요를 참작해 군수가 지정한다 — 1급지는 도시계획상 상업지역 안에 설치한 주차장과 폭 10m 이상 도로의 가장자리에서 100m 이내에 위치한 주차장이고, 2급지는 그 밖의 지역이다(별표 1 비고 3 — 별표 원문의 '폭 10cm이상'은 10m의 오기로 읽었다). 주차시간이 30분 미만이면 30분으로 본다(비고 5). 별표 말미에는 '10분 초과시마다 승용 200원, 화물 300원, 계속 1시간 이상 주차 시 1시간당 1,000원으로 계산'이라는 주가 있는데, 30분당 요금과의 관계가 문안만으로 확정되지 않아 위 표의 1시간·2시간 예상액은 30분당 요금을 반복해 계산했다(군청 확인 과제). 차종 구분은 소형이 승용 모든 차량(6인 이하)·승합 25인 이하·화물 적재량 2.5톤 이하, 대형이 승합 25인 초과·화물 2.5톤 초과다(비고 6). 감면은 긴급자동차 면제, 국가유공자·고엽제후유의증 환자·병역명문가 자가운전, 장애인 자가운전·동승, 경형·저공해·환경친화적 자동차 50%이다.",
+  "basis": "요금표는 「진안군 주차장 조례」 제2803호(시행 2025-03-17) 제6조·별표 1과 표준데이터(기준일 2026-10-23)를 대조해 실었다. 등록된 10곳은 전부 무료라 요금을 받는 곳이 없어 조례 기준 요금의 참고표다. (조례 본문: data/raw/jinan-ordinance.txt, 별표 1 원문: data/raw/jinan-ordinance-b1.txt)"
+ },
+ "slug": "jinan",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "진안군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자 자가운전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제1호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자가 자가운전하는 차량은 주차요금의 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "고엽제후유의증 환자 자가운전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제2호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제2조제3호에 따른 고엽제후유의증 환자가 자가운전하는 차량은 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "장애인 자가운전·동승 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제3호 — 「장애인복지법」 제2조에 따른 장애인이 자가운전하거나 함께 탄 차량은 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "경형자동차 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제4호 — 「자동차관리법 시행규칙」 제2조에 따른 배기량 1000cc 미만의 경형 자동차는 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "저공해자동차 표지부착 차량 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제5호 — 「대기환경보전법」 제58조제9항 및 제10항에 따른 저공해자동차 표지를 부착한 차량은 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "환경친화적 자동차 표지부착 차량 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제6호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차로서 같은 법 제11조제1항에 따라 표지를 부착한 자동차는 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "병역명문가 자가운전 50%",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제7호 — 「진안군 병역명문가 예우에 관한 조례」에 따라 병역명문가증을 소지한 병역명문가가 자가운전하는 차량은 50퍼센트를 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
