@@ -51759,6 +51759,704 @@ def build_mokpo():
     return payload
 
 
+# ── 여수시 ──────────────────────────────────────────────────────────
+# 여수시 (전남광주통합특별시) — 「여수시 주차장 조례」 제2311호
+#   (시행 2026-11-11, 공포 2026-11-11, 일부개정, ordinSeq
+#   2184495) 제6조·별표 1 원문 대조 완료(2026-11-20). 함께
+#   검색된 「여수시 개방주차장 지원에 관한 조례」·「여수시
+#   주차장특별회계 설치 조례」·「여수시 주차장 조례 시행규칙」은
+#   요금 조례가 아니라 제외했다. 제2311호 개정은 제3조의3
+#   (공영주차장 안전점검) 신설, 제6조제2항·제4항의 인용 조문
+#   정비, 별표 10·별표 12 개정뿐이라 요금표(별표 1, 개정
+#   2020-05-27)와 감면율은 바뀌지 않았고, 부칙은 공포한
+#   날부터 시행한다고 정한다(별표 10 개정규정만 공포 후
+#   20일 경과 후 시행 — 임실 선례 방식의 부칙 확인 완료).
+#   별표 1은 노외·노상으로 나뉜 급지(1·2급지)×차종(소형·
+#   대형) 요금표다 — 노외 1급지 소형은 최초 1시간 무료·초과
+#   10분마다 200원·1일 5,000원·월정기 주간 60,000원(야간
+#   50,000원·주야간 100,000원), 노외 2급지 소형은 10분마다
+#   100원·1일 3,500원·월정기 주간 40,000원이고, 노상 1급지
+#   소형은 최초 30분 무료·30분마다 500원·1일 5,000원·월정기
+#   60,000원, 노상 2급지 소형은 10분마다 100원·1일 3,500원·
+#   월정기 30,000원이다. 표준데이터 등록 37곳(전부 공영, 노외
+#   32·노상 5, 총 4,651면)은 전부 '유료'로 등록돼 있으나 기본·
+#   추가·1일·월정기 금액이 37곳 전부 공란이라(기본시간만 노외
+#   10분·노상 30분) 계산에 쓸 등록값이 없다 — 금액이 전부 비어
+#   구조 자체가 없는 불완전한 등록으로 보고 조례 별표 1의 소형
+#   요금을 급지·유형별로 계산기에 적용했다(논산·부여·음성·
+#   남원·부안 선례, 판단 지점). 노외 등록 기본시간 10분은 별표의
+#   '최초 1시간 무료' 구조와 달라 그 차이도 함께 기록한다.
+#   등록 급지는 1급지 36곳·2급지 1곳(백야항, 노외)이고 별표
+#   비고 1의 급지 정의(1급지=주거·상업지역·지구단위계획구역·
+#   지정고시 지역, 2급지=그 밖의 지역)와 방향이 같아 등록
+#   급지를 행 판정에 썼다. 여수시도시관리공단의 유료 공영주차장
+#   현황(36개소 4,792면)과 요금표(조례 제6조 관련으로 표기)는
+#   별표 1 금액과 일치함을 교차 확인했다 — 다만 공단 현황과
+#   표준데이터는 곳 이름·면수가 여럿 달라(아래 등록값_차이)
+#   이 사이트는 표준데이터 등록을 기준으로 싣는다. 좌표는
+#   37곳 전부 등록돼 있고 범위 밖도 없으며, 도로명주소는
+#   21곳이 결측이라 동 판정은 지번주소를 기준으로 했다.
+#   전화번호는 37곳 전부 등록돼 있지 않다.
+YEOSU_PROVINCE = "전남광주통합특별시"
+YEOSU_PROVINCE_SLUG = "jeonnam"
+YEOSU_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2184495"
+YEOSU_ORD_TXT = RAW / "yeosu-ordinance-b1.txt"
+YEOSU_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「여수시 주차장 조례」 제2311호(시행 2026-11-11, "
+                  "일부개정), ordinSeq 2184495. 본문 사본 "
+                  "data/raw/yeosu-ordinance.txt. 별표 1(유료 공영주차장 "
+                  "주차요금표)은 HWP 원본을 data/raw/yeosu-ordinance-b1.hwp로 "
+                  "저장하고 본문 텍스트를 추출해 data/raw/yeosu-ordinance-b1.txt로 확인했다.")
+
+YEOSU_DISCOUNTS = [
+    {"label": "긴급자동차 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제9항 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다"},
+    {"label": "모범·우수납세자 면제 (1년간)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제2항 — 우수납세자 또는 모범납세자 중 스티커를 부착한 자동차에 대하여는 스티커교부일로부터 1년간 주차요금을 면제할 수 있다"},
+    {"label": "국가유공자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제1호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조제1항제4호 및 같은 항 제6호, 제12호, 제15호 및 제17호에 해당하는 국가유공자의 자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "5·18민주화운동부상자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제2호 — 「5·18민주유공자예우 및 단체설립에 관한 법률」 제4조제2호에 따른 5·18민주화운동부상자의 자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "고엽제 후유증환자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제3호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제2조제2호에 따른 고엽제 후유증환자의 자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "장애인 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제4호 — 「장애인복지법」 제32조에 따라 등록한 장애인의 명의로 등록하여 해당 장애인이 직접 운전하는 자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "경형자동차 60% 감면", "rate": 0.6, "exempt_min": 0,
+     "note": "조례 제6조제4항제5호 — 경형자동차는 주차요금의 60퍼센트를 감면한다"},
+    {"label": "10부제·승용차 함께 타기 20% 감면", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 제6조제4항제6호 — 10부제 운행 또는 승용차 함께 타기(3인 이상)에 참여 중인 자동차는 주차요금의 20퍼센트를 감면한다"},
+    {"label": "자원봉사자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제7호 — 「여수시 자원봉사활동 지원 조례 시행규칙」 제12조제2항에 따라 발급받은 자원봉사자증을 제시하는 자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "장기기증자·장기기증등록자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제8호 — 「여수시 장기등·인체조직 기증 장려에 관한 조례」에 따른 장기 기증자 및 장기기증등록자로서 장기기증 등록증을 소지한 자의 차량은 주차요금의 50퍼센트를 감면한다"},
+    {"label": "환경친화적 자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제9호 — 「여수시 환경친화적 자동차의 보급 및 이용 활성화를 위한 조례」 제2조제1호의 환경친화적자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "병역명문가 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제10호 — 「여수시 병역명문가 예우에 관한 조례」 제2조에 따른 병역명문가 예우 대상자가 그 증서를 제시한 경우는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "여수·순천 10·19사건 희생자·유족 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제11호 — 「여수·순천 10·19사건 진상규명 및 희생자 명예회복에 관한 특별법」 제2조제2호에 따른 희생자 및 제2조제3호에 따른 유족의 자동차는 주차요금의 50퍼센트를 감면한다"},
+    {"label": "두 자녀 세대 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제4항제12호 — 두 자녀 세대에서 막내 자녀의 나이가 신청일 기준으로 18세 이하인 세대의 차량 중 공영주차장 요금 감면 신청을 완료한 차량 1대는 주차요금의 50퍼센트를 감면한다(부모와 자녀 모두 여수시에 주민등록을 둔 시민에 한정, 신청일로부터 1년간)"},
+    {"label": "세 자녀 이상 세대 100% 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제4항제13호 — 세 자녀 이상 세대에서 막내 자녀의 나이가 신청일 기준으로 18세 이하인 세대의 차량 중 공영주차장 요금 감면 신청을 완료한 차량 1대는 주차요금의 100퍼센트를 감면한다(주민등록 요건 있음, 신청일로부터 1년간)"},
+    {"label": "임산부 세대 100% 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제4항제14호 — 「모자보건법」 제2조제1호에 따른 임산부가 있는 세대의 차량 중 공영주차장 요금 감면 신청을 완료한 차량 1대는 주차요금의 100퍼센트를 감면한다(여수시에 주민등록을 둔 시민에 한정, 신청일로부터 1년간)"},
+]
+
+YEOSU_CONF = {
+    "city": "여수시",
+    "slug": "yeosu",
+    "manager": "전남광주통합특별시 여수시청",
+    "manager_inquiry": "여수시청 주차차량과(061-659-2141, 조례 담당·국가법령정보센터 표기)·표준데이터 등록 전화는 37곳 전부 등록돼 있지 않다",
+    "ordinance": ("「여수시 주차장 조례」 제2311호(시행 2026-11-11, 일부개정)",
+                  YEOSU_ORD_URL, YEOSU_ORD_NOTE),
+    "notes": ("여수시 공영주차장 37곳(노외 32·노상 5)은 총 4,651면이며, 37곳 전부 "
+              "요금을 받는 유료 주차장으로 등록돼 있다. 「여수시 주차장 조례」 "
+              "제2311호(시행 2026-11-11, ordinSeq 2184495) 제6조제1항은 공영주차장 "
+              "요금을 별표 1로 정한다 — 별표 1(개정 2020-05-27)은 노외·노상으로 "
+              "나뉜 급지(1·2급지)×차종(소형·대형) 요금표로, 노외 1급지 소형은 최초 "
+              "1시간 무료·초과 10분마다 200원·1일 5,000원·월정기 주간 60,000원"
+              "(야간 50,000원·주야간 100,000원), 노외 2급지 소형은 10분마다 "
+              "100원·1일 3,500원·월정기 주간 40,000원, 노상 1급지 소형은 최초 "
+              "30분 무료·30분마다 500원·1일 5,000원·월정기 60,000원, 노상 2급지 "
+              "소형은 10분마다 100원·1일 3,500원·월정기 30,000원이다. 표준데이터는 "
+              "37곳 전부 요금 금액(기본·추가·1일·월정기)이 공란이라 계산에 쓸 "
+              "등록값이 없어, 조례 별표 1의 소형 요금을 등록 급지·유형별로 "
+              "계산기에 적용했다(판단 지점). 시장은 고시한 공영주차장의 요금을 "
+              "50% 범위에서 할증 또는 할인할 수 있고(제6조제1항 단서), 월 통합 "
+              "정기주차권(소형 기준)은 130,000원으로 관내 모든 유료 공영주차장을 "
+              "한 달 동안 이용할 수 있다(제6조제7항). 감면은 조례 제6조를 따른다"
+              "(긴급자동차 면제, 모범·우수납세자 1년간 면제, 국가유공자·5·18"
+              "부상자·고엽제 환자·장애인·자원봉사자·장기기증자·환경친화적차·"
+              "병역명문가·여순사건 희생자·유족·두 자녀 세대 50%, 경형자동차 "
+              "60%, 10부제·카풀 20%, 세 자녀 이상·임산부 세대 100%). 좌표는 "
+              "37곳 전부 등록돼 있고, 도로명주소는 21곳이 등록돼 있지 않으며, "
+              "전화번호는 37곳 전부 등록돼 있지 않다."),
+    "discounts": YEOSU_DISCOUNTS,
+}
+
+YEOSU_BBOX = (34.50, 34.90, 127.55, 127.90)
+
+YEOSU_DONGS = {"학동", "화장동", "교동", "중앙동", "종화동", "웅천동", "오림동",
+               "수정동", "여서동", "문수동", "남산동", "소호동", "선원동", "연등동",
+               "서교동", "공화동", "덕충동", "충무동", "광림동", "고소동", "관문동",
+               "동산동", "국동", "신기동", "안산동", "군자동", "만흥동", "적량동",
+               "월하동", "평여동", "중흥동", "광무동", "오천동", "봉계동", "해산동",
+               "상암동", "호명동", "신풍동", "삼일동", "낙포동", "신월동", "경호동",
+               "대교동", "묘도동", "시전동", "주삼동", "쌍봉동",
+               "돌산읍", "소라면", "율촌면", "화양면", "남면", "화정면", "삼산면"}
+
+
+def yeosu_dong_of(addr):
+    """여수시 법정동·읍·면 판정 — 지번주소의 여수시 다음 토큰이
+    법정동·읍·면이다. 돌산읍 율림리처럼 리 주소는 읍·면을 동
+    단위로 쓴다(군 지역 선례와 같은 방식). 이름 기반 보정은
+    쓰지 않는다."""
+    if addr:
+        m = re.search(r"여수시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+# 별표 1 소형 요금 (유형, 급지) -> (기본시간, 기본요금, 추가단위시간,
+#   추가단위요금, 1일요금, 월정기 주간요금)
+YEOSU_ORD_SMALL = {
+    ("노외", "1"): (60, 0, 10, 200, 5000, 60000),
+    ("노외", "2"): (60, 0, 10, 100, 3500, 40000),
+    ("노상", "1"): (30, 0, 30, 500, 5000, 60000),
+    ("노상", "2"): (30, 0, 10, 100, 3500, 30000),
+}
+
+
+def yeosu_fee(row, name, note_bits, fee_diff):
+    """여수시 공영주차장 한 곳의 요금 — 37곳 전부 유료.
+    조례 제6조제1항은 공영주차장 요금을 별표 1로 정한다. 표준
+    데이터는 37곳 전부 '유료'로 등록돼 있으나 기본요금·추가
+    요금·1일 요금·월정기 요금이 전부 공란이고 기본시간만 노외
+    10분·노상 30분으로 적혀 있어, 금액이 전부 비어 구조 자체가
+    없는 불완전한 등록으로 보고 조례 별표 1의 소형 요금을 등록
+    급지·유형별로 적용한다(논산·부여·음성·남원·부안 선례,
+    판단 지점). 노외 등록 기본시간 10분은 별표의 '최초 1시간
+    무료'와 구조가 다르고, 노상 등록 기본시간 30분은 별표의
+    '최초 30분 무료'와 시간이 같다. 대형 요금과 월정기 야간·
+    주야간 요금은 요금표에만 싣고 계산에는 쓰지 않는다(목포
+    선례). 시장은 고시한 공영주차장의 요금을 50% 범위에서
+    할증·할인할 수 있어(제6조제1항 단서) 곳별 실제 징수액은
+    다를 수 있다 — 시청 확인 과제다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip() or "노외"
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    ord_row = YEOSU_ORD_SMALL.get((ptype, grade)) or YEOSU_ORD_SMALL.get((ptype, "1"))
+    o_base, o_bfee, o_umin, o_ufee, o_day, o_month = ord_row
+    fee_diff.append(f"{name}: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                    f"공란이라(등록 기본시간 {base_min}분) 계산에 쓸 등록값이 없어 조례 "
+                    f"별표 1 {ptype} {grade or '1'}급지 소형 요금(최초 {o_base}분 무료·"
+                    f"초과 {o_umin}분마다 {o_ufee}원·1일 {o_day}원·월정기 주간 "
+                    f"{o_month}원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 "
+                    "지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제")
+    fee.update({"type": "유료", "base_min": o_base, "base_fee": o_bfee,
+                "unit_min": o_umin, "unit_fee": o_ufee,
+                "daily_fee": o_day, "daily_hours": None,
+                "monthly": o_month,
+                "grade": int(grade) if grade.isdigit() else None,
+                "grade_label": f"{grade}급지" if grade else None,
+                "basis": (f"조례 별표 1 {ptype} {grade or '1'}급지 소형 요금(최초 "
+                          f"{o_base}분 무료·초과 {o_umin}분마다 {o_ufee}원·1일 "
+                          f"{o_day}원·월정기 주간 {o_month}원)을 적용했다 — 표준데이터는 "
+                          "요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다")})
+    return fee
+
+
+def yeosu_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 유료 공영주차장 주차요금표 값으로
+    표기한다. 별표 1은 노외·노상으로 나뉜 급지(1·2급지)×차종
+    (소형·대형) 요금표다. 등록 37곳은 전부 유료이고 금액이
+    전부 공란이라 계산기도 별표 1 소형 요금을 쓰므로, 이 표의
+    소형 행이 곧 계산 기준이다. 대형 행과 월정기 야간·주야간
+    요금은 표에만 싣는다. 1시간·2시간 예상액은 별표의 소형·
+    대형 1회 주차요금으로 계산한다 — 노외는 최초 1시간이
+    무료라 1시간 0원이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, base_min, base_fee, unit_min, unit_fee, day, month, lots_n, unit_label):
+        f = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+             "unit_fee": unit_fee, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month, "lots": lots_n}
+
+    n_off1 = len([l for l in paid if l["ptype"] == "노외" and l["fee"].get("grade") == 1])
+    n_off2 = len([l for l in paid if l["ptype"] == "노외" and l["fee"].get("grade") == 2])
+    n_st1 = len([l for l in paid if l["ptype"] == "노상" and l["fee"].get("grade") == 1])
+    n_st2 = len([l for l in paid if l["ptype"] == "노상" and l["fee"].get("grade") == 2])
+    rows = [
+        _row("노외 1급지 소형", "off1_small", 60, 0, 10, 200, 5000, 60000, n_off1,
+             "최초 1시간 무료 · 초과 10분마다 200원 · 1일 5,000원 · 월정기 주간 60,000원/야간 50,000원/주야간 100,000원"),
+        _row("노외 1급지 대형", "off1_large", 60, 0, 10, 300, 8000, 90000, 0,
+             "최초 1시간 무료 · 초과 10분마다 300원 · 1일 8,000원 · 월정기 주간 90,000원/야간 75,000원/주야간 155,000원"),
+        _row("노외 2급지 소형", "off2_small", 60, 0, 10, 100, 3500, 40000, n_off2,
+             "최초 1시간 무료 · 초과 10분마다 100원 · 1일 3,500원 · 월정기 주간 40,000원/야간 30,000원/주야간 60,000원"),
+        _row("노외 2급지 대형", "off2_large", 60, 0, 10, 200, 5000, 70000, 0,
+             "최초 1시간 무료 · 초과 10분마다 200원 · 1일 5,000원 · 월정기 주간 70,000원/야간 50,000원/주야간 110,000원"),
+        _row("노상 1급지 소형", "st1_small", 30, 0, 30, 500, 5000, 60000, n_st1,
+             "최초 30분 무료 · 초과 30분마다 500원 · 1일 5,000원 · 월정기 60,000원"),
+        _row("노상 1급지 대형", "st1_large", 30, 0, 10, 300, 8000, None, 0,
+             "최초 30분 무료 · 초과 10분마다 300원 · 1일 8,000원 · 월정기 해당 없음"),
+        _row("노상 2급지 소형", "st2_small", 30, 0, 10, 100, 3500, 30000, n_st2,
+             "최초 30분 무료 · 초과 10분마다 100원 · 1일 3,500원 · 월정기 30,000원"),
+        _row("노상 2급지 대형", "st2_large", 30, 0, 10, 200, 5000, None, 0,
+             "최초 30분 무료 · 초과 10분마다 200원 · 1일 5,000원 · 월정기 해당 없음"),
+    ]
+    return {
+        "style": "yeosu_grade",
+        "unit_min": 10,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간 시간구분 (월정기 주·야간 구분)", "hours": "주간 08:00~20:00, 그 외 야간",
+                     "free": ("조례 별표 1 비고 2의 주·야간 구분이다. 등록 운영시간은 "
+                              "노외 37곳 중 32곳이 전 요일 08:00~20:00이고 노상 5구간은 "
+                              "평일만 08:00~20:00이다")},
+                    {"group": "중식·야간 무료 (노외, 지정 고시)", "hours": "중식 12:00~14:00 · 야간 20:00~08:00",
+                     "free": ("조례 별표 1 노외주차장 주석 2 — 주차장별 지정 고시를 "
+                              "통하여 중식시간과 야간시간에 무료로 운영할 수 있다. "
+                              "다만, 주차장별 상황에 따라 요금과 운영시간을 따로 정할 "
+                              "수 있다. 이용률이 극히 저조하거나 특별한 관리가 필요한 "
+                              "노외주차장은 지정 고시로 2시간 이내 무료로 운영할 수 "
+                              "있다(주석 1)")}],
+        "notes": ("별표 1 비고 1의 급지 구분은 1급지(주거지역·상업지역·지구단위계획"
+                  "구역·시장이 1급지로 지정고시한 지역)와 2급지(1급지 이외의 지역)"
+                  "이고, 등록 급지(1급지 36곳·2급지 1곳)가 이 정의와 방향이 같아 "
+                  "행 판정에 썼다. 차종 구분은 승용차·15인승 이하 승합차·2.5톤 "
+                  "미만 화물자동차는 소형, 그 외의 차량은 대형이다(비고 3). 시설물 "
+                  "관리에 추가 비용이 드는 등 특별한 사정이 있어 시장이 따로 지정 "
+                  "고시한 주차장은 별도 기준(소형 10분마다 200원·1일 최대 평일 "
+                  "5,000원/토·일·공휴일 10,000원, 대형 10분마다 300원·1일 최대 "
+                  "평일 8,000원/토·일·공휴일 16,000원, 최초 무료시간 없음)을 "
+                  "적용한다. 노상주차장은 주차 시 1,000원을 징수한 후 주차 완료 "
+                  "시에 사용 시간에 따라 정산하고, 수익성·효율성을 분석하여 무료로 "
+                  "운영할 수 있다(노상 주석). 시장은 고시한 공영주차장의 요금을 "
+                  "50% 범위에서 할증 또는 할인할 수 있다(제6조제1항 단서). 월 "
+                  "통합 정기주차권(소형 기준, 130,000원)은 관내 모든 유료 "
+                  "공영주차장을 한 달 동안 이용할 수 있다(제6조제7항). 감면은 "
+                  "긴급자동차 면제(제6조제9항), 모범·우수납세자 1년간 면제"
+                  "(제6조제2항), 국가유공자·5·18부상자·고엽제·장애인·자원봉사자·"
+                  "장기기증자·환경친화적차·병역명문가·여순사건 희생자·유족·두 "
+                  "자녀 세대 50%, 경형자동차 60%, 10부제·카풀 20%, 세 자녀 "
+                  "이상·임산부 세대 100%(이상 제6조제4항, 중복 시 높은 1개만 "
+                  "적용)이다."),
+        "basis": ("요금표는 「여수시 주차장 조례」 제2311호(시행 2026-11-11) "
+                  "제6조·별표 1(개정 2020-05-27)과 표준데이터(기준일 "
+                  "2026-04-16)를 대조해 실었다. 등록된 37곳은 전부 유료이나 "
+                  "요금 금액이 전부 공란이라 계산기도 별표 1 소형 요금을 쓴다. "
+                  "여수시도시관리공단의 유료 공영주차장 요금표(조례 제6조 관련 "
+                  "표기)도 같은 금액임을 교차 확인했다. (조례 본문: "
+                  "data/raw/yeosu-ordinance.txt, 별표 1 원문: "
+                  "data/raw/yeosu-ordinance-b1.txt)"),
+    }
+
+
+def yeosu_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「여수시 주차장 조례」 제2311호 제6조 — 면제(제6조제2항): 우수납세자 "
+                      "또는 모범납세자 중 스티커를 부착한 자동차는 스티커교부일로부터 "
+                      "1년간 주차요금을 면제할 수 있다. 면제(제6조제9항): 「도로교통법」 "
+                      "제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다. "
+                      "감면(제6조제4항): 국가유공자 50퍼센트(제1호), 5·18민주화운동"
+                      "부상자 50퍼센트(제2호), 고엽제 후유증환자 50퍼센트(제3호), "
+                      "장애인(본인 명의 등록·직접 운전) 50퍼센트(제4호), 경형자동차 "
+                      "60퍼센트(제5호), 10부제 운행 또는 승용차 함께 타기(3인 이상) "
+                      "20퍼센트(제6호), 자원봉사자증 제시 50퍼센트(제7호), 장기기증자 "
+                      "및 장기기증등록자 50퍼센트(제8호), 환경친화적자동차 50퍼센트"
+                      "(제9호), 병역명문가 50퍼센트(제10호), 여수·순천 10·19사건 "
+                      "희생자 및 유족 50퍼센트(제11호), 두 자녀 세대 50퍼센트(제12호), "
+                      "세 자녀 이상 세대 100퍼센트(제13호), 임산부 세대 100퍼센트"
+                      "(제14호). 감면이 중복되는 경우에는 감면비율이 높은 1개 항목만 "
+                      "적용한다. 본문 원문(data/raw/yeosu-ordinance.txt) 대조 완료"
+                      "(2026-11-20)"),
+        "요금_출처": ("조례 제6조제1항·별표 1(개정 2020-05-27) — 공영주차장의 주차요금은 "
+                      "별표 1과 같고, 시장은 고시한 공영주차장의 요금을 50% 범위에서 "
+                      "할증 또는 할인할 수 있다. 별표 1은 노외 1급지 소형 최초 1시간 "
+                      "무료·초과 10분마다 200원·1일 5,000원·월정기 주간 60,000원"
+                      "(야간 50,000원·주야간 100,000원), 노외 2급지 소형 10분마다 "
+                      "100원·1일 3,500원·월정기 주간 40,000원, 노상 1급지 소형 최초 "
+                      "30분 무료·30분마다 500원·1일 5,000원·월정기 60,000원, 노상 "
+                      "2급지 소형 10분마다 100원·1일 3,500원·월정기 30,000원이다. "
+                      "표준데이터 등록 37곳은 전부 유료이나 요금 금액이 전부 공란이라 "
+                      "계산기는 별표 1 소형 요금을 등록 급지·유형별로 적용하고 "
+                      "요금표도 조례값을 실었다"),
+        "급지_출처": ("조례 별표 1 비고 1 — 1급지는 주거지역·상업지역·지구단위계획구역과 "
+                      "시장이 1급지로 지정고시한 지역, 2급지는 1급지 이외의 지역이다. "
+                      "표준데이터 등록 급지는 1급지 36곳·2급지 1곳(백야항)으로 이 "
+                      "정의와 방향이 같아 행 판정에 썼다"),
+        "무료요일_출처": ("조례에 주말·공휴일 상시 무료 규정은 없어 유료 37곳의 free_days는 "
+                          "전부 False로 뒀다. 제6조의2의 행사·설·추석 무료 개방과 별표 1 "
+                          "주석의 중식·야간 무료는 고시·승인에 따른 재량 사항이라 요일 "
+                          "모델에 넣지 않고 요금표 창구와 안내 문구에 남겼다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 여수시 등록 37행 전부 공영(노외 32·노상 5) — 민영 제외 0건",
+            "「여수시 주차장 조례」 제2311호(시행 2026-11-11, 공포 2026-11-11, 일부개정, ordinSeq 2184495) 본문 원문(data/raw/yeosu-ordinance.txt) 대조 완료(2026-11-20) — 함께 검색된 「여수시 개방주차장 지원에 관한 조례」·「여수시 주차장특별회계 설치 조례」·「여수시 주차장 조례 시행규칙」은 요금 조례가 아니라 제외했다. 제2311호 개정은 제3조의3 신설·제6조 인용 조문 정비·별표 10·별표 12 개정뿐이라 요금표와 감면율은 바뀌지 않았고 부칙은 공포한 날부터 시행한다고 정함을 여수시청 공포문(조례 제2311호 PDF)으로도 교차 확인했다",
+            "별표 1은 HWP 원본(flSeq 171407443)을 data/raw/yeosu-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다(data/raw/yeosu-ordinance-b1.txt) — 노외·노상으로 나뉜 급지(1·2급지)×차종(소형·대형) 요금표이고 개정일은 2020-05-27이다",
+            "등록 37곳은 전부 '유료'이나 기본·추가·1일·월정기 금액이 전부 공란이라 계산에 쓸 등록값이 없어, 금액이 전부 비어 구조 자체가 없는 불완전한 등록으로 보고 조례 별표 1 소형 요금을 등록 급지·유형별로 계산기에 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인(50% 범위)과 별표 1의 특별 지정고시 주차장 기준이 실제로 적용되는 곳이 있는지는 시청 확인 과제다",
+            "여수시도시관리공단의 유료 공영주차장 현황(36개소 4,792면 — 노상 3개소 87면·노외 33개소 4,705면)과 요금표(조례 제6조 관련 표기, data/raw/yumcorp.or.kr_공영주차장_현황_요금_감면_20261120.html)는 별표 1 금액과 일치함을 교차 확인했다. 다만 공단 현황은 표준데이터에 없는 박람회장(249면)·선소(193면)·종포 해양공원(225면)·덕충동(69면)을 싣고 표준데이터의 흥국로·이순신광장로(1) 노상 구간과 종화동 물양장·덕충동 엑스포타운·박람회장 정문 앞은 공단 유료 현황에 없어, 두 자료의 대응 관계와 면수 차이(여문공원 241↔248면, 돌산공원 225↔249면 등)는 시청·공단 확인 과제로 남기고 이 사이트는 표준데이터 등록을 기준으로 실었다",
+            "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 겹치는 주차장도 없다",
+            "좌표는 37곳 전부 등록돼 있고 여수시 범위 밖 좌표도 없어 지오코딩 보완이 필요 없었다",
+            "도로명주소는 21곳이 등록돼 있지 않아 동(법정동·읍·면) 판정은 지번주소를 기준으로 했다. 전화번호는 37곳 전부 등록돼 있지 않다(시청 확인 과제)",
+            "등록 급지(1급지 36곳·2급지 1곳)는 조례 별표 1 비고 1의 급지 정의와 방향이 같아 요금표 행 판정에 썼다 — 다만 곳별 급지의 지정고시 근거는 시청 확인 과제다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_yeosu():
+    """여수시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「여수시 주차장 조례」 제2311호
+    (시행 2026-11-11, ordinSeq 2184495) 제6조·별표 1 원문
+    대조 완료(2026-11-20). 표준데이터 등록 37행 전부 공영(노외
+    32·노상 5, 총 4,651면)을 싣는다. 37곳 전부 유료로 등록돼
+    있으나 요금 금액이 전부 공란이라 조례 별표 1 소형 요금을
+    급지·유형별로 적용한다. 좌표는 전부 등록돼 있다."""
+    conf = YEOSU_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "여수시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "여수시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 여수시는
+    #   해당 중복이 0건이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (YEOSU_BBOX[0] < lat < YEOSU_BBOX[1]
+                                                        and YEOSU_BBOX[2] < lng < YEOSU_BBOX[3]):
+            # 여수시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 여수시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = yeosu_dong_of(jibun) or yeosu_dong_of(road)
+        if yeosu_dong_of(jibun):
+            dong_src = "지번주소"
+        elif yeosu_dong_of(road):
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in YEOSU_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = yeosu_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if (r.get("부제시행구분") or "").strip() not in ("", "미시행"):
+            note_bits.append(f"차량 {(r.get('부제시행구분') or '').strip()}가 시행되는 곳입니다(등록 부제시행구분)")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "여수시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 37행은 전부 공영이고 데이터기준일자는 전부 "
+                      "2026-04-16이다. 관리기관은 37곳 전부 전라남도 여수시이고 "
+                      "전화번호는 37곳 전부 등록돼 있지 않다")
+    _no_road = [l["name"] for l in lots if not l["addr_road"]]
+    note_fixed.append(f"도로명주소는 {len(_no_road)}곳이 등록돼 있지 않아 동(법정동·읍·면) 판정과 "
+                      "표기는 지번주소를 기준으로 했다")
+    note_fixed.append("등록 급지는 1급지 36곳·2급지 1곳(백야항)이고 조례 별표 1 비고 1의 "
+                      "급지 정의와 방향이 같아 요금표 행 판정에 썼다")
+    note_fixed.append("운영요일은 노외 32곳이 전부 평일+토요일+공휴일이고 노상 5구간은 "
+                      "평일만이며, 운영시간은 전부 08:00~20:00이다. 특기사항은 37곳 전부 "
+                      "공란이고, 부제시행구분은 웅천해변공원2·용기공원·소호요트마리나·"
+                      "박람회장 정문 앞·덕충동 엑스포타운 5곳만 '5부제'이고 나머지는 "
+                      "'미시행'이다. 결제방법은 37곳 전부 등록돼 있지 않다")
+    note_fixed.append("여수시도시관리공단 유료 공영주차장 현황은 36개소 4,792면(노상 "
+                      "3개소 87면·노외 33개소 4,705면)으로 표준데이터(37곳 4,651면)와 "
+                      "곳수·면수가 다르다 — 공단 현황에만 있는 박람회장(249면)·선소"
+                      "(193면)·종포 해양공원(225면)·덕충동(69면), 표준데이터에만 있는 "
+                      "흥국로·이순신광장로(1) 노상 구간, 면수가 다른 여문공원(241↔"
+                      "248면)·돌산공원(225↔249면)·학동선소상가 1(235↔242면)·화장동"
+                      "(287↔292면) 등은 시청·공단 확인 과제로 남기고 표준데이터 "
+                      "등록 기준으로 실었다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-yeosu-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-yeosu-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 여수시는 좌표 결측이 없어 채워지는 곳은 없다.
+    apply_coord_fix(lots)
+
+    fee_table = yeosu_fee_table(conf, lots)
+    quality = yeosu_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"여수시로 등록된 행 {len(rows_std)}행(전부 공영·노외 32·노상 5)을 "
+                 f"읽어 중복 제거 {len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳, 유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이다. 좌표는 전부 "
+                 f"등록돼 있고 도로명주소는 21곳이 결측이다. 조례 대조 완료 — 「여수시 "
+                 f"주차장 조례」 제2311호(시행 2026-11-11, ordinSeq "
+                 f"2184495) 제6조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": YEOSU_ORD_TXT.name if YEOSU_ORD_TXT.exists() else None,
+            "sha256": sha256(YEOSU_ORD_TXT) if YEOSU_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-11-11",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"여수시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/yeosu-ordinance.txt, 별표 1 원문: "
+                    f"data/raw/yeosu-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": YEOSU_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "여수시", "slug": "yeosu"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": YEOSU_PROVINCE,
+        "province_slug": YEOSU_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "yeosu_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -51771,7 +52469,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -51789,7 +52487,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -51842,7 +52540,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -52025,6 +52723,8 @@ def main():
         cities.append(build_buan())
     if "목포시" in want:
         cities.append(build_mokpo())
+    if "여수시" in want:
+        cities.append(build_yeosu())
 
     if args.city == "all":
         site = build_site_payload(cities)
