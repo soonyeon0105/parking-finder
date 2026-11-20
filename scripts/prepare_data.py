@@ -339,7 +339,11 @@ def derive_free_fields(lot):
     # 함안군도 마찬가지다 — 조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료
     # 근거가 없고 특기사항도 전부 비어 있어 공휴일 태그를 붙이지 않는다(별표 1의
     # 최초 60분 무료는 요일과 무관하다).
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시", "김천시")):
+    # 안동시도 마찬가지다 — 조례 본문에 주말·공휴일 일괄 면제 조항이 없고, 일요일
+    # 무료 27곳은 특기사항 '무료(일요일)' 근거뿐이라 sun=True만으로 공휴일 태그를
+    # 붙이지 않는다. 공휴일 무료는 특기사항에 직접 적힌 2곳뿐인데 free_days에
+    # 공휴일 전용 칸이 없어 그 2곳은 특기 원문으로만 표기한다.
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시", "김천시", "안동시")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -79212,6 +79216,619 @@ def build_gimcheon():
     return payload
 
 
+
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# 안동시 (경상북도) — 「안동시 주차장 조례」 제2252호(시행
+#   2025-07-04, 일부개정·공포한 날부터 시행), ordinSeq
+#   2051383. law.go.kr 원문 직접 확인(2026-11-21): 본문
+#   data/raw/andong-ordinance.txt, 별표 1 원본 HWP
+#   data/raw/andong-ordinance-b1.hwp (전재문
+#   andong-ordinance-b1.txt). 담당은 안동시청 교통행정과
+#   (054-840-5424, 조례 본문 표기).
+# 제5조제1항이 시장이 설치한 노상·노외 공영주차장 요금을
+#   별표 1로 정한다. 별표 1은 1급지 기본(최초 30분) 500원·
+#   초과 10분마다 200원·1일(노외 한정) 10,000원·월정기
+#   (노외 한정) 주간 80,000원·야간 60,000원·주야간
+#   140,000원, 2급지 200원·100원·1일 5,000원·월 주간
+#   35,000원·야간 25,000원(주야간 칸 없음)이다. 비고 2는
+#   노외가 기준요금(상한) 안에서 별도 요금을 정할 수 있게
+#   하고, 비고 3은 기준 차량(승용·15인승 미만 승합·2.5톤
+#   미만 화물)보다 큰 차의 2배·3배 가산(노외 한정), 비고 4는
+#   주간 08:00~20:00, 비고 6은 최초 30분 이내를 30분으로·
+#   초과를 10분 단위로 계산하되 노상주차장은 1일 1회에 한해
+#   최초 15분까지 요금을 면제한다고 정한다. 급지는 규칙으로
+#   지정한다(비고 5). 감면은 제6조다. 면제(제1항)는
+#   긴급자동차, 성실납세증 부착 자동차(교부일부터 1년),
+#   당일 헌혈증 소지자이고, 50% 경감(제2항, 1일 1회에 한해
+#   1시간 이내는 면제·1시간 초과 시 50% 경감)은 장애인,
+#   국가유공자·독립유공자·5·18민주유공자 및 유족·가족,
+#   참전유공자, 보훈보상대상자, 고엽제 후유증·후유의증
+#   환자, 장기등 기증자·기증등록자, 다자녀가정,
+#   우수자원봉사자, 병역명문가, 관내 주민등록 임산부다.
+#   경형자동차(제3항)와 저공해·환경친화적 자동차(제6항,
+#   전기차 충전 주차는 1시간 면제)도 50% 경감이고,
+#   전통시장 공영노외주차장 상인·고객은 1시간 이내 감면이
+#   가능하다(제4항). 주말·공휴일 일괄 면제 조항은 본문에
+#   없다.
+# 표준데이터 안동시 등록은 제공기관 경상북도 안동시
+#   132행(전부 공영, 기준일 2026-10-13)이 노외 82·노상
+#   49·부설 1, 총 8,221면이고 무료 96·혼합 30·유료 6으로,
+#   인스팅트 앞단 패키지(경북 4/22) 집계와 원본 대조 결과가
+#   일치한다. 민영 0건·구획수 0 등록 0건·이름 중복 0건·
+#   같은 이름+같은 지번 중복 0건이라 132행을 전부 싣는다.
+#   같은 지번·같은 좌표에 이름만 다르게 등록된 5개 그룹은
+#   전부 싣고 확인 과제로 남긴다(산청 선례). 좌표는 132곳
+#   전부 등록돼 있고 안동시 범위 안이라 보완 0건이다.
+# 요금 판단은 패키지 판단안을 따른다. 등록 단가가 별표 1
+#   1급지와 정확히 같은 주류 그룹(기본 30분 500원+추가
+#   10분 200원) 33곳은 계산에 쓴다 — 노상 26곳은 비고 6의
+#   최초 15분 면제를 free_min으로 분리하고(base_min은
+#   무료 15분+최초 30분=45분, 남해 선례), 노외는 별표 1의
+#   1일 10,000원·월정기 주간 80,000원이 확정이라 일·월이
+#   비어 있는 곳도 조례값으로 채운다. 등록 일·월이 조례와
+#   같은 웅부공원공영주차장은 등록값을 쓴다. 터미널공영
+#   주차장은 단가는 주류와 같지만 등록 1일 7,000원·월
+#   100,000원이 조례(1일 10,000원·월 주간 80,000원)와
+#   어긋나, 단가만 계산에 쓰고 일·월은 확정하지 않는다
+#   (등록값도 별표값도 넣지 않는다). 단가 자체가 별표와
+#   어긋나는 3곳 — 옥동 주차타워(기본 30분 200원+추가
+#   10분 200원), 도산서원(1,440분 2,000원 정액·특기
+#   '대형4000원'), 안동시청 부설주차장(60분 500원+30분
+#   500원, 부설) — 은 별도 근거 확인 전이라 별표 금액을
+#   대입하지 않고 요금 미상으로 표기한다(김해·함안 선례).
+#   혼합 등록은 혼합으로 표기만 하고 전일 유료로 계산하지
+#   않는다. 주말·공휴일 무료는 특기사항에 적힌 행만 근거
+#   범위대로 표기한다 — 일요일 무료 27곳(노상 26·노외 1),
+#   주말+설·추석 연휴 무료 3곳, 주말 무료 1곳(부설)은
+#   요일 표기를 하고, 공휴일 무료 2곳은 free_days에 공휴일
+#   전용 칸이 없어 특기 원문과 안내 문구로만 표기한다.
+#   일요일만 적힌 곳에 공휴일 무료를 확대하지 않는다 —
+#   derive_free_fields의 공휴일 태그 예외에 안동시를 둔다.
+ANDONG_PROVINCE = "경상북도"
+ANDONG_PROVINCE_SLUG = "gyeongbuk"
+ANDONG_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                  "ordinSeq=2051383")
+ANDONG_ORD_TXT = RAW / "andong-ordinance-b1.txt"
+ANDONG_ORD_NOTE = ("「안동시 주차장 조례」 제2252호(시행 2025-07-04) "
+                   "제5조제1항·별표 1 — 국가법령정보센터 ordinSeq 2051383에서 확인")
+
+ANDONG_DISCOUNTS = [
+    {"label": "긴급자동차 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제1항제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다"},
+    {"label": "성실납세자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제1항제2호 — 국세청장 및 시장이 교부하는 국·지방세의 성실납세증을 부착한 자동차는 성실납세증을 교부받은 날부터 1년간 주차요금을 면제할 수 있다"},
+    {"label": "당일 헌혈증 소지자 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제1항제3호 — 「안동시 헌혈 장려에 관한 조례」에 따른 당일 발급한 헌혈증을 소지한 사람은 헌혈한 당일에 한해 주차요금을 면제할 수 있다"},
+    {"label": "장애인·국가유공자 등 1시간 면제·초과 50% 경감", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제6조제2항 — 등록장애인(장애인등록증 소지), 국가유공자·독립유공자·5·18민주유공자 및 그 유족 또는 가족, 참전유공자, 보훈보상대상자, 고엽제 후유증·후유의증 환자, 장기등 기증자 및 기증등록자, 다자녀가정, 우수자원봉사자증 소지자, 병역명문가증 소지자, 안동시에 주민등록을 둔 임산부(직접 운전하거나 동승하고 확인 서류를 소지한 경우)는 1일 1회에 한하여 1시간 이내의 경우 주차요금을 면제하고, 1시간 초과 시 주차요금의 100분의 50을 경감할 수 있다"},
+    {"label": "경형자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제3항 — 「자동차관리법」 제3조 및 같은 법 시행규칙 제2조 별표 1에 따른 경형자동차(배기량 1,000cc 미만)는 주차요금의 100분의 50을 경감할 수 있다"},
+    {"label": "저공해·환경친화적 자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제6항 — 「대기환경보전법」 제58조제11항에 따른 저공해자동차 표지를 부착한 자동차 및 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제11조에 따라 환경친화적 자동차 표지를 부착한 자동차는 주차요금의 100분의 50을 경감할 수 있다. 다만 전기자동차 충전을 위하여 주차하는 경우에는 1시간의 범위에서 주차요금을 면제한다"},
+    {"label": "전통시장 상인·고객 1시간 이내 감면 가능", "rate": 1.0, "exempt_min": 60,
+     "note": "조례 제6조제4항 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조제1항에 따라 공영노외주차장을 이용하는 상인 및 고객들에게 1시간 이내의 주차요금을 감면해 줄 수 있다"},
+]
+
+ANDONG_CONF = {
+    "city": "안동시",
+    "slug": "andong",
+    "manager": "경상북도 안동시청",
+    "manager_inquiry": "안동시청 교통행정과(054-840-5424, 조례 담당부서)",
+    "ordinance": ("안동시 주차장 조례", ANDONG_ORD_URL, ANDONG_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 안동시 공영주차장 132곳(노외 82곳·노상 49구간·부설 1곳, 총 8,221면)입니다. "
+        "「안동시 주차장 조례」 제2252호 별표 1은 급지별 요금표를 두고(1급지 기본 30분 500원·10분마다 "
+        "200원, 2급지 200원·100원), 등록 단가가 별표 1 1급지와 같은 33곳은 등록값으로 계산하고 노상은 "
+        "최초 15분 면제를 반영했습니다. 노외의 1일·월정기(주간)는 조례 확정값(10,000원·80,000원)을 "
+        "적용했고, 등록 일·월이 조례와 어긋나는 터미널공영주차장은 일·월을 확정하지 않았습니다. 단가가 "
+        "별표와 어긋나는 3곳(옥동 주차타워·도산서원·안동시청 부설주차장)은 요금 미상으로 표기했습니다."),
+    "discounts": ANDONG_DISCOUNTS,
+}
+
+ANDONG_BBOX = (36.45, 36.82, 128.38, 128.93)
+
+# 별표 1 급지별 단가 — (최초 30분, 추가 10분, 1일(노외 한정), 월 주간, 월 야간, 월 주야간).
+ANDONG_GRADES = {
+    "1": (500, 200, 10000, 80000, 60000, 140000),
+    "2": (200, 100, 5000, 35000, 25000, None),
+}
+
+
+def andong_dong_of(addr):
+    """안동시 법정 읍·면·동 판정 — 지번·도로명주소의 안동시
+    다음 토큰이다. 경주와 같은 정규식을 쓴다."""
+    if addr:
+        m = re.search(r"안동시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동|리|가))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def andong_fee(row, name, note, fee_diff):
+    """안동시 공영주차장 한 곳의 요금 — 무료 등록은 유지한다.
+    등록 단가가 조례 별표 1 1급지와 정확히 같은 주류 그룹
+    (기본 30분 500원+추가 10분 200원)은 계산에 쓴다. 노상은
+    별표 1 비고 6의 최초 15분 면제(1일 1회)를 free_min으로
+    분리한다 — base_min은 무료 15분+최초 30분=45분이다
+    (남해 선례). 노외는 별표 1의 1일 10,000원·월정기 주간
+    80,000원이 확정이라 일·월이 비어 있어도 조례값으로
+    채우고, 등록 일·월이 조례와 같은 곳은 등록값을 쓴다.
+    터미널공영주차장처럼 등록 일·월이 조례와 어긋나는 곳은
+    단가만 계산에 쓰고 일·월은 확정하지 않는다. 단가 자체가
+    별표와 어긋나는 곳은 별표 금액을 대입하지 않고 요금
+    미상으로 표기한다(김해·함안 선례). 혼합 등록은 전일
+    유료로 계산하지 않고 혼합 표기만 한다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    _day, _month = day or 0, month or 0
+    if raw_type == "무료":
+        if day or month or base_fee:
+            fee_diff.append(f"{name}: 요금 구분은 '무료'이나 1일 요금 {_day:,}원·월 {_month:,}원·"
+                            f"기본요금 {base_fee or 0:,}원이 함께 등록돼 있어 무료 표기는 유지하고 "
+                            "충돌로 기록한다(인스팅트 패키지 확인 과제)")
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if (base_min, base_fee, unit_min, unit_fee) != (30, 500, 10, 200):
+        fee_diff.append(f"{name}: 등록 단가(기본 {base_min or 0}분 {base_fee or 0:,}원·추가 "
+                        f"{unit_min or 0}분 {unit_fee or 0:,}원)가 조례 별표 1의 어느 급지와도 "
+                        "맞지 않아 별표 금액을 대입하지 않고 요금 미상으로 표기한다"
+                        "(인스팅트 패키지 판단안·김해 선례)")
+        fee.update({"type": "미상",
+                    "basis": ("표준데이터에는 요금이 등록돼 있으나 등록 단가가 조례 별표 1과 "
+                              "어긋나 요금 미상으로 표기한다 — 실제 요금은 안동시청"
+                              "(054-840-5424) 확인이 필요하다")})
+        return fee
+    if ptype == "노상":
+        fee.update({"type": "유료", "base_min": 45, "base_fee": 500,
+                    "unit_min": 10, "unit_fee": 200, "free_min": 15,
+                    "basis": ("표준데이터 등록값(기본 30분 500원·추가 10분 200원)이 조례 "
+                              "별표 1의 1급지 단가와 같아 등록값을 그대로 적용했다. "
+                              "노상주차장은 별표 1 비고 6에 따라 1일 1회에 한해 최초 "
+                              "15분까지 요금이 면제돼 이를 반영했다. 1일·월정기 요금은 "
+                              "별표 1에서 노외주차장에 한해 정하므로 노상에는 없다")})
+        return fee
+    # 노외 주류 — 1일·월정기(주간)는 조례 별표 1 확정값이다.
+    if day or month:
+        if (day, month) == (10000, 80000):
+            fee.update({"type": "유료", "base_min": 30, "base_fee": 500,
+                        "unit_min": 10, "unit_fee": 200,
+                        "daily_fee": day, "daily_hours": day_hours,
+                        "monthly": month, "monthly_label": "월정기(주간)",
+                        "monthly_night": 60000, "monthly_all": 140000,
+                        "basis": ("표준데이터 등록값(기본 30분 500원·추가 10분 200원·1일 "
+                                  "10,000원·월 80,000원)이 조례 별표 1의 1급지 단가와 "
+                                  "같아 등록값을 그대로 적용했다. 월정기 야간 60,000원·"
+                                  "주야간 140,000원은 별표 1의 값이다")})
+            return fee
+        fee_diff.append(f"{name}: 등록 1일 요금 {_day:,}원·월정기 {_month:,}원이 조례 별표 1의 "
+                        "1급지 1일 10,000원·월정기 주간 80,000원과 어긋난다 — 단가는 별표 "
+                        "1과 같아 계산에 쓰되, 일·월은 등록값도 별표값도 확정하지 않는다"
+                        "(인스팅트 패키지 판단안 — 별도 공고 확인 과제)")
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 500,
+                    "unit_min": 10, "unit_fee": 200,
+                    "basis": ("표준데이터 등록 단가(기본 30분 500원·추가 10분 200원)가 "
+                              "조례 별표 1의 1급지 단가와 같아 단가로 계산한다. 등록된 "
+                              "1일·월정기 금액은 조례 별표 1과 어긋나 확정하지 않았다 — "
+                              "실제 1일·월정기 요금은 안동시청(054-840-5424) 확인이 "
+                              "필요하다")})
+        return fee
+    fee.update({"type": "유료", "base_min": 30, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200,
+                "daily_fee": 10000, "daily_hours": 24,
+                "monthly": 80000, "monthly_label": "월정기(주간)",
+                "monthly_night": 60000, "monthly_all": 140000,
+                "basis": ("표준데이터 등록 단가(기본 30분 500원·추가 10분 200원)가 조례 "
+                          "별표 1의 1급지 단가와 같아 등록 단가로 계산하고, 1일 요금과 "
+                          "월정기는 별표 1의 확정값(1일 10,000원·월 주간 80,000원·야간 "
+                          "60,000원·주야간 140,000원)을 적용했다")})
+    return fee
+
+
+def andong_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 급지별 표를 싣는다. 1시간·2시간
+    금액은 노외 기준 부과액이다(1급지 60분: 최초 30분
+    500원+30분 600원=1,100원). 노상은 비고 6의 최초 15분
+    면제가 있어 같은 시간이라도 부과액이 다르므로 windows에
+    따로 적는다. 계산에 쓰는 곳은 등록 단가가 별표 1
+    1급지와 같은 33곳뿐이고 나머지는 등록 기준(무료·미상)
+    으로 표기한다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(key, label, lots_n):
+        g = ANDONG_GRADES[key]
+        hour = g[0] + g[1] * 3
+        two_hour = g[0] + g[1] * 9
+        month_txt = f"주간 {g[3]:,}원 · 야간 {g[4]:,}원" + (f" · 주야간 {g[5]:,}원" if g[5] else "")
+        return {"label": label, "grade": key,
+                "unit_label": (f"최초 30분 {g[0]:,}원 · 10분마다 {g[1]:,}원 · "
+                               f"1일 {g[2]:,}원(노외 한정) · 월정기 {month_txt}(노외 한정)"),
+                "hour": hour, "two_hour": two_hour, "day": g[2],
+                "month_all": g[5], "month": g[3], "month_night": g[4],
+                "lots": lots_n}
+
+    rows = [
+        _row("1", "1급지 (조례 별표 1)", len([l for l in lots if l["fee"]["std_grade"] == "1"])),
+        _row("2", "2급지 (조례 별표 1)", len([l for l in lots if l["fee"]["std_grade"] == "2"])),
+    ]
+    return {
+        "style": "andong_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("급지는 규칙으로 정한다(별표 1 비고 5). 표준데이터 등록 급지구분은 "
+                         f"1급지 {len([l for l in lots if l['fee']['std_grade'] == '1'])}곳·2급지 "
+                         f"{len([l for l in lots if l['fee']['std_grade'] == '2'])}곳이고, "
+                         "유료로 계산하는 곳은 전부 1급지 단가로 등록돼 있다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "노상주차장 최초 15분 면제 (별표 1 비고 6)",
+             "hours": "노상주차장은 1일 1회에 한해 최초 15분까지 요금 면제 · 그 밖의 주차시간은 최초 30분 이내를 30분으로, 초과분은 10분 단위로 계산",
+             "free": ("이 사이트의 계산기는 노상 26곳에 무료 15분을 free_min으로 분리해 "
+                      "반영한다 — 노상 1시간 부과액은 900원이다(면제 15분 후 최초 30분 "
+                      "500원+15분은 10분 단위로 올려 400원)")},
+            {"group": "차종별 가산 (별표 1 비고 3, 노외 한정)",
+             "hours": "기준 차량(승용·15인승 미만 승합·2.5톤 미만 화물)보다 큰 차는 2배(15인승 이상 45인승 미만·2.5톤 이상 11톤 미만), 3배(45인승 이상·11톤 이상)",
+             "free": "이 사이트의 계산기는 기준 차량 요금만 계산한다 — 큰 차는 현장 요금을 확인해 주세요"},
+            {"group": "요일별 무료 (표준데이터 특기사항에 적힌 곳만)",
+             "hours": ("일요일 무료 27곳(노상 26·노외 1) · 주말+설·추석 연휴 무료 3곳 · "
+                       "주말 무료 1곳(안동시청 부설주차장) · 공휴일 무료 2곳"
+                       "(중앙신시장 주차타워·서부시장)"),
+             "free": ("조례 본문에는 주말·공휴일 일괄 면제 조항이 없어, 특기사항에 적힌 "
+                      "곳만 적힌 범위대로 표기한다. 일요일만 적힌 곳은 공휴일에 무료가 "
+                      "아니다")},
+            {"group": "전통시장 상인·고객 감면 (제6조제4항)",
+             "hours": "공영노외주차장을 이용하는 전통시장 상인 및 고객은 1시간 이내 주차요금 감면 가능",
+             "free": "구시장 주차장·중앙문화의거리주차장 등 시장 주차장은 상인회 발급 쿠폰을 쓸 수 있다고 등록돼 있다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("노외주차장은 별표 1 비고 2에 따라 기준요금(상한) 안에서 별도 요금을 정할 수 "
+                  "있어, 등록 일·월이 조례와 어긋나는 터미널공영주차장(등록 1일 7,000원·월 "
+                  "100,000원)은 단가만 계산에 쓰고 일·월을 확정하지 않았다. 단가가 별표와 "
+                  "어긋나는 옥동 주차타워(기본 30분 200원+추가 10분 200원)·도산서원(1일 "
+                  "2,000원 정액, 특기에 '대형4000원')·안동시청 부설주차장(60분 500원+30분 "
+                  "500원)은 별도 근거 확인 전이라 요금 미상으로 표기했다."),
+        "basis": ("요금표는 「안동시 주차장 조례」 제2252호(시행 2025-07-04) 제5조제1항·"
+                  "별표 1과 표준데이터(기준일 2026-10-13)를 대조해 실었다. 등록 단가가 "
+                  "별표 1 1급지와 같은 곳만 계산하고 노상 최초 15분 면제와 노외 1일·"
+                  "월정기 확정값을 반영했으며, 나머지는 무료 등록 유지 또는 요금 미상으로 "
+                  "표기했다. (조례 본문: data/raw/andong-ordinance.txt, 별표 1 원본 HWP: "
+                  "data/raw/andong-ordinance-b1.hwp)"),
+    }
+
+
+def andong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "읍·면·동 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「안동시 주차장 조례」 제2252호 제6조 — 면제(제1항): 긴급자동차, "
+                      "성실납세증 부착 자동차(교부일부터 1년), 당일 헌혈증 소지자(헌혈한 "
+                      "당일). 1일 1회 1시간 이내 면제·1시간 초과 시 50% 경감(제2항): "
+                      "장애인등록증 소지 등록장애인, 국가유공자·독립유공자·5·18민주유공자 "
+                      "및 그 유족 또는 가족, 참전유공자, 보훈보상대상자, 고엽제 후유증·"
+                      "후유의증 환자, 장기등 기증자 및 기증등록자, 다자녀가정, 우수자원"
+                      "봉사자증 소지자, 병역명문가증 소지자, 관내 주민등록 임산부(직접 "
+                      "운전·동승, 확인 서류 소지). 경형자동차(배기량 1,000cc 미만) 50% "
+                      "경감(제3항). 전통시장 공영노외주차장 상인·고객 1시간 이내 감면 "
+                      "가능(제4항). 저공해자동차 표지·환경친화적 자동차 표지 부착 차량 "
+                      "50% 경감, 전기자동차 충전 주차는 1시간 면제(제6항). 국가법령"
+                      "정보센터 본문 원문(ordinSeq 2051383)으로 확인했다"),
+        "요금_출처": ("조례 제5조제1항·별표 1 — 시장이 설치한 노상·노외 공영주차장 요금은 "
+                      "별표 1과 같다. 별표 1은 1급지 기본(최초 30분) 500원·초과 10분마다 "
+                      "200원·1일 10,000원(노외 한정)·월정기 주간 80,000원·야간 60,000원·"
+                      "주야간 140,000원(노외 한정), 2급지 200원·100원·1일 5,000원·월 "
+                      "주간 35,000원·야간 25,000원이다. 노외는 기준요금(상한) 안에서 "
+                      "별도 요금을 정할 수 있고(비고 2), 큰 차는 2배·3배 가산(비고 3, "
+                      "노외 한정), 주간은 08:00~20:00(비고 4), 급지는 규칙으로 지정"
+                      "(비고 5), 노상은 1일 1회 최초 15분 면제(비고 6). 등록 단가가 "
+                      "별표 1 1급지와 같은 곳은 계산에 쓰고, 단가가 어긋나는 곳은 별표 "
+                      "금액을 대입하지 않고 요금 미상으로 표기했다. 별표 1 원본 HWP를 "
+                      "받아 전재해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 5 — 급지는 규칙으로 정한다. 표준데이터 등록 급지"
+                      "구분은 1급지 "
+                      f"{len([l for l in lots if l['fee']['std_grade'] == '1'])}곳·2급지 "
+                      f"{len([l for l in lots if l['fee']['std_grade'] == '2'])}곳이고, "
+                      "유료로 계산하는 33곳은 전부 1급지 단가(최초 30분 500원·10분마다 "
+                      "200원)로 등록돼 있다"),
+        "무료요일_출처": ("조례 본문에 주말·공휴일 일괄 면제 조항이 없어, 표준데이터 "
+                          "특기사항에 적힌 행만 근거 범위대로 표기했다 — 일요일 무료 "
+                          "27곳(노상 26·노외 1)은 일요일만, 주말+설·추석 연휴 무료 3곳과 "
+                          "주말 무료 1곳(부설)은 토·일요일을 표기했다. 공휴일 무료 2곳"
+                          "(중앙신시장 주차타워·서부시장)은 free_days에 공휴일 전용 칸이 "
+                          "없어 특기 원문으로만 표기하고 요일 표기를 붙이지 않았다. "
+                          "일요일만 적힌 곳에 공휴일 무료를 확대하지 않기 위해 "
+                          "derive_free_fields의 공휴일 태그 예외에 안동시를 뒀다"
+                          "(인스팅트 앞단 패키지 판단)"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 안동시 등록 132행이 전부 공영(노외 82·노상 49·부설 1, 총 8,221면)이라 민영 제외 0건이다. 제공기관은 경상북도 안동시 단일이고 데이터기준일자는 132행 전부 2026-10-13이다. 구획수 0 등록 0건, 이름 없음 0건, 주소 없음 0건, 좌표 결측 0건, 이름 중복 0건, 같은 이름+같은 지번 중복 0건이다. 인스팅트 앞단 패키지(경북 4/22)의 집계(공영 132곳·8,221면, 무료 96·혼합 30·유료 6, 기준일 2026-10-13)와 표준데이터 원본 대조 결과가 일치한다",
+            "「안동시 주차장 조례」 제2252호(시행 2025-07-04, 일부개정·공포한 날부터 시행, ordinSeq 2051383) 본문 원문(data/raw/andong-ordinance.txt) 대조 완료(2026-11-21) — 본문 제5조제1항이 시장이 설치한 노상·노외 공영주차장 요금을 별표 1로 정하고, 면제·감면은 제6조 본문 원문으로 확인했다",
+            "별표 1은 원본 HWP를 data/raw/andong-ordinance-b1.hwp로 저장하고 전재(andong-ordinance-b1.txt)해 확정했다 — 급지별 단가(요금_출처 참조), 노외 별도 요금 지정 가능(비고 2), 차종 가산 2배·3배(비고 3, 노외 한정), 주간 08:00~20:00(비고 4), 급지는 규칙으로 지정(비고 5), 노상 1일 1회 최초 15분 면제(비고 6)가 들어 있다",
+            "같은 지번·같은 좌표에 이름만 다르게 등록된 5개 그룹은 전부 실었다(산청 선례) — 용상동 1517-81의 용상 세영리첼 2차 옆 마을공동주차장·세영리첼 2차 옆 마을공동주차장, 남문동 229-1의 대안로5 노상유료·대안로2 노상유료, 삼산동 112-3의 중앙로5 노상유료·중앙로3 노상유료, 북문동 484의 안동의료원앞-태사2길 노상유료·태사묘 동편, 태화동 269의 라이온스회관-신덕방앗간·관광전자-태화주공·서경지5길-광고마을-태화세차장. 노상 구간 쌍은 구간이 겹치는지, 나머지는 같은 시설의 중복 등록인지 안동시 확인 과제다",
+            "요금 판단은 패키지 판단안을 따랐다 — 무료 등록 96곳 유지. 등록 단가가 별표 1 1급지와 같은 33곳은 계산에 썼다: 노상 26곳은 비고 6의 최초 15분 면제를 free_min으로 분리했고, 노외는 1일·월정기(주간)를 조례 확정값(10,000원·80,000원)으로 채웠으며 등록 일·월이 조례와 같은 웅부공원공영주차장은 등록값을 썼다. 터미널공영주차장은 단가만 계산에 쓰고 등록 1일 7,000원·월 100,000원은 조례와 어긋나 확정하지 않았다. 단가 자체가 별표와 어긋나는 옥동 주차타워·도산서원·안동시청 부설주차장 3곳은 요금 미상으로 표기했다(김해·함안 선례). 혼합 30곳은 혼합으로 표기만 하고 전일 유료로 계산하지 않았다",
+            "주말·공휴일 무료는 특기사항 근거가 있는 행만 근거 범위대로 표기했다. 특기사항은 36곳에 있고, 그중 33곳이 '50퍼센트감면(경차+저공해차+장애인)'과 요일 무료를 함께 적고 있다 — 일요일 무료 27곳, 주말+설·추석 연휴 무료 3곳, 공휴일 무료 2곳, 주말 무료 1곳. 공휴일 무료 2곳은 요일 표기 칸이 없어 특기 원문으로만 남겼다. 나머지 특기는 상인회 쿠폰 이용 가능 2곳, '대형4000원'(도산서원) 1곳이다. 감면 안내 문구 자체는 조례 제6조와 대체로 맞지만(경차·저공해차·장애인 50%), 제2항의 '1시간 이내 면제' 같은 세부 조건은 각 주차장 페이지의 감면 표를 기준으로 한다",
+            "좌표는 132곳 전부 등록돼 있고 전부 안동시 범위(위도 36.5403~36.7286, 경도 128.4658~128.8403) 안이라 보완이 필요 없다 — 오버레이(좌표누락_지오코딩_20261118.json)는 기존 718행 그대로 유지된다(인스팅트 패키지 ⑦과 같은 결론)",
+            "운영시간은 평일 00:00~23:59가 98곳으로 대부분이고 노상 유료 구간은 10:00~19:00가 많다. 일요일 운영시작시각은 132곳 전부 비어 있어 일요일은 미운영으로 표시되지만, 특기사항에 일요일·주말 무료가 적힌 31곳은 무료 개방으로 읽는 것이 맞는지 안동시 확인 과제다. 부제시행구분은 미시행 131곳·2부제 1곳이고, 전화번호는 132곳 전부 등록돼 있다(054-840-5424가 131곳). 도로명주소는 9곳만 등록돼 있다",
+            "후속 개정 확인: 국가법령정보센터 현행 표제본은 제2252호(시행 2025-07-04, 2025-07-04 일부개정)이며, 이 시행본을 직접 대조했다. 패키지가 확인 과제로 남긴 혼합 30곳의 과금 요일, 노상 15분 면제 처리 방식, 노외 별도 공고와 부설 규정은 다음 수집 때 다시 확인한다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_andong():
+    """안동시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「안동시 주차장 조례」
+    제2252호(시행 2025-07-04, ordinSeq
+    2051383) 제5조제1항·별표 1 원문 대조
+    완료(2026-11-21, 별표 1 원본 HWP 전재·
+    본문 원문 기준). 표준데이터 공영 132행
+    (전부 경상북도 안동시)을 전부 싣는다.
+    좌표 결측은 없다."""
+    conf = ANDONG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+    rows_std = [r for r in rows_all
+                if (r.get("제공기관명") or "").strip() == "경상북도 안동시"]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    merged = []
+    for r in rows_std:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (ANDONG_BBOX[0] < lat < ANDONG_BBOX[1]
+                                                        and ANDONG_BBOX[2] < lng < ANDONG_BBOX[3]):
+            # 안동시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 안동시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = andong_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif andong_dong_of(road):
+            dong = andong_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = andong_fee(r, std_name, note, fee_diff)
+        # 주말·공휴일 무료는 특기사항에 적힌 행만 근거 범위대로 표기한다.
+        #   '무료(일요일)'은 일요일만, '무료(주말…)'은 토·일요일이다.
+        #   '무료(공휴일)'은 free_days에 공휴일 전용 칸이 없어 요일 표기를
+        #   붙이지 않고 특기 원문으로만 남긴다(근거 범위 확대 금지).
+        _flat = note.replace(" ", "")
+        free_days = {"sat": False, "sun": False}
+        if "무료(주말" in _flat:
+            free_days = {"sat": True, "sun": True}
+        elif "무료(일요일)" in _flat:
+            free_days = {"sat": False, "sun": True}
+        free_window = None
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "안동시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례).
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 안동시 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 132행이 전부 공영이라 민영 제외는 0건이다. "
+                      "데이터기준일자는 132행 전부 2026-10-13, 제공기관명은 "
+                      "경상북도 안동시 단일이다")
+    note_fixed.append("등록 급지구분은 1급지 47곳·2급지 85곳이다. 요금 구분은 "
+                      "무료 96곳·혼합 30곳·유료 6곳으로 등록돼 있다")
+    note_fixed.append("좌표는 132곳 전부 등록돼 있고 전부 안동시 범위 안이라 "
+                      "보완하지 않았다. 특기사항은 36곳에 있고, 그중 33곳이 "
+                      "감면 안내와 요일 무료를 함께 적고 있다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gb-andong-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gb-andong-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 안동시는 보완된 좌표가 없어 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = andong_fee_table(conf, lots)
+    quality = andong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-13",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"안동시로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 132행 전부 2026-10-13이다. 좌표 결측은 없다. "
+                 f"조례 대조 완료 — 「안동시 주차장 조례」 제2252호(시행 "
+                 f"2025-07-04, ordinSeq 2051383) 제5조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": ANDONG_ORD_TXT.name if ANDONG_ORD_TXT.exists() else None,
+            "sha256": sha256(ANDONG_ORD_TXT) if ANDONG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-07-04",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"안동시장이 설치한 노상·노외 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/andong-ordinance.txt, 별표 1 원본 HWP: "
+                    f"data/raw/andong-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": ANDONG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "안동시", "slug": "andong"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": ANDONG_PROVINCE,
+        "province_slug": ANDONG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "andong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -79224,7 +79841,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -79242,7 +79859,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -79300,7 +79917,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -79568,6 +80185,8 @@ def main():
         cities.append(build_gyeongju())
     if "김천시" in want:
         cities.append(build_gimcheon())
+    if "안동시" in want:
+        cities.append(build_andong())
 
     if args.city == "all":
         site = build_site_payload(cities)
