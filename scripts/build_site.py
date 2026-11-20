@@ -10578,6 +10578,54 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "imsil_grade":
+        # 임실군 — 공영 46곳(전부 노외, 총 3,135면) 전부 무료.
+        #   「임실군 주차장 조례」 제2969호(시행 2026-11-19) 제3조
+        #   제1항은 군수가 설치하는 공영주차장 요금을 별표 1과 같이
+        #   정하지만 등록 47곳은 전부 요금 구분이 '무료'라 요금을
+        #   받는 곳이 없고, 구획수가 0으로 등록된 1곳을 빼고 46곳을
+        #   실었다. 별표 1은 급지 구분이 없는 단일 요금표로 임실군
+        #   전역 1회 주차요금(구획당 30분마다) 200원·월정기 주간
+        #   30,000원/야간 22,000원이고 1일 주차요금 칸은 없다.
+        #   조례 본문에 상시 무료 운영의 근거 조항이 없고 별표 1
+        #   비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의
+        #   규정에 의하여 설치한 주차장에 적용된다고 정하고 있어,
+        #   무료인 곳은 군이 무료로 운영하는 곳으로 보고 표는 조례
+        #   기준 요금의 참고표로 싣는다(서천·군산·진안·장수 선례).
+        #   등록 급지 '5' 전 47곳은 조례 별표에 없는 값이라 행
+        #   판정에 쓰지 않았다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        street_tail = ('노상 구간은 <a href="street-parking/">노상주차장 요금 페이지</a>에 모았습니다.'
+                       if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표</h2>
+<p class="lede">임실 공영주차장 <b>46곳은 전부 무료</b>입니다 — 전부 노외이고
+총 3,135면이며 요금을 받는 곳이 없습니다. 「임실군 주차장 조례」 제2969호 별표 1이
+정한 기준 요금은 급지 구분 없이 임실군 전역 <b>1회 주차요금(구획당 30분마다)
+200원</b>, <b>월정기 주간 30,000원·야간 22,000원</b>이고, 별표 1에는 <b>1일
+주차요금 칸이 없습니다</b>. 별표 1 비고 1은 이 요금표가 법 제7조제1항 및
+법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정합니다. 등록된
+곳들은 군이 무료로 운영하는 곳으로 보이며, 아래 표는 이 조례 기준 요금의
+참고표입니다. 무료 운영의 근거가 궁금하면 임실군청 경제교통과(063-640-2571)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월정기(주간)</th>
+  <th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에는 유료 주차장 <b>노외·부설 {corp.get('paid', 0)}곳</b>과 유료 노상
+{corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 {corp.get('free', 0)}곳은 요일과
+관계없이 무료입니다. {street_tail}</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
