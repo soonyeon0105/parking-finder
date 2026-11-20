@@ -1,0 +1,3863 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 04:14",
+  "generated_at_iso": "2026-11-21T04:14:38+09:00",
+  "snapshot_at": "2026-11-21 04:14",
+  "region": {
+   "province": "경상남도",
+   "city": "함안군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 31,
+    "fetched_at": "2026-11-21 04:14 (KST)",
+    "note": "함안군으로 등록된 행 31행(전부 공영)을 읽어 중복 제거 0건, 제외 0건으로 31곳을 실었다. 유료 0곳·무료 29곳·미상 2곳이다. 데이터기준일자는 31행 전부 2026-04-16이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「함안군 주차장 조례」 제2902호(시행 2024-10-16, ordinSeq 1977587) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "함안군 주차장 조례",
+    "org": "경상남도 함안군",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1977587&ordinId=2135213&gubun=ELIS",
+    "file": "haman-ordinance-b1.txt",
+    "sha256": "f9503f8375dacb4e9c74f2c28e37d783164d1b40cd406c99ae50dfe784d58869",
+    "license": "자치법규(공개)",
+    "base_date": "2024-10-16",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 04:14 (KST)",
+    "note": "함안군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 함안군 공영주차장 31곳(노외 30곳·노상 1구간, 총 1,840면)입니다. 요금 구분은 무료 29곳·유료 2곳입니다. 유료 2곳(가야재래시장유료주차장·함안공영주차타워)은 등록 금액이 기본 60분 요금뿐이고 조례 별표 1의 최초 60분 무료 구조와 어긋나, 별표 금액을 대입하지 않고 요금 미상으로 표기합니다. 조례 별표 1은 최초 60분 무료(1일 1회), 다음 30분 기준요금, 이후 15분마다 추가요금을 정하고 주차시간 5시간 이상은 1일로 봅니다. (조례 본문: data/raw/haman-ordinance.txt, 별표 1 원문 HWP: data/raw/haman-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "함안군",
+   "slug": "haman"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-haman-001",
+   "mgmt_no": "390-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가야재래시장공영주차장(향군회관 옆)",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 말산리 113",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "055-580-2626",
+   "lat": 35.27661375,
+   "lng": 128.4081554,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-002",
+   "mgmt_no": "390-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가야재래시장유료주차장",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 말산리 113",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "055-580-2626",
+   "lat": 35.27661375,
+   "lng": 128.4081554,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 3000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 ‘유료’로 등록돼 있으나 등록 금액이 기본 60분 요금뿐이고 조례 별표 1의 ‘최초 60분 무료’ 구조와 어긋나며, 별표 구조의 현장 적용 여부가 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 함안군청(055-580-2626) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-003",
+   "mgmt_no": "390-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성당 앞",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 말산리 491-2",
+   "addr_road": "경상남도 함안군 가야읍 방목2길 12",
+   "road": null,
+   "spaces": 12,
+   "tel": "055-580-2626",
+   "lat": 35.27896241,
+   "lng": 128.4044179,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-004",
+   "mgmt_no": "390-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안공설운동장주경기장 앞",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 도항리 249-6",
+   "addr_road": "경상남도 함안군 가야읍 함안대로 619",
+   "road": null,
+   "spaces": 200,
+   "tel": "055-580-2626",
+   "lat": 35.2823651,
+   "lng": 128.3971812,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-005",
+   "mgmt_no": "390-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안공설운동장주차장",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 도항리 249-6",
+   "addr_road": "경상남도 함안군 가야읍 함안대로 619",
+   "road": null,
+   "spaces": 120,
+   "tel": "055-580-2626",
+   "lat": 35.2823651,
+   "lng": 128.3971812,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-006",
+   "mgmt_no": "390-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안공영주차타워",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 말산리 93",
+   "addr_road": "",
+   "road": null,
+   "spaces": 185,
+   "tel": "055-580-2626",
+   "lat": 35.27671941,
+   "lng": 128.410333,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 ‘유료’로 등록돼 있으나 등록 금액이 기본 60분 요금뿐이고 조례 별표 1의 ‘최초 60분 무료’ 구조와 어긋나며, 별표 구조의 현장 적용 여부가 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 함안군청(055-580-2626) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-007",
+   "mgmt_no": "390-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안시외버스터미널공영주차장",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 말산리 616",
+   "addr_road": "경상남도 함안군 가야읍 함마대로 1636-3",
+   "road": null,
+   "spaces": 124,
+   "tel": "055-580-2626",
+   "lat": 35.27981581,
+   "lng": 128.4103896,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-008",
+   "mgmt_no": "390-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안중.고등학교 주차장",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 도항리 163-3",
+   "addr_road": "경상남도 함안군 가야읍 함안대로 632",
+   "road": null,
+   "spaces": 48,
+   "tel": "055-580-2626",
+   "lat": 35.28299074,
+   "lng": 128.4042852,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-009",
+   "mgmt_no": "390-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안천생태공원체육시설",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 검암리 1313-92",
+   "addr_road": "경상남도 함안군 가야읍 중검길 73-3",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-580-2626",
+   "lat": 35.27327768,
+   "lng": 128.4210551,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-010",
+   "mgmt_no": "390-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함주공원주차장",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 가야읍 도항리 264-1",
+   "addr_road": "경상남도 함안군 가야읍 함안대로 619-4",
+   "road": null,
+   "spaces": 82,
+   "tel": "055-580-2626",
+   "lat": 35.28040771,
+   "lng": 128.3975977,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-011",
+   "mgmt_no": "390-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군북시장내 주자창",
+   "gu": "함안군",
+   "dong": "군북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 군북면 중암리 82-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "055-580-2626",
+   "lat": 35.26087183,
+   "lng": 128.3466662,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-012",
+   "mgmt_no": "390-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신촌마을 공동주차장",
+   "gu": "함안군",
+   "dong": "군북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 군북면 사촌리 792",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-580-2626",
+   "lat": 35.22862996,
+   "lng": 128.3601407,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-013",
+   "mgmt_no": "390-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월촌노인회관 주차장",
+   "gu": "함안군",
+   "dong": "군북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 군북면 월촌리 1524-3",
+   "addr_road": "경상남도 함안군 군북면 월촌안길 68",
+   "road": null,
+   "spaces": 6,
+   "tel": "055-580-2626",
+   "lat": 35.29760604,
+   "lng": 128.3000906,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-014",
+   "mgmt_no": "390-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중암창고(구 농협창고)",
+   "gu": "함안군",
+   "dong": "군북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 군북면 중암리 50-5",
+   "addr_road": "경상남도 함안군 군북면 중암11길 22",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-580-2626",
+   "lat": 35.26154859,
+   "lng": 128.3478306,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-015",
+   "mgmt_no": "390-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지곡마을 공동주차장",
+   "gu": "함안군",
+   "dong": "군북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 군북면 영운리 499-9",
+   "addr_road": "경상남도 함안군 군북면 영운2길 67",
+   "road": null,
+   "spaces": 7,
+   "tel": "055-580-2626",
+   "lat": 35.26263216,
+   "lng": 128.3089007,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-016",
+   "mgmt_no": "390-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하림마을 주차장",
+   "gu": "함안군",
+   "dong": "군북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 군북면 하림리 380-1",
+   "addr_road": "경상남도 함안군 군북면 하림1길 80-6",
+   "road": null,
+   "spaces": 13,
+   "tel": "055-580-2626",
+   "lat": 35.24169664,
+   "lng": 128.3222481,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-017",
+   "mgmt_no": "390-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대산터미널",
+   "gu": "함안군",
+   "dong": "대산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 대산면 구혜리 315-3",
+   "addr_road": "경상남도 함안군 대산면 대산중앙4길 77",
+   "road": null,
+   "spaces": 45,
+   "tel": "055-580-2626",
+   "lat": 35.35331659,
+   "lng": 128.4267639,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-018",
+   "mgmt_no": "390-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법수 석무마을(1지구) 공영주차장",
+   "gu": "함안군",
+   "dong": "법수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 법수면 윤외리 145-7",
+   "addr_road": "경상남도 함안군 법수면 석무길 156",
+   "road": null,
+   "spaces": 33,
+   "tel": "055-580-2626",
+   "lat": 35.31919638,
+   "lng": 128.385773,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-019",
+   "mgmt_no": "390-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법수 석무마을(2지구) 공영주차장",
+   "gu": "함안군",
+   "dong": "법수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 법수면 윤외리 176-6",
+   "addr_road": "경상남도 함안군 법수면 석무안길 13",
+   "road": null,
+   "spaces": 39,
+   "tel": "055-580-2626",
+   "lat": 35.3193980185,
+   "lng": 128.3838853484,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-020",
+   "mgmt_no": "390-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "악양공영주차장",
+   "gu": "함안군",
+   "dong": "법수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 법수면 윤외리 84-9",
+   "addr_road": "경상남도 함안군 법수면 악양길 9",
+   "road": null,
+   "spaces": 73,
+   "tel": "055-580-2626",
+   "lat": 35.32867624,
+   "lng": 128.3877871,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-021",
+   "mgmt_no": "390-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입곡군립공원(매점앞)",
+   "gu": "함안군",
+   "dong": "산인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 산인면 입곡리 1108",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "055-580-2626",
+   "lat": 35.26026336,
+   "lng": 128.4444291,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-022",
+   "mgmt_no": "390-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입곡군립공원(인공폭포앞)",
+   "gu": "함안군",
+   "dong": "산인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 산인면 입곡리 1195-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "055-580-2626",
+   "lat": 35.2632112,
+   "lng": 128.4468724,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-023",
+   "mgmt_no": "390-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신산마을주차장",
+   "gu": "함안군",
+   "dong": "칠서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠서면 회산리 605-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "055-580-2626",
+   "lat": 35.31341782,
+   "lng": 128.4946724,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-024",
+   "mgmt_no": "390-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유계마을주차장",
+   "gu": "함안군",
+   "dong": "칠서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠서면 구포리 390",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "055-580-2626",
+   "lat": 35.34421812,
+   "lng": 128.5037159,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-025",
+   "mgmt_no": "390-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청계마을주차장",
+   "gu": "함안군",
+   "dong": "칠서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠서면 청계리 724",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "055-580-2626",
+   "lat": 35.33151152,
+   "lng": 128.4972299,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-026",
+   "mgmt_no": "390-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠원 남구마을 공영주차장",
+   "gu": "함안군",
+   "dong": "칠원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠원읍 구성리 748",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "055-580-2626",
+   "lat": 35.3051496,
+   "lng": 128.5189874,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-027",
+   "mgmt_no": "390-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠원 오곡지구 공영주차장",
+   "gu": "함안군",
+   "dong": "칠원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠원읍 오곡리 45-2",
+   "addr_road": "경상남도 함안군 칠원읍 호암길 15-43",
+   "road": null,
+   "spaces": 206,
+   "tel": "055-580-2626",
+   "lat": 35.27341712,
+   "lng": 128.5228923,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-028",
+   "mgmt_no": "390-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠원시장공영주차장",
+   "gu": "함안군",
+   "dong": "칠원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠원읍 구성리 728-100",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "055-580-2626",
+   "lat": 35.3058552,
+   "lng": 128.5205026,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-029",
+   "mgmt_no": "390-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠원읍공영주차장(장미아파트 뒷편)",
+   "gu": "함안군",
+   "dong": "칠원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 칠원읍 구성리 646-2",
+   "addr_road": "경상남도 함안군 칠원읍 용산1길 54-5",
+   "road": null,
+   "spaces": 56,
+   "tel": "055-580-2626",
+   "lat": 35.31011222,
+   "lng": 128.5167026,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-030",
+   "mgmt_no": "390-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함안면종합복지관앞",
+   "gu": "함안군",
+   "dong": "함안면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함안군 함안면 북촌리 957-21",
+   "addr_road": "경상남도 함안군 함안면 북촌2길 50-29",
+   "road": null,
+   "spaces": 64,
+   "tel": "055-580-2626",
+   "lat": 35.24209207,
+   "lng": 128.4227251,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  },
+  {
+   "id": "gn-haman-s001",
+   "mgmt_no": "390-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남경아파트진입로공영주차장",
+   "gu": "함안군",
+   "dong": "가야읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함안군 가야읍 말산리 616-1",
+   "addr_road": "경상남도 함안군 가야읍 남경길 44",
+   "road": "남경길",
+   "spaces": 27,
+   "tel": "055-580-2626",
+   "lat": 35.27903438,
+   "lng": 128.4100068,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 함안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함안군",
+   "city_slug": "haman",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 04:14",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 31,
+  "원자료_함안군행수": 31,
+  "원자료_받은행수": 31,
+  "구별": {
+   "함안군": 31
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 30,
+  "노외_부설": {
+   "노외": 30
+  },
+  "노상_구간": 1,
+  "총_구획수": 1813,
+  "노상_구획수": 27,
+  "동별": {
+   "가야읍": 11,
+   "군북면": 6,
+   "칠원읍": 4,
+   "법수면": 3,
+   "칠서면": 3,
+   "산인면": 2,
+   "대산면": 1,
+   "함안면": 1
+  },
+  "동수": 8,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 31
+  },
+  "요금구분": {
+   "무료": 29,
+   "미상": 2
+  },
+  "요금_미상": [
+   "가야재래시장유료주차장",
+   "함안공영주차타워"
+  ],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·같은 좌표에 이름만 다른 등록: 가야재래시장공영주차장(향군회관 옆)·가야재래시장유료주차장 — 경상남도 함안군 가야읍 말산리 113에 좌표(35.27661375, 128.4081554)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 함안군청 확인이 필요하다",
+   "같은 자리·같은 좌표에 이름만 다른 등록: 함안공설운동장주차장·함안공설운동장주경기장 앞 — 경상남도 함안군 가야읍 도항리 249-6에 좌표(35.2823651, 128.3971812)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 함안군청 확인이 필요하다",
+   "표준데이터 등록 31행이 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 31행 전부 2026-04-16, 제공기관명은 전부 경상남도 함안군, 관리기관명은 전부 경상남도 함안군청, 전화번호는 전부 055-580-2626이다",
+   "등록 급지구분은 1급지 23곳·2급지 8곳이다. 2급지 8곳은 군북면 3곳(중암리·사촌리)·법수면 3곳·산인면 2곳으로, 군북면 등록은 도시계획구역 밖 자리로 보인다",
+   "좌표는 31곳 전부 등록돼 있고 전부 함안군 범위 안이라 지오코딩 보완이 0건이다. 특기사항은 31곳 전부 비어 있다",
+   "운영요일은 31곳 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59, 부제시행구분은 전부 미시행이다. 도로명주소는 19곳만 등록돼 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "가야재래시장유료주차장: 표준데이터에 '유료'로 등록돼 있으나 등록 금액은 기본 60분 3,000원뿐이고 추가단위·1일·월 정기권이 비어 있으며, 조례 별표 1의 '최초 60분 무료(1일 1회)' 구조와 어긋난다. 별표 1급지 구조(61~90분 500원·이후 15분마다 300원·1일 3,000원)가 이 시설에 그대로 적용되는지 확인되지 않아, 단순 기본요금 반복 계산도 별표 대입도 하지 않고 요금 미상으로 표기한다(인스팅트 패키지 판단안·김해 선례). 등록 기본요금을 1일 상한으로 임의 해석하지 않는다",
+   "함안공영주차타워: 표준데이터에 '유료'로 등록돼 있으나 등록 금액은 기본 60분 500원뿐이고 추가단위·1일·월 정기권이 비어 있으며, 조례 별표 1의 '최초 60분 무료(1일 1회)' 구조와 어긋난다. 별표 1급지 구조(61~90분 500원·이후 15분마다 300원·1일 3,000원)가 이 시설에 그대로 적용되는지 확인되지 않아, 단순 기본요금 반복 계산도 별표 대입도 하지 않고 요금 미상으로 표기한다(인스팅트 패키지 판단안·김해 선례). 등록 기본요금을 1일 상한으로 임의 해석하지 않는다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "가야재래시장공영주차장(향군회관 옆)",
+   "가야재래시장유료주차장",
+   "함안공영주차타워",
+   "군북시장내 주자창",
+   "신촌마을 공동주차장",
+   "입곡군립공원(매점앞)",
+   "입곡군립공원(인공폭포앞)",
+   "신산마을주차장",
+   "유계마을주차장",
+   "청계마을주차장",
+   "칠원 남구마을 공영주차장",
+   "칠원시장공영주차장"
+  ],
+  "감면_출처": "「함안군 주차장 조례」 제2902호 제3조의2 — 제1호 긴급자동차·국가 또는 지방자치단체의 공용차량·성실납세표창자(표창일부터 1년)·국가유공자 상이자·고엽제후유의증 환자·5·18민주유공자 부상자 탑승 차량 면제, 제2호 장애인·경형자동차(1,000cc 미만)·저공해자동차 및 환경친화적 자동차(전기자동차 충전 목적 주차는 면제)·전통시장 시설현대화 사업 주차장 이용 상인·고객·병역명문가·장기등 기증자 및 기증희망자·경남아이다누리카드 소지자·임산부 50% 감면. 국가법령정보센터 본문 원문(ordinSeq 1977587)으로 확인했다",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다. 별표 1(2024-05-10 개정)은 최초 60분 무료(1일 1회), 다음 30분 기준요금, 이후 15분마다 추가요금, 주차시간 5시간 이상은 1일로 본다. 승용·소형 1급지 500/300원·1일 3,000원·월 40,000/30,000/50,000원, 2급지 300/200원·1일 2,000원·월 20,000/10,000/30,000원, 대형 1급지 1,000/500원·1일 7,000원·월 70,000/50,000/90,000원, 2급지 500/300원·1일 4,000원·월 40,000/30,000/50,000원이다. 별표 1 HWP 원본(flSeq 167703449)을 받아 텍스트를 추출해 대조했다",
+  "급지_출처": "조례 별표 1 비고 5 — 1급지는 가야읍·칠원읍·함안면·군북면·대산면 도시계획구역 안, 2급지는 그 밖의 지역이다. 표준데이터 등록 급지구분은 1급지 23곳·2급지 8곳이고, 군북면 3곳(중암리·사촌리)은 도시계획구역 밖이라 2급지로 등록된 것으로 보인다. 유료 2곳은 요금 미상이라 급지를 계산에 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료 근거가 없고 특기사항도 전부 비어 있어 주말·공휴일 무료로 표기하지 않았다(인스팅트 앞단 패키지 확인). 별표 1의 최초 60분 무료는 요일과 무관하다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 함안군 등록 31행이 전부 공영(노외 30·노상 1, 총 1,840면)이라 민영 제외 0건으로 31곳을 전부 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(2026-11-20)의 집계(공영 31곳·1,840면, 무료 29·유료 2, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+   "「함안군 주차장 조례」 제2902호(시행 2024-10-16, ordinSeq 1977587) — 제3조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 HWP 원본(flSeq 167703449)을 받아 텍스트를 추출해 대조했고(최초 60분 무료(1일 1회)·다음 30분 기준요금·이후 15분마다 추가요금·5시간 이상 1일, 급지·차종별 금액은 요금_출처 참조), 감면은 제3조의2 본문 원문으로 확인했다",
+   "유료 2곳(가야재래시장유료주차장 기본 60분 3,000원·함안공영주차타워 기본 60분 500원)의 처리는 인스팅트 패키지 판단안을 따른다. 두 곳 모두 1급지로 등록돼 있으나 등록 금액이 기본 60분 요금뿐이고 추가·1일·월이 비어 있으며 조례의 최초 60분 무료와 어긋난다. 판단안대로 단순 기본요금 반복 계산을 보류하고, 별표 구조의 현장 적용 여부가 확인되지 않아 별표 금액도 대입하지 않고 요금 미상으로 표기했다(김해 선례). 3,000원을 1일 상한으로 임의 해석하지 않았고 등록값은 std에 남겼다. 유료 2곳의 시설별 현행 요금·특례, 하루 1회 무료의 재입차 처리, 5시간 이상 1일 요금 적용 방식은 함안군청 확인 과제다",
+   "같은 지번·같은 좌표에 이름만 다르게 등록된 그룹이 2건 있다 — 가야읍 말산리 113(가야재래시장공영주차장(향군회관 옆) 무료 96면·가야재래시장유료주차장 유료 52면), 가야읍 도항리 249-6(함안공설운동장주차장 120면·함안공설운동장주경기장 앞 200면). 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 함안군청 확인이 필요하다",
+   "별표 1 비고 4는 승합차 소형을 '5인승 미만'(추출 원문 표기 — 15인승의 자릿수 누락 가능성), 대형을 25인승 이상으로 정해 사이 구간(15~25인승)이 비어 있다. 대형차 요금 규칙이 확정되기 전이라 대형 금액은 요금표에만 참고로 싣고 계산에는 쓰지 않았다 — 원본 시각표와 담당부서 확인이 필요하다(패키지 확인 과제)",
+   "주말·공휴일 무료는 조례 본문·별표 1 어디에도 군 전체 일괄 면제 근거가 없어 표기하지 않았다. 별표 1의 최초 60분 무료(1일 1회)는 요일과 무관한 1회 주차 기준이다",
+   "좌표는 31곳 전부 등록돼 있고 전부 함안군 범위(위도 35.2286~35.3533, 경도 128.3001~128.5229) 안이다. 관리기관은 31곳 전부 경상남도 함안군청이고 전화번호도 전부 055-580-2626으로 등록돼 있다. 데이터기준일자는 31행 전부 2026-04-16이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 29,
+  "무료_구획수": 1603,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "경상남도 함안군청": 31
+  }
+ },
+ "fee_table": {
+  "style": "haman_grade",
+  "unit_min": 15,
+  "base_min": 30,
+  "applies": "「함안군 주차장 조례」 제2902호(시행 2024-10-16) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 1977587에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1977587&ordinId=2135213&gubun=ELIS",
+  "grade_system": "1급지는 가야읍·칠원읍·함안면·군북면·대산면의 도시계획구역 안이고, 2급지는 그 밖의 지역이다(별표 1 비고 5). 표준데이터 등록 급지구분은 1급지 23곳·2급지 8곳이고 유료로 등록된 2곳은 모두 1급지다",
+  "rows": [
+   {
+    "label": "1급지 승용·소형 (조례 별표 1)",
+    "grade": "1",
+    "unit_label": "최초 60분 무료 · 다음 30분 500원 · 이후 15분마다 300원 · 5시간 이상 1일",
+    "hour": 0,
+    "two_hour": 1100,
+    "day": 3000,
+    "month_all": 50000,
+    "month": 40000,
+    "month_night": 30000,
+    "lots": 2
+   },
+   {
+    "label": "1급지 대형 승합·화물 (조례 별표 1)",
+    "grade": "1L",
+    "unit_label": "최초 60분 무료 · 다음 30분 1,000원 · 이후 15분마다 500원 · 5시간 이상 1일",
+    "hour": 0,
+    "two_hour": 2000,
+    "day": 7000,
+    "month_all": 90000,
+    "month": 70000,
+    "month_night": 50000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 승용·소형 (조례 별표 1)",
+    "grade": "2",
+    "unit_label": "최초 60분 무료 · 다음 30분 300원 · 이후 15분마다 200원 · 5시간 이상 1일",
+    "hour": 0,
+    "two_hour": 700,
+    "day": 2000,
+    "month_all": 30000,
+    "month": 20000,
+    "month_night": 10000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형 승합·화물 (조례 별표 1)",
+    "grade": "2L",
+    "unit_label": "최초 60분 무료 · 다음 30분 500원 · 이후 15분마다 300원 · 5시간 이상 1일",
+    "hour": 0,
+    "two_hour": 1100,
+    "day": 4000,
+    "month_all": 50000,
+    "month": 40000,
+    "month_night": 30000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 29,
+   "unknown": 2
+  },
+  "windows": [
+   {
+    "group": "주간 시간구분 (별표 1 비고 2)",
+    "hours": "4~10월 08:00~20:00 · 11~3월 08:00~19:30 (나머지 시간은 야간)",
+    "free": "월 정기주차요금은 주간·야간·주야간으로 나뉜다. 표준데이터 등록 운영시간은 31곳 전부 평일·토요일·공휴일 00:00~23:59다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공용차량·국가유공자 등 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제3조의2제1호 — 긴급자동차, 국가 또는 지방자치단체의 공용차량, 성실납세표창자의 자동차(성실납세증 스티커 부착, 표창일부터 1년간), 국가유공자 상이자·고엽제후유의증 환자·5·18민주유공자 부상자가 탑승한 자동차"
+   },
+   {
+    "label": "장애인·경형자동차·저공해자동차 등 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제3조의2제2호 — 장애인 자동차표지를 부착하고 장애인이 탑승한 자동차(장애인등록증 제시), 경형자동차(1,000cc 미만), 저공해자동차 표지·환경친화적자동차 표지를 부착한 자동차(전기자동차를 충전 목적으로 충전시설에 주차하는 경우는 면제), 전통시장 및 상점가 시설현대화 사업으로 설치한 주차장을 이용하는 상인·고객 차량, 병역명문가증 소지자 본인 탑승 시 소유 자동차 1대, 장기등 기증자·기증희망자가 탑승한 자동차, 경남아이다누리카드를 소지한 사람이 운전하는 자동차, 임산부가 증명자료를 제시한 차량"
+   }
+  ],
+  "notes": "유료로 등록된 가야재래시장유료주차장·함안공영주차타워 2곳은 등록 금액이 기본 60분 요금뿐이고 조례의 최초 60분 무료와 어긋나 요금 미상으로 표기합니다 — 실제 요금은 함안군청(055-580-2626)에 확인하세요. 별표 1 비고 4의 승합차 소형·대형 경계 문구는 추출 원문에서 소형이 '5인승 미만'으로 읽히나(15인승의 자릿수 누락 가능성) 대형 25인승 이상과의 사이 구간이 비어 있어, 대형 요금은 표에만 참고로 싣고 계산에는 쓰지 않습니다.",
+  "basis": "요금표는 「함안군 주차장 조례」 제2902호(시행 2024-10-16) 제3조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. (조례 본문: data/raw/haman-ordinance.txt, 별표 1 원문 HWP: data/raw/haman-ordinance-b1.hwp)"
+ },
+ "slug": "haman",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "함안군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량·국가유공자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조의2제1호 — 긴급자동차, 국가 또는 지방자치단체의 공용차량, 성실납세표창자의 자동차(성실납세증 스티커 부착, 표창일부터 1년간), 국가유공자 상이자·고엽제후유의증 환자·5·18민주유공자 부상자가 탑승한 자동차"
+  },
+  {
+   "label": "장애인·경형자동차·저공해자동차 등 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조의2제2호 — 장애인 자동차표지를 부착하고 장애인이 탑승한 자동차(장애인등록증 제시), 경형자동차(1,000cc 미만), 저공해자동차 표지·환경친화적자동차 표지를 부착한 자동차(전기자동차를 충전 목적으로 충전시설에 주차하는 경우는 면제), 전통시장 및 상점가 시설현대화 사업으로 설치한 주차장을 이용하는 상인·고객 차량, 병역명문가증 소지자 본인 탑승 시 소유 자동차 1대, 장기등 기증자·기증희망자가 탑승한 자동차, 경남아이다누리카드를 소지한 사람이 운전하는 자동차, 임산부가 증명자료를 제시한 차량"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

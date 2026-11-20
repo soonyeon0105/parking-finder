@@ -334,7 +334,10 @@ def derive_free_fields(lot):
     # 공휴일 태그를 붙이지 않는다.
     # 합천군도 마찬가지다 — 조례 본문·별표 4 어디에도 군 전체 일괄 주말·공휴일 무료
     # 근거가 없고 특기사항도 전부 비어 있어 공휴일 태그를 붙이지 않는다.
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군")):
+    # 함안군도 마찬가지다 — 조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료
+    # 근거가 없고 특기사항도 전부 비어 있어 공휴일 태그를 붙이지 않는다(별표 1의
+    # 최초 60분 무료는 요일과 무관하다).
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "함안군")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -75382,6 +75385,590 @@ def build_hapcheon():
 
 
 
+
+# ── 함안군 (경상남도) ──────────────────────────────────────────
+# 「함안군 주차장 조례」 제2902호(시행 2024-10-16)
+#   제3조제1항은 공영주차장 주차요금을 별표 1로 정한다.
+#   별표 1(2024-05-10 개정)은 최초 60분 무료(1일 1회),
+#   다음 30분 기준요금, 이후 15분마다 추가요금이고
+#   주차시간 5시간 이상은 1일로 본다. 승용·소형은
+#   1급지 500/300원·1일 3,000원·월 40,000/30,000/
+#   50,000원(주간/야간/주야간), 2급지 300/200원·1일
+#   2,000원·월 20,000/10,000/30,000원이고, 대형은
+#   1급지 1,000/500원·1일 7,000원·월 70,000/50,000/
+#   90,000원, 2급지 500/300원·1일 4,000원·월 40,000/
+#   30,000/50,000원이다. 1급지는 가야읍·칠원읍·함안면·
+#   군북면·대산면 도시계획구역 안이고 그 밖은 2급지다
+#   (비고 5). 별표 원문(HWP, flSeq 167703449)을 국가
+#   법령정보센터에서 받아 텍스트를 추출해 대조했다
+#   (data/raw/haman-ordinance-b1.txt).
+# 표준데이터 함안군 등록 31행은 전부 공영(노외 30·
+#   노상 1, 총 1,840면)이고 민영 제외는 0건이다 —
+#   인스팅트 앞단 패키지(2026-11-20) 집계와 일치한다.
+#   무료 29·유료 2이고, 유료 2곳의 처리는 패키지
+#   판단안을 따른다 — 두 곳 모두 1급지로 등록돼 있으나
+#   등록 금액이 기본 60분 요금(가야재래시장유료주차장
+#   3,000원·함안공영주차타워 500원)뿐이고 추가·1일·월이
+#   비어 있으며, 조례의 최초 60분 무료와 어긋난다.
+#   판단안대로 단순 기본요금 반복 계산을 보류하고,
+#   별표 구조가 현장에 적용되는지 확인되지 않아 별표
+#   금액도 대입하지 않고 요금 미상으로 표기한다(별표
+#   대입이 실제와 다른 가격을 만들 위험이 크면 미상으로
+#   표기하는 김해 선례). 3,000원을 1일 상한으로 임의
+#   해석하지 않는다. 무료 29곳은 그대로 유지한다.
+# 감면은 제3조의2 원문을 확인했다 — 면제(제1호:
+#   긴급자동차·공용차량·성실납세표창자·국가유공자
+#   상이자·고엽제환자·5·18 부상자)와 50% 감면(제2호:
+#   장애인·경형(1,000cc 미만)·저공해/환경친화적·전통
+#   시장 시설현대화 주차장 상인·고객·병역명문가·장기
+#   기증자·경남아이다누리카드·임산부)이다.
+HAMAN_PROVINCE = "경상남도"
+HAMAN_PROVINCE_SLUG = "gyeongnam"
+HAMAN_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                 "ordinSeq=1977587&ordinId=2135213&gubun=ELIS")
+HAMAN_ORD_TXT = RAW / "haman-ordinance-b1.txt"
+HAMAN_ORD_NOTE = ("「함안군 주차장 조례」 제2902호(시행 2024-10-16) "
+                  "제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 1977587에서 확인")
+
+HAMAN_DISCOUNTS = [
+    {"label": "긴급자동차·공용차량·국가유공자 등 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조의2제1호 — 긴급자동차, 국가 또는 지방자치단체의 공용차량, 성실납세표창자의 자동차(성실납세증 스티커 부착, 표창일부터 1년간), 국가유공자 상이자·고엽제후유의증 환자·5·18민주유공자 부상자가 탑승한 자동차"},
+    {"label": "장애인·경형자동차·저공해자동차 등 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제2호 — 장애인 자동차표지를 부착하고 장애인이 탑승한 자동차(장애인등록증 제시), 경형자동차(1,000cc 미만), 저공해자동차 표지·환경친화적자동차 표지를 부착한 자동차(전기자동차를 충전 목적으로 충전시설에 주차하는 경우는 면제), 전통시장 및 상점가 시설현대화 사업으로 설치한 주차장을 이용하는 상인·고객 차량, 병역명문가증 소지자 본인 탑승 시 소유 자동차 1대, 장기등 기증자·기증희망자가 탑승한 자동차, 경남아이다누리카드를 소지한 사람이 운전하는 자동차, 임산부가 증명자료를 제시한 차량"},
+]
+
+HAMAN_CONF = {
+    "city": "함안군",
+    "slug": "haman",
+    "manager": "경상남도 함안군",
+    "manager_inquiry": "함안군청(055-580-2626, 표준데이터 등록 전화번호)",
+    "ordinance": ("함안군 주차장 조례", HAMAN_ORD_URL, HAMAN_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 함안군 공영주차장 31곳(노외 30곳·노상 1구간, 총 1,840면)입니다. "
+        "요금 구분은 무료 29곳·유료 2곳입니다. 유료 2곳(가야재래시장유료주차장·함안공영주차타워)은 "
+        "등록 금액이 기본 60분 요금뿐이고 조례 별표 1의 최초 60분 무료 구조와 어긋나, 별표 금액을 "
+        "대입하지 않고 요금 미상으로 표기합니다. 조례 별표 1은 최초 60분 무료(1일 1회), 다음 "
+        "30분 기준요금, 이후 15분마다 추가요금을 정하고 주차시간 5시간 이상은 1일로 봅니다."),
+    "discounts": HAMAN_DISCOUNTS,
+}
+
+HAMAN_BBOX = (35.20, 35.38, 128.27, 128.55)
+HAMAN_DONGS = {"가야읍", "칠원읍", "함안면", "군북면", "대산면",
+               "법수면", "칠서면", "칠북면", "산인면", "여항면"}
+
+
+def haman_dong_of(addr):
+    """함안군 법정 읍·면 판정 — 지번주소의 함안군 다음 토큰이
+    읍·면이다. 거제·고성·하동과 같은 정규식을 쓴다."""
+    if addr:
+        m = re.search(r"함안군\s*([가-힣0-9]+?(?:읍|면))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def haman_fee(row, name, note_bits, fee_diff):
+    """함안군 공영주차장 한 곳의 요금 — 무료 29곳은 무료로
+    싣는다. 유료 2곳(가야재래시장유료주차장·함안공영주차타워)은
+    인스팅트 패키지 판단안을 따른다. 두 곳 모두 1급지로
+    등록돼 있으나 등록 금액은 기본 60분 요금(3,000원·
+    500원)뿐이고 추가단위·1일·월 정기권이 비어 있으며,
+    조례 별표 1의 '최초 60분 무료(1일 1회)'와 어긋난다.
+    판단안대로 단순 기본요금 반복 계산을 보류하고, 별표
+    구조(61~90분 기준요금·이후 15분마다 추가요금)가 이
+    시설들에 그대로 적용되는지 확인되지 않아 별표 금액도
+    대입하지 않고 요금 미상으로 표기한다 — 별표 대입이
+    실제와 다른 가격을 만들 위험이 크면 미상으로 표기하는
+    김해 선례다. 가야재래시장유료주차장의 3,000원은 별표
+    1급지 1일 요금과 같은 금액이지만, 판단안대로 1일
+    상한으로 임의 해석하지 않는다. 등록값은 std에 그대로
+    남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type in ("유료", "혼합"):
+        fee_diff.append(f"{name}: 표준데이터에 '유료'로 등록돼 있으나 등록 금액은 기본 "
+                        f"{base_min}분 {base_fee:,}원뿐이고 추가단위·1일·월 정기권이 비어 "
+                        "있으며, 조례 별표 1의 '최초 60분 무료(1일 1회)' 구조와 어긋난다. "
+                        "별표 1급지 구조(61~90분 500원·이후 15분마다 300원·1일 3,000원)가 "
+                        "이 시설에 그대로 적용되는지 확인되지 않아, 단순 기본요금 반복 "
+                        "계산도 별표 대입도 하지 않고 요금 미상으로 표기한다(인스팅트 "
+                        "패키지 판단안·김해 선례). 등록 기본요금을 1일 상한으로 임의 "
+                        "해석하지 않는다")
+        fee.update({"type": "미상",
+                    "basis": ("표준데이터에는 ‘유료’로 등록돼 있으나 등록 금액이 기본 "
+                              "60분 요금뿐이고 조례 별표 1의 ‘최초 60분 무료’ 구조와 "
+                              "어긋나며, 별표 구조의 현장 적용 여부가 확인되지 않아 "
+                              "요금 미상으로 표기한다 — 실제 요금은 함안군청"
+                              "(055-580-2626) 확인이 필요하다")})
+        return fee
+    fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+    return fee
+
+
+def haman_fee_table(conf, lots):
+    """요금표 — 조례 별표 1을 급지·차종별로 싣는다. 1시간
+    금액은 최초 60분 무료라 0원이고, 2시간은 1급지 소형
+    500+300×2=1,100원·대형 1,000+500×2=2,000원, 2급지
+    소형 300+200×2=700원·대형 500+300×2=1,100원이다.
+    유료로 등록된 2곳은 요금 미상으로 표기해 계산에 쓰지
+    않으므로 이 표는 조례 기준표이고, 무료 29곳은 표의
+    금액과 무관하다. 대형 행은 승합차 인원 경계 문구가
+    확정되지 않아 참고로만 싣는다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    rows = [
+        {"label": "1급지 승용·소형 (조례 별표 1)", "grade": "1",
+         "unit_label": ("최초 60분 무료 · 다음 30분 500원 · 이후 15분마다 300원 · "
+                        "5시간 이상 1일"),
+         "hour": 0, "two_hour": 1100, "day": 3000,
+         "month_all": 50000, "month": 40000, "month_night": 30000, "lots": 2},
+        {"label": "1급지 대형 승합·화물 (조례 별표 1)", "grade": "1L",
+         "unit_label": ("최초 60분 무료 · 다음 30분 1,000원 · 이후 15분마다 500원 · "
+                        "5시간 이상 1일"),
+         "hour": 0, "two_hour": 2000, "day": 7000,
+         "month_all": 90000, "month": 70000, "month_night": 50000, "lots": 0},
+        {"label": "2급지 승용·소형 (조례 별표 1)", "grade": "2",
+         "unit_label": ("최초 60분 무료 · 다음 30분 300원 · 이후 15분마다 200원 · "
+                        "5시간 이상 1일"),
+         "hour": 0, "two_hour": 700, "day": 2000,
+         "month_all": 30000, "month": 20000, "month_night": 10000, "lots": 0},
+        {"label": "2급지 대형 승합·화물 (조례 별표 1)", "grade": "2L",
+         "unit_label": ("최초 60분 무료 · 다음 30분 500원 · 이후 15분마다 300원 · "
+                        "5시간 이상 1일"),
+         "hour": 0, "two_hour": 1100, "day": 4000,
+         "month_all": 50000, "month": 40000, "month_night": 30000, "lots": 0},
+    ]
+    return {
+        "style": "haman_grade",
+        "unit_min": 15,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("1급지는 가야읍·칠원읍·함안면·군북면·대산면의 도시계획구역 안이고, "
+                         "2급지는 그 밖의 지역이다(별표 1 비고 5). 표준데이터 등록 "
+                         "급지구분은 1급지 23곳·2급지 8곳이고 유료로 등록된 2곳은 모두 "
+                         "1급지다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주간 시간구분 (별표 1 비고 2)",
+             "hours": "4~10월 08:00~20:00 · 11~3월 08:00~19:30 (나머지 시간은 야간)",
+             "free": ("월 정기주차요금은 주간·야간·주야간으로 나뉜다. 표준데이터 등록 "
+                      "운영시간은 31곳 전부 평일·토요일·공휴일 00:00~23:59다")},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("유료로 등록된 가야재래시장유료주차장·함안공영주차타워 2곳은 등록 금액이 "
+                  "기본 60분 요금뿐이고 조례의 최초 60분 무료와 어긋나 요금 미상으로 "
+                  "표기합니다 — 실제 요금은 함안군청(055-580-2626)에 확인하세요. 별표 1 "
+                  "비고 4의 승합차 소형·대형 경계 문구는 추출 원문에서 소형이 '5인승 "
+                  "미만'으로 읽히나(15인승의 자릿수 누락 가능성) 대형 25인승 이상과의 "
+                  "사이 구간이 비어 있어, 대형 요금은 표에만 참고로 싣고 계산에는 쓰지 "
+                  "않습니다."),
+        "basis": ("요금표는 「함안군 주차장 조례」 제2902호(시행 2024-10-16) "
+                  "제3조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. "
+                  "(조례 본문: data/raw/haman-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/haman-ordinance-b1.hwp)"),
+    }
+
+
+def haman_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「함안군 주차장 조례」 제2902호 제3조의2 — 제1호 긴급자동차·국가 또는 "
+                      "지방자치단체의 공용차량·성실납세표창자(표창일부터 1년)·국가유공자 "
+                      "상이자·고엽제후유의증 환자·5·18민주유공자 부상자 탑승 차량 면제, "
+                      "제2호 장애인·경형자동차(1,000cc 미만)·저공해자동차 및 환경친화적 "
+                      "자동차(전기자동차 충전 목적 주차는 면제)·전통시장 시설현대화 사업 "
+                      "주차장 이용 상인·고객·병역명문가·장기등 기증자 및 기증희망자·"
+                      "경남아이다누리카드 소지자·임산부 50% 감면. 국가법령정보센터 본문 "
+                      "원문(ordinSeq 1977587)으로 확인했다"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다. "
+                      "별표 1(2024-05-10 개정)은 최초 60분 무료(1일 1회), 다음 30분 "
+                      "기준요금, 이후 15분마다 추가요금, 주차시간 5시간 이상은 1일로 "
+                      "본다. 승용·소형 1급지 500/300원·1일 3,000원·월 40,000/30,000/"
+                      "50,000원, 2급지 300/200원·1일 2,000원·월 20,000/10,000/30,000원, "
+                      "대형 1급지 1,000/500원·1일 7,000원·월 70,000/50,000/90,000원, "
+                      "2급지 500/300원·1일 4,000원·월 40,000/30,000/50,000원이다. "
+                      "별표 1 HWP 원본(flSeq 167703449)을 받아 텍스트를 추출해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 5 — 1급지는 가야읍·칠원읍·함안면·군북면·대산면 "
+                      "도시계획구역 안, 2급지는 그 밖의 지역이다. 표준데이터 등록 "
+                      "급지구분은 1급지 23곳·2급지 8곳이고, 군북면 3곳(중암리·사촌리)은 "
+                      "도시계획구역 밖이라 2급지로 등록된 것으로 보인다. 유료 2곳은 "
+                      "요금 미상이라 급지를 계산에 쓰지 않았다"),
+        "무료요일_출처": ("조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료 근거가 "
+                          "없고 특기사항도 전부 비어 있어 주말·공휴일 무료로 표기하지 "
+                          "않았다(인스팅트 앞단 패키지 확인). 별표 1의 최초 60분 무료는 "
+                          "요일과 무관하다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 함안군 등록 31행이 전부 공영(노외 30·노상 1, 총 1,840면)이라 민영 제외 0건으로 31곳을 전부 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(2026-11-20)의 집계(공영 31곳·1,840면, 무료 29·유료 2, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+            "「함안군 주차장 조례」 제2902호(시행 2024-10-16, ordinSeq 1977587) — 제3조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 HWP 원본(flSeq 167703449)을 받아 텍스트를 추출해 대조했고(최초 60분 무료(1일 1회)·다음 30분 기준요금·이후 15분마다 추가요금·5시간 이상 1일, 급지·차종별 금액은 요금_출처 참조), 감면은 제3조의2 본문 원문으로 확인했다",
+            "유료 2곳(가야재래시장유료주차장 기본 60분 3,000원·함안공영주차타워 기본 60분 500원)의 처리는 인스팅트 패키지 판단안을 따른다. 두 곳 모두 1급지로 등록돼 있으나 등록 금액이 기본 60분 요금뿐이고 추가·1일·월이 비어 있으며 조례의 최초 60분 무료와 어긋난다. 판단안대로 단순 기본요금 반복 계산을 보류하고, 별표 구조의 현장 적용 여부가 확인되지 않아 별표 금액도 대입하지 않고 요금 미상으로 표기했다(김해 선례). 3,000원을 1일 상한으로 임의 해석하지 않았고 등록값은 std에 남겼다. 유료 2곳의 시설별 현행 요금·특례, 하루 1회 무료의 재입차 처리, 5시간 이상 1일 요금 적용 방식은 함안군청 확인 과제다",
+            "같은 지번·같은 좌표에 이름만 다르게 등록된 그룹이 2건 있다 — 가야읍 말산리 113(가야재래시장공영주차장(향군회관 옆) 무료 96면·가야재래시장유료주차장 유료 52면), 가야읍 도항리 249-6(함안공설운동장주차장 120면·함안공설운동장주경기장 앞 200면). 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 함안군청 확인이 필요하다",
+            "별표 1 비고 4는 승합차 소형을 '5인승 미만'(추출 원문 표기 — 15인승의 자릿수 누락 가능성), 대형을 25인승 이상으로 정해 사이 구간(15~25인승)이 비어 있다. 대형차 요금 규칙이 확정되기 전이라 대형 금액은 요금표에만 참고로 싣고 계산에는 쓰지 않았다 — 원본 시각표와 담당부서 확인이 필요하다(패키지 확인 과제)",
+            "주말·공휴일 무료는 조례 본문·별표 1 어디에도 군 전체 일괄 면제 근거가 없어 표기하지 않았다. 별표 1의 최초 60분 무료(1일 1회)는 요일과 무관한 1회 주차 기준이다",
+            "좌표는 31곳 전부 등록돼 있고 전부 함안군 범위(위도 35.2286~35.3533, 경도 128.3001~128.5229) 안이다. 관리기관은 31곳 전부 경상남도 함안군청이고 전화번호도 전부 055-580-2626으로 등록돼 있다. 데이터기준일자는 31행 전부 2026-04-16이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_haman():
+    """함안군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「함안군 주차장 조례」
+    제2902호(시행 2024-10-16, ordinSeq
+    1977587) 제3조제1항·별표 1 원문 대조
+    완료(2026-11-21, 별표 HWP 추출·본문
+    원문 기준). 표준데이터 등록 31행이 전부
+    공영(노외 30·노상 1, 총 1,840면)이라
+    제외 없이 31곳을 싣는다. 좌표 결측은
+    0곳이다."""
+    conf = HAMAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all
+                if (r.get("제공기관명") or "").strip() == "경상남도 함안군"]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "함안군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 함안군은
+    #   해당 중복이 0건이다(이름이 겹치는 등록 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (HAMAN_BBOX[0] < lat < HAMAN_BBOX[1]
+                                                        and HAMAN_BBOX[2] < lng < HAMAN_BBOX[3]):
+            # 함안군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 함안군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = haman_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif haman_dong_of(road):
+            dong = haman_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면))", std_name)
+        if _name_head and _name_head.group(1) in HAMAN_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = haman_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "함안군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 함안군은 2그룹이 있다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 함안군청 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 31행이 전부 공영이라 민영 제외는 0건이다. "
+                      "데이터기준일자는 31행 전부 2026-04-16, 제공기관명은 전부 "
+                      "경상남도 함안군, 관리기관명은 전부 경상남도 함안군청, "
+                      "전화번호는 전부 055-580-2626이다")
+    note_fixed.append("등록 급지구분은 1급지 23곳·2급지 8곳이다. 2급지 8곳은 군북면 "
+                      "3곳(중암리·사촌리)·법수면 3곳·산인면 2곳으로, 군북면 등록은 "
+                      "도시계획구역 밖 자리로 보인다")
+    note_fixed.append("좌표는 31곳 전부 등록돼 있고 전부 함안군 범위 안이라 지오코딩 "
+                      "보완이 0건이다. 특기사항은 31곳 전부 비어 있다")
+    note_fixed.append("운영요일은 31곳 전부 평일+토요일+공휴일이고 운영시간은 전부 "
+                      "00:00~23:59, 부제시행구분은 전부 미시행이다. 도로명주소는 "
+                      "19곳만 등록돼 있다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gn-haman-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gn-haman-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 함안군은 좌표 결측이 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = haman_fee_table(conf, lots)
+    quality = haman_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"함안군으로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 31행 전부 2026-04-16이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「함안군 주차장 조례」 제2902호(시행 "
+                 f"2024-10-16, ordinSeq 1977587) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": HAMAN_ORD_TXT.name if HAMAN_ORD_TXT.exists() else None,
+            "sha256": sha256(HAMAN_ORD_TXT) if HAMAN_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2024-10-16",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"함안군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/haman-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/haman-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": HAMAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "함안군", "slug": "haman"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": HAMAN_PROVINCE,
+        "province_slug": HAMAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "haman_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -75394,7 +75981,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "haman",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -75412,7 +75999,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "함안군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -75470,7 +76057,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "haman": ["함안군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -75726,6 +76313,8 @@ def main():
         cities.append(build_geochang())
     if "합천군" in want:
         cities.append(build_hapcheon())
+    if "함안군" in want:
+        cities.append(build_haman())
 
     if args.city == "all":
         site = build_site_payload(cities)
