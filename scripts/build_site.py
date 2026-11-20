@@ -13004,23 +13004,20 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "haman_grade":
-        # 함안군 — 공영 31곳(노외 30곳·노상 1구간, 총
-        #   1,840면)이 무료 29곳·유료 2곳으로 등록돼 있다.
-        #   「함안군 주차장 조례」 제2902호(시행 2024-10-16)
-        #   제3조제1항·별표 1은 급지(1급지: 가야읍·칠원읍·
-        #   함안면·군북면·대산면 도시계획구역 안, 2급지:
-        #   그 밖의 지역)와 차종으로 요금을 나누고, 최초
-        #   60분 무료(1일 1회)·다음 30분 기준요금·이후
-        #   15분마다 추가요금·5시간 이상 1일을 정한다.
-        #   유료 2곳은 등록 금액이 기본 60분 요금뿐이고
-        #   최초 60분 무료와 어긋나 요금 미상으로 표기한다
-        #   (인스팅트 패키지 판단안·김해 선례).
+    if ft.get("style") == "uiryeong_grade":
+        # 의령군 — 공영 95곳(노외 87곳·노상 8구간, 총
+        #   2,348면)이 전부 무료로 등록돼 있다. 「의령군
+        #   주차장 조례」 제2359호(시행 2019-10-04) 제6조
+        #   제1항·별표 4는 급지별(1급지 의령읍·부림면 소재지·
+        #   관광지, 2급지 그 밖의 면 소재지, 3급지 그 밖의
+        #   지역) 유료 요금표를 두고, 1일·월정기는 노상
+        #   주차장을 제외한다. 전량 무료 등록이라 표는 조례
+        #   참고표로 싣고 계산은 하지 않는다(산청 선례).
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
-            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month_all"])}</td>'
-            f'<td class="num">{won(r["month"])}</td><td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
             f'<td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         win_rows = "".join(
@@ -13028,19 +13025,20 @@ def fee_table_block(city) -> str:
             for w in ft.get("windows") or [])
         corp = ft.get("corp") or {}
         return f"""
-<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
-<p class="lede">함안군 공영주차장 <b>31곳</b>은 무료 <b>29곳</b>·유료 <b>2곳</b>으로 등록돼
-있습니다. 아래 표는 「함안군 주차장 조례」 제2902호 별표 1이 정한 기준 요금입니다.
-별표 1은 <b>1급지</b>(가야읍·칠원읍·함안면·군북면·대산면 도시계획구역 안)와 <b>2급지</b>
-(그 밖의 지역), 차종으로 요금을 나누며, 모든 공영주차장에 <b>최초 60분 무료</b>(1일 1회)를
-적용하고 다음 30분 기준요금, 이후 <b>15분마다</b> 추가요금을 받습니다. 주차시간이
-<b>5시간 이상</b>이면 1일로 봅니다. 유료로 등록된 가야재래시장유료주차장과
-함안공영주차타워는 등록 금액이 기본 60분 요금뿐이고 최초 60분 무료와 어긋나, 이
-사이트에서는 <b>요금 미상</b>으로 표기합니다. 궁금한 점은 함안군청(055-580-2626)에
-확인하세요.</p>
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 4)</h2>
+<p class="lede">의령군 공영주차장 <b>95곳</b>(노외 87곳·노상 8구간, 총 2,348면)은
+표준데이터에 <b>전부 무료</b>로 등록돼 있습니다. 다만 「의령군 주차장 조례」 제2359호
+별표 4는 급지별 유료 요금표를 두고 있어, 아래 표는 그 조례 요금표(참고)입니다.
+<b>1급지</b>(의령읍·부림면 소재지·관광지)는 최초 30분 <b>500원</b>에 30분 초과 후
+15분마다 <b>250원</b>, <b>2급지</b>(그 밖의 면 소재지)는 <b>300원·150원</b>,
+<b>3급지</b>(그 밖의 지역)는 <b>200원·100원</b>입니다. 1일 주차요금과 월정기는
+<b>노상주차장에는 없고</b>, 주차시간 5시간 이상은 1일로 봅니다. 주간 시간구분은
+4~10월 <b>08:00~20:00</b>, 11~3월 <b>09:00~19:00</b>이고 나머지는 야간입니다.
+무료로 운영하는 근거(군 공고 등)는 의령군청 건설교통과 교통정책팀(055-570-3643)
+확인이 필요합니다.</p>
 <table class="data">
-  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
-  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(전일)</th>
+  <thead><tr><th>구분 (조례 별표 4)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금 (노외만)</th>
   <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
   <th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
@@ -13050,7 +13048,7 @@ def fee_table_block(city) -> str:
   <tbody>{win_rows}</tbody>
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
-<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
